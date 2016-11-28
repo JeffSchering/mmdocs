@@ -1,0 +1,356 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Integrations FAQ &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Integration Guide" href="../guides/integration.html"/>
+        <link rel="next" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
+        <link rel="prev" title="Zapier Integration" href="../integrations/zapier.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-incoming.html">Incoming Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-outgoing.html">Outgoing Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slash-commands.html">Slash Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-attachments.html">Message Attachments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="web-service.html">Web Service API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth-2-0-applications.html">OAuth 2.0 Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/zapier.html">Zapier Integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Integrations FAQ</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#what-s-the-difference-between-incoming-and-outgoing-webhooks">What&#8217;s the difference between incoming and outgoing webhooks?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-is-a-slash-command">What is a slash command?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-does-slack-compatible-mean">What does Slack-compatible mean?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-if-i-have-a-webhook-from-somewhere-other-than-slack">What if I have a webhook from somewhere other than Slack?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-are-attachments">What are attachments?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#what-do-i-do-if-my-webhook-post-is-too-long">What do I do if my webhook post is too long?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#where-should-i-install-my-integrations">Where should I install my integrations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application">How should I automate the install and upgrade of Mattermost when included in another application?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/integration.html">Mattermost Integration Guide</a> &raquo;</li>
+      
+    <li>Integrations FAQ</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/developer/integration-faq.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="integrations-faq">
+<span id="integrations-faq"></span><h1>Integrations FAQ<a class="headerlink" href="#integrations-faq" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="what-s-the-difference-between-incoming-and-outgoing-webhooks">
+<span id="what-s-the-difference-between-incoming-and-outgoing-webhooks"></span><h2>What&#8217;s the difference between incoming and outgoing webhooks?<a class="headerlink" href="#what-s-the-difference-between-incoming-and-outgoing-webhooks" title="Permalink to this headline">¶</a></h2>
+<p>A webhook is a way for one app to send real-time data to another app.</p>
+<p>In Mattermost, incoming webhooks receive data from external applications and make a post in a specified channel. They&#8217;re great for setting up notifications when something happens in an external application.</p>
+<p>Outgoing webhooks take data from Mattermost, and send it to an external application. Then the outgoing webhook can post a response back in Mattermost. They&#8217;re great for listening in on channels, and then notifying external applications when a trigger word is said.</p>
+</div>
+<div class="section" id="what-is-a-slash-command">
+<span id="what-is-a-slash-command"></span><h2>What is a slash command?<a class="headerlink" href="#what-is-a-slash-command" title="Permalink to this headline">¶</a></h2>
+<p>A slash command is similar to an outgoing webhook, but instead of listening to a channel it is used as a command tool. This means if you type in a slash command it will not be posted to a channel, whereas an outgoing webhook is only triggered by posted messages.</p>
+</div>
+<div class="section" id="what-does-slack-compatible-mean">
+<span id="what-does-slack-compatible-mean"></span><h2>What does Slack-compatible mean?<a class="headerlink" href="#what-does-slack-compatible-mean" title="Permalink to this headline">¶</a></h2>
+<p>Slack compatible means that Mattermost accepts integrations that have a payload in the same format as Slack.</p>
+<p>If you have a Slack integration, you should be able to set it up in Mattermost without changing the format.</p>
+</div>
+<div class="section" id="what-if-i-have-a-webhook-from-somewhere-other-than-slack">
+<span id="what-if-i-have-a-webhook-from-somewhere-other-than-slack"></span><h2>What if I have a webhook from somewhere other than Slack?<a class="headerlink" href="#what-if-i-have-a-webhook-from-somewhere-other-than-slack" title="Permalink to this headline">¶</a></h2>
+<p>If you have an integration that outputs a payload in a different format you need to write an intermediate application to act as a translation layer to change it to the format Mattermost uses. Since there’s currently no general standard for webhook formatting, this is unavoidable and just a part of how webhooks work.</p>
+<p>If there&#8217;s no translation layer, Mattermost won&#8217;t understand the data you&#8217;re sending.</p>
+</div>
+<div class="section" id="what-are-attachments">
+<span id="what-are-attachments"></span><h2>What are attachments?<a class="headerlink" href="#what-are-attachments" title="Permalink to this headline">¶</a></h2>
+<p>When &#8220;attachments&#8221; are mentioned in the integrations documentation, it refers to Slack&#8217;s Message Attachments. These &#8220;attachments&#8221; can be optionally added as an array in the data sent by an integration, and are used to customize the formatting of the message.</p>
+<p>We currently don&#8217;t support the ability to attach files to a post made by an integration.</p>
+</div>
+<div class="section" id="what-do-i-do-if-my-webhook-post-is-too-long">
+<span id="what-do-i-do-if-my-webhook-post-is-too-long"></span><h2>What do I do if my webhook post is too long?<a class="headerlink" href="#what-do-i-do-if-my-webhook-post-is-too-long" title="Permalink to this headline">¶</a></h2>
+<p>We recommend breaking up the information into separate posts.</p>
+<p>If you&#8217;re interested in Mattermost automatically splitting up integration posts that are too long, please <a class="reference external" href="https://mattermost.uservoice.com/forums/306457-general/suggestions/13878750-automatically-break-long-responses-from-integratio">upvote this feature idea</a>, or comment if it&#8217;s something you would be interested in working on.</p>
+<p>If you would like to suggest alternative solutions, please <a class="reference external" href="https://forum.mattermost.org/t/recommendations-for-handling-automation-that-wants-to-post-messages-longer-than-4000-characters-per-message/1393">discuss here</a>.</p>
+</div>
+<div class="section" id="where-should-i-install-my-integrations">
+<span id="where-should-i-install-my-integrations"></span><h2>Where should I install my integrations?<a class="headerlink" href="#where-should-i-install-my-integrations" title="Permalink to this headline">¶</a></h2>
+<p>For self-hosted deployments in small setups you might host integrations on the same server on which Mattermost is installed. For larger deployments you can setup a separate server for integrations, or add them to the server on which the external application is hosted&#8211;for example, if you&#8217;re self-hosting a Jira server you could deploy a Jira integration on the Jira server itself.</p>
+<p>When self-hosting restrictions are less strict, AWS, Heroku and other public cloud options could also be used.</p>
+</div>
+<div class="section" id="how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application">
+<span id="how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application"></span><h2>How should I automate the install and upgrade of Mattermost when included in another application?<a class="headerlink" href="#how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application" title="Permalink to this headline">¶</a></h2>
+<p>Automating Mattermost installation within another application:</p>
+<ol class="simple">
+<li>Review the Mattermost installation guide to understand configuration steps of the production deployment</li>
+<li>Install Mattermost files to a dedicated <code class="docutils literal"><span class="pre">/opt/mattermost</span></code> directory by decompressing the <code class="docutils literal"><span class="pre">tar.gz</span></code> file of the latest release for your target platform (for example <code class="docutils literal"><span class="pre">linux-amd64</span></code>).</li>
+<li>Review <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html">Configuration Settings</a> in <code class="docutils literal"><span class="pre">config.json</span></code> and set your automation to customize your Mattermost deployment based on your requirements.</li>
+<li>For directory locations defined in <code class="docutils literal"><span class="pre">config.json</span></code>, such as the location of the local file storage directory (<code class="docutils literal"><span class="pre">./data/</span></code>) or logs directory (<code class="docutils literal"><span class="pre">./logs</span></code>), you can redefine those locations in your <code class="docutils literal"><span class="pre">config.json</span></code> settings and move the directories.<ul>
+<li>All other directories should remain as they are in <code class="docutils literal"><span class="pre">/mattermost</span></code></li>
+</ul>
+</li>
+<li>Test that your Mattermost server is running with your new configuration.</li>
+<li>Also, from the commandline run <code class="docutils literal"><span class="pre">./bin/platform</span> <span class="pre">-version</span></code> to test that the commandline interface is functioning properly.</li>
+</ol>
+<p>Automating Mattermost upgrade within another application:</p>
+<ol class="simple">
+<li>Review the <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">upgrade guide</a> for an overview of the upgrade procedure.</li>
+<li>Create automation to upgrade to the next Mattermost versions:<ul>
+<li>backup the <code class="docutils literal"><span class="pre">config.json</span></code> file to preserve any settings a user may have made.</li>
+<li>backup the <code class="docutils literal"><span class="pre">./data</span></code> directory if local storage is used for files.</li>
+<li>replace the contents of <code class="docutils literal"><span class="pre">/mattermost</span></code> directory with the decompressed contents of the latest release.</li>
+<li>restore <code class="docutils literal"><span class="pre">config.json</span></code> and <code class="docutils literal"><span class="pre">./data</span></code> to their previous locations (which may have been overwritten).</li>
+<li>starting the Mattermost server to upgrade the database, <code class="docutils literal"><span class="pre">config.json</span></code> file, and <code class="docutils literal"><span class="pre">./data</span></code> as necessary.</li>
+</ul>
+</li>
+<li>Optionally the upgrade procedure can be chained so users can upgrade across an arbitrary number of Mattermost versions rather than to just the latest release.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../guides/developer.html" class="btn btn-neutral float-right" title="Mattermost Developer’s Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../integrations/zapier.html" class="btn btn-neutral" title="Zapier Integration" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/integration-faq.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

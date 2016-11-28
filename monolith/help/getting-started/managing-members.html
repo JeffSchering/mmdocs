@@ -1,0 +1,356 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Managing Members &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Organizing Mattermost" href="organizing.html"/>
+        <link rel="prev" title="Creating Teams" href="creating-teams.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="signing-in.html">Signing in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="messaging-basics.html">Messaging Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-notifications.html">Configuring Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="organizing-conversations.html">Organizing Conversations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-teams.html">Creating Teams</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Managing Members</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#inviting-team-members">Inviting Team Members</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-roles">User Roles</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#removing-a-user-from-a-team-or-leaving-a-team">Removing a User from a Team or Leaving a Team</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="organizing.html">Organizing Mattermost</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Managing Members</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/managing-members.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="managing-members">
+<span id="managing-members"></span><h1>Managing Members<a class="headerlink" href="#managing-members" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="inviting-team-members">
+<span id="inviting-team-members"></span><h2>Inviting Team Members<a class="headerlink" href="#inviting-team-members" title="Permalink to this headline">¶</a></h2>
+<p>If user creation is enabled by the System Admin, there are two methods to invite new members after team creation: sending direct invites and sharing the team invite link.</p>
+<p>If a user already has an account on the site but they are not on your team, you can also send them an invitation. If they are signed in, they will be automatically added to your team when they click the invitation link.</p>
+<div class="section" id="direct-invites">
+<span id="direct-invites"></span><h3>Direct Invites<a class="headerlink" href="#direct-invites" title="Permalink to this headline">¶</a></h3>
+<p>Direct invites are invitation emails sent from your teams server directly to the invited members email address. A link within the invitation email directs the users to an account creation page.</p>
+<p>From the three dot <strong>Main Menu</strong> in the Mattermost header, select <strong>Invite New Member</strong>. Enter a new members email address along with their first and last name. Click <strong>Add another</strong> to send more direct invites from the same dialog.</p>
+</div>
+<div class="section" id="team-invite-link">
+<span id="team-invite-link"></span><h3>Team Invite Link<a class="headerlink" href="#team-invite-link" title="Permalink to this headline">¶</a></h3>
+<p>The team invite link is a unique URL that directs users to an account creation page for your team. Your team invite link can be used by any number of users and does not change unless it is re-generated by a Team or System Admin via <strong>Team Settings</strong> &gt; <strong>General</strong> &gt; <strong>Invite Code</strong>. For example, the team invite link can be included in a company wide email to invite all employees to join a Mattermost team.</p>
+<p>From the three dot <strong>Main Menu</strong> in the Mattermost header, select <strong>Get Team Invite Link</strong>. Copy the link and share it with users you&#8217;d like to invite to the team.</p>
+</div>
+</div>
+<div class="section" id="user-roles">
+<span id="user-roles"></span><h2>User Roles<a class="headerlink" href="#user-roles" title="Permalink to this headline">¶</a></h2>
+<p>There are four types of user roles with different permission levels in Mattermost: System Admins, Team Admins, Members and Inactive accounts. To view a list of users on the team and what their roles are, Team Administrators can go to the three dot <strong>Main Menu</strong> and select <strong>Manage Members</strong>.</p>
+<div class="section" id="member">
+<span id="member"></span><h3>Member<a class="headerlink" href="#member" title="Permalink to this headline">¶</a></h3>
+<p>This is the default role given to users when they join a team. Members have basic permissions on the Mattermost team.</p>
+</div>
+<div class="section" id="team-admin">
+<span id="team-admin"></span><h3>Team Admin<a class="headerlink" href="#team-admin" title="Permalink to this headline">¶</a></h3>
+<p>When a team is first created, the person who set it up is made a Team Administrator. It is a team specific role, meaning that someone can be a Team Admin for one team but only a Member on another team. Team Administrators have the following privileges:</p>
+<ul class="simple">
+<li>Access to the &#8220;Team Settings&#8221; menu from the team site main menu</li>
+<li>Ability to change the team name and import data from Slack export files</li>
+<li>Access to the &#8220;Manage Members&#8221; menu, where they can control whether team members are &#8220;Members&#8221; or &#8220;Team Administrators&#8221;</li>
+</ul>
+</div>
+<div class="section" id="system-admin">
+<span id="system-admin"></span><h3>System Admin<a class="headerlink" href="#system-admin" title="Permalink to this headline">¶</a></h3>
+<p>The first user added to a newly installed Mattermost system is assigned the System Admin role.</p>
+<p>The System Admin is typically a member of the IT staff and has all the privileges of a Team Admin, along with the following additional privileges:</p>
+<ul class="simple">
+<li>Access to the System Console from the main menu in any team site</li>
+<li>Ability to change any setting on the Mattermost server available in the System Console</li>
+<li>Ability to promote and demote other users to and from the System Admin role</li>
+<li>Ability to make a user account Inactive and to reactivate an Inactive account</li>
+</ul>
+</div>
+<div class="section" id="inactive">
+<span id="inactive"></span><h3>Inactive<a class="headerlink" href="#inactive" title="Permalink to this headline">¶</a></h3>
+<p>A System Administrator has the ability to make a user account Inactive by going to <strong>System Console &gt; Teams</strong>, and selecting a team to manage. From there they can go to the <strong>User</strong> page for the team, and manage a user&#8217;s role.</p>
+<p>When &#8220;Inactive&#8221; is selected, the user will be logged out of the system, and will receive an error message if they try to log back in. The user will no longer appear in the channel members list. They will be removed from the Direct Message &#8220;More&#8221; menu, the Direct Message channel will remain open for all users with it in the sidebar until it is closed. In the &#8220;Manage Members&#8221; list and the users list in the System Console, the user will show as &#8220;Inactive&#8221;.</p>
+<p>Because Mattermost is designed as a system-of-record, there is not an option to delete users from the Mattermost system, as such an operation could compromise the integrity of message archives.</p>
+<p>An Inactive account can also be reactivated from the System Console. When reactivated, the Inactive Account will rejoin the public channels and private groups they were previously a part of.</p>
+</div>
+</div>
+<div class="section" id="removing-a-user-from-a-team-or-leaving-a-team">
+<span id="removing-a-user-from-a-team-or-leaving-a-team"></span><h2>Removing a User from a Team or Leaving a Team<a class="headerlink" href="#removing-a-user-from-a-team-or-leaving-a-team" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="remove-from-team">
+<span id="remove-from-team"></span><h3>Remove from Team<a class="headerlink" href="#remove-from-team" title="Permalink to this headline">¶</a></h3>
+<p>Any Team Administrator has the ability to remove a user from a team by going to the three dot <strong>Main Menu &gt; Manage Members</strong>, and selecting <strong>Remove From Team</strong> in the dropdown menu beside a user entry.</p>
+<p>When a user is removed from a team, if they currently have the team open they will be sent back to the team selection page. The team will no longer show up in their teams list.</p>
+<p>Removing a user from the team does not make the account Inactive. The user will still be able to sign in to the site, and join other teams. They will also be able to rejoin the team they were removed from if they receive another invite, or if the team is set to <a class="reference external" href="http://docs.mattermost.com/help/settings/team-settings.html#allow-anyone-to-join-this-team">&#8220;Allow any user with an account on this server to join this team&#8221;</a>. If the user does rejoin the team, they will no longer belong to the channels they were previously a part of, and they will lose all Admin privileges if they had them previously.</p>
+<p>A System Administrator can also remove users from teams by going to <strong>System Console &gt; Teams</strong>, and selecting a team to manage. From there, they can go to the <strong>User</strong> page for the team and select <strong>Remove From Team</strong> in the dropdown beside a user entry.</p>
+</div>
+<div class="section" id="leaving-a-team">
+<span id="leaving-a-team"></span><h3>Leaving a Team<a class="headerlink" href="#leaving-a-team" title="Permalink to this headline">¶</a></h3>
+<p>Users can also choose to remove themselves from a team, by going to the three dot <strong>Main Menu &gt; Leave Team</strong>. This will remove the user from the team, and from all public channels and private groups on the team.</p>
+<p>They will only be able to rejoin the team if it is set to <a class="reference external" href="http://docs.mattermost.com/help/settings/team-settings.html#allow-anyone-to-join-this-team">&#8220;Allow any user with an account on this server to join this team&#8221;</a> team, or if they receive a new invite. If they do rejoin, they will no longer be a part of their old public channels and private groups.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="organizing.html" class="btn btn-neutral float-right" title="Organizing Mattermost" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="creating-teams.html" class="btn btn-neutral" title="Creating Teams" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/managing-members.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

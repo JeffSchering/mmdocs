@@ -1,0 +1,287 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mattermost Preview using Heroku &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Mattermost Preview using Heroku</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/heroku.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mattermost-preview-using-heroku">
+<h1>Mattermost Preview using Heroku<a class="headerlink" href="#mattermost-preview-using-heroku" title="Permalink to this headline">¶</a></h1>
+<p>Quickly set up Mattermost in Preview Mode to explore product functionality using Heroku.</p>
+<p>This configuration is not recommended for use in production, as it currently does not support email notifications. Also note that for persistent file storage AmazonS3 must be used, as local storage will be deleted periodically when the Heroku process restarts.</p>
+<div class="section" id="heroku-installation">
+<h2>Heroku Installation<a class="headerlink" href="#heroku-installation" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Sign up for a free account on <a class="reference external" href="https://www.heroku.com/">Heroku</a></li>
+<li>Click the <a class="reference external" href="https://heroku.com/deploy?template=https://github.com/mattermost/mattermost-heroku"><img alt="HerokuDeploy" src="https://www.herokucdn.com/deploy/button.svg" /></a> button</li>
+</ol>
+<ol class="arabic simple" start="3">
+<li>(Optional) Customize the default settings in Heroku</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><code class="docutils literal"><span class="pre">App</span> <span class="pre">Name</span></code>: Optionally select a name for your application (this will be used in the app URL)</li>
+<li><code class="docutils literal"><span class="pre">Runtime</span> <span class="pre">Selection</span></code>: Select which region your app should run in (United States or Europe)</li>
+<li><code class="docutils literal"><span class="pre">Config</span> <span class="pre">Variables</span></code>:<ul>
+<li><code class="docutils literal"><span class="pre">MATTERMOST_DOWNLOAD_URI</span></code>: The URI to the compiled Mattermost binary you would like to run. Defaults to current release.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SETTINGS__DRIVER_NAME</span></code>: Select the type of file storage to use (<code class="docutils literal"><span class="pre">local</span></code> or <code class="docutils literal"><span class="pre">amazons3</span></code>). AmazonS3 is required for persistent file storage.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SETTINGS__AMAZON_S3_ACCESS_KEY_ID</span></code>: The access key for your Amazon S3. Only required for driver name <cite>amazons3</cite>.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SETTINGS__AMAZON_S3_SECRET_ACCESS_KEY</span></code>: The secret access key for your Amazon S3. Only required for driver name amazons3.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SETTINGS__AMAZON_S3_BUCKET</span></code>: The name you selected for your S3 bucket in AWS. Only required for driver name amazons3.</li>
+<li><code class="docutils literal"><span class="pre">FILE_SETTINGS__AMAZON_S3_REGION</span></code>: The AWS region you selected when creating your S3 bucket. Refer to <a class="reference external" href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">AWS Reference Documentation</a> and choose this variable from the Region column.</li>
+</ul>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Click <strong>&#8220;Deploy for Free&#8221;</strong></li>
+</ol>
+<p>After Heroku finishes setting up the app, click &#8220;View&#8221; and your Mattermost Preview should be up and running. You will be taken to the account creation page, where you can enter credentials to create an account and get started.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/heroku.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

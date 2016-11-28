@@ -1,0 +1,516 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Zapier Integration &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Integration Guide" href="../guides/integration.html"/>
+        <link rel="next" title="Integrations FAQ" href="../developer/integration-faq.html"/>
+        <link rel="prev" title="OAuth 2.0 Applications" href="../developer/oauth-2-0-applications.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../developer/api.html">Mattermost APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-incoming.html">Incoming Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-outgoing.html">Outgoing Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/slash-commands.html">Slash Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/message-attachments.html">Message Attachments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/web-service.html">Web Service API Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/oauth-2-0-applications.html">OAuth 2.0 Applications</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Zapier Integration</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Zapier Setup Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enable-zapier-on-your-mattermost-instance">Enable Zapier on your Mattermost Instance</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#create-a-zap">Create a Zap</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id6">Message Formatting Tips</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#examples">Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id8">Troubleshooting Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#cannot-connect-a-mattermost-account">Cannot connect a Mattermost account</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#post-error">Post Error</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deauthorize-the-zapier-app">Deauthorize the Zapier App</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html">Integrations FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/integration.html">Mattermost Integration Guide</a> &raquo;</li>
+      
+    <li>Zapier Integration</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/integrations/zapier.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="zapier-integration">
+<h1>Zapier Integration<a class="headerlink" href="#zapier-integration" title="Permalink to this headline">¶</a></h1>
+<p>Integrate over 700 apps into Mattermost, including <a class="reference external" href="https://zapier.com/zapbook/email-parser/">Email</a>, <a class="reference external" href="https://zapier.com/zapbook/github/">GitHub</a>, <a class="reference external" href="https://zapier.com/zapbook/jira/">Jira</a>, <a class="reference external" href="https://zapier.com/zapbook/wufoo/">Wufoo</a>, <a class="reference external" href="https://zapier.com/zapbook/salesforce/">Salesforce</a>, <a class="reference external" href="https://zapier.com/zapbook/twitter/">Twitter</a>, <a class="reference external" href="https://zapier.com/zapbook/gmail/">Gmail</a> and <a class="reference external" href="https://zapier.com/zapbook/">many more</a>, using Zapier integration.</p>
+<p><a class="reference external" href="https://zapier.com/">Zapier</a> is a service that automates tasks between web apps. You can create &#8220;zaps&#8221; that contain a trigger and an action for a task that you want to perform repeatedly. Zapier regularly checks your trigger for new data and automatically performs the action for you.</p>
+<p>This documentation includes:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/integrations/zapier.html#id1">Zapier Setup Guide</a> - Instructions on registering the Zapier app on your server and creating a zap.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/integrations/zapier.html#id4">Message Formatting Tips</a> - Tips from the Mattermost team on formatting Zapier integration messages.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/integrations/zapier.html#id6">Troubleshooting Guide</a> - Advice on troubleshooting common setup issues.</li>
+</ul>
+<div class="section" id="id1">
+<h2>Zapier Setup Guide<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Zapier is authorized using OAuth2.0. The setup guide requires that a System Admin register the Zapier app on their Mattermost server and can then optionally allow any users with a Zapier account to create integrations.</p>
+<div class="section" id="enable-zapier-on-your-mattermost-instance">
+<h3>Enable Zapier on your Mattermost Instance<a class="headerlink" href="#enable-zapier-on-your-mattermost-instance" title="Permalink to this headline">¶</a></h3>
+<p>The first time you set up Zapier on your Mattermost instance you will be required to enable an OAuth 2.0 application which can be used by everyone on your server. Your System Admin must execute these steps.</p>
+<div class="section" id="enable-oauth-2-0">
+<h4>Enable OAuth 2.0<a class="headerlink" href="#enable-oauth-2-0" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Go to the <strong>Main Menu</strong> &gt; <strong>System Console</strong></li>
+<li>Under <strong>Integrations</strong> &gt; <strong>Custom Integrations</strong></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Set <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-oauth-2-0-service-provider">Enable OAuth 2.0 Service Provider</a> to <strong>True</strong>.</li>
+<li>If you’d like to allow Zapier integrations to post with customizable usernames and profile pictures, then set <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-integrations-to-override-usernames">Enable integrations to override usernames</a> and <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-integrations-to-override-profile-picture-iconss">Enable integrations to override profile picture icons</a> to <strong>True</strong>.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="register-zapier-as-an-oauth-2-0-application">
+<h4>Register Zapier as an OAuth 2.0 Application<a class="headerlink" href="#register-zapier-as-an-oauth-2-0-application" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li>Go to <strong>Main Menu</strong> &gt; <strong>Integrations</strong></li>
+<li>Click <strong>OAuth 2.0 Applications</strong>, then click <strong>Add OAuth 2.0 Application</strong> and enter the following fields:</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><strong>Is Trusted</strong>: No</li>
+<li><strong>Display Name</strong>: <code class="docutils literal"><span class="pre">Zapier</span></code></li>
+<li><strong>Description</strong>: <code class="docutils literal"><span class="pre">Application</span> <span class="pre">for</span> <span class="pre">Zapier</span> <span class="pre">integrations</span></code></li>
+<li><strong>Homepage</strong>: <code class="docutils literal"><span class="pre">https://zapier.com/</span></code></li>
+<li><strong>Icon URL</strong>: <code class="docutils literal"><span class="pre">http://bit.ly/2bxrzv0</span></code></li>
+<li><strong>Callback URLs</strong>: <code class="docutils literal"><span class="pre">https://zapier.com/dashboard/auth/oauth/return/MattermostDevAPI/</span></code></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Click <strong>Save</strong> to create the application. You will be provided with a <strong>Client ID</strong> and <strong>Client Secret</strong>. Save these values, or share them with your team to connect Zapier in the steps below.</li>
+</ol>
+<img alt="../_images/zapier-oauth.png" src="../_images/zapier-oauth.png" />
+</div>
+</div>
+<div class="section" id="create-a-zap">
+<h3>Create a Zap<a class="headerlink" href="#create-a-zap" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://zapier.com/sign-up/">Sign up</a> for a free Zapier account or <a class="reference external" href="https://zapier.com/app/login">login</a> if you already have one.</li>
+<li>On your <a class="reference external" href="https://zapier.com/app/dashboard">Zapier dashboard</a> click <strong>Make a Zap!</strong>.</li>
+<li><strong>Trigger App</strong>: Events in this app will trigger new messages in Mattermost.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><strong>Select a Trigger App</strong> that will trigger new messages in Mattermost. If the app you’re looking to connect isn’t supported on Zapier, consider firing in-app events to a Gmail account and then connecting Gmail to Mattermost using Zapier.</li>
+<li><strong>Select the Trigger Event</strong>. New messages in Mattermost will fire depending on these selected events in conjunction with any filters you apply.</li>
+<li><strong>Connect the Trigger Account</strong>. Connect the account from which you’d like to trigger events and <strong>Test</strong> it to ensure Zapier can connect successfully.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><strong>Filtering</strong> (Optional): Exclude certain events from triggering new messages. Learn more about using <a class="reference external" href="https://zapier.com/learn/how-to-use-zapier/custom-filters/">Zapier custom filtering</a>.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Add a filter by clicking the small <strong>+</strong> icon before the <strong>Action</strong> step.</li>
+<li>Zapier supports <strong>AND</strong> and <strong>OR</strong> filters. Use the dropdown selectors to choose what events will allow the trigger to send a Mattermost message.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li><strong>Mattermost Action</strong>: Connect your Mattermost Account and then specify posting details.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li><strong>Select the Action App</strong>. Search for “Mattermost”.</li>
+<li><strong>Select the Action Event</strong>. Select <strong>Post a Message</strong>. The Mattermost team plans to expand the actions available here.</li>
+<li><strong>Connect the Action Account</strong>. Click <strong>Connect a New Account</strong> and enter the following fields:</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><strong>Mattermost URL</strong>: This is the URL you use to access your Mattermost site. Do not include a slash at the end of the URL and do not append a team to the end of the server URL. For example, <code class="docutils literal"><span class="pre">https://pre-release.mattermost.com/core</span></code> is the entire URL to the Contributors team on our pre-release server. The <strong>Mattermost URL</strong> entered here would be <code class="docutils literal"><span class="pre">https://pre-release.mattermost.com</span></code>.</li>
+<li><strong>Client ID/Secret</strong>: If Zapier has been enabled as an OAuth application as per the steps above, then these values can be found by navigating to one of your Mattermost teams, then <strong>Main Menu</strong> &gt; <strong>Integrations</strong> &gt; <strong>OAuth 2.0 Applications</strong>. Click <strong>Show Secret</strong> next to the Zapier app, then obtain the Client ID and Client Secret.</li>
+<li><strong>Login to Mattermost</strong>. After completing the above fields you will be prompted to login to your Mattermost account if you are not logged in already. If you’re having trouble connecting then please read our <a class="reference external" href="https://docs.mattermost.com/integrations/zapier.html#id6">troubleshooting guide</a>.</li>
+<li>You&#8217;ll then be prompted to allow Zapier to access your Mattermost account. Click <strong>Allow</strong>.</li>
+</ol>
+</div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li><strong>Message Post Details</strong>: Specify the formatting of the messages and the team/channel where messages will post.</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><strong>Team</strong>: Choose the team where new messages will post. The dropdown should contain all teams you have access to on Mattermost.</li>
+<li><strong>Channel</strong>: Choose the channel where new messages will post. The dropdown will contain all Public Channels and Private Groups that you belong to. Zapier cannot post into Direct Message channels.</li>
+<li><strong>Message Text</strong>: Enter the message text that will post to Mattermost. This text can be formatted using <a class="reference external" href="https://docs.mattermost.com/help/messaging/formatting-text.html">Markdown</a> and include the dynamic fields offered by your selected trigger app. Read our <a class="reference external" href="https://docs.mattermost.com/integrations/zapier.html#id4">message formatting tips</a> below.</li>
+</ol>
+<blockquote>
+<div><img alt="../_images/zapier-dynamic-fields.png" src="../_images/zapier-dynamic-fields.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><strong>Username</strong>: This is the username that Zapier will post as. Zapier integrations will always appear with a <code class="docutils literal"><span class="pre">BOT</span></code> tag next to the username. In order for bots to override the username of the authorized user, your System Admin must set <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-integrations-to-override-usernames">Enable integrations to override usernames</a> to <strong>True</strong>.</li>
+<li><strong>Icon URL</strong>: This is the profile picture of the bot that Zapier will post as. In order for bots to override the profile picture of the authorized user, your System Admin must set <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-integrations-to-override-profile-picture-iconss">Enable integrations to override profile picture icons</a> to <strong>True</strong>.</li>
+</ol>
+</div></blockquote>
+<ol class="loweralpha simple" start="5">
+<li><strong>Test the Zap</strong>: You may want to test your zap formatting in a Private Group before posting in a channel that is visible to your entire team.</li>
+</ol>
+</div></blockquote>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id6">
+<h2>Message Formatting Tips<a class="headerlink" href="#id6" title="Permalink to this headline">¶</a></h2>
+<p>Here are some useful tips we recommend to get the most out of Zapier integration:</p>
+<ul class="simple">
+<li><strong>Markdown</strong>: Mattermost supports the use of <a class="reference external" href="https://docs.mattermost.com/help/messaging/formatting-text.html">Markdown.</a> in Zapier integrations. For example, use <a class="reference external" href="https://docs.mattermost.com/help/messaging/formatting-text.html#headings">heading markdown</a> for JIRA issue titles.</li>
+<li><strong>Custom Icons</strong>: Use different icons for different services and Zapier integrations.</li>
+<li><strong>Hashtags</strong>: Use hashtags to make your Zapier posts searchable. Use different hashtags for different services and Zapier integrations. For example, use the dynamic fields available in Zapier to include ticket a JIRA ticket number in hashtags. This makes all conversation on a specific ticket instantly searchable by clicking the hashtag.</li>
+<li><strong>Quick Links</strong>: Link back to the service that fired the zap through the use of Markdown <a class="reference external" href="https://docs.mattermost.com/help/messaging/formatting-text.html#links">embedded links</a>. For example, in our zaps we embed a link back to the service within the timestamp so it’s easy to take action on any zap.</li>
+</ul>
+<div class="section" id="examples">
+<h3>Examples<a class="headerlink" href="#examples" title="Permalink to this headline">¶</a></h3>
+<p>The Mattermost team has over 50 zaps integrated on our <a class="reference external" href="https://pre-release.mattermost.com/core/">Pre-Release Contributors team</a> used for internal communication and interacting with contributors. The <a class="reference external" href="https://pre-release.mattermost.com/core/channels/community-heartbeat">Community Heartbeat channel</a> integrates all our community services in one accessible location. These zaps are formatted in two ways depending on the service:</p>
+<p><strong>GitHub Issues and Comments, UserVoice Suggestions and Comments, GitLab MM Issues, GitLab Omnibus MM Issues:</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="c1">#### [Title of issue]</span>
+
+<span class="c1">#[searchable-hashtag] in [external service](link to service) by [author](link to author profile) on [time-stamp](link to specific issue or comment)</span>
+
+<span class="p">[</span><span class="n">Body</span> <span class="n">of</span> <span class="n">issue</span> <span class="ow">or</span> <span class="n">comment</span><span class="p">]</span>
+</pre></div>
+</div>
+<img alt="../_images/zapier-ch1.png" src="../_images/zapier-ch1.png" />
+<p><strong>Forum Posts, Jira Comments, Hacker News Mentions, Tweets:</strong></p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="o">&gt;</span> <span class="p">[</span><span class="n">forum</span> <span class="n">post</span><span class="p">,</span> <span class="n">media</span> <span class="n">mention</span><span class="p">,</span> <span class="ow">or</span> <span class="n">tweet</span><span class="p">]</span>
+
+<span class="c1">#[searchable-hashtag] in [external service](link to service) by [author](link to author profile) on [time-stamp](link to specific forum post, media mention or tweet)</span>
+</pre></div>
+</div>
+<img alt="../_images/zapier-ch2.png" src="../_images/zapier-ch2.png" />
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id8">
+<h2>Troubleshooting Guide<a class="headerlink" href="#id8" title="Permalink to this headline">¶</a></h2>
+<p>Possible solutions to common issues encountered during setup.</p>
+<div class="section" id="cannot-connect-a-mattermost-account">
+<h3>Cannot connect a Mattermost account<a class="headerlink" href="#cannot-connect-a-mattermost-account" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><strong>&#8220;Token named access_token was not found in oauth response!&#8221;</strong></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Possible Solution: Try removing any trailing <code class="docutils literal"><span class="pre">/</span></code>&#8216;s on the end of your <strong>Mattermost URL</strong>.</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Correct: <code class="docutils literal"><span class="pre">https://pre-release.mattermost.com</span></code></li>
+<li>Incorrect: <code class="docutils literal"><span class="pre">https://pre-release.mattermost.com/</span></code></li>
+</ul>
+<img alt="../_images/zapier-error1.png" src="../_images/zapier-error1.png" />
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li><strong>&#8220;[Server URL] returned (404)&#8221;</strong></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Possible Solution: The <strong>Mattermost URL</strong> cannot have a team appended to the end of the server URL.</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Correct: <code class="docutils literal"><span class="pre">https://pre-release.mattermost.com</span></code></li>
+<li>Incorrect: <code class="docutils literal"><span class="pre">https://pre-release.mattermost.com/core</span></code></li>
+</ul>
+</div></blockquote>
+<img alt="../_images/zapier-error2.png" src="../_images/zapier-error2.png" />
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li><strong>&#8220;[Server URL] returned (500) Internal Server Error&#8221;</strong></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Possible Solution: The <strong>Client Secret</strong> might be incorrect. Verify this value in <strong>Main Menu</strong> &gt; <strong>Integrations</strong> &gt; <strong>OAuth 2.0 Applications</strong>, or check with your System Admin.</li>
+</ol>
+<img alt="../_images/zapier-error4.png" src="../_images/zapier-error4.png" />
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li><strong>&#8220;Mattermost needs your help: We couldn&#8217;t find the requested app&#8221;</strong></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Possible Solution: The <strong>Client ID</strong> might be incorrect. Verify this value in <strong>Main Menu</strong> &gt; <strong>Integrations</strong> &gt; <strong>OAuth 2.0 Applications</strong>, or check with your System Admin.</li>
+</ol>
+<img alt="../_images/zapier-error3.png" src="../_images/zapier-error3.png" />
+</div></blockquote>
+</div>
+<div class="section" id="post-error">
+<h3>Post Error<a class="headerlink" href="#post-error" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li><strong>&#8220;We hit an error creating a post message.&#8221;</strong></li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Possible Solution: Ensure your <strong>Message Text</strong> is less than 4000 characters, since that is the maximum character limit for any single message in Mattermost.</li>
+</ol>
+<img alt="../_images/zapier-error5.png" src="../_images/zapier-error5.png" />
+</div></blockquote>
+</div>
+<div class="section" id="deauthorize-the-zapier-app">
+<h3>Deauthorize the Zapier App<a class="headerlink" href="#deauthorize-the-zapier-app" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>If you&#8217;d like to deauthorize Zapier so it can no longer post through your connected account, go to <strong>Account Settings</strong> &gt; <strong>Security</strong> &gt; <strong>OAuth 2.0 Applications</strong>, then click <strong>Deauthorize</strong> on the Zapier app.</li>
+</ol>
+<img alt="../_images/zapier-deauthorize.png" src="../_images/zapier-deauthorize.png" />
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../developer/integration-faq.html" class="btn btn-neutral float-right" title="Integrations FAQ" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../developer/oauth-2-0-applications.html" class="btn btn-neutral" title="OAuth 2.0 Applications" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/integrations/zapier.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

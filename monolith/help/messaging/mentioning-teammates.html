@@ -1,0 +1,327 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mentioning Teammates &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Formatting Text" href="formatting-text.html"/>
+        <link rel="prev" title="Sending Messages" href="sending-messages.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sending-messages.html">Sending Messages</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mentioning Teammates</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mentions">&#64;Mentions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#words-that-trigger-mentions">Words That Trigger Mentions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#recent-mentions">Recent Mentions</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="formatting-text.html">Formatting Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attaching-files.html">Attaching Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="executing-commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flagging-messages.html">Flagging Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Mentioning Teammates</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/mentioning-teammates.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mentioning-teammates">
+<span id="mentioning-teammates"></span><h1>Mentioning Teammates<a class="headerlink" href="#mentioning-teammates" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="mentions">
+<span id="mentions"></span><h2>&#64;Mentions<a class="headerlink" href="#mentions" title="Permalink to this headline">¶</a></h2>
+<p>Use &#64;mentions to get the attention of specific team members.</p>
+<div class="section" id="username">
+<span id="username"></span><h3>&#64;username<a class="headerlink" href="#username" title="Permalink to this headline">¶</a></h3>
+<p>You can mention a teammate by using the <code class="docutils literal"><span class="pre">&#64;</span></code> symbol plus their username to send them a mention notification.</p>
+<p>Type <code class="docutils literal"><span class="pre">&#64;</span></code> to bring up a list of team members who can be mentioned. To filter the list, type the first few letters of any username, first name, last name, or nickname. The <strong>Up</strong> and <strong>Down</strong> arrow keys can then be used to scroll through entries in the list, and pressing <strong>ENTER</strong> will select which user to mention. Once selected, the username will automatically replace the full name or nickname.</p>
+<p>The following example sends a special mention notification to <strong>alice</strong> that alerts her of the channel and message where she has been mentioned. If <strong>alice</strong> is away from Mattermost and has <a class="reference external" href="http://docs.mattermost.com/help/getting-started/configuring-notifications.html#email-notifications">email notifications</a> turned on, then she will receive an email alert of her mention along with the message text.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>@alice how did your interview go with the new candidate?
+</pre></div>
+</div>
+<p>If the user you mentioned does not belong to the channel, a System Message will be posted to let you know. This is a temporary message only seen by the person who triggered it. To add the mentioned user to the channel, go to the dropdown menu beside the channel name and select <strong>Add Members</strong>.</p>
+</div>
+<div class="section" id="channel-and-all">
+<span id="channel-and-all"></span><h3>&#64;channel and &#64;all<a class="headerlink" href="#channel-and-all" title="Permalink to this headline">¶</a></h3>
+<p>You can mention an entire channel by typing <code class="docutils literal"><span class="pre">&#64;channel</span></code> or <code class="docutils literal"><span class="pre">&#64;all</span></code>. All members of the channel will receive a mention notification that behaves the same way as if the members had been mentioned personally. If used in Town Square, it will notify all members of your team.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>@channel great work on interviews this week. I think we found some excellent potential candidates!
+</pre></div>
+</div>
+</div>
+<div class="section" id="here">
+<span id="here"></span><h3>&#64;here<a class="headerlink" href="#here" title="Permalink to this headline">¶</a></h3>
+<p>You can mention everyone who is online in a channel by typing <code class="docutils literal"><span class="pre">&#64;here</span></code>. This will send a desktop notification and push notification to members of the channel who are online. It will also be counted as a mention in the sidebar. Members who are offline will not receive a notification, and when they come back to the site they will not see a mention counted in the channel sidebar. Members who are away will only receive a desktop notification if they have notifications set to &#8220;all activity&#8221;, and they will not see a mention counted in the sidebar.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>@here can someone do a quick review of this?
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="words-that-trigger-mentions">
+<span id="words-that-trigger-mentions"></span><h2>Words That Trigger Mentions<a class="headerlink" href="#words-that-trigger-mentions" title="Permalink to this headline">¶</a></h2>
+<p>In addition to being notified by &#64;username and &#64;channel, you can customize words that trigger mention notifications in <strong>Account Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Words that trigger mentions</strong>. By default, you will receive mention notifications for your username, first name, and for <code class="docutils literal"><span class="pre">&#64;channel</span></code>, <code class="docutils literal"><span class="pre">&#64;all</span></code>, and <code class="docutils literal"><span class="pre">&#64;here</span></code>.</p>
+<p>You can add a list of customized words you would like to get mention notifications for by typing them into the input box separated by commas. This is useful if you want to be notified of all posts on certain topics, for example, “interviewing” or “marketing”.</p>
+</div>
+<div class="section" id="recent-mentions">
+<span id="recent-mentions"></span><h2>Recent Mentions<a class="headerlink" href="#recent-mentions" title="Permalink to this headline">¶</a></h2>
+<p>Click <code class="docutils literal"><span class="pre">&#64;</span></code> next to the search box to query for your most recent &#64;mentions and words that trigger mentions. Click <strong>Jump</strong> next to a search result in the right-hand sidebar to jump the center pane to the channel and location of the message with the mention.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="formatting-text.html" class="btn btn-neutral float-right" title="Formatting Text" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sending-messages.html" class="btn btn-neutral" title="Sending Messages" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/mentioning-teammates.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

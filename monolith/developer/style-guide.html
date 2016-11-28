@@ -1,0 +1,465 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mattermost Style Guide &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
+        <link rel="next" title="User Experience Guidelines" href="fx-guidelines.html"/>
+        <link rel="prev" title="Running Mattermost" href="running-mattermost.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-setup.html">Developer Machine Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-setup.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mattermost Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#go">Go</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#javascript">Javascript</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#whitespace">Whitespace</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#semicolons">Semicolons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#variables">Variables</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#blocks">Blocks</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#strings">Strings</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#react-jsx">React-JSX</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#alignment">Alignment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#naming">Naming</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization-process.html">Localization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/developer.html">Mattermost Developer&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Mattermost Style Guide</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/developer/style-guide.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mattermost-style-guide">
+<span id="mattermost-style-guide"></span><h1>Mattermost Style Guide<a class="headerlink" href="#mattermost-style-guide" title="Permalink to this headline">¶</a></h1>
+<ol class="simple">
+<li><a class="reference external" href="#go">Go</a></li>
+<li><a class="reference external" href="#javascript">Javascript</a></li>
+<li><a class="reference external" href="#react-jsx">React-JSX</a></li>
+</ol>
+<div class="section" id="go">
+<span id="go"></span><h2>Go<a class="headerlink" href="#go" title="Permalink to this headline">¶</a></h2>
+<p>All go code must follow the golang official <a class="reference external" href="https://golang.org/doc/effective_go.html">Style Guide</a></p>
+<p>In addition all code must be run though the official go formatter tool <a class="reference external" href="https://golang.org/cmd/gofmt/">gofmt</a></p>
+</div>
+<div class="section" id="javascript">
+<span id="javascript"></span><h2>Javascript<a class="headerlink" href="#javascript" title="Permalink to this headline">¶</a></h2>
+<p>Part of the build process is running ESLint. ESLint is the final authority on all style issues. PRs will not be accepted unless there are no errors running ESLint.</p>
+<p>See <a class="reference external" href="https://github.com/mattermost/platform/blob/master/webapp/.eslintrc.json">ESLint configuration file</a> and also <a class="reference external" href="http://eslint.org/docs/user-guide/integrations">instructions on how to use ESLint with different editors</a>.</p>
+<p>The following is a subset of what ESLint checks. ESLint is always the authority.</p>
+<div class="section" id="whitespace">
+<span id="whitespace"></span><h3>Whitespace<a class="headerlink" href="#whitespace" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Indentation is four spaces.</li>
+<li>Use a space before the leading brace.</li>
+<li>Use one space between the comma and the next argument in a bracketed list. No other space.</li>
+<li>Use whitespace to make code more readable.</li>
+<li>Do not use more than one newline to separate code blocks.</li>
+<li>Do not use a newline as the first line of a function</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Correct</span>
+<span class="kd">function</span> <span class="nx">myFunction</span><span class="p">(</span><span class="nx">parm1</span><span class="p">,</span> <span class="nx">parm2</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">stuff</span><span class="p">...;</span>
+  
+    <span class="nx">morestuff</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Incorrect</span>
+<span class="kd">function</span> <span class="nx">myFunction</span> <span class="p">(</span> <span class="nx">parm1</span><span class="p">,</span> <span class="nx">parm2</span> <span class="p">){</span>
+  <span class="nx">stuff</span><span class="p">...;</span>
+    
+    
+  <span class="nx">morestuff</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="semicolons">
+<span id="semicolons"></span><h3>Semicolons<a class="headerlink" href="#semicolons" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>You must use them always.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Correct</span>
+<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span><span class="p">;</span>
+
+<span class="c1">// Incorrect</span>
+<span class="kd">let</span> <span class="nx">x</span> <span class="o">=</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="variables">
+<span id="variables"></span><h3>Variables<a class="headerlink" href="#variables" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Declarations must always use var, let or const.</li>
+<li>Prefer let or const over var.</li>
+<li>camelCase for all variable names.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Correct</span>
+<span class="kd">let</span> <span class="nx">myVariable</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="c1">// OK</span>
+<span class="kd">var</span> <span class="nx">myVariable</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+
+<span class="c1">// Incorrect</span>
+<span class="nx">myVariable</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+<span class="kd">var</span> <span class="nx">my_variable</span> <span class="o">=</span> <span class="mi">4</span><span class="p">;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="blocks">
+<span id="blocks"></span><h3>Blocks<a class="headerlink" href="#blocks" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Braces must be used on all blocks.</li>
+<li>Braces must start on the same line as the statement starting the block.</li>
+<li>Else and else if must be on the same line as the if block closing brace.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Correct</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">something</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">stuff</span><span class="p">...;</span>
+<span class="p">}</span> <span class="k">else</span> <span class="k">if</span> <span class="p">(</span><span class="nx">otherthing</span><span class="p">)</span> <span class="p">{</span>
+    <span class="nx">stuff</span><span class="p">...;</span>
+<span class="p">}</span>
+
+<span class="c1">// Incorrect</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">something</span><span class="p">)</span>
+<span class="p">{</span>
+    <span class="nx">stuff</span><span class="p">...;</span>
+<span class="p">}</span>
+<span class="k">else</span>
+<span class="p">{</span>
+    <span class="nx">stuff</span><span class="p">...;</span>
+<span class="p">}</span>
+
+<span class="c1">// Incorrect</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">something</span><span class="p">)</span> <span class="nx">stuff</span><span class="p">...;</span>
+<span class="k">if</span> <span class="p">(</span><span class="nx">something</span><span class="p">)</span>
+    <span class="nx">stuff</span><span class="p">...;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="strings">
+<span id="strings"></span><h3>Strings<a class="headerlink" href="#strings" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Use of template strings is preferred instead of concatenation.</li>
+</ul>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="c1">// Correct</span>
+<span class="kd">function</span> <span class="nx">getStr</span><span class="p">(</span><span class="nx">stuff</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="sb">`This is the </span><span class="si">${</span><span class="nx">stuff</span><span class="si">}</span><span class="sb"> string`</span><span class="p">;</span>
+<span class="p">}</span>
+
+<span class="c1">// Incorrect</span>
+<span class="kd">function</span> <span class="nx">wrongGetStr</span><span class="p">(</span><span class="nx">stuff</span><span class="p">)</span> <span class="p">{</span>
+    <span class="k">return</span> <span class="s2">&quot;This is the &quot;</span> <span class="o">+</span> <span class="nx">stuff</span> <span class="o">+</span> <span class="s2">&quot; string&quot;</span><span class="p">;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="react-jsx">
+<span id="react-jsx"></span><h2>React-JSX<a class="headerlink" href="#react-jsx" title="Permalink to this headline">¶</a></h2>
+<p>Part of the build process is running ESLint. ESLint is the final authority on all style issues. PRs will not be accepted unless there are no errors running ESLint. The ESLint configuration file can be found in: <a class="reference external" href="https://github.com/mattermost/platform/blob/master/webapp/.eslintrc.json">webapp/.eslintrc</a></p>
+<p>Instructions on how to use ESLint with your favourite editor can be found here: <a class="reference external" href="http://eslint.org/docs/user-guide/integrations">http://eslint.org/docs/user-guide/integrations</a></p>
+<p>You can run eslint using the makefile by using <code class="docutils literal"><span class="pre">make</span> <span class="pre">check</span></code></p>
+<p>The following is a subset of what ESLint checks for. ESLint is always the authority.</p>
+<div class="section" id="general">
+<span id="general"></span><h3>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Include only one React component per file.</li>
+<li>Use class &lt;name&gt; extends React.Component over React.createClass unless you need mixins</li>
+<li>Filenames should be the component name.</li>
+</ul>
+</div>
+<div class="section" id="alignment">
+<span id="alignment"></span><h3>Alignment<a class="headerlink" href="#alignment" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Follow alignment styles shown below:</li>
+</ul>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>// Correct
+<span class="nt">&lt;Tag</span>
+    <span class="na">propertyOne=</span><span class="s">&quot;1&quot;</span>
+    <span class="na">propertyTwo=</span><span class="s">&quot;2&quot;</span>
+<span class="nt">&gt;</span>
+  <span class="nt">&lt;Child/&gt;</span>
+<span class="nt">&lt;/Tag&gt;</span>
+
+// Correct
+<span class="nt">&lt;Tag</span> <span class="na">propertyOne=</span><span class="s">&quot;1&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="naming">
+<span id="naming"></span><h3>Naming<a class="headerlink" href="#naming" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Property names use camelCase.</li>
+<li>React component names use CapitalCamelCase.</li>
+<li>Do not use an underscore for internal methods in a react component.</li>
+</ul>
+<div class="highlight-xml"><div class="highlight"><pre><span></span>// Correct
+<span class="nt">&lt;ReactComponent</span> <span class="na">propertyOne=</span><span class="s">&quot;value&quot;</span><span class="nt">/&gt;</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="fx-guidelines.html" class="btn btn-neutral float-right" title="User Experience Guidelines" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="running-mattermost.html" class="btn btn-neutral" title="Running Mattermost" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/style-guide.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

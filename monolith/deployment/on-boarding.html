@@ -1,0 +1,332 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Administrator Tasks &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Push Notifications and Mobile Devices" href="push.html"/>
+        <link rel="prev" title="Configuring Mattermost" href="../install/config-mattermost.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Administrator Tasks</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#do-not-manipulate-the-mattermost-database"><strong>DO NOT manipulate the Mattermost database</strong></a></li>
+<li class="toctree-l4"><a class="reference internal" href="#migrating-to-ad-ldap-or-saml-from-email-based-authentication">Migrating to AD/LDAP or SAML from email-based authentication</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-tasks">Common Tasks</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="push.html">Push Notifications and Mobile Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-ldap.html">Active Directory/LDAP Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auth.html">Multi-Factor Authentication (E10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-saml.html">SAML Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scaling.html">Scaling for Enterprise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html">High Availability (E20) - Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-gitlab.html">GitLab Single-Sign-On</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-google.html">Google Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-office.html">Office 365 Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webrtc.html">Video and Audio Calling (Beta)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Administrator Tasks</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/deployment/on-boarding.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="administrator-tasks">
+<h1>Administrator Tasks<a class="headerlink" href="#administrator-tasks" title="Permalink to this headline">¶</a></h1>
+<p>This document provides instructions for common administrator tasks.</p>
+<div class="section" id="do-not-manipulate-the-mattermost-database">
+<h2><strong>DO NOT manipulate the Mattermost database</strong><a class="headerlink" href="#do-not-manipulate-the-mattermost-database" title="Permalink to this headline">¶</a></h2>
+<blockquote>
+<div><ul class="simple">
+<li>In particular, DO NOT manually delete data from the database directly. Mattermost is designed as a continuous archive and cannot be supported after manual manipulation.</li>
+<li>If you need to permanently delete a team or user please use the <a class="reference external" href="http://docs.mattermost.com/administration/command-line-tools.html">Command Line Tool</a>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="migrating-to-ad-ldap-or-saml-from-email-based-authentication">
+<h2>Migrating to AD/LDAP or SAML from email-based authentication<a class="headerlink" href="#migrating-to-ad-ldap-or-saml-from-email-based-authentication" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;ve evaluated Mattermost using email authentication and decide to deploy broadly using Active Directory/LDAP or SAML Single-Sign-On, you can follow this procedure:</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="http://docs.mattermost.com/deployment/sso-ldap.html">Set up Active Directory/LDAP</a> or <a class="reference external" href="http://docs.mattermost.com/deployment/sso-saml.html">SAML Single-Sign-On</a> for all users who would optionally have access to the system.</li>
+<li>Post an announcement about how the migration will work to users.</li>
+<li>Users who do not yet have an account on Mattermost will have a new account created when they sign in using their AD/LDAP or SAML credentials after the authentication method is enabled.</li>
+<li>Users who use email-based authentication can change their sign-in method to AD/LDAP or SAML via <strong>Account Settings</strong> &gt; <strong>Security</strong> &gt; <strong>Sign-in method</strong>.</li>
+<li>If someone attempts to sign-in with AD/LDAP or SAML with an email matching that of an existing account, they&#8217;ll get an error message and will need to switch sign-in methods per procedure in 4.</li>
+</ol>
+</div>
+<div class="section" id="common-tasks">
+<h2>Common Tasks<a class="headerlink" href="#common-tasks" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Creating System Administrator account from commandline</dt>
+<dd><ul class="first last simple">
+<li>If the System Administrator account becomes unavailable, a person leaving the organization for example, you can set a new system admin from the commandline using <code class="docutils literal"><span class="pre">./platform</span> <span class="pre">-assign_role</span> <span class="pre">-team_name=&quot;yourteam&quot;</span> <span class="pre">-email=&quot;you&#64;example.com&quot;</span> <span class="pre">-role=&quot;system_admin&quot;</span></code>.</li>
+<li>After assigning the role the user needs to log out and log back in before the System Administrator role is applied.</li>
+</ul>
+</dd>
+<dt>Deactivating a user</dt>
+<dd><ul class="first last simple">
+<li>System Admins can go to <strong>System Console</strong> &gt; <strong>Teams</strong>, and select a team to manage. From there they can go to the <strong>Users</strong> page for a team and manage roles.</li>
+<li>To preserve audit history, users are never deleted from the system. It is highly recommended that System Administrators do not attempt to delete users manually from the database, as this may compromise system integrity and ability to upgrade in the future.</li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="push.html" class="btn btn-neutral float-right" title="Push Notifications and Mobile Devices" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../install/config-mattermost.html" class="btn btn-neutral" title="Configuring Mattermost" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/deployment/on-boarding.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

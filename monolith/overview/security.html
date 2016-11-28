@@ -1,0 +1,437 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Security Overview &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Overview" href="index.html"/>
+        <link rel="next" title="Deployment Overview" href="../deployment/deployment.html"/>
+        <link rel="prev" title="Product Overview" href="product.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="product.html">Product Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Security Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Security Features</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#private-cloud-deployment-with-secure-mobile-apps">Private Cloud Deployment with Secure Mobile Apps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#centralized-security-and-administration">Centralized Security and Administration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#transmission-security">Transmission Security</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#integrity-audit-controls">Integrity &amp; Audit Controls</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#authentication-safeguards">Authentication Safeguards</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#access-control-policy">Access Control Policy</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Security Updates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id4">Security Policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#hipaa-compliance">HIPAA compliance</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../deployment/deployment.html">Deployment Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrations.html">Integrations Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth.html">Corporate Directory Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="index.html">Mattermost Overview</a> &raquo;</li>
+      
+    <li>Security Overview</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/overview/security.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="security-overview">
+<h1>Security Overview<a class="headerlink" href="#security-overview" title="Permalink to this headline">¶</a></h1>
+<p>Security in Mattermost software is continually reviewed by developers, IT administrators and security researchers accountable for deploying the software in their organizations.</p>
+<p>Multiple rounds of penetration testing and security analysis, in addition to internal reviews, have produced a long list of safeguards, processes and policies. Please see:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/overview/security.html#security-features">Security Features</a> - Recommended features to enhance security on the Mattermost platform.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/overview/security.html#security-updates">Security Updates</a> - Upgrades addressing newly discovered attacks <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">confidentially disclosed to Mattermost, Inc.</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/process/security.html">Security Policies</a> - Internal security policies, development guidelines, business continuity plans and common security-related questions from enterprises.</li>
+</ul>
+<p>To expand on each:</p>
+<div class="section" id="id1">
+<h2>Security Features<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost offers a host of features to help keep your private cloud communications secure.</p>
+<div class="section" id="private-cloud-deployment-with-secure-mobile-apps">
+<h3>Private Cloud Deployment with Secure Mobile Apps<a class="headerlink" href="#private-cloud-deployment-with-secure-mobile-apps" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Mattermost can run entirely behind your firewall as a single Linux binary with MySQL or PostgreSQL</li>
+<li>Mattermost mobile apps can be deployed to an <a class="reference external" href="https://docs.mattermost.com/deployment/push.html#enterprise-app-store-eas">internal Enterprise App Store</a> by using source code available for Mattermost mobile apps and push notification service. Optionally <a class="reference external" href="https://docs.mattermost.com/deployment/deployment.html#vpn-setup">VPN clients on PC and mobile devices</a> can be used outside your private network.</li>
+<li>Optionally, Mattermost mobile apps can run without a VPN by opening standard ports on your Mattermost server, such as 80 or 443. In this configuration, you have the option of using compiled <a class="reference external" href="https://docs.mattermost.com/deployment/push.html#hosted-push-notifications-service-hpns">iOS and Android applications in iTunes and Google Play provided by Mattermost, Inc.</a> (E10, E20), as well as enabling <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-multi-factor-authentication-enterprise">multi-factor authentication</a> (E10, E20).</li>
+<li>User sessions across web, PC and mobile can be <a class="reference external" href="https://docs.mattermost.com/help/settings/account-settings.html#view-and-logout-of-active-sessions">remotely revoked through account settings</a>, or via the System Console by deactivating accounts.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="centralized-security-and-administration">
+<h3>Centralized Security and Administration<a class="headerlink" href="#centralized-security-and-administration" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Manage users, teams, access control and system settings in a web-based <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html">System Console user interface</a>.</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="transmission-security">
+<h3>Transmission Security<a class="headerlink" href="#transmission-security" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Mattermost supports TLS encryption using AES-256 with 2048-bit RSA on all data transmissions across both LAN and internet.</li>
+<li>Connections to Active Directory/LDAP can be optionally secured with TLS or stunnel (E10).</li>
+<li>Encryption-at-rest is available through hardware and software disk encryption solutions applied to the Mattermost database, which can reside on its own server within your infrastructure.</li>
+<li>Option to <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#push-notification-contents">exclude message contents from push notifications</a> to comply with strict compliance policies, such as US HIPAA standards.</li>
+<li>Ability to exclude or include the <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#push-notification-contents">contents of messages in push notifications</a> to avoid disclosure on locked mobile screens, and via relay servers from Apple and Google when sending notifications to iOS or Android mobile apps (relevant to compliance standards such as HIPAA)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="integrity-audit-controls">
+<h3>Integrity &amp; Audit Controls<a class="headerlink" href="#integrity-audit-controls" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>By default, Mattermost stores a complete history of messages, including edits and deletes, along with all files uploaded. User interface actions for &#8220;deleting&#8221; messages, channels and private groups only remove the data from the user interface, the data is retained within your database.</li>
+<li>The <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#file-log-directory">output and archives of server logs</a> can be saved to a directory of your choice. Mattermost server logs plus logs from your web proxy can provide an end-to-end history of system usage.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/administration/compliance.html">Ad hoc compliance reports of messaging by user, date range, and keyword, including edited and deleted messages</a> are available (E20). To protect against unauthorized use, all ad hoc report requests are logged.</li>
+<li>Daily compliance reports compatible with 3rd compliance solutions such as <a class="reference external" href="https://docs.mattermost.com/administration/compliance.html#global-relay-support">Global Relay</a> are also available (E20).</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="authentication-safeguards">
+<h3>Authentication Safeguards<a class="headerlink" href="#authentication-safeguards" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>To protect against brute force attacks, you can set <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#id55">rate limiting on APIs</a>, varied by query frequency, memory store size, remote address and headers.</li>
+<li>Session length and session cache can be <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#id33">configured according to your internal policies</a>.</li>
+<li>Remotely <a class="reference external" href="https://docs.mattermost.com/help/settings/account-settings.html#view-and-logout-of-active-sessions">revoke user sessions</a> across web, mobile devices and native desktop apps.</li>
+<li>Mattermost supports integrated authentication with <a class="reference external" href="https://docs.mattermost.com/deployment/sso-ldap.html">Active Directory and LDAP</a> (E10) as well as <a class="reference external" href="https://docs.mattermost.com/deployment/sso-saml-adfs.html">Active Directory Federation Services</a> and <a class="reference external" href="https://docs.mattermost.com/deployment/sso-saml-okta.html">Okta</a> via SAML 2.0 (E20)</li>
+<li>The ability to require <a class="reference external" href="https://docs.mattermost.com/deployment/auth.html">multi-factor authentication</a> is also available (E10)</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="access-control-policy">
+<h3>Access Control Policy<a class="headerlink" href="#access-control-policy" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><ul class="simple">
+<li>Limit communications to specific users, private groups, or team-wide public channels</li>
+<li>Increase system security <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#restrict-account-creation-to-specified-email-domains">by restricting email-based account creation to email addresses from a list of specific domains,</a> e.g. &#8220;corp.mattermost.com&#8221;, &#8220;mattermost.org&#8221;, etc.&#8221;</li>
+<li>Choose whether to restrict or enable <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-cross-origin-requests-from">cross-origin requests.</a></li>
+<li>If sharing of public links for account creation or sharing of files and images are enabled, links can be invalidated via the System Console by <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#public-link-salt">regenerating salts</a>.</li>
+<li>Optionally restrict <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#policy-enterprise">creation, renaming, archiving of channels, private groups and integrations to team admins, system admins or end users</a> (E10)</li>
+<li>Optionally restrict <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#policy-enterprise">sending team invites to team admins, system admins or end users</a> (E10)</li>
+<li>Optionally add <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#password-requirements-enterprise">advanced passwords requirements</a> with minimum numbers of symbols, numbers, and lower and uppercase letters (E10).</li>
+</ul>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Security Updates<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>Security updates address newly discovered attacks reported to Mattermost, Inc. by the security research community. Disclosures are made confidentially, under the Mattermost responsible disclosure policy, allowing for Mattermost, Inc. to provide security updates to the community prior to public disclosure.</p>
+<p>For more information, please see:</p>
+<ul>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="http://about.mattermost.com/security-updates/">Mattermost Security Updates Disclosures</a></dt>
+<dd><ul class="first last simple">
+<li>A summary of security updates made based on past and on-going security analysis and penetration testing.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a></dt>
+<dd><ul class="first last simple">
+<li>An overview of how security issues are confidentially reported to and address by Mattermost, Inc.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="id4">
+<h2>Security Policies<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>For information on internal security policies, development guidelines, business continuity plans and common security-related questions from enterprises, please see our <a class="reference external" href="https://docs.mattermost.com/process/security.html">Security Policies</a> documentation.</p>
+</div>
+<div class="section" id="hipaa-compliance">
+<h2>HIPAA compliance<a class="headerlink" href="#hipaa-compliance" title="Permalink to this headline">¶</a></h2>
+<p>Deploying Mattermost as part of a HIPAA-compliant IT infrastructure requires a deployment team trained on <a class="reference external" href="http://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/">HIPAA-compliance requirements and standards</a>.</p>
+<ul>
+<li><p class="first">Mattermost offers HIPAA-relevant <strong>Technincal Safeguards</strong> including:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/overview/security.html#integrity-audit-controls">Integrity Controls</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/overview/security.html#access-control-policy">Access Control</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/overview/security.html#transmission-security">Transmission Security</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/overview/security.html#integrity-audit-controls">Audit Controls</a></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">HIPAA-compliant deployments commonly consider the following:</p>
+<blockquote>
+<div><ul>
+<li><p class="first">Omitting the contents of messages from mobile push notifications:</p>
+<blockquote>
+<div><ul class="simple">
+<li>If your <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#push-notification-contents">Push Notifications Contents</a> option is set to <code class="docutils literal"><span class="pre">Send</span> <span class="pre">full</span> <span class="pre">message</span> <span class="pre">snippet</span></code> there is a chance Personal Health Information (PHI) contained in messages could be displayed on a user&#8217;s locked phone as a notification. To avoid this, set the option to <code class="docutils literal"><span class="pre">Send</span> <span class="pre">generic</span> <span class="pre">description</span> <span class="pre">with</span> <span class="pre">user</span> <span class="pre">and</span> <span class="pre">channel</span> <span class="pre">names</span></code>.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Beyond Technical Safeguards, HIPAA compliance deployments also require:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Administrative Safeguards</li>
+<li>Physical Safeguards</li>
+<li>Organizational requirements and other standards.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>To learn more, please review <a class="reference external" href="http://www.hhs.gov/hipaa/for-professionals/security/laws-regulations/">HIPAA requirements from the US Department of Health and Human Services</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deployment/deployment.html" class="btn btn-neutral float-right" title="Deployment Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="product.html" class="btn btn-neutral" title="Product Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/overview/security.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

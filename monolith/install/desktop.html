@@ -1,0 +1,363 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Desktop Application Install Guides &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Configuring Mattermost" href="config-mattermost.html"/>
+        <link rel="prev" title="Chinese, Korean &amp; Japanese Search" href="i18n.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404-overview.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-rhel-6.html">Production Install on RHEL 6.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-rhel-7.html">Production Install on RHEL 7.1+</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Production Install on Debian Jessie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-1404.html">Production Install on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-16.04.html">Production Install on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Desktop Application Install Guides</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#windows-10-windows-8-1-windows-7">Windows 10+, Windows 8.1+, Windows 7+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mac-os-x-10-9">Mac OS X 10.9+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linux-beta">Linux (Beta)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Desktop Application Install Guides</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/desktop.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="desktop-application-install-guides">
+<h1>Desktop Application Install Guides<a class="headerlink" href="#desktop-application-install-guides" title="Permalink to this headline">¶</a></h1>
+<p>Mattermost desktop applications are available for Windows, Mac and Linux operation systems.</p>
+<p>They support all the features of the web experience, plus:</p>
+<ul class="simple">
+<li>Connect to multiple Mattermost servers from a single interface, and switch with shortcut keys.</li>
+<li>Auto-start Mattermost when a user logs into their machine</li>
+<li>(Windows) Add Mattermost to Start menu, taskbar and system tray</li>
+<li>(Mac) Add Mattermost to the applications Dock</li>
+<li>(Linux) <code class="docutils literal"><span class="pre">Desktop</span> <span class="pre">Entry</span></code> for the application to more easily <a class="reference external" href="https://wiki.archlinux.org/index.php/Desktop_entries">integrate into a desktop environment</a></li>
+</ul>
+<p>Below is a list of additional resources:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/help/apps/desktop-guide.html">Guide for configuring your desktop app experience</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/help/apps/desktop-changelog.html">Changelog</a></li>
+<li>Contributor’s guide (coming soon)</li>
+<li><a class="reference external" href="https://github.com/mattermost/desktop">Source code</a></li>
+</ul>
+</div></blockquote>
+<p>You can <a class="reference external" href="https://about.mattermost.com/downloads/">download the apps directly from our downloads page</a>. You may also use the following installation guides for Windows, Mac and Linux:</p>
+<div class="section" id="windows-10-windows-8-1-windows-7">
+<h2>Windows 10+, Windows 8.1+, Windows 7+<a class="headerlink" href="#windows-10-windows-8-1-windows-7" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download latest version of the Mattermost desktop app:<ul>
+<li><a class="reference external" href="https://releases.mattermost.com/desktop/3.4.1/mattermost-setup-3.4.1-win64.exe">64-bit version of Windows</a></li>
+<li><a class="reference external" href="https://releases.mattermost.com/desktop/3.4.1/mattermost-setup-3.4.1-win32.exe">32-bit version of Windows</a></li>
+</ul>
+</li>
+<li>From the <code class="docutils literal"><span class="pre">\Downloads</span></code> directory right-click on the file <code class="docutils literal"><span class="pre">mattermost-setup-3.4.1...</span></code> and select <strong>Open</strong>.</li>
+</ol>
+<p>This will start an installer for the app. Once finished, the Mattermost desktop app will open automatically.</p>
+</div>
+<div class="section" id="mac-os-x-10-9">
+<h2>Mac OS X 10.9+<a class="headerlink" href="#mac-os-x-10-9" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download <a class="reference external" href="https://releases.mattermost.com/desktop/3.4.1/mattermost-desktop-3.4.1-osx.tar.gz">latest version of the Mattermost desktop app</a></li>
+<li>From the <code class="docutils literal"><span class="pre">/Downloads</span></code> directory, find <code class="docutils literal"><span class="pre">/mattermost-desktop...</span></code> folder.<ul>
+<li>If one doesn’t exist, from the <code class="docutils literal"><span class="pre">/Downloads</span></code> directory, find a file ending in <code class="docutils literal"><span class="pre">-osx.tar.gz</span></code> and double-click on the file. The <code class="docutils literal"><span class="pre">/mattermost-desktop...</span></code> folder should now be created.</li>
+</ul>
+</li>
+<li>From the <code class="docutils literal"><span class="pre">/mattermost-desktop...</span></code> folder, right-click on <code class="docutils literal"><span class="pre">Mattermost</span></code> package and select <strong>Open</strong>. If you see a dialog to confirm the application, choose <strong>Open</strong>.</li>
+</ol>
+<p>The Mattermost desktop should open automatically.</p>
+</div>
+<div class="section" id="linux-beta">
+<h2>Linux (Beta)<a class="headerlink" href="#linux-beta" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Download latest version of the Mattermost desktop app:<ul>
+<li><a class="reference external" href="https://releases.mattermost.com/desktop/3.4.1/mattermost-desktop-3.4.1-linux-x64.tar.gz">x64.tar.gz</a></li>
+<li><a class="reference external" href="https://releases.mattermost.com/desktop/3.4.1/mattermost-desktop-3.4.1-linux-ia32.tar.gz">ia32.tar.gz</a></li>
+</ul>
+</li>
+<li>Extract the archive, then execute <code class="docutils literal"><span class="pre">Mattermost</span></code> which is located inside the extracted directory.</li>
+<li>If you need a Desktop Entry for the application to integrate into a desktop environment, please refer to <a class="reference external" href="https://wiki.archlinux.org/index.php/Desktop_entries">https://wiki.archlinux.org/index.php/Desktop_entries</a></li>
+</ol>
+<p>To download the unofficial, community-driven .deb packages for the desktop application:</p>
+<ol class="arabic simple">
+<li>Download latest version of the Mattermost desktop app:<ul>
+<li><a class="reference external" href="https://releases.mattermost.com/desktop/3.4.1/mattermost-desktop-3.4.1-linux-amd64.deb">amd64.deb</a></li>
+<li><a class="reference external" href="https://releases.mattermost.com/desktop/3.4.1/mattermost-desktop-3.4.1-linux-i386.deb">i386.deb</a></li>
+</ul>
+</li>
+<li>Open a terminal and execute the command <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dpkg</span> <span class="pre">-i</span> <span class="pre">mattermost-desktop-&lt;VERSION&gt;-&lt;ARCH&gt;.deb</span></code></li>
+<li>Open <strong>Dash</strong> (located at top left corner) and input <code class="docutils literal"><span class="pre">mattermost</span></code>, then click the Mattermost icon. The Mattermost desktop should open automatically.</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="config-mattermost.html" class="btn btn-neutral float-right" title="Configuring Mattermost" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="i18n.html" class="btn btn-neutral" title="Chinese, Korean &amp; Japanese Search" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/desktop.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>
