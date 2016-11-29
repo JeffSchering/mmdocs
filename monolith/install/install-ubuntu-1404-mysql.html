@@ -147,22 +147,28 @@
            <div itemprop="articleBody">
             
   <div class="section" id="installing-mysql-database-server">
-<h1>Installing MySQL Database Server<a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h1>
+<span id="install-ubuntu-1404-mysql"></span><h1>Installing MySQL Database Server<a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h1>
 <p>Mattermost supports either MySQL or PostgreSQL.</p>
 <p><strong>To install MySQL 5.6 on Ubuntu Server:</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that will host the database and issue the following command:</li>
+<li>Log into the server that will host the database and open a terminal window.</li>
+<li>Make sure that your package index is up to date.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Install MySQL version 5.6.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">mysql-server-5.6</span></code></div></blockquote>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple" start="4">
 <li>Log in to MySQL as root.</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span></code></p>
 <p>When prompted, enter the root password that you created when installing MySQL.</p>
 </div></blockquote>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="5">
 <li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
 </ol>
 <blockquote>
@@ -170,20 +176,29 @@
 <p><strong>Notes</strong>:</p>
 <ol class="arabic simple">
 <li>Use a password that is more secure than &#8216;mmuser-password&#8217;</li>
-<li>The &#8216;%&#8217; means that mmuser can connect from any machine on the network.   However, it&#8217;s more secure to use the IP address of the machine that hosts Mattermost. For example, if you install Mattermost on the machine with IP address 10.10.10.2, then use the following command:</li>
+<li>The &#8216;%&#8217; means that mmuser can connect from any machine on the network. However, it&#8217;s more secure to use the IP address of the machine that hosts Mattermost. For example, if you install Mattermost on the machine with IP address 10.10.10.2, then use the following command:</li>
 </ol>
 <p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'10.10.10.2'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
 </div></blockquote>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="6">
 <li>Create the Mattermost database.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">database</span> <span class="pre">mattermost;</span></code></div></blockquote>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple" start="7">
 <li>Grant access privileges to the user &#8216;mmuser&#8217;</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">grant</span> <span class="pre">all</span> <span class="pre">privileges</span> <span class="pre">on</span> <span class="pre">mattermost.*</span> <span class="pre">to</span> <span class="pre">'mmuser'&#64;'%';</span></code></div></blockquote>
+<p><strong>What to do next</strong></p>
+<p>In a production environment, you should install NGINX. Using NGINX as a proxy server increases the security and performance of your Mattermost installation.</p>
+<dl class="docutils">
+<dt><strong>Related links</strong></dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="install-ubuntu-1404-overview.html#install-nginx"><span class="std std-ref">Installing NGINX Server</span></a></li>
+</ul>
+</dd>
+</dl>
 </div>
 
 

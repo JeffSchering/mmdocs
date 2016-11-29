@@ -147,33 +147,48 @@
            <div itemprop="articleBody">
             
   <div class="section" id="configuring-nginx-with-ssl-and-http-2">
-<h1>Configuring NGINX with SSL and HTTP/2<a class="headerlink" href="#configuring-nginx-with-ssl-and-http-2" title="Permalink to this headline">¶</a></h1>
+<span id="config-ssl-http2-nginx"></span><h1>Configuring NGINX with SSL and HTTP/2<a class="headerlink" href="#configuring-nginx-with-ssl-and-http-2" title="Permalink to this headline">¶</a></h1>
+<p>Using SSL gives greater security by ensuring that communications between Mattermost clients and the Mattermost server are encrypted. It also allows you to configure NGINX to use the HTTP/2 protocol.</p>
+<p>Although you can configure HTTP/2 without SSL, both Firefox and Chrome browsers support HTTP/2 on secure connections only.</p>
+<p>You can use any certificate that you want, but these instructions show you how to download and install certificates from <em>Let&#8217;s Encrypt</em>.</p>
 <ol class="arabic simple">
-<li>You can use a free and an open certificate security like let&#8217;s
-encrypt, this is how to proceed</li>
-</ol>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code></li>
-<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/letsencrypt/letsencrypt</span></code></li>
-<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">letsencrypt</span></code></li>
-</ul>
-<ol class="arabic simple" start="2">
-<li>Be sure that the port 80 is not use by stopping NGINX</li>
-</ol>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></li>
-<li><code class="docutils literal"><span class="pre">netstat</span> <span class="pre">-na</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">':80.*LISTEN'</span></code></li>
-<li><code class="docutils literal"><span class="pre">./letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--standalone</span></code></li>
-</ul>
-<ol class="arabic simple" start="3">
-<li>This command will download packages and run the instance, after that
-you will have to give your domain name</li>
-<li>You can find your certificate in <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code></li>
-<li>Modify the file at <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> and add
-the following lines:</li>
+<li>Log into the server that hosts NGINX and open a terminal window.</li>
+<li>Install git.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span>upstream backend {
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Clone the Let&#8217;s Encrypt repository on GitHub.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/letsencrypt/letsencrypt</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Change to the <code class="docutils literal"><span class="pre">letsencrypt</span></code> directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">cd</span> <span class="pre">letsencrypt</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Stop NGINX.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Run <code class="docutils literal"><span class="pre">netstat</span></code> to make sure that nothing is listening on port 80.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">netstat</span> <span class="pre">-na</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">':80.*LISTEN'</span></code></div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Run the Let&#8217;s Encrypt installer.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">./letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--standalone</span></code></p>
+<p>When prompted, enter your domain name. The certificate is located in  <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root and update it to incorporate the following lines. Make sure that you use your own values for the Mattermost server IP address and FQDN for <em>server_name</em>.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>upstream backend {
     server 10.10.10.2:8065;
 }
 
@@ -186,7 +201,7 @@ server {
 proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
 
 server {
-   listen 443 ssl;
+   listen 443 ssl http2;
    server_name mattermost.example.com;
 
    ssl on;
@@ -237,48 +252,28 @@ server {
 </pre></div>
 </div>
 </div></blockquote>
-<ol class="arabic simple" start="6">
-<li>Be sure to restart NGINX</li>
+<ol class="arabic simple" start="9">
+<li>Restart NGINX</li>
 </ol>
 <blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">\</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></li>
-</ul>
-</div></blockquote>
-<ol class="arabic simple" start="7">
-<li>Add the following line to cron so the cert will renew every month</li>
-</ol>
-<blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">crontab</span> <span class="pre">-e</span></code></li>
-<li><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">yourdomainname</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></li>
-</ul>
-</div></blockquote>
-<ol class="arabic simple" start="8">
-<li>Check that your SSL certificate is set up correctly</li>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></div></blockquote>
+<ol class="arabic simple" start="10">
+<li>Check that your SSL certificate is set up correctly.</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
 <li>Test the SSL certificate by visiting a site such as <a class="reference external" href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a></li>
-<li>If there’s an error about the missing chain or certificate path, there is likely an intermediate certificate missing that needs to be included</li>
+<li>If there’s an error about the missing chain or certificate path, there is likely an intermediate certificate missing that needs to be included.</li>
 </ul>
 </div></blockquote>
-<div class="section" id="setup-http2">
-<h2>Setup HTTP2<a class="headerlink" href="#setup-http2" title="Permalink to this headline">¶</a></h2>
-<p>It is recommended to enable HTTP2 for enhanced performance.</p>
-<ol class="arabic simple">
-<li>Modify your NGINX configuration as above. Then,</li>
+<ol class="arabic simple" start="11">
+<li>Configure <code class="docutils literal"><span class="pre">cron</span></code> so that the certificate will automatically renew every month.</li>
 </ol>
 <blockquote>
-<div><ul class="simple">
-<li>Change the line <code class="docutils literal"><span class="pre">listen</span> <span class="pre">443</span> <span class="pre">ssl;</span></code> to <code class="docutils literal"><span class="pre">listen</span> <span class="pre">443</span> <span class="pre">ssl</span> <span class="pre">http2;</span></code></li>
-<li>Change the line <code class="docutils literal"><span class="pre">proxy_pass</span> <span class="pre">http://10.10.10.2:8065;</span></code> to <code class="docutils literal"><span class="pre">proxy_pass</span> <span class="pre">https://10.10.10.2:8065;</span></code></li>
-</ul>
+<div><p><code class="docutils literal"><span class="pre">crontab</span> <span class="pre">-e</span></code></p>
+<p>In the following line, use your domain name in place of <em>&lt;domain-name&gt;</em></p>
+<p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">&lt;domain-name&gt;</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
 </div></blockquote>
-<ol class="arabic simple" start="2">
-<li>Restart NGINX</li>
-</ol>
-</div>
 </div>
 
 

@@ -20,7 +20,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing PostgreSQL Database Server &mdash; Mattermost 3.5 documentation</title>
+  <title>Configuring NGINX as a proxy for Mattermost Server &mdash; Mattermost 3.5 documentation</title>
   
 
   
@@ -132,11 +132,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Installing PostgreSQL Database Server</li>
+    <li>Configuring NGINX as a proxy for Mattermost Server</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-ubuntu-1404-postgresql.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/config-proxy-nginx.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -146,96 +146,94 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installing-postgresql-database-server">
-<span id="install-ubuntu-1404-postgresql"></span><h1>Installing PostgreSQL Database Server<a class="headerlink" href="#installing-postgresql-database-server" title="Permalink to this headline">¶</a></h1>
-<p>Mattermost supports either PostgreSQL or MySQL.</p>
-<p>Assume that the IP address of this server is 10.10.10.1</p>
-<p><strong>To install PostgreSQL on Ubuntu Server:</strong></p>
-<ol class="arabic">
-<li><p class="first">Log into the server that will host the database and issue the following command:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">postgresql</span> <span class="pre">postgresql-contrib</span></code></li>
-</ul>
-</li>
-<li><p class="first">PostgreSQL created a user account called <code class="docutils literal"><span class="pre">postgres</span></code>. You will need
-to log into that account with:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-i</span> <span class="pre">-u</span> <span class="pre">postgres</span></code></li>
-</ul>
-</li>
-<li><p class="first">You can get a PostgreSQL prompt by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">psql</span></code></li>
-</ul>
-</li>
-<li><p class="first">Create the Mattermost database by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">mattermost;</span></code></li>
-</ul>
-</li>
-<li><p class="first">Create the Mattermost user by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">USER</span> <span class="pre">mmuser</span> <span class="pre">WITH</span> <span class="pre">PASSWORD</span> <span class="pre">'mmuser_password';</span></code></li>
-</ul>
-</li>
-<li><p class="first">Grant the user access to the Mattermost database by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">DATABASE</span> <span class="pre">mattermost</span> <span class="pre">to</span> <span class="pre">mmuser;</span></code></li>
-</ul>
-</li>
-<li><p class="first">You can exit out of PostgreSQL by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">postgre=#</span> <span class="pre">\q</span></code></li>
-</ul>
-</li>
-<li><p class="first">You can exit the postgres account by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">exit</span></code></li>
-</ul>
-</li>
-<li><p class="first">Allow Postgres to listen on all assigned IP Addresses</p>
-<blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">/etc/postgresql/9.3/main/postgresql.conf</span></code></li>
-<li>Uncomment <code class="docutils literal"><span class="pre">listen_addresses</span></code> and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">*</span></code></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Alter pg_hba.conf to allow the mattermost server to talk to the
-postgres database</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">/etc/postgresql/9.3/main/pg_hba.conf</span></code></li>
-<li>Add the following line to the <code class="docutils literal"><span class="pre">IPv4</span> <span class="pre">local</span> <span class="pre">connections</span></code></li>
-<li><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">10.10.10.2/32</span> <span class="pre">md5</span></code></li>
-</ul>
-</li>
-<li><p class="first">Reload Postgres database</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">/etc/init.d/postgresql</span> <span class="pre">reload</span></code></li>
-</ul>
-<p>check with netstat command to see postgresql actually running on given ip and port</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">netstat</span> <span class="pre">-anp</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">5432</span></code></li>
-</ul>
-<p>try restarting the postgresql service if reload won&#8217;t work</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">postgresql</span> <span class="pre">restart</span></code></li>
-</ul>
-</li>
-<li><p class="first">Attempt to connect with the new created user to verify everything
-looks good</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">psql</span> <span class="pre">--host=10.10.10.1</span> <span class="pre">--dbname=mattermost</span> <span class="pre">--username=mmuser</span> <span class="pre">--password</span></code></li>
-<li><code class="docutils literal"><span class="pre">mattermost=&gt;</span> <span class="pre">\q</span></code></li>
-</ul>
-</li>
+  <div class="section" id="configuring-nginx-as-a-proxy-for-mattermost-server">
+<span id="config-proxy-nginx"></span><h1>Configuring NGINX as a proxy for Mattermost Server<a class="headerlink" href="#configuring-nginx-as-a-proxy-for-mattermost-server" title="Permalink to this headline">¶</a></h1>
+<p><strong>To configure NGINX as a proxy</strong></p>
+<ol class="arabic simple">
+<li>Log into the server that hosts NGINX and open a terminal window.</li>
+<li>Create a configuration file for Mattermost.</li>
 </ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/nginx/sites-available/mattermost</span></code></div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and replace its contents, if any, with the following lines. Make sure that you use your own values for the Mattermost server IP address and FQDN for <em>server_name</em>.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>upstream backend {
+   server 10.10.10.2:8065;
+}
+
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
+
+server {
+   listen 80;
+   server_name    mattermost.example.com;
+
+   location /api/v3/users/websocket {
+       proxy_set_header Upgrade $http_upgrade;
+       proxy_set_header Connection &quot;upgrade&quot;;
+       client_max_body_size 50M;
+       proxy_set_header Host $http_host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-Forwarded-Proto $scheme;
+       proxy_set_header X-Frame-Options SAMEORIGIN;
+       proxy_buffers 256 16k;
+       proxy_buffer_size 16k;
+       proxy_read_timeout 600s;
+       proxy_pass http://backend;
+   }
+
+   location / {
+       client_max_body_size 50M;
+       proxy_set_header Connection &quot;&quot;;
+       proxy_set_header Host $http_host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-Forwarded-Proto $scheme;
+       proxy_set_header X-Frame-Options SAMEORIGIN;
+       proxy_buffers 256 16k;
+       proxy_buffer_size 16k;
+       proxy_read_timeout 600s;
+       proxy_cache mattermost_cache;
+       proxy_cache_revalidate on;
+       proxy_cache_min_uses 2;
+       proxy_cache_use_stale timeout;
+       proxy_cache_lock on;
+       proxy_pass http://backend;
+   }
+}
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Remove the existing default sites-enabled file.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">/etc/nginx/sites-enabled/default</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Enable the mattermost configuration.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/etc/nginx/sites-available/mattermost</span> <span class="pre">/etc/nginx/sites-enabled/mattermost</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Restart NGINX.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Verify you can see Mattermost thru the proxy.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
+<p>If everything is working, you will see the HTML for the Mattermost signup page.</p>
+</div></blockquote>
 <p><strong>What to do next</strong></p>
-<p>In a production environment, you should install NGINX. Using NGINX as a proxy server increases the security and performance of your Mattermost installation.</p>
+<p>You can configure NGINX to use SSL. This will allow you to use HTTPS connections and the HTTP/2 protocol.</p>
 <dl class="docutils">
 <dt><strong>Related links</strong></dt>
 <dd><ul class="first last simple">
-<li><a class="reference internal" href="install-ubuntu-1404-overview.html#install-nginx"><span class="std std-ref">Installing NGINX Server</span></a></li>
+<li><a class="reference internal" href="config-ssl-http2-nginx.html#config-ssl-http2-nginx"><span class="std std-ref">Configuring NGINX with SSL and HTTP/2</span></a></li>
 </ul>
 </dd>
 </dl>
@@ -284,7 +282,7 @@ looks good</p>
             </dd>
             
             <dd>
-                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-ubuntu-1404-postgresql.rst"> Edit on GitHub</a>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/config-proxy-nginx.rst"> Edit on GitHub</a>
             </dd>
             
         </dl>

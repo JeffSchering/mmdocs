@@ -147,7 +147,7 @@
            <div itemprop="articleBody">
             
   <div class="section" id="installing-nginx-server">
-<h1>Installing NGINX Server<a class="headerlink" href="#installing-nginx-server" title="Permalink to this headline">¶</a></h1>
+<span id="install-nginx"></span><h1>Installing NGINX Server<a class="headerlink" href="#installing-nginx-server" title="Permalink to this headline">¶</a></h1>
 <p>In a production setting, use a proxy server for greater security and performance of Mattermost.</p>
 <p>The main benefits of using a proxy are as follows:</p>
 <blockquote>
@@ -158,101 +158,58 @@
 <li>Standard request logs</li>
 </ul>
 </div></blockquote>
-<p>Assume that the IP address of the proxy server is 10.10.10.3.</p>
 <p><strong>To install NGINX on Ubuntu Server:</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that will host the proxy and issue the following command:</li>
+<li>Log into the server that will host the proxy and open a terminal window.</li>
+<li>Make sure that your package index is up to date.</li>
 </ol>
 <blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nginx</span></code></li>
-</ul>
-</div></blockquote>
-<ol class="arabic" start="2">
-<li><p class="first">Verify NGINX is running</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://10.10.10.3</span></code></li>
-<li>You should see a <em>Welcome to NGINX!</em> page</li>
-</ul>
-</li>
-<li><p class="first">You can manage NGINX with the following commands</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></li>
-</ul>
-</li>
-<li><p class="first">Map a FQDN (fully qualified domain name) like
-<code class="docutils literal"><span class="pre">mattermost.example.com</span></code> to point to the NGINX server.</p>
-</li>
-<li><p class="first">Configure NGINX to proxy connections from the internet to the
-Mattermost Server</p>
-<ul class="simple">
-<li>Create a configuration for Mattermost</li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/nginx/sites-available/mattermost</span></code></li>
-<li>Below is a sample nginx configuration optimized for performance:</li>
-</ul>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Install NGINX.</li>
+</ol>
 <blockquote>
-<div><div class="highlight-default"><div class="highlight"><pre><span></span>upstream backend {
-    server 10.10.10.2:8065;
-}
-
-proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
-
-server {
-    listen 80;
-    server_name    mattermost.example.com;
-
-    location /api/v3/users/websocket {
-        proxy_set_header Upgrade $http_upgrade;
-        proxy_set_header Connection &quot;upgrade&quot;;
-        client_max_body_size 50M;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Frame-Options SAMEORIGIN;
-        proxy_buffers 256 16k;
-        proxy_buffer_size 16k;
-        proxy_read_timeout 600s;
-        proxy_pass http://backend;
-    }
-
-    location / {
-        client_max_body_size 50M;
-        proxy_set_header Connection &quot;&quot;;
-        proxy_set_header Host $http_host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-        proxy_set_header X-Frame-Options SAMEORIGIN;
-        proxy_buffers 256 16k;
-        proxy_buffer_size 16k;
-        proxy_read_timeout 600s;
-        proxy_cache mattermost_cache;
-        proxy_cache_revalidate on;
-        proxy_cache_min_uses 2;
-        proxy_cache_use_stale timeout;
-        proxy_cache_lock on;
-        proxy_pass http://backend;
-    }
-}
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nginx</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>After the installation is complete, verify that NGINX is running.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
+<p>If NGINX is running, you see the following output:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Welcome to nginx!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+.
+.
+.
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Thank you for using nginx.<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
 </pre></div>
 </div>
 </div></blockquote>
-<ul class="simple">
-<li>Remove the existing file with</li>
-<li><code class="docutils literal"><span class="pre">`</span> <span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">/etc/nginx/sites-enabled/default`</span></code></li>
-<li>Link the mattermost config by typing:</li>
-<li><code class="docutils literal"><span class="pre">`sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/etc/nginx/sites-available/mattermost</span> <span class="pre">/etc/nginx/sites-enabled/mattermost`</span></code></li>
-<li>Restart NGINX by typing:</li>
-<li><code class="docutils literal"><span class="pre">`</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart`</span></code></li>
-<li>Verify you can see Mattermost thru the proxy by typing:</li>
-<li><code class="docutils literal"><span class="pre">`</span> <span class="pre">curl</span> <span class="pre">http://localhost`</span></code></li>
-<li>You should see a page titles <em>Mattermost - Signup</em></li>
-</ul>
-</li>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can stop, start, and restart NGINX with the following commands:</p>
+<div class="last highlight-none"><div class="highlight"><pre><span></span>sudo service nginx stop
+sudo service nginx start
+sudo service nginx restart
+</pre></div>
+</div>
+</div>
+<p><strong>What to do next</strong></p>
+<ol class="arabic simple">
+<li>Map a fully qualified domain name (FQDN) such as <code class="docutils literal"><span class="pre">mattermost.example.com</span></code> to point to the NGINX server.</li>
+<li>Configure NGINX to proxy connections from the internet to the Mattermost Server.</li>
 </ol>
+<dl class="docutils">
+<dt><strong>Related links</strong></dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="config-proxy-nginx.html#config-proxy-nginx"><span class="std std-ref">Configuring NGINX as a proxy for Mattermost Server</span></a></li>
+</ul>
+</dd>
+</dl>
 </div>
 
 
