@@ -1,0 +1,756 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Production Enterprise Install on RHEL 7.1+ &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Production Enterprise Install on RHEL 7.1+</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/ee-prod-rhel-7.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="production-enterprise-install-on-rhel-7-1">
+<span id="prod-rhel-7"></span><h1>Production Enterprise Install on RHEL 7.1+<a class="headerlink" href="#production-enterprise-install-on-rhel-7-1" title="Permalink to this headline">¶</a></h1>
+<p>Install Mattermost Enterprise Edition in production mode on one, two or three machines, using the following steps:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#install-red-hat-enterprise-linux-x64-7-1">Install Red Hat Enterprise Linux (x64) 7.1+</a></li>
+<li><a class="reference internal" href="#set-up-database-server">Set up Database Server</a></li>
+<li><a class="reference internal" href="#set-up-mattermost-server">Set up Mattermost Server</a></li>
+<li><a class="reference internal" href="#set-up-nginx-server">Set up NGINX Server</a></li>
+<li><a class="reference internal" href="#test-setup-and-configure-mattermost-server">Test setup and configure Mattermost Server</a></li>
+</ul>
+<div class="section" id="install-red-hat-enterprise-linux-x64-7-1">
+<h2>Install Red Hat Enterprise Linux (x64) 7.1+<a class="headerlink" href="#install-red-hat-enterprise-linux-x64-7-1" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Set up 3 machines with RHEL with 2GB of RAM or more. The servers will
+be used for the Proxy, Mattermost (this must be x64 to use
+pre-built binaries), and Database.<ul>
+<li><strong>Optional:</strong> You can also use a <strong>1 machine setup</strong> (Proxy, Mattermost and Database on one machine) or a <strong>2 machine setup</strong> (Proxy and Mattermost on one machine, Database on another) depending on your data center standards.</li>
+</ul>
+</li>
+<li>Make sure the system is up to date with the most recent security
+patches.<ul>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">upgrade</span></code></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="set-up-database-server">
+<h2>Set up Database Server<a class="headerlink" href="#set-up-database-server" title="Permalink to this headline">¶</a></h2>
+<p><strong>NOTE</strong>: When Mattermost and postgresql are on the same machine,
+it is recommended to use unix socket mechanism for the connection between Mattermost and Postgresql,
+as it is more secure and faster.
+Below instructions are for a connection via the TCP/IP socket.</p>
+<p>Settings specific to the unix socket connection are detailed in the <em>Unix-domain socket connection</em>
+section.</p>
+<ol class="arabic simple">
+<li>For the purposes of this guide we will assume this server has an IP
+address of <code class="docutils literal"><span class="pre">10.10.10.1</span></code><ul>
+<li><strong>Optional:</strong> if installing on the same machine substitute <code class="docutils literal"><span class="pre">10.10.10.1</span></code> with <code class="docutils literal"><span class="pre">127.0.0.1</span></code></li>
+</ul>
+</li>
+<li>Install PostgreSQL 9.4+ (or MySQL 5.6+)<ul>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">postgresql94-server</span> <span class="pre">postgresql94-contrib</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">/usr/pgsql-9.4/bin/postgresql94-setup</span> <span class="pre">initdb</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">postgresql.service</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">postgresql.service</span></code></li>
+</ul>
+</li>
+<li>PostgreSQL created a user account called <code class="docutils literal"><span class="pre">postgres</span></code>. You will need
+to log into that account with:<ul>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-i</span> <span class="pre">-u</span> <span class="pre">postgres</span></code></li>
+</ul>
+</li>
+<li>You can get a PostgreSQL prompt by typing:<ul>
+<li><code class="docutils literal"><span class="pre">psql</span></code></li>
+</ul>
+</li>
+<li>Create the Mattermost database by typing:<ul>
+<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">mattermost;</span></code></li>
+</ul>
+</li>
+<li>Create the Mattermost user by typing:<ul>
+<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">USER</span> <span class="pre">mmuser</span> <span class="pre">WITH</span> <span class="pre">PASSWORD</span> <span class="pre">'mmuser_password';</span></code></li>
+</ul>
+</li>
+<li>Grant the user access to the Mattermost database by typing:<ul>
+<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">DATABASE</span> <span class="pre">mattermost</span> <span class="pre">to</span> <span class="pre">mmuser;</span></code></li>
+</ul>
+</li>
+<li>You can exit out of PostgreSQL by typing:<ul>
+<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">\q</span></code></li>
+</ul>
+</li>
+<li>You can exit the Postgres account by typing:<ul>
+<li><code class="docutils literal"><span class="pre">exit</span></code></li>
+</ul>
+</li>
+</ol>
+<p>10. Alter <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.4/data/postgresql.conf</span></code> to allow Postgres to listen
+on all assigned IP Addresses:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Uncomment <code class="docutils literal"><span class="pre">listen_addresses</span></code> and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">\*</span></code></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="11">
+<li>Alter <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.4/data/pg_hba.conf</span></code> to allow the Mattermost Server to talk to the
+Postgres database:<ul>
+<li>Add the following line to the <code class="docutils literal"><span class="pre">IPv4</span> <span class="pre">local</span> <span class="pre">connections</span></code>:</li>
+<li><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">10.10.10.2/32</span> <span class="pre">md5</span></code></li>
+</ul>
+</li>
+<li>Reload Postgres database:<ul>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">postgresql.service</span></code></li>
+</ul>
+</li>
+<li>Attempt to connect with the new created user to verify everything
+looks good:<ul>
+<li><code class="docutils literal"><span class="pre">psql</span> <span class="pre">--host=10.10.10.1</span> <span class="pre">--dbname=mattermost</span> <span class="pre">--username=mmuser</span> <span class="pre">--password</span></code></li>
+<li><code class="docutils literal"><span class="pre">mattermost=&gt;</span> <span class="pre">\q</span></code></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="set-up-mattermost-server">
+<h2>Set up Mattermost Server<a class="headerlink" href="#set-up-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">For the purposes of this guide we will assume this server has an IP
+address of <code class="docutils literal"><span class="pre">10.10.10.2</span></code></p>
+<ul class="simple">
+<li><strong>Optional:</strong> if installing on the same machine substitute <code class="docutils literal"><span class="pre">10.10.10.2</span></code> with <code class="docutils literal"><span class="pre">127.0.0.1</span></code></li>
+</ul>
+</li>
+<li><p class="first">Download <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">any version of Mattermost Enterprise Edition</a> by typing:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code></li>
+<li>Where <code class="docutils literal"><span class="pre">vX.X.X</span></code> is typically the latest Mattermost release version, which is currently <code class="docutils literal"><span class="pre">v3.3.0</span></code>.</li>
+</ul>
+</li>
+<li><p class="first">Install Mattermost under <code class="docutils literal"><span class="pre">/opt</span></code></p>
+<ul class="simple">
+<li>Unzip the Mattermost Server by typing:</li>
+<li><code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost-X.X.X-linux-amd64.tar.gz</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mv</span> <span class="pre">mattermost</span> <span class="pre">/opt</span></code></li>
+</ul>
+</li>
+<li><p class="first">Create the storage directory for files. We assume you will have
+attached a large drive for storage of images and files. For this
+setup we will assume the directory is located at
+<code class="docutils literal"><span class="pre">/opt/mattermost/data</span></code>.</p>
+<ul class="simple">
+<li>Create the directory by typing:</li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/opt/mattermost/data</span></code></li>
+</ul>
+</li>
+<li><p class="first">Create a system user and group called mattermost that will run this
+service:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">useradd</span> <span class="pre">-r</span> <span class="pre">mattermost</span> <span class="pre">-U</span></code></li>
+<li>Set the Mattermost account as the directory owner by typing:</li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">mattermost:mattermost</span> <span class="pre">/opt/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">-R</span> <span class="pre">g+w</span> <span class="pre">/opt/mattermost</span></code></li>
+<li>Add yourself to the mattermost group to ensure you can edit these
+files:</li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">usermod</span> <span class="pre">-aG</span> <span class="pre">mattermost</span> <span class="pre">USERNAME</span></code></li>
+</ul>
+</li>
+<li><p class="first">Configure Mattermost Server by editing the <code class="docutils literal"><span class="pre">config.json</span></code> file at
+<code class="docutils literal"><span class="pre">/opt/mattermost/config</span></code></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/config</span></code></li>
+<li>Edit the file by typing:</li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">config.json</span></code></li>
+<li>replace <code class="docutils literal"><span class="pre">DriverName&quot;:</span> <span class="pre">&quot;mysql&quot;</span></code> with <code class="docutils literal"><span class="pre">DriverName&quot;:</span> <span class="pre">&quot;postgres&quot;</span></code></li>
+<li>replace
+<code class="docutils literal"><span class="pre">&quot;DataSource&quot;:</span> <span class="pre">&quot;mmuser:mostest&#64;tcp(dockerhost:3306)/mattermost_test?charset=utf8mb4,utf8&quot;</span></code>
+with
+<code class="docutils literal"><span class="pre">&quot;DataSource&quot;:</span> <span class="pre">&quot;postgres://mmuser:mmuser_password&#64;10.10.10.1:5432/mattermost?sslmode=disable&amp;connect_timeout=10&quot;</span></code></li>
+<li>Optionally you may continue to edit configuration settings in
+<code class="docutils literal"><span class="pre">config.json</span></code> or use the System Console described in a later
+section to finish the configuration.</li>
+</ul>
+</li>
+<li><p class="first">Test the Mattermost Server</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></li>
+<li>Run the Mattermost Server by typing:</li>
+<li><code class="docutils literal"><span class="pre">./platform</span></code></li>
+<li>You should see a console log like <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>
+letting you know the service is running.</li>
+<li>Stop the server for now by typing <code class="docutils literal"><span class="pre">Ctrl-C</span></code></li>
+</ul>
+</li>
+<li><p class="first">Set up Mattermost to use the systemd init daemon which handles
+supervision of the Mattermost process.</p>
+<ul>
+<li><p class="first">Create and edit <code class="docutils literal"><span class="pre">/etc/systemd/system/mattermost.service</span></code></p>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">Mattermost</span> <span class="n">server</span>
+<span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span> <span class="n">postgresql</span><span class="o">.</span><span class="n">service</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">User</span><span class="o">=</span><span class="n">mattermost</span>
+<span class="n">Group</span><span class="o">=</span><span class="n">mattermost</span>
+<span class="n">WorkingDirectory</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">mattermost</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">mattermost</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">platform</span>
+<span class="n">Restart</span><span class="o">=</span><span class="n">on</span><span class="o">-</span><span class="n">failures</span>
+<span class="n">PIDFile</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">mattermost</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">pid</span>
+<span class="n">LimitNOFILE</span><span class="o">=</span><span class="mi">49152</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+</ul>
+<ul class="simple">
+<li>Make sure the service is executable with <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">664</span> <span class="pre">/etc/systemd/system/mattermost.service</span></code></li>
+</ul>
+<ul class="simple">
+<li>Reload the services with <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></li>
+<li>Start Mattermost service with``sudo systemctl start mattermost.service``</li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">mattermost</span> <span class="pre">on</span></code></li>
+<li>Start server on reboot <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">mattermost.service</span></code></li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="unix-domain-socket-connection">
+<h2>Unix-domain socket connection<a class="headerlink" href="#unix-domain-socket-connection" title="Permalink to this headline">¶</a></h2>
+<p>Below are the instructions specific to a connection between Postgresql and Mattermost via an Unix-domain socket.
+Only changes from the original setup described above will be mentioned.</p>
+<p><strong>Set up database server</strong></p>
+<ul>
+<li><p class="first">Step 5: Name the database <code class="docutils literal"><span class="pre">mattermost_db</span></code></p>
+</li>
+<li><p class="first">Step 6: Name the user <code class="docutils literal"><span class="pre">mattermost</span></code></p>
+</li>
+<li><p class="first">Step 11: Add the following line instead:
+<code class="docutils literal"><span class="pre">local</span>&#160;&#160; <span class="pre">mattermost_db</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">mattermost</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">peer</span>&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">map=mattermap</span></code></p>
+</li>
+<li><p class="first">Append the following line to <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.4/data/pg_ident.conf</span></code>:</p>
+<p><code class="docutils literal"><span class="pre">mattermap</span>&#160;&#160;&#160;&#160;&#160; <span class="pre">mattermost</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">mattermost</span></code></p>
+<p>It maps unix user <em>mattermost</em> to psql user <em>mattermost</em>.</p>
+</li>
+<li><p class="first">Step 13: Verify everything looks good:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>$ su mattermost
+$ psql --dbname=mattermost_db --username=mattermost
+mattermost_db=&gt; \q
+</pre></div>
+</div>
+</li>
+</ul>
+<p><strong>Set up Mattermost server</strong></p>
+<ul>
+<li><p class="first">Step 6: Edit <code class="docutils literal"><span class="pre">/opt/mattermost/config/config.json</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>Replace <code class="docutils literal"><span class="pre">DriverName&quot;:</span> <span class="pre">&quot;mysql&quot;</span></code> with <code class="docutils literal"><span class="pre">DriverName&quot;:</span> <span class="pre">&quot;postgres&quot;</span></code></li>
+<li>Replace  <code class="docutils literal"><span class="pre">&quot;DataSource&quot;:</span> <span class="pre">&quot;mmuser:mostest&#64;tcp(dockerhost:3306)/mattermost_test?charset=utf8mb4,utf8&quot;</span></code> with <code class="docutils literal"><span class="pre">&quot;DataSource&quot;:</span> <span class="pre">&quot;postgres:///mattermost_db?host=/var/run/postgresql&quot;</span></code></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="set-up-nginx-server">
+<h2>Set up NGINX Server<a class="headerlink" href="#set-up-nginx-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">For the purposes of this guide we will assume this server has an IP
+address of <code class="docutils literal"><span class="pre">10.10.10.3</span></code></p>
+<ul class="simple">
+<li><strong>Optional:</strong> if installing on the same machine substitute <code class="docutils literal"><span class="pre">10.10.10.3</span></code> with <code class="docutils literal"><span class="pre">127.0.0.1</span></code></li>
+</ul>
+</li>
+<li><p class="first">We use NGINX for proxying request to the Mattermost Server. The main
+benefits are:</p>
+<ul class="simple">
+<li>SSL termination</li>
+<li>HTTP to HTTPS redirect</li>
+<li>Port mapping <code class="docutils literal"><span class="pre">:80</span></code> to <code class="docutils literal"><span class="pre">:8065</span></code></li>
+<li>Standard request logs</li>
+</ul>
+</li>
+<li><p class="first">Install NGINX on RHEL with</p>
+<ul>
+<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">/etc/yum.repos.d/nginx.repo</span></code></p>
+</li>
+<li><p class="first">Copy the below into the file</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/rhel/7/$basearch/
+gpgcheck=0
+enabled=1
+</pre></div>
+</div>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">nginx.x86_64</span></code></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">nginx</span> <span class="pre">on</span></code></p>
+</li>
+</ul>
+</li>
+<li><p class="first">Verify NGINX is running</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://10.10.10.3</span></code></li>
+<li>You should see a <em>Welcome to NGINX!</em> page</li>
+</ul>
+</li>
+<li><p class="first">Map a FQDN (fully qualified domain name) like
+<strong>mattermost.example.com</strong> to point to the NGINX server.</p>
+</li>
+<li><p class="first">Configure NGINX to proxy connections from the internet to the
+Mattermost Server</p>
+<ul>
+<li><p class="first">Create a configuration for Mattermost</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/nginx/conf.d/mattermost.conf</span></code></p>
+</li>
+<li><p class="first">Below is a sample configuration with the minimum settings required
+to configure Mattermost:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span> server {
+   server_name mattermost.example.com;
+
+   location / {
+      client_max_body_size 50M;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection &quot;upgrade&quot;;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header X-Frame-Options SAMEORIGIN;
+      proxy_pass http://10.10.10.2:8065;
+   }
+}
+</pre></div>
+</div>
+</li>
+<li><p class="first">Remove the existing file with:</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mv</span> <span class="pre">/etc/nginx/conf.d/default.conf</span> <span class="pre">/etc/nginx/conf.d/default.conf.bak</span></code></p>
+</li>
+<li><p class="first">Restart NGINX by typing:</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></p>
+</li>
+<li><p class="first">Verify you can see Mattermost thru the proxy by typing:</p>
+</li>
+<li><p class="first"><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
+</li>
+<li><p class="first">You should see a page titles <em>Mattermost - Signup</em></p>
+</li>
+<li><p class="first">Not seeing the page?  Look for errors with <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">cat</span> <span class="pre">/var/log/audit/audit.log</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">nginx</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">denied</span></code></p>
+</li>
+<li><p class="first"><strong>Optional</strong> if you&#8217;re running on the same server as the Mattermost server and see 502 errors you may need to run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setsebool</span> <span class="pre">-P</span> <span class="pre">httpd_can_network_connect</span> <span class="pre">true</span></code> because SELinux is
+preventing the connection</p>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="set-up-nginx-with-ssl-recommended">
+<h2>Set up NGINX with SSL (Recommended)<a class="headerlink" href="#set-up-nginx-with-ssl-recommended" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>You can use a free and an open certificate security like <a class="reference external" href="https://letsencrypt.org/">Let&#8217;s
+Encrypt</a>, this is how to proceed</li>
+</ol>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">git</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/letsencrypt/letsencrypt</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">letsencrypt</span></code></li>
+</ul>
+<ol class="arabic simple" start="2">
+<li>Be sure that the port 80 is not use by stopping NGINX</li>
+</ol>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></li>
+<li><code class="docutils literal"><span class="pre">netstat</span> <span class="pre">-na</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">':80.*LISTEN'</span></code></li>
+<li><code class="docutils literal"><span class="pre">./letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--standalone</span></code></li>
+</ul>
+<ol class="arabic simple" start="3">
+<li>This command will download packages and run the instance, after that
+you will have to give your domain name</li>
+<li>You can find your certificate in <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code></li>
+<li>Modify the file at <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> and add
+the following lines:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span>server {
+   listen         80;
+   server_name    mattermost.example.com;
+}
+
+server {
+   listen 443 ssl;
+   server_name mattermost.example.com;
+
+   ssl on;
+   ssl_certificate /etc/letsencrypt/live/yourdomainname/fullchain.pem;
+   ssl_certificate_key /etc/letsencrypt/live/yourdomainname/privkey.pem;
+   ssl_session_timeout 5m;
+   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+   ssl_ciphers &#39;EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH&#39;;
+   ssl_prefer_server_ciphers on;
+   ssl_session_cache shared:SSL:10m;
+
+   location / {
+      gzip off;
+      proxy_set_header X-Forwarded-Ssl on;
+      client_max_body_size 50M;
+      proxy_set_header Upgrade $http_upgrade;
+      proxy_set_header Connection &quot;upgrade&quot;;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header X-Frame-Options SAMEORIGIN;
+      proxy_pass http://10.10.10.2:8065;
+   }
+}
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic" start="6">
+<li><p class="first">Be sure to restart nginx</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
+</li>
+<li><p class="first">Check that your SSL certificate is set up correctly</p>
+</li>
+</ol>
+<p>Test the SSL certificate by visiting a site such as <cite>https://www.ssllabs.com/ssltest/index.html</cite>.</p>
+<p>If there’s an error about the missing chain or certificate path, there is likely
+an intermediate certificate missing that needs to be included.</p>
+<ol class="arabic simple" start="8">
+<li>Set up Letsencrypt cert automatic renewal</li>
+</ol>
+<ul class="simple">
+<li>Check your Letsencrypt setup is correct by running the below command. It renew</li>
+</ul>
+<p>the certificate in a fake manner:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">certbot</span> <span class="pre">renew</span> <span class="pre">--dry-run</span></code></p>
+<p>You should see a congratulation message if successful.</p>
+<p>Then, add a cron job or use systemd timer capability to run twice a day the renewal
+process.</p>
+<ul class="simple">
+<li>write the <code class="docutils literal"><span class="pre">/etc/systemd/system/letsencrypt.renewal.service</span></code> file</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">Renew</span> <span class="n">let</span><span class="s1">&#39;s encrypt certificates</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">certbot</span> <span class="n">renew</span> <span class="o">--</span><span class="n">quiet</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>write the <code class="docutils literal"><span class="pre">/etc/systemd/system/letsencrypt.timer</span></code> file</li>
+</ul>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">start</span> <span class="n">letsencrypt</span><span class="o">.</span><span class="n">renewal</span><span class="o">.</span><span class="n">service</span> <span class="n">every</span> <span class="mi">12</span> <span class="n">hours</span>
+
+<span class="p">[</span><span class="n">Timer</span><span class="p">]</span>
+<span class="n">OnUnitActiveSec</span><span class="o">=</span><span class="mi">12</span><span class="n">hours</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">timers</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li>Start and enable these two systemd files.</li>
+</ul>
+</div>
+<div class="section" id="test-setup-and-configure-mattermost-server">
+<h2>Test setup and configure Mattermost Server<a class="headerlink" href="#test-setup-and-configure-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and
+user.</li>
+<li>The first user in the system is automatically granted the
+<code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</li>
+<li>From the <code class="docutils literal"><span class="pre">town-square</span></code> channel click the dropdown and choose the
+<code class="docutils literal"><span class="pre">System</span> <span class="pre">Console</span></code> option</li>
+<li>Update <strong>Notification</strong> &gt; <strong>Email</strong> settings to setup an SMTP email service. The example below assumes AmazonSES.</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Set <em>Send Email Notifications</em> to <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set <em>Require Email Verification</em> to <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set <em>Feedback Name</em> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
+<li>Set <em>Feedback Email</em> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
+<li>Set <em>SMTP Username</em> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
+<li>Set <em>SMTP Password</em> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
+<li>Set <em>SMTP Server</em> to <code class="docutils literal"><span class="pre">email-smtp.us-east-1.amazonaws.com</span></code></li>
+<li>Set <em>SMTP Port</em> to <code class="docutils literal"><span class="pre">465</span></code></li>
+<li>Set <em>Connection Security</em> to <code class="docutils literal"><span class="pre">TLS</span></code></li>
+<li>Save the Settings</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Update <strong>File</strong> &gt; <strong>Storage</strong> settings:<ul>
+<li>Change <em>Local Directory Location</em> from <code class="docutils literal"><span class="pre">./data/</span></code> to
+<code class="docutils literal"><span class="pre">/opt/mattermost/data</span></code></li>
+</ul>
+</li>
+<li>Update <strong>General</strong> &gt; <strong>Logging</strong> settings:<ul>
+<li>Set <em>Log to The Console</em> to <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+<li>Update <strong>Advanced</strong> &gt; <strong>Rate Limiting</strong> settings:<ul>
+<li>Set <em>Vary By Remote Address</em> to <code class="docutils literal"><span class="pre">false</span></code></li>
+<li>Set <em>Vary By HTTP Header</em> to <code class="docutils literal"><span class="pre">X-Real-IP</span></code></li>
+</ul>
+</li>
+<li>Feel free to modify other settings</li>
+<li>Restart the Mattermost Service by typing:<ul>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/ee-prod-rhel-7.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

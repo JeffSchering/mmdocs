@@ -1,0 +1,345 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer Flow &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
+        <link rel="next" title="Running Mattermost" href="running-mattermost.html"/>
+        <link rel="prev" title="Developer Machine Setup" href="developer-setup.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-setup.html">Developer Machine Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-setup.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Developer Flow</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#workflow">Workflow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#useful-makefile-commands">Useful Makefile commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#running-only-specific-unit-tests">Running only specific unit tests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#repository-structure">Repository structure</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="localization-process.html">Localization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/developer.html">Mattermost Developer&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Developer Flow</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/developer/developer-flow.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developer-flow">
+<span id="developer-flow"></span><h1>Developer Flow<a class="headerlink" href="#developer-flow" title="Permalink to this headline">¶</a></h1>
+<p>If you haven&#8217;t <a class="reference external" href="https://docs.mattermost.com/developer/developer-setup.html">set up your developer environment</a>, please do so before continuing with this section.</p>
+<div class="section" id="workflow">
+<span id="workflow"></span><h2>Workflow<a class="headerlink" href="#workflow" title="Permalink to this headline">¶</a></h2>
+<p>Here&#8217;s a general workflow a Mattermost developer working on our <a class="reference external" href="https://github.com/mattermost/platform">platform repository</a> follows:</p>
+<ol class="simple">
+<li>Take a look at the <a class="reference external" href="https://docs.mattermost.com/developer/developer-flow.html#repository-structure">Repository structure</a> to find out where to look for what you&#8217;re working on.</li>
+<li>On your fork, create a branch <code class="docutils literal"><span class="pre">PLT-####</span></code> where #### is the ticket number if it is a <a class="reference external" href="https://mattermost.atlassian.net">Jira</a> ticket, or <code class="docutils literal"><span class="pre">GH-####</span></code> if it is a GitHub Issue without a Jira ticket.</li>
+<li>Make the code changes required to complete your ticket, making sure to write or modify unit tests where appropriate.</li>
+<li>To test your changes, run <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> from the root directory of the respository. This will start up the server and a watcher process that will build any changes to the client as you make them. To get changes to the server it must be restarted with <code class="docutils literal"><span class="pre">make</span> <span class="pre">restart-server</span></code>. Your server will be running at <code class="docutils literal"><span class="pre">http://localhost:8065</span></code>.</li>
+<li>Once everything works to meet the ticket requirements, stop the server with <code class="docutils literal"><span class="pre">make</span> <span class="pre">stop</span></code> and then run both <code class="docutils literal"><span class="pre">make</span> <span class="pre">check-style</span></code> and <code class="docutils literal"><span class="pre">make</span> <span class="pre">test</span></code> to make sure there are no errors with your syntax or tests.</li>
+<li>Commit your changes, push your branch and <a class="reference external" href="https://docs.mattermost.com/developer/contribution-guide.html#preparing-a-pull-request">create a pull request</a>.</li>
+<li>Respond to feedback on your pull request and make changes as necessary by commiting to your branch and pushing it. You might need to <a class="reference external" href="https://git-scm.com/book/en/v2/Git-Branching-Rebasing">rebase your changes</a> if another pull request creates conflicts.</li>
+<li>That&#8217;s it! Rejoice that you&#8217;ve helped make Mattermost better.</li>
+</ol>
+</div>
+<div class="section" id="useful-makefile-commands">
+<span id="useful-makefile-commands"></span><h2>Useful Makefile commands<a class="headerlink" href="#useful-makefile-commands" title="Permalink to this headline">¶</a></h2>
+<p>Some other <code class="docutils literal"><span class="pre">make</span></code> commands that might be useful in addition to the ones mentioned above:</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">run-server</span></code> will run only the server and not the client</li>
+<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">clean-docker</span></code> stops and removes your docker images and is a good way to wipe your database</li>
+<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">run-fullmap</span></code> will run the server and build the client with the full source map for easier debugging</li>
+<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">clean</span></code> cleans your local environment of temporary files</li>
+<li><code class="docutils literal"><span class="pre">make</span> <span class="pre">nuke</span></code> wipes your local envrionment back to a completely fresh start</li>
+</ul>
+</div>
+<div class="section" id="running-only-specific-unit-tests">
+<span id="running-only-specific-unit-tests"></span><h2>Running only specific unit tests<a class="headerlink" href="#running-only-specific-unit-tests" title="Permalink to this headline">¶</a></h2>
+<p>Since running every single unit test takes a lot of time while making changes, you can run a subset of the serverside unit tests by using the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">test</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">run</span><span class="o">=</span><span class="s1">&#39;&lt;test name or regex&gt;&#39;</span> <span class="o">./&lt;</span><span class="n">package</span> <span class="n">containing</span> <span class="n">test</span><span class="o">&gt;</span>
+</pre></div>
+</div>
+<p>For example, if you wanted to run <code class="docutils literal"><span class="pre">TestPostUpdate</span></code> in <code class="docutils literal"><span class="pre">api/post_test.go</span></code>, you would run the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">test</span> <span class="o">-</span><span class="n">v</span> <span class="o">-</span><span class="n">run</span><span class="o">=</span><span class="s1">&#39;TestPostUpdate&#39;</span> <span class="o">./</span><span class="n">api</span>
+</pre></div>
+</div>
+<p>Alternatively, if you&#8217;re writing client-side code, you can run only the client-side unit tests by using <code class="docutils literal"><span class="pre">make</span> <span class="pre">test-client</span></code>.</p>
+</div>
+<div class="section" id="repository-structure">
+<span id="repository-structure"></span><h2>Repository structure<a class="headerlink" href="#repository-structure" title="Permalink to this headline">¶</a></h2>
+<p>For server work, all the directories you&#8217;ll need are at the root of the repository.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/api">./api/</a> holds all API and application related code</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/model">./model/</a> holds all data model definitions and the Go driver</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/store">./store/</a> holds all database querying code</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/utils">./utils/</a> holds all utilities, such as the mail utility</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/i18n">./i18n/</a> holds all localization files for the server</li>
+</ul>
+<p>For client work, you&#8217;ll mostly be working in <a class="reference external" href="https://github.com/mattermost/platform/tree/master/webapp">./webapp/</a>.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/webapp/components">./webapp/components/</a> holds all the <a class="reference external" href="https://facebook.github.io/react/">React</a> UI components and views</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/webapp/actions">./webapp/actions/</a> holds all <a class="reference external" href="https://facebook.github.io/flux/docs/actions-and-the-dispatcher.html#content">Flux actions</a> where the majority of the logic of the webapp takes place</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/webapp/stores">./webapp/stores/</a> holds the stores responsible for storing and providing the views with data</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/webapp/routes">./webapp/routes/</a> holds the definitions for all the <a class="reference external" href="https://github.com/ReactTraining/react-router">React-Router</a> routes</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/webapp/i18n">./webapp/i18n/</a> holds the localization files for the client</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/webapp/utils">./webapp/utils/</a> holds all widely-used utilities</li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/tree/master/webapp/tests">./webapp/tests/</a> holds all the client unit tests</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="running-mattermost.html" class="btn btn-neutral float-right" title="Running Mattermost" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="developer-setup.html" class="btn btn-neutral" title="Developer Machine Setup" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/developer-flow.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

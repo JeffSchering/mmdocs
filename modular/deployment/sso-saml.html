@@ -1,0 +1,345 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>SAML Single-Sign-On (E20) &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Scaling for Enterprise" href="scaling.html"/>
+        <link rel="prev" title="Multi-Factor Authentication (E10)" href="auth.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="on-boarding.html">Administrator Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="push.html">Push Notifications and Mobile Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-ldap.html">Active Directory/LDAP Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auth.html">Multi-Factor Authentication (E10)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">SAML Single-Sign-On (E20)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scaling.html">Scaling for Enterprise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html">High Availability (E20) - Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-gitlab.html">GitLab Single-Sign-On</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-google.html">Google Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-office.html">Office 365 Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webrtc.html">Video and Audio Calling (Beta)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
+      
+    <li>SAML Single-Sign-On (E20)</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/deployment/sso-saml.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="saml-single-sign-on-e20">
+<span id="saml-single-sign-on-e20"></span><h1>SAML Single-Sign-On (E20)<a class="headerlink" href="#saml-single-sign-on-e20" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="overview">
+<span id="overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>SAML Single-Sign-On integration offers the following benefits:</p>
+<ul class="simple">
+<li><strong>Single-sign-on.</strong> Users can sign-in to Mattermost with their SAML credentials.</li>
+<li><strong>Centralized identity management.</strong> Mattermost accounts can display user information from SAML, such as first and last name, email and username.</li>
+<li><strong>Automatic account provisioning.</strong> New Mattermost user accounts are automatically created the first time a user signs in with their SAML credentials on the Mattermost server.</li>
+</ul>
+<p>Mattermost officially supports Okta and Microsoft ADFS as the identity providers (IDPs), please see links below for more details on how to configure SAML with Okta and Microsoft ADFS. If you&#8217;d like, you may also try configuring SAML for a custom IDP.</p>
+<div class="section" id="configure-saml-with-okta">
+<span id="configure-saml-with-okta"></span><h3><a class="reference external" href="http://docs.mattermost.com/deployment/sso-saml-okta.html">Configure SAML with Okta</a><a class="headerlink" href="#configure-saml-with-okta" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="configure-saml-with-microsoft-adfs">
+<span id="configure-saml-with-microsoft-adfs"></span><h3><a class="reference external" href="http://docs.mattermost.com/deployment/sso-saml-adfs.html">Configure SAML with Microsoft ADFS</a><a class="headerlink" href="#configure-saml-with-microsoft-adfs" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="pre-installation">
+<span id="pre-installation"></span><h3>Pre-installation<a class="headerlink" href="#pre-installation" title="Permalink to this headline">¶</a></h3>
+<p>Before configuring SAML with Okta or Microsoft ADFS, make sure you have the <a class="reference external" href="https://www.aleksey.com/xmlsec/download.html">XML Security Library</a> installed on your Mattermost instance. The XML Security Library is usually included as part of Debian GNU/Linux.</p>
+<p>Also confirm if the <code class="docutils literal"><span class="pre">xmlsec1-openssl</span></code> library was successfully installed. If not, run</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libxmlsec1-openssl</span></code> on Ubuntu</li>
+<li><code class="docutils literal"><span class="pre">yum</span> <span class="pre">install</span> <span class="pre">xmlsec1-openssl</span></code> on RHEL</li>
+</ul>
+</div>
+<div class="section" id="troubleshooting">
+<span id="troubleshooting"></span><h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<p>The following are troubleshooting suggestions on common error messages and issues.</p>
+<div class="section" id="system-administrator-locks-themselves-out-of-the-system">
+<span id="system-administrator-locks-themselves-out-of-the-system"></span><h4>1. System Administrator locks themselves out of the system<a class="headerlink" href="#system-administrator-locks-themselves-out-of-the-system" title="Permalink to this headline">¶</a></h4>
+<p>If the System Administrator is locked out of the system during SAML configuration process, they can set an existing account to System Administrator using <a class="reference external" href="http://docs.mattermost.com/deployment/on-boarding.html#creating-system-administrator-account-from-commandline">a commandline tool</a>.</p>
+</div>
+<div class="section" id="received-error-message-an-account-with-that-username-already-exists-please-contact-your-administrator">
+<span id="received-error-message-an-account-with-that-username-already-exists-please-contact-your-administrator"></span><h4>2. Received error message: <code class="docutils literal"><span class="pre">An</span> <span class="pre">account</span> <span class="pre">with</span> <span class="pre">that</span> <span class="pre">username</span> <span class="pre">already</span> <span class="pre">exists.</span> <span class="pre">Please</span> <span class="pre">contact</span> <span class="pre">your</span> <span class="pre">Administrator.</span></code><a class="headerlink" href="#received-error-message-an-account-with-that-username-already-exists-please-contact-your-administrator" title="Permalink to this headline">¶</a></h4>
+<p>This usually means an existing account has another authentication method enabled. If so, the user should sign in using that method (such as email and password), then change their sign-in method to SAML via <strong>Account Settings &gt; Security &gt; Sign-in method</strong>.</p>
+<p>This error message can also be received if the <code class="docutils literal"><span class="pre">Username</span> <span class="pre">Attribute</span></code> of their SAML credentials doesn&#8217;t match the username of their Mattermost account. If so, the user can update the attribute at their identity provider (for instance, back to the old value if it had been previously updated).</p>
+</div>
+<div class="section" id="received-error-message-an-account-with-that-email-already-exists-please-contact-your-administrator">
+<span id="received-error-message-an-account-with-that-email-already-exists-please-contact-your-administrator"></span><h4>3. Received error message: <code class="docutils literal"><span class="pre">An</span> <span class="pre">account</span> <span class="pre">with</span> <span class="pre">that</span> <span class="pre">email</span> <span class="pre">already</span> <span class="pre">exists.</span> <span class="pre">Please</span> <span class="pre">contact</span> <span class="pre">your</span> <span class="pre">Administrator.</span></code><a class="headerlink" href="#received-error-message-an-account-with-that-email-already-exists-please-contact-your-administrator" title="Permalink to this headline">¶</a></h4>
+<p>This usually means an existing account has another authentication method enabled. If so, the user should sign in using that method (such as email and password), then change their sign-in method to SAML via <strong>Account Settings &gt; Security &gt; Sign-in method</strong>.</p>
+<p>This error message can also be received if the <code class="docutils literal"><span class="pre">Email</span> <span class="pre">Attribute</span></code> of their SAML credentials doesn&#8217;t match the email address of their Mattermost account. If so, the user can update the attribute at their identity provider (for instance, back to the old value if it had been previously updated).</p>
+</div>
+<div class="section" id="received-error-message-saml-login-was-unsuccessful-because-one-of-the-attributes-is-incorrect-please-contact-your-system-administrator">
+<span id="received-error-message-saml-login-was-unsuccessful-because-one-of-the-attributes-is-incorrect-please-contact-your-system-administrator"></span><h4>4. Received error message: <code class="docutils literal"><span class="pre">SAML</span> <span class="pre">login</span> <span class="pre">was</span> <span class="pre">unsuccessful</span> <span class="pre">because</span> <span class="pre">one</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">attributes</span> <span class="pre">is</span> <span class="pre">incorrect.</span> <span class="pre">Please</span> <span class="pre">contact</span> <span class="pre">your</span> <span class="pre">System</span> <span class="pre">Administrator.</span></code><a class="headerlink" href="#received-error-message-saml-login-was-unsuccessful-because-one-of-the-attributes-is-incorrect-please-contact-your-system-administrator" title="Permalink to this headline">¶</a></h4>
+<p>Confirm all attributes, including <code class="docutils literal"><span class="pre">Email</span> <span class="pre">Attribute</span></code> and <code class="docutils literal"><span class="pre">Username</span> <span class="pre">Attribute</span></code>, are correct in both the Identity Provider configuration and in <strong>System Console &gt; SAML</strong>.</p>
+</div>
+<div class="section" id="unable-to-switch-to-saml-authentication-successfully">
+<span id="unable-to-switch-to-saml-authentication-successfully"></span><h4>4. Unable to switch to SAML authentication successfully<a class="headerlink" href="#unable-to-switch-to-saml-authentication-successfully" title="Permalink to this headline">¶</a></h4>
+<p>First, ensure you have installed the <a class="reference external" href="https://www.aleksey.com/xmlsec/download.html">XML Security Library</a> on your Mattermost instance and that <strong>it is available in your</strong> <code class="docutils literal"><span class="pre">PATH</span></code>.</p>
+<p>Second, ensure you have completed each step in our guides for <a class="reference external" href="http://docs.mattermost.com/deployment/sso-saml-okta.html">configuring SAML with Okta</a> or for <a class="reference external" href="http://docs.mattermost.com/deployment/sso-saml-adfs.html">configuring SAML with Microsoft ADFS</a>.</p>
+<p>Lastly, if you are still having trouble with configuration, feel free to post in our <a class="reference external" href="http://www.mattermost.org/troubleshoot/">Troubleshooting forum</a> and we&#8217;ll be happy to help with issues during setup.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="scaling.html" class="btn btn-neutral float-right" title="Scaling for Enterprise" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="auth.html" class="btn btn-neutral" title="Multi-Factor Authentication (E10)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/deployment/sso-saml.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

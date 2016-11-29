@@ -1,0 +1,370 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Active Directory/LDAP Setup &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Multi-Factor Authentication (E10)" href="auth.html"/>
+        <link rel="prev" title="Push Notifications and Mobile Devices" href="push.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="on-boarding.html">Administrator Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="push.html">Push Notifications and Mobile Devices</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Active Directory/LDAP Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#overview">Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pre-installation-notes">Pre-installation notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#getting-started">Getting started</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="auth.html">Multi-Factor Authentication (E10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-saml.html">SAML Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scaling.html">Scaling for Enterprise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html">High Availability (E20) - Beta</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-gitlab.html">GitLab Single-Sign-On</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-google.html">Google Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-office.html">Office 365 Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webrtc.html">Video and Audio Calling (Beta)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Active Directory/LDAP Setup</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/deployment/sso-ldap.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="active-directory-ldap-setup">
+<span id="active-directory-ldap-setup"></span><h1>Active Directory/LDAP Setup<a class="headerlink" href="#active-directory-ldap-setup" title="Permalink to this headline">¶</a></h1>
+<p><em>Available in Enterprise Edition E10 &amp; E20</em></p>
+<div class="section" id="overview">
+<span id="overview"></span><h2>Overview<a class="headerlink" href="#overview" title="Permalink to this headline">¶</a></h2>
+<p>Active Directory/LDAP integration offers the following benefits:</p>
+<ul class="simple">
+<li><strong>Single-sign-on.</strong> Users can sign-in to Mattermost with their AD/LDAP credentials.</li>
+<li><strong>Centralized identity management.</strong> Mattermost accounts can display user information from AD/LDAP, such as first and last name, email and username.</li>
+<li><strong>Automatic account provisioning.</strong> New Mattermost user accounts are automatically created the first time a user signs in with their AD/LDAP credentials on the Mattermost server.</li>
+</ul>
+</div>
+<div class="section" id="pre-installation-notes">
+<span id="pre-installation-notes"></span><h2>Pre-installation notes<a class="headerlink" href="#pre-installation-notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>If you&#8217;re using Active Directory with <strong>nested security groups</strong> you need to write a PowerShell script, or similar, to flatten and aggregate the tree into a single security group to map into Mattermost.</li>
+</ul>
+</div>
+<div class="section" id="getting-started">
+<span id="getting-started"></span><h2>Getting started<a class="headerlink" href="#getting-started" title="Permalink to this headline">¶</a></h2>
+<p>There are two ways to setup AD/LDAP:</p>
+<ol class="simple">
+<li><strong>Configure AD/LDAP using the System Console user interface</strong><ul>
+<li>Start the Mattermost server and create a new account using email and password, which is assigned the System Administrator role as the first user created, then configure AD/LDAP and then convert your System Administror account to use the AD/LDAP sign-in method.</li>
+</ul>
+</li>
+<li><strong>Configure AD/LDAP by editing <code class="docutils literal"><span class="pre">config.json</span></code></strong><ul>
+<li>Before starting the Mattermost server, edit <code class="docutils literal"><span class="pre">config.json</span></code> to enable AD/LDAP based on <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html#ldap-settings-enterprise">AD/LDAP settings documentation</a>. When you start the Mattermost server the first user to log in with valid AD/LDAP credentials will be assigned the System Administrator role.</li>
+</ul>
+</li>
+</ol>
+<div class="section" id="configure-ad-ldap-using-the-system-console-user-interface">
+<span id="configure-ad-ldap-using-the-system-console-user-interface"></span><h3>Configure AD/LDAP using the System Console user interface<a class="headerlink" href="#configure-ad-ldap-using-the-system-console-user-interface" title="Permalink to this headline">¶</a></h3>
+<p>After installing Mattermost:</p>
+<ol class="simple">
+<li><strong>Create a System Administrator account using email authentication</strong>. On a new server create an account using email and password, which is automatically assigned the <strong>System Administrator</strong> role since it is the first account created. You may also assign the role to another account.</li>
+<li><strong>Configure AD/LDAP</strong>. Select <strong>System Console</strong> from the main screen, go to <strong>AD/LDAP</strong> and fill in AD/LDAP settings based on <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html#ldap-settings-enterprise">configuration settings documentation</a></li>
+<li><strong>Confirm AD/LDAP sign-on is enabled</strong>.  After AD/LDAP has been enabled, confirm that users can sign in using AD/LDAP credentials.</li>
+<li><strong>Switch your System Administrator account from email to AD/LDAP authentication</strong>. Go to <strong>Account Settings</strong> &gt; <strong>General</strong> &gt; <strong>Sign-in Method</strong> &gt; <strong>Switch to AD/LDAP</strong> and sign-in with your AD/LDAP credentials to complete the switch.</li>
+<li><strong>(Optional) Restrict authentication to AD/LDAP</strong>. Go to <strong>System Console</strong> &gt; <strong>Authentication</strong> &gt; <strong>Email</strong> and set <strong>Allow Sign Up With Email</strong> to <code class="docutils literal"><span class="pre">false</span></code> and <strong>Allow Sign In With Email</strong> to <code class="docutils literal"><span class="pre">false</span></code>. This should leave Active Directory/LDAP as the only single-sign-in option.</li>
+</ol>
+<p>If you&#8217;ve made a mistake and lock yourself out of the system somehow, you can <a class="reference external" href="http://docs.mattermost.com/deployment/on-boarding.html#creating-system-administrator-account-from-commandline">set an existing account to System Administrator using the commandline tool</a>.</p>
+<p>Notes:</p>
+<ul class="simple">
+<li>Mattermost 3.0 checks AD/LDAP credentials at the time of sign-in and issues session tokens with configurable durations, defaulting to 30 days. If a shorter time intervals is required, this session length for SSO can be changed in <strong>System Console</strong> &gt; <strong>Security</strong> &gt; <strong>Sessions</strong>.</li>
+<li>Any user attributes updated in the AD/LDAP Server will be reflected in Mattermost when AD/LDAP Synchronization occurs. The time interval for synchronization can be set in the <strong>System Console</strong> &gt; <strong>Authentication</strong> &gt; <strong>AD/LDAP</strong> &gt; <strong>Syncronization Interval</strong>.</li>
+</ul>
+</div>
+<div class="section" id="configure-ad-ldap-deployments-with-multiple-domains">
+<span id="configure-ad-ldap-deployments-with-multiple-domains"></span><h3>Configure AD/LDAP deployments with multiple domains<a class="headerlink" href="#configure-ad-ldap-deployments-with-multiple-domains" title="Permalink to this headline">¶</a></h3>
+<p>Organizations using multiple domains can integrate with Mattermost using a &#8220;Forest&#8221; configuration to bring together multiple domains. Please see <a class="reference external" href="https://technet.microsoft.com/en-us/library/cc759073%28v=ws.10%29.aspx?f=255&amp;MSPPError=-2147217396">Forests as Collections of Domain Controllers that Trust Each Other</a> for more information.</p>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<span id="troubleshooting"></span><h2>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>The following are troubleshooting suggestions on common error messages and issues.</p>
+<div class="section" id="user-not-registered-on-ad-ldap-server">
+<span id="user-not-registered-on-ad-ldap-server"></span><h3>User not registered on AD/LDAP server<a class="headerlink" href="#user-not-registered-on-ad-ldap-server" title="Permalink to this headline">¶</a></h3>
+<p>This means the query sent back to the Active Directory/LDAP server returned no results.</p>
+<ul class="simple">
+<li>Check that you correctly entered Active Directory/LDAP user credentials (e.g. did not mix username with email).</li>
+<li>Check that the user account you&#8217;re trying to use exists in the Active Directory/LDAP service.</li>
+<li>Check that your Active Directory/LDAP properties were propertly configured.</li>
+</ul>
+</div>
+<div class="section" id="i-updated-a-user-account-in-ad-ldap-and-they-can-no-longer-log-in-to-mattermost">
+<span id="i-updated-a-user-account-in-ad-ldap-and-they-can-no-longer-log-in-to-mattermost"></span><h3>&#8220;I updated a user account in AD/LDAP, and they can no longer log in to Mattermost&#8221;<a class="headerlink" href="#i-updated-a-user-account-in-ad-ldap-and-they-can-no-longer-log-in-to-mattermost" title="Permalink to this headline">¶</a></h3>
+<p>If the user can no longer log in to Mattermost with their AD/LDAP credentials - for example, they get an error message <code class="docutils literal"><span class="pre">An</span> <span class="pre">account</span> <span class="pre">with</span> <span class="pre">that</span> <span class="pre">email</span> <span class="pre">already</span> <span class="pre">exists</span></code>, or a new Mattermost account is created when they try to log in - this means the ID attribute for their account has changed.</p>
+<p>The issue can be fixed by changing the value of the field used for the ID attribute back to the old value.</p>
+<p>Note: Currently the value is case sensitive. If the ID attribute is set to the username and the username changes from <code class="docutils literal"><span class="pre">John.Smith</span></code> to <code class="docutils literal"><span class="pre">john.smith</span></code>, the user would have problems logging in.</p>
+</div>
+<div class="section" id="system-log-error-ldap-result-code-4-size-limit-exceeded">
+<span id="system-log-error-ldap-result-code-4-size-limit-exceeded"></span><h3>System Log Error: LDAP Result Code 4 &#8220;Size Limit Exceeded&#8221;<a class="headerlink" href="#system-log-error-ldap-result-code-4-size-limit-exceeded" title="Permalink to this headline">¶</a></h3>
+<p>This indicates your AD/LDAP server configuration has a maximum page size set and the query coming from Mattermost is returning a result set in excess of that limit.</p>
+<p>To address this issue you can set the <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#maximum-page-size">max page size</a> for Mattermost&#8217;s AD/LDAP configuration. This will return a sequence of result sets below the max page size set in AD/LDAP, rather than returning all results in a single query.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="auth.html" class="btn btn-neutral float-right" title="Multi-Factor Authentication (E10)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="push.html" class="btn btn-neutral" title="Push Notifications and Mobile Devices" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/deployment/sso-ldap.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

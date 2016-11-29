@@ -1,0 +1,636 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Security Policies &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
+        <link rel="next" title="Onboarding" href="training.html"/>
+        <link rel="prev" title="Working at Mattermost" href="working-at-mattermost.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#development-process">Development Process</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="handbook.html">About Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="working-at-mattermost.html">Working at Mattermost</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Security Policies</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security-benefits-of-an-open-source-platform">Security benefits of an open source platform</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mattermost-development-guidelines">Mattermost Development Guidelines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-security-related-questions-for-enterprises">Common Security Related Questions for Enterprises</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#infrastructure-security-policies">Infrastructure Security Policies</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#business-continuity-plan">Business Continuity Plan</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="training.html">Onboarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="people-ops.html">People Ops</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/core.html">Core Team Handbook</a> &raquo;</li>
+      
+    <li>Security Policies</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/process/security.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="security-policies">
+<span id="security-policies"></span><h1>Security Policies<a class="headerlink" href="#security-policies" title="Permalink to this headline">¶</a></h1>
+<p>This document summarizes the internal security policies at Mattermost, Inc.</p>
+<ul class="simple">
+<li><a class="reference external" href="#security-benefits-of-an-open-source-platform">Security benefits of the Mattermost open source platform</a></li>
+<li><a class="reference external" href="#mattermost-development-guidelines">Mattermost Development Guidelines</a><ul>
+<li><a class="reference external" href="#security-review-checklist">Security Review Checklist</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#common-security-related-questions-for-enterprises">Common Security Related Questions for Enterprises</a><ul>
+<li><a class="reference external" href="#governance">Governance</a></li>
+<li><a class="reference external" href="#software-development-life-cycle-sdlc">Software Development Life Cycle (SDLC)</a></li>
+<li><a class="reference external" href="#training">Training</a></li>
+<li><a class="reference external" href="#validation">Validation</a></li>
+<li><a class="reference external" href="#security-response">Security Response</a></li>
+</ul>
+</li>
+<li><a class="reference external" href="#business-continuity-plan">Business Continuity Plan</a></li>
+</ul>
+<div class="section" id="security-benefits-of-an-open-source-platform">
+<span id="security-benefits-of-an-open-source-platform"></span><h2>Security benefits of an open source platform<a class="headerlink" href="#security-benefits-of-an-open-source-platform" title="Permalink to this headline">¶</a></h2>
+<p>The open source Mattermost Team Edition is used by thousands of teams around the world. Development is aided by hundreds of open source contributors, with full access to the product source code, who have a vested interest in keeping the software secure and vetted.</p>
+<p>As new threats emerge, a <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">responsible disclosure policy</a> is in place for the community to confidentially report security issues so they can be addressed by Mattermost, Inc. prior to documenting <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates</a> publicly.</p>
+<p>The commercial Mattermost Enterprise Edition extends the security and productivity benefits of the open source solution with support for advanced security, management, scale and policy compliance features for complex organizations.</p>
+</div>
+<div class="section" id="mattermost-development-guidelines">
+<span id="mattermost-development-guidelines"></span><h2>Mattermost Development Guidelines<a class="headerlink" href="#mattermost-development-guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="tracking">
+<span id="tracking"></span><h3>Tracking<a class="headerlink" href="#tracking" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Prior to implementation, potential code changes are discussed and documented in <a class="reference external" href="https://mattermost.atlassian.net/">Mattermost&#8217;s issue tracking system</a>.</li>
+<li>Security tickets are confidential to Mattermost, Inc. staff, who are under NDA, and specially tagged to avoid disclosure.</li>
+<li>All potential code changes are mapped to tickets prior to acceptance, with the exception of trivial changes and bug fixes.</li>
+</ul>
+</div>
+<div class="section" id="review">
+<span id="review"></span><h3>Review<a class="headerlink" href="#review" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>To uphold security, quality and reliability standards, all potential changes submitted by open source contributors must pass an <a class="reference external" href="https://docs.mattermost.com/process/accepting-pull-request.html">accepting pull requests</a> vetting process prior to submission.</li>
+<li>Clarity and readability of code is enforced through <a class="reference external" href="https://docs.mattermost.com/developer/style-guide.html">Mattermost style guides</a>.</li>
+<li>After submission, all proposed changes require at least two code reviews for reliability, quality and system security.</li>
+<li>All open source contributions are available for public inspection and commentary before and after acceptance.</li>
+</ul>
+</div>
+<div class="section" id="reporting">
+<span id="reporting"></span><h3>Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Mattermost uses a <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">responsible disclosure policy</a> to accept confidential reports of new threats, so they can be addressed either immediately through a dot release, or by the next bi-monthly release depending on potential impact.</li>
+<li>When Mattermost software undergoes security and penetration testing at customer sites security updates are added to the core software and <a class="reference external" href="http://about.mattermost.com/security-updates/">publicly documented by release</a>.</li>
+</ul>
+</div>
+<div class="section" id="patch-management">
+<span id="patch-management"></span><h3>Patch Management<a class="headerlink" href="#patch-management" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Critical updates are released for urgent, high priority security issues or critical losses of functionality that should not wait for the next bi-monthly release.</li>
+<li>Mattermost software has as mandatory upgrade policy and customers and users need to be on the latest release to receive critical updates.</li>
+<li>Critical updates are delivered as dot releases, for example a critical update to release <code class="docutils literal"><span class="pre">3.1.0</span></code> would be named <code class="docutils literal"><span class="pre">3.1.1</span></code>.</li>
+<li>Customers and subscribers to the Mattermost Insiders mailing list receive notification about all critical updates.</li>
+</ul>
+</div>
+<div class="section" id="security-review-checklist">
+<span id="security-review-checklist"></span><h3>Security Review Checklist<a class="headerlink" href="#security-review-checklist" title="Permalink to this headline">¶</a></h3>
+<p>In addition to checklists for quality and reliability, code changes receive multiple reviews for the following system security design principles:</p>
+<ul class="simple">
+<li>Reducing information disclosure</li>
+<li>Reducing attack surface</li>
+<li>Protecting against denial of service vulnerabilities</li>
+<li>Preventing message spoofing</li>
+<li>Preventing cross-site scripting</li>
+<li>Preventing cross-site forgery</li>
+<li>Preventing remote code execution</li>
+</ul>
+</div>
+</div>
+<div class="section" id="common-security-related-questions-for-enterprises">
+<span id="common-security-related-questions-for-enterprises"></span><h2>Common Security Related Questions for Enterprises<a class="headerlink" href="#common-security-related-questions-for-enterprises" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="governance">
+<span id="governance"></span><h3>Governance<a class="headerlink" href="#governance" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Do you maintain a quality management system (QMS) approved by management? Does your quality management system (QMS) include coverage for software application security principles?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is quality management system (QMS) content published and communicated to all relevant employees?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is quality management system (QMS) content reviewed and updated (if appropriate) at least once per year?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is there defined management oversight who is responsible for application quality and security reporting &amp; signoff?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is access to and maintenance of applications, systems, network components (including routers, databases, firewalls, voice communications servers, voice recording servers, etc), operating systems, virtualization components, hypervisors, or other information objects restricted to authorized personnel only?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is access to and maintenance of applications, systems, network components (including routers, firewalls, voice communications servers, voice recording servers, voice response units (VRU) etc), operating systems, virtualization components, hypervisors, or other information objects granted based upon need-to-know job function?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>For all IT systems including but not limited to servers, routers, switches, firewalls, databases, and external social spaces, is management approval required prior to creating all user and privileged accounts (e.g., system or security administrator)?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>For all IT systems including but not limited to servers, routers, switches, firewalls, databases are privileged accounts (e.g., system or security administrator) logged at all times and reviewed on at least a quarterly basis?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Are passwords prevented from being displayed in clear text during user authentication or in electronic/printed reports?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Are all system, application and device password files encrypted using an industry standard encryption algorithm where technically feasible?<ul>
+<li>Yes</li>
+</ul>
+</li>
+<li>If user accounts are assigned to non-permanent personnel (e.g., contractors, consultants)  for troubleshooting purposes, are the accounts disabled or removed after each use?<ul>
+<li>Yes</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="software-development-life-cycle-sdlc">
+<span id="software-development-life-cycle-sdlc"></span><h3>Software Development Life Cycle (SDLC)<a class="headerlink" href="#software-development-life-cycle-sdlc" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Are there documented processes, procedures, standards and templates used in your SDLC process?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Do the materials above include references to application security best-practices and principles being followed?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Are design and code reviews performed as part of your SDLC processes?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Are security considerations (checklists, standards and policies) referenced in the design and code review?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is application code managed in a secure configuration management system with access controls?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is there a configuration management plan and are release artifacts maintained in a configuration management system?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Are test plans and records kept that reflects the tests performed and results observed for each release?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is a release criteria defined, measured and reported on to confirm targeted release quality is achieved?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Do you work with third parties that may have access to your IP and sensitive data?<ul>
+<li>Yes, we may employ vendors and consultants, including 3rd party security analysts.</li>
+</ul>
+</li>
+<li>If so, is access to data controlled by terms of Non-Disclosure Agreements?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="training">
+<span id="training"></span><h3>Training<a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Is Internal company training available &amp; performed commensurate with personnel roles and responsibilities?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Does training include security awareness?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Does training include education on policies, standards, procedures and updates when needed?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Are personnel training plans and records kept for internal company compliance purposes?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="validation">
+<span id="validation"></span><h3>Validation<a class="headerlink" href="#validation" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Are results from the execution of test plans reported and used to track and justify release readiness?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Does the quality assurance organization have authority to delay shipment of releases due to non-conformance reasons?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Is some form of static code scanning performed as part of the release acceptance? What tools are used?<ul>
+<li>Yes, static analysis tools include ESLint and gofmt</li>
+</ul>
+</li>
+<li>Is some form of dynamic code scanning performed as part of the release acceptance? What tools are used?<ul>
+<li>Yes, Jenkins is used for dynamic code scanning as part of the release process.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="security-response">
+<span id="security-response"></span><h3>Security Response<a class="headerlink" href="#security-response" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Do you have a documented company security incident response process?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Do your maintenance releases include fixes for both quality and security related issues?<ul>
+<li>Yes.</li>
+</ul>
+</li>
+<li>Do you provide dedicated security patches for software versions that are released and supported in the field? How?<ul>
+<li>Yes. Security patches may be provided on the latest release when applicable.</li>
+</ul>
+</li>
+<li>Is there proactive notification provided to customers and software partners (PTC)?  How?<ul>
+<li>Yes. Security updates are announced via email to customers as well as mailing list subscribers.</li>
+</ul>
+</li>
+<li>Is there a specified response policy that includes the timeframe issues are to be addressed?<ul>
+<li>Yes, please see: https://about.mattermost.com/support/</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="infrastructure-security-policies">
+<span id="infrastructure-security-policies"></span><h2>Infrastructure Security Policies<a class="headerlink" href="#infrastructure-security-policies" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li>Technical infrastructure, including network security, servers and access control protocols are regularly reviewed for potential threats and vulnerabilities.</li>
+<li>Business process, HR process and policies are regularly reviewed for potential threats and vulnerabilities.</li>
+</ol>
+</div>
+<div class="section" id="business-continuity-plan">
+<span id="business-continuity-plan"></span><h2>Business Continuity Plan<a class="headerlink" href="#business-continuity-plan" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost, Inc. is headquartered in Palo Alto, California with a distributed organization across three timezones, and is therefore not easily affected by typical causes of business disruption, such as local failures of equipment, power, telecommunications, social unrest, fire, or natural disasters. Even so, threats considered in the context of business continuity are categorized by impact of the disruption.</p>
+<div class="section" id="priority-1-outages-that-would-have-immediate-impact-on-a-mattermost-customer">
+<span id="priority-1-outages-that-would-have-immediate-impact-on-a-mattermost-customer"></span><h3>Priority 1: Outages that would have immediate impact on a Mattermost customer<a class="headerlink" href="#priority-1-outages-that-would-have-immediate-impact-on-a-mattermost-customer" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="key-support-staff-unavailable-in-case-of-customer-emergency">
+<span id="key-support-staff-unavailable-in-case-of-customer-emergency"></span><h4>Key support staff unavailable in case of customer emergency.<a class="headerlink" href="#key-support-staff-unavailable-in-case-of-customer-emergency" title="Permalink to this headline">¶</a></h4>
+<p>Effect:</p>
+<ul class="simple">
+<li>Emergency response times exceed expectations</li>
+</ul>
+<p>Solution(s):</p>
+<ul class="simple">
+<li>Level 1 (Critical Business Impact) and Level 2 (Major Business Impact) support requests are received by on-call support staff, as well as three supervisory staff who can monitor and escalate issues should the assigned staff member appear to be unavailable or unable to respond to the request within the SLA time allotted.<ul>
+<li>As an additional safeguard, when an L1 or L2 escalation is reported, a notification is sent via the company&#8217;s internal Mattermost instance to all qualified support staff to be aware of the issue, and any member can step in if it seems follow-up may not be achieved within SLA expectations.</li>
+</ul>
+</li>
+</ul>
+<p>Mitigation(s):</p>
+<ul class="simple">
+<li>Mattermost, Inc. employs support staff and engineers in multiple timezones to increase availability, reduce response times and to reduce the risk that key support staff would be unavailable to service emergency requests.</li>
+</ul>
+</div>
+<div class="section" id="downtime-for-mattermost-hosted-push-notification-service-hpns">
+<span id="downtime-for-mattermost-hosted-push-notification-service-hpns"></span><h4>Downtime for Mattermost Hosted Push Notification Service (HPNS)<a class="headerlink" href="#downtime-for-mattermost-hosted-push-notification-service-hpns" title="Permalink to this headline">¶</a></h4>
+<p>Effect:</p>
+<ul class="simple">
+<li>End users at customer sites deploying on HPNS do not receive mobile push notifications.</li>
+</ul>
+<p>Solution(s):</p>
+<ul class="simple">
+<li>Mattermost, Inc. can re-deploy the service from backup to new infrastructure, should its existing infrastructure suffer an outage.</li>
+</ul>
+<p>Mitigation(s):</p>
+<ul class="simple">
+<li>HPNS is available <a class="reference external" href="https://github.com/mattermost/push-proxy">as open source software hosted on GitHub.com</a>, allowing enterprises an option to compile and self-host the service, should they choose not to use HPNS hosted by Mattermost, Inc.</li>
+</ul>
+</div>
+<div class="section" id="disruption-of-infrastructure-providing-support-over-email-online-tickets-or-mattermost-messaging-during-customer-emergency">
+<span id="disruption-of-infrastructure-providing-support-over-email-online-tickets-or-mattermost-messaging-during-customer-emergency"></span><h4>Disruption of infrastructure providing support over email, online tickets or Mattermost messaging during customer emergency<a class="headerlink" href="#disruption-of-infrastructure-providing-support-over-email-online-tickets-or-mattermost-messaging-during-customer-emergency" title="Permalink to this headline">¶</a></h4>
+<p>Effect:</p>
+<ul class="simple">
+<li>Unable to communicate with Mattermost, Inc. support team during emergency</li>
+</ul>
+<p>Solution(s):</p>
+<ul class="simple">
+<li>Should a support channel be out-of-service, Mattermost, Inc. provides redundant support options through email, online ticketing and (for customers who have purchased core access premium support) online message via Mattermost.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="priority-2-outages-having-immediate-impact-on-business-continuity">
+<span id="priority-2-outages-having-immediate-impact-on-business-continuity"></span><h3>Priority 2: Outages having immediate impact on business continuity<a class="headerlink" href="#priority-2-outages-having-immediate-impact-on-business-continuity" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="outage-due-to-malicious-software-viruses-works-trojans-and-similar">
+<span id="outage-due-to-malicious-software-viruses-works-trojans-and-similar"></span><h4>Outage due to malicious software (viruses, works, trojans and similar)<a class="headerlink" href="#outage-due-to-malicious-software-viruses-works-trojans-and-similar" title="Permalink to this headline">¶</a></h4>
+<p>Effect:</p>
+<ul class="simple">
+<li>Reduced capacity to continue business operations, depending on attack.</li>
+</ul>
+<p>Solution(s):</p>
+<ul class="simple">
+<li>Mattermost, Inc. staff uses multiple anti-virus solutions for detecting and removing malicious software and regularly backs up key systems to delete infected systems and re-deploy its infrastructure. Moreover, the company uses a range of Windows, Mac and Linux-based workstations, reducing the probability of a company-wide disruption from a single strain of malicious software.</li>
+</ul>
+</div>
+<div class="section" id="outage-due-to-online-attacks">
+<span id="outage-due-to-online-attacks"></span><h4>Outage due to online attacks<a class="headerlink" href="#outage-due-to-online-attacks" title="Permalink to this headline">¶</a></h4>
+<p>Effect:</p>
+<ul class="simple">
+<li>Reduced capacity to continue business operations, depending on attack.</li>
+</ul>
+<p>Solution(s):</p>
+<ul class="simple">
+<li>Mattermost, Inc. runs multiple monitoring and alerting services to detect and isolate suspicious traffic and requests in order to minimize downtime from potential online threats.</li>
+<li>Should our self-hosted Mattermost instance be disrupted we can, if needed, quickly re-deploy the solution within our VPN.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="priority-3-outages-greater-than-72-hours-impacting-business-continuity">
+<span id="priority-3-outages-greater-than-72-hours-impacting-business-continuity"></span><h3>Priority 3: Outages greater than 72 hours impacting business continuity<a class="headerlink" href="#priority-3-outages-greater-than-72-hours-impacting-business-continuity" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="outage-of-online-crm-system">
+<span id="outage-of-online-crm-system"></span><h4>Outage of online CRM system<a class="headerlink" href="#outage-of-online-crm-system" title="Permalink to this headline">¶</a></h4>
+<p>Effect:</p>
+<ul class="simple">
+<li>Reduced ability to continue sales operations</li>
+</ul>
+<p>Solution(s):</p>
+<ul class="simple">
+<li>While there is no current failover plan should our online CRM system become disrupted, we have SLAs with our CRM vendor&#8211;which is used by thousands of other organizations&#8211;and believe the probability out sustained outage is low.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="priority-4-outages-greater-than-10-days-impacting-business-continuity">
+<span id="priority-4-outages-greater-than-10-days-impacting-business-continuity"></span><h3>Priority 4: Outages greater than 10 days impacting business continuity<a class="headerlink" href="#priority-4-outages-greater-than-10-days-impacting-business-continuity" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="outage-of-online-hr-and-intranet-systems">
+<span id="outage-of-online-hr-and-intranet-systems"></span><h4>Outage of online HR and intranet systems<a class="headerlink" href="#outage-of-online-hr-and-intranet-systems" title="Permalink to this headline">¶</a></h4>
+<p>Effect:</p>
+<ul class="simple">
+<li>Reduced ability to continue HR and internal operations</li>
+</ul>
+<p>Solution(s):</p>
+<ul class="simple">
+<li>While there is no current failover plan should our online HR or intranet system become disrupted, we have SLAs with our  vendors&#8211;which is used by thousands of other organizations&#8211;and believe the probability out sustained outage is low.</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="training.html" class="btn btn-neutral float-right" title="Onboarding" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="working-at-mattermost.html" class="btn btn-neutral" title="Working at Mattermost" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/process/security.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

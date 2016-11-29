@@ -1,0 +1,464 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Formatting Text &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Attaching Files" href="attaching-files.html"/>
+        <link rel="prev" title="Mentioning Teammates" href="mentioning-teammates.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="sending-messages.html">Sending Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mentioning-teammates.html">Mentioning Teammates</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Formatting Text</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#emojis">Emojis</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#text-style">Text Style</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#links">Links</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#headings">Headings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lists">Lists</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#code-block">Code Block</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-line-code">In-line Code</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#in-line-images">In-line Images</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#lines">Lines</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#block-quotes">Block quotes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tables">Tables</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="attaching-files.html">Attaching Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="executing-commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flagging-messages.html">Flagging Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Formatting Text</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/formatting-text.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="formatting-text">
+<span id="formatting-text"></span><h1>Formatting Text<a class="headerlink" href="#formatting-text" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p>Markdown makes it easy to format messages. Type a message as you normally would, and use these rules to render it with special formatting.</p>
+<div class="section" id="emojis">
+<span id="emojis"></span><h2>Emojis<a class="headerlink" href="#emojis" title="Permalink to this headline">¶</a></h2>
+<p>Open the emoji autocomplete by typing <code class="docutils literal"><span class="pre">:</span></code>. A full list of emojis can be found <a class="reference external" href="http://www.emoji-cheat-sheet.com/">here</a>. It is also possible to create your own <a class="reference external" href="http://docs.mattermost.com/help/settings/custom-emoji.html">Custom Emoji</a> if the emoji you want to use doesn&#8217;t exist.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">smile</span><span class="p">:</span> <span class="p">:</span><span class="o">+</span><span class="mi">1</span><span class="p">:</span> <span class="p">:</span><span class="n">sheep</span><span class="p">:</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<p><img alt="emojis" src="../../_images/Emoji1.PNG" /></p>
+</div>
+<div class="section" id="text-style">
+<span id="text-style"></span><h2>Text Style<a class="headerlink" href="#text-style" title="Permalink to this headline">¶</a></h2>
+<p>You can use either <code class="docutils literal"><span class="pre">_</span></code> or <code class="docutils literal"><span class="pre">*</span></code> around a word to make it italic. Use two to make it bold.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">_italics_</span></code> renders as <em>italics</em></li>
+<li><code class="docutils literal"><span class="pre">**bold**</span></code> renders as <strong>bold</strong></li>
+<li><code class="docutils literal"><span class="pre">**_bold-italic_**</span></code> renders as <strong><em>bold-italics</em></strong></li>
+<li><code class="docutils literal"><span class="pre">~~strikethrough~~</span></code> renders as ~~strikethrough~~</li>
+</ul>
+</div>
+<div class="section" id="links">
+<span id="links"></span><h2>Links<a class="headerlink" href="#links" title="Permalink to this headline">¶</a></h2>
+<p>Create labeled links by putting the desired text in square brackets and the associated link in normal brackets.</p>
+<p><code class="docutils literal"><span class="pre">[Check</span> <span class="pre">out</span> <span class="pre">Mattermost!](https://about.mattermost.com/)</span></code></p>
+<p>Renders as: <a class="reference external" href="https://about.mattermost.com/">Check out Mattermost!</a></p>
+</div>
+<div class="section" id="headings">
+<span id="headings"></span><h2>Headings<a class="headerlink" href="#headings" title="Permalink to this headline">¶</a></h2>
+<p>Make a heading by typing # and a space before your title. For smaller headings, use more #’s.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="c1">## Large Heading</span>
+<span class="c1">### Smaller Heading</span>
+<span class="c1">#### Even Smaller Heading</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<p><img alt="headings" src="../../_images/Headings1.PNG" /></p>
+<p>Alternatively, you can underline the text using <code class="docutils literal"><span class="pre">===</span></code> or <code class="docutils literal"><span class="pre">---</span></code> to create headings.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Large</span> <span class="n">Heading</span>
+<span class="o">-------------</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<p><img alt="heading" src="../../_images/Headings2.PNG" /></p>
+</div>
+<div class="section" id="lists">
+<span id="lists"></span><h2>Lists<a class="headerlink" href="#lists" title="Permalink to this headline">¶</a></h2>
+<p>Create a list by using <code class="docutils literal"><span class="pre">*</span></code> or <code class="docutils literal"><span class="pre">-</span></code> as bullets. Indent a bullet point by adding two spaces in front of it.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">*</span> <span class="nb">list</span> <span class="n">item</span> <span class="n">one</span>
+<span class="o">*</span> <span class="nb">list</span> <span class="n">item</span> <span class="n">two</span>
+  <span class="o">*</span> <span class="n">item</span> <span class="n">two</span> <span class="n">sub</span><span class="o">-</span><span class="n">point</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<ul class="simple">
+<li>list item one</li>
+<li>list item two<ul>
+<li>item two sub-point</li>
+</ul>
+</li>
+</ul>
+<p>Make it an ordered list by using numbers instead:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="mf">1.</span> <span class="n">Item</span> <span class="n">one</span>
+<span class="mf">2.</span> <span class="n">Item</span> <span class="n">two</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<ol class="simple">
+<li>Item one</li>
+<li>Item two</li>
+</ol>
+<p>Make a task list by including square brackets:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">Item</span> <span class="n">one</span>
+<span class="o">-</span> <span class="p">[</span> <span class="p">]</span> <span class="n">Item</span> <span class="n">two</span>
+<span class="o">-</span> <span class="p">[</span><span class="n">x</span><span class="p">]</span> <span class="n">Completed</span> <span class="n">item</span>
+</pre></div>
+</div>
+<p>Renders as:</p>
+<p><img alt="check list" src="../../_images/checklist.PNG" /></p>
+</div>
+<div class="section" id="code-block">
+<span id="code-block"></span><h2>Code Block<a class="headerlink" href="#code-block" title="Permalink to this headline">¶</a></h2>
+<p>Create a code block by indenting each line by four spaces, or by placing ``` on the line above and below your code.</p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>```
+code block
+```
+</pre></div>
+</div>
+<p>Renders as:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">code</span> <span class="n">block</span>
+</pre></div>
+</div>
+<div class="section" id="syntax-highlighting">
+<span id="syntax-highlighting"></span><h3>Syntax Highlighting<a class="headerlink" href="#syntax-highlighting" title="Permalink to this headline">¶</a></h3>
+<p>To add syntax highlighting, type the language to be highlighted after the ``` at the beginning of the code block. Mattermost also offers four different code themes (GitHub, Solarized Dark, Solarized Light, Monokai) that can be changed in <strong>Account Settings</strong> &gt; <strong>Display</strong> &gt; <strong>Theme</strong> &gt; <strong>Custom Theme</strong> &gt; <strong>Center Channel Styles</strong></p>
+<p>Supported languages are:
+<code class="docutils literal"><span class="pre">as</span></code>, <code class="docutils literal"><span class="pre">applescript</span></code>, <code class="docutils literal"><span class="pre">osascript</span></code>, <code class="docutils literal"><span class="pre">scpt</span></code>, <code class="docutils literal"><span class="pre">bash</span></code>, <code class="docutils literal"><span class="pre">sh</span></code>, <code class="docutils literal"><span class="pre">zsh</span></code>, <code class="docutils literal"><span class="pre">clj</span></code>, <code class="docutils literal"><span class="pre">boot</span></code>, <code class="docutils literal"><span class="pre">cl2</span></code>, <code class="docutils literal"><span class="pre">cljc</span></code>, <code class="docutils literal"><span class="pre">cljs</span></code>, <code class="docutils literal"><span class="pre">cljs.hl</span></code>, <code class="docutils literal"><span class="pre">cljscm</span></code>, <code class="docutils literal"><span class="pre">cljx</span></code>, <code class="docutils literal"><span class="pre">hic</span></code>, <code class="docutils literal"><span class="pre">coffee</span></code>, <code class="docutils literal"><span class="pre">_coffee</span></code>, <code class="docutils literal"><span class="pre">cake</span></code>, <code class="docutils literal"><span class="pre">cjsx</span></code>, <code class="docutils literal"><span class="pre">cson</span></code>, <code class="docutils literal"><span class="pre">iced</span></code>, <code class="docutils literal"><span class="pre">cpp</span></code>, <code class="docutils literal"><span class="pre">c</span></code>, <code class="docutils literal"><span class="pre">cc</span></code>, <code class="docutils literal"><span class="pre">h</span></code>, <code class="docutils literal"><span class="pre">c++</span></code>, <code class="docutils literal"><span class="pre">h++</span></code>, <code class="docutils literal"><span class="pre">hpp</span></code>, <code class="docutils literal"><span class="pre">cs</span></code>, <code class="docutils literal"><span class="pre">csharp</span></code>, <code class="docutils literal"><span class="pre">css</span></code>, <code class="docutils literal"><span class="pre">d</span></code>, <code class="docutils literal"><span class="pre">di</span></code>, <code class="docutils literal"><span class="pre">dart</span></code>, <code class="docutils literal"><span class="pre">delphi</span></code>, <code class="docutils literal"><span class="pre">dpr</span></code>, <code class="docutils literal"><span class="pre">dfm</span></code>, <code class="docutils literal"><span class="pre">pas</span></code>, <code class="docutils literal"><span class="pre">pascal</span></code>, <code class="docutils literal"><span class="pre">freepascal</span></code>, <code class="docutils literal"><span class="pre">lazarus</span></code>, <code class="docutils literal"><span class="pre">lpr</span></code>, <code class="docutils literal"><span class="pre">lfm</span></code>, <code class="docutils literal"><span class="pre">diff</span></code>, <code class="docutils literal"><span class="pre">django</span></code>, <code class="docutils literal"><span class="pre">jinja</span></code>, <code class="docutils literal"><span class="pre">dockerfile</span></code>, <code class="docutils literal"><span class="pre">docker</span></code>, <code class="docutils literal"><span class="pre">erl</span></code>, <code class="docutils literal"><span class="pre">f90</span></code>, <code class="docutils literal"><span class="pre">f95</span></code>, <code class="docutils literal"><span class="pre">fsharp</span></code>, <code class="docutils literal"><span class="pre">fs</span></code>, <code class="docutils literal"><span class="pre">gcode</span></code>, <code class="docutils literal"><span class="pre">nc</span></code>, <code class="docutils literal"><span class="pre">go</span></code>, <code class="docutils literal"><span class="pre">groovy</span></code>, <code class="docutils literal"><span class="pre">handlebars</span></code>, <code class="docutils literal"><span class="pre">hbs</span></code>, <code class="docutils literal"><span class="pre">html.hbs</span></code>, <code class="docutils literal"><span class="pre">html.handlebars</span></code>, <code class="docutils literal"><span class="pre">hs</span></code>, <code class="docutils literal"><span class="pre">hx</span></code>, <code class="docutils literal"><span class="pre">java</span></code>, <code class="docutils literal"><span class="pre">jsp</span></code>, <code class="docutils literal"><span class="pre">js</span></code>, <code class="docutils literal"><span class="pre">jsx</span></code>, <code class="docutils literal"><span class="pre">json</span></code>, <code class="docutils literal"><span class="pre">jl</span></code>, <code class="docutils literal"><span class="pre">kt</span></code>, <code class="docutils literal"><span class="pre">ktm</span></code>, <code class="docutils literal"><span class="pre">kts</span></code>, <code class="docutils literal"><span class="pre">less</span></code>, <code class="docutils literal"><span class="pre">lisp</span></code>, <code class="docutils literal"><span class="pre">lua</span></code>, <code class="docutils literal"><span class="pre">mk</span></code>, <code class="docutils literal"><span class="pre">mak</span></code>, <code class="docutils literal"><span class="pre">md</span></code>, <code class="docutils literal"><span class="pre">mkdown</span></code>, <code class="docutils literal"><span class="pre">mkd</span></code>, <code class="docutils literal"><span class="pre">matlab</span></code>, <code class="docutils literal"><span class="pre">m</span></code>, <code class="docutils literal"><span class="pre">mm</span></code>, <code class="docutils literal"><span class="pre">objc</span></code>, <code class="docutils literal"><span class="pre">obj-c</span></code>, <code class="docutils literal"><span class="pre">ml</span></code>, <code class="docutils literal"><span class="pre">perl</span></code>, <code class="docutils literal"><span class="pre">pl</span></code>, <code class="docutils literal"><span class="pre">php</span></code>, <code class="docutils literal"><span class="pre">php3</span></code>, <code class="docutils literal"><span class="pre">php4</span></code>, <code class="docutils literal"><span class="pre">php5</span></code>, <code class="docutils literal"><span class="pre">php6</span></code>, <code class="docutils literal"><span class="pre">ps</span></code>, <code class="docutils literal"><span class="pre">ps1</span></code>, <code class="docutils literal"><span class="pre">pp</span></code>, <code class="docutils literal"><span class="pre">py</span></code>, <code class="docutils literal"><span class="pre">gyp</span></code>, <code class="docutils literal"><span class="pre">r</span></code>, <code class="docutils literal"><span class="pre">ruby</span></code>, <code class="docutils literal"><span class="pre">rb</span></code>, <code class="docutils literal"><span class="pre">gemspec</span></code>, <code class="docutils literal"><span class="pre">podspec</span></code>, <code class="docutils literal"><span class="pre">thor</span></code>, <code class="docutils literal"><span class="pre">irb</span></code>, <code class="docutils literal"><span class="pre">rs</span></code>, <code class="docutils literal"><span class="pre">scala</span></code>, <code class="docutils literal"><span class="pre">scm</span></code>, <code class="docutils literal"><span class="pre">sld</span></code>, <code class="docutils literal"><span class="pre">scss</span></code>, <code class="docutils literal"><span class="pre">st</span></code>, <code class="docutils literal"><span class="pre">sql</span></code>, <code class="docutils literal"><span class="pre">swift</span></code>, <code class="docutils literal"><span class="pre">tex</span></code>, <code class="docutils literal"><span class="pre">vbnet</span></code>, <code class="docutils literal"><span class="pre">vb</span></code>, <code class="docutils literal"><span class="pre">bas</span></code>, <code class="docutils literal"><span class="pre">vbs</span></code>, <code class="docutils literal"><span class="pre">v</span></code>, <code class="docutils literal"><span class="pre">veo</span></code>, <code class="docutils literal"><span class="pre">xml</span></code>, <code class="docutils literal"><span class="pre">html</span></code>, <code class="docutils literal"><span class="pre">xhtml</span></code>, <code class="docutils literal"><span class="pre">rss</span></code>, <code class="docutils literal"><span class="pre">atom</span></code>, <code class="docutils literal"><span class="pre">xsl</span></code>, <code class="docutils literal"><span class="pre">plist</span></code>, <code class="docutils literal"><span class="pre">yaml</span></code></p>
+<p>Example:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>``` go
+package main
+import &quot;fmt&quot;
+func main() {
+    fmt.Println(&quot;Hello, 世界&quot;)
+}
+```
+</pre></div>
+</div>
+<p>Renders as:</p>
+<p><strong>GitHub Theme</strong></p>
+<p><img alt="go syntax-highlighting" src="../../_images/syntax-highlighting-github.PNG" /></p>
+<p><strong>Solarized Dark Theme</strong></p>
+<p><img alt="go syntax-highlighting" src="../../_images/syntax-highlighting-sol-dark.PNG" /></p>
+<p><strong>Solarized Light Theme</strong></p>
+<p><img alt="go syntax-highlighting" src="../../_images/syntax-highlighting-sol-light.PNG" /></p>
+<p><strong>Monokai Theme</strong></p>
+<p><img alt="go syntax-highlighting" src="../../_images/syntax-highlighting-monokai.PNG" /></p>
+</div>
+</div>
+<div class="section" id="in-line-code">
+<span id="in-line-code"></span><h2>In-line Code<a class="headerlink" href="#in-line-code" title="Permalink to this headline">¶</a></h2>
+<p>Create in-line monospaced font by surrounding it with backticks.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>`monospace`
+</pre></div>
+</div>
+<p>Renders as: <code class="docutils literal"><span class="pre">monospace</span></code>.</p>
+</div>
+<div class="section" id="in-line-images">
+<span id="in-line-images"></span><h2>In-line Images<a class="headerlink" href="#in-line-images" title="Permalink to this headline">¶</a></h2>
+<p>Create in-line images using an <code class="docutils literal"><span class="pre">!</span></code> followed by the alt text in square brackets and the link in normal brackets. Add hover text by placing it in quotes after the link.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>![alt text that shows when a link is broken](broken-link &quot;hover text&quot;)
+
+and
+
+[![Build Status](https://travis-ci.org/mattermost/platform.svg?branch=master)](https://travis-ci.org/mattermost/platform) [![Github](https://assets-cdn.github.com/favicon.ico)](https://github.com/mattermost/platform)
+</pre></div>
+</div>
+<p>Renders as:</p>
+<p><img alt="alt text that shows when a link is broken" src="help\messaging\broken-link" /></p>
+<p>and</p>
+<p><a class="reference external" href="https://travis-ci.org/mattermost/platform"><img alt="Build Status" src="https://travis-ci.org/mattermost/platform.svg?branch=master" /></a> <a class="reference external" href="https://github.com/mattermost/platform"><img alt="Github" src="https://assets-cdn.github.com/favicon.ico" /></a></p>
+</div>
+<div class="section" id="lines">
+<span id="lines"></span><h2>Lines<a class="headerlink" href="#lines" title="Permalink to this headline">¶</a></h2>
+<p>Create a line by using three <code class="docutils literal"><span class="pre">*</span></code>, <code class="docutils literal"><span class="pre">_</span></code>, or <code class="docutils literal"><span class="pre">-</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">***</span></code> renders as:</p>
+</div>
+<hr class="docutils" />
+<div class="section" id="block-quotes">
+<span id="block-quotes"></span><h2>Block quotes<a class="headerlink" href="#block-quotes" title="Permalink to this headline">¶</a></h2>
+<p>Create block quotes using <code class="docutils literal"><span class="pre">&gt;</span></code>.</p>
+<p><code class="docutils literal"><span class="pre">&gt;</span> <span class="pre">block</span> <span class="pre">quotes</span></code> renders as:</p>
+<p><img alt="block quotes" src="../../_images/blockQuotes.PNG" /></p>
+</div>
+<div class="section" id="tables">
+<span id="tables"></span><h2>Tables<a class="headerlink" href="#tables" title="Permalink to this headline">¶</a></h2>
+<p>Create a table by placing a dashed line under the header row and separating the columns with a pipe <code class="docutils literal"><span class="pre">|</span></code>. (The columns don’t need to line up exactly for it to work). Choose how to align table columns by including colons <code class="docutils literal"><span class="pre">:</span></code> within the header row.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>| Left-Aligned  | Center Aligned  | Right Aligned |
+| :------------ |:---------------:| -----:|
+| Left column 1 | this text       |  $100 |
+| Left column 2 | is              |   $10 |
+| Left column 3 | centered        |    $1 |
+</pre></div>
+</div>
+<p>Renders as:</p>
+<p><img alt="table" src="../../_images/markdownTable1.PNG" /></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="attaching-files.html" class="btn btn-neutral float-right" title="Attaching Files" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="mentioning-teammates.html" class="btn btn-neutral" title="Mentioning Teammates" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/formatting-text.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

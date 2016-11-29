@@ -1,0 +1,352 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Backup &amp; Disaster Recovery &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Custom Branding Tools" href="branding.html"/>
+        <link rel="prev" title="Migration Guide" href="migrating.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="command-line-tools.html">Command Line Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-settings.html">Configuration Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html">Upgrade Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migration Guide</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Backup &amp; Disaster Recovery</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#backup">Backup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#disaster-recovery">Disaster Recovery</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="branding.html">Custom Branding Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="changelog.html">Mattermost Changelog</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Backup &amp; Disaster Recovery</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/administration/backup.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="backup-disaster-recovery">
+<h1>Backup &amp; Disaster Recovery<a class="headerlink" href="#backup-disaster-recovery" title="Permalink to this headline">¶</a></h1>
+<p>Options to protect your Mattermost server from different types of failures range from simple backup to sophisticated disaster recovery deployments and automation.</p>
+<div class="section" id="backup">
+<h2>Backup<a class="headerlink" href="#backup" title="Permalink to this headline">¶</a></h2>
+<p>The state of your Mattermost server is contained in multiple data stores that need to be separately backed-up and restored to fully recover your system from a failure.</p>
+<p>To backup your Mattermost server:</p>
+<ol class="arabic">
+<li><p class="first">Backup your Mattermost database using standard MySQL or PostgreSQL procedures depending on your database version.</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://dev.mysql.com/doc/refman/5.6/en/backup-types.html">MySQL backup documentation</a> is available online. Use the selector on the page to choose your MySQL version.</li>
+<li><a class="reference external" href="https://www.postgresql.org/docs/9.5/static/backup-dump.html">PostgreSQL backup documentation</a> is available online. Use the navigation at the top of the page to select your PostgreSQL version.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Backup your server settings stored in <code class="docutils literal"><span class="pre">config/config.json</span></code>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>If you are using SAML configuration for Mattermost, your SAML certificate files will be saved in the <code class="docutils literal"><span class="pre">config</span></code> directory. Therefore, it is recommended to backup the entire directory.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Backup files stored by your users with one of the following options:</p>
+<blockquote>
+<div><ul class="simple">
+<li>If you use local storage using the default <code class="docutils literal"><span class="pre">./data</span></code> directory back up this directory.</li>
+<li>If you use local storage using a non-default directory specified in the <code class="docutils literal"><span class="pre">Directory</span></code> setting in <code class="docutils literal"><span class="pre">config.json</span></code>, back up files in that location.</li>
+<li>If you store your files in S3, you can typically keep the files where they are located without backup.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>To restore a Mattermost instance from backup, restore your database, <code class="docutils literal"><span class="pre">config.json</span></code> file and optionally locally stored user files into the locations from which they were backed up.</p>
+</div>
+<div class="section" id="disaster-recovery">
+<h2>Disaster Recovery<a class="headerlink" href="#disaster-recovery" title="Permalink to this headline">¶</a></h2>
+<p>An appropriate disaster recovery plan weighs the benefits of mitigating specific risks against the cost and complexity of setting up disaster recovery infrastructure and automation.</p>
+<p>There are two common approaches:</p>
+<div class="section" id="automated-backup">
+<h3>Automated backup<a class="headerlink" href="#automated-backup" title="Permalink to this headline">¶</a></h3>
+<p>Automating backup up a Mattermost server provides a copy of the server&#8217;s state at a particular point in time, which can be restored if a failure in future leads to loss of data. Options include:</p>
+<ul class="simple">
+<li>Automation to periodically backup the Mattermost server, which may include all the components listed above or a subset depending on what you choose to protect.</li>
+<li>Automation to restore a server from backup, or deploy a new server, to reduce recovery time.</li>
+<li>Automation to verify a backup has been successfully produced to protect against backup automation failures.</li>
+<li>Storing backups off-site, to protect against physical loss of onsite systems.</li>
+</ul>
+<p>Recoverying from a failure using a backup is typically a manual process and will incur downtime. The alternative is to automate recovery using a high availability deployment.</p>
+</div>
+<div class="section" id="high-availability-deployment">
+<h3>High availability deployment<a class="headerlink" href="#high-availability-deployment" title="Permalink to this headline">¶</a></h3>
+<p>Deploying Mattermost in <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html">high availability mode</a> allows for fast, automated recovery from a component failure, such as a specific server running out of disk space or having a hardware issue, by running on redundant servers. Options include:</p>
+<ul class="simple">
+<li>Deploying redundant Mattermost servers, to protect against failures in the Mattermost server.</li>
+<li>Deploying redundant databases, to protect against failures in the database.</li>
+<li>Deploying redundant web proxies, to protect against failures in the web proxies.</li>
+<li>Deploying redundant infrastructure in a separate physical data center, to protect against failures in the primary data center.</li>
+</ul>
+<p>A properly deployed high availability setup automatically switches over to a redundant system should a single server fail. High availability does not protect against failures such as data corruption, since errors would propagate to redundant systems.</p>
+<p>A &#8220;complete&#8221; disaster recovery solution would protect against both real-time hardware failures using high availability, data corruption failures using automated, and failures of the primary data center by offering both offsite backup and offsite redundant infrastructure. Because the complexity of a full disaster recovery solution is high, it is common for customers to consider trade-offs in cost and complexity relative to the anticipated risks and target recovery times.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="branding.html" class="btn btn-neutral float-right" title="Custom Branding Tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="migrating.html" class="btn btn-neutral" title="Migration Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/administration/backup.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

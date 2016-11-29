@@ -1,0 +1,800 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>User Experience Guidelines &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
+        <link rel="next" title="Localization" href="localization-process.html"/>
+        <link rel="prev" title="Mattermost Style Guide" href="style-guide.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-setup.html">Developer Machine Setup</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-setup.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">User Experience Guidelines</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#design-principles">Design Principles</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#fast">Fast</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#obvious">Obvious</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#forgiving">Forgiving</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#technical-guidelines">Technical Guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#bootstrap-classes">Bootstrap Classes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-styles">Custom Styles</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#minimum-display-requirements">Minimum Display Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#desktop">Desktop</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#design-guidelines">Design Guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#button-states">Button States</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notifications-header">Notifications: Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-validation">Input: Validation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-icons">Display: Icons</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-hints">Input: Hints</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-fields">Input: Fields</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-button-placement">Display: Button Placement</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-number-of-choices">Display: Number of Choices</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display-alignment">Display: Alignment</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#organization-reduce-obvious-steps">Organization: Reduce Obvious Steps</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#feedback-error-messages">Feedback: Error Messages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#input-input-patterns">Input: Input Patterns</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#menu-items">Menu items</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#testing-checklist">Testing Checklist</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="localization-process.html">Localization</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/developer.html">Mattermost Developer&#8217;s Guide</a> &raquo;</li>
+      
+    <li>User Experience Guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/developer/fx-guidelines.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="user-experience-guidelines">
+<h1>User Experience Guidelines<a class="headerlink" href="#user-experience-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>The purpose of the Mattermost User Experience Guidelines (&#8220;UX Guidelines&#8221;) is to deliver a level of usability and consistency that turns users of Mattermost software into fans of the Mattermost experience.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#design-principles" id="id3">Design Principles</a><ul>
+<li><a class="reference internal" href="#fast" id="id4">Fast</a></li>
+<li><a class="reference internal" href="#obvious" id="id5">Obvious</a></li>
+<li><a class="reference internal" href="#forgiving" id="id6">Forgiving</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#technical-guidelines" id="id7">Technical Guidelines</a><ul>
+<li><a class="reference internal" href="#bootstrap-classes" id="id8">Bootstrap Classes</a></li>
+<li><a class="reference internal" href="#custom-styles" id="id9">Custom Styles</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#minimum-display-requirements" id="id10">Minimum Display Requirements</a><ul>
+<li><a class="reference internal" href="#desktop" id="id11">Desktop</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#design-guidelines" id="id12">Design Guidelines</a><ul>
+<li><a class="reference internal" href="#button-states" id="id13">Button States</a></li>
+<li><a class="reference internal" href="#notifications-header" id="id14">Notifications: Header</a></li>
+<li><a class="reference internal" href="#input-validation" id="id15">Input: Validation</a></li>
+<li><a class="reference internal" href="#display-icons" id="id16">Display: Icons</a></li>
+<li><a class="reference internal" href="#input-hints" id="id17">Input: Hints</a></li>
+<li><a class="reference internal" href="#input-fields" id="id18">Input: Fields</a></li>
+<li><a class="reference internal" href="#display-button-placement" id="id19">Display: Button Placement</a></li>
+<li><a class="reference internal" href="#display-number-of-choices" id="id20">Display: Number of Choices</a></li>
+<li><a class="reference internal" href="#display-alignment" id="id21">Display: Alignment</a></li>
+<li><a class="reference internal" href="#organization-reduce-obvious-steps" id="id22">Organization: Reduce Obvious Steps</a></li>
+<li><a class="reference internal" href="#feedback-error-messages" id="id23">Feedback: Error Messages</a></li>
+<li><a class="reference internal" href="#input-input-patterns" id="id24">Input: Input Patterns</a></li>
+<li><a class="reference internal" href="#menu-items" id="id25">Menu items</a></li>
+<li><a class="reference internal" href="#testing-checklist" id="id26">Testing Checklist</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<hr class="docutils" />
+<div class="section" id="design-principles">
+<h2><a class="toc-backref" href="#id3">Design Principles</a><a class="headerlink" href="#design-principles" title="Permalink to this headline">¶</a></h2>
+<p>“Fast, Obvious, and Forgiving” – These principles define the standard we’re setting for the Mattermost experience:</p>
+<div class="section" id="fast">
+<h3><a class="toc-backref" href="#id4">Fast</a><a class="headerlink" href="#fast" title="Permalink to this headline">¶</a></h3>
+<p>Fast has two parts: being <em>responsive</em> and being <em>quick</em>.</p>
+<p><strong>Responsive</strong> means when a user clicks, taps, types or otherwise enters input we give immediate feedback that the input is received and something is happening. It could be a spinner animation, or just some text saying “Loading”, but something always responds to the user.</p>
+<p><strong>Quick</strong> means things happen as soon as they can. Loading pages, sending messages, receiving notifications and other vital actions should be automatically benchmarked for performance. Bugs should be opened on performance regressions.</p>
+</div>
+<div class="section" id="obvious">
+<h3><a class="toc-backref" href="#id5">Obvious</a><a class="headerlink" href="#obvious" title="Permalink to this headline">¶</a></h3>
+<p>Obvious means users are never confused. Across product features, interface layout, labeling, help text, and documentation, it is critical that everything we offer makes sense in the mind of the user, even if it means oversimplifying how things technically work.</p>
+<p>If a user doesn’t understand how to use a feature, all the underlying effort and code is wasted. The “Obvious” design principle also flows through to our <a class="reference external" href="http://www.mattermost.org/documentation-guidelines/">Documentation Guidelines</a>.</p>
+<p>Given <a class="reference external" href="https://en.wikipedia.org/wiki/Hick%27s_law">Hick’s Law</a>, core functionality should be apparent, and advanced functionality should be possible via sub-menus and well documented and tested.</p>
+<p>Functionality that is not fundamental to the product purpose should be ruthlessly omitted.</p>
+</div>
+<div class="section" id="forgiving">
+<h3><a class="toc-backref" href="#id6">Forgiving</a><a class="headerlink" href="#forgiving" title="Permalink to this headline">¶</a></h3>
+<p>Forgiving means there’s no such thing as user error–-it’s always the fault of the product. This mindset means we can fix problems coming from users making unexpected decisions. Fixes could be through user interface improvements, adjustments to help text, or helping users recover when things go wrong–adding undelete, undo and rolling back for example.</p>
+<p>Forgiving extends to compatibility as well, and whether you’re working from a PC, phone or tablet, Mattermost should adjust to reasonably serve your device, screen size, and major browser type.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="technical-guidelines">
+<h2><a class="toc-backref" href="#id7">Technical Guidelines</a><a class="headerlink" href="#technical-guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="bootstrap-classes">
+<h3><a class="toc-backref" href="#id8">Bootstrap Classes</a><a class="headerlink" href="#bootstrap-classes" title="Permalink to this headline">¶</a></h3>
+<p>Since we’re using <a class="reference external" href="http://getbootstrap.com/">bootstrap</a>, try to utilize <a class="reference external" href="http://getbootstrap.com/css/">bootstrap classes</a> as much as possible rather than creating new styles or using inline styles.</p>
+</div>
+<div class="section" id="custom-styles">
+<h3><a class="toc-backref" href="#id9">Custom Styles</a><a class="headerlink" href="#custom-styles" title="Permalink to this headline">¶</a></h3>
+<p>We’re using <a class="reference external" href="https://en.bem.info/method/">BEM methodology</a>  and would advise everyone to do so when creating new classes or ids. There’s a lot of places in our app that currently don’t follow BEM but we’re trying to improve the codebase. <a class="reference external" href="http://csswizardry.com/2013/01/mindbemding-getting-your-head-round-bem-syntax/">Here</a> is a brief overview of the BEM syntax.</p>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="minimum-display-requirements">
+<h2><a class="toc-backref" href="#id10">Minimum Display Requirements</a><a class="headerlink" href="#minimum-display-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="desktop">
+<h3><a class="toc-backref" href="#id11">Desktop</a><a class="headerlink" href="#desktop" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li><strong>Minimum screen resolution:</strong> 1280 x 800</li>
+<li><strong>Color Depth:</strong> 16.7M colors</li>
+</ul>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="design-guidelines">
+<h2><a class="toc-backref" href="#id12">Design Guidelines</a><a class="headerlink" href="#design-guidelines" title="Permalink to this headline">¶</a></h2>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+<div class="section" id="button-states">
+<h3><a class="toc-backref" href="#id13">Button States</a><a class="headerlink" href="#button-states" title="Permalink to this headline">¶</a></h3>
+<p>All buttons should have a visually distinct appearence for the following states (if applicable):</p>
+<ul class="simple">
+<li>default</li>
+<li>on_hover / on_hover (w tooltip)</li>
+<li>active</li>
+<li>disabled (greyed out or hidden)</li>
+</ul>
+<p><strong>Example:</strong></p>
+<blockquote>
+<div><img alt="Button design" src="../_images/buttonDesign.png" />
+</div></blockquote>
+<div class="line-block">
+<div class="line"><br /></div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="notifications-header">
+<h3><a class="toc-backref" href="#id14">Notifications: Header</a><a class="headerlink" href="#notifications-header" title="Permalink to this headline">¶</a></h3>
+<p>Appears as an additional header at the top of the UI. May include an “x” button to dismiss. Limited to 60 characters. May include a time-out. Header notification should appear over the rest of the UI instead of pushing the UI down. Multiple headers can appear, with the earliest notification at the top and more recent notifications appearing underneath.</p>
+<p><strong>Desktop</strong></p>
+<blockquote>
+<div><div class="figure">
+<img alt="Header Notification Desktop" src="../_images/header1.png" />
+</div>
+</div></blockquote>
+<p><strong>Mobile</strong></p>
+<blockquote>
+<div><img alt="Header Notification Mobile" src="../_images/header2.png" />
+</div></blockquote>
+<p>There are several modes for this element:</p>
+<blockquote>
+<div><p><strong>System-wide header notification:</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Triggered on login. Includes “x” button to dismiss. No timeout. Removed when system admin cancels.</div>
+<div class="line"><br /></div>
+<div class="line">Examples:</div>
+<div class="line">“Try our new Windows App. Click here to download.”,</div>
+<div class="line">“Scheduled maintenance 2:00am to 2:30am starts in 20 minutes, 3 seconds.”</div>
+</div>
+</div></blockquote>
+<p><strong>Action required header notification:</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Triggered on login. No “x” button to dismiss. No timeout. Dismissed when action completed.</div>
+<div class="line"><br /></div>
+<div class="line">Examples:</div>
+<div class="line">“We’re evolving. Please review and accept our new terms of service.”</div>
+</div>
+</div></blockquote>
+<p><strong>Persistent issue header notification:</strong></p>
+<blockquote>
+<div><div class="line-block">
+<div class="line">Triggered on issue. No “x” button to dismiss. Dismissed when issue no longer persists.</div>
+<div class="line"><br /></div>
+<div class="line">Examples:</div>
+<div class="line">“You are not connected to the internet.”</div>
+</div>
+</div></blockquote>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="input-validation">
+<h3><a class="toc-backref" href="#id15">Input: Validation</a><a class="headerlink" href="#input-validation" title="Permalink to this headline">¶</a></h3>
+<p><strong>Feedback on action:</strong></p>
+<p>The user should be notified about the action he performed along with any implications associated with it.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Example 1:</dt>
+<dd><p class="first">&#8220;Settings are saved but will be applied after a server restart&#8221;</p>
+<blockquote class="last">
+<div><img alt="Settings saved" src="../_images/confirm2.jpg" />
+</div></blockquote>
+</dd>
+<dt>Example 2:</dt>
+<dd><p class="first">&#8220;Link copied to clipboard&#8221;</p>
+<blockquote class="last">
+<div><img alt="Confirmation message" src="../_images/confirm1.jpg" />
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+<p><strong>Save prompt:</strong></p>
+<p>A prompt should appears if a user makes changes to a setting and attempts to navigate away without saving them.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Example:</dt>
+<dd><p class="first">&#8220;You have unsaved changes, are you sure you want to discard them?&#8221;</p>
+<blockquote class="last">
+<div><img alt="Save prompt" src="../_images/save1.png" />
+</div></blockquote>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="display-icons">
+<h3><a class="toc-backref" href="#id16">Display: Icons</a><a class="headerlink" href="#display-icons" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><dl class="first docutils">
+<dt>When to use icons</dt>
+<dd><ol class="first last loweralpha simple">
+<li>When there’s not enough space for the label and an icon can easily represent the label.</li>
+<li>When an icon can help the user more quickly understand a feature.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>When not to use icons</dt>
+<dd><ol class="first last loweralpha simple">
+<li>When the term/phrase is too specific or complicated.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Icons should vary across different options</dt>
+<dd><ol class="first last loweralpha simple">
+<li>When using icons, different options in the same section should have different icons.</li>
+</ol>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Testing</dt>
+<dd><ol class="first last loweralpha simple">
+<li>File a bug if the icon is difficult to understand or has cosmetic defects (size, blur, etc.)</li>
+<li>File a bug when an icon doesn’t obviously indicate the underlying feature</li>
+</ol>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+<hr class="docutils" />
+<div class="section" id="input-hints">
+<h3><a class="toc-backref" href="#id17">Input: Hints</a><a class="headerlink" href="#input-hints" title="Permalink to this headline">¶</a></h3>
+<p><strong>Fieldname:</strong></p>
+<blockquote>
+<div><p>The labels on input fields should be as obvious as possible for the intended user.</p>
+<dl class="docutils">
+<dt>Incorrect:</dt>
+<dd>Handle: The name of the subdirectory used to navigate to a channel using the site URL appended with the handle name. Must use only valid URL inputs</dd>
+<dt>Correct:</dt>
+<dd>Channel URL: The web address used to reach your channel.</dd>
+</dl>
+</div></blockquote>
+<p><strong>Help text:</strong></p>
+<blockquote>
+<div><p>Text below an input field should clearly and concisely describe the PURPOSE of the input.</p>
+<p>In general, avoid describing the technical requirements of the field in Help Text, and use Placeholder input text, field validation and error messages to convey requirements. The exception to this guideline is if requirements are non-obvious, such as passwords needing different numbers of characters, symbols, etc.</p>
+<p>For a setting involving a CONDITION and an ACTION, the help text should be written as &#8220;ACTION when/for CONDITION&#8221;</p>
+<dl class="docutils">
+<dt>Incorrect:</dt>
+<dd>When a new message is received, flash the taskbar icon.</dd>
+<dt>Correct:</dt>
+<dd>Flash the taskbar icon when a new message is received.</dd>
+</dl>
+</div></blockquote>
+<p><strong>Placeholder input text:</strong></p>
+<blockquote>
+<div>Show examples of valid input, such as <code class="docutils literal"><span class="pre">name&#64;example.com</span></code> for email addresses, as well as examples of functionality that is not obviously supported. For example, for a channel name field the placeholder input text could be “Example: Marketing, John’s Room, 中国业务”.</div></blockquote>
+<p><strong>Field validation:</strong></p>
+<blockquote>
+<div><p>Use field validation to help “prevent or correct” any mistakes a user might make.</p>
+<blockquote>
+<div><p>For <strong>textfields</strong>, restrict users from making entries that are too long by limiting characters via the maxlength attribute.</p>
+<p>For <strong>textareas</strong>, show a character counter and then a helpful message if the user exceeds the maximum number of characters.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../_images/valid1.png"><img alt="Character count" src="../_images/valid1.png" style="width: 500px;" /></a>
+<a class="reference internal image-reference" href="../_images/valid2.png"><img alt="Character count" src="../_images/valid2.png" style="width: 500px;" /></a>
+</div></blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<div>If a user enters invalid uppercase letters and spaces for a URL, show an error message and also offer a correction, substituting dashes for spaces and lower case letters for uppercase letters, so the user can resubmit immediately with valid input.</div></blockquote>
+</div></blockquote>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="input-fields">
+<h3><a class="toc-backref" href="#id18">Input: Fields</a><a class="headerlink" href="#input-fields" title="Permalink to this headline">¶</a></h3>
+<p>Users should enter information into fields without much thinking. ENTER button on last
+input field should trigger default dialog button. When last input field in a series has
+focus and user hits ENTER it should trigger the default button in the dialog.</p>
+<p><strong>Example 1:</strong></p>
+<blockquote>
+<div><p>If focus is on the last input field in dialog (“Miller”), hitting ENTER triggers the default dialog button (“Send Invitations”)</p>
+<a class="reference internal image-reference" href="../_images/inputField1.png"><img alt="Input Field Enter" src="../_images/inputField1.png" style="width: 500px;" /></a>
+</div></blockquote>
+<p><strong>Example 2:</strong></p>
+<blockquote>
+<div><p>Having radio buttons for input options.
+<strong>NOTE</strong>: We should use radio buttons/checkboxes for input options rather than custom bootstrap on/off switches.</p>
+<a class="reference internal image-reference" href="../_images/inputField2.png"><img alt="Radio Buttons" src="../_images/inputField2.png" style="width: 500px;" /></a>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="display-button-placement">
+<h3><a class="toc-backref" href="#id19">Display: Button Placement</a><a class="headerlink" href="#display-button-placement" title="Permalink to this headline">¶</a></h3>
+<p><strong>Dialog BOTTOM RIGHT BUTTONS should be either “Close”, or “Cancel” and [ACTION_BUTTON].</strong></p>
+<p>If there’s one button on the bottom right, it should be “Close”, if there are two, the one on the left should be “Cancel” and the one on the right should be an [ACTION_BUTTON], like “Save” or “Send Invitations”.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Correct:</dt>
+<dd><p class="first">Single button at the bottom right should be “Close”.</p>
+<a class="last reference internal image-reference" href="../_images/buttonPlacement1.png"><img alt="Button Placement 1" src="../_images/buttonPlacement1.png" style="width: 500px;" /></a>
+</dd>
+<dt>Correct:</dt>
+<dd><p class="first">When there are two buttons on bottom right, left button should be “Cancel” and the button on the right should be the [ACTION_BUTTON], in this case “Send Invitations”.</p>
+<a class="last reference internal image-reference" href="../_images/buttonPlacement2.png"><img alt="Button Placement 2" src="../_images/buttonPlacement2.png" style="width: 500px;" /></a>
+</dd>
+<dt>Incorrect:</dt>
+<dd><p class="first">When there are two buttons at the bottom right, left button should not be “Close”, as it’s not clear if closing will or won’t execute the [ACTION_BUTTON].</p>
+<a class="last reference internal image-reference" href="../_images/buttonPlacement3.png"><img alt="Button Placement 3" src="../_images/buttonPlacement3.png" style="width: 500px;" /></a>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="display-number-of-choices">
+<h3><a class="toc-backref" href="#id20">Display: Number of Choices</a><a class="headerlink" href="#display-number-of-choices" title="Permalink to this headline">¶</a></h3>
+<p>To simplify decisions, when practical, limit the number of choices to 3 or 4, and add separators or headings between logical groups. See <a class="reference external" href="https://en.wikipedia.org/wiki/Hick%27s_law">Hick’s Law</a> for background on why this helps.</p>
+<p>Example:</p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Incorrect:</dt>
+<dd><p class="first">No clear separation between distinct options.</p>
+<a class="last reference internal image-reference" href="../_images/choices1.png"><img alt="No separation" src="../_images/choices1.png" style="width: 500px;" /></a>
+</dd>
+<dt>Correct:</dt>
+<dd><p class="first">A clear separation between distinct options.</p>
+<a class="last reference internal image-reference" href="../_images/choices2.png"><img alt="Clear separation" src="../_images/choices2.png" style="width: 500px;" /></a>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="display-alignment">
+<h3><a class="toc-backref" href="#id21">Display: Alignment</a><a class="headerlink" href="#display-alignment" title="Permalink to this headline">¶</a></h3>
+<p><strong>Elements should feature margins horizontally and vertically, evenly spaced.</strong></p>
+<p>Create space between elements, such as buttons, text, line separators, headers and backgrounds, by leaving even space around them (either equal space or at most 1 pixel difference).</p>
+<blockquote>
+<div><p><strong>Example:</strong></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Button positioned in the middle of the header.</dt>
+<dd><a class="first last reference internal image-reference" href="../_images/align1.jpg"><img alt="Button positioning" src="../_images/align1.jpg" style="width: 500px;" /></a>
+</dd>
+<dt>Error message does not extend beyond the horizontal line separator.</dt>
+<dd><a class="first last reference internal image-reference" href="../_images/align2.png"><img alt="Confined messages with respect to width" src="../_images/align2.png" style="width: 500px;" /></a>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Horizontally align multi-line elements along a vertical line.</strong></p>
+<blockquote>
+<div><p><strong>Example:</strong></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Roles right justified with respect to the text and irrespective of the icon.</dt>
+<dd><a class="first last reference internal image-reference" href="../_images/align3.jpg"><img alt="Vertically justified" src="../_images/align3.jpg" style="width: 500px;" /></a>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+<p><strong>Instructions should be sentences, one-line links should be fragments.</strong></p>
+<p>Instructions, such as “A password reset link has been sent to <code class="docutils literal"><span class="pre">you&#64;email.com</span></code> for your account. Please check your inbox.”, should be displayed as sentences ending in periods. One-line links, such as “Find it here”, should not end in periods or commas, but question marks are okay.</p>
+<blockquote>
+<div><p><strong>Example:</strong></p>
+<blockquote>
+<div><dl class="docutils">
+<dt>Incorrect:</dt>
+<dd><p class="first">Instruction “Please check your inbox”, didn&#8217;t end with a period.</p>
+<a class="last reference internal image-reference" href="../_images/align4.png"><img alt="Period Missing" src="../_images/align4.png" style="width: 300px;" /></a>
+</dd>
+<dt>Correct:</dt>
+<dd><p class="first">Instruction “Please check your inbox”, ended with a period.</p>
+<a class="last reference internal image-reference" href="../_images/align5.jpg"><img alt="Period added" src="../_images/align5.jpg" style="width: 300px;" /></a>
+</dd>
+</dl>
+</div></blockquote>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="organization-reduce-obvious-steps">
+<h3><a class="toc-backref" href="#id22">Organization: Reduce Obvious Steps</a><a class="headerlink" href="#organization-reduce-obvious-steps" title="Permalink to this headline">¶</a></h3>
+<p>If the action users need to perform is obvious, we should make concious decisions to reduce some of the steps involved in that process.</p>
+<blockquote>
+<div><dl class="docutils">
+<dt><strong>Example 1:</strong></dt>
+<dd><p class="first">Clicking on the search icon on mobile should focus the search bar when it slides in.</p>
+<img alt="Search mobile" class="last" src="../_images/reduce1.png" />
+</dd>
+<dt><strong>Example 2:</strong></dt>
+<dd><p class="first">Clicking on the reply icon should move the focus to the comment box in the right-hand sidebar.</p>
+<img alt="Reply icon" class="last" src="../_images/reduce2.png" />
+</dd>
+<dt><strong>Example 3:</strong></dt>
+<dd><p class="first">Switching channels should move the focus to the post box in the center channel.</p>
+<img alt="Switching channels" class="last" src="../_images/reduce3.png" />
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="feedback-error-messages">
+<h3><a class="toc-backref" href="#id23">Feedback: Error Messages</a><a class="headerlink" href="#feedback-error-messages" title="Permalink to this headline">¶</a></h3>
+<p>On occasion, Mattermost users may encounter a problem that prevents them or the Mattermost system from successfully completing a task. The unexpected user behaviour or system response should be communicated to the user through an error message, and should follow the design principles of forgiving and obvious.</p>
+<p>Error messages should:</p>
+<ul class="simple">
+<li>State the encountered problem with the component in the title (e.g. Team URL Not Found).</li>
+<li>Describe very briefly why the error happened under the title.</li>
+<li>When possible, have a link to direct users to help complete their original task or return to the previous state.</li>
+<li>Give recommendations/solution(s) for the next course of action.</li>
+<li>Be consistent with the Mattermost voice and look professional.</li>
+<li>Be avoided when possible (by avoiding the error condition).</li>
+</ul>
+<p>Error message should not:</p>
+<ul class="simple">
+<li>Be in red or in capital letters.</li>
+<li>Say or have the term “Error”.</li>
+<li>Be lengthy.</li>
+<li>Be generic.</li>
+</ul>
+<p><strong>Examples:</strong></p>
+<blockquote>
+<div><p>This is an example of a good error message:</p>
+<img alt="Good Error Message" src="../_images/error1.png" />
+<p>This is an example of a bad error message:</p>
+<img alt="Bad Error Message" src="../_images/error2.png" />
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="input-input-patterns">
+<h3><a class="toc-backref" href="#id24">Input: Input Patterns</a><a class="headerlink" href="#input-input-patterns" title="Permalink to this headline">¶</a></h3>
+<p>All inputs such as textareas should behave consistently. If the default behaviour is to perform an action on &#8220;Enter&#8221;, then all inputs of that type should be consistent and perform an action on &#8220;Enter&#8221;.</p>
+<dl class="docutils">
+<dt><strong>Example 1:</strong></dt>
+<dd><p class="first">If pressing &#8220;Enter&#8221; posts a message in the center channel post input.</p>
+<img alt="Center channel post area" class="last" src="../_images/inputBehaviour1.png" />
+</dd>
+<dt><strong>Example 2:</strong></dt>
+<dd><p class="first">Then pressing &#8220;Enter&#8221; in the comment thread textarea should also post a comment.</p>
+<img alt="Comment thread textarea" class="last" src="../_images/inputBehaviour2.png" />
+</dd>
+<dt><strong>Example 3:</strong></dt>
+<dd><p class="first">And other textareas or inputs should also perform their primary action when &#8220;Enter&#8221; is pressed, here&#8217;s an example of the &#8220;Edit Header&#8221; modal.</p>
+<a class="last reference internal image-reference" href="../_images/inputBehaviour3.png"><img alt="Edit header modal" src="../_images/inputBehaviour3.png" style="width: 500px;" /></a>
+</dd>
+</dl>
+</div>
+<hr class="docutils" />
+<div class="section" id="menu-items">
+<h3><a class="toc-backref" href="#id25">Menu items</a><a class="headerlink" href="#menu-items" title="Permalink to this headline">¶</a></h3>
+<p>Items in a menu should be grouped together based on the category they belong to. Items per category however should not exceed 5 for the app and 7 for system console.</p>
+<p><strong>Example:</strong></p>
+<blockquote>
+<div><img alt="Center channel post area" src="../_images/group.png" />
+</div></blockquote>
+</div>
+<hr class="docutils" />
+<div class="section" id="testing-checklist">
+<h3><a class="toc-backref" href="#id26">Testing Checklist</a><a class="headerlink" href="#testing-checklist" title="Permalink to this headline">¶</a></h3>
+<p>In addition to above guidelines, the below provides a concrete checklist of mistakes to watch for when reviewing proposed product changes.</p>
+<div class="section" id="user-experience-checklist">
+<h4>User Experience Checklist<a class="headerlink" href="#user-experience-checklist" title="Permalink to this headline">¶</a></h4>
+<p><strong>1) Is the WHITESPACE next to icons SUFFICIENTLY SPACED?</strong></p>
+<blockquote>
+<div><p>Example of not enough space next to FLAG icon on RIGHT:</p>
+<img alt="../_images/fx-guidelines-sufficient-whitespace.png" src="../_images/fx-guidelines-sufficient-whitespace.png" />
+</div></blockquote>
+<p><strong>2) Is the WHITESPACE next to icons EVENLY SPACED?</strong></p>
+<blockquote>
+<div><p>Example of uneven icon spacing:</p>
+<img alt="../_images/fx-guidelines-even-whitespace.png" src="../_images/fx-guidelines-even-whitespace.png" />
+</div></blockquote>
+<p><strong>3) Are there visual GAPS?</strong></p>
+<blockquote>
+<div><p>Example of gaps in a visual design:</p>
+<img alt="../_images/fx-guidelines-visual-gaps.png" src="../_images/fx-guidelines-visual-gaps.png" />
+</div></blockquote>
+<p><strong>4) Read all help text OUT LOUD&#8211;is it helpful to a new user?</strong></p>
+<blockquote>
+<div><p>Example of help text that doesn&#8217;t communicate enough information to a user (no information included on how to use flagged posts):</p>
+<img alt="../_images/fx-guidelines-read-outloud.png" src="../_images/fx-guidelines-read-outloud.png" />
+</div></blockquote>
+<p><strong>5) Does the UI work with a dark theme?</strong></p>
+<blockquote>
+<div>Sometimes bugs are found with theme colors, so it&#8217;s important to test on both light and dark themes.</div></blockquote>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="localization-process.html" class="btn btn-neutral float-right" title="Localization" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="style-guide.html" class="btn btn-neutral" title="Mattermost Style Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/fx-guidelines.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>

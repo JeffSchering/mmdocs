@@ -1,0 +1,358 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Signing in &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Messaging Basics" href="messaging-basics.html"/>
+        <link rel="prev" title="Mattermost User’s Guide" href="../../guides/user.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Signing in</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#sign-in-methods">Sign In Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#switching-teams">Switching Teams</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#logging-out">Logging Out</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ios-setup">iOS Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#android-setup">Android Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="messaging-basics.html">Messaging Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-notifications.html">Configuring Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="organizing-conversations.html">Organizing Conversations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-teams.html">Creating Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-members.html">Managing Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="organizing.html">Organizing Mattermost</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+      
+    <li>Signing in</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/signing-in.md" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="signing-in">
+<span id="signing-in"></span><h1>Signing in<a class="headerlink" href="#signing-in" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p>This documentation refers to Mattermost v3.0+. For v2.2, see <a class="reference external" href="http://docs.mattermost.com/archives/docs-v2.2.html#signing-in">archived documentation</a>.</p>
+<p>You can sign in to your team from the root page of your Mattermost site <code class="docutils literal"><span class="pre">https://domain.com/</span></code>. After signing in, you will be able to view a list of your teams and select which one to open.</p>
+<div class="section" id="sign-in-methods">
+<span id="sign-in-methods"></span><h2>Sign In Methods<a class="headerlink" href="#sign-in-methods" title="Permalink to this headline">¶</a></h2>
+<p>There are several options for signing in to your team depending on how your System Admin has configured your server.</p>
+<div class="section" id="email-address-or-username-sign-in">
+<span id="email-address-or-username-sign-in"></span><h3>Email Address or Username Sign In<a class="headerlink" href="#email-address-or-username-sign-in" title="Permalink to this headline">¶</a></h3>
+<p>When enabled by your System Admin, you can sign in with the username or email address used to create your account.</p>
+<p>If you have forgotten your password, you can reset it by clicking <strong>I forgot my password</strong> on the sign in screen, or contact your System Admin for help resetting your password.</p>
+</div>
+<div class="section" id="gitlab-single-sign-on-sso">
+<span id="gitlab-single-sign-on-sso"></span><h3>GitLab Single-Sign-On (SSO)<a class="headerlink" href="#gitlab-single-sign-on-sso" title="Permalink to this headline">¶</a></h3>
+<p>When enabled by your System Admin, you can sign in using your GitLab account using a one-click sign in option.</p>
+</div>
+<div class="section" id="google-single-sign-on-enterprise-edition">
+<span id="google-single-sign-on-enterprise-edition"></span><h3>Google Single-Sign-On (<a class="reference external" href="https://about.mattermost.com/pricing/">Enterprise Edition</a>)<a class="headerlink" href="#google-single-sign-on-enterprise-edition" title="Permalink to this headline">¶</a></h3>
+<p>When enabled by your System Admin, you can sign in using your Google account using a one-click sign in option.</p>
+</div>
+<div class="section" id="office-365-single-sign-on-beta-enterprise-edition">
+<span id="office-365-single-sign-on-beta-enterprise-edition"></span><h3>Office 365 Single-Sign-On (Beta) (<a class="reference external" href="https://about.mattermost.com/pricing/">Enterprise Edition</a>)<a class="headerlink" href="#office-365-single-sign-on-beta-enterprise-edition" title="Permalink to this headline">¶</a></h3>
+<p>When enabled by your System Admin, you can sign in using your Office 365 account using a one-click sign in option.</p>
+</div>
+<div class="section" id="ad-ldap-sign-in-enterprise-edition">
+<span id="ad-ldap-sign-in-enterprise-edition"></span><h3>AD/LDAP Sign In (<a class="reference external" href="https://about.mattermost.com/pricing/">Enterprise Edition</a>)<a class="headerlink" href="#ad-ldap-sign-in-enterprise-edition" title="Permalink to this headline">¶</a></h3>
+<p>When enabled by your System Admin, you can sign in with your AD/LDAP credentials. This lets you use the same username and password for Mattermost that you use for various other company services.</p>
+</div>
+<div class="section" id="saml-single-sign-on-sso-enterprise-edition">
+<span id="saml-single-sign-on-sso-enterprise-edition"></span><h3>SAML Single-Sign-On (SSO) (<a class="reference external" href="https://about.mattermost.com/pricing/">Enterprise Edition</a>)<a class="headerlink" href="#saml-single-sign-on-sso-enterprise-edition" title="Permalink to this headline">¶</a></h3>
+<p>When enabled by your System Admin, you can sign in with your SAML credentials. This lets you use the same username and password for Mattermost that you use for various other company services. Mattermost officially supports <a class="reference external" href="http://developer.okta.com/docs/guides/saml_guidance.html">Okta</a> and <a class="reference external" href="https://msdn.microsoft.com/en-us/library/bb897402.aspx">Microsoft ADFS</a> as an identity provider (IDP) for SAML, but you may use other SAML IDPs as well. Please see <a class="reference external" href="http://docs.mattermost.com/deployment/sso-saml.html">documentation</a> to learn more about configuring SAML for Mattermost.</p>
+</div>
+</div>
+<div class="section" id="switching-teams">
+<span id="switching-teams"></span><h2>Switching Teams<a class="headerlink" href="#switching-teams" title="Permalink to this headline">¶</a></h2>
+<p>You can switch between teams you have joined using the <strong>Main Menu</strong>, accessed by clicking the three dots in the top header of any team site on the server.</p>
+</div>
+<div class="section" id="logging-out">
+<span id="logging-out"></span><h2>Logging Out<a class="headerlink" href="#logging-out" title="Permalink to this headline">¶</a></h2>
+<p>You can log out from the <strong>Main Menu</strong>, which is accessed by clicking the three dots in the top header on the left side of the screen. Clicking &#8220;Logout&#8221; logs you out of all teams that are signed in and open in your browser.</p>
+</div>
+<div class="section" id="ios-setup">
+<span id="ios-setup"></span><h2>iOS Setup<a class="headerlink" href="#ios-setup" title="Permalink to this headline">¶</a></h2>
+<p>Your Mattermost teams can be accessed on iOS mobile devices by downloading the Mattermost App.</p>
+<ol class="simple">
+<li>Open the <a class="reference external" href="https://geo.itunes.apple.com/us/app/mattermost/id984966508?mt=8">App Store</a> on your Apple device running iOS 9.0 or later.</li>
+<li>Search for &#8220;Mattermost&#8221; and click <strong>GET</strong> to download the App for free.</li>
+<li>Open Mattermost from your homescreen and input your team and account information to login:<ol>
+<li>Enter Server URL: This is the web address you go to when you want to access Mattermost. You can find the Server URL by asking your System Admin or by looking at the address bar in a desktop browser tab with Mattermost open. It is in the form <code class="docutils literal"><span class="pre">https://domain.com/</span></code>.</li>
+<li>Sign in to Mattermost: This is your account login information as decribed by one of the sign in methods above.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="android-setup">
+<span id="android-setup"></span><h2>Android Setup<a class="headerlink" href="#android-setup" title="Permalink to this headline">¶</a></h2>
+<p>Your Mattermost teams can be accessed on Android mobile devices by downloading the Mattermost App.</p>
+<ol class="simple">
+<li>Open the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.mattermost.mattermost&amp;hl=en">Google Play Store</a> on your Android device.</li>
+<li>Search for &#8220;Mattermost&#8221; and click <strong>INSTALL</strong> to download the App for free.</li>
+<li>Open Mattermost from your homescreen and input your team and account information to login:<ol>
+<li>Enter Server URL: This is the web address you go to when you want to access Mattermost. You can find the Server URL by asking your System Admin or by looking at the address bar in a desktop browser tab with Mattermost open. It is in the form <code class="docutils literal"><span class="pre">https://domain.com/</span></code>.</li>
+<li>Sign in to Mattermost: This is your account login information as decribed by one of the sign in methods above.</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="messaging-basics.html" class="btn btn-neutral float-right" title="Messaging Basics" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../../guides/user.html" class="btn btn-neutral" title="Mattermost User’s Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/signing-in.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+	</div>
+</header>
+
+
+</body>
+</html>
