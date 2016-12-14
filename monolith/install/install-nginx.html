@@ -98,7 +98,8 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -161,16 +162,11 @@
 <p><strong>To install NGINX on Ubuntu Server:</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that will host the proxy and open a terminal window.</li>
-<li>Make sure that your package index is up to date.</li>
-</ol>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></div></blockquote>
-<ol class="arabic simple" start="3">
 <li>Install NGINX.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nginx</span></code></div></blockquote>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="3">
 <li>After the installation is complete, verify that NGINX is running.</li>
 </ol>
 <blockquote>
@@ -203,13 +199,6 @@ sudo service nginx restart
 <li>Map a fully qualified domain name (FQDN) such as <code class="docutils literal"><span class="pre">mattermost.example.com</span></code> to point to the NGINX server.</li>
 <li>Configure NGINX to proxy connections from the internet to the Mattermost Server.</li>
 </ol>
-<dl class="docutils">
-<dt><strong>Related links</strong></dt>
-<dd><ul class="first last simple">
-<li><a class="reference internal" href="config-proxy-nginx.html#config-proxy-nginx"><span class="std std-ref">Configuring NGINX as a proxy for Mattermost Server</span></a></li>
-</ul>
-</dd>
-</dl>
 </div>
 
 
@@ -296,6 +285,9 @@ sudo service nginx restart
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -310,6 +302,13 @@ sudo service nginx restart
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

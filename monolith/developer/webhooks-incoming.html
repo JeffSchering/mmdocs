@@ -101,7 +101,8 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Incoming Webhooks</a><ul>
@@ -183,7 +184,7 @@
 <p>A couple key points:</p>
 <ul class="simple">
 <li><strong>Mattermost incoming webhooks are Slack-compatible.</strong> If you&#8217;ve used Slack&#8217;s incoming webhooks to create integrations, you can copy and paste that code to create Mattermost integrations. Mattermost automatically translates Slack&#8217;s proprietary JSON payload format into markdown to render in Mattermost messages</li>
-<li><strong>Mattermost incoming webhooks support full markdown.</strong> A rich range of formatting unavailable in Slack is made possible through <span class="xref doc">markdown support</span> in Mattermost, including headings, formatted fonts, tables, inline images and other options supported by [Mattermost Markdown]</li>
+<li><strong>Mattermost incoming webhooks support full markdown.</strong> A rich range of formatting unavailable in Slack is made possible through <a class="reference external" href="help\messaging\formatting-text.md">markdown support</a> in Mattermost, including headings, formatted fonts, tables, inline images and other options supported by [Mattermost Markdown]</li>
 </ul>
 <p><em>Example:</em></p>
 <p>Suppose you wanted to create a notification of the status of a daily build, with a table of total tests run and total tests failed by component category, with links to failed tests by category. You could create the following JSON payload to post to a Mattermost channel using webhooks:</p>
@@ -212,7 +213,7 @@
 <li>Login to your Mattermost team account that has the system administrator role</li>
 <li>Enable incoming webhooks from <strong>System Console</strong> &gt; <strong>Integrations</strong> &gt; <strong>Webhooks and Commands</strong></li>
 <li>(Optional) Configure the <strong>Enable Overriding of Usernames from Webhooks</strong> option to allow external applications to post messages under any name. If not enabled, the username of the creator of the webhook URL is used to post messages</li>
-<li>(Optional) Configure the <strong>Enable Overriding of Icon from Webhooks</strong> option to allow external applciations to change the icon of the account posting messages. If not enabled, the icon of the creator of the webhook URL is used to post messages</li>
+<li>(Optional) Configure the <strong>Enable Overriding of Icon from Webhooks</strong> option to allow external applications to change the icon of the account posting messages. If not enabled, the icon of the creator of the webhook URL is used to post messages</li>
 </ol>
 </div>
 <div class="section" id="setting-up-existing-integrations">
@@ -248,7 +249,7 @@
 <li>You can override the channel specified in the webhook definition by specifying a <code class="docutils literal"><span class="pre">channel</span></code> parameter in your payload. For example, you might have a single webhook created for <em>Town Square</em>, but you can use <code class="docutils literal"><span class="pre">payload={&quot;channel&quot;:</span> <span class="pre">&quot;off-topic&quot;,</span> <span class="pre">&quot;text&quot;:</span> <span class="pre">&quot;Hello,</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">some</span> <span class="pre">text.&quot;}</span></code> to send a message to the <em>Off-Topic</em> channel using the same webhook URL. If an <code class="docutils literal"><span class="pre">&#64;</span></code> symbol followed by a username is specified, then the message will be sent to that user&#8217;s direct message channel</li>
 <li>In addition, with <strong>Enable Overriding of Usernames from Webhooks</strong> turned on,  you can also override the username the message posts as by providing a <code class="docutils literal"><span class="pre">username</span></code> parameter in your JSON payload. For example, you might want your message looking like it came from a robot so you can use <code class="docutils literal"><span class="pre">payload={&quot;username&quot;:</span> <span class="pre">&quot;robot&quot;,</span> <span class="pre">&quot;text&quot;:</span> <span class="pre">&quot;Hello,</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">some</span> <span class="pre">text.&quot;}</span></code> to change the username of the post to robot. Note, to combat any malicious users from trying to use this to perform <a class="reference external" href="https://en.wikipedia.org/wiki/Phishing">phishing attacks</a> a <code class="docutils literal"><span class="pre">BOT</span></code> indicator appears next to posts coming from webhooks</li>
 <li>With <strong>Enable Overriding of Icon from Webhooks</strong> turned on, you can similarly change the icon the message posts with by providing a link to an image in the <code class="docutils literal"><span class="pre">icon_url</span></code> parameter of your payload. For example, <code class="docutils literal"><span class="pre">payload={&quot;icon_url&quot;:</span> <span class="pre">&quot;http://somewebsite.com/somecoolimage.jpg&quot;,</span> <span class="pre">&quot;text&quot;:</span> <span class="pre">&quot;Hello,</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">some</span> <span class="pre">text.&quot;}</span></code> will post using whatever image is located at <code class="docutils literal"><span class="pre">http://somewebsite.com/somecoolimage.jpg</span></code> as the icon for the post</li>
-<li>Also, as mentioned previously, <span class="xref doc">markdown</span> can be used to create richly formatted payloads, for example: <code class="docutils literal"><span class="pre">payload={&quot;text&quot;:</span> <span class="pre">&quot;#</span> <span class="pre">A</span> <span class="pre">Header\nThe</span> <span class="pre">_text_</span> <span class="pre">below</span> <span class="pre">**the**</span> <span class="pre">header.&quot;}</span></code> creates a messages with a header, a carriage return and bold text for &#8220;the&#8221;</li>
+<li>Also, as mentioned previously, <a class="reference external" href="help\messaging\formatting-text.md">markdown</a> can be used to create richly formatted payloads, for example: <code class="docutils literal"><span class="pre">payload={&quot;text&quot;:</span> <span class="pre">&quot;#</span> <span class="pre">A</span> <span class="pre">Header\nThe</span> <span class="pre">_text_</span> <span class="pre">below</span> <span class="pre">**the**</span> <span class="pre">header.&quot;}</span></code> creates a messages with a header, a carriage return and bold text for &#8220;the&#8221;</li>
 <li>Including <code class="docutils literal"><span class="pre">&#64;username</span></code> in the JSON payload will trigger a mention notification for the person with the specified username. Channels can be mentioned by including <code class="docutils literal"><span class="pre">&#64;channel</span></code> or <code class="docutils literal"><span class="pre">&lt;!channel&gt;</span></code>. For example:  <code class="docutils literal"><span class="pre">payload={&quot;text&quot;:</span> <span class="pre">&quot;&lt;!channel&gt;</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">notification&quot;&quot;}</span></code> would create a message that mentions <code class="docutils literal"><span class="pre">&#64;channel</span></code></li>
 <li>Just like regular posts, the text will be limited to 4000 characters at maximum</li>
 <li>Posts with advanced formatting can be created by including an <a class="reference external" href="http://docs.mattermost.com/developer/message-attachments.html">attachment array</a> in the JSON payload</li>
@@ -392,6 +393,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -406,6 +410,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

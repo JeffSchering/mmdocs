@@ -110,13 +110,15 @@
 <li class="toctree-l3"><a class="reference internal" href="creating-teams.html">Creating Teams</a></li>
 <li class="toctree-l3"><a class="reference internal" href="managing-members.html">Managing Members</a></li>
 <li class="toctree-l3"><a class="reference internal" href="organizing.html">Organizing Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/desktop-guide.html">Using Mattermost Desktop App</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
@@ -156,7 +158,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/messaging-basics.md" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/messaging-basics.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -167,18 +169,30 @@
            <div itemprop="articleBody">
             
   <div class="section" id="messaging-basics">
-<span id="messaging-basics"></span><h1>Messaging Basics<a class="headerlink" href="#messaging-basics" title="Permalink to this headline">¶</a></h1>
+<h1>Messaging Basics<a class="headerlink" href="#messaging-basics" title="Permalink to this headline">¶</a></h1>
 <hr class="docutils" />
-<p><strong>Write messages</strong> using the text input box at the bottom of Mattermost. Press <strong>ENTER</strong> to send a message. Use <strong>Shift+ENTER</strong> to create a new line without sending a message.</p>
-<p><strong>Reply to messages</strong> by clicking the reply arrow next to the message text.</p>
-<p><img alt="reply arrow" src="../../_images/replyIcon.PNG" /></p>
+<p><strong>Write messages</strong> using the text input box at the bottom of Mattermost.
+Press <strong>ENTER</strong> to send a message. Use <strong>SHIFT+ENTER</strong> to create a new
+line without sending a message.</p>
+<p><strong>Reply to messages</strong> by clicking the reply arrow next to the message
+text.</p>
+<img alt="reply arrow" src="../../_images/replyIcon.PNG" />
 <p><strong>Notify teammates</strong> when they are needed by typing <code class="docutils literal"><span class="pre">&#64;username</span></code>.</p>
-<p><strong>Format your messages</strong> using Markdown that supports text styling, headings, links, emoticons, code blocks, block quotes, tables, lists and in-line images.</p>
-<p><img alt="markdown" src="../../_images/messagesTable1.PNG" /></p>
-<p><strong>Quickly add emoji</strong> by typing &#8221;:&#8221;, which will open an emoji autocomplete. If the existing emoji don&#8217;t cover what you want to express, you can also create your own <a class="reference external" href="http://docs.mattermost.com/help/settings/custom-emoji.html">Custom Emoji</a>.</p>
-<p><strong>Attach files</strong> by dragging and dropping into Mattermost or clicking the attachment icon in the text input box.</p>
-<p><strong>Flag messages for follow up</strong> by clicking the flag icon next to the message timestamp.</p>
-<p><img alt="flags" src="../../_images/flagicon.png" /></p>
+<p><strong>Format your messages</strong> using Markdown that supports text styling,
+headings, links, emoticons, code blocks, block quotes, tables, lists and
+in-line images.</p>
+<img alt="markdown" src="../../_images/messagesTable1.PNG" />
+<p><strong>Quickly add emoji</strong> by typing &#8221;:&#8221;, which will open an emoji
+autocomplete. If the existing emoji don&#8217;t cover what you want to
+express, you can also create your own <a class="reference external" href="http://docs.mattermost.com/help/settings/custom-emoji.html">Custom
+Emoji</a>.</p>
+<p><strong>Attach files</strong> by dragging and dropping into Mattermost or clicking
+the attachment icon in the text input box.</p>
+<p><strong>Flag messages for follow up</strong> by clicking the flag icon next to the
+message timestamp.</p>
+<div class="figure">
+<img alt="flags" src="../../_images/flagicon.png" />
+</div>
 <p>Learn more about:</p>
 <ul class="simple">
 <li><a class="reference external" href="http://docs.mattermost.com/help/messaging/sending-messages.html">Composing Messages and Replies</a></li>
@@ -241,7 +255,7 @@
             </dd>
             
             <dd>
-                <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/messaging-basics.md"> Edit on GitHub</a>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/messaging-basics.rst"> Edit on GitHub</a>
             </dd>
             
         </dl>
@@ -282,6 +296,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -296,6 +313,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

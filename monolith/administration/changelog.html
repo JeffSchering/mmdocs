@@ -48,8 +48,8 @@
   
     <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Compliance Reporting and Oversight" href="compliance.html"/>
-        <link rel="prev" title="Custom Branding Tools" href="branding.html"/> 
+        <link rel="next" title="Mattermost Integration Guide" href="../guides/integration.html"/>
+        <link rel="prev" title="Migration Guide" href="migrating.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -101,41 +101,169 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="command-line-tools.html">Command Line Tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="config-settings.html">Configuration Settings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="statistics.html">Statistics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="upgrade.html">Upgrade Guide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migration Guide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
-<li class="toctree-l3"><a class="reference internal" href="branding.html">Custom Branding Tools</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Mattermost Changelog</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#release-v3-5-1">Release v3.5.1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v3-4-0">Release v3.4.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v3-3-0">Release v3.3.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v3-2-0">Release v3.2.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v3-1-0">Release v3.1.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v3-0-3">Release v3.0.3</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v2-2-0">Release v2.2.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v2-1-0">Release v2.1.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v2-0-0">Release v2.0.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v1-4-0">Release v1.4.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v1-3-0">Release v1.3.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v1-2-1">Release v1.2.1</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v1-2-0-redacted-release">Release v1.2.0 (Redacted Release)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v1-1-1-bug-fix-release">Release v1.1.1 (Bug Fix Release)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v1-1-0">Release v1.1.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v1-0-0">Release v1.0.0</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v0-7-0-beta1">Release v0.7.0 (Beta1)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v0-6-0-alpha">Release v0.6.0 (Alpha)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#release-v0-5-0-preview">Release v0.5.0 (Preview)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mattermost Changelog</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-5-1">Release v3.5.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#notes-on-patch-release">Notes on Patch Release</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-changes-from-v3-4-to-v3-5">Database Changes from v3.4 to v3.5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-changes-from-v3-4-to-v3-5">API Changes from v3.4 to v3.5</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-4-0">Release v3.4.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-changes-from-v3-3-to-v3-4">Database Changes from v3.3 to v3.4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-changes-from-v3-3-to-v3-4">API Changes from v3.3 to v3.4</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-3-0">Release v3.3.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-changes-from-v3-2-to-v3-3">Database Changes from v3.2 to v3.3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-changes-from-v3-2-to-v3-3">API Changes from v3.2 to v3.3</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-2-0">Release v3.2.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-1-0">Release v3.1.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-0-3">Release v3.0.3</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#major-version-release">Major Version Release</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#languages">Languages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v2-2-0">Release v2.2.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#languages">Languages</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v2-1-0">Release v2.1.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v2-0-0">Release v2.0.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v1-4-0">Release v1.4.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#release-highlights">Release Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v1-3-0">Release v1.3.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#release-highlights">Release Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v1-2-1">Release v1.2.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security-notice">Security Notice</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#release-highlights">Release Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v1-2-0-redacted-release">Release v1.2.0 (Redacted Release)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v1-1-1-bug-fix-release">Release v1.1.1 (Bug Fix Release)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#about-bug-fix-releases">About Bug Fix Releases</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#release-purpose">Release Purpose</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v1-1-0">Release v1.1.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#release-highlights">Release Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v1-0-0">Release v1.0.0</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#release-highlights">Release Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#database-changes-from-v0-7-to-v1-0">Database Changes from v0.7 to v1.0</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v0-7-0-beta1">Release v0.7.0 (Beta1)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#release-highlights">Release Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v0-6-0-alpha">Release v0.6.0 (Alpha)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#release-highlights">Release Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v0-5-0-preview">Release v0.5.0 (Preview)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#release-highlights">Release Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#new-features">New Features</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -587,7 +715,7 @@
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/alsma">alsma</a>, <a class="reference external" href="https://github.com/asaadmahmood">asaadmahmood</a>, <a class="reference external" href="https://github.com/coreyhulen">coreyhulen</a>, <a class="reference external" href="https://github.com/crspeller">crspeller</a>, <a class="reference external" href="https://github.com/DavidLu1997">DavidLu1997</a>, <a class="reference external" href="https://github.com/digitaltoad">digitaltoad</a>, <a class="reference external" href="https://github.com/dmeza">dmeza</a>, <a class="reference external" href="https://github.com/enahum">enahum</a>, <a class="reference external" href="https://github.com/esethna">esethna</a>, <a class="reference external" href="https://github.com/grundleborg">grundleborg</a>, <a class="reference external" href="https://github.com/hmhealey">hmhealey</a>, <a class="reference external" href="https://github.com/it33">it33</a>, <a class="reference external" href="https://github.com/jasonblais">jasonblais</a>, <a class="reference external" href="https://github.com/jwilander">jwilander</a>, <a class="reference external" href="https://github.com/kaakaa">kaakaa</a>, <a class="reference external" href="https://github.com/lfbrock">lfbrock</a>, <a class="reference external" href="https://github.com/npcode">npcode</a>, <a class="reference external" href="https://github.com/R-Wang97">R-Wang97</a>, <a class="reference external" href="https://github.com/Rudloff">Rudloff</a>, <a class="reference external" href="https://github.com/S4KH">S4KH</a>, <a class="reference external" href="https://github.com/shieldsjared">shieldsjared</a>, <a class="reference external" href="https://github.com/thomchop">thomchop</a>, <a class="reference external" href="https://github.com/usmanarif">usmanarif</a>, <a class="reference external" href="https://github.com/wget">wget</a>, <a class="reference external" href="https://github.com/yangchen1">yangchen1</a></li>
+<li><a class="reference external" href="https://github.com/alsma">alsma</a>, <a class="reference external" href="https://github.com/asaadmahmood">asaadmahmood</a>, <a class="reference external" href="https://github.com/coreyhulen">coreyhulen</a>, <a class="reference external" href="https://github.com/crspeller">crspeller</a>, <a class="reference external" href="https://github.com/DavidLu1997">DavidLu1997</a>, <a class="reference external" href="https://github.com/digitaltoad">digitaltoad</a>, <a class="reference external" href="https://github.com/dmeza">dmeza</a>, <a class="reference external" href="https://github.com/enahum">enahum</a>, <a class="reference external" href="https://github.com/esethna">esethna</a>, <a class="reference external" href="https://github.com/grundleborg">grundleborg</a>, <a class="reference external" href="https://github.com/harshavardhana">harshavardhana</a>, <a class="reference external" href="https://github.com/hmhealey">hmhealey</a>, <a class="reference external" href="https://github.com/it33">it33</a>, <a class="reference external" href="https://github.com/jasonblais">jasonblais</a>, <a class="reference external" href="https://github.com/jwilander">jwilander</a>, <a class="reference external" href="https://github.com/kaakaa">kaakaa</a>, <a class="reference external" href="https://github.com/lfbrock">lfbrock</a>, <a class="reference external" href="https://github.com/npcode">npcode</a>, <a class="reference external" href="https://github.com/R-Wang97">R-Wang97</a>, <a class="reference external" href="https://github.com/Rudloff">Rudloff</a>, <a class="reference external" href="https://github.com/S4KH">S4KH</a>, <a class="reference external" href="https://github.com/shieldsjared">shieldsjared</a>, <a class="reference external" href="https://github.com/thomchop">thomchop</a>, <a class="reference external" href="https://github.com/usmanarif">usmanarif</a>, <a class="reference external" href="https://github.com/wget">wget</a>, <a class="reference external" href="https://github.com/yangchen1">yangchen1</a></li>
 </ul>
 <p>/ios</p>
 <ul class="simple">
@@ -599,7 +727,7 @@
 </ul>
 <p>/docs</p>
 <ul class="simple">
-<li><a class="reference external" href="https://github.com/asaadmahmood">asaadmahmood</a>, <a class="reference external" href="https://github.com/chikei">chikei</a>, <a class="reference external" href="https://github.com/crspeller">crspeller</a>, <a class="reference external" href="https://github.com/erikthered">erikthered</a>, <a class="reference external" href="https://github.com/esethna">esethna</a>, <a class="reference external" href="https://github.com/gabx">gabx</a>, <a class="reference external" href="https://github.com/gmorel">gmorel</a>, <a class="reference external" href="https://github.com/grundleborg">grundleborg</a>, <a class="reference external" href="https://github.com/hannaparks">hannaparks</a>, <a class="reference external" href="https://github.com/hmhealey">hmhealey</a>, <a class="reference external" href="https://github.com/it33">it33</a>, <a class="reference external" href="https://github.com/jasonblais">jasonblais</a>, <a class="reference external" href="https://github.com/JeffSchering">JeffSchering</a>, <a class="reference external" href="https://github.com/kunthar">kunthar</a>, <a class="reference external" href="https://github.com/lfbrock">lfbrock</a>, <a class="reference external" href="https://github.com/lindy65">lindy65</a>, <a class="reference external" href="https://github.com/npcode">npcode</a>, <a class="reference external" href="https://github.com/reach3r">reach3r</a>, <a class="reference external" href="https://github.com/Rudloff">Rudloff</a>, <a class="reference external" href="https://github.com/rwillmer">rwillmer</a>, <a class="reference external" href="https://github.com/shieldsjared">shieldsjared</a>, <a class="reference external" href="https://github.com/StraylightSky">StraylightSky</a>, <a class="reference external" href="https://github.com/thiyagaraj">thiyagaraj</a>, <a class="reference external" href="https://github.com/yangchen1">yangchen1</a>, <a class="reference external" href="https://github.com/yumenohosi">yumenohosi</a>, <a class="reference external" href="https://github.com/yuya-oc">yuya-oc</a>, <a class="reference external" href="https://github.com/Zhouzi">Zhouzi</a></li>
+<li><a class="reference external" href="https://github.com/asaadmahmood">asaadmahmood</a>, <a class="reference external" href="https://github.com/chikei">chikei</a>, <a class="reference external" href="https://github.com/crspeller">crspeller</a>, <a class="reference external" href="https://github.com/erikthered">erikthered</a>, <a class="reference external" href="https://github.com/esethna">esethna</a>, <a class="reference external" href="https://github.com/gabx">gabx</a>, <a class="reference external" href="https://github.com/gmorel">gmorel</a>, <a class="reference external" href="https://github.com/grundleborg">grundleborg</a>, <a class="reference external" href="https://github.com/hannaparks">hannaparks</a>, <a class="reference external" href="https://github.com/harshavardhana">harshavardhana</a>, <a class="reference external" href="https://github.com/hmhealey">hmhealey</a>, <a class="reference external" href="https://github.com/it33">it33</a>, <a class="reference external" href="https://github.com/jasonblais">jasonblais</a>, <a class="reference external" href="https://github.com/JeffSchering">JeffSchering</a>, <a class="reference external" href="https://github.com/kunthar">kunthar</a>, <a class="reference external" href="https://github.com/lfbrock">lfbrock</a>, <a class="reference external" href="https://github.com/lindy65">lindy65</a>, <a class="reference external" href="https://github.com/npcode">npcode</a>, <a class="reference external" href="https://github.com/reach3r">reach3r</a>, <a class="reference external" href="https://github.com/Rudloff">Rudloff</a>, <a class="reference external" href="https://github.com/rwillmer">rwillmer</a>, <a class="reference external" href="https://github.com/shieldsjared">shieldsjared</a>, <a class="reference external" href="https://github.com/StraylightSky">StraylightSky</a>, <a class="reference external" href="https://github.com/thiyagaraj">thiyagaraj</a>, <a class="reference external" href="https://github.com/yangchen1">yangchen1</a>, <a class="reference external" href="https://github.com/yumenohosi">yumenohosi</a>, <a class="reference external" href="https://github.com/yuya-oc">yuya-oc</a>, <a class="reference external" href="https://github.com/Zhouzi">Zhouzi</a></li>
 </ul>
 <p>/mattermost-docker</p>
 <ul class="simple">
@@ -3446,10 +3574,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="compliance.html" class="btn btn-neutral float-right" title="Compliance Reporting and Oversight" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../guides/integration.html" class="btn btn-neutral float-right" title="Mattermost Integration Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="branding.html" class="btn btn-neutral" title="Custom Branding Tools" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="migrating.html" class="btn btn-neutral" title="Migration Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -3532,6 +3660,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -3546,6 +3677,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

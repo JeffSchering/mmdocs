@@ -100,17 +100,26 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="integration.html">Integration Guide</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Developer&#8217;s Guide</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../developer/contribution-guide.html">Code Contribution Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/developer-setup.html">Developer Machine Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/developer-setup.html#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/developer-flow.html">Developer Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/running-mattermost.html">Running Mattermost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/style-guide.html">Mattermost Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/fx-guidelines.html">User Experience Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../developer/localization-process.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#development-process">Development Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../developer/contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/developer-setup.html">Developer Machine Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/developer-setup.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../developer/localization-process.html">Localization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#unofficial-enhancements">Unofficial Enhancements</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../install/prod-windows-2012.html">Production Install on Windows Server (Unofficial)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../deployment/webrtc.html">Video and Audio Calling (Beta)</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="core.html">Core Team Handbook</a></li>
@@ -161,17 +170,72 @@
   <div class="section" id="mattermost-developer-s-guide">
 <h1>Mattermost Developer&#8217;s Guide<a class="headerlink" href="#mattermost-developer-s-guide" title="Permalink to this headline">¶</a></h1>
 <p>Detailed information on contributing to the Mattermost open source project.</p>
+<div class="section" id="development-process">
+<h2>Development Process<a class="headerlink" href="#development-process" title="Permalink to this headline">¶</a></h2>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../developer/contribution-guide.html">Code Contribution Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/developer-setup.html">Developer Machine Setup</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/developer-setup.html#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/developer-flow.html">Developer Flow</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/running-mattermost.html">Running Mattermost</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/style-guide.html">Mattermost Style Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/fx-guidelines.html">User Experience Guidelines</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/localization-process.html">Localization</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/contribution-guide.html">Code Contribution Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/contribution-guide.html#choose-a-ticket">Choose a Ticket</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/contribution-guide.html#install-mattermost-and-set-up-a-fork">Install Mattermost and set up a Fork</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/contribution-guide.html#preparing-a-pull-request">Preparing a Pull Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/contribution-guide.html#submitting-a-pull-request">Submitting a Pull Request</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/contribution-guide.html#managing-an-open-pull-request">Managing an Open Pull Request</a></li>
 </ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/developer-setup.html">Developer Machine Setup</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-setup.html#mac-os-x">Mac OS X</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-setup.html#ubuntu">Ubuntu</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-setup.html#archlinux">Archlinux</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-setup.html#windows">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/developer-setup.html#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-setup.html#build-errors">Build errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-setup.html#other-errors">Other errors</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/developer-flow.html">Developer Flow</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-flow.html#workflow">Workflow</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-flow.html#useful-makefile-commands">Useful Makefile commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-flow.html#running-only-specific-unit-tests">Running only specific unit tests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/developer-flow.html#repository-structure">Repository structure</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/style-guide.html">Mattermost Style Guide</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/style-guide.html#go">Go</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/style-guide.html#javascript">Javascript</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/style-guide.html#react-jsx">React-JSX</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/fx-guidelines.html">User Experience Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/fx-guidelines.html#design-principles">Design Principles</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/fx-guidelines.html#technical-guidelines">Technical Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/fx-guidelines.html#minimum-display-requirements">Minimum Display Requirements</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/fx-guidelines.html#design-guidelines">Design Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/localization-process.html">Localization</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/localization-process.html#translation-process">Translation Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/localization-process.html#initial-translation">Initial Translation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/localization-process.html#translations-updates">Translations Updates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/localization-process.html#translation-quality">Translation Quality</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/localization-process.html#test-translations">Test Translations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/localization-process.html#translation-maintenance">Translation Maintenance</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="unofficial-enhancements">
+<h2>Unofficial Enhancements<a class="headerlink" href="#unofficial-enhancements" title="Permalink to this headline">¶</a></h2>
+<p>Documentation on early previews and unofficial functionality</p>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../install/prod-windows-2012.html">Production Install on Windows Server (Unofficial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../deployment/webrtc.html">Video and Audio Calling (Beta)</a></li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -268,6 +332,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -282,6 +349,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

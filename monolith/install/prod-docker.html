@@ -48,7 +48,7 @@
   
     <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Production Install on Ubuntu 14.04 LTS" href="prod-ubuntu-1404.html"/>
+        <link rel="next" title="SMTP Email Setup" href="smtp-email-setup.html"/>
         <link rel="prev" title="Production Install on Debian Jessie" href="prod-debian.html"/> 
 
   
@@ -101,10 +101,12 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404-overview.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
@@ -116,8 +118,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#production-docker-setup-on-mac-os-x">Production Docker Setup on Mac OS X</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-1404.html">Production Install on Ubuntu 14.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-16.04.html">Production Install on Ubuntu 16.04 LTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
@@ -129,6 +129,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -232,7 +233,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="prod-ubuntu-1404.html" class="btn btn-neutral float-right" title="Production Install on Ubuntu 14.04 LTS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="smtp-email-setup.html" class="btn btn-neutral float-right" title="SMTP Email Setup" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="prod-debian.html" class="btn btn-neutral" title="Production Install on Debian Jessie" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -318,6 +319,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -332,6 +336,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 
