@@ -98,7 +98,8 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -230,13 +231,6 @@ server {
 </div></blockquote>
 <p><strong>What to do next</strong></p>
 <p>You can configure NGINX to use SSL. This will allow you to use HTTPS connections and the HTTP/2 protocol.</p>
-<dl class="docutils">
-<dt><strong>Related links</strong></dt>
-<dd><ul class="first last simple">
-<li><a class="reference internal" href="config-ssl-http2-nginx.html#config-ssl-http2-nginx"><span class="std std-ref">Configuring NGINX with SSL and HTTP/2</span></a></li>
-</ul>
-</dd>
-</dl>
 </div>
 
 
@@ -323,6 +317,9 @@ server {
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -337,6 +334,13 @@ server {
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

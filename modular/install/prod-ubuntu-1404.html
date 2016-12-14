@@ -46,10 +46,7 @@
   
 
   
-    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
-        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Production Install on Ubuntu 16.04 LTS" href="prod-ubuntu-16.04.html"/>
-        <link rel="prev" title="Production Docker Deployment" href="prod-docker.html"/> 
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -98,42 +95,11 @@
           
             
             
-                <ul class="current">
+                <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404-overview.html">Installing on Ubuntu 14.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-rhel-6.html">Production Install on RHEL 6.6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-rhel-7.html">Production Install on RHEL 7.1+</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Production Install on Debian Jessie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Production Install on Ubuntu 14.04 LTS</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#install-ubuntu-server-x64-14-04-lts">Install Ubuntu Server (x64) 14.04 LTS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#set-up-database-server">Set up Database Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#set-up-mattermost-server">Set up Mattermost Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#set-up-nginx-server">Set up NGINX Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#set-up-nginx-with-ssl-recommended">Set up NGINX with SSL (Recommended)</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#setup-http2">Setup HTTP2</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#test-setup-and-configure-mattermost-server">Test setup and configure Mattermost Server</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-16.04.html">Production Install on Ubuntu 16.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
-<li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -167,8 +133,6 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
-      
     <li>Production Install on Ubuntu 14.04 LTS</li>
       <li class="wy-breadcrumbs-aside">
         
@@ -184,16 +148,29 @@
            <div itemprop="articleBody">
             
   <div class="section" id="production-install-on-ubuntu-14-04-lts">
-<span id="prod-ubuntu-1404"></span><h1>Production Install on Ubuntu 14.04 LTS<a class="headerlink" href="#production-install-on-ubuntu-14-04-lts" title="Permalink to this headline">¶</a></h1>
-<p>Install Mattermost in production mode on one, two or three machines, using the following steps:</p>
+<span id="prod-ubuntu-1404"></span><h1><a class="toc-backref" href="#contents">Production Install on Ubuntu 14.04 LTS</a><a class="headerlink" href="#production-install-on-ubuntu-14-04-lts" title="Permalink to this headline">¶</a></h1>
+<p>Install Mattermost in production mode on one, two or three machines.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#install-ubuntu-server-x64-14-04-lts">Install Ubuntu Server (x64) 14.04 LTS</a></li>
-<li><a class="reference internal" href="#set-up-database-server">Set up Database Server</a></li>
-<li><a class="reference internal" href="#set-up-mattermost-server">Set up Mattermost Server</a></li>
-<li><a class="reference internal" href="#set-up-nginx-server">Set up NGINX Server</a></li>
+<li><a class="reference internal" href="#production-install-on-ubuntu-14-04-lts" id="id1">Production Install on Ubuntu 14.04 LTS</a><ul>
+<li><a class="reference internal" href="#install-ubuntu-server-x64-14-04-lts" id="id2">Install Ubuntu Server (x64) 14.04 LTS</a></li>
+<li><a class="reference internal" href="#set-up-database-server" id="id3">Set up Database Server</a><ul>
+<li><a class="reference internal" href="#set-up-postresql" id="id4">Set up PostreSQL</a></li>
+<li><a class="reference internal" href="#set-up-mysql-database-server" id="id5">Set up MySQL Database Server</a></li>
 </ul>
+</li>
+<li><a class="reference internal" href="#set-up-mattermost-server" id="id6">Set up Mattermost Server</a></li>
+<li><a class="reference internal" href="#set-up-nginx-server" id="id7">Set up NGINX Server</a></li>
+<li><a class="reference internal" href="#set-up-nginx-with-ssl-recommended" id="id8">Set up NGINX with SSL (Recommended)</a></li>
+<li><a class="reference internal" href="#setup-http2" id="id9">Setup HTTP2</a></li>
+<li><a class="reference internal" href="#test-setup-and-configure-mattermost-server" id="id10">Test setup and configure Mattermost Server</a></li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="install-ubuntu-server-x64-14-04-lts">
-<h2>Install Ubuntu Server (x64) 14.04 LTS<a class="headerlink" href="#install-ubuntu-server-x64-14-04-lts" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Install Ubuntu Server (x64) 14.04 LTS</a><a class="headerlink" href="#install-ubuntu-server-x64-14-04-lts" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Set up 3 machines with Ubuntu 14.04 with 2GB of RAM or more. The
 servers will be used for the Proxy, Mattermost (must be
@@ -210,10 +187,10 @@ patches.<ul>
 </ol>
 </div>
 <div class="section" id="set-up-database-server">
-<h2>Set up Database Server<a class="headerlink" href="#set-up-database-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Set up Database Server</a><a class="headerlink" href="#set-up-database-server" title="Permalink to this headline">¶</a></h2>
 <p>Install and set up either PostgreSQL 9.3 or MySQL 5.6.</p>
 <div class="section" id="set-up-postresql">
-<h3>Set up PostreSQL<a class="headerlink" href="#set-up-postresql" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents">Set up PostreSQL</a><a class="headerlink" href="#set-up-postresql" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">For the purposes of this guide we will assume this server has an IP
 address of 10.10.10.1</p>
@@ -296,7 +273,7 @@ looks good</p>
 </ol>
 </div>
 <div class="section" id="set-up-mysql-database-server">
-<h3>Set up MySQL Database Server<a class="headerlink" href="#set-up-mysql-database-server" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents">Set up MySQL Database Server</a><a class="headerlink" href="#set-up-mysql-database-server" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Install MySQL 5.6.</p>
 <blockquote>
@@ -346,7 +323,7 @@ looks good</p>
 </div>
 </div>
 <div class="section" id="set-up-mattermost-server">
-<h2>Set up Mattermost Server<a class="headerlink" href="#set-up-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Set up Mattermost Server</a><a class="headerlink" href="#set-up-mattermost-server" title="Permalink to this headline">¶</a></h2>
 <p>For the purposes of this guide we will assume this server has an IP address of <code class="docutils literal"><span class="pre">10.10.10.2</span></code></p>
 <ol class="arabic">
 <li><p class="first">Create a mattermost user and group</p>
@@ -463,7 +440,7 @@ of the Mattermost process.</p>
 </ol>
 </div>
 <div class="section" id="set-up-nginx-server">
-<h2>Set up NGINX Server<a class="headerlink" href="#set-up-nginx-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Set up NGINX Server</a><a class="headerlink" href="#set-up-nginx-server" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">For the purposes of this guide we will assume this server has an IP
 address of <code class="docutils literal"><span class="pre">10.10.10.3</span></code></p>
@@ -568,7 +545,7 @@ server {
 </ol>
 </div>
 <div class="section" id="set-up-nginx-with-ssl-recommended">
-<h2>Set up NGINX with SSL (Recommended)<a class="headerlink" href="#set-up-nginx-with-ssl-recommended" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Set up NGINX with SSL (Recommended)</a><a class="headerlink" href="#set-up-nginx-with-ssl-recommended" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>You can use a free and an open certificate security like let&#8217;s
 encrypt, this is how to proceed</li>
@@ -686,7 +663,7 @@ server {
 </div></blockquote>
 </div>
 <div class="section" id="setup-http2">
-<h2>Setup HTTP2<a class="headerlink" href="#setup-http2" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Setup HTTP2</a><a class="headerlink" href="#setup-http2" title="Permalink to this headline">¶</a></h2>
 <p>It is recommended to enable HTTP2 for enhanced performance.</p>
 <ol class="arabic simple">
 <li>Modify your NGINX configuration as above. Then,</li>
@@ -703,7 +680,7 @@ server {
 </ol>
 </div>
 <div class="section" id="test-setup-and-configure-mattermost-server">
-<h2>Test setup and configure Mattermost Server<a class="headerlink" href="#test-setup-and-configure-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Test setup and configure Mattermost Server</a><a class="headerlink" href="#test-setup-and-configure-mattermost-server" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and
 user.</li>
@@ -750,15 +727,6 @@ user.</li>
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="prod-ubuntu-16.04.html" class="btn btn-neutral float-right" title="Production Install on Ubuntu 16.04 LTS" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="prod-docker.html" class="btn btn-neutral" title="Production Docker Deployment" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -839,6 +807,9 @@ user.</li>
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -853,6 +824,13 @@ user.</li>
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

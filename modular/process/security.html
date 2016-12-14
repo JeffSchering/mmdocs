@@ -101,11 +101,13 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../guides/core.html#development-process">Development Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="handbook.html">About Mattermost</a></li>
 <li class="toctree-l3"><a class="reference internal" href="working-at-mattermost.html">Working at Mattermost</a></li>
@@ -217,16 +219,16 @@
 <span id="reporting"></span><h3>Reporting<a class="headerlink" href="#reporting" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost uses a <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">responsible disclosure policy</a> to accept confidential reports of new threats, so they can be addressed either immediately through a dot release, or by the next bi-monthly release depending on potential impact.</li>
-<li>When Mattermost software undergoes security and penetration testing at customer sites security updates are added to the core software and <a class="reference external" href="http://about.mattermost.com/security-updates/">publicly documented by release</a>.</li>
+<li>When Mattermost software undergoes security and penetration testing at customer sites security updates are added to the core software and <a class="reference external" href="https://about.mattermost.com/security-updates/">publicly documented by release</a>.</li>
 </ul>
 </div>
 <div class="section" id="patch-management">
 <span id="patch-management"></span><h3>Patch Management<a class="headerlink" href="#patch-management" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Critical updates are released for urgent, high priority security issues or critical losses of functionality that should not wait for the next bi-monthly release.</li>
-<li>Mattermost software has as mandatory upgrade policy and customers and users need to be on the latest release to receive critical updates.</li>
+<li>Mattermost software has a mandatory upgrade policy and customers and users need to be on the latest release to receive critical updates.</li>
 <li>Critical updates are delivered as dot releases, for example a critical update to release <code class="docutils literal"><span class="pre">3.1.0</span></code> would be named <code class="docutils literal"><span class="pre">3.1.1</span></code>.</li>
-<li>Customers and subscribers to the Mattermost Insiders mailing list receive notification about all critical updates.</li>
+<li>Customers and subscribers to the Mattermost Insiders mailing list receive notifications about all critical updates.</li>
 </ul>
 </div>
 <div class="section" id="security-review-checklist">
@@ -500,7 +502,7 @@
 </ul>
 <p>Solution(s):</p>
 <ul class="simple">
-<li>While there is no current failover plan should our online CRM system become disrupted, we have SLAs with our CRM vendor&#8211;which is used by thousands of other organizations&#8211;and believe the probability out sustained outage is low.</li>
+<li>While there is no current failover plan should our online CRM system become disrupted, we have SLAs with our CRM vendor&#8211;which is used by thousands of other organizations&#8211;and believe the probability of sustained outage is low.</li>
 </ul>
 </div>
 </div>
@@ -514,7 +516,7 @@
 </ul>
 <p>Solution(s):</p>
 <ul class="simple">
-<li>While there is no current failover plan should our online HR or intranet system become disrupted, we have SLAs with our  vendors&#8211;which is used by thousands of other organizations&#8211;and believe the probability out sustained outage is low.</li>
+<li>While there is no current failover plan should our online HR or intranet system become disrupted, we have SLAs with our  vendors&#8211;which is used by thousands of other organizations&#8211;and believe the probability of sustained outage is low.</li>
 </ul>
 </div>
 </div>
@@ -614,6 +616,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -628,6 +633,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

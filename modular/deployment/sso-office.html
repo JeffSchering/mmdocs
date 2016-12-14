@@ -48,7 +48,7 @@
   
     <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Video and Audio Calling (Beta)" href="webrtc.html"/>
+        <link rel="next" title="Command Line Tools" href="../administration/command-line-tools.html"/>
         <link rel="prev" title="Google Single-Sign-On (E20)" href="sso-google.html"/> 
 
   
@@ -101,7 +101,7 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
 <li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a><ul class="current">
@@ -114,13 +114,16 @@
 <li class="toctree-l3"><a class="reference internal" href="cluster.html">High Availability (E20) - Beta</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sso-gitlab.html">GitLab Single-Sign-On</a></li>
 <li class="toctree-l3"><a class="reference internal" href="sso-google.html">Google Single-Sign-On (E20)</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Office 365 Single-Sign-On (E20)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="webrtc.html">Video and Audio Calling (Beta)</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Office 365 Single-Sign-On (E20)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#note-about-microsoft-active-directory-tenants">Note about Microsoft Active Directory Tenants</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -175,7 +178,7 @@
 <hr class="docutils" />
 <p>Follow these steps to configure Mattermost to use Office 365 as a single-sign-on (SSO) service for team creation, account creation and sign-in.</p>
 <p><strong>The system must be using SSL for use with Office365 as Microsoft only allows OAuth redirect URIs that are SSL enabled.</strong></p>
-<p>1 - <a class="reference external" href="https://login.microsoftonline.com/">Log in</a> to your Microsoft or Office 365 account. Make sure it&#8217;s the account on the same tenant that you would like users to log in with.</p>
+<p>1 - <a class="reference external" href="https://login.microsoftonline.com/">Log in</a> to your Microsoft or Office 365 account. If you use Azure Active Directory, make sure it&#8217;s the account on the <a class="reference external" href="https://docs.mattermost.com/deployment/sso-office.html#note-about-microsoft-active-directory-tenants">same tenant</a> that you would like your users to log in with.</p>
 <p>2 - Go to <a class="reference external" href="https://apps.dev.microsoft.com">Application Registration Portal</a>, click <strong>Go to app list</strong> &gt; <strong>Add an app</strong> and use &#8220;Mattermost - your-company-name&#8221; as the <strong>Application Name</strong>.</p>
 <p><img alt="office_1_add_app" src="../_images/office_1_add_app.png" /></p>
 <p>3 - Under <strong>Application Secrets</strong>, click <strong>Generate New Password</strong> and copy it, as it will be used to configure Office 365 SSO for Mattermost.</p>
@@ -186,17 +189,21 @@
 <p><img alt="office_4_application_id" src="../_images/office_4_application_id.png" /></p>
 <p>6 - In <strong>System Console &gt; OAuth 2.0 &gt; Select OAuth 2.0 service provider</strong>, choose <strong>Office 365 (Beta)</strong> as the service provider and enter <strong>Application ID</strong> from step 5 and <strong>Application Secret Password</strong> from step 3 in their respective fields.</p>
 <p>7 - Restart your Mattermost server to see the changes take effect.</p>
-<p>Notes:</p>
+<p>You may also enter <strong>Application ID</strong> and <strong>Application Secret Password</strong> fields from steps 5 and 3 directly in <code class="docutils literal"><span class="pre">Office365Settings</span></code> section of <code class="docutils literal"><span class="pre">config/config.json</span></code>. Moreover, the following default values in <code class="docutils literal"><span class="pre">Office365Settings</span></code> section of <code class="docutils literal"><span class="pre">config/config.json</span></code> are recommended:</p>
 <ul class="simple">
-<li>You may also enter <strong>Application ID</strong> and <strong>Application Secret Password</strong> fields from steps 5 and 3 directly in <code class="docutils literal"><span class="pre">Office365Settings</span></code> section of <code class="docutils literal"><span class="pre">config/config.json</span></code>.</li>
-<li>The following default values in <code class="docutils literal"><span class="pre">Office365Settings</span></code> section of <code class="docutils literal"><span class="pre">config/config.json</span></code> are recommended:<ul>
 <li><code class="docutils literal"><span class="pre">Scope</span></code>: <code class="docutils literal"><span class="pre">User.Read</span></code></li>
 <li><code class="docutils literal"><span class="pre">AuthEndpoint</span></code>: <code class="docutils literal"><span class="pre">https://login.microsoftonline.com/common/oauth2/v2.0/authorize</span></code></li>
 <li><code class="docutils literal"><span class="pre">TokenEndpoint</span></code>: <code class="docutils literal"><span class="pre">https://login.microsoftonline.com/common/oauth2/v2.0/token</span></code></li>
 <li><code class="docutils literal"><span class="pre">UserApiEndpoint</span></code>: <code class="docutils literal"><span class="pre">https://graph.microsoft.com/v1.0/me</span></code></li>
 </ul>
-</li>
-</ul>
+<div class="section" id="note-about-microsoft-active-directory-tenants">
+<span id="note-about-microsoft-active-directory-tenants"></span><h2>Note about Microsoft Active Directory Tenants<a class="headerlink" href="#note-about-microsoft-active-directory-tenants" title="Permalink to this headline">¶</a></h2>
+<p>A Microsoft Active Directory (AD) tenant is a dedicated instance of Azure Active Directory (Azure AD) that you own and would have received when signing up for a Microsoft cloud service such as Azure or Office 365. Tenants are commonly used by organizations who want to store information about their users such as passwords, user profile data and permissions. You can learn more about <a class="reference external" href="https://docs.microsoft.com/en-us/azure/active-directory/active-directory-howto-tenant">getting an Azure AD tenant here</a>.</p>
+<p>To allow your Azure AD users to sign in to Mattermost using Office 365 SSO, you must register Mattermost in the Microsoft Azure AD tenant that contains the users&#8217; information. The registration can be done from the <a class="reference external" href="https://manage.windowsazure.com/">Microsoft Azure portal</a>. The steps to register the Mattermost account in the tenant should be similar to those provided above, and you can find more information about <a class="reference external" href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/">integrating apps with Azure AD here</a>.</p>
+<p>If you don&#8217;t register Mattermost in the Microsoft Azure AD tenant your organization uses, Office 365 SSO will likely fail for your users.</p>
+<p>If you&#8217;re interested in configuring a multi-tenant Mattermost application, which allows access to users from several organizations, you can <a class="reference external" href="https://azure.microsoft.com/en-us/documentation/articles/active-directory-integrating-applications/#configuring-multi-tenant-applications">find out more here</a>.</p>
+<p>Note that if you do not use Azure Active Directory, you may simply register Mattermost with your Office 365 or Azure account (either your personal, work or school account) and set up Office 365 SSO with Mattermost using the steps provided above.</p>
+</div>
 </div>
 
 
@@ -206,7 +213,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="webrtc.html" class="btn btn-neutral float-right" title="Video and Audio Calling (Beta)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="../administration/command-line-tools.html" class="btn btn-neutral float-right" title="Command Line Tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="sso-google.html" class="btn btn-neutral" title="Google Single-Sign-On (E20)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -292,6 +299,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -306,6 +316,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

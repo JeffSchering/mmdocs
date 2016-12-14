@@ -1,0 +1,436 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using reStructuredText Markup &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+    <li>Using reStructuredText Markup</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/process/sg_rest_markup.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-restructuredtext-markup">
+<h1>Using reStructuredText Markup<a class="headerlink" href="#using-restructuredtext-markup" title="Permalink to this headline">¶</a></h1>
+<p>The reStructuredText specification allows for a certain degree of flexibility in markup to achieve your goals. For example, you can use any one of more than a dozen characters for section title underlines, and you have the option of using an overline in addition to an underline.</p>
+<p>However, for consistency and ease of use, the Mattermost documentation should use a single convention, despite the existence of allowable alternatives.</p>
+<p>For more information about reStructuredText markup, see the <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText Markup Specification</a>. Additional markup constructs are implemented by Sphinx, the documentation generator used by Mattermost. For information about the additional constructs, see <a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/index.html">Sphinx Markup Constructs</a>.</p>
+<p>Use the following markup conventions in Mattermost documentation:</p>
+<div class="section" id="page-titles">
+<h2>Page titles<a class="headerlink" href="#page-titles" title="Permalink to this headline">¶</a></h2>
+<p>For page titles, use the = character for the title underline, with no overline. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Using reStructuredText Markup
+=============================
+</pre></div>
+</div>
+<p>Unlike Markdown, underlines in reStructuredText must be at least as long as the title text.</p>
+</div>
+<div class="section" id="section-titles">
+<h2>Section titles<a class="headerlink" href="#section-titles" title="Permalink to this headline">¶</a></h2>
+<p>If your document has more than one section, use the - character for the section title underline. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Section titles
+--------------
+</pre></div>
+</div>
+<p>If you do need subsections, use the the ^ character for the first subsection level, and the ` character for the second subsection level. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Subsection One
+^^^^^^^^^^^^^^
+
+Subsection Two
+``````````````
+</pre></div>
+</div>
+</div>
+<div class="section" id="inline-markup">
+<h2>Inline markup<a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>Bold</dt>
+<dd>Use double asterisks. For example: <code class="docutils literal"><span class="pre">**bold</span> <span class="pre">text**</span></code>.</dd>
+<dt>Italic</dt>
+<dd>Use single asterisk. For example: <code class="docutils literal"><span class="pre">*italic</span> <span class="pre">text*</span></code>.</dd>
+<dt>Monospace</dt>
+<dd>Use double backquotes. For example: <code class="docutils literal"><span class="pre">``monospace</span> <span class="pre">text``</span></code></dd>
+</dl>
+</div>
+<div class="section" id="bullet-lists">
+<span id="arbitrary-text-label"></span><h2>Bullet lists<a class="headerlink" href="#bullet-lists" title="Permalink to this headline">¶</a></h2>
+<p>For bullet lists and sublists, use only the - character. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>- list item one
+- list item two
+  - sublist item one
+  - sublist item two
+- list item three
+</pre></div>
+</div>
+</div>
+<div class="section" id="numbered-lists-and-procedure-steps">
+<h2>Numbered lists and procedure steps<a class="headerlink" href="#numbered-lists-and-procedure-steps" title="Permalink to this headline">¶</a></h2>
+<p>Create numbered lists and procedure steps using arabic numerals for the top-level list and lower case alpha characters for the first nested list. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>1. This is item one.
+2. This is item two.
+
+  a. This is nested item one.
+  b. This is nested item two.
+
+3. This is item three.
+</pre></div>
+</div>
+</div>
+<div class="section" id="links-to-external-web-pages">
+<h2>Links to external web pages<a class="headerlink" href="#links-to-external-web-pages" title="Permalink to this headline">¶</a></h2>
+<p>The quickest and easiest way to create a link in reStructuredText is to use the URL without any extra markup. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>https://www.mattermost.org/manifesto/
+</pre></div>
+</div>
+<p>On output to HTML, the link looks like this: <a class="reference external" href="https://www.mattermost.org/manifesto/">https://www.mattermost.org/manifesto/</a>.</p>
+<p>You can also create a link that has link text. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>`Mattermost Manifesto &lt;https://www.mattermost.org/manifesto/&gt;`_
+</pre></div>
+</div>
+<p>On output to HTML, the link looks like this: <a class="reference external" href="https://www.mattermost.org/manifesto/">Mattermost Manifesto</a></p>
+<p>Pay close attention to the syntax. The link starts with a backquote character, followed by the text that you want to see in the document, a final space, the &lt; character, the URL, the &gt; character, a closing backquote, and finally an underscore.</p>
+</div>
+<div class="section" id="links-to-targets-within-the-mattermost-docs">
+<span id="relative-links-in-rst"></span><h2>Links to targets within the Mattermost docs<a class="headerlink" href="#links-to-targets-within-the-mattermost-docs" title="Permalink to this headline">¶</a></h2>
+<p>The Sphinx processor extends reStructuredText to implement references to locations within a documentation set. The extensions are called <cite>roles</cite>, and the two roles that are relevant in Mattermost documentation are the <code class="docutils literal"><span class="pre">:doc:</span></code> role and the <code class="docutils literal"><span class="pre">:ref:</span></code> role.</p>
+<p>The <code class="docutils literal"><span class="pre">:doc:</span></code> role is used for creating relative links to other documents. The <code class="docutils literal"><span class="pre">:ref:</span></code> role is used for creating relative links to arbitrary locations within the documentation set, including within the same document. In both cases, the HTML output is a relative URL for the target location.</p>
+<p>The following example uses the <code class="docutils literal"><span class="pre">:doc:</span></code> role to link to the <cite>Integrations Overview</cite> page. The source file is called <code class="docutils literal"><span class="pre">integrations.rst</span></code> and is in the <code class="docutils literal"><span class="pre">overview</span></code> directory.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>For more information about integrating with Mattermost, see :doc:`../overview/integrations`.
+</pre></div>
+</div>
+<p>Note that the filename extension is not part of the construct. On output, the link looks like this: &#8220;For more information about integrating with Mattermost, see <a class="reference internal" href="../overview/integrations.html"><span class="doc">Integrations Overview</span></a>.&#8221; The Sphinx processor pulls in the title of the document to use as the link text.</p>
+<p>The <code class="docutils literal"><span class="pre">:ref:</span></code> role is a two-part construct. One part is the link itself, and the other part is the target. The target has the following form, and should preceed a section title:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. _arbitrary-text-label:
+
+Bullet lists
+------------
+</pre></div>
+</div>
+<p>To generate a link to the section, use the <code class="docutils literal"><span class="pre">:ref:</span></code> role as follows:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>For more information about bullet lists, see :ref:`arbitrary-text-label`.
+</pre></div>
+</div>
+<p>The Sphinx processor creates a relative link to the section, and uses the section title as the link text. On output, the link looks like this: &#8220;For more information about bullet lists, see <a class="reference internal" href="#arbitrary-text-label"><span class="std std-ref">Bullet lists</span></a>.&#8221;</p>
+</div>
+<div class="section" id="images">
+<h2>Images<a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h2>
+<p>Use the following construct to insert an image:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. image:: ../images/choices.png
+</pre></div>
+</div>
+<p>You can also add the following image options: <cite>alt</cite>, <cite>height</cite>, <cite>width</cite>, <cite>scale</cite>, <cite>align</cite>, and <cite>target</cite>. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. image:: ../images/choices.png
+  :alt: The choices that you can make.
+  :height: 100px
+  :width: 200px
+  :align: left
+</pre></div>
+</div>
+<p>Inserting an inline image is a bit more complicated. It&#8217;s a two-part construct that consists of a label and the image directive. Surround the label text with vertical bars, the <cite>|</cite> character. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Some of the emoji that you can use are |emoji|.
+</pre></div>
+</div>
+<p>Later on in the document, perhaps at the end of the paragraph that contains the label, insert the following image directive:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. |emoji| image:: ../images/emoji.png
+  :alt: Some of the emoji that you can use.
+  :align: middle
+</pre></div>
+</div>
+</div>
+<div class="section" id="literal-blocks">
+<span id="id1"></span><h2>Literal blocks<a class="headerlink" href="#literal-blocks" title="Permalink to this headline">¶</a></h2>
+<p>In reStructuredText markup, the double colon marks the start of a section of literal text that corresponds to the HTML &lt;pre&gt; tag. However, the Sphinx processor applies syntax highlighting for Python to literal blocks, which is not always desired in Mattermost documentation.</p>
+<p>To use a literal block as originally intended in the reStructuredText specification, you must cheat a little, and use the Sphinx code-block directive with the language set to <cite>none</cite>. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. code-block:: none
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-blocks-with-syntax-highlighting">
+<span id="syntax-highlight"></span><h2>Code blocks with syntax highlighting<a class="headerlink" href="#code-blocks-with-syntax-highlighting" title="Permalink to this headline">¶</a></h2>
+<p>To create a code block with syntax highlighting, use the Sphinx code-block directive with the language set to the language that you want highlighted. Many languages are available, but in Mattermost documentation the most likely ones are as follows:</p>
+<ul class="simple">
+<li>go</li>
+<li>rest</li>
+<li>html</li>
+<li>javascript</li>
+<li>coffee</li>
+<li>bash</li>
+</ul>
+<p>The following example is a block of Go code using the :linenos: option, which causes line numbers to be displayed.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. code-block:: go
+  :linenos:
+
+  newPassword := props[&quot;new_password&quot;]
+      if err := utils.IsPasswordValid(newPassword); err != nil {
+              c.Err = err
+              return
+      }
+</pre></div>
+</div>
+<p>The example produces the following output:</p>
+<div class="highlight-go"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">newPassword</span> <span class="o">:=</span> <span class="nx">props</span><span class="p">[</span><span class="s">&quot;new_password&quot;</span><span class="p">]</span>
+      <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">IsPasswordValid</span><span class="p">(</span><span class="nx">newPassword</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+              <span class="nx">c</span><span class="p">.</span><span class="nx">Err</span> <span class="p">=</span> <span class="nx">err</span>
+              <span class="k">return</span>
+      <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The highlighting is provided by Pygments Python syntax highlighter, which supports a large number of programming and markup languages. For a complete list, see <a class="reference external" href="http://pygments.org/docs/lexers/">Available lexers</a></p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/process/sg_rest_markup.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+
+
+</body>
+</html>

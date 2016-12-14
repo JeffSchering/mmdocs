@@ -48,8 +48,8 @@
   
     <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Mattermost Changelog" href="changelog.html"/>
-        <link rel="prev" title="Backup &amp; Disaster Recovery" href="backup.html"/> 
+        <link rel="next" title="Backup &amp; Disaster Recovery" href="backup.html"/>
+        <link rel="prev" title="Compliance Reporting and Oversight" href="compliance.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -101,7 +101,7 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
@@ -109,19 +109,19 @@
 <li class="toctree-l3"><a class="reference internal" href="command-line-tools.html">Command Line Tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="config-settings.html">Configuration Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="statistics.html">Statistics</a></li>
-<li class="toctree-l3"><a class="reference internal" href="upgrade.html">Upgrade Guide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migration Guide</a></li>
-<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Custom Branding Tools</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#enable-custom-branding">Enable Custom Branding</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="changelog.html">Mattermost Changelog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html">Upgrade Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migration Guide</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -214,10 +214,10 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="changelog.html" class="btn btn-neutral float-right" title="Mattermost Changelog" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="backup.html" class="btn btn-neutral float-right" title="Backup &amp; Disaster Recovery" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="backup.html" class="btn btn-neutral" title="Backup &amp; Disaster Recovery" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="compliance.html" class="btn btn-neutral" title="Compliance Reporting and Oversight" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -300,6 +300,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -314,6 +317,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

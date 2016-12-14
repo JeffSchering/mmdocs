@@ -98,7 +98,8 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -147,17 +148,25 @@
            <div itemprop="articleBody">
             
   <div class="section" id="production-enterprise-install-on-rhel-7-1">
-<span id="prod-rhel-7"></span><h1>Production Enterprise Install on RHEL 7.1+<a class="headerlink" href="#production-enterprise-install-on-rhel-7-1" title="Permalink to this headline">¶</a></h1>
-<p>Install Mattermost Enterprise Edition in production mode on one, two or three machines, using the following steps:</p>
+<span id="prod-rhel-7"></span><h1><a class="toc-backref" href="#contents">Production Enterprise Install on RHEL 7.1+</a><a class="headerlink" href="#production-enterprise-install-on-rhel-7-1" title="Permalink to this headline">¶</a></h1>
+<p>Install Mattermost Enterprise Edition in production mode on one, two or three machines.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#install-red-hat-enterprise-linux-x64-7-1">Install Red Hat Enterprise Linux (x64) 7.1+</a></li>
-<li><a class="reference internal" href="#set-up-database-server">Set up Database Server</a></li>
-<li><a class="reference internal" href="#set-up-mattermost-server">Set up Mattermost Server</a></li>
-<li><a class="reference internal" href="#set-up-nginx-server">Set up NGINX Server</a></li>
-<li><a class="reference internal" href="#test-setup-and-configure-mattermost-server">Test setup and configure Mattermost Server</a></li>
+<li><a class="reference internal" href="#production-enterprise-install-on-rhel-7-1" id="id1">Production Enterprise Install on RHEL 7.1+</a><ul>
+<li><a class="reference internal" href="#install-red-hat-enterprise-linux-x64-7-1" id="id2">Install Red Hat Enterprise Linux (x64) 7.1+</a></li>
+<li><a class="reference internal" href="#set-up-database-server" id="id3">Set up Database Server</a></li>
+<li><a class="reference internal" href="#set-up-mattermost-server" id="id4">Set up Mattermost Server</a></li>
+<li><a class="reference internal" href="#unix-domain-socket-connection" id="id5">Unix-domain socket connection</a></li>
+<li><a class="reference internal" href="#set-up-nginx-server" id="id6">Set up NGINX Server</a></li>
+<li><a class="reference internal" href="#set-up-nginx-with-ssl-recommended" id="id7">Set up NGINX with SSL (Recommended)</a></li>
+<li><a class="reference internal" href="#test-setup-and-configure-mattermost-server" id="id8">Test setup and configure Mattermost Server</a></li>
 </ul>
+</li>
+</ul>
+</div>
 <div class="section" id="install-red-hat-enterprise-linux-x64-7-1">
-<h2>Install Red Hat Enterprise Linux (x64) 7.1+<a class="headerlink" href="#install-red-hat-enterprise-linux-x64-7-1" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Install Red Hat Enterprise Linux (x64) 7.1+</a><a class="headerlink" href="#install-red-hat-enterprise-linux-x64-7-1" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Set up 3 machines with RHEL with 2GB of RAM or more. The servers will
 be used for the Proxy, Mattermost (this must be x64 to use
@@ -173,7 +182,7 @@ patches.<ul>
 </ol>
 </div>
 <div class="section" id="set-up-database-server">
-<h2>Set up Database Server<a class="headerlink" href="#set-up-database-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Set up Database Server</a><a class="headerlink" href="#set-up-database-server" title="Permalink to this headline">¶</a></h2>
 <p><strong>NOTE</strong>: When Mattermost and postgresql are on the same machine,
 it is recommended to use unix socket mechanism for the connection between Mattermost and Postgresql,
 as it is more secure and faster.
@@ -251,7 +260,7 @@ looks good:<ul>
 </ol>
 </div>
 <div class="section" id="set-up-mattermost-server">
-<h2>Set up Mattermost Server<a class="headerlink" href="#set-up-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Set up Mattermost Server</a><a class="headerlink" href="#set-up-mattermost-server" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">For the purposes of this guide we will assume this server has an IP
 address of <code class="docutils literal"><span class="pre">10.10.10.2</span></code></p>
@@ -357,7 +366,7 @@ supervision of the Mattermost process.</p>
 </ol>
 </div>
 <div class="section" id="unix-domain-socket-connection">
-<h2>Unix-domain socket connection<a class="headerlink" href="#unix-domain-socket-connection" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Unix-domain socket connection</a><a class="headerlink" href="#unix-domain-socket-connection" title="Permalink to this headline">¶</a></h2>
 <p>Below are the instructions specific to a connection between Postgresql and Mattermost via an Unix-domain socket.
 Only changes from the original setup described above will be mentioned.</p>
 <p><strong>Set up database server</strong></p>
@@ -394,7 +403,7 @@ mattermost_db=&gt; \q
 </ul>
 </div>
 <div class="section" id="set-up-nginx-server">
-<h2>Set up NGINX Server<a class="headerlink" href="#set-up-nginx-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Set up NGINX Server</a><a class="headerlink" href="#set-up-nginx-server" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic">
 <li><p class="first">For the purposes of this guide we will assume this server has an IP
 address of <code class="docutils literal"><span class="pre">10.10.10.3</span></code></p>
@@ -492,7 +501,7 @@ preventing the connection</p>
 </ol>
 </div>
 <div class="section" id="set-up-nginx-with-ssl-recommended">
-<h2>Set up NGINX with SSL (Recommended)<a class="headerlink" href="#set-up-nginx-with-ssl-recommended" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Set up NGINX with SSL (Recommended)</a><a class="headerlink" href="#set-up-nginx-with-ssl-recommended" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>You can use a free and an open certificate security like <a class="reference external" href="https://letsencrypt.org/">Let&#8217;s
 Encrypt</a>, this is how to proceed</li>
@@ -602,7 +611,7 @@ process.</p>
 </ul>
 </div>
 <div class="section" id="test-setup-and-configure-mattermost-server">
-<h2>Test setup and configure Mattermost Server<a class="headerlink" href="#test-setup-and-configure-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Test setup and configure Mattermost Server</a><a class="headerlink" href="#test-setup-and-configure-mattermost-server" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and
 user.</li>
@@ -734,6 +743,9 @@ user.</li>
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -748,6 +760,13 @@ user.</li>
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

@@ -101,31 +101,32 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Developer Machine Setup</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#mac-os-x">Mac OS X</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#archlinux">Archlinux</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#windows">Windows</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/developer.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Developer Machine Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mac-os-x">Mac OS X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#archlinux">Archlinux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon">I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> on Mac OS X: &#8220;Cannot connect ot the Docker daemon&#8221;</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused">I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>: &#8220;Failed to ping db err:dial tcp 192.168.99.100:3306: getsockopt: connection refused&#8221;</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use">I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>: &#8220;Error starting server, err:listen tcp :8065: bind: address already in use&#8221;</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065">I don&#8217;t see any error messages, but I can&#8217;t access <code class="docutils literal"><span class="pre">http://localhost:8065</span></code></a></li>
-<li class="toctree-l3"><a class="reference internal" href="#i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running">I don&#8217;t see anything logged to the console when Mattermost is running</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#i-can-t-log-into-mattermost-because-i-don-t-have-an-account">I can&#8217;t log into Mattermost because I don&#8217;t have an account</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-errors">Build errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-errors">Other errors</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="localization-process.html">Localization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization-process.html">Localization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#unofficial-enhancements">Unofficial Enhancements</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -436,15 +437,17 @@ eval $(docker-machine env default) #skip this line if you are using Docker for W
 </div>
 <div class="section" id="troubleshooting">
 <span id="troubleshooting"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="build-errors">
+<span id="build-errors"></span><h2>Build errors<a class="headerlink" href="#build-errors" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon">
-<span id="i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon"></span><h2>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> on Mac OS X: &#8220;Cannot connect ot the Docker daemon&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon" title="Permalink to this headline">¶</a></h2>
+<span id="i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon"></span><h3>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> on Mac OS X: &#8220;Cannot connect ot the Docker daemon&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon" title="Permalink to this headline">¶</a></h3>
 <p>If you have Docker Tools installed (as opposed to Docker for Mac), you need make sure <code class="docutils literal"><span class="pre">docker-machine</span></code> is running with the following:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">machine</span> <span class="n">start</span> <span class="n">dev</span>
 </pre></div>
 </div>
 </div>
 <div class="section" id="i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused">
-<span id="i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused"></span><h2>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>: &#8220;Failed to ping db err:dial tcp 192.168.99.100:3306: getsockopt: connection refused&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused" title="Permalink to this headline">¶</a></h2>
+<span id="i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused"></span><h3>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>: &#8220;Failed to ping db err:dial tcp 192.168.99.100:3306: getsockopt: connection refused&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused" title="Permalink to this headline">¶</a></h3>
 <p>It appears that your MySQL database isn&#8217;t running. If you run <code class="docutils literal"><span class="pre">docker</span> <span class="pre">ps</span></code>, you should see a line like</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ecb17c10973d</span>    <span class="n">mysql</span><span class="p">:</span><span class="mf">5.7</span>  <span class="s2">&quot;/entrypoint.sh mysql&quot;</span>   <span class="mi">2</span> <span class="n">weeks</span> <span class="n">ago</span>    <span class="n">Up</span> <span class="mi">24</span> <span class="n">hours</span>  <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">3306</span><span class="o">-&gt;</span><span class="mi">3306</span><span class="o">/</span><span class="n">tcp</span>     <span class="n">mattermost</span><span class="o">-</span><span class="n">mysql</span>
 </pre></div>
@@ -452,20 +455,23 @@ eval $(docker-machine env default) #skip this line if you are using Docker for W
 <p>If not, running <code class="docutils literal"><span class="pre">make</span> <span class="pre">clean-docker</span></code> will remove all existing docker containers so that they&#8217;ll be recreated next time you call <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>.</p>
 </div>
 <div class="section" id="i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use">
-<span id="i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use"></span><h2>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>: &#8220;Error starting server, err:listen tcp :8065: bind: address already in use&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use" title="Permalink to this headline">¶</a></h2>
+<span id="i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use"></span><h3>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>: &#8220;Error starting server, err:listen tcp :8065: bind: address already in use&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use" title="Permalink to this headline">¶</a></h3>
 <p>There&#8217;s likely another Mattermost instance already running. You can use <code class="docutils literal"><span class="pre">make</span> <span class="pre">stop</span></code> to stop it before running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> again.</p>
 <p>If there isn&#8217;t another copy of Mattermost running and you need to change the port that Mattermost is running on, you can do so by changing the <code class="docutils literal"><span class="pre">ListenAddress</span></code> setting in the <code class="docutils literal"><span class="pre">ServiceSettings</span></code> section of <code class="docutils literal"><span class="pre">config/config.json</span></code>.</p>
 </div>
+</div>
+<div class="section" id="other-errors">
+<span id="other-errors"></span><h2>Other errors<a class="headerlink" href="#other-errors" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065">
-<span id="i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065"></span><h2>I don&#8217;t see any error messages, but I can&#8217;t access <code class="docutils literal"><span class="pre">http://localhost:8065</span></code><a class="headerlink" href="#i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065" title="Permalink to this headline">¶</a></h2>
+<span id="i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065"></span><h3>I don&#8217;t see any error messages, but I can&#8217;t access <code class="docutils literal"><span class="pre">http://localhost:8065</span></code><a class="headerlink" href="#i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065" title="Permalink to this headline">¶</a></h3>
 <p>It&#8217;s possible that the server reported an error, but it was missed because of all of the output from the Javascript compiler. Try running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run-server</span></code> by itself to see its output. If you still don&#8217;t see any error messages, continue to the next section.</p>
 </div>
 <div class="section" id="i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running">
-<span id="i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running"></span><h2>I don&#8217;t see anything logged to the console when Mattermost is running<a class="headerlink" href="#i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running" title="Permalink to this headline">¶</a></h2>
+<span id="i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running"></span><h3>I don&#8217;t see anything logged to the console when Mattermost is running<a class="headerlink" href="#i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running" title="Permalink to this headline">¶</a></h3>
 <p>You can enable console logging in the <code class="docutils literal"><span class="pre">LogSettings</span></code> section of your <code class="docutils literal"><span class="pre">config/config.json</span></code> by setting <code class="docutils literal"><span class="pre">EnableConsole</span></code> to <code class="docutils literal"><span class="pre">true</span></code>.</p>
 </div>
 <div class="section" id="i-can-t-log-into-mattermost-because-i-don-t-have-an-account">
-<span id="i-can-t-log-into-mattermost-because-i-don-t-have-an-account"></span><h2>I can&#8217;t log into Mattermost because I don&#8217;t have an account<a class="headerlink" href="#i-can-t-log-into-mattermost-because-i-don-t-have-an-account" title="Permalink to this headline">¶</a></h2>
+<span id="i-can-t-log-into-mattermost-because-i-don-t-have-an-account"></span><h3>I can&#8217;t log into Mattermost because I don&#8217;t have an account<a class="headerlink" href="#i-can-t-log-into-mattermost-because-i-don-t-have-an-account" title="Permalink to this headline">¶</a></h3>
 <p>You can create an account using the following command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">run</span> <span class="n">mattermost</span><span class="o">.</span><span class="n">go</span> <span class="o">-</span><span class="n">create_user</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span>
 </pre></div>
@@ -473,6 +479,7 @@ eval $(docker-machine env default) #skip this line if you are using Docker for W
 <p>Optionally, you can make that account a System Admin with the following command:</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">run</span> <span class="n">mattermost</span><span class="o">.</span><span class="n">go</span> <span class="o">-</span><span class="n">assign_role</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">role</span><span class="o">=</span><span class="s2">&quot;system_admin system_user&quot;</span>
 </pre></div>
+</div>
 </div>
 </div>
 </div>
@@ -570,6 +577,9 @@ eval $(docker-machine env default) #skip this line if you are using Docker for W
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -584,6 +594,13 @@ eval $(docker-machine env default) #skip this line if you are using Docker for W
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

@@ -49,7 +49,7 @@
     <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
         <link rel="next" title="AWS Elastic Beanstalk Docker Setup" href="docker-ebs.html"/>
-        <link rel="prev" title="Installing NGINX Server" href="install-nginx.html"/> 
+        <link rel="prev" title="Installing Mattermost on RHEL 6.6" href="install-rhel-66.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -101,18 +101,18 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404-overview.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Local Machine Setup using Docker</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#one-line-docker-install">One-line Docker Install</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#mac-os-x-and-windows-10">Mac OS X and Windows 10</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#arch">Arch</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#additional-notes">Additional Notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#setting-up-smtp-email-recommended">Setting up SMTP Email (Recommended)</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#configuration-settings">Configuration Settings</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#recommended-enable-email">(Recommended) Enable Email</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updating-docker-preview">Updating Docker Preview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#accessing-your-container">Accessing Your Container</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
@@ -121,8 +121,6 @@
 <li class="toctree-l3"><a class="reference internal" href="prod-rhel-7.html">Production Install on RHEL 7.1+</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Production Install on Debian Jessie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-1404.html">Production Install on Ubuntu 14.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-16.04.html">Production Install on Ubuntu 16.04 LTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
@@ -134,6 +132,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -185,7 +184,8 @@
             
   <div class="section" id="local-machine-setup-using-docker">
 <span id="docker-local-machine"></span><h1>Local Machine Setup using Docker<a class="headerlink" href="#local-machine-setup-using-docker" title="Permalink to this headline">¶</a></h1>
-<p>The following instructions use Docker to install Mattermost in <em>Preview Mode</em> for exploring product functionality on a single machine using Docker. This configuration should not be used in production, as it&#8217;s using a known password string and contains other non-production configuration settings, and it does not support upgrade.</p>
+<p>The following instructions use Docker to install Mattermost in <em>Preview Mode</em> for exploring product functionality on a single machine using Docker.</p>
+<p>Note: This configuration should not be used in production, as it&#8217;s using a known password string and contains other non-production configuration settings, and it does not support upgrade.</p>
 <p>If you&#8217;re looking for a production installation with Docker, please see the <a class="reference external" href="http://docs.mattermost.com/install/prod-docker.html">Mattermost Production Docker Deployment Guide</a>.</p>
 <div class="section" id="one-line-docker-install">
 <h2>One-line Docker Install<a class="headerlink" href="#one-line-docker-install" title="Permalink to this headline">¶</a></h2>
@@ -196,11 +196,20 @@
 </div>
 </div></blockquote>
 <p>Otherwise, see step-by-step instructions:</p>
-</div>
-<div class="section" id="mac-os-x-and-windows-10">
-<h2>Mac OS X and Windows 10<a class="headerlink" href="#mac-os-x-and-windows-10" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mac-os-x">
+<h3>Mac OS X<a class="headerlink" href="#mac-os-x" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic simple">
-<li>Install <a class="reference external" href="http://docs.docker.com/installation/mac/">Docker for Mac</a> or <a class="reference external" href="http://docs.docker.com/installation/windows/">Docker for Windows</a></li>
+<li>Install <a class="reference external" href="http://docs.docker.com/installation/mac/">Docker for Mac</a></li>
+<li>Run:
+<code class="docutils literal"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--name</span> <span class="pre">mattermost-preview</span> <span class="pre">-d</span> <span class="pre">--publish</span> <span class="pre">8065:8065</span> <span class="pre">mattermost/mattermost-preview</span></code></li>
+<li>When docker is done fetching the image, open <code class="docutils literal"><span class="pre">http://localhost:8065/</span></code>
+in your browser.</li>
+</ol>
+</div>
+<div class="section" id="windows-10">
+<h3>Windows 10<a class="headerlink" href="#windows-10" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Install <a class="reference external" href="http://docs.docker.com/installation/windows/">Docker for Windows</a></li>
 <li>Run:
 <code class="docutils literal"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--name</span> <span class="pre">mattermost-preview</span> <span class="pre">-d</span> <span class="pre">--publish</span> <span class="pre">8065:8065</span> <span class="pre">mattermost/mattermost-preview</span></code></li>
 <li>When docker is done fetching the image, open <code class="docutils literal"><span class="pre">http://localhost:8065/</span></code>
@@ -208,7 +217,7 @@ in your browser.</li>
 </ol>
 </div>
 <div class="section" id="ubuntu">
-<h2>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h2>
+<h3>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Follow the instructions at
 <a class="reference external" href="https://docs.docker.com/installation/ubuntulinux/">https://docs.docker.com/installation/ubuntulinux/</a> or use the summary
@@ -233,7 +242,7 @@ in your browser.</p>
 </ol>
 </div>
 <div class="section" id="arch">
-<h2>Arch<a class="headerlink" href="#arch" title="Permalink to this headline">¶</a></h2>
+<h3>Arch<a class="headerlink" href="#arch" title="Permalink to this headline">¶</a></h3>
 <ol class="arabic">
 <li><p class="first">Install Docker using the following commands:</p>
 <div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">pacman</span> <span class="o">-</span><span class="n">S</span> <span class="n">docker</span>
@@ -254,31 +263,9 @@ in your browser.</p>
 </li>
 </ol>
 </div>
-<div class="section" id="additional-notes">
-<h2>Additional Notes<a class="headerlink" href="#additional-notes" title="Permalink to this headline">¶</a></h2>
-<ul>
-<li><p class="first">Instructions on how to update your Docker image are found below.</p>
-</li>
-<li><p class="first">If you wish to remove mattermost-preview use:</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">stop</span> <span class="n">mattermost</span><span class="o">-</span><span class="n">preview</span>
-<span class="n">docker</span> <span class="n">rm</span> <span class="o">-</span><span class="n">v</span> <span class="n">mattermost</span><span class="o">-</span><span class="n">preview</span>
-</pre></div>
 </div>
-</li>
-<li><p class="first">If you wish to gain access to a shell on the container use:</p>
-<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">ti</span> <span class="n">mattermost</span><span class="o">-</span><span class="n">preview</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
-</pre></div>
-</div>
-</li>
-</ul>
-</div>
-<div class="section" id="configuration-settings">
-<h2>Configuration Settings<a class="headerlink" href="#configuration-settings" title="Permalink to this headline">¶</a></h2>
-<p>See <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html">Configuration Settings</a>
-documentation to customize your deployment.</p>
-</div>
-<div class="section" id="recommended-enable-email">
-<h2>(Recommended) Enable Email<a class="headerlink" href="#recommended-enable-email" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="setting-up-smtp-email-recommended">
+<h2>Setting up SMTP Email (Recommended)<a class="headerlink" href="#setting-up-smtp-email-recommended" title="Permalink to this headline">¶</a></h2>
 <p>The default single-container Docker instance for Mattermost is designed
 for product evaluation, and sets <code class="docutils literal"><span class="pre">SendEmailNotifications=false</span></code> so the
 product can function without enabling email. To see the product&#8217;s full
@@ -366,10 +353,8 @@ errors that look like <code class="docutils literal"><span class="pre">[EROR]</s
 </ol>
 </li>
 </ol>
-<div class="section" id="sample-smtp-settings">
-<h3>Sample SMTP Settings<a class="headerlink" href="#sample-smtp-settings" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="amazon-ses">
-<h4>Amazon SES<a class="headerlink" href="#amazon-ses" title="Permalink to this headline">¶</a></h4>
+<h3>Amazon SES<a class="headerlink" href="#amazon-ses" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Set <strong>SMTP Username</strong> to <strong>[YOUR_SMTP_USERNAME]</strong></li>
 <li>Set <strong>SMTP Password</strong> to
@@ -380,7 +365,7 @@ errors that look like <code class="docutils literal"><span class="pre">[EROR]</s
 </ul>
 </div>
 <div class="section" id="postfix">
-<h4>Postfix<a class="headerlink" href="#postfix" title="Permalink to this headline">¶</a></h4>
+<h3>Postfix<a class="headerlink" href="#postfix" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Make sure Postfix is installed on the machine where Mattermost is
 installed</li>
@@ -392,7 +377,7 @@ installed</li>
 </ul>
 </div>
 <div class="section" id="gmail">
-<h4>Gmail<a class="headerlink" href="#gmail" title="Permalink to this headline">¶</a></h4>
+<h3>Gmail<a class="headerlink" href="#gmail" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Set <strong>SMTP Username</strong> to <strong>your_email&#64;gmail.com</strong></li>
 <li>Set <strong>SMTP Password</strong> to <strong>your_password</strong></li>
@@ -402,7 +387,7 @@ installed</li>
 </ul>
 </div>
 <div class="section" id="hotmail">
-<h4>Hotmail<a class="headerlink" href="#hotmail" title="Permalink to this headline">¶</a></h4>
+<h3>Hotmail<a class="headerlink" href="#hotmail" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Set <strong>SMTP Username</strong> to <strong>your_email&#64;hotmail.com</strong></li>
 <li>Set <strong>SMTP Password</strong> to <strong>your_password</strong></li>
@@ -410,17 +395,17 @@ installed</li>
 <li>Set <strong>SMTP Port</strong> to <strong>587</strong></li>
 <li>Set <strong>Connection Security</strong> to <strong>STARTTLS</strong></li>
 </ul>
-</div>
-</div>
 <div class="section" id="troubleshooting-smtp">
-<h3>Troubleshooting SMTP<a class="headerlink" href="#troubleshooting-smtp" title="Permalink to this headline">¶</a></h3>
-<div class="section" id="tip-1">
-<h4>Tip 1<a class="headerlink" href="#tip-1" title="Permalink to this headline">¶</a></h4>
+<h4>Troubleshooting SMTP<a class="headerlink" href="#troubleshooting-smtp" title="Permalink to this headline">¶</a></h4>
+</div>
+</div>
+<div class="section" id="tls-starttls-requirements">
+<h3>TLS/STARTTLS Requirements<a class="headerlink" href="#tls-starttls-requirements" title="Permalink to this headline">¶</a></h3>
 <p>If you fill in <strong>SMTP Username</strong> and <strong>SMTP Password</strong> then you must set
 <strong>Connection Security</strong> to <strong>TLS</strong> or to <strong>STARTTLS</strong></p>
 </div>
-<div class="section" id="tip-2">
-<h4>Tip 2<a class="headerlink" href="#tip-2" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="troubleshooting-using-logs">
+<h3>Troubleshooting using Logs<a class="headerlink" href="#troubleshooting-using-logs" title="Permalink to this headline">¶</a></h3>
 <p>If you have issues with your SMTP install, from your Mattermost team
 site go to the main menu and open <strong>System Console -&gt; Logs</strong> to look for
 error messages related to your setup. You can do a search for the error
@@ -433,8 +418,8 @@ SMTP and error codes can hint at how to make the proper adjustments.</p>
 <p>Search for <code class="docutils literal"><span class="pre">554</span> <span class="pre">5.7.1</span> <span class="pre">error</span></code> and
 <code class="docutils literal"><span class="pre">Client</span> <span class="pre">host</span> <span class="pre">rejected:</span> <span class="pre">Access</span> <span class="pre">denied</span></code>.</p>
 </div>
-<div class="section" id="tip-3">
-<h4>Tip 3<a class="headerlink" href="#tip-3" title="Permalink to this headline">¶</a></h4>
+<div class="section" id="checking-your-smtp-server-is-reachable">
+<h3>Checking your SMTP server is reachable<a class="headerlink" href="#checking-your-smtp-server-is-reachable" title="Permalink to this headline">¶</a></h3>
 <ul>
 <li><p class="first">Attempt to telnet to the email service to make sure the server is
 reachable.</p>
@@ -464,6 +449,30 @@ command works you should see something like</p>
 </ul>
 </div>
 </div>
+<div class="section" id="configuration-settings">
+<h2>Configuration Settings<a class="headerlink" href="#configuration-settings" title="Permalink to this headline">¶</a></h2>
+<p>See <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html">Configuration Settings</a>
+documentation to customize your deployment.</p>
+</div>
+<div class="section" id="updating-docker-preview">
+<h2>Updating Docker Preview<a class="headerlink" href="#updating-docker-preview" title="Permalink to this headline">¶</a></h2>
+<p>To delete your existing Docker preview and run a new version use:</p>
+<blockquote>
+<div><div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">stop</span> <span class="n">mattermost</span><span class="o">-</span><span class="n">preview</span>
+<span class="n">docker</span> <span class="n">rm</span> <span class="o">-</span><span class="n">v</span> <span class="n">mattermost</span><span class="o">-</span><span class="n">preview</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="accessing-your-container">
+<h2>Accessing Your Container<a class="headerlink" href="#accessing-your-container" title="Permalink to this headline">¶</a></h2>
+<ul>
+<li><p class="first">If you wish to gain access to a shell on the container use:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">exec</span> <span class="o">-</span><span class="n">ti</span> <span class="n">mattermost</span><span class="o">-</span><span class="n">preview</span> <span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">bash</span>
+</pre></div>
+</div>
+</li>
+</ul>
 </div>
 </div>
 
@@ -477,7 +486,7 @@ command works you should see something like</p>
         <a href="docker-ebs.html" class="btn btn-neutral float-right" title="AWS Elastic Beanstalk Docker Setup" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install-nginx.html" class="btn btn-neutral" title="Installing NGINX Server" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install-rhel-66.html" class="btn btn-neutral" title="Installing Mattermost on RHEL 6.6" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -560,6 +569,9 @@ command works you should see something like</p>
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -574,6 +586,13 @@ command works you should see something like</p>
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

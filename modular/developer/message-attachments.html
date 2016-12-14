@@ -101,7 +101,8 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks-incoming.html">Incoming Webhooks</a></li>
@@ -169,8 +170,9 @@
             
   <div class="section" id="message-attachments">
 <h1>Message Attachments<a class="headerlink" href="#message-attachments" title="Permalink to this headline">¶</a></h1>
-<p>Basic formatting such as bold and italic can be included in the <code class="docutils literal"><span class="pre">text</span></code> field of an integration’s payload by using markdown.</p>
-<p>For more advanced formatting, it is necessary to send an <code class="docutils literal"><span class="pre">attachments</span></code> array in the payload sent by an integration.</p>
+<p>A wide range of rich text formatting options, including bold, italic, headings, in-line images, and tables, can be used in integrations using <a class="reference external" href="https://docs.mattermost.com/help/messaging/formatting-text.html">Mattermost markdown support</a>.</p>
+<p>For additional formatting options, and for compatibility with Slack non-markdown integrations, an <code class="docutils literal"><span class="pre">attachments</span></code> array can be sent by integrations and rendered by Mattermost.</p>
+<p>Note: Attachment support is available for webhook integrations and not yet available for slash commands. <a class="reference external" href="https://github.com/mattermost/platform/issues/4238">There is a Help Wanted issue available for community to add attachment support for slash commands</a></p>
 <hr class="docutils" />
 <div class="line-block">
 <div class="line"><br /></div>
@@ -393,6 +395,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -407,6 +412,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

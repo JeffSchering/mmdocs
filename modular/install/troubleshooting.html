@@ -101,10 +101,12 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404-overview.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
@@ -112,15 +114,12 @@
 <li class="toctree-l3"><a class="reference internal" href="prod-rhel-7.html">Production Install on RHEL 7.1+</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Production Install on Debian Jessie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-1404.html">Production Install on Ubuntu 14.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-16.04.html">Production Install on Ubuntu 16.04 LTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#important-notes">Important notes</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#troubleshooting-basics">Troubleshooting Basics</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#common-issues">Common Issues</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#mattermost-error-messages">Mattermost Error Messages</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#gitlab-mattermost-error-messages">GitLab Mattermost Error Messages</a></li>
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
@@ -132,6 +131,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -182,11 +182,38 @@
            <div itemprop="articleBody">
             
   <div class="section" id="troubleshooting">
-<span id="id1"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<span id="id1"></span><h1><a class="toc-backref" href="#contents">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>This document summarizes common troubleshooting issues and techinques.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#troubleshooting" id="id2">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#important-notes" id="id3">Important notes</a><ul>
+<li><a class="reference internal" href="#do-not-manipulate-the-mattermost-database" id="id4"><strong>DO NOT Manipulate the Mattermost Database</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting-basics" id="id5">Troubleshooting Basics</a></li>
+<li><a class="reference internal" href="#common-issues" id="id6">Common Issues</a><ul>
+<li><a class="reference internal" href="#lost-system-administrator-account" id="id7">Lost System Administrator account</a></li>
+<li><a class="reference internal" href="#switching-system-administrator-account-to-sso-sign-in" id="id8">Switching System Administrator Account to SSO Sign-in</a></li>
+<li><a class="reference internal" href="#locked-out-of-system-administrator-account" id="id9">Locked out of System Administrator account</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mattermost-error-messages" id="id10">Mattermost Error Messages</a><ul>
+<li><a class="reference internal" href="#please-check-connection-mattermost-unreachable-if-issue-persists-ask-administrator-to-check-websocket-port" id="id11"><code class="docutils literal"><span class="pre">Please</span> <span class="pre">check</span> <span class="pre">connection,</span> <span class="pre">Mattermost</span> <span class="pre">unreachable.</span> <span class="pre">If</span> <span class="pre">issue</span> <span class="pre">persists,</span> <span class="pre">ask</span> <span class="pre">administrator</span> <span class="pre">to</span> <span class="pre">check</span> <span class="pre">WebSocket</span> <span class="pre">port.</span></code></a></li>
+<li><a class="reference internal" href="#x509-certificate-signed-by-unknown-authority" id="id12"><code class="docutils literal"><span class="pre">x509:</span> <span class="pre">certificate</span> <span class="pre">signed</span> <span class="pre">by</span> <span class="pre">unknown</span> <span class="pre">authority</span></code></a></li>
+<li><a class="reference internal" href="#panic-runtime-error-invalid-memory-address-or-nil-pointer-dereference" id="id13"><code class="docutils literal"><span class="pre">panic:</span> <span class="pre">runtime</span> <span class="pre">error:</span> <span class="pre">invalid</span> <span class="pre">memory</span> <span class="pre">address</span> <span class="pre">or</span> <span class="pre">nil</span> <span class="pre">pointer</span> <span class="pre">dereference</span></code></a></li>
+<li><a class="reference internal" href="#we-couldn-t-find-an-existing-account-matching-your-email-address-for-this-team-this-team-may-require-an-invite-from-the-team-owner-to-join" id="id14"><code class="docutils literal"><span class="pre">We</span> <span class="pre">couldn't</span> <span class="pre">find</span> <span class="pre">an</span> <span class="pre">existing</span> <span class="pre">account</span> <span class="pre">matching</span> <span class="pre">your</span> <span class="pre">email</span> <span class="pre">address</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">team.</span> <span class="pre">This</span> <span class="pre">team</span> <span class="pre">may</span> <span class="pre">require</span> <span class="pre">an</span> <span class="pre">invite</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">team</span> <span class="pre">owner</span> <span class="pre">to</span> <span class="pre">join.</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
 <div class="section" id="important-notes">
-<h2>Important notes<a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Important notes</a><a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="do-not-manipulate-the-mattermost-database">
-<h3><strong>DO NOT Manipulate the Mattermost Database</strong><a class="headerlink" href="#do-not-manipulate-the-mattermost-database" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents"><strong>DO NOT Manipulate the Mattermost Database</strong></a><a class="headerlink" href="#do-not-manipulate-the-mattermost-database" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Do not manipulate the database directly. Mattermost is designed to stop working if data integrity is compromised.</li>
 <li>Any manipulation of the database must be done using the built in command-line tools</li>
@@ -194,7 +221,7 @@
 </div>
 </div>
 <div class="section" id="troubleshooting-basics">
-<h2>Troubleshooting Basics<a class="headerlink" href="#troubleshooting-basics" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Troubleshooting Basics</a><a class="headerlink" href="#troubleshooting-basics" title="Permalink to this headline">¶</a></h2>
 <p>If you&#8217;re new to Mattermost or troubleshooting consider the following steps:</p>
 <ul class="simple">
 <li>Start simple with the step-by-step install guides for your operating system.</li>
@@ -204,9 +231,9 @@
 </ul>
 </div>
 <div class="section" id="common-issues">
-<h2>Common Issues<a class="headerlink" href="#common-issues" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Common Issues</a><a class="headerlink" href="#common-issues" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="lost-system-administrator-account">
-<h3>Lost System Administrator account<a class="headerlink" href="#lost-system-administrator-account" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents">Lost System Administrator account</a><a class="headerlink" href="#lost-system-administrator-account" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>To reset the account, run from the command line:
 <code class="docutils literal"><span class="pre">./platform</span> <span class="pre">-assign_role</span> <span class="pre">-team_name=&quot;yourteam&quot;</span> <span class="pre">-email=&quot;you&#64;example.com&quot;</span> <span class="pre">-role=&quot;system_admin&quot;</span></code>.</li>
@@ -214,7 +241,7 @@
 </ul>
 </div>
 <div class="section" id="switching-system-administrator-account-to-sso-sign-in">
-<h3>Switching System Administrator Account to SSO Sign-in<a class="headerlink" href="#switching-system-administrator-account-to-sso-sign-in" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents">Switching System Administrator Account to SSO Sign-in</a><a class="headerlink" href="#switching-system-administrator-account-to-sso-sign-in" title="Permalink to this headline">¶</a></h3>
 <p>When Mattermost is initially set up, the first account created becomes the System Administrator account. This account will typically use email authentication to sign-in, since it is usually created before other sign-in methods are configured.</p>
 <p>After setting up SSO authentication, it is common for the System Administrator to want to turn off email sign-in so users will only have SSO as a sign-in option.</p>
 <p>Before doing this, the System Administrator needs to change their sign-in method to SSO by doing the following:</p>
@@ -226,15 +253,15 @@
 <p>The System Administrator can now turn off email sign-in and still access their account. (To avoid locking other existing users out of their accounts, it is recommended the System Administrator ask them to switch authentication methods as well.)</p>
 </div>
 <div class="section" id="locked-out-of-system-administrator-account">
-<h3>Locked out of System Administrator account<a class="headerlink" href="#locked-out-of-system-administrator-account" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents">Locked out of System Administrator account</a><a class="headerlink" href="#locked-out-of-system-administrator-account" title="Permalink to this headline">¶</a></h3>
 <p>If email sign-in was turned off before the System Administrator switched sign-in methods, sign up for a new account and promote it to System Administrator from the command line.</p>
 </div>
 </div>
 <div class="section" id="mattermost-error-messages">
-<h2>Mattermost Error Messages<a class="headerlink" href="#mattermost-error-messages" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#contents">Mattermost Error Messages</a><a class="headerlink" href="#mattermost-error-messages" title="Permalink to this headline">¶</a></h2>
 <p>The following is a list of common error messages and solutions:</p>
 <div class="section" id="please-check-connection-mattermost-unreachable-if-issue-persists-ask-administrator-to-check-websocket-port">
-<h3><code class="docutils literal"><span class="pre">Please</span> <span class="pre">check</span> <span class="pre">connection,</span> <span class="pre">Mattermost</span> <span class="pre">unreachable.</span> <span class="pre">If</span> <span class="pre">issue</span> <span class="pre">persists,</span> <span class="pre">ask</span> <span class="pre">administrator</span> <span class="pre">to</span> <span class="pre">check</span> <span class="pre">WebSocket</span> <span class="pre">port.</span></code><a class="headerlink" href="#please-check-connection-mattermost-unreachable-if-issue-persists-ask-administrator-to-check-websocket-port" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">Please</span> <span class="pre">check</span> <span class="pre">connection,</span> <span class="pre">Mattermost</span> <span class="pre">unreachable.</span> <span class="pre">If</span> <span class="pre">issue</span> <span class="pre">persists,</span> <span class="pre">ask</span> <span class="pre">administrator</span> <span class="pre">to</span> <span class="pre">check</span> <span class="pre">WebSocket</span> <span class="pre">port.</span></code></a><a class="headerlink" href="#please-check-connection-mattermost-unreachable-if-issue-persists-ask-administrator-to-check-websocket-port" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Message appears in blue bar on team site.</li>
 <li>To check the websocket connection, open the developer console in your browser and view the Network panel. If the websocket is not connecting properly, you will see a pending websocket connection show up in the list. The screenshot below shows an example from Chrome.</li>
@@ -256,19 +283,19 @@
 <p>If only a small number of users have this issue, it could be from intermittent internet access, if almost every user has this issue, it&#8217;s likely from a misconfiguration of the <code class="docutils literal"><span class="pre">wss</span></code> connection.</p>
 </div>
 <div class="section" id="x509-certificate-signed-by-unknown-authority">
-<h3><code class="docutils literal"><span class="pre">x509:</span> <span class="pre">certificate</span> <span class="pre">signed</span> <span class="pre">by</span> <span class="pre">unknown</span> <span class="pre">authority</span></code><a class="headerlink" href="#x509-certificate-signed-by-unknown-authority" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">x509:</span> <span class="pre">certificate</span> <span class="pre">signed</span> <span class="pre">by</span> <span class="pre">unknown</span> <span class="pre">authority</span></code></a><a class="headerlink" href="#x509-certificate-signed-by-unknown-authority" title="Permalink to this headline">¶</a></h3>
 <p>This error may appear in server logs when attempting to sign-up when using self-signed certificates to setup SSL, which is not yet supported by Mattermost.</p>
 <p><strong>Solution:</strong> Set up a load balancer like NGINX <a class="reference external" href="http://docs.mattermost.com/install/prod-debian.html#set-up-nginx-with-ssl-recommended">per production install guide</a>. The core team is looking into allowing self-signed certificates in the future.</p>
 <p>As a work around, in <strong>System Console</strong> &gt; <strong>Security</strong> &gt; <strong>Connections</strong> set <code class="docutils literal"><span class="pre">Enable</span> <span class="pre">Insecure</span> <span class="pre">Outgoing</span> <span class="pre">Connections</span></code> to <code class="docutils literal"><span class="pre">true</span></code>.</p>
 <p>This will allow insecure TLS connections, but be careful in doing so as it also opens your Mattermost site to man-in-the-middle attacks.</p>
 </div>
 <div class="section" id="panic-runtime-error-invalid-memory-address-or-nil-pointer-dereference">
-<h3><code class="docutils literal"><span class="pre">panic:</span> <span class="pre">runtime</span> <span class="pre">error:</span> <span class="pre">invalid</span> <span class="pre">memory</span> <span class="pre">address</span> <span class="pre">or</span> <span class="pre">nil</span> <span class="pre">pointer</span> <span class="pre">dereference</span></code><a class="headerlink" href="#panic-runtime-error-invalid-memory-address-or-nil-pointer-dereference" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">panic:</span> <span class="pre">runtime</span> <span class="pre">error:</span> <span class="pre">invalid</span> <span class="pre">memory</span> <span class="pre">address</span> <span class="pre">or</span> <span class="pre">nil</span> <span class="pre">pointer</span> <span class="pre">dereference</span></code></a><a class="headerlink" href="#panic-runtime-error-invalid-memory-address-or-nil-pointer-dereference" title="Permalink to this headline">¶</a></h3>
 <p>This error can occur if you have manually manipulated the Mattermost database, typically with deletions. Mattermost is designed to serve as a searchable archive, and manual manipulation of the database elements compromises integrity and may prevent upgrade.</p>
 <p><strong>Solution:</strong> Restore from database backup created prior to manual database updates, or reinstall the system.</p>
 </div>
 <div class="section" id="we-couldn-t-find-an-existing-account-matching-your-email-address-for-this-team-this-team-may-require-an-invite-from-the-team-owner-to-join">
-<h3><code class="docutils literal"><span class="pre">We</span> <span class="pre">couldn't</span> <span class="pre">find</span> <span class="pre">an</span> <span class="pre">existing</span> <span class="pre">account</span> <span class="pre">matching</span> <span class="pre">your</span> <span class="pre">email</span> <span class="pre">address</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">team.</span> <span class="pre">This</span> <span class="pre">team</span> <span class="pre">may</span> <span class="pre">require</span> <span class="pre">an</span> <span class="pre">invite</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">team</span> <span class="pre">owner</span> <span class="pre">to</span> <span class="pre">join.</span></code><a class="headerlink" href="#we-couldn-t-find-an-existing-account-matching-your-email-address-for-this-team-this-team-may-require-an-invite-from-the-team-owner-to-join" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">We</span> <span class="pre">couldn't</span> <span class="pre">find</span> <span class="pre">an</span> <span class="pre">existing</span> <span class="pre">account</span> <span class="pre">matching</span> <span class="pre">your</span> <span class="pre">email</span> <span class="pre">address</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">team.</span> <span class="pre">This</span> <span class="pre">team</span> <span class="pre">may</span> <span class="pre">require</span> <span class="pre">an</span> <span class="pre">invite</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">team</span> <span class="pre">owner</span> <span class="pre">to</span> <span class="pre">join.</span></code></a><a class="headerlink" href="#we-couldn-t-find-an-existing-account-matching-your-email-address-for-this-team-this-team-may-require-an-invite-from-the-team-owner-to-join" title="Permalink to this headline">¶</a></h3>
 <p>This error appears when a user tries to sign in, and Mattermost can&#8217;t find an account matching the credentials they entered.</p>
 <p><strong>Solution:</strong></p>
 <ol class="arabic simple">
@@ -310,57 +337,6 @@ sign-in option back off.</li>
 </ul>
 </li>
 </ol>
-</div>
-</div>
-<div class="section" id="gitlab-mattermost-error-messages">
-<h2>GitLab Mattermost Error Messages<a class="headerlink" href="#gitlab-mattermost-error-messages" title="Permalink to this headline">¶</a></h2>
-<div class="section" id="we-received-an-unexpected-status-code-from-the-server-200">
-<h3><code class="docutils literal"><span class="pre">We</span> <span class="pre">received</span> <span class="pre">an</span> <span class="pre">unexpected</span> <span class="pre">status</span> <span class="pre">code</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">server</span> <span class="pre">(200)</span></code><a class="headerlink" href="#we-received-an-unexpected-status-code-from-the-server-200" title="Permalink to this headline">¶</a></h3>
-<p>If you have upgraded from a pre-released version of GitLab Mattermost or if an unforseen issue has arrisen during the <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">upgrade procedure</a>, you may be able to restore Mattermost using the following procedure:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code>, so DB can be dropped</li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">gitlab-ctl</span> <span class="pre">reconfigure</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">gitlab-psql</span> <span class="pre">/opt/gitlab/embedded/bin/dropdb</span> <span class="pre">-h</span> <span class="pre">/var/opt/gitlab/postgresql</span> <span class="pre">mattermost_production</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">gitlab-ctl</span> <span class="pre">reconfigure</span></code></li>
-<li><a class="reference external" href="http://docs.mattermost.com/deployment/sso-gitlab.html">Manually set up GitLab SSO</a> by copying Secret and ID into <code class="docutils literal"><span class="pre">/var/opt/gitlab/mattermost/config.json</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">gitlab-ctl</span> <span class="pre">restart</span></code></li>
-</ol>
-</div></blockquote>
-</div>
-<div class="section" id="token-request-failed">
-<h3><code class="docutils literal"><span class="pre">Token</span> <span class="pre">request</span> <span class="pre">failed</span></code><a class="headerlink" href="#token-request-failed" title="Permalink to this headline">¶</a></h3>
-<p>This error can appear in the web browser after attempting to create a new team with GitLab SSO enabled</p>
-<p>Solutions:</p>
-<blockquote>
-<div><ol class="arabic simple">
-<li>Check that your SSL settings for the SSO provider match the <code class="docutils literal"><span class="pre">http://</span></code> or <code class="docutils literal"><span class="pre">https://</span></code> choice selected in <code class="docutils literal"><span class="pre">config.json</span></code> under <code class="docutils literal"><span class="pre">GitLabSettings</span></code></li>
-<li>Follow steps 1 to 3 of the manual <a class="reference external" href="http://docs.mattermost.com/deployment/sso-gitlab.html">GitLab SSO configuration procedure</a> to confirm your <code class="docutils literal"><span class="pre">Secret</span></code> and <code class="docutils literal"><span class="pre">Id</span></code> settings in <code class="docutils literal"><span class="pre">config.json</span></code> match your GitLab settings, and if they don&#8217;t, manually update <code class="docutils literal"><span class="pre">config.json</span></code> to the correct settings and see if this clears the issue.</li>
-</ol>
-</div></blockquote>
-</div>
-<div class="section" id="the-redirect-uri-included-is-not-valid">
-<h3><code class="docutils literal"><span class="pre">The</span> <span class="pre">redirect</span> <span class="pre">URI</span> <span class="pre">included</span> <span class="pre">is</span> <span class="pre">not</span> <span class="pre">valid.</span></code><a class="headerlink" href="#the-redirect-uri-included-is-not-valid" title="Permalink to this headline">¶</a></h3>
-<p>This error may be related to SSL configurations in your proxy after a GitLab omnibus upgrade from 8.0, which contained the Mattermost beta version.</p>
-<p>Please check that each step of <a class="reference external" href="http://docs.mattermost.com/integrations/gitlab.html#upgrading-from-gitlab-mattermost-beta">the procedure for upgrading Mattermost in GitLab 8.0 to GitLab 8.1 was completed</a>. Then check upgrades to successive major versions were completed using the procedure in the <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrade Guide</a>.</p>
-</div>
-<div class="section" id="panic-the-database-schema-version-of-1-1-0-cannot-be-upgraded-you-must-not-skip-a-version">
-<h3><code class="docutils literal"><span class="pre">panic:</span> <span class="pre">The</span> <span class="pre">database</span> <span class="pre">schema</span> <span class="pre">version</span> <span class="pre">of</span> <span class="pre">1.1.0</span> <span class="pre">cannot</span> <span class="pre">be</span> <span class="pre">upgraded.</span> <span class="pre">You</span> <span class="pre">must</span> <span class="pre">not</span> <span class="pre">skip</span> <span class="pre">a</span> <span class="pre">version</span></code><a class="headerlink" href="#panic-the-database-schema-version-of-1-1-0-cannot-be-upgraded-you-must-not-skip-a-version" title="Permalink to this headline">¶</a></h3>
-<p>This error may appear in your <code class="docutils literal"><span class="pre">/var/log/gitlab/mattermost/current</span></code> if you&#8217;re attempting to skip major versions when upgrading GitLab Mattermost (e.g. running an upgrade from GitLab 8.2.x to 8.4.x, instead of running from 8.2.x to 8.3.x to 8.4.x which is required for GitLab Mattermost).</p>
-<dl class="docutils">
-<dt>To address this:</dt>
-<dd><ol class="first last arabic simple">
-<li>Run <code class="docutils literal"><span class="pre">platform</span> <span class="pre">-version</span></code> to check your version of Mattermost</li>
-<li>If your version of the Mattermost binary doesn&#8217;t match the version listed in the database error message, downgrade the version of the Mattermost binary you are using by <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">following the manual upgrade steps for Mattermost</a> and using the database schema version listed in the error messages for the version you select in Step 1) iv).</li>
-<li>Once Mattermost is working again, you can use the same upgrade procedure to upgrade Mattermost version by version to your current GitLab version. After this is done, GitLab automation should continue to work for future upgrades, so long as you don&#8217;t skip versions.</li>
-</ol>
-</dd>
-</dl>
-</div>
-<div class="section" id="panic-error-decoding-config-file-opt-mattermost-config-config-json-err-invalid-character-after-object-key-value-pair">
-<h3><code class="docutils literal"><span class="pre">panic:</span> <span class="pre">Error</span> <span class="pre">decoding</span> <span class="pre">config</span> <span class="pre">file=/opt/mattermost/config/config.json,</span> <span class="pre">err=invalid</span> <span class="pre">character</span> <span class="pre">'&quot;'</span> <span class="pre">after</span> <span class="pre">object</span> <span class="pre">key:value</span> <span class="pre">pair</span></code><a class="headerlink" href="#panic-error-decoding-config-file-opt-mattermost-config-config-json-err-invalid-character-after-object-key-value-pair" title="Permalink to this headline">¶</a></h3>
-<p>Your <code class="docutils literal"><span class="pre">config.json</span></code> is not a well-formed <code class="docutils literal"><span class="pre">.json</span></code> file. Try using a <a class="reference external" href="https://jsonformatter.curiousconcept.com/">json validator</a> to find the error.</p>
 </div>
 </div>
 </div>
@@ -458,6 +434,9 @@ sign-in option back off.</li>
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -472,6 +451,13 @@ sign-in option back off.</li>
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

@@ -98,7 +98,8 @@
                 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -148,7 +149,6 @@
             
   <p>A complete Mattermost installation consists of 3 major components: a proxy server, a database server, and the Mattermost server. You can install all components on 1 machine, or you can install each component on its own machine. If you have only 2 machines, then install the proxy and the Mattermost server on one machine, and install the database on the other machine.</p>
 <p>The Mattermost server must be installed on a 64-bit machine, but the database and proxy can be on 32-bit machines. For the database, you can install either MySQL or ProstgreSQL. The proxy is NGINX.</p>
-<p>After all the components are installed, some configuration is required. You can set up email notifications, SSL, TSL, and HTTP/2. For more information about configuring, see <a class="reference internal" href="config-mattermost.html#config-mattermost"><span class="std std-ref">Configuring Mattermost</span></a>.</p>
 
 
            </div>
@@ -234,6 +234,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -248,6 +251,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

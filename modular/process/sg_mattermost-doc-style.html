@@ -1,0 +1,711 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Documentation Guidelines &mdash; Mattermost 3.5 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
+        <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
+        <link rel="next" title="About Mattermost" href="handbook.html"/>
+        <link rel="prev" title="Mattermost Marketing Content Guidelines" href="marketing-guidelines.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.5
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#development-process">Development Process</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Documentation Guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#document-structure">Document structure</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#grammar-spelling-and-mechanics">Grammar, spelling, and mechanics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-restructuredtext-markup">Using reStructuredText Markup</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+ 
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+      
+          <li><a href="../guides/core.html">Core Team Handbook</a> &raquo;</li>
+      
+    <li>Documentation Guidelines</li>
+      <li class="wy-breadcrumbs-aside">
+        
+          
+            <a href="https://github.com/mattermost/docs/blob/master/source/process/sg_mattermost-doc-style.rst" class="fa fa-github"> Edit on GitHub</a>
+          
+        
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="documentation-guidelines">
+<h1><a class="toc-backref" href="#contents">Documentation Guidelines</a><a class="headerlink" href="#documentation-guidelines" title="Permalink to this headline">¶</a></h1>
+<p>This is the Mattermost style guide for documentation. It acts as a reference for writers and editors to ensure that the Mattermost documentation is consistent and clear.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The style guide is not intended to slow down or otherwise impede contributions, which are always welcome. No contribution will be rejected due to non-conforming style, although it might be edited.</p>
+</div>
+<p>The Mattermost documentation must be of high quality. It must be accurate and clear, and be presented with a style and tone that is appropriate for technical content. People who use Mattermost rely on the documentation to get their jobs done. We don&#8217;t want to see an installation of Mattermost delayed because the documentation has an error or is difficult to understand.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#documentation-guidelines" id="id3">Documentation Guidelines</a><ul>
+<li><a class="reference internal" href="#document-structure" id="id4">Document structure</a><ul>
+<li><a class="reference internal" href="#document-title" id="id5">Document title</a></li>
+<li><a class="reference internal" href="#introductory-paragraph" id="id6">Introductory paragraph</a></li>
+<li><a class="reference internal" href="#document-sections" id="id7">Document sections</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#grammar-spelling-and-mechanics" id="id8">Grammar, spelling, and mechanics</a><ul>
+<li><a class="reference internal" href="#language-and-spelling" id="id9">Language and spelling</a></li>
+<li><a class="reference internal" href="#paragraphs-and-sentences" id="id10">Paragraphs and sentences</a></li>
+<li><a class="reference internal" href="#commas" id="id11">Commas</a></li>
+<li><a class="reference internal" href="#tone" id="id12">Tone</a></li>
+<li><a class="reference internal" href="#capitalization" id="id13">Capitalization</a></li>
+<li><a class="reference internal" href="#voice" id="id14">Voice</a></li>
+<li><a class="reference internal" href="#person" id="id15">Person</a></li>
+<li><a class="reference internal" href="#numbers" id="id16">Numbers</a></li>
+<li><a class="reference internal" href="#text-highlighting" id="id17">Text highlighting</a></li>
+<li><a class="reference internal" href="#verb-tense" id="id18">Verb tense</a></li>
+<li><a class="reference internal" href="#bullet-lists" id="id19">Bullet lists</a></li>
+<li><a class="reference internal" href="#numbered-lists-and-procedures" id="id20">Numbered lists and procedures</a></li>
+<li><a class="reference internal" href="#linking-to-other-documents" id="id21">Linking to other documents</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#using-restructuredtext-markup" id="id22">Using reStructuredText Markup</a><ul>
+<li><a class="reference internal" href="#page-titles" id="id23">Page titles</a></li>
+<li><a class="reference internal" href="#section-titles" id="id24">Section titles</a></li>
+<li><a class="reference internal" href="#inline-markup" id="id25">Inline markup</a></li>
+<li><a class="reference internal" href="#arbitrary-text-label" id="id26">Bullet lists</a></li>
+<li><a class="reference internal" href="#numbered-lists-and-procedure-steps" id="id27">Numbered lists and procedure steps</a></li>
+<li><a class="reference internal" href="#links-to-external-web-pages" id="id28">Links to external web pages</a></li>
+<li><a class="reference internal" href="#links-to-targets-within-the-mattermost-docs" id="id29">Links to targets within the Mattermost docs</a></li>
+<li><a class="reference internal" href="#images" id="id30">Images</a></li>
+<li><a class="reference internal" href="#literal-blocks" id="id31">Literal blocks</a></li>
+<li><a class="reference internal" href="#code-blocks-with-syntax-highlighting" id="id32">Code blocks with syntax highlighting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="document-structure">
+<h2><a class="toc-backref" href="#contents">Document structure</a><a class="headerlink" href="#document-structure" title="Permalink to this headline">¶</a></h2>
+<p>Structure and organization are an important part of a document&#8217;s ease of use and its understandability. Information should be organized and presented in a logical order, with similar subjects grouped together in the same section.</p>
+<p>In most cases, a document has a title, an introductory paragraph, and one or more sections.</p>
+<p>Try to keep only one topic in a page. Shorter topics are easier to reuse in other documents, are easier to write and edit, and are easier to translate.</p>
+<div class="section" id="document-title">
+<h3><a class="toc-backref" href="#contents">Document title</a><a class="headerlink" href="#document-title" title="Permalink to this headline">¶</a></h3>
+<p>Use a title that accurately reflects the content of the document. People scan the table of contents looking for answers; it&#8217;s often faster than using the built-in search engine.</p>
+<p>Use title case for document titles. For more information and an example of capitalization, see <a class="reference internal" href="#capital"><span class="std std-ref">Capitalization</span></a>.</p>
+</div>
+<div class="section" id="introductory-paragraph">
+<h3><a class="toc-backref" href="#contents">Introductory paragraph</a><a class="headerlink" href="#introductory-paragraph" title="Permalink to this headline">¶</a></h3>
+<p>Each page should have an introduction that acts as a short description of the document. The short description should be a single paragraph of no more than 3 sentences. Keep in mind that the description is displayed in the search results along with the page title. People read the description to help them decide if the document is the one that they want.</p>
+</div>
+<div class="section" id="document-sections">
+<h3><a class="toc-backref" href="#contents">Document sections</a><a class="headerlink" href="#document-sections" title="Permalink to this headline">¶</a></h3>
+<p>To make pages easier for people to quickly scan for the content that they&#8217;re looking for, break your document up into logical sections. Each section should have a title, and the title should relate to the content of the section.</p>
+<p>A section title is not required if you have only one section.</p>
+<p>Avoid subsections. If you find that you need subsections, quite often the document is too long, or too complex, and needs to be broken up into several pages.</p>
+</div>
+</div>
+<div class="section" id="grammar-spelling-and-mechanics">
+<h2><a class="toc-backref" href="#contents">Grammar, spelling, and mechanics</a><a class="headerlink" href="#grammar-spelling-and-mechanics" title="Permalink to this headline">¶</a></h2>
+<p>To maintain consistency across all Mattermost technical documentation, adhere to the guidelines here.</p>
+<div class="section" id="language-and-spelling">
+<h3><a class="toc-backref" href="#contents">Language and spelling</a><a class="headerlink" href="#language-and-spelling" title="Permalink to this headline">¶</a></h3>
+<p>Write documents in English. Use American spelling.</p>
+</div>
+<div class="section" id="paragraphs-and-sentences">
+<h3><a class="toc-backref" href="#contents">Paragraphs and sentences</a><a class="headerlink" href="#paragraphs-and-sentences" title="Permalink to this headline">¶</a></h3>
+<p>Paragraphs should express one idea or topic. Long paragraphs are sometimes difficult to read on screen, so try to keep them to 5 sentences or less. Short paragraphs are easier for people to scan quickly.</p>
+<p>Try to keep sentences to 25 words or less in length. Short, single-clause sentences are often easier to understand and easier to translate.</p>
+</div>
+<div class="section" id="commas">
+<h3><a class="toc-backref" href="#contents">Commas</a><a class="headerlink" href="#commas" title="Permalink to this headline">¶</a></h3>
+<p>As a general rule, the serial comma results in greater clarity. However, there are always edge cases where a serial comma adds confusion to a sentence. Therefore, the Mattermost documentation will use the following rule for commas:</p>
+<p>Use the serial comma unless doing so decreases clarity and understanding of the sentence.</p>
+<dl class="docutils">
+<dt>Preferred</dt>
+<dd>The cows ran from wolves, coyotes, and mosquitoes.</dd>
+<dt>Avoid</dt>
+<dd>The cows ran from wolves, coyotes and mosquitoes.</dd>
+</dl>
+</div>
+<div class="section" id="tone">
+<h3><a class="toc-backref" href="#contents">Tone</a><a class="headerlink" href="#tone" title="Permalink to this headline">¶</a></h3>
+<p>Use a direct, impartial tone. Most readers of the documentation are looking for answers and solutions to their problems; they are not looking for entertainment.</p>
+<dl class="docutils">
+<dt>Preferred</dt>
+<dd>If your password is rejected, check to make sure that Caps Lock is off, and then carefully type it in again.</dd>
+<dt>Avoid</dt>
+<dd>Failed sign in? No problem! Simply enter the correct password and we&#8217;ll let you in right away.</dd>
+</dl>
+</div>
+<div class="section" id="capitalization">
+<span id="capital"></span><h3><a class="toc-backref" href="#contents">Capitalization</a><a class="headerlink" href="#capitalization" title="Permalink to this headline">¶</a></h3>
+<p>Use title case for page titles and sentence case for section titles.</p>
+<dl class="docutils">
+<dt>Title case</dt>
+<dd>Grammar, Spelling, and Mechanics</dd>
+<dt>Sentence case</dt>
+<dd>Language and spelling</dd>
+</dl>
+</div>
+<div class="section" id="voice">
+<h3><a class="toc-backref" href="#contents">Voice</a><a class="headerlink" href="#voice" title="Permalink to this headline">¶</a></h3>
+<p>Use active voice in preference to passive voice. Active voice has the subject of a sentence doing the action. In passive voice, the subject has an action done to it. Use passive voice only when you want to emphasize the action more than the subject.</p>
+<dl class="docutils">
+<dt>Preferred</dt>
+<dd>The system opens the <em>Status</em> pane.</dd>
+<dt>Avoid</dt>
+<dd>The <em>Status</em> pane is opened by the system.</dd>
+</dl>
+</div>
+<div class="section" id="person">
+<h3><a class="toc-backref" href="#contents">Person</a><a class="headerlink" href="#person" title="Permalink to this headline">¶</a></h3>
+<p>Use the second person and avoid the first person.</p>
+<dl class="docutils">
+<dt>Preferred</dt>
+<dd>You can view the status in the <em>Status</em> pane.</dd>
+<dt>Avoid</dt>
+<dd>We&#8217;ll view the status in the <em>Status</em> pane.</dd>
+</dl>
+</div>
+<div class="section" id="numbers">
+<h3><a class="toc-backref" href="#contents">Numbers</a><a class="headerlink" href="#numbers" title="Permalink to this headline">¶</a></h3>
+<p>Spell out numbers when they are the first word in a sentence, otherwise use numeric digits.</p>
+<p>Use commas to make long numbers easier to read.</p>
+<dl class="docutils">
+<dt>Preferred</dt>
+<dd>Three cows ran for 6 kilometers when they saw 2,300,097 mosquitoes chasing them.</dd>
+<dt>Avoid</dt>
+<dd>3 cows ran for six kilometers when they saw 2300097 mosquitoes chasing them.</dd>
+</dl>
+</div>
+<div class="section" id="text-highlighting">
+<h3><a class="toc-backref" href="#contents">Text highlighting</a><a class="headerlink" href="#text-highlighting" title="Permalink to this headline">¶</a></h3>
+<p>Use highlighting of text to visually set off words and phrases that are important to readers. Content that should be highlighted includes file names, UI controls, and window titles. The following table has a comprehensive list with examples.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="15%" />
+<col width="20%" />
+<col width="65%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Text</th>
+<th class="head">Highlight</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>file name</td>
+<td><code class="docutils literal"><span class="pre">monospace</span></code></td>
+<td><code class="docutils literal"><span class="pre">config.py</span></code></td>
+</tr>
+<tr class="row-odd"><td>directory name</td>
+<td><code class="docutils literal"><span class="pre">monospace</span></code></td>
+<td><code class="docutils literal"><span class="pre">/opt/mattermost</span></code></td>
+</tr>
+<tr class="row-even"><td>inline code</td>
+<td><code class="docutils literal"><span class="pre">monospace</span></code></td>
+<td><code class="docutils literal"><span class="pre">fmt.Printf(&quot;2</span> <span class="pre">times</span> <span class="pre">%d</span> <span class="pre">=</span> <span class="pre">%d\n&quot;,</span> <span class="pre">x,</span> <span class="pre">y</span> <span class="pre">)</span></code></td>
+</tr>
+<tr class="row-odd"><td>code samples</td>
+<td><code class="docutils literal"><span class="pre">monospace</span></code></td>
+<td>See <a class="reference internal" href="sg_rest_markup.html#syntax-highlight"><span class="std std-ref">Code blocks with syntax highlighting</span></a> for an example.</td>
+</tr>
+<tr class="row-even"><td>screen output</td>
+<td><code class="docutils literal"><span class="pre">monospace</span></code></td>
+<td>See <a class="reference internal" href="sg_rest_markup.html#literal-blocks"><span class="std std-ref">Literal blocks</span></a> for an example.</td>
+</tr>
+<tr class="row-odd"><td>menu selection</td>
+<td><strong>bold</strong></td>
+<td>&#8220;Click <strong>File &gt; Save</strong>.&#8221;</td>
+</tr>
+<tr class="row-even"><td>UI selection</td>
+<td><strong>bold</strong></td>
+<td>&#8220;Click <strong>Next</strong>.&#8221;</td>
+</tr>
+<tr class="row-odd"><td>field names</td>
+<td><strong>bold</strong></td>
+<td>&#8220;Enter the font in the <strong>Display Font</strong> field.&#8221;</td>
+</tr>
+<tr class="row-even"><td>commands</td>
+<td><code class="docutils literal"><span class="pre">monospace</span></code></td>
+<td>&#8220;At the command line, type <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nginx</span></code>.&#8221;</td>
+</tr>
+<tr class="row-odd"><td>citations</td>
+<td><em>italic</em></td>
+<td>&#8220;Read the book <em>Clean Code</em> by Robert Martin.&#8221;</td>
+</tr>
+<tr class="row-even"><td>window titles</td>
+<td><em>italic</em></td>
+<td>&#8220;The <em>Account Settings</em> window opens.&#8221;</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="verb-tense">
+<h3><a class="toc-backref" href="#contents">Verb tense</a><a class="headerlink" href="#verb-tense" title="Permalink to this headline">¶</a></h3>
+<p>Use the present tense.</p>
+<dl class="docutils">
+<dt>Preferred</dt>
+<dd>Sharing this link lets other users view the linked message.</dd>
+<dt>Avoid</dt>
+<dd>Sharing this link will let other users view the linked message.</dd>
+</dl>
+</div>
+<div class="section" id="bullet-lists">
+<h3><a class="toc-backref" href="#contents">Bullet lists</a><a class="headerlink" href="#bullet-lists" title="Permalink to this headline">¶</a></h3>
+<p>The list items in a bullet list can be either all complete sentences or all sentence fragments. Don&#8217;t mix complete sentences and sentence fragments in a single list. Remember that a complete sentence begins with an upper case letter and ends with a punctuation mark.</p>
+</div>
+<div class="section" id="numbered-lists-and-procedures">
+<h3><a class="toc-backref" href="#contents">Numbered lists and procedures</a><a class="headerlink" href="#numbered-lists-and-procedures" title="Permalink to this headline">¶</a></h3>
+<p>Create numbered lists and procedure steps using arabic numerals for the top-level list and lower case alpha characters for the first nested list. For example:</p>
+<ol class="arabic simple">
+<li>This is the first step.</li>
+<li>This is the second step.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>This is a substep.</li>
+<li>This is another substep.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>This is the third step.</li>
+</ol>
+</div>
+<div class="section" id="linking-to-other-documents">
+<h3><a class="toc-backref" href="#contents">Linking to other documents</a><a class="headerlink" href="#linking-to-other-documents" title="Permalink to this headline">¶</a></h3>
+<p>When creating a link to another document in the Mattermost documentation, create a link with a relative URL.</p>
+<p>A link with an absolute URL is not as flexible as a relative URL. Relative URLs don&#8217;t break when the documentation is moved to another host, or if the documentation is hosted on a server that&#8217;s behind a firewall without access to the Internet.</p>
+<p>To create relative links in reStructuredText, see <a class="reference internal" href="sg_rest_markup.html#relative-links-in-rst"><span class="std std-ref">Links to targets within the Mattermost docs</span></a>.</p>
+</div>
+</div>
+<div class="section" id="using-restructuredtext-markup">
+<h2><a class="toc-backref" href="#contents">Using reStructuredText Markup</a><a class="headerlink" href="#using-restructuredtext-markup" title="Permalink to this headline">¶</a></h2>
+<p>The reStructuredText specification allows for a certain degree of flexibility in markup to achieve your goals. For example, you can use any one of more than a dozen characters for section title underlines, and you have the option of using an overline in addition to an underline.</p>
+<p>However, for consistency and ease of use, the Mattermost documentation should use a single convention, despite the existence of allowable alternatives.</p>
+<p>For more information about reStructuredText markup, see the <a class="reference external" href="http://docutils.sourceforge.net/docs/ref/rst/restructuredtext.html">reStructuredText Markup Specification</a>. Additional markup constructs are implemented by Sphinx, the documentation generator used by Mattermost. For information about the additional constructs, see <a class="reference external" href="http://www.sphinx-doc.org/en/stable/markup/index.html">Sphinx Markup Constructs</a>.</p>
+<p>Use the following markup conventions in Mattermost documentation:</p>
+<div class="section" id="page-titles">
+<h3><a class="toc-backref" href="#contents">Page titles</a><a class="headerlink" href="#page-titles" title="Permalink to this headline">¶</a></h3>
+<p>For page titles, use the = character for the title underline, with no overline. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Using reStructuredText Markup
+=============================
+</pre></div>
+</div>
+<p>Unlike Markdown, underlines in reStructuredText must be at least as long as the title text.</p>
+</div>
+<div class="section" id="section-titles">
+<h3><a class="toc-backref" href="#contents">Section titles</a><a class="headerlink" href="#section-titles" title="Permalink to this headline">¶</a></h3>
+<p>If your document has more than one section, use the - character for the section title underline. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Section titles
+--------------
+</pre></div>
+</div>
+<p>If you do need subsections, use the the ^ character for the first subsection level, and the ` character for the second subsection level. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Subsection One
+^^^^^^^^^^^^^^
+
+Subsection Two
+``````````````
+</pre></div>
+</div>
+</div>
+<div class="section" id="inline-markup">
+<h3><a class="toc-backref" href="#contents">Inline markup</a><a class="headerlink" href="#inline-markup" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Bold</dt>
+<dd>Use double asterisks. For example: <code class="docutils literal"><span class="pre">**bold</span> <span class="pre">text**</span></code>.</dd>
+<dt>Italic</dt>
+<dd>Use single asterisk. For example: <code class="docutils literal"><span class="pre">*italic</span> <span class="pre">text*</span></code>.</dd>
+<dt>Monospace</dt>
+<dd>Use double backquotes. For example: <code class="docutils literal"><span class="pre">``monospace</span> <span class="pre">text``</span></code></dd>
+</dl>
+</div>
+<div class="section" id="arbitrary-text-label">
+<span id="id1"></span><h3><a class="toc-backref" href="#contents">Bullet lists</a><a class="headerlink" href="#arbitrary-text-label" title="Permalink to this headline">¶</a></h3>
+<p>For bullet lists and sublists, use only the - character. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>- list item one
+- list item two
+  - sublist item one
+  - sublist item two
+- list item three
+</pre></div>
+</div>
+</div>
+<div class="section" id="numbered-lists-and-procedure-steps">
+<h3><a class="toc-backref" href="#contents">Numbered lists and procedure steps</a><a class="headerlink" href="#numbered-lists-and-procedure-steps" title="Permalink to this headline">¶</a></h3>
+<p>Create numbered lists and procedure steps using arabic numerals for the top-level list and lower case alpha characters for the first nested list. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>1. This is item one.
+2. This is item two.
+
+  a. This is nested item one.
+  b. This is nested item two.
+
+3. This is item three.
+</pre></div>
+</div>
+</div>
+<div class="section" id="links-to-external-web-pages">
+<h3><a class="toc-backref" href="#contents">Links to external web pages</a><a class="headerlink" href="#links-to-external-web-pages" title="Permalink to this headline">¶</a></h3>
+<p>The quickest and easiest way to create a link in reStructuredText is to use the URL without any extra markup. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>https://www.mattermost.org/manifesto/
+</pre></div>
+</div>
+<p>On output to HTML, the link looks like this: <a class="reference external" href="https://www.mattermost.org/manifesto/">https://www.mattermost.org/manifesto/</a>.</p>
+<p>You can also create a link that has link text. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>`Mattermost Manifesto &lt;https://www.mattermost.org/manifesto/&gt;`_
+</pre></div>
+</div>
+<p>On output to HTML, the link looks like this: <a class="reference external" href="https://www.mattermost.org/manifesto/">Mattermost Manifesto</a></p>
+<p>Pay close attention to the syntax. The link starts with a backquote character, followed by the text that you want to see in the document, a final space, the &lt; character, the URL, the &gt; character, a closing backquote, and finally an underscore.</p>
+</div>
+<div class="section" id="links-to-targets-within-the-mattermost-docs">
+<span id="relative-links-in-rst"></span><h3><a class="toc-backref" href="#contents">Links to targets within the Mattermost docs</a><a class="headerlink" href="#links-to-targets-within-the-mattermost-docs" title="Permalink to this headline">¶</a></h3>
+<p>The Sphinx processor extends reStructuredText to implement references to locations within a documentation set. The extensions are called <cite>roles</cite>, and the two roles that are relevant in Mattermost documentation are the <code class="docutils literal"><span class="pre">:doc:</span></code> role and the <code class="docutils literal"><span class="pre">:ref:</span></code> role.</p>
+<p>The <code class="docutils literal"><span class="pre">:doc:</span></code> role is used for creating relative links to other documents. The <code class="docutils literal"><span class="pre">:ref:</span></code> role is used for creating relative links to arbitrary locations within the documentation set, including within the same document. In both cases, the HTML output is a relative URL for the target location.</p>
+<p>The following example uses the <code class="docutils literal"><span class="pre">:doc:</span></code> role to link to the <cite>Integrations Overview</cite> page. The source file is called <code class="docutils literal"><span class="pre">integrations.rst</span></code> and is in the <code class="docutils literal"><span class="pre">overview</span></code> directory.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>For more information about integrating with Mattermost, see :doc:`../overview/integrations`.
+</pre></div>
+</div>
+<p>Note that the filename extension is not part of the construct. On output, the link looks like this: &#8220;For more information about integrating with Mattermost, see <a class="reference internal" href="../overview/integrations.html"><span class="doc">Integrations Overview</span></a>.&#8221; The Sphinx processor pulls in the title of the document to use as the link text.</p>
+<p>The <code class="docutils literal"><span class="pre">:ref:</span></code> role is a two-part construct. One part is the link itself, and the other part is the target. The target has the following form, and should preceed a section title:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. _arbitrary-text-label:
+
+Bullet lists
+------------
+</pre></div>
+</div>
+<p>To generate a link to the section, use the <code class="docutils literal"><span class="pre">:ref:</span></code> role as follows:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>For more information about bullet lists, see :ref:`arbitrary-text-label`.
+</pre></div>
+</div>
+<p>The Sphinx processor creates a relative link to the section, and uses the section title as the link text. On output, the link looks like this: &#8220;For more information about bullet lists, see <a class="reference internal" href="sg_rest_markup.html#arbitrary-text-label"><span class="std std-ref">Bullet lists</span></a>.&#8221;</p>
+</div>
+<div class="section" id="images">
+<h3><a class="toc-backref" href="#contents">Images</a><a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<p>Use the following construct to insert an image:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. image:: ../images/choices.png
+</pre></div>
+</div>
+<p>You can also add the following image options: <cite>alt</cite>, <cite>height</cite>, <cite>width</cite>, <cite>scale</cite>, <cite>align</cite>, and <cite>target</cite>. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. image:: ../images/choices.png
+  :alt: The choices that you can make.
+  :height: 100px
+  :width: 200px
+  :align: left
+</pre></div>
+</div>
+<p>Inserting an inline image is a bit more complicated. It&#8217;s a two-part construct that consists of a label and the image directive. Surround the label text with vertical bars, the <cite>|</cite> character. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>Some of the emoji that you can use are |emoji|.
+</pre></div>
+</div>
+<p>Later on in the document, perhaps at the end of the paragraph that contains the label, insert the following image directive:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. |emoji| image:: ../images/emoji.png
+  :alt: Some of the emoji that you can use.
+  :align: middle
+</pre></div>
+</div>
+</div>
+<div class="section" id="literal-blocks">
+<span id="id2"></span><h3><a class="toc-backref" href="#contents">Literal blocks</a><a class="headerlink" href="#literal-blocks" title="Permalink to this headline">¶</a></h3>
+<p>In reStructuredText markup, the double colon marks the start of a section of literal text that corresponds to the HTML &lt;pre&gt; tag. However, the Sphinx processor applies syntax highlighting for Python to literal blocks, which is not always desired in Mattermost documentation.</p>
+<p>To use a literal block as originally intended in the reStructuredText specification, you must cheat a little, and use the Sphinx code-block directive with the language set to <cite>none</cite>. For example:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. code-block:: none
+</pre></div>
+</div>
+</div>
+<div class="section" id="code-blocks-with-syntax-highlighting">
+<span id="syntax-highlight"></span><h3><a class="toc-backref" href="#contents">Code blocks with syntax highlighting</a><a class="headerlink" href="#code-blocks-with-syntax-highlighting" title="Permalink to this headline">¶</a></h3>
+<p>To create a code block with syntax highlighting, use the Sphinx code-block directive with the language set to the language that you want highlighted. Many languages are available, but in Mattermost documentation the most likely ones are as follows:</p>
+<ul class="simple">
+<li>go</li>
+<li>rest</li>
+<li>html</li>
+<li>javascript</li>
+<li>coffee</li>
+<li>bash</li>
+</ul>
+<p>The following example is a block of Go code using the :linenos: option, which causes line numbers to be displayed.</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>.. code-block:: go
+  :linenos:
+
+  newPassword := props[&quot;new_password&quot;]
+      if err := utils.IsPasswordValid(newPassword); err != nil {
+              c.Err = err
+              return
+      }
+</pre></div>
+</div>
+<p>The example produces the following output:</p>
+<div class="highlight-go"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="nx">newPassword</span> <span class="o">:=</span> <span class="nx">props</span><span class="p">[</span><span class="s">&quot;new_password&quot;</span><span class="p">]</span>
+      <span class="k">if</span> <span class="nx">err</span> <span class="o">:=</span> <span class="nx">utils</span><span class="p">.</span><span class="nx">IsPasswordValid</span><span class="p">(</span><span class="nx">newPassword</span><span class="p">);</span> <span class="nx">err</span> <span class="o">!=</span> <span class="kc">nil</span> <span class="p">{</span>
+              <span class="nx">c</span><span class="p">.</span><span class="nx">Err</span> <span class="p">=</span> <span class="nx">err</span>
+              <span class="k">return</span>
+      <span class="p">}</span>
+</pre></div>
+</td></tr></table></div>
+<p>The highlighting is provided by Pygments Python syntax highlighter, which supports a large number of programming and markup languages. For a complete list, see <a class="reference external" href="http://pygments.org/docs/lexers/">Available lexers</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="handbook.html" class="btn btn-neutral float-right" title="About Mattermost" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="marketing-guidelines.html" class="btn btn-neutral" title="Mattermost Marketing Content Guidelines" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/process/sg_mattermost-doc-style.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.5',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+
+
+</body>
+</html>

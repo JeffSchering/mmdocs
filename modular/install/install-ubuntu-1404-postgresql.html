@@ -46,10 +46,7 @@
   
 
   
-    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
-        <link rel="up" title="Installing Mattermost on Ubuntu 14.04 LTS" href="install-ubuntu-1404-overview.html"/>
-        <link rel="next" title="Installing NGINX Server" href="install-nginx.html"/>
-        <link rel="prev" title="Installing MySQL Database Server" href="install-ubuntu-1404-mysql.html"/> 
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -98,39 +95,11 @@
           
             
             
-                <ul class="current">
+                <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
-<li class="toctree-l3 current"><a class="reference internal" href="install-ubuntu-1404-overview.html">Installing on Ubuntu 14.04 LTS</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="install-ubuntu-1404.html">Installing Ubuntu Server 14.04 LTS</a></li>
-<li class="toctree-l4"><a class="reference internal" href="install-ubuntu-1404-mysql.html">Installing MySQL Database Server</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">Installing PostgreSQL Database Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="install-nginx.html">Installing NGINX Server</a></li>
-</ul>
-</li>
-<li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-rhel-6.html">Production Install on RHEL 6.6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-rhel-7.html">Production Install on RHEL 7.1+</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Production Install on Debian Jessie</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-1404.html">Production Install on Ubuntu 14.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-16.04.html">Production Install on Ubuntu 16.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
-<li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -164,10 +133,6 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-          <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
-      
-          <li><a href="install-ubuntu-1404-overview.html">Installing Mattermost on Ubuntu 14.04 LTS</a> &raquo;</li>
-      
     <li>Installing PostgreSQL Database Server</li>
       <li class="wy-breadcrumbs-aside">
         
@@ -184,7 +149,7 @@
             
   <div class="section" id="installing-postgresql-database-server">
 <span id="install-ubuntu-1404-postgresql"></span><h1>Installing PostgreSQL Database Server<a class="headerlink" href="#installing-postgresql-database-server" title="Permalink to this headline">¶</a></h1>
-<p>Mattermost supports either PostgreSQL or MySQL.</p>
+<p>You can install either PostgreSQL or MySQL. To install MySQL, see <a class="reference internal" href="install-ubuntu-1404-mysql.html#install-ubuntu-1404-mysql"><span class="std std-ref">Installing MySQL Database Server</span></a></p>
 <p>Assume that the IP address of this server is 10.10.10.1</p>
 <p><strong>To install PostgreSQL on Ubuntu Server:</strong></p>
 <ol class="arabic">
@@ -237,8 +202,7 @@ to log into that account with:</p>
 </ul>
 </div></blockquote>
 </li>
-<li><p class="first">Alter pg_hba.conf to allow the mattermost server to talk to the
-postgres database</p>
+<li><p class="first">Modify <code class="docutils literal"><span class="pre">pg_hba.conf</span></code> to allow the mattermost server to talk to the postgres database. Assume that the Mattermost server IP address is <code class="docutils literal"><span class="pre">10.10.10.2</span></code></p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">/etc/postgresql/9.3/main/pg_hba.conf</span></code></li>
 <li>Add the following line to the <code class="docutils literal"><span class="pre">IPv4</span> <span class="pre">local</span> <span class="pre">connections</span></code></li>
@@ -268,28 +232,12 @@ looks good</p>
 </ol>
 <p><strong>What to do next</strong></p>
 <p>In a production environment, you should install NGINX. Using NGINX as a proxy server increases the security and performance of your Mattermost installation.</p>
-<dl class="docutils">
-<dt><strong>Related links</strong></dt>
-<dd><ul class="first last simple">
-<li><a class="reference internal" href="install-nginx.html#install-nginx"><span class="std std-ref">Installing NGINX Server</span></a></li>
-</ul>
-</dd>
-</dl>
 </div>
 
 
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="install-nginx.html" class="btn btn-neutral float-right" title="Installing NGINX Server" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="install-ubuntu-1404-mysql.html" class="btn btn-neutral" title="Installing MySQL Database Server" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>
@@ -370,6 +318,9 @@ looks good</p>
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -384,6 +335,13 @@ looks good</p>
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

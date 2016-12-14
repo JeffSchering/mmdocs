@@ -118,7 +118,8 @@
 </li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
@@ -195,26 +196,7 @@
 <span id="import"></span><h2>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="import-from-slack-beta">
 <span id="import-from-slack-beta"></span><h3>Import from Slack (Beta)<a class="headerlink" href="#import-from-slack-beta" title="Permalink to this headline">¶</a></h3>
-<p><em>Note: As a proprietary SaaS service, Slack is able to change its export format quickly and without notice. If you encounter issues not mentioned in the documentation below, please alert the product team by <a class="reference external" href="https://github.com/mattermost/platform/issues">filing an issue</a>.</em></p>
-<p>The Slack Import feature in Mattermost is in &#8220;Beta&#8221; and focus is on supporting migration of teams of less than 100 registered users. To use:</p>
-<ol class="simple">
-<li>Generate a Slack &#8220;Export&#8221; file from <strong>Slack &gt; Team Settings &gt; Import/Export Data &gt; Export &gt; Start Export</strong>.</li>
-<li>In Mattermost go to <strong>Team Settings &gt; Import &gt; Import from Slack</strong>. <em>Team Administrator</em> or <em>System Administrator</em> role is required to access this menu option.</li>
-<li>Click <strong>Select file</strong> to upload Slack export file and click <strong>Import</strong>.</li>
-<li>Emails and usernames from Slack are used to create new Mattermost accounts.</li>
-<li>Slack users can activate their new Mattermost accounts by using Mattermost&#8217;s Password Reset screen with their email addresses from Slack to set new passwords for their Mattermost accounts.</li>
-<li>Once logged in, the Mattermost users will have access to previous Slack messages in the public channels imported from Slack.</li>
-</ol>
-<p><strong>It is highly recommended that you test Slack import before applying it to an instance intended for production.</strong> If you use Docker, you can spin up a test instance in one line (<code class="docutils literal"><span class="pre">docker</span> <span class="pre">run</span> <span class="pre">--name</span> <span class="pre">mattermost-dev</span> <span class="pre">-d</span> <span class="pre">--publish</span> <span class="pre">8065:80</span> <span class="pre">mattermost/platform</span></code>). If you don&#8217;t use Docker, there are <a class="reference external" href="http://docs.mattermost.com/install/docker-local-machine.html">step-by-step instructions</a> to install Mattermost in preview mode in less than 5 minutes.</p>
-</div>
-<div class="section" id="limitations">
-<span id="limitations"></span><h3>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h3>
-<ul class="simple">
-<li>Newly added markdown support in Slack&#8217;s Posts 2.0 feature announced on September 28, 2015 is not yet supported.</li>
-<li>Slack does not export files or images your team has stored in Slack&#8217;s database. Mattermost will provide links to the location of your assets in Slack&#8217;s web UI. However, you can use <a class="reference external" href="https://github.com/grundleborg/slack-advanced-exporter">this tool</a> to include files in the Slack export, and import them into Mattermost.</li>
-<li>Slack does not export any content from private groups or direct messages that your team has stored in Slack&#8217;s database.</li>
-<li>In Beta, Slack accounts with usernames or email addresses identical to existing Mattermost accounts will be merged. No pre-check or roll-back is currently offered.</li>
-</ul>
+<p>You can import channels and users from Slack into Mattermost from <strong>Team Settings &gt; Import</strong>. Please review our documentation on <a class="reference external" href="https://docs.mattermost.com/administration/migrating.html#migrating-from-slack">Slack Import</a> for more details.</p>
 </div>
 </div>
 </div>
@@ -312,6 +294,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -326,6 +311,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

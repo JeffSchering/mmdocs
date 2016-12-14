@@ -48,7 +48,7 @@
   
     <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Backup &amp; Disaster Recovery" href="backup.html"/>
+        <link rel="next" title="Mattermost Changelog" href="changelog.html"/>
         <link rel="prev" title="Upgrade Guide" href="upgrade.html"/> 
 
   
@@ -101,7 +101,7 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
@@ -109,20 +109,20 @@
 <li class="toctree-l3"><a class="reference internal" href="command-line-tools.html">Command Line Tools</a></li>
 <li class="toctree-l3"><a class="reference internal" href="config-settings.html">Configuration Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="branding.html">Custom Branding Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
 <li class="toctree-l3"><a class="reference internal" href="upgrade.html">Upgrade Guide</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Migration Guide</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#migrating-the-mattermost-server">Migrating the Mattermost Server</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#migrating-from-slack">Migrating from Slack</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
-<li class="toctree-l3"><a class="reference internal" href="branding.html">Custom Branding Tools</a></li>
-<li class="toctree-l3"><a class="reference internal" href="changelog.html">Mattermost Changelog</a></li>
-<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
 </ul>
 </li>
 </ul>
 </li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -240,7 +240,75 @@
 </div>
 <div class="section" id="migrating-from-slack">
 <h2>Migrating from Slack<a class="headerlink" href="#migrating-from-slack" title="Permalink to this headline">¶</a></h2>
-<p>You can import channels and users from Slack into Mattermost from Team Settings &gt; Import. Please review our documentation on <a class="reference external" href="https://docs.mattermost.com/help/settings/team-settings.html#import-from-slack-beta">Slack Import</a> for more details.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">As a proprietary SaaS service, Slack is able to change its export format quickly and without notice. If you encounter issues not mentioned in the documentation below, please alert the product team by <a class="reference external" href="https://www.mattermost.org/filing-issues/">filing an issue</a>.</p>
+</div>
+<p>The Slack Import feature in Mattermost is in &#8220;Beta&#8221; and focused on supporting migration of teams of less than 100 registered users.</p>
+<p>This feature can be accessed through the <a class="reference external" href="https://docs.mattermost.com/administration/migrating.html#migrating-from-slack-using-the-mattermost-web-app">Mattermost Web App</a> or using the <a class="reference external" href="https://docs.mattermost.com/administration/migrating.html#migrating-from-slack-using-the-mattermost-cli">CLI</a>.</p>
+<div class="admonition warning">
+<p class="first admonition-title">Warning</p>
+<p><strong>It is highly recommended that you test Slack import before applying it to an instance intended for production.</strong></p>
+<p>If you use Docker, you can spin up a test instance in one line:</p>
+<div class="code bash highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span> <span class="n">run</span> <span class="o">--</span><span class="n">name</span> <span class="n">mattermost</span><span class="o">-</span><span class="n">dev</span> <span class="o">-</span><span class="n">d</span> <span class="o">--</span><span class="n">publish</span> <span class="mi">8065</span><span class="p">:</span><span class="mi">80</span> <span class="n">mattermost</span><span class="o">/</span><span class="n">platform</span>
+</pre></div>
+</div>
+<p class="last">If you don&#8217;t use Docker, there are <a class="reference external" href="https://docs.mattermost.com/install/docker-local-machine.html">step-by-step instructions</a> to install Mattermost in preview mode in less than 5 minutes.</p>
+</div>
+<div class="section" id="supported-features">
+<h3>Supported Features<a class="headerlink" href="#supported-features" title="Permalink to this headline">¶</a></h3>
+<p>The following key features are supported when importing from Slack:</p>
+<ul class="simple">
+<li>User accounts with an email address set</li>
+<li>Public channels and the text messages posted in them</li>
+<li>Channel topic and purpose</li>
+<li>Imported users added automatically to their channels</li>
+</ul>
+<p>Messages with file attachments are imported as a message containing a link to Slack&#8217;s servers by default. The file attachments themselves can be imported to Mattermost by using the <a class="reference external" href="https://github.com/grundleborg/slack-advanced-exporter">Slack Advanced Exporter</a> tool to add them to your archive before importing it.</p>
+<p>Bot and Integration messages are imported by default, but if you would like them to display with the appropriate username when imported, you should ensure that <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-integrations-to-override-usernames">Enable Integrations to Override Usernames</a> is set in <strong>System Console &gt; Integrations &gt; Custom Integrations</strong> <em>before</em> doing the import.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Slack user accounts with the same email address as existing accounts on your Mattermost server will be merged into those accounts on import.</p>
+</div>
+</div>
+<div class="section" id="limitations">
+<h3>Limitations<a class="headerlink" href="#limitations" title="Permalink to this headline">¶</a></h3>
+<p>The following limitations are present when importing from Slack:</p>
+<ul class="simple">
+<li>The Markdown subset used by Slack&#8217;s Posts 2.0 feature announced on September 28, 2015 is not yet supported.</li>
+<li>Direct Message and Private Groups cannot be imported. Slack does not include these messages when generating the export archive.</li>
+</ul>
+</div>
+<div class="section" id="migrating-from-slack-using-the-mattermost-web-app">
+<h3>Migrating from Slack using the Mattermost Web App<a class="headerlink" href="#migrating-from-slack-using-the-mattermost-web-app" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">For larger imports, particularly those where you have used the <cite>slack-advanced-exporter tool</cite> to add Slack post attachments to the archive, it is recommended to import the Slack data using the <a class="reference external" href="https://docs.mattermost.com/administration/migrating.html#migrating-from-slack-using-the-mattermost-cli">CLI</a>.</p>
+</div>
+<ol class="arabic simple">
+<li>Generate a Slack &#8220;Export&#8221; file from <strong>Slack &gt; Team Settings &gt; Import/Export Data &gt; Export &gt; Start Export</strong>.</li>
+<li>In Mattermost go to <strong>Team Settings &gt; Import &gt; Import from Slack</strong>. Team Admin or System Admin role is required to access this menu option.</li>
+<li>Click <strong>Select file</strong> to upload Slack export file and click <strong>Import</strong>.</li>
+</ol>
+</div>
+<div class="section" id="migrating-from-slack-using-the-mattermost-cli">
+<h3>Migrating from Slack using the Mattermost CLI<a class="headerlink" href="#migrating-from-slack-using-the-mattermost-cli" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic">
+<li><p class="first">Generate a Slack &#8220;Export&#8221; file from <strong>Slack &gt; Team Settings &gt; Import/Export Data &gt; Export &gt; Start Export</strong>.</p>
+</li>
+<li><p class="first">Run the following Mattermost CLI command, with the name of a team you have already created:</p>
+<p><code class="docutils literal"><span class="pre">$</span> <span class="pre">platform</span> <span class="pre">-slack_import</span> <span class="pre">-team_name=&quot;your-team&quot;</span> <span class="pre">-import_archive</span> <span class="pre">/path/to/your-slack-export.zip</span></code></p>
+</li>
+</ol>
+</div>
+<div class="section" id="using-the-imported-team">
+<h3>Using the Imported Team<a class="headerlink" href="#using-the-imported-team" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>During the import process, the emails and usernames from Slack are used to create new Mattermost accounts.</li>
+<li>Slack users can activate their new Mattermost accounts by using Mattermost&#8217;s Password Reset screen with their email addresses from Slack to set new passwords for their Mattermost accounts.</li>
+<li>Once logged in, Mattermost users will have access to previous Slack messages in the public channels imported from Slack.</li>
+</ul>
+</div>
 </div>
 </div>
 
@@ -251,7 +319,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="backup.html" class="btn btn-neutral float-right" title="Backup &amp; Disaster Recovery" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="changelog.html" class="btn btn-neutral float-right" title="Mattermost Changelog" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="upgrade.html" class="btn btn-neutral" title="Upgrade Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -337,6 +405,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -351,6 +422,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

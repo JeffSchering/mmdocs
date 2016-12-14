@@ -101,7 +101,8 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
@@ -119,6 +120,7 @@
 <li class="toctree-l3"><a class="reference internal" href="marketing-guidelines.html">Mattermost Marketing Content Guidelines</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a></li>
 </ul>
 </li>
@@ -170,6 +172,8 @@
             
   <div class="section" id="documentation-conventions">
 <span id="documentation-conventions"></span><h1>Documentation Conventions<a class="headerlink" href="#documentation-conventions" title="Permalink to this headline">¶</a></h1>
+<p><strong>Note:</strong> This document is in the process of being revised. See the new work-in-progress version here: <a href="sg_mattermost-doc-style.html">Mattermost Documentation Style Guide</a>.</p>
+<hr class="docutils" />
 <p>The most important thing about documentation is getting it done and out to the community.</p>
 <p>After that, we can work on upgrading the quality of documentation. The below chart summarizes the different levels of documentation and how the quality gates are applied.</p>
 <p><em>Note: Documentation Guidelines are new, and iterating. Documentation has started to balloon and this is our attempt at reducing ambiguity and increasing consistency, but the conventions here are very open to discussion.</em></p>
@@ -471,6 +475,9 @@ So things are easier to find</p>
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -485,6 +492,13 @@ So things are easier to find</p>
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

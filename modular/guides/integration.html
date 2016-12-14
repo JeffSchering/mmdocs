@@ -48,7 +48,7 @@
   
     <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
         <link rel="next" title="Mattermost APIs" href="../developer/api.html"/>
-        <link rel="prev" title="Compliance Reporting and Oversight" href="../administration/compliance.html"/> 
+        <link rel="prev" title="Mattermost Changelog" href="../administration/changelog.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -100,7 +100,8 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Integration Guide</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../developer/api.html">Mattermost APIs</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-incoming.html">Incoming Webhooks</a></li>
@@ -164,15 +165,74 @@
 <p>Detailed documentation on extending and integrating with the Mattermost server.</p>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="../developer/api.html">Mattermost APIs</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/webhooks-incoming.html">Incoming Webhooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/webhooks-outgoing.html">Outgoing Webhooks</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/slash-commands.html">Slash Commands</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/message-attachments.html">Message Attachments</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/web-service.html">Web Service API Overview</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/oauth-2-0-applications.html">OAuth 2.0 Applications</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../integrations/zapier.html">Zapier Integration</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../developer/integration-faq.html">Integrations FAQ</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/api.html">Mattermost APIs</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/api.html#slack-compatible-webhooks">Slack-compatible Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/api.html#mattermost-web-service-api">Mattermost Web Service API</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/api.html#mattermost-drivers">Mattermost Drivers</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/api.html#building-api-integrations">Building API Integrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/api.html#mattermost-golang-bot-sample-driver-example">Mattermost Golang Bot Sample (Driver Example)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/api.html#community-apps-and-integrations">Community Apps and Integrations</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/webhooks-incoming.html">Incoming Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-incoming.html#enabling-incoming-webhooks">Enabling Incoming Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-incoming.html#setting-up-existing-integrations">Setting Up Existing Integrations</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-incoming.html#creating-integrations-using-incoming-webhooks">Creating Integrations using Incoming Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-incoming.html#slack-compatibility">Slack Compatibility</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-incoming.html#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/webhooks-outgoing.html">Outgoing Webhooks</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-outgoing.html#enabling-outgoing-webhooks">Enabling Outgoing Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-outgoing.html#set-up-an-outgoing-webhook">Set Up an Outgoing Webhook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-outgoing.html#creating-integrations-using-outgoing-webhooks">Creating Integrations using Outgoing Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/webhooks-outgoing.html#slack-compatibility">Slack Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/slash-commands.html">Slash Commands</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/slash-commands.html#built-in-commands">Built-in Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/slash-commands.html#enabling-custom-commands">Enabling Custom Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/slash-commands.html#set-up-a-custom-command">Set Up a Custom Command</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/slash-commands.html#creating-integrations-with-commands">Creating Integrations with Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/slash-commands.html#slack-compatibility">Slack Compatibility</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/message-attachments.html">Message Attachments</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/message-attachments.html#attachment-options">Attachment Options</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/message-attachments.html#example-message-attachment">Example Message Attachment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/message-attachments.html#known-issues">Known Issues</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/web-service.html">Web Service API Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/web-service.html#web-service-api-schema">Web Service API Schema</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/web-service.html#authentication-examples">Authentication Examples</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/web-service.html#client-errors">Client Errors</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/web-service.html#rate-limiting">Rate Limiting</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/web-service.html#extended-web-service-api-examples">Extended Web Service API Examples</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/oauth-2-0-applications.html">OAuth 2.0 Applications</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/oauth-2-0-applications.html#id1">Register your application in Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/oauth-2-0-applications.html#id3">Granting permissions to your application</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../integrations/zapier.html">Zapier Integration</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/zapier.html#id1">Zapier Setup Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/zapier.html#id6">Message Formatting Tips</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/zapier.html#id8">Troubleshooting Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../developer/integration-faq.html">Integrations FAQ</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html#what-s-the-difference-between-incoming-and-outgoing-webhooks">What&#8217;s the difference between incoming and outgoing webhooks?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html#what-is-a-slash-command">What is a slash command?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html#what-does-slack-compatible-mean">What does Slack-compatible mean?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html#what-if-i-have-a-webhook-from-somewhere-other-than-slack">What if I have a webhook from somewhere other than Slack?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html#what-are-attachments">What are attachments?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html#what-do-i-do-if-my-webhook-post-is-too-long">What do I do if my webhook post is too long?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html#where-should-i-install-my-integrations">Where should I install my integrations?</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../developer/integration-faq.html#how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application">How should I automate the install and upgrade of Mattermost when included in another application?</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -187,7 +247,7 @@
         <a href="../developer/api.html" class="btn btn-neutral float-right" title="Mattermost APIs" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../administration/compliance.html" class="btn btn-neutral" title="Compliance Reporting and Oversight" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../administration/changelog.html" class="btn btn-neutral" title="Mattermost Changelog" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -270,6 +330,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -284,6 +347,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 

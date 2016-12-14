@@ -101,27 +101,29 @@
                 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">Code Contribution Guidelines</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#choose-a-ticket">Choose a Ticket</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#install-mattermost-and-set-up-a-fork">Install Mattermost and set up a Fork</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#preparing-a-pull-request">Preparing a Pull Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#submitting-a-pull-request">Submitting a Pull Request</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#managing-an-open-pull-request">Managing an Open Pull Request</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#approved-reviewers">Approved Reviewers</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/developer.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Code Contribution Guidelines</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#choose-a-ticket">Choose a Ticket</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#install-mattermost-and-set-up-a-fork">Install Mattermost and set up a Fork</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#preparing-a-pull-request">Preparing a Pull Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submitting-a-pull-request">Submitting a Pull Request</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-an-open-pull-request">Managing an Open Pull Request</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="developer-setup.html">Developer Machine Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-setup.html#troubleshooting">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization-process.html">Localization</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="developer-setup.html">Developer Machine Setup</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-setup.html#troubleshooting">Troubleshooting</a></li>
-<li class="toctree-l2"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
-<li class="toctree-l2"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
-<li class="toctree-l2"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
-<li class="toctree-l2"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
-<li class="toctree-l2"><a class="reference internal" href="localization-process.html">Localization</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#unofficial-enhancements">Unofficial Enhancements</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
@@ -177,9 +179,9 @@
 <div class="section" id="choose-a-ticket">
 <span id="choose-a-ticket"></span><h2>Choose a Ticket<a class="headerlink" href="#choose-a-ticket" title="Permalink to this headline">¶</a></h2>
 <ol class="simple">
-<li>Choose a ticket from the <a class="reference external" href="https://github.com/mattermost/platform/issues?utf8=%E2%9C%93&amp;q=is%3Aissue%20is%3Aopen%20%5BHelp%20Wanted%5D">Help Wanted GitHub Issues</a> or the <a class="reference external" href="https://mattermost.atlassian.net/issues/?filter=10101">Accepting Pull Requests</a> (APR Tickets) list<ul>
+<li>Choose a ticket from the <a class="reference external" href="https://github.com/mattermost/platform/issues?utf8=%E2%9C%93&amp;q=is%3Aissue%20is%3Aopen%20%5BHelp%20Wanted%5D">Help Wanted GitHub Issues</a> or the <a class="reference external" href="https://mattermost.atlassian.net/issues/?filter=10101">Accepting Pull Requests</a> (APR Tickets) list.<ul>
 <li>Choose any ticket marked &#8220;Open&#8221;, even if it&#8217;s assigned, and comment to let people know you&#8217;re working on it.</li>
-<li>If you&#8217;re looking for a quick ticket, pick something from the <a class="reference external" href="https://mattermost.atlassian.net/issues/?filter=10206">Good First Contribution</a> list instead</li>
+<li>If you&#8217;re looking for a quick ticket, pick something from the <a class="reference external" href="https://mattermost.atlassian.net/issues/?filter=10206">Good First Contribution</a> list instead.</li>
 </ul>
 </li>
 <li>If you have questions post in <a class="reference external" href="http://forum.mattermost.org/">Mattermost forum</a> or join the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/tickets">Contributors</a> channel and announce the ticket you&#8217;d like to work on so it can be assigned to you.</li>
@@ -191,9 +193,9 @@
 <span id="install-mattermost-and-set-up-a-fork"></span><h2>Install Mattermost and set up a Fork<a class="headerlink" href="#install-mattermost-and-set-up-a-fork" title="Permalink to this headline">¶</a></h2>
 <p>Once you have a ticket:</p>
 <ol class="simple">
-<li>Follow <a class="reference external" href="http://docs.mattermost.com/developer/developer-setup.html">developer setup instructions</a> to install Mattermost</li>
-<li>Create a branch with <code class="docutils literal"><span class="pre">&lt;branch</span> <span class="pre">name&gt;</span></code> set to the ID of the ticket you&#8217;re working on, for example <code class="docutils literal"><span class="pre">PLT-394</span></code>, using command: <code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;branch</span> <span class="pre">name&gt;</span></code></li>
-<li>Take a look at the <a class="reference external" href="https://docs.mattermost.com/developer/developer-flow.html">developer flow</a> to learn how to work with the Mattermost codebase</li>
+<li>Follow the <a class="reference external" href="http://docs.mattermost.com/developer/developer-setup.html">developer setup instructions</a> to install Mattermost.</li>
+<li>Create a branch with <code class="docutils literal"><span class="pre">&lt;branch</span> <span class="pre">name&gt;</span></code> set to the ID of the ticket you&#8217;re working on, for example <code class="docutils literal"><span class="pre">PLT-394</span></code>, using the command: <code class="docutils literal"><span class="pre">git</span> <span class="pre">checkout</span> <span class="pre">-b</span> <span class="pre">&lt;branch</span> <span class="pre">name&gt;</span></code></li>
+<li>Take a look at the <a class="reference external" href="https://docs.mattermost.com/developer/developer-flow.html">developer flow</a> to learn how to work with the Mattermost codebase.</li>
 </ol>
 </div>
 <div class="section" id="preparing-a-pull-request">
@@ -225,20 +227,31 @@
 <p>After submitting a PR, before it is merged:</p>
 <ol class="simple">
 <li>Automated build process must pass<ul>
-<li>If the build fails, check the error log to narrow down the reason</li>
+<li>If the build fails, check the error log to narrow down the reason.</li>
 <li>Sometimes one of the multiple build tests will randomly fail due to issues in Travis CI. If you see just one build failure and no clear error message, it may be a random issue. Add a comment so the reviewer for your change can re-run the build for you, or close the PR and re-submit and that typically clears the issue.</li>
 </ul>
 </li>
-<li>Pull requests require review by an approved reviewer and an approved seconder.</li>
-<li>Feedback from reviewers needs to be addressed</li>
-<li>If user interface changes do not match specification in Jira ticket, PM approval is needed.</li>
+<li>PM review must pass<ul>
+<li>A Product Manager will review the pull request to make sure it:<ul>
+<li>Fits with our product roadmap</li>
+<li>Works as expected</li>
+<li>Meets <a class="reference external" href="https://docs.mattermost.com/developer/fx-guidelines.html">UX guidelines</a></li>
+</ul>
+</li>
+<li>The Product Manager may come back with some bugs or UI improvements to fix before the pull request moves on to dev review.</li>
+</ul>
+</li>
+<li>Dev review must pass<ul>
+<li>Two developers will review the pull request and either give feedback or approve the PR.</li>
+<li>Any comments will need to be addressed before the pull request is ready to merge.</li>
+</ul>
+</li>
 </ol>
-<p>If you&#8217;ve included your mailing address in Step 1, you may receive a <a class="reference external" href="https://forum.mattermost.org/t/limited-edition-mattermost-mugs/143">Limited Edition Mattermost Mug</a> as a thank you gift after your first pull request is merged.</p>
+<p>If you&#8217;ve included your mailing address in the signed <a class="reference external" href="https://www.mattermost.org/mattermost-contributor-agreement/">Contributor License Agreement</a>, you may receive a <a class="reference external" href="https://forum.mattermost.org/t/limited-edition-mattermost-mugs/143">Limited Edition Mattermost Mug</a> as a thank you gift after your first pull request is merged.</p>
 <div class="section" id="approved-reviewers">
 <span id="approved-reviewers"></span><h3>Approved Reviewers<a class="headerlink" href="#approved-reviewers" title="Permalink to this headline">¶</a></h3>
-<p><em>Please DO NOT &#64;-mention reviewers if they haven&#8217;t yet commented on your PR.</em>
-<em>Pull requests are reviewed in sequence.</em></p>
-<p><strong>Approved reviewers include</strong>: coreyhulen, crspeller, hmhealey, jwilander<strong>Approved seconders include</strong>: coreyhulen, crspeller, hmhealey, jwilander</p>
+<p><strong>Approved Dev reviewers include</strong>: coreyhulen, crspeller, enahum, grundleborg, hmhealey, jwilander</p>
+<p><strong>Approved PM reviewers include</strong>: asaadmahmood, esethna, it33, jasonblais, lfbrock, yangchen1</p>
 </div>
 </div>
 </div>
@@ -336,6 +349,9 @@
   
 	<header>
 	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
 		<a href="http://docs.mattermost.com/" class="header__logo">
 			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
 		</a>
@@ -350,6 +366,13 @@
 			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
 			<li><a href="https://www.mattermost.org/download/">Download</a></li>
 		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
 	</div>
 </header>
 
