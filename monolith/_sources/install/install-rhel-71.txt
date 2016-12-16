@@ -1,7 +1,7 @@
-.. _install-rhel-66:
+.. _install-rhel-71:
 
 =================================
-Installing Mattermost on RHEL 6.6
+Installing Mattermost on RHEL 7.1
 =================================
 
 Install a production-ready Mattermost system on 1 to 3 machines.
@@ -12,10 +12,10 @@ Install a production-ready Mattermost system on 1 to 3 machines.
   :backlinks: top
   :local:
   
-.. include:: install-rhel-66-server.rst
-.. include:: install-rhel-66-mysql.rst
-.. include:: install-rhel-66-postgresql.rst
-.. include:: install-rhel-66-mattermost.rst
+.. include:: install-rhel-71-server.rst
+.. include:: install-rhel-71-mysql.rst
+.. include:: install-rhel-71-postgresql.rst
+.. include:: install-rhel-71-mattermost.rst
 .. include:: config-mattermost-server.rst
 .. include:: config-tls-mattermost.rst
 .. include:: install-rhel-nginx.rst

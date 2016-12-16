@@ -221,9 +221,13 @@ server {
 <li>Restart NGINX.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></div></blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
 <ol class="arabic simple" start="6">
-<li>Verify you can see Mattermost thru the proxy.</li>
+<li>Verify that you can see Mattermost thru the proxy.</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>

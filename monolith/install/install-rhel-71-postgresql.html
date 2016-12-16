@@ -20,7 +20,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing MySQL Database Server &mdash; Mattermost 3.5 documentation</title>
+  <title>Installing PostgreSQL Database &mdash; Mattermost 3.5 documentation</title>
   
 
   
@@ -133,11 +133,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Installing MySQL Database Server</li>
+    <li>Installing PostgreSQL Database</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-ubuntu-1604-mysql.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-71-postgresql.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -147,57 +147,119 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installing-mysql-database-server">
-<span id="install-ubuntu-1604-mysql"></span><h1>Installing MySQL Database Server<a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h1>
-<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see <a class="reference internal" href="install-ubuntu-1604-postgresql.html#install-ubuntu-1604-postgresql"><span class="std std-ref">Installing PostgreSQL Database Server</span></a></p>
-<p><strong>To install MySQL on Ubuntu Server 16.04:</strong></p>
+  <div class="section" id="installing-postgresql-database">
+<span id="install-rhel-71-postgresql"></span><h1>Installing PostgreSQL Database<a class="headerlink" href="#installing-postgresql-database" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
 <li>Log into the server that will host the database, and open a terminal window.</li>
-<li>Install MySQL.</li>
+<li>Download the PostgreSQL 9.4 Yum repository.</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">mysql-server</span></code></p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">During the install, you&#8217;ll be prompted to create a password for the MySQL root user. Make a note of the password because you&#8217;ll need it in the next step.</p>
-</div>
-</div></blockquote>
+<div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-3.noarch.rpm</span></code></div></blockquote>
 <ol class="arabic simple" start="3">
-<li>Log in to MySQL as root.</li>
+<li>Install the Yum repository from the file that you downloaded.</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span></code></p>
-<p>When prompted, enter the root password that you created when installing MySQL.</p>
-</div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">localinstall</span> <span class="pre">pgdg-redhat94-9.4-1.noarch.rpm</span></code></div></blockquote>
 <ol class="arabic simple" start="4">
-<li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
+<li>Install PostgreSQL.</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'%'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ol class="last arabic simple">
-<li>Use a password that is more secure than &#8216;mmuser-password&#8217;</li>
-<li>The &#8216;%&#8217; means that mmuser can connect from any machine on the network. However, it&#8217;s more secure to use the IP address of the machine that hosts Mattermost. For example, if you install Mattermost on the machine with IP address 10.10.10.2, then use the following command:</li>
-</ol>
-</div>
-<p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'10.10.10.2'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
-</div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">postgresql94-server</span> <span class="pre">postgresql94-contrib</span></code></div></blockquote>
 <ol class="arabic simple" start="5">
+<li>Initialize the database.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">postgresql</span> <span class="pre">initdb</span></code></div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Set PostgreSQL to start on boot.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">postgresql</span></code></div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Start the PostgreSQL server.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">postgresql</span></code></div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Switch to the <em>postgres</em> Linux user account that was created during the installation.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">--login</span> <span class="pre">--user</span> <span class="pre">postgres</span></code></div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Start the PostgreSQL interactive terminal.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">psql</span></code></div></blockquote>
+<ol class="arabic simple" start="10">
 <li>Create the Mattermost database.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">database</span> <span class="pre">mattermost;</span></code></div></blockquote>
-<ol class="arabic simple" start="6">
-<li>Grant access privileges to the user &#8216;mmuser&#8217;</li>
+<div><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">mattermost;</span></code></div></blockquote>
+<ol class="arabic simple" start="11">
+<li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">grant</span> <span class="pre">all</span> <span class="pre">privileges</span> <span class="pre">on</span> <span class="pre">mattermost.*</span> <span class="pre">to</span> <span class="pre">'mmuser'&#64;'%';</span></code></div></blockquote>
-<ol class="arabic" start="7">
-<li><p class="first">Log out of MySQL.</p>
-<p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">exit</span></code></p>
-</li>
+<div><p><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">USER</span> <span class="pre">mmuser</span> <span class="pre">WITH</span> <span class="pre">PASSWORD</span> <span class="pre">'mmuser_password';</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use a password that is more secure than &#8216;mmuser-password&#8217;</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="12">
+<li>Grant the user access to the Mattermost database.</li>
 </ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">DATABASE</span> <span class="pre">mattermost</span> <span class="pre">to</span> <span class="pre">mmuser;</span></code></div></blockquote>
+<ol class="arabic simple" start="13">
+<li>Exit the PostgreSQL interactive terminal.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">postgre=#</span> <span class="pre">\q</span></code></div></blockquote>
+<ol class="arabic simple" start="14">
+<li>Log out of the <em>postgres</em> account.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">exit</span></code></div></blockquote>
+<ol class="arabic simple" start="15">
+<li>Allow Postgres to listen on all assigned IP Addresses.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Open <code class="docutils literal"><span class="pre">/etc/postgresql/9.4/main/postgresql.conf</span></code> as root in a text editor.</li>
+<li>Find the following line:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">#listen_addresses</span> <span class="pre">=</span> <span class="pre">'localhost'</span></code></div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Uncomment the line and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">*</span></code>:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code></div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="16">
+<li>If the Mattermost server is on a separate machine, modify the file <code class="docutils literal"><span class="pre">pg_hbe.conf</span></code> to allow the Mattermost server to communicate with the database.</li>
+</ol>
+<blockquote>
+<div><p>If the Mattermost server and the database are on the same machine, then you can skip this step.</p>
+<ol class="loweralpha simple">
+<li>Open <code class="docutils literal"><span class="pre">/etc/postgresql/9.4/main/pg_hba.conf</span></code> in a text editor.</li>
+<li>Add the following line to the end of the file, where <em>&lt;mm-server-IP&gt;</em> is the IP address of the machine that contains the Mattermost server.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">&lt;mm-server-IP&gt;/32</span> <span class="pre">md5</span></code></div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="17">
+<li>Reload Postgres database</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">postgresql</span></code></div></blockquote>
+<ol class="arabic simple" start="18">
+<li>Verify that you can connect with the user <em>mmuser</em>.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">psql</span> <span class="pre">--host=localhost</span> <span class="pre">--dbname=mattermost</span> <span class="pre">--username=mmuser</span> <span class="pre">--password</span></code></p>
+<p>The PostgreSQL interactive terminal starts. To exit the PostgreSQL interactive terminal, type <code class="docutils literal"><span class="pre">\q</span></code> and press <strong>Enter</strong>.</p>
+</div></blockquote>
 <p>With the database installed and the initial setup complete, you can now install the Mattermost server.</p>
 </div>
 
@@ -244,7 +306,7 @@
             </dd>
             
             <dd>
-                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-ubuntu-1604-mysql.rst"> Edit on GitHub</a>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-71-postgresql.rst"> Edit on GitHub</a>
             </dd>
             
         </dl>

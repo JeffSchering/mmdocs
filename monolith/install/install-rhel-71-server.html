@@ -20,7 +20,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing MySQL Database Server &mdash; Mattermost 3.5 documentation</title>
+  <title>Installing Red Hat Enterprise Linux 7.1 &mdash; Mattermost 3.5 documentation</title>
   
 
   
@@ -133,11 +133,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Installing MySQL Database Server</li>
+    <li>Installing Red Hat Enterprise Linux 7.1</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-ubuntu-1604-mysql.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-71-server.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -147,58 +147,20 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installing-mysql-database-server">
-<span id="install-ubuntu-1604-mysql"></span><h1>Installing MySQL Database Server<a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h1>
-<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see <a class="reference internal" href="install-ubuntu-1604-postgresql.html#install-ubuntu-1604-postgresql"><span class="std std-ref">Installing PostgreSQL Database Server</span></a></p>
-<p><strong>To install MySQL on Ubuntu Server 16.04:</strong></p>
+  <div class="section" id="installing-red-hat-enterprise-linux-7-1">
+<span id="install-rhel-71-server"></span><h1>Installing Red Hat Enterprise Linux 7.1<a class="headerlink" href="#installing-red-hat-enterprise-linux-7-1" title="Permalink to this headline">¶</a></h1>
+<p>Install the 64-bit version of RHEL 7.1 on each machine that hosts one or more of the components.</p>
+<p><strong>To install RHEL 7.1 Server:</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that will host the database, and open a terminal window.</li>
-<li>Install MySQL.</li>
-</ol>
-<blockquote>
-<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">mysql-server</span></code></p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">During the install, you&#8217;ll be prompted to create a password for the MySQL root user. Make a note of the password because you&#8217;ll need it in the next step.</p>
-</div>
-</div></blockquote>
-<ol class="arabic simple" start="3">
-<li>Log in to MySQL as root.</li>
-</ol>
-<blockquote>
-<div><p><code class="docutils literal"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span></code></p>
-<p>When prompted, enter the root password that you created when installing MySQL.</p>
-</div></blockquote>
-<ol class="arabic simple" start="4">
-<li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
-</ol>
-<blockquote>
-<div><p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'%'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ol class="last arabic simple">
-<li>Use a password that is more secure than &#8216;mmuser-password&#8217;</li>
-<li>The &#8216;%&#8217; means that mmuser can connect from any machine on the network. However, it&#8217;s more secure to use the IP address of the machine that hosts Mattermost. For example, if you install Mattermost on the machine with IP address 10.10.10.2, then use the following command:</li>
-</ol>
-</div>
-<p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'10.10.10.2'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
-</div></blockquote>
-<ol class="arabic simple" start="5">
-<li>Create the Mattermost database.</li>
-</ol>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">database</span> <span class="pre">mattermost;</span></code></div></blockquote>
-<ol class="arabic simple" start="6">
-<li>Grant access privileges to the user &#8216;mmuser&#8217;</li>
-</ol>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">grant</span> <span class="pre">all</span> <span class="pre">privileges</span> <span class="pre">on</span> <span class="pre">mattermost.*</span> <span class="pre">to</span> <span class="pre">'mmuser'&#64;'%';</span></code></div></blockquote>
-<ol class="arabic" start="7">
-<li><p class="first">Log out of MySQL.</p>
-<p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">exit</span></code></p>
+<li>Download the appropriate ISO image from RedHat and burn it to a CD-ROM.</li>
+<li>Boot the system from the CD-ROM drive and follow the on-screen prompts.</li>
+<li>After the system is installed, make sure that it&#8217;s up to date with the most recent security patches. Open a terminal window and issue the following commands:<ul>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">upgrade</span></code></li>
+</ul>
 </li>
 </ol>
-<p>With the database installed and the initial setup complete, you can now install the Mattermost server.</p>
+<p>Now that the system is up to date, you can start installing the components that make up a Mattermost system.</p>
 </div>
 
 
@@ -244,7 +206,7 @@
             </dd>
             
             <dd>
-                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-ubuntu-1604-mysql.rst"> Edit on GitHub</a>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-71-server.rst"> Edit on GitHub</a>
             </dd>
             
         </dl>

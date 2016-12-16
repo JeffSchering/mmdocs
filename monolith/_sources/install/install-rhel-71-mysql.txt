@@ -1,21 +1,21 @@
-..  _install-rhel-66-mysql:
+..  _install-rhel-71-mysql:
 
 Installing MySQL Database Server
 ================================
 
-Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see :ref:`install-rhel-66-postgresql`
+Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see :ref:`install-rhel-71-postgresql`
 
-**To install MySQL 5.7 on RHEL 6.6:**
+**To install MySQL 5.7 on RHEL 7.1:**
 
 1. Log into the server that will host the database, and open a terminal window.
 
 2. Download the MySQL Yum repository from dev.mysql.com.
 
-  ``wget http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm``
+  ``wget http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm``
 
 3. Install the Yum repository from the file that you downloaded.
 
-  ``sudo yum localinstall mysql57-community-release-el6-9.noarch.rpm``
+  ``sudo yum localinstall mysql57-community-release-el7-9.noarch.rpm``
 
 4. Install MySQL.
 
@@ -23,7 +23,7 @@ Install and set up the database for use by the Mattermost server. You can instal
 
 5. Start the MySQL server.
 
-  ``sudo service mysqld start``
+  ``sudo systemctl start mysqld.service``
   
   .. note::
     1. The first time that you start MySQL, the superuser account ``'root'@'localhost'`` is created and a temporary password is generated for it.

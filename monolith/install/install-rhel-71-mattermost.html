@@ -137,7 +137,7 @@
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-66-mattermost.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-71-mattermost.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -148,10 +148,10 @@
            <div itemprop="articleBody">
             
   <div class="section" id="installing-mattermost-server">
-<span id="install-rhel-66-mattermost"></span><h1>Installing Mattermost Server<a class="headerlink" href="#installing-mattermost-server" title="Permalink to this headline">¶</a></h1>
+<span id="install-rhel-71-mattermost"></span><h1>Installing Mattermost Server<a class="headerlink" href="#installing-mattermost-server" title="Permalink to this headline">¶</a></h1>
 <p>Install Mattermost Server on a 64-bit machine.</p>
 <p>Assume that the IP address of this server is 10.10.10.2</p>
-<p><strong>To install Mattermost Server on RHEL 6.6</strong></p>
+<p><strong>To install Mattermost Server on RHEL 7.1</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that will host Mattermost Server and open a terminal window.</li>
 <li>Download <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:</li>
@@ -226,33 +226,62 @@
 <blockquote>
 <div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL-C</span></code> in the terminal window.</div></blockquote>
 <ol class="arabic simple" start="8">
-<li>Setup Mattermost to use the Upstart daemon which handles supervision of the Mattermost process.</li>
+<li>Set up Mattermost to use the systemd init daemon which handles
+supervision of the Mattermost process.</li>
 </ol>
 <blockquote>
 <div><ol class="loweralpha simple">
 <li>Create the Mattermost configuration file:</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/init/mattermost.conf</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/systemd/system/mattermost.service</span></code></div></blockquote>
 <ol class="loweralpha simple" start="2">
 <li>Open the configuration file in your favorite text editor, and copy the following lines into the file:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-none"><div class="highlight"><pre><span></span>start on runlevel [2345]
-stop on runlevel [016]
-respawn
-limit nofile 50000 50000
-chdir /opt/mattermost
-exec bin/platform
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>[Unit]
+Description=Mattermost
+After=syslog.target network.target postgresql-9.4.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/mattermost/bin
+User=mattermost
+ExecStart=/opt/mattermost/bin/platform
+PIDFile=/var/spool/mattermost/pid/master.pid
+LimitNOFILE=49152
+
+[Install]
+WantedBy=multi-user.target
 </pre></div>
 </div>
 </div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Make the service executable.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">664</span> <span class="pre">/etc/systemd/system/mattermost.service</span></code></div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li>Reload the systemd services.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></div></blockquote>
+<ol class="loweralpha simple" start="6">
+<li>Enable the Mattermost service.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">mattermost</span> <span class="pre">on</span></code></div></blockquote>
+<ol class="loweralpha simple" start="7">
+<li>Set Mattermost to start on boot.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">mattermost</span></code></div></blockquote>
 </div></blockquote>
 <ol class="arabic simple" start="9">
 <li>Start the Mattermost server.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mattermost</span></code></div></blockquote>
 <ol class="arabic simple" start="10">
 <li>Verify that Mattermost is running.</li>
 </ol>
@@ -306,7 +335,7 @@ exec bin/platform
             </dd>
             
             <dd>
-                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-66-mattermost.rst"> Edit on GitHub</a>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-71-mattermost.rst"> Edit on GitHub</a>
             </dd>
             
         </dl>

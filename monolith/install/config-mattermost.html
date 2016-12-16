@@ -46,10 +46,7 @@
   
 
   
-    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
-        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Administrator Tasks" href="../deployment/on-boarding.html"/>
-        <link rel="prev" title="Desktop Application Install Guides" href="desktop.html"/> 
+    <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -98,25 +95,10 @@
           
             
             
-                <ul class="current">
+                <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a><ul class="current">
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuring Mattermost</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#configuring-mattermost-server">Configuring Mattermost Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configuring-tls-on-the-mattermost-server">Configuring TLS on the Mattermost Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configuring-nginx-as-a-proxy-for-mattermost-server">Configuring NGINX as a proxy for Mattermost Server</a></li>
-<li class="toctree-l4"><a class="reference internal" href="#configuring-nginx-with-ssl-and-http-2">Configuring NGINX with SSL and HTTP/2</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
@@ -150,8 +132,6 @@
 <div role="navigation" aria-label="breadcrumbs navigation">
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
-      
-          <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
       
     <li>Configuring Mattermost</li>
       <li class="wy-breadcrumbs-aside">
@@ -326,9 +306,13 @@ server {
 <li>Restart NGINX.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></div></blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
 <ol class="arabic simple" start="6">
-<li>Verify you can see Mattermost thru the proxy.</li>
+<li>Verify that you can see Mattermost thru the proxy.</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
@@ -342,6 +326,7 @@ server {
 <p>Using SSL gives greater security by ensuring that communications between Mattermost clients and the Mattermost server are encrypted. It also allows you to configure NGINX to use the HTTP/2 protocol.</p>
 <p>Although you can configure HTTP/2 without SSL, both Firefox and Chrome browsers support HTTP/2 on secure connections only.</p>
 <p>You can use any certificate that you want, but these instructions show you how to download and install certificates from <em>Let&#8217;s Encrypt</em>.</p>
+<p><strong>To SSL and HTTP/2:</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that hosts NGINX and open a terminal window.</li>
 <li>Install git.</li>
@@ -366,7 +351,11 @@ server {
 <li>Stop NGINX.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></div></blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
 <ol class="arabic simple" start="6">
 <li>Run <code class="docutils literal"><span class="pre">netstat</span></code> to make sure that nothing is listening on port 80.</li>
 </ol>
@@ -380,69 +369,28 @@ server {
 <p>When prompted, enter your domain name. The certificate is located in  <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code></p>
 </div></blockquote>
 <ol class="arabic simple" start="8">
-<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root and update it to incorporate the following lines. Make sure that you use your own values for the Mattermost server IP address and FQDN for <em>server_name</em>.</li>
+<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and update the <em>server</em> section to incorporate the highlighted lines in the following sample. Make sure to replace {domain-name} with your own domain name, in 2 places.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-none"><div class="highlight"><pre><span></span>upstream backend {
-    server 10.10.10.2:8065;
-}
-
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>.
+.
+.
 server {
-   listen         80;
-   server_name    mattermost.example.com;
-   return         301 https://$server_name$request_uri;
-}
-
-proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
-
-server {
-   listen 443 ssl http2;
-   server_name mattermost.example.com;
-
-   ssl on;
-   ssl_certificate /etc/letsencrypt/live/yourdomainname/fullchain.pem;
-   ssl_certificate_key /etc/letsencrypt/live/yourdomainname/privkey.pem;
-   ssl_session_timeout 5m;
-   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-   ssl_ciphers &#39;EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH&#39;;
-   ssl_prefer_server_ciphers on;
-   ssl_session_cache shared:SSL:10m;
-
-   location /api/v3/users/websocket {
-      proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection &quot;upgrade&quot;;
-      proxy_set_header X-Forwarded-Ssl on;
-      client_max_body_size 50M;
-      proxy_set_header Host $http_host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header X-Forwarded-Proto $scheme;
-      proxy_set_header X-Frame-Options SAMEORIGIN;
-      proxy_buffers 256 16k;
-      proxy_buffer_size 16k;
-      proxy_read_timeout 600s;
-      proxy_pass http://backend;
-   }
-
-   location / {
-      proxy_set_header X-Forwarded-Ssl on;
-      client_max_body_size 50M;
-      proxy_set_header Connection &quot;&quot;;
-      proxy_set_header Host $http_host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header X-Forwarded-Proto $scheme;
-      proxy_set_header X-Frame-Options SAMEORIGIN;
-      proxy_buffers 256 16k;
-      proxy_buffer_size 16k;
-      proxy_read_timeout 600s;
-      proxy_cache mattermost_cache;
-      proxy_cache_revalidate on;
-      proxy_cache_min_uses 2;
-      proxy_cache_use_stale timeout;
-      proxy_cache_lock on;
-      proxy_pass http://backend;
-    }
+<span class="hll">  listen 443 ssl http2;
+</span>.
+.
+.
+<span class="hll">  ssl on;
+</span><span class="hll">  ssl_certificate /etc/letsencrypt/live/{domain-name}/fullchain.pem;
+</span><span class="hll">  ssl_certificate_key /etc/letsencrypt/live/{domain-name}/privkey.pem;
+</span><span class="hll">  ssl_session_timeout 5m;
+</span><span class="hll">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+</span><span class="hll">  ssl_ciphers &#39;EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH&#39;;
+</span><span class="hll">  ssl_prefer_server_ciphers on;
+</span><span class="hll">  ssl_session_cache shared:SSL:10m;
+</span>.
+.
+.
 }
 </pre></div>
 </div>
@@ -451,7 +399,11 @@ server {
 <li>Restart NGINX</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></div></blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
 <ol class="arabic simple" start="10">
 <li>Check that your SSL certificate is set up correctly.</li>
 </ol>
@@ -469,6 +421,9 @@ server {
 <p>In the following line, use your domain name in place of <em>&lt;domain-name&gt;</em></p>
 <p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">&lt;domain-name&gt;</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
 </div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Check that your SSL certificate is set up correctly. Test the SSL certificate by visiting a site such as <a class="reference external" href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a>. If there’s an error about the missing chain or certificate path, there is likely an intermediate certificate missing that needs to be included.</li>
+</ol>
 </div>
 </div>
 
@@ -476,15 +431,6 @@ server {
            </div>
           </div>
           <footer>
-  
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../deployment/on-boarding.html" class="btn btn-neutral float-right" title="Administrator Tasks" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="desktop.html" class="btn btn-neutral" title="Desktop Application Install Guides" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
   
 
   <hr/>

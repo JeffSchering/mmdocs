@@ -20,7 +20,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing Mattermost on RHEL 6.6 &mdash; Mattermost 3.5 documentation</title>
+  <title>Installing Mattermost on RHEL 7.1 &mdash; Mattermost 3.5 documentation</title>
   
 
   
@@ -48,8 +48,8 @@
   
     <link rel="top" title="Mattermost 3.5 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Installing Mattermost on RHEL 7.1" href="install-rhel-71.html"/>
-        <link rel="prev" title="Installing Mattermost on Ubuntu 16.04 LTS" href="install-ubuntu-1604.html"/> 
+        <link rel="next" title="Local Machine Setup using Docker" href="docker-local-machine.html"/>
+        <link rel="prev" title="Installing Mattermost on RHEL 6.6" href="install-rhel-66.html"/> 
 
   
   <script src="../_static/js/modernizr.min.js"></script>
@@ -106,8 +106,9 @@
 <li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Installing on RHEL 6.6</a><ul>
-<li class="toctree-l4"><a class="reference internal" href="#installing-red-hat-enterprise-linux-6-6">Installing Red Hat Enterprise Linux 6.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Installing on RHEL 7.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-red-hat-enterprise-linux-7-1">Installing Red Hat Enterprise Linux 7.1</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#installing-mysql-database-server">Installing MySQL Database Server</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#installing-postgresql-database">Installing PostgreSQL Database</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#installing-mattermost-server">Installing Mattermost Server</a></li>
@@ -118,7 +119,6 @@
 <li class="toctree-l4"><a class="reference internal" href="#configuring-nginx-with-ssl-and-http-2">Configuring NGINX with SSL and HTTP/2</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="install-rhel-71.html">Installing on RHEL 7.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
@@ -169,11 +169,11 @@
       
           <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
       
-    <li>Installing Mattermost on RHEL 6.6</li>
+    <li>Installing Mattermost on RHEL 7.1</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-66.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-71.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -183,15 +183,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installing-mattermost-on-rhel-6-6">
-<span id="install-rhel-66"></span><h1>Installing Mattermost on RHEL 6.6<a class="headerlink" href="#installing-mattermost-on-rhel-6-6" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="installing-mattermost-on-rhel-7-1">
+<span id="install-rhel-71"></span><h1>Installing Mattermost on RHEL 7.1<a class="headerlink" href="#installing-mattermost-on-rhel-7-1" title="Permalink to this headline">¶</a></h1>
 <p>Install a production-ready Mattermost system on 1 to 3 machines.</p>
 <p>A complete Mattermost installation consists of 3 major components: a proxy server, a database server, and the Mattermost server. You can install all components on 1 machine, or you can install each component on its own machine. If you have only 2 machines, then install the proxy and the Mattermost server on one machine, and install the database on the other machine.</p>
 <p>For the database, you can install either MySQL or ProstgreSQL. The proxy is NGINX.</p>
 <div class="contents local topic" id="install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">
 <p class="topic-title first">Install and configure the components in the following order. Note that you need only one database, either MySQL or PostgreSQL.</p>
 <ul class="simple">
-<li><a class="reference internal" href="#installing-red-hat-enterprise-linux-6-6" id="id1">Installing Red Hat Enterprise Linux 6.6</a></li>
+<li><a class="reference internal" href="#installing-red-hat-enterprise-linux-7-1" id="id1">Installing Red Hat Enterprise Linux 7.1</a></li>
 <li><a class="reference internal" href="#installing-mysql-database-server" id="id2">Installing MySQL Database Server</a></li>
 <li><a class="reference internal" href="#installing-postgresql-database" id="id3">Installing PostgreSQL Database</a></li>
 <li><a class="reference internal" href="#installing-mattermost-server" id="id4">Installing Mattermost Server</a></li>
@@ -206,10 +206,10 @@
 <li><a class="reference internal" href="#configuring-nginx-with-ssl-and-http-2" id="id11">Configuring NGINX with SSL and HTTP/2</a></li>
 </ul>
 </div>
-<div class="section" id="installing-red-hat-enterprise-linux-6-6">
-<span id="install-rhel-66-server"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Red Hat Enterprise Linux 6.6</a><a class="headerlink" href="#installing-red-hat-enterprise-linux-6-6" title="Permalink to this headline">¶</a></h2>
-<p>Install the 64-bit version of RHEL 6.6 on each machine that hosts one or more of the components.</p>
-<p><strong>To install RHEL 6.6 Server:</strong></p>
+<div class="section" id="installing-red-hat-enterprise-linux-7-1">
+<span id="install-rhel-71-server"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Red Hat Enterprise Linux 7.1</a><a class="headerlink" href="#installing-red-hat-enterprise-linux-7-1" title="Permalink to this headline">¶</a></h2>
+<p>Install the 64-bit version of RHEL 7.1 on each machine that hosts one or more of the components.</p>
+<p><strong>To install RHEL 7.1 Server:</strong></p>
 <ol class="arabic simple">
 <li>Download the appropriate ISO image from RedHat and burn it to a CD-ROM.</li>
 <li>Boot the system from the CD-ROM drive and follow the on-screen prompts.</li>
@@ -222,20 +222,20 @@
 <p>Now that the system is up to date, you can start installing the components that make up a Mattermost system.</p>
 </div>
 <div class="section" id="installing-mysql-database-server">
-<span id="install-rhel-66-mysql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing MySQL Database Server</a><a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h2>
-<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see <a class="reference internal" href="install-rhel-66-postgresql.html#install-rhel-66-postgresql"><span class="std std-ref">Installing PostgreSQL Database</span></a></p>
-<p><strong>To install MySQL 5.7 on RHEL 6.6:</strong></p>
+<span id="install-rhel-71-mysql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing MySQL Database Server</a><a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h2>
+<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see <a class="reference internal" href="install-rhel-71-postgresql.html#install-rhel-71-postgresql"><span class="std std-ref">Installing PostgreSQL Database</span></a></p>
+<p><strong>To install MySQL 5.7 on RHEL 7.1:</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that will host the database, and open a terminal window.</li>
 <li>Download the MySQL Yum repository from dev.mysql.com.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">http://dev.mysql.com/get/mysql57-community-release-el6-9.noarch.rpm</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">http://dev.mysql.com/get/mysql57-community-release-el7-9.noarch.rpm</span></code></div></blockquote>
 <ol class="arabic simple" start="3">
 <li>Install the Yum repository from the file that you downloaded.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">localinstall</span> <span class="pre">mysql57-community-release-el6-9.noarch.rpm</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">localinstall</span> <span class="pre">mysql57-community-release-el7-9.noarch.rpm</span></code></div></blockquote>
 <ol class="arabic simple" start="4">
 <li>Install MySQL.</li>
 </ol>
@@ -245,7 +245,7 @@
 <li>Start the MySQL server.</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">mysqld</span> <span class="pre">start</span></code></p>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mysqld.service</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ol class="last arabic simple">
@@ -301,13 +301,13 @@
 <p>With the database installed and the initial setup complete, you can now install the Mattermost server.</p>
 </div>
 <div class="section" id="installing-postgresql-database">
-<span id="install-rhel-66-postgresql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing PostgreSQL Database</a><a class="headerlink" href="#installing-postgresql-database" title="Permalink to this headline">¶</a></h2>
+<span id="install-rhel-71-postgresql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing PostgreSQL Database</a><a class="headerlink" href="#installing-postgresql-database" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
 <li>Log into the server that will host the database, and open a terminal window.</li>
 <li>Download the PostgreSQL 9.4 Yum repository.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-3.noarch.rpm</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://download.postgresql.org/pub/repos/yum/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-3.noarch.rpm</span></code></div></blockquote>
 <ol class="arabic simple" start="3">
 <li>Install the Yum repository from the file that you downloaded.</li>
 </ol>
@@ -322,17 +322,17 @@
 <li>Initialize the database.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">postgresql-9.4</span> <span class="pre">initdb</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">postgresql</span> <span class="pre">initdb</span></code></div></blockquote>
 <ol class="arabic simple" start="6">
 <li>Set PostgreSQL to start on boot.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">postgresql-9.4</span> <span class="pre">on</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">postgresql</span></code></div></blockquote>
 <ol class="arabic simple" start="7">
 <li>Start the PostgreSQL server.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">postgresql-9.4</span> <span class="pre">start</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">postgresql</span></code></div></blockquote>
 <ol class="arabic simple" start="8">
 <li>Switch to the <em>postgres</em> Linux user account that was created during the installation.</li>
 </ol>
@@ -405,7 +405,7 @@
 <li>Reload Postgres database</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">postgresql-9.4</span> <span class="pre">restart</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">postgresql</span></code></div></blockquote>
 <ol class="arabic simple" start="18">
 <li>Verify that you can connect with the user <em>mmuser</em>.</li>
 </ol>
@@ -416,10 +416,10 @@
 <p>With the database installed and the initial setup complete, you can now install the Mattermost server.</p>
 </div>
 <div class="section" id="installing-mattermost-server">
-<span id="install-rhel-66-mattermost"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Mattermost Server</a><a class="headerlink" href="#installing-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<span id="install-rhel-71-mattermost"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Mattermost Server</a><a class="headerlink" href="#installing-mattermost-server" title="Permalink to this headline">¶</a></h2>
 <p>Install Mattermost Server on a 64-bit machine.</p>
 <p>Assume that the IP address of this server is 10.10.10.2</p>
-<p><strong>To install Mattermost Server on RHEL 6.6</strong></p>
+<p><strong>To install Mattermost Server on RHEL 7.1</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that will host Mattermost Server and open a terminal window.</li>
 <li>Download <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:</li>
@@ -494,33 +494,62 @@
 <blockquote>
 <div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL-C</span></code> in the terminal window.</div></blockquote>
 <ol class="arabic simple" start="8">
-<li>Setup Mattermost to use the Upstart daemon which handles supervision of the Mattermost process.</li>
+<li>Set up Mattermost to use the systemd init daemon which handles
+supervision of the Mattermost process.</li>
 </ol>
 <blockquote>
 <div><ol class="loweralpha simple">
 <li>Create the Mattermost configuration file:</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/init/mattermost.conf</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/systemd/system/mattermost.service</span></code></div></blockquote>
 <ol class="loweralpha simple" start="2">
 <li>Open the configuration file in your favorite text editor, and copy the following lines into the file:</li>
 </ol>
 <blockquote>
-<div><div class="highlight-none"><div class="highlight"><pre><span></span>start on runlevel [2345]
-stop on runlevel [016]
-respawn
-limit nofile 50000 50000
-chdir /opt/mattermost
-exec bin/platform
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>[Unit]
+Description=Mattermost
+After=syslog.target network.target postgresql-9.4.service
+
+[Service]
+Type=simple
+WorkingDirectory=/opt/mattermost/bin
+User=mattermost
+ExecStart=/opt/mattermost/bin/platform
+PIDFile=/var/spool/mattermost/pid/master.pid
+LimitNOFILE=49152
+
+[Install]
+WantedBy=multi-user.target
 </pre></div>
 </div>
 </div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Make the service executable.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">664</span> <span class="pre">/etc/systemd/system/mattermost.service</span></code></div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li>Reload the systemd services.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></div></blockquote>
+<ol class="loweralpha simple" start="6">
+<li>Enable the Mattermost service.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">mattermost</span> <span class="pre">on</span></code></div></blockquote>
+<ol class="loweralpha simple" start="7">
+<li>Set Mattermost to start on boot.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">mattermost</span></code></div></blockquote>
 </div></blockquote>
 <ol class="arabic simple" start="9">
 <li>Start the Mattermost server.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mattermost</span></code></div></blockquote>
 <ol class="arabic simple" start="10">
 <li>Verify that Mattermost is running.</li>
 </ol>
@@ -882,10 +911,10 @@ server {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="install-rhel-71.html" class="btn btn-neutral float-right" title="Installing Mattermost on RHEL 7.1" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="docker-local-machine.html" class="btn btn-neutral float-right" title="Local Machine Setup using Docker" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="install-ubuntu-1604.html" class="btn btn-neutral" title="Installing Mattermost on Ubuntu 16.04 LTS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="install-rhel-66.html" class="btn btn-neutral" title="Installing Mattermost on RHEL 6.6" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -927,7 +956,7 @@ server {
             </dd>
             
             <dd>
-                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-66.rst"> Edit on GitHub</a>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-71.rst"> Edit on GitHub</a>
             </dd>
             
         </dl>

@@ -20,7 +20,7 @@
     </script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing MySQL Database Server &mdash; Mattermost 3.5 documentation</title>
+  <title>Installing NGINX Server &mdash; Mattermost 3.5 documentation</title>
   
 
   
@@ -133,11 +133,11 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
       
-    <li>Installing MySQL Database Server</li>
+    <li>Installing NGINX Server</li>
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-ubuntu-1604-mysql.rst" class="fa fa-github"> Edit on GitHub</a>
+            <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-nginx.rst" class="fa fa-github"> Edit on GitHub</a>
           
         
       </li>
@@ -147,58 +147,85 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="installing-mysql-database-server">
-<span id="install-ubuntu-1604-mysql"></span><h1>Installing MySQL Database Server<a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h1>
-<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see <a class="reference internal" href="install-ubuntu-1604-postgresql.html#install-ubuntu-1604-postgresql"><span class="std std-ref">Installing PostgreSQL Database Server</span></a></p>
-<p><strong>To install MySQL on Ubuntu Server 16.04:</strong></p>
-<ol class="arabic simple">
-<li>Log into the server that will host the database, and open a terminal window.</li>
-<li>Install MySQL.</li>
-</ol>
+  <div class="section" id="installing-nginx-server">
+<span id="install-rhel-nginx"></span><h1>Installing NGINX Server<a class="headerlink" href="#installing-nginx-server" title="Permalink to this headline">¶</a></h1>
+<p>In a production setting, use a proxy server for greater security and performance of Mattermost.</p>
+<p>The main benefits of using a proxy are as follows:</p>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">mysql-server</span></code></p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">During the install, you&#8217;ll be prompted to create a password for the MySQL root user. Make a note of the password because you&#8217;ll need it in the next step.</p>
-</div>
+<div><ul class="simple">
+<li>SSL termination</li>
+<li>HTTP to HTTPS redirect</li>
+<li>Port mapping <code class="docutils literal"><span class="pre">:80</span></code> to <code class="docutils literal"><span class="pre">:8065</span></code></li>
+<li>Standard request logs</li>
+</ul>
 </div></blockquote>
-<ol class="arabic simple" start="3">
-<li>Log in to MySQL as root.</li>
+<p><strong>To install NGINX on RHEL 6.6 or 7.1:</strong></p>
+<ol class="arabic simple">
+<li>Log into the server that will host the proxy, and open a terminal window.</li>
+<li>Create the file /etc/yum.repos.d/nginx.repo.</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span></code></p>
-<p>When prompted, enter the root password that you created when installing MySQL.</p>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/yum.repos.d/nginx.repo</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Open the file as root in a text editor and add the following contents, where <em>{version}</em> is <strong>6</strong> for RHEL 6.6, and <strong>7</strong> for RHEL 7.1:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>[nginx]
+name=nginx repo
+baseurl=http://nginx.org/packages/rhel/{version}/$basearch/
+gpgcheck=0
+enabled=1
+</pre></div>
+</div>
 </div></blockquote>
 <ol class="arabic simple" start="4">
-<li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
+<li>Install NGINX.</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'%'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
-<div class="admonition note">
-<p class="first admonition-title">Note</p>
-<ol class="last arabic simple">
-<li>Use a password that is more secure than &#8216;mmuser-password&#8217;</li>
-<li>The &#8216;%&#8217; means that mmuser can connect from any machine on the network. However, it&#8217;s more secure to use the IP address of the machine that hosts Mattermost. For example, if you install Mattermost on the machine with IP address 10.10.10.2, then use the following command:</li>
-</ol>
-</div>
-<p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'10.10.10.2'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">nginx.x86_64</span></code></div></blockquote>
+<ol class="arabic" start="5">
+<li><dl class="first docutils">
+<dt>After the installation is complete, start NGINX.</dt>
+<dd><p class="first">On RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></p>
+<p>On RHEL 7.1:</p>
+<p class="last"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">nginx</span></code></p>
+</dd>
+</dl>
+</li>
+<li><p class="first"><strong>Optional</strong> Set NGINX to start at system boot.</p>
+<blockquote>
+<div><p>On RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chkconfig</span> <span class="pre">nginx</span> <span class="pre">on</span></code></p>
+<p>On RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">nginx</span></code></p>
 </div></blockquote>
-<ol class="arabic simple" start="5">
-<li>Create the Mattermost database.</li>
-</ol>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">database</span> <span class="pre">mattermost;</span></code></div></blockquote>
-<ol class="arabic simple" start="6">
-<li>Grant access privileges to the user &#8216;mmuser&#8217;</li>
-</ol>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">grant</span> <span class="pre">all</span> <span class="pre">privileges</span> <span class="pre">on</span> <span class="pre">mattermost.*</span> <span class="pre">to</span> <span class="pre">'mmuser'&#64;'%';</span></code></div></blockquote>
-<ol class="arabic" start="7">
-<li><p class="first">Log out of MySQL.</p>
-<p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">exit</span></code></p>
 </li>
 </ol>
-<p>With the database installed and the initial setup complete, you can now install the Mattermost server.</p>
+<ol class="arabic simple" start="4">
+<li>Verify that NGINX is running.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
+<p>If NGINX is running, you see the following output:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Welcome to nginx!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+.
+.
+.
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Thank you for using nginx.<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<p><strong>What to do next</strong></p>
+<ol class="arabic simple">
+<li>Map a fully qualified domain name (FQDN) such as <code class="docutils literal"><span class="pre">mattermost.example.com</span></code> to point to the NGINX server.</li>
+<li>Configure NGINX to proxy connections from the Internet to the Mattermost Server.</li>
+</ol>
 </div>
 
 
@@ -244,7 +271,7 @@
             </dd>
             
             <dd>
-                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-ubuntu-1604-mysql.rst"> Edit on GitHub</a>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-rhel-nginx.rst"> Edit on GitHub</a>
             </dd>
             
         </dl>

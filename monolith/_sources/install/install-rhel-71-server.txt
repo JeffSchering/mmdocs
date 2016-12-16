@@ -1,11 +1,11 @@
-..  _install-rhel-66-server:
+..  _install-rhel-71-server:
 
-Installing Red Hat Enterprise Linux 6.6
+Installing Red Hat Enterprise Linux 7.1
 =======================================
 
-Install the 64-bit version of RHEL 6.6 on each machine that hosts one or more of the components.
+Install the 64-bit version of RHEL 7.1 on each machine that hosts one or more of the components.
 
-**To install RHEL 6.6 Server:**
+**To install RHEL 7.1 Server:**
 
 1. Download the appropriate ISO image from RedHat and burn it to a CD-ROM.
 

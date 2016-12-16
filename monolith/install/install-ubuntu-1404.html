@@ -118,12 +118,10 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-71.html">Installing on RHEL 7.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-rhel-6.html">Production Install on RHEL 6.6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-rhel-7.html">Production Install on RHEL 7.1+</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Production Install on Debian Jessie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
 <li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
@@ -131,7 +129,6 @@
 <li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#configuring-mattermost">Configuring Mattermost</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
 </ul>
@@ -190,7 +187,7 @@
 <span id="install-ubuntu-1404"></span><h1>Installing Mattermost on Ubuntu 14.04 LTS<a class="headerlink" href="#installing-mattermost-on-ubuntu-14-04-lts" title="Permalink to this headline">¶</a></h1>
 <p>Install a production-ready Mattermost system on 1 to 3 machines.</p>
 <p>A complete Mattermost installation consists of 3 major components: a proxy server, a database server, and the Mattermost server. You can install all components on 1 machine, or you can install each component on its own machine. If you have only 2 machines, then install the proxy and the Mattermost server on one machine, and install the database on the other machine.</p>
-<p>The Mattermost server must be installed on a 64-bit machine, but the database and proxy can be on 32-bit machines. For the database, you can install either MySQL or ProstgreSQL. The proxy is NGINX.</p>
+<p>For the database, you can install either MySQL or ProstgreSQL. The proxy is NGINX.</p>
 <div class="contents local topic" id="install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">
 <p class="topic-title first">Install and configure the components in the following order. Note that you need only one database, either MySQL or PostgreSQL.</p>
 <ul class="simple">
@@ -210,10 +207,9 @@
 </ul>
 </div>
 <div class="section" id="installing-ubuntu-server-14-04-lts">
-<h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Ubuntu Server 14.04 LTS</a><a class="headerlink" href="#installing-ubuntu-server-14-04-lts" title="Permalink to this headline">¶</a></h2>
-<p>Install Ubuntu Server on each machine that hosts one or more of the components. In most cases you need the 64-bit version.</p>
-<p>You can use the 32-bit version on a machine that hosts the database and proxy server, but the Mattermost server requires 64-bit.</p>
-<p><strong>To install Ubuntu Server:</strong></p>
+<span id="install-ubuntu-1404-server"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Ubuntu Server 14.04 LTS</a><a class="headerlink" href="#installing-ubuntu-server-14-04-lts" title="Permalink to this headline">¶</a></h2>
+<p>Install the 64-bit version of Ubuntu Server on each machine that hosts one or more of the components.</p>
+<p><strong>To install Ubuntu Server 14.04:</strong></p>
 <ol class="arabic simple">
 <li>Download the appropriate ISO image from <a class="reference external" href="http://releases.ubuntu.com/14.04.5/">http://releases.ubuntu.com/14.04.5/</a> and burn it to a CD-ROM.</li>
 <li>Boot the system from the CD-ROM drive and follow the on-screen prompts.</li>
@@ -223,13 +219,13 @@
 </ul>
 </li>
 </ol>
-<p>Now that the system is up to date, you can install the database.</p>
+<p>Now that the system is up to date, you can start installing the components that make up a Mattermost system.</p>
 </div>
 <div class="section" id="installing-mysql-database-server">
 <span id="install-ubuntu-1404-mysql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing MySQL Database Server</a><a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h2>
-<p>You can install either MySQL or PostgreSQL. The MySQL version must be 5.6 or greater.</p>
+<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. The MySQL version must be 5.6 or greater.</p>
 <p>To install PostgreSQL, see <a class="reference internal" href="install-ubuntu-1404-postgresql.html#install-ubuntu-1404-postgresql"><span class="std std-ref">Installing PostgreSQL Database Server</span></a></p>
-<p><strong>To install MySQL 5.6 on Ubuntu Server:</strong></p>
+<p><strong>To install MySQL 5.6 on Ubuntu Server 14.04:</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that will host the database, and open a terminal window.</li>
 <li>Install MySQL version 5.6.</li>
@@ -281,89 +277,96 @@
 </div>
 <div class="section" id="installing-postgresql-database-server">
 <span id="install-ubuntu-1404-postgresql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing PostgreSQL Database Server</a><a class="headerlink" href="#installing-postgresql-database-server" title="Permalink to this headline">¶</a></h2>
-<p>You can install either PostgreSQL or MySQL. To install MySQL, see <a class="reference internal" href="install-ubuntu-1404-mysql.html#install-ubuntu-1404-mysql"><span class="std std-ref">Installing MySQL Database Server</span></a></p>
+<p>Install and set up the database for use by the Mattermost server. You can install either PostgreSQL or MySQL. To install MySQL, see <a class="reference internal" href="install-ubuntu-1404-mysql.html#install-ubuntu-1404-mysql"><span class="std std-ref">Installing MySQL Database Server</span></a></p>
 <p>Assume that the IP address of this server is 10.10.10.1</p>
-<p><strong>To install PostgreSQL on Ubuntu Server:</strong></p>
-<ol class="arabic">
-<li><p class="first">Log into the server that will host the database and issue the following command:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">postgresql</span> <span class="pre">postgresql-contrib</span></code></li>
-</ul>
-</li>
-<li><p class="first">PostgreSQL created a user account called <code class="docutils literal"><span class="pre">postgres</span></code>. You will need
-to log into that account with:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-i</span> <span class="pre">-u</span> <span class="pre">postgres</span></code></li>
-</ul>
-</li>
-<li><p class="first">You can get a PostgreSQL prompt by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">psql</span></code></li>
-</ul>
-</li>
-<li><p class="first">Create the Mattermost database by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">mattermost;</span></code></li>
-</ul>
-</li>
-<li><p class="first">Create the Mattermost user by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">USER</span> <span class="pre">mmuser</span> <span class="pre">WITH</span> <span class="pre">PASSWORD</span> <span class="pre">'mmuser_password';</span></code></li>
-</ul>
-</li>
-<li><p class="first">Grant the user access to the Mattermost database by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">DATABASE</span> <span class="pre">mattermost</span> <span class="pre">to</span> <span class="pre">mmuser;</span></code></li>
-</ul>
-</li>
-<li><p class="first">You can exit out of PostgreSQL by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">postgre=#</span> <span class="pre">\q</span></code></li>
-</ul>
-</li>
-<li><p class="first">You can exit the postgres account by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">exit</span></code></li>
-</ul>
-</li>
-<li><p class="first">Allow Postgres to listen on all assigned IP Addresses</p>
-<blockquote>
-<div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">/etc/postgresql/9.3/main/postgresql.conf</span></code></li>
-<li>Uncomment <code class="docutils literal"><span class="pre">listen_addresses</span></code> and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">*</span></code></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Modify <code class="docutils literal"><span class="pre">pg_hba.conf</span></code> to allow the mattermost server to talk to the postgres database. Assume that the Mattermost server IP address is <code class="docutils literal"><span class="pre">10.10.10.2</span></code></p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">/etc/postgresql/9.3/main/pg_hba.conf</span></code></li>
-<li>Add the following line to the <code class="docutils literal"><span class="pre">IPv4</span> <span class="pre">local</span> <span class="pre">connections</span></code></li>
-<li><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">10.10.10.2/32</span> <span class="pre">md5</span></code></li>
-</ul>
-</li>
-<li><p class="first">Reload Postgres database</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">/etc/init.d/postgresql</span> <span class="pre">reload</span></code></li>
-</ul>
-<p>check with netstat command to see postgresql actually running on given ip and port</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">netstat</span> <span class="pre">-anp</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">5432</span></code></li>
-</ul>
-<p>try restarting the postgresql service if reload won&#8217;t work</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">postgresql</span> <span class="pre">restart</span></code></li>
-</ul>
-</li>
-<li><p class="first">Attempt to connect with the new created user to verify everything
-looks good</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">psql</span> <span class="pre">--host=10.10.10.1</span> <span class="pre">--dbname=mattermost</span> <span class="pre">--username=mmuser</span> <span class="pre">--password</span></code></li>
-<li><code class="docutils literal"><span class="pre">mattermost=&gt;</span> <span class="pre">\q</span></code></li>
-</ul>
-</li>
+<p><strong>To install PostgreSQL on Ubuntu Server 14.04:</strong></p>
+<ol class="arabic simple">
+<li>Log into the server that will host the database and issue the following command:</li>
 </ol>
-<p><strong>What to do next</strong></p>
-<p>In a production environment, you should install NGINX. Using NGINX as a proxy server increases the security and performance of your Mattermost installation.</p>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">postgresql</span> <span class="pre">postgresql-contrib</span></code></p>
+<p>When the installation is complete, the PostgreSQL server is running, and a Linux user account called <em>postgres</em> has been created.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Log into the <em>postgres</em> account.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">--login</span> <span class="pre">--user</span> <span class="pre">postgres</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Start the PostgreSQL interactive terminal.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">psql</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Create the Mattermost database.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">mattermost;</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">USER</span> <span class="pre">mmuser</span> <span class="pre">WITH</span> <span class="pre">PASSWORD</span> <span class="pre">'mmuser_password';</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use a password that is more secure than &#8216;mmuser-password&#8217;</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Grant the user access to the Mattermost database.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">DATABASE</span> <span class="pre">mattermost</span> <span class="pre">to</span> <span class="pre">mmuser;</span></code></div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Exit the PostgreSQL interactive terminal.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">postgre=#</span> <span class="pre">\q</span></code></div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Log out of the <em>postgres</em> account.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">exit</span></code></div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Allow Postgres to listen on all assigned IP Addresses. Open <code class="docutils literal"><span class="pre">/etc/postgresql/9.3/main/postgresql.conf</span></code> as root in a text editor.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Find the following line:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">#listen_addresses</span> <span class="pre">=</span> <span class="pre">'localhost'</span></code></div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Uncomment the line and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">*</span></code>:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code></div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li>If the Mattermost server is on a separate machine, modify the file <code class="docutils literal"><span class="pre">pg_hbe.conf</span></code> to allow the Mattermost server to communicate with the database.</li>
+</ol>
+<blockquote>
+<div><p>If the Mattermost server and the database are on the same machine, then you can skip this step.</p>
+<ol class="loweralpha simple">
+<li>Open <code class="docutils literal"><span class="pre">/etc/postgresql/9.3/main/pg_hba.conf</span></code> in a text editor.</li>
+<li>Add the following line to the end of the file, where <em>&lt;mm-server-IP&gt;</em> is the IP address of the machine that contains the Mattermost server.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">&lt;mm-server-IP&gt;/32</span> <span class="pre">md5</span></code></div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="11">
+<li>Reload Postgres database</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">/etc/init.d/postgresql</span> <span class="pre">reload</span></code></div></blockquote>
+<ol class="arabic simple" start="12">
+<li>Verify that you can connect with the user <em>mmuser</em>.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">psql</span> <span class="pre">--host=localhost</span> <span class="pre">--dbname=mattermost</span> <span class="pre">--username=mmuser</span> <span class="pre">--password</span></code></p>
+<p>The PostgreSQL interactive terminal starts. To exit the PostgreSQL interactive terminal, type <code class="docutils literal"><span class="pre">\q</span></code> and press <strong>Enter</strong>.</p>
+</div></blockquote>
+<p>With the database installed and the initial setup complete, you can now install the Mattermost server.</p>
 </div>
 <div class="section" id="installing-mattermost-server">
 <span id="install-ubuntu-1404-mattermost"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Mattermost Server</a><a class="headerlink" href="#installing-mattermost-server" title="Permalink to this headline">¶</a></h2>
@@ -686,9 +689,13 @@ server {
 <li>Restart NGINX.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></div></blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
 <ol class="arabic simple" start="6">
-<li>Verify you can see Mattermost thru the proxy.</li>
+<li>Verify that you can see Mattermost thru the proxy.</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
@@ -702,6 +709,7 @@ server {
 <p>Using SSL gives greater security by ensuring that communications between Mattermost clients and the Mattermost server are encrypted. It also allows you to configure NGINX to use the HTTP/2 protocol.</p>
 <p>Although you can configure HTTP/2 without SSL, both Firefox and Chrome browsers support HTTP/2 on secure connections only.</p>
 <p>You can use any certificate that you want, but these instructions show you how to download and install certificates from <em>Let&#8217;s Encrypt</em>.</p>
+<p><strong>To SSL and HTTP/2:</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that hosts NGINX and open a terminal window.</li>
 <li>Install git.</li>
@@ -726,7 +734,11 @@ server {
 <li>Stop NGINX.</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></div></blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
 <ol class="arabic simple" start="6">
 <li>Run <code class="docutils literal"><span class="pre">netstat</span></code> to make sure that nothing is listening on port 80.</li>
 </ol>
@@ -740,69 +752,28 @@ server {
 <p>When prompted, enter your domain name. The certificate is located in  <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code></p>
 </div></blockquote>
 <ol class="arabic simple" start="8">
-<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root and update it to incorporate the following lines. Make sure that you use your own values for the Mattermost server IP address and FQDN for <em>server_name</em>.</li>
+<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and update the <em>server</em> section to incorporate the highlighted lines in the following sample. Make sure to replace {domain-name} with your own domain name, in 2 places.</li>
 </ol>
 <blockquote>
-<div><div class="highlight-none"><div class="highlight"><pre><span></span>upstream backend {
-    server 10.10.10.2:8065;
-}
-
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>.
+.
+.
 server {
-   listen         80;
-   server_name    mattermost.example.com;
-   return         301 https://$server_name$request_uri;
-}
-
-proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
-
-server {
-   listen 443 ssl http2;
-   server_name mattermost.example.com;
-
-   ssl on;
-   ssl_certificate /etc/letsencrypt/live/yourdomainname/fullchain.pem;
-   ssl_certificate_key /etc/letsencrypt/live/yourdomainname/privkey.pem;
-   ssl_session_timeout 5m;
-   ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
-   ssl_ciphers &#39;EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH&#39;;
-   ssl_prefer_server_ciphers on;
-   ssl_session_cache shared:SSL:10m;
-
-   location /api/v3/users/websocket {
-      proxy_set_header Upgrade $http_upgrade;
-      proxy_set_header Connection &quot;upgrade&quot;;
-      proxy_set_header X-Forwarded-Ssl on;
-      client_max_body_size 50M;
-      proxy_set_header Host $http_host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header X-Forwarded-Proto $scheme;
-      proxy_set_header X-Frame-Options SAMEORIGIN;
-      proxy_buffers 256 16k;
-      proxy_buffer_size 16k;
-      proxy_read_timeout 600s;
-      proxy_pass http://backend;
-   }
-
-   location / {
-      proxy_set_header X-Forwarded-Ssl on;
-      client_max_body_size 50M;
-      proxy_set_header Connection &quot;&quot;;
-      proxy_set_header Host $http_host;
-      proxy_set_header X-Real-IP $remote_addr;
-      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-      proxy_set_header X-Forwarded-Proto $scheme;
-      proxy_set_header X-Frame-Options SAMEORIGIN;
-      proxy_buffers 256 16k;
-      proxy_buffer_size 16k;
-      proxy_read_timeout 600s;
-      proxy_cache mattermost_cache;
-      proxy_cache_revalidate on;
-      proxy_cache_min_uses 2;
-      proxy_cache_use_stale timeout;
-      proxy_cache_lock on;
-      proxy_pass http://backend;
-    }
+<span class="hll">  listen 443 ssl http2;
+</span>.
+.
+.
+<span class="hll">  ssl on;
+</span><span class="hll">  ssl_certificate /etc/letsencrypt/live/{domain-name}/fullchain.pem;
+</span><span class="hll">  ssl_certificate_key /etc/letsencrypt/live/{domain-name}/privkey.pem;
+</span><span class="hll">  ssl_session_timeout 5m;
+</span><span class="hll">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+</span><span class="hll">  ssl_ciphers &#39;EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH&#39;;
+</span><span class="hll">  ssl_prefer_server_ciphers on;
+</span><span class="hll">  ssl_session_cache shared:SSL:10m;
+</span>.
+.
+.
 }
 </pre></div>
 </div>
@@ -811,7 +782,11 @@ server {
 <li>Restart NGINX</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></div></blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
 <ol class="arabic simple" start="10">
 <li>Check that your SSL certificate is set up correctly.</li>
 </ol>
@@ -829,6 +804,9 @@ server {
 <p>In the following line, use your domain name in place of <em>&lt;domain-name&gt;</em></p>
 <p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">&lt;domain-name&gt;</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
 </div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Check that your SSL certificate is set up correctly. Test the SSL certificate by visiting a site such as <a class="reference external" href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a>. If there’s an error about the missing chain or certificate path, there is likely an intermediate certificate missing that needs to be included.</li>
+</ol>
 </div>
 </div>
 
