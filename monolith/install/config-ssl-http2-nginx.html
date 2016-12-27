@@ -152,7 +152,7 @@
 <p>Using SSL gives greater security by ensuring that communications between Mattermost clients and the Mattermost server are encrypted. It also allows you to configure NGINX to use the HTTP/2 protocol.</p>
 <p>Although you can configure HTTP/2 without SSL, both Firefox and Chrome browsers support HTTP/2 on secure connections only.</p>
 <p>You can use any certificate that you want, but these instructions show you how to download and install certificates from <em>Let&#8217;s Encrypt</em>.</p>
-<p><strong>To SSL and HTTP/2:</strong></p>
+<p><strong>To configure SSL and HTTP/2:</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that hosts NGINX and open a terminal window.</li>
 <li>Install git.</li>
@@ -244,12 +244,9 @@ server {
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">crontab</span> <span class="pre">-e</span></code></p>
-<p>In the following line, use your domain name in place of <em>&lt;domain-name&gt;</em></p>
-<p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">&lt;domain-name&gt;</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
+<p>In the following line, use your domain name in place of <em>{domain-name}</em></p>
+<p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">{domain-name}</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
 </div></blockquote>
-<ol class="arabic simple" start="8">
-<li>Check that your SSL certificate is set up correctly. Test the SSL certificate by visiting a site such as <a class="reference external" href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a>. If there’s an error about the missing chain or certificate path, there is likely an intermediate certificate missing that needs to be included.</li>
-</ol>
 </div>
 
 

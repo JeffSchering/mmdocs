@@ -175,13 +175,13 @@
 <blockquote>
 <div><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">mattermost;</span></code></div></blockquote>
 <ol class="arabic simple" start="5">
-<li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
+<li>Create the Mattermost user <em>mmuser</em>.</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">USER</span> <span class="pre">mmuser</span> <span class="pre">WITH</span> <span class="pre">PASSWORD</span> <span class="pre">'mmuser_password';</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<p class="last">Use a password that is more secure than &#8216;mmuser-password&#8217;</p>
+<p class="last">Use a password that is more secure than &#8216;mmuser-password&#8217;.</p>
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="6">
@@ -209,7 +209,7 @@
 <blockquote>
 <div><code class="docutils literal"><span class="pre">#listen_addresses</span> <span class="pre">=</span> <span class="pre">'localhost'</span></code></div></blockquote>
 <ol class="loweralpha simple" start="2">
-<li>Uncomment the line and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">*</span></code>:</li>
+<li>Uncomment the line and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">*</span></code>.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code></div></blockquote>
@@ -227,7 +227,7 @@
 <div><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">&lt;mm-server-IP&gt;/32</span> <span class="pre">md5</span></code></div></blockquote>
 </div></blockquote>
 <ol class="arabic simple" start="11">
-<li>Reload Postgres database</li>
+<li>Reload Postgres database.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">/etc/init.d/postgresql</span> <span class="pre">reload</span></code></div></blockquote>

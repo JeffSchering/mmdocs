@@ -152,124 +152,136 @@
 <p>Install Mattermost Server on a 64-bit machine.</p>
 <p>Assume that the IP address of this server is 10.10.10.2</p>
 <p><strong>To install Mattermost Server on Ubuntu</strong></p>
-<ol class="arabic">
-<li><p class="first">Log into the server that will host Mattermost Server and open a terminal window.</p>
-</li>
-<li><p class="first">Create a mattermost user and group</p>
+<ol class="arabic simple">
+<li>Log into the server that will host Mattermost Server and open a terminal window.</li>
+<li>Download <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Extract the Mattermost Server files.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost*.gz</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Move the extracted file to the <code class="docutils literal"><span class="pre">/opt</span></code> directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mv</span> <span class="pre">mattermost</span> <span class="pre">/opt</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Create the storage directory for files.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mkdir</span> <span class="pre">/opt/mattermost/data</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The storage directory will contain all the files and images that your users post to Mattermost, so you need to make sure that the drive is large enough to hold the anticipated number of uploaded files and images.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Set up a system user and group called <code class="docutils literal"><span class="pre">mattermost</span></code> that will run this service, and set the ownership and permissions.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Create the Mattermost user and group:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">useradd</span> <span class="pre">--system</span> <span class="pre">--user-group</span> <span class="pre">mattermost</span></code></div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Set the user and group <em>mattermost</em> as the ownwer of the Mattermost files:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">mattermost:mattermost</span> <span class="pre">/opt/mattermost</span></code></div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Give write permissions to the <em>mattermost</em> group:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">-R</span> <span class="pre">g+w</span> <span class="pre">/opt/mattermost</span></code></div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Set up the database driver in the file <code class="docutils literal"><span class="pre">/opt/mattermost/config/config.json</span></code>. Open the file in a text editor and make the following changes:</li>
+</ol>
 <blockquote>
 <div><ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">adduser</span> <span class="pre">--system</span> <span class="pre">--group</span> <span class="pre">mattermost</span></code></li>
-</ul>
-</div></blockquote>
-</li>
-<li><p class="first">Change to the mattermost home directory.</p>
-<blockquote>
-<div><p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/home/mattermost</span></code></p>
-</div></blockquote>
-</li>
-<li><p class="first">Download <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">the latest version of the Mattermost Server</a> by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code></li>
-<li>Where <code class="docutils literal"><span class="pre">vX.X.X</span></code> is the latest version.</li>
-</ul>
-</li>
-<li><p class="first">Extract the Mattermost Server files by typing:</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">*.gz</span></code></li>
-</ul>
-</li>
-<li><p class="first">Change the user and group of the extracted files to mattermost</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">mattermost:mattermost</span> <span class="pre">mattermost/</span></code></li>
-</ul>
-</li>
-<li><p class="first">Create the storage directory for files. We assume you will have
-attached a large drive for storage of images and files. For this
-setup we will assume the directory is located at
-<code class="docutils literal"><span class="pre">/mattermost/data</span></code>.</p>
-<ul class="simple">
-<li>Create the directory by typing:</li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">/mattermost/data</span></code></li>
-<li>Set the mattermost account as the directory owner by typing:</li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">mattermost:mattermost</span> <span class="pre">/mattermost</span></code></li>
-</ul>
-</li>
-<li><p class="first">Configure Mattermost Server by editing the config.json file at
-<code class="docutils literal"><span class="pre">/home/mattermost/config</span></code></p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/home/mattermost/mattermost/config</span></code></li>
-<li>Edit the file by typing:</li>
-<li><code class="docutils literal"><span class="pre">vi</span> <span class="pre">config.json</span></code></li>
 <li>If you are using PostgreSQL:</li>
 </ul>
 <blockquote>
-<div><ul class="simple">
-<li>Set <code class="docutils literal"><span class="pre">DriverName&quot;:</span></code> to <code class="docutils literal"><span class="pre">&quot;postgres&quot;</span></code></li>
-<li>Set <code class="docutils literal"><span class="pre">&quot;DataSource:&quot;</span></code> to the following value: <code class="docutils literal"><span class="pre">&quot;postgres://mmuser:mmuser_password&#64;10.10.10.1:5432/mattermost?sslmode=disable&amp;connect_timeout=10&quot;</span></code></li>
-</ul>
+<div><ol class="arabic simple">
+<li>Set <code class="docutils literal"><span class="pre">&quot;DriverName&quot;</span></code> to <code class="docutils literal"><span class="pre">&quot;postgres&quot;</span></code></li>
+<li>Set <code class="docutils literal"><span class="pre">&quot;DataSource&quot;</span></code> to the following value, replacing <code class="docutils literal"><span class="pre">&lt;mmuser-password&gt;</span></code>  and <code class="docutils literal"><span class="pre">&lt;host-name-or-IP&gt;</span></code> with the appropriate values:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">&quot;postgres://mmuser:&lt;mmuser-password&gt;&#64;&lt;host-name-or-IP&gt;:5432/mattermost?sslmode=disable&amp;connect_timeout=10&quot;</span></code>.</div></blockquote>
 </div></blockquote>
 <ul class="simple">
 <li>If you are using MySQL:</li>
 </ul>
 <blockquote>
-<div><ul class="simple">
-<li>Set <code class="docutils literal"><span class="pre">DriverName&quot;:</span></code> to <code class="docutils literal"><span class="pre">&quot;mysql&quot;</span></code></li>
-<li>Set <code class="docutils literal"><span class="pre">&quot;DataSource&quot;:</span></code> to the following value: <code class="docutils literal"><span class="pre">&quot;mmuser:mmuser_password&#64;tcp(10.10.10.1:3306)/mattermost?charset=utf8&quot;</span></code></li>
-</ul>
+<div><ol class="arabic simple">
+<li>Set <code class="docutils literal"><span class="pre">DriverName&quot;</span></code> to <code class="docutils literal"><span class="pre">&quot;mysql&quot;</span></code></li>
+<li>Set <code class="docutils literal"><span class="pre">&quot;DataSource&quot;</span></code> to the following value, replacing <code class="docutils literal"><span class="pre">&lt;mmuser-password&gt;</span></code>  and <code class="docutils literal"><span class="pre">&lt;host-name-or-IP&gt;</span></code> with the appropriate values:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">&quot;mmuser:&lt;mmuser-password&gt;&#64;tcp(&lt;host-name-or-IP&gt;:3306)/mattermost?charset=utf8&quot;</span></code></div></blockquote>
 </div></blockquote>
-<ul class="simple">
-<li>You can continue to edit configuration settings in
-<code class="docutils literal"><span class="pre">config.json</span></code> or use the System Console described in a later
-section to finish the configuration.</li>
-</ul>
-</li>
-<li><p class="first">Test the Mattermost Server</p>
-<ul class="simple">
-<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">~/mattermost/bin</span></code></li>
-<li>Run the Mattermost Server by typing:</li>
-<li><code class="docutils literal"><span class="pre">./platform</span></code></li>
-<li>You should see a console log like <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>
-letting you know the service is running.</li>
-<li>Stop the server for now by typing <code class="docutils literal"><span class="pre">ctrl-c</span></code></li>
-</ul>
-</li>
-<li><p class="first">Setup Mattermost to use the Upstart daemon which handles supervision</p>
+</div></blockquote>
+<ol class="arabic" start="7">
+<li><p class="first">Test the Mattermost server to make sure everything works.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Change to the <code class="docutils literal"><span class="pre">bin</span></code> directory:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Start the Mattermost server as the user mattermost:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">mattermost</span> <span class="pre">/.platform</span></code></p>
+</div></blockquote>
+</div></blockquote>
 </li>
 </ol>
 <blockquote>
-<div><p>of the Mattermost process.</p>
-<ul>
-<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/init/mattermost.conf</span></code></p>
-</li>
-<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">vi</span> <span class="pre">/etc/init/mattermost.conf</span></code></p>
-</li>
-<li><p class="first">Copy the following lines into <code class="docutils literal"><span class="pre">/etc/init/mattermost.conf</span></code></p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">start</span> <span class="n">on</span> <span class="n">runlevel</span> <span class="p">[</span><span class="mi">2345</span><span class="p">]</span>
-<span class="n">stop</span> <span class="n">on</span> <span class="n">runlevel</span> <span class="p">[</span><span class="mi">016</span><span class="p">]</span>
-<span class="n">respawn</span>
-<span class="n">limit</span> <span class="n">nofile</span> <span class="mi">50000</span> <span class="mi">50000</span>
-<span class="n">chdir</span> <span class="o">/</span><span class="n">home</span><span class="o">/</span><span class="n">mattermost</span><span class="o">/</span><span class="n">mattermost</span>
-<span class="n">setuid</span> <span class="n">mattermost</span>
-<span class="n">exec</span> <span class="nb">bin</span><span class="o">/</span><span class="n">platform</span>
+<div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL-C</span></code> in the terminal window.</div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Setup Mattermost to use the Upstart daemon which handles supervision of the Mattermost process.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Create the configuration file.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/init/mattermost.conf</span></code></div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Open the config file as root in a text editor, and copy the following lines into the file:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>start on runlevel [2345]
+stop on runlevel [016]
+respawn
+limit nofile 50000 50000
+chdir /home/mattermost/mattermost
+setuid mattermost
+exec bin/platform
 </pre></div>
 </div>
-</li>
-<li><p class="first">You can manage the process by typing:</p>
-</li>
-<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code></p>
-</li>
-<li><p class="first">Verify the service is running by typing:</p>
-</li>
-<li><p class="first"><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://10.10.10.2:8065</span></code></p>
-</li>
-<li><p class="first">You should see a page titles <em>Mattermost - Signup</em></p>
-</li>
-<li><p class="first">You can also stop the process by running the command
-<code class="docutils literal"><span class="pre">sudo</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code>, but we will skip this step for now.</p>
-</li>
-</ul>
 </div></blockquote>
-<p>In a production environment, you should install NGINX. Using NGINX as a proxy server increases the security and performance of your Mattermost installation. See <a class="reference internal" href="install-ubuntu-1604.html#install-nginx"><span class="std std-ref">Installing NGINX Server</span></a></p>
+<ol class="loweralpha simple" start="3">
+<li>Start the Mattermost server.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code></div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li>Verify that the service is running.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost:8065</span></code></p>
+<p>You should see the HTML that&#8217;s returned by the Mattermost server.</p>
+</div></blockquote>
+</div></blockquote>
+<p>Now that the Mattermost server is up and running, you can do some initial configuration and setup.</p>
 </div>
 
 

@@ -213,12 +213,18 @@
 <ol class="arabic simple">
 <li>Download the appropriate ISO image from <a class="reference external" href="http://releases.ubuntu.com/16.04/">http://releases.ubuntu.com/16.04/</a> and burn it to a CD-ROM.</li>
 <li>Boot the system from the CD-ROM drive and follow the on-screen prompts.</li>
-<li>After the system is installed, make sure that it&#8217;s up to date with the most recent security patches. Open a terminal window and issue the following commands:<ul>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">upgrade</span></code></li>
-</ul>
-</li>
 </ol>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you need help with installing, see the <a class="reference external" href="https://help.ubuntu.com/16.04/installation-guide/amd64/index.html">Ubuntu Installation Guide.</a></p>
+</div>
+<ol class="arabic simple" start="3">
+<li>After the system is installed, make sure that it&#8217;s up to date with the most recent security patches. Open a terminal window and issue the following commands:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">upgrade</span></code></p>
+</div></blockquote>
 <p>Now that the system is up to date, you can start installing the components that make up a Mattermost system.</p>
 </div>
 <div class="section" id="installing-mysql-database-server">
@@ -447,29 +453,25 @@
 </div></blockquote>
 <ol class="arabic" start="7">
 <li><p class="first">Test the Mattermost server to make sure everything works.</p>
-<ol class="loweralpha simple">
-<li>Switch to the mattermost user:</li>
-</ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">mattermost</span></code></p>
-</div></blockquote>
-<ol class="loweralpha simple" start="2">
+<div><ol class="loweralpha simple">
 <li>Change to the <code class="docutils literal"><span class="pre">bin</span></code> directory:</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></p>
 </div></blockquote>
-<ol class="loweralpha simple" start="3">
-<li>Start the Mattermost server:</li>
+<ol class="loweralpha simple" start="2">
+<li>Start the Mattermost server as the user mattermost:</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">./platform</span></code></p>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">mattermost</span> <span class="pre">/.platform</span></code></p>
+</div></blockquote>
 </div></blockquote>
 </li>
 </ol>
 <blockquote>
 <div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL-C</span></code> in the terminal window.</div></blockquote>
-<ol class="arabic simple" start="9">
+<ol class="arabic simple" start="8">
 <li>Setup Mattermost to use <em>systemd</em> for starting and stopping.</li>
 </ol>
 <blockquote>
@@ -498,10 +500,11 @@ Group=mattermost
 
 [Install]
 WantedBy=multi-user.target
-
-.. note::
-  If you are using MySQL, replace ``postgresql.service`` with ``mysql.service`` in 2 places in the ``[Unit]`` section.
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using MySQL, replace <code class="docutils literal"><span class="pre">postgresql.service</span></code> with <code class="docutils literal"><span class="pre">mysql.service</span></code> in 2 places in the <code class="docutils literal"><span class="pre">[Unit]</span></code> section.</p>
 </div>
 <ol class="loweralpha simple" start="3">
 <li>Make systemd load the new unit.</li>
@@ -543,44 +546,44 @@ WantedBy=multi-user.target
 <div class="section" id="configuring-mattermost-server">
 <h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order">Configuring Mattermost Server</a><a class="headerlink" href="#configuring-mattermost-server" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and
-user.</li>
-<li>The first user in the system is automatically granted the
-<code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</li>
-<li>From the <code class="docutils literal"><span class="pre">town-square</span></code> channel click the dropdown and choose the
-<code class="docutils literal"><span class="pre">System</span> <span class="pre">Console</span></code> option</li>
-<li>Update <strong>Notification</strong> &gt; <strong>Email</strong> settings to setup an SMTP email service. The example below assumes AmazonSES.</li>
+<li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and user.</li>
 </ol>
 <blockquote>
-<div><ul class="simple">
-<li>Set <em>Send Email Notifications</em> to <code class="docutils literal"><span class="pre">true</span></code></li>
-<li>Set <em>Require Email Verification</em> to <code class="docutils literal"><span class="pre">true</span></code></li>
-<li>Set <em>Feedback Name</em> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
-<li>Set <em>Feedback Email</em> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
-<li>Set <em>SMTP Username</em> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
-<li>Set <em>SMTP Password</em> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
-<li>Set <em>SMTP Server</em> to <code class="docutils literal"><span class="pre">email-smtp.us-east-1.amazonaws.com</span></code></li>
-<li>Set <em>SMTP Port</em> to <code class="docutils literal"><span class="pre">465</span></code></li>
-<li>Set <em>Connection Security</em> to <code class="docutils literal"><span class="pre">TLS</span></code></li>
+<div>The first user in the system is automatically granted the
+<code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">Open the System Console. Click your username at the top left of navigation panel. In the menu that opens, click <strong>System Console</strong>.</p>
+</li>
+<li><p class="first">Setup an SMTP email service. Click <strong>Notification</strong> &gt; <strong>Email</strong> and make the following changes. The example below assumes AmazonSES.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Set <strong>Send Email Notifications</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set <strong>Require Email Verification</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set <strong>Feedback Name</strong> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
+<li>Set <strong>Feedback Email</strong> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
+<li>Set <strong>SMTP Username</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
+<li>Set <strong>SMTP Password</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
+<li>Set <strong>SMTP Server</strong> to <code class="docutils literal"><span class="pre">email-smtp.us-east-1.amazonaws.com</span></code></li>
+<li>Set <strong>SMTP Port</strong> to <code class="docutils literal"><span class="pre">465</span></code></li>
+<li>Set <strong>Connection Security</strong> to <code class="docutils literal"><span class="pre">TLS</span></code></li>
 <li>Save the Settings</li>
-</ul>
+</ol>
 </div></blockquote>
-<ol class="arabic simple" start="5">
-<li>Update <strong>File</strong> &gt; <strong>Storage</strong> settings:<ul>
-<li>Change <em>Local Directory Location</em> from <code class="docutils literal"><span class="pre">./data/</span></code> to
-<code class="docutils literal"><span class="pre">/mattermost/data</span></code></li>
+</li>
+<li><p class="first">Click <strong>FILES</strong> &gt; <strong>Storage</strong> and change <strong>Local Directory Location</strong> from <code class="docutils literal"><span class="pre">./data/</span></code> to <code class="docutils literal"><span class="pre">/mattermost/data</span></code></p>
+</li>
+<li><p class="first">Update <strong>General</strong> &gt; <strong>Logging</strong> settings:</p>
+<ul class="simple">
+<li>Set <strong>Log to The Console</strong> to <code class="docutils literal"><span class="pre">false</span></code></li>
 </ul>
 </li>
-<li>Update <strong>General</strong> &gt; <strong>Logging</strong> settings:<ul>
-<li>Set <em>Log to The Console</em> to <code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
+<li><p class="first">Feel free to modify other settings.</p>
 </li>
-<li>Feel free to modify other settings.</li>
-<li>Restart the Mattermost Service by typing:<ul>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></li>
-</ul>
+<li><p class="first">Restart the Mattermost Service.</p>
 </li>
 </ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></div></blockquote>
 </div>
 <div class="section" id="configuring-tls-on-the-mattermost-server">
 <h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order">Configuring TLS on the Mattermost Server</a><a class="headerlink" href="#configuring-tls-on-the-mattermost-server" title="Permalink to this headline">¶</a></h2>
@@ -743,21 +746,21 @@ server {
 <p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
 </div></blockquote>
 <ol class="arabic simple" start="6">
-<li>Verify that you can see Mattermost thru the proxy.</li>
+<li>Verify that you can see Mattermost through the proxy.</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
 <p>If everything is working, you will see the HTML for the Mattermost signup page.</p>
 </div></blockquote>
 <p><strong>What to do next</strong></p>
-<p>You can configure NGINX to use SSL. This will allow you to use HTTPS connections and the HTTP/2 protocol.</p>
+<p>You can configure NGINX to use SSL, which allows you to use HTTPS connections and the HTTP/2 protocol.</p>
 </div>
 <div class="section" id="configuring-nginx-with-ssl-and-http-2">
 <span id="config-ssl-http2-nginx"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order">Configuring NGINX with SSL and HTTP/2</a><a class="headerlink" href="#configuring-nginx-with-ssl-and-http-2" title="Permalink to this headline">¶</a></h2>
 <p>Using SSL gives greater security by ensuring that communications between Mattermost clients and the Mattermost server are encrypted. It also allows you to configure NGINX to use the HTTP/2 protocol.</p>
 <p>Although you can configure HTTP/2 without SSL, both Firefox and Chrome browsers support HTTP/2 on secure connections only.</p>
 <p>You can use any certificate that you want, but these instructions show you how to download and install certificates from <em>Let&#8217;s Encrypt</em>.</p>
-<p><strong>To SSL and HTTP/2:</strong></p>
+<p><strong>To configure SSL and HTTP/2:</strong></p>
 <ol class="arabic simple">
 <li>Log into the server that hosts NGINX and open a terminal window.</li>
 <li>Install git.</li>
@@ -849,12 +852,9 @@ server {
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">crontab</span> <span class="pre">-e</span></code></p>
-<p>In the following line, use your domain name in place of <em>&lt;domain-name&gt;</em></p>
-<p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">&lt;domain-name&gt;</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
+<p>In the following line, use your domain name in place of <em>{domain-name}</em></p>
+<p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">{domain-name}</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
 </div></blockquote>
-<ol class="arabic simple" start="8">
-<li>Check that your SSL certificate is set up correctly. Test the SSL certificate by visiting a site such as <a class="reference external" href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a>. If there’s an error about the missing chain or certificate path, there is likely an intermediate certificate missing that needs to be included.</li>
-</ol>
 </div>
 </div>
 

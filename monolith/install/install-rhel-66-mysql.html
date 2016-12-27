@@ -207,12 +207,12 @@
 <div><p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'%'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
-<ol class="last arabic simple">
+<ol class="arabic simple">
 <li>Use a password that is more secure than &#8216;mmuser-password&#8217;</li>
 <li>The &#8216;%&#8217; means that mmuser can connect from any machine on the network. However, it&#8217;s more secure to use the IP address of the machine that hosts Mattermost. For example, if you install Mattermost on the machine with IP address 10.10.10.2, then use the following command:</li>
 </ol>
+<p class="last"><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'10.10.10.2'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
 </div>
-<p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'10.10.10.2'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
 </div></blockquote>
 <ol class="arabic simple" start="11">
 <li>Create the Mattermost database.</li>

@@ -150,44 +150,44 @@
   <div class="section" id="configuring-mattermost-server">
 <h1>Configuring Mattermost Server<a class="headerlink" href="#configuring-mattermost-server" title="Permalink to this headline">¶</a></h1>
 <ol class="arabic simple">
-<li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and
-user.</li>
-<li>The first user in the system is automatically granted the
-<code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</li>
-<li>From the <code class="docutils literal"><span class="pre">town-square</span></code> channel click the dropdown and choose the
-<code class="docutils literal"><span class="pre">System</span> <span class="pre">Console</span></code> option</li>
-<li>Update <strong>Notification</strong> &gt; <strong>Email</strong> settings to setup an SMTP email service. The example below assumes AmazonSES.</li>
+<li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and user.</li>
 </ol>
 <blockquote>
-<div><ul class="simple">
-<li>Set <em>Send Email Notifications</em> to <code class="docutils literal"><span class="pre">true</span></code></li>
-<li>Set <em>Require Email Verification</em> to <code class="docutils literal"><span class="pre">true</span></code></li>
-<li>Set <em>Feedback Name</em> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
-<li>Set <em>Feedback Email</em> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
-<li>Set <em>SMTP Username</em> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
-<li>Set <em>SMTP Password</em> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
-<li>Set <em>SMTP Server</em> to <code class="docutils literal"><span class="pre">email-smtp.us-east-1.amazonaws.com</span></code></li>
-<li>Set <em>SMTP Port</em> to <code class="docutils literal"><span class="pre">465</span></code></li>
-<li>Set <em>Connection Security</em> to <code class="docutils literal"><span class="pre">TLS</span></code></li>
+<div>The first user in the system is automatically granted the
+<code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</div></blockquote>
+<ol class="arabic" start="3">
+<li><p class="first">Open the System Console. Click your username at the top left of navigation panel. In the menu that opens, click <strong>System Console</strong>.</p>
+</li>
+<li><p class="first">Setup an SMTP email service. Click <strong>Notification</strong> &gt; <strong>Email</strong> and make the following changes. The example below assumes AmazonSES.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Set <strong>Send Email Notifications</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set <strong>Require Email Verification</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set <strong>Feedback Name</strong> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
+<li>Set <strong>Feedback Email</strong> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
+<li>Set <strong>SMTP Username</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
+<li>Set <strong>SMTP Password</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
+<li>Set <strong>SMTP Server</strong> to <code class="docutils literal"><span class="pre">email-smtp.us-east-1.amazonaws.com</span></code></li>
+<li>Set <strong>SMTP Port</strong> to <code class="docutils literal"><span class="pre">465</span></code></li>
+<li>Set <strong>Connection Security</strong> to <code class="docutils literal"><span class="pre">TLS</span></code></li>
 <li>Save the Settings</li>
-</ul>
+</ol>
 </div></blockquote>
-<ol class="arabic simple" start="5">
-<li>Update <strong>File</strong> &gt; <strong>Storage</strong> settings:<ul>
-<li>Change <em>Local Directory Location</em> from <code class="docutils literal"><span class="pre">./data/</span></code> to
-<code class="docutils literal"><span class="pre">/mattermost/data</span></code></li>
+</li>
+<li><p class="first">Click <strong>FILES</strong> &gt; <strong>Storage</strong> and change <strong>Local Directory Location</strong> from <code class="docutils literal"><span class="pre">./data/</span></code> to <code class="docutils literal"><span class="pre">/mattermost/data</span></code></p>
+</li>
+<li><p class="first">Update <strong>General</strong> &gt; <strong>Logging</strong> settings:</p>
+<ul class="simple">
+<li>Set <strong>Log to The Console</strong> to <code class="docutils literal"><span class="pre">false</span></code></li>
 </ul>
 </li>
-<li>Update <strong>General</strong> &gt; <strong>Logging</strong> settings:<ul>
-<li>Set <em>Log to The Console</em> to <code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
+<li><p class="first">Feel free to modify other settings.</p>
 </li>
-<li>Feel free to modify other settings.</li>
-<li>Restart the Mattermost Service by typing:<ul>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></li>
-</ul>
+<li><p class="first">Restart the Mattermost Service.</p>
 </li>
 </ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></div></blockquote>
 </div>
 
 

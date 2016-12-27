@@ -189,7 +189,7 @@
 </ol>
 </div></blockquote>
 <ol class="arabic simple" start="6">
-<li>Set up the database driver in the file <code class="docutils literal"><span class="pre">/opt/mattermost/config/config.json</span></code>. Open the file in your favorite text editor and make the following changes:</li>
+<li>Set up the database driver in the file <code class="docutils literal"><span class="pre">/opt/mattermost/config/config.json</span></code>. Open the file as root in a text editor and make the following changes:</li>
 </ol>
 <blockquote>
 <div><ul class="simple">
@@ -215,12 +215,22 @@
 <div><code class="docutils literal"><span class="pre">&quot;mmuser:&lt;mmuser-password&gt;&#64;tcp(&lt;host-name-or-IP&gt;:3306)/mattermost?charset=utf8&quot;</span></code></div></blockquote>
 </div></blockquote>
 </div></blockquote>
-<ol class="arabic simple" start="7">
-<li>Test the Mattermost server to make sure everything works.<ol class="loweralpha">
-<li>Switch to the mattermost user: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">mattermost</span></code></li>
-<li>Change to the <code class="docutils literal"><span class="pre">bin</span></code> directory: <code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></li>
-<li>Start the Mattermost server: <code class="docutils literal"><span class="pre">./platform</span></code></li>
+<ol class="arabic" start="7">
+<li><p class="first">Test the Mattermost server to make sure everything works.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Change to the <code class="docutils literal"><span class="pre">bin</span></code> directory:</li>
 </ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Start the Mattermost server as the user mattermost:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">mattermost</span> <span class="pre">/.platform</span></code></p>
+</div></blockquote>
+</div></blockquote>
 </li>
 </ol>
 <blockquote>

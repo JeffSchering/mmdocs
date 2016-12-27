@@ -227,29 +227,25 @@
 </div></blockquote>
 <ol class="arabic" start="7">
 <li><p class="first">Test the Mattermost server to make sure everything works.</p>
-<ol class="loweralpha simple">
-<li>Switch to the mattermost user:</li>
-</ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">su</span> <span class="pre">mattermost</span></code></p>
-</div></blockquote>
-<ol class="loweralpha simple" start="2">
+<div><ol class="loweralpha simple">
 <li>Change to the <code class="docutils literal"><span class="pre">bin</span></code> directory:</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></p>
 </div></blockquote>
-<ol class="loweralpha simple" start="3">
-<li>Start the Mattermost server:</li>
+<ol class="loweralpha simple" start="2">
+<li>Start the Mattermost server as the user mattermost:</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">./platform</span></code></p>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">mattermost</span> <span class="pre">/.platform</span></code></p>
+</div></blockquote>
 </div></blockquote>
 </li>
 </ol>
 <blockquote>
 <div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL-C</span></code> in the terminal window.</div></blockquote>
-<ol class="arabic simple" start="9">
+<ol class="arabic simple" start="8">
 <li>Setup Mattermost to use <em>systemd</em> for starting and stopping.</li>
 </ol>
 <blockquote>
@@ -278,10 +274,11 @@ Group=mattermost
 
 [Install]
 WantedBy=multi-user.target
-
-.. note::
-  If you are using MySQL, replace ``postgresql.service`` with ``mysql.service`` in 2 places in the ``[Unit]`` section.
 </pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using MySQL, replace <code class="docutils literal"><span class="pre">postgresql.service</span></code> with <code class="docutils literal"><span class="pre">mysql.service</span></code> in 2 places in the <code class="docutils literal"><span class="pre">[Unit]</span></code> section.</p>
 </div>
 <ol class="loweralpha simple" start="3">
 <li>Make systemd load the new unit.</li>
