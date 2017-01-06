@@ -153,33 +153,28 @@
 <li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and user.</li>
 </ol>
 <blockquote>
-<div>The first user in the system is automatically granted the
-<code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</div></blockquote>
-<ol class="arabic" start="3">
+<div>The first user in the system is automatically granted the <code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</div></blockquote>
+<ol class="arabic" start="2">
 <li><p class="first">Open the System Console. Click your username at the top left of navigation panel. In the menu that opens, click <strong>System Console</strong>.</p>
 </li>
-<li><p class="first">Setup an SMTP email service. Click <strong>Notification</strong> &gt; <strong>Email</strong> and make the following changes. The example below assumes AmazonSES.</p>
+<li><p class="first">Setup an SMTP email service. Click <strong>Notifications &gt; Email</strong> and make the following changes. The example below assumes AmazonSES.</p>
 <blockquote>
 <div><ol class="loweralpha simple">
-<li>Set <strong>Send Email Notifications</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
-<li>Set <strong>Require Email Verification</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
-<li>Set <strong>Feedback Name</strong> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
-<li>Set <strong>Feedback Email</strong> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
-<li>Set <strong>SMTP Username</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
-<li>Set <strong>SMTP Password</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
+<li>Set <strong>Enable Email Notifications</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set <strong>Notification Display Name</strong> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
+<li>Set <strong>Notification From Address</strong> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
+<li>Set <strong>SMTP Server Username</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
+<li>Set <strong>SMTP Server Password</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
 <li>Set <strong>SMTP Server</strong> to <code class="docutils literal"><span class="pre">email-smtp.us-east-1.amazonaws.com</span></code></li>
-<li>Set <strong>SMTP Port</strong> to <code class="docutils literal"><span class="pre">465</span></code></li>
+<li>Set <strong>SMTP Server Port</strong> to <code class="docutils literal"><span class="pre">465</span></code></li>
 <li>Set <strong>Connection Security</strong> to <code class="docutils literal"><span class="pre">TLS</span></code></li>
 <li>Save the Settings</li>
 </ol>
 </div></blockquote>
 </li>
-<li><p class="first">Click <strong>FILES</strong> &gt; <strong>Storage</strong> and change <strong>Local Directory Location</strong> from <code class="docutils literal"><span class="pre">./data/</span></code> to <code class="docutils literal"><span class="pre">/mattermost/data</span></code></p>
+<li><p class="first">Click <strong>Files &gt; Storage</strong> and change <strong>Local Storage Directory</strong> from <code class="docutils literal"><span class="pre">./data/</span></code> to <code class="docutils literal"><span class="pre">/mattermost/data</span></code></p>
 </li>
-<li><p class="first">Update <strong>General</strong> &gt; <strong>Logging</strong> settings:</p>
-<ul class="simple">
-<li>Set <strong>Log to The Console</strong> to <code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
+<li><p class="first">Click <strong>General &gt; Logging</strong> and set <strong>Output logs to console</strong> to <code class="docutils literal"><span class="pre">false</span></code></p>
 </li>
 <li><p class="first">Feel free to modify other settings.</p>
 </li>

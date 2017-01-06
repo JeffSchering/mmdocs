@@ -153,8 +153,8 @@
 <p>Assume that the IP address of this server is 10.10.10.2</p>
 <p><strong>To install Mattermost Server on RHEL 6.6</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that will host Mattermost Server and open a terminal window.</li>
-<li>Download <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:</li>
+<li>Log in to the server that will host Mattermost Server and open a terminal window.</li>
+<li>Download <a class="reference external" href="https://about.mattermost.com/download/">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code></div></blockquote>
@@ -179,7 +179,7 @@
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="6">
-<li>Set up a system user and group called <code class="docutils literal"><span class="pre">mattermost</span></code> that will run this service, and set the ownership and permissions.</li>
+<li>Set up a system user and group called <em>mattermost</em> that will run this service, and set the ownership and permissions.</li>
 </ol>
 <blockquote>
 <div><ol class="loweralpha simple">
@@ -225,7 +225,7 @@
 <div><p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></p>
 </div></blockquote>
 <ol class="loweralpha simple" start="2">
-<li>Start the Mattermost server as the user mattermost:</li>
+<li>Start the Mattermost server as the user <em>mattermost</em>:</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">mattermost</span> <span class="pre">/.platform</span></code></p>
@@ -234,7 +234,7 @@
 </li>
 </ol>
 <blockquote>
-<div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL-C</span></code> in the terminal window.</div></blockquote>
+<div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL+C</span></code> in the terminal window.</div></blockquote>
 <ol class="arabic simple" start="9">
 <li>Setup Mattermost to use the Upstart daemon which handles supervision of the Mattermost process.</li>
 </ol>

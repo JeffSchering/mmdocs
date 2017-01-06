@@ -187,7 +187,7 @@
 <span id="install-rhel-66"></span><h1>Installing Mattermost on RHEL 6.6<a class="headerlink" href="#installing-mattermost-on-rhel-6-6" title="Permalink to this headline">¶</a></h1>
 <p>Install a production-ready Mattermost system on 1 to 3 machines.</p>
 <p>A complete Mattermost installation consists of 3 major components: a proxy server, a database server, and the Mattermost server. You can install all components on 1 machine, or you can install each component on its own machine. If you have only 2 machines, then install the proxy and the Mattermost server on one machine, and install the database on the other machine.</p>
-<p>For the database, you can install either MySQL or ProstgreSQL. The proxy is NGINX.</p>
+<p>For the database, you can install either MySQL or PostgreSQL. The proxy is NGINX.</p>
 <div class="contents local topic" id="install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">
 <p class="topic-title first">Install and configure the components in the following order. Note that you need only one database, either MySQL or PostgreSQL.</p>
 <ul class="simple">
@@ -211,16 +211,7 @@
 <p>Install the 64-bit version of RHEL 6.6 on each machine that hosts one or more of the components.</p>
 <p><strong>To install RHEL 6.6 Server:</strong></p>
 <ol class="arabic simple">
-<li>Download the appropriate ISO image from RedHat and burn it to a CD-ROM.</li>
-<li>Boot the system from the CD-ROM drive and follow the on-screen prompts.</li>
-</ol>
-<blockquote>
-<div><div class="admonition note">
-<p class="first admonition-title">Note</p>
-<p class="last">If you need help installing RHEL, see the <a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf">RedHat Installation Instructions</a></p>
-</div>
-</div></blockquote>
-<ol class="arabic simple" start="3">
+<li>To install RHEL 6.6, see the <a class="reference external" href="https://access.redhat.com/documentation/en-US/Red_Hat_Enterprise_Linux/6/pdf/Installation_Guide/Red_Hat_Enterprise_Linux-6-Installation_Guide-en-US.pdf">RedHat Installation Instructions</a>.</li>
 <li>After the system is installed, make sure that it&#8217;s up to date with the most recent security patches. Open a terminal window and issue the following commands:</li>
 </ol>
 <blockquote>
@@ -231,10 +222,10 @@
 </div>
 <div class="section" id="installing-mysql-database-server">
 <span id="install-rhel-66-mysql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing MySQL Database Server</a><a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h2>
-<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see <a class="reference internal" href="install-rhel-66-postgresql.html#install-rhel-66-postgresql"><span class="std std-ref">Installing PostgreSQL Database</span></a></p>
+<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see <a class="reference internal" href="install-rhel-66-postgresql.html#install-rhel-66-postgresql"><span class="std std-ref">Installing PostgreSQL Database</span></a>.</p>
 <p><strong>To install MySQL 5.7 on RHEL 6.6:</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that will host the database, and open a terminal window.</li>
+<li>Log in to the server that will host the database, and open a terminal window.</li>
 <li>Download the MySQL Yum repository from dev.mysql.com.</li>
 </ol>
 <blockquote>
@@ -311,7 +302,7 @@
 <div class="section" id="installing-postgresql-database">
 <span id="install-rhel-66-postgresql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing PostgreSQL Database</a><a class="headerlink" href="#installing-postgresql-database" title="Permalink to this headline">¶</a></h2>
 <ol class="arabic simple">
-<li>Log into the server that will host the database, and open a terminal window.</li>
+<li>Log in to the server that will host the database, and open a terminal window.</li>
 <li>Download the PostgreSQL 9.4 Yum repository.</li>
 </ol>
 <blockquote>
@@ -429,8 +420,8 @@
 <p>Assume that the IP address of this server is 10.10.10.2</p>
 <p><strong>To install Mattermost Server on RHEL 6.6</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that will host Mattermost Server and open a terminal window.</li>
-<li>Download <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:</li>
+<li>Log in to the server that will host Mattermost Server and open a terminal window.</li>
+<li>Download <a class="reference external" href="https://about.mattermost.com/download/">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code></div></blockquote>
@@ -455,7 +446,7 @@
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="6">
-<li>Set up a system user and group called <code class="docutils literal"><span class="pre">mattermost</span></code> that will run this service, and set the ownership and permissions.</li>
+<li>Set up a system user and group called <em>mattermost</em> that will run this service, and set the ownership and permissions.</li>
 </ol>
 <blockquote>
 <div><ol class="loweralpha simple">
@@ -501,7 +492,7 @@
 <div><p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></p>
 </div></blockquote>
 <ol class="loweralpha simple" start="2">
-<li>Start the Mattermost server as the user mattermost:</li>
+<li>Start the Mattermost server as the user <em>mattermost</em>:</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">mattermost</span> <span class="pre">/.platform</span></code></p>
@@ -510,7 +501,7 @@
 </li>
 </ol>
 <blockquote>
-<div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL-C</span></code> in the terminal window.</div></blockquote>
+<div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL+C</span></code> in the terminal window.</div></blockquote>
 <ol class="arabic simple" start="9">
 <li>Setup Mattermost to use the Upstart daemon which handles supervision of the Mattermost process.</li>
 </ol>
@@ -554,33 +545,28 @@ exec bin/platform
 <li>Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a team and user.</li>
 </ol>
 <blockquote>
-<div>The first user in the system is automatically granted the
-<code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</div></blockquote>
-<ol class="arabic" start="3">
+<div>The first user in the system is automatically granted the <code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</div></blockquote>
+<ol class="arabic" start="2">
 <li><p class="first">Open the System Console. Click your username at the top left of navigation panel. In the menu that opens, click <strong>System Console</strong>.</p>
 </li>
-<li><p class="first">Setup an SMTP email service. Click <strong>Notification</strong> &gt; <strong>Email</strong> and make the following changes. The example below assumes AmazonSES.</p>
+<li><p class="first">Setup an SMTP email service. Click <strong>Notifications &gt; Email</strong> and make the following changes. The example below assumes AmazonSES.</p>
 <blockquote>
 <div><ol class="loweralpha simple">
-<li>Set <strong>Send Email Notifications</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
-<li>Set <strong>Require Email Verification</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
-<li>Set <strong>Feedback Name</strong> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
-<li>Set <strong>Feedback Email</strong> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
-<li>Set <strong>SMTP Username</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
-<li>Set <strong>SMTP Password</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
+<li>Set <strong>Enable Email Notifications</strong> to <code class="docutils literal"><span class="pre">true</span></code></li>
+<li>Set <strong>Notification Display Name</strong> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
+<li>Set <strong>Notification From Address</strong> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
+<li>Set <strong>SMTP Server Username</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
+<li>Set <strong>SMTP Server Password</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
 <li>Set <strong>SMTP Server</strong> to <code class="docutils literal"><span class="pre">email-smtp.us-east-1.amazonaws.com</span></code></li>
-<li>Set <strong>SMTP Port</strong> to <code class="docutils literal"><span class="pre">465</span></code></li>
+<li>Set <strong>SMTP Server Port</strong> to <code class="docutils literal"><span class="pre">465</span></code></li>
 <li>Set <strong>Connection Security</strong> to <code class="docutils literal"><span class="pre">TLS</span></code></li>
 <li>Save the Settings</li>
 </ol>
 </div></blockquote>
 </li>
-<li><p class="first">Click <strong>FILES</strong> &gt; <strong>Storage</strong> and change <strong>Local Directory Location</strong> from <code class="docutils literal"><span class="pre">./data/</span></code> to <code class="docutils literal"><span class="pre">/mattermost/data</span></code></p>
+<li><p class="first">Click <strong>Files &gt; Storage</strong> and change <strong>Local Storage Directory</strong> from <code class="docutils literal"><span class="pre">./data/</span></code> to <code class="docutils literal"><span class="pre">/mattermost/data</span></code></p>
 </li>
-<li><p class="first">Update <strong>General</strong> &gt; <strong>Logging</strong> settings:</p>
-<ul class="simple">
-<li>Set <strong>Log to The Console</strong> to <code class="docutils literal"><span class="pre">false</span></code></li>
-</ul>
+<li><p class="first">Click <strong>General &gt; Logging</strong> and set <strong>Output logs to console</strong> to <code class="docutils literal"><span class="pre">false</span></code></p>
 </li>
 <li><p class="first">Feel free to modify other settings.</p>
 </li>
@@ -632,7 +618,7 @@ exec bin/platform
 </div></blockquote>
 <p><strong>To install NGINX on RHEL 6.6 or 7.1:</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that will host the proxy, and open a terminal window.</li>
+<li>Log in to the server that will host the proxy, and open a terminal window.</li>
 <li>Create the file /etc/yum.repos.d/nginx.repo.</li>
 </ol>
 <blockquote>
@@ -700,14 +686,15 @@ enabled=1
 </div>
 <div class="section" id="configuring-nginx-as-a-proxy-for-mattermost-server">
 <span id="config-proxy-nginx"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Configuring NGINX as a proxy for Mattermost Server</a><a class="headerlink" href="#configuring-nginx-as-a-proxy-for-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<p>NGINX is configured using a file in the <code class="docutils literal"><span class="pre">/etc/nginx/sites-available</span></code> directory. You need to create the file and then enable it. When creating the file, you need the IP address of your Mattermost server and the fully qualified domain name (FQDN) of your Mattermost website.</p>
 <p><strong>To configure NGINX as a proxy</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that hosts NGINX and open a terminal window.</li>
+<li>Log in to the server that hosts NGINX and open a terminal window.</li>
 <li>Create a configuration file for Mattermost.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/nginx/sites-available/mattermost</span></code></div></blockquote>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple" start="3">
 <li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and replace its contents, if any, with the following lines. Make sure that you use your own values for the Mattermost server IP address and FQDN for <em>server_name</em>.</li>
 </ol>
 <blockquote>
@@ -758,17 +745,17 @@ server {
 </pre></div>
 </div>
 </div></blockquote>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="4">
 <li>Remove the existing default sites-enabled file.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">/etc/nginx/sites-enabled/default</span></code></div></blockquote>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="5">
 <li>Enable the mattermost configuration.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/etc/nginx/sites-available/mattermost</span> <span class="pre">/etc/nginx/sites-enabled/mattermost</span></code></div></blockquote>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple" start="6">
 <li>Restart NGINX.</li>
 </ol>
 <blockquote>
@@ -777,7 +764,7 @@ server {
 <p>On Ubuntu 16.04 and RHEL 7.1:</p>
 <p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
 </div></blockquote>
-<ol class="arabic simple" start="6">
+<ol class="arabic simple" start="7">
 <li>Verify that you can see Mattermost through the proxy.</li>
 </ol>
 <blockquote>
@@ -791,17 +778,17 @@ server {
 <span id="config-ssl-http2-nginx"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Configuring NGINX with SSL and HTTP/2</a><a class="headerlink" href="#configuring-nginx-with-ssl-and-http-2" title="Permalink to this headline">¶</a></h2>
 <p>Using SSL gives greater security by ensuring that communications between Mattermost clients and the Mattermost server are encrypted. It also allows you to configure NGINX to use the HTTP/2 protocol.</p>
 <p>Although you can configure HTTP/2 without SSL, both Firefox and Chrome browsers support HTTP/2 on secure connections only.</p>
-<p>You can use any certificate that you want, but these instructions show you how to download and install certificates from <em>Let&#8217;s Encrypt</em>.</p>
+<p>You can use any certificate that you want, but these instructions show you how to download and install certificates from <a class="reference external" href="https://letsencrypt.org/">Let&#8217;s Encrypt</a>, a free certificate authority.</p>
 <p><strong>To configure SSL and HTTP/2:</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that hosts NGINX and open a terminal window.</li>
+<li>Log in to the server that hosts NGINX and open a terminal window.</li>
 <li>Install git.</li>
 </ol>
 <blockquote>
-<div><ul class="simple">
-<li>If you are using Ubuntu or Debian:  <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code></li>
-<li>If you are using RHEL: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git</span></code></li>
-</ul>
+<div><p>If you are using Ubuntu or Debian:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
+<p>If you are using RHEL:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
 </div></blockquote>
 <ol class="arabic simple" start="3">
 <li>Clone the Let&#8217;s Encrypt repository on GitHub.</li>
@@ -832,20 +819,21 @@ server {
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">./letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--standalone</span></code></p>
-<p>When prompted, enter your domain name. The certificate is located in  <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code></p>
+<p>When prompted, enter your domain name. After the installation is complete, you can find the certificate in the   <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code> directory.</p>
 </div></blockquote>
 <ol class="arabic simple" start="8">
-<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and update the <em>server</em> section to incorporate the highlighted lines in the following sample. Make sure to replace {domain-name} with your own domain name, in 2 places.</li>
+<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and update the <em>server</em> section to incorporate the highlighted lines in the following sample. Make sure to replace <em>{domain-name}</em> with your own domain name, in 2 places.</li>
 </ol>
 <blockquote>
 <div><div class="highlight-none"><div class="highlight"><pre><span></span>.
 .
 .
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
+
 server {
 <span class="hll">  listen 443 ssl http2;
-</span>.
-.
-.
+</span>  server_name    . . . ;
+
 <span class="hll">  ssl on;
 </span><span class="hll">  ssl_certificate /etc/letsencrypt/live/{domain-name}/fullchain.pem;
 </span><span class="hll">  ssl_certificate_key /etc/letsencrypt/live/{domain-name}/privkey.pem;
@@ -854,15 +842,18 @@ server {
 </span><span class="hll">  ssl_ciphers &#39;EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH&#39;;
 </span><span class="hll">  ssl_prefer_server_ciphers on;
 </span><span class="hll">  ssl_session_cache shared:SSL:10m;
-</span>.
-.
-.
-}
+</span>}
+
+location /api/v3/users/websocket {
+    proxy_set_header Upgrade $http_upgrade;
+    .
+    .
+    .
 </pre></div>
 </div>
 </div></blockquote>
 <ol class="arabic simple" start="9">
-<li>Restart NGINX</li>
+<li>Restart NGINX.</li>
 </ol>
 <blockquote>
 <div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
@@ -884,7 +875,7 @@ server {
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">crontab</span> <span class="pre">-e</span></code></p>
-<p>In the following line, use your domain name in place of <em>{domain-name}</em></p>
+<p>In the following line, use your own domain name in place of <em>{domain-name}</em></p>
 <p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">{domain-name}</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
 </div></blockquote>
 </div>

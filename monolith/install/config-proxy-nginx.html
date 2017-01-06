@@ -149,14 +149,15 @@
             
   <div class="section" id="configuring-nginx-as-a-proxy-for-mattermost-server">
 <span id="config-proxy-nginx"></span><h1>Configuring NGINX as a proxy for Mattermost Server<a class="headerlink" href="#configuring-nginx-as-a-proxy-for-mattermost-server" title="Permalink to this headline">¶</a></h1>
+<p>NGINX is configured using a file in the <code class="docutils literal"><span class="pre">/etc/nginx/sites-available</span></code> directory. You need to create the file and then enable it. When creating the file, you need the IP address of your Mattermost server and the fully qualified domain name (FQDN) of your Mattermost website.</p>
 <p><strong>To configure NGINX as a proxy</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that hosts NGINX and open a terminal window.</li>
+<li>Log in to the server that hosts NGINX and open a terminal window.</li>
 <li>Create a configuration file for Mattermost.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/nginx/sites-available/mattermost</span></code></div></blockquote>
-<ol class="arabic simple" start="2">
+<ol class="arabic simple" start="3">
 <li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and replace its contents, if any, with the following lines. Make sure that you use your own values for the Mattermost server IP address and FQDN for <em>server_name</em>.</li>
 </ol>
 <blockquote>
@@ -207,17 +208,17 @@ server {
 </pre></div>
 </div>
 </div></blockquote>
-<ol class="arabic simple" start="3">
+<ol class="arabic simple" start="4">
 <li>Remove the existing default sites-enabled file.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">/etc/nginx/sites-enabled/default</span></code></div></blockquote>
-<ol class="arabic simple" start="4">
+<ol class="arabic simple" start="5">
 <li>Enable the mattermost configuration.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/etc/nginx/sites-available/mattermost</span> <span class="pre">/etc/nginx/sites-enabled/mattermost</span></code></div></blockquote>
-<ol class="arabic simple" start="5">
+<ol class="arabic simple" start="6">
 <li>Restart NGINX.</li>
 </ol>
 <blockquote>
@@ -226,7 +227,7 @@ server {
 <p>On Ubuntu 16.04 and RHEL 7.1:</p>
 <p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
 </div></blockquote>
-<ol class="arabic simple" start="6">
+<ol class="arabic simple" start="7">
 <li>Verify that you can see Mattermost through the proxy.</li>
 </ol>
 <blockquote>

@@ -153,14 +153,14 @@
 <p>Assume that the IP address of this server is 10.10.10.1</p>
 <p><strong>To install PostgreSQL on Ubuntu Server 16.04:</strong></p>
 <ol class="arabic simple">
-<li>Log into the server that will host the database and issue the following command:</li>
+<li>Log in to the server that will host the database and issue the following command:</li>
 </ol>
 <blockquote>
 <div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">postgresql</span> <span class="pre">postgresql-contrib</span></code></p>
 <p>When the installation is complete, the PostgreSQL server is running, and a Linux user account called <em>postgres</em> has been created.</p>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li>Log into the <em>postgres</em> account.</li>
+<li>Log in to the <em>postgres</em> account.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">--login</span> <span class="pre">--user</span> <span class="pre">postgres</span></code></div></blockquote>
@@ -227,7 +227,7 @@
 <div><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">&lt;mm-server-IP&gt;/32</span> <span class="pre">md5</span></code></div></blockquote>
 </div></blockquote>
 <ol class="arabic simple" start="11">
-<li>Reload Postgres database</li>
+<li>Reload Postgres database.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">postgresql</span></code></div></blockquote>
