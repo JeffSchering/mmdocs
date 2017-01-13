@@ -223,7 +223,6 @@
 <div class="section" id="installing-mysql-database-server">
 <span id="install-ubuntu-1404-mysql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing MySQL Database Server</a><a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h2>
 <p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. The MySQL version must be 5.6 or greater.</p>
-<p>To install PostgreSQL, see <a class="reference internal" href="install-ubuntu-1404-postgresql.html#install-ubuntu-1404-postgresql"><span class="std std-ref">Installing PostgreSQL Database Server</span></a>.</p>
 <p><strong>To install MySQL 5.6 on Ubuntu Server 14.04:</strong></p>
 <ol class="arabic simple">
 <li>Log in to the server that will host the database, and open a terminal window.</li>
@@ -277,7 +276,7 @@
 </div>
 <div class="section" id="installing-postgresql-database-server">
 <span id="install-ubuntu-1404-postgresql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing PostgreSQL Database Server</a><a class="headerlink" href="#installing-postgresql-database-server" title="Permalink to this headline">¶</a></h2>
-<p>Install and set up the database for use by the Mattermost server. You can install either PostgreSQL or MySQL. To install MySQL, see <a class="reference internal" href="install-ubuntu-1404-mysql.html#install-ubuntu-1404-mysql"><span class="std std-ref">Installing MySQL Database Server</span></a>.</p>
+<p>Install and set up the database for use by the Mattermost server. You can install either PostgreSQL or MySQL.</p>
 <p>Assume that the IP address of this server is 10.10.10.1.</p>
 <p><strong>To install PostgreSQL on Ubuntu Server 14.04:</strong></p>
 <ol class="arabic simple">
@@ -409,7 +408,7 @@
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">useradd</span> <span class="pre">--system</span> <span class="pre">--user-group</span> <span class="pre">mattermost</span></code></div></blockquote>
 <ol class="loweralpha simple" start="2">
-<li>Set the user and group <em>mattermost</em> as the ownwer of the Mattermost files:</li>
+<li>Set the user and group <em>mattermost</em> as the owner of the Mattermost files:</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">mattermost:mattermost</span> <span class="pre">/opt/mattermost</span></code></div></blockquote>
@@ -439,7 +438,7 @@
 </ul>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Set <code class="docutils literal"><span class="pre">DriverName&quot;</span></code> to <code class="docutils literal"><span class="pre">&quot;mysql&quot;</span></code></li>
+<li>Set <code class="docutils literal"><span class="pre">&quot;DriverName&quot;</span></code> to <code class="docutils literal"><span class="pre">&quot;mysql&quot;</span></code></li>
 <li>Set <code class="docutils literal"><span class="pre">&quot;DataSource&quot;</span></code> to the following value, replacing <code class="docutils literal"><span class="pre">&lt;mmuser-password&gt;</span></code>  and <code class="docutils literal"><span class="pre">&lt;host-name-or-IP&gt;</span></code> with the appropriate values:</li>
 </ol>
 <blockquote>
@@ -760,7 +759,7 @@ server {
 <p>When prompted, enter your domain name. After the installation is complete, you can find the certificate in the   <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code> directory.</p>
 </div></blockquote>
 <ol class="arabic simple" start="8">
-<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and update the <em>server</em> section to incorporate the highlighted lines in the following sample. Make sure to replace <em>{domain-name}</em> with your own domain name, in 2 places.</li>
+<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and update the <em>server</em> section to incorporate the highlighted lines in the following sample. Make sure to replace <em>{domain-name}</em> with your own domain name, in 3 places.</li>
 </ol>
 <blockquote>
 <div><div class="highlight-none"><div class="highlight"><pre><span></span>.
@@ -768,6 +767,12 @@ server {
 .
 proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
 
+<span class="hll">server {
+</span><span class="hll">   listen 80 default_server;
+</span><span class="hll">   server_name   {domain-name} ;
+</span><span class="hll">   return 301 https://$server_name$request_uri;
+</span><span class="hll">}
+</span>
 server {
 <span class="hll">  listen 443 ssl http2;
 </span>  server_name    . . . ;

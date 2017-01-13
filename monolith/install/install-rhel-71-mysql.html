@@ -149,7 +149,7 @@
             
   <div class="section" id="installing-mysql-database-server">
 <span id="install-rhel-71-mysql"></span><h1>Installing MySQL Database Server<a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h1>
-<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL. To install PostgreSQL, see <a class="reference internal" href="install-rhel-71-postgresql.html#install-rhel-71-postgresql"><span class="std std-ref">Installing PostgreSQL Database</span></a>.</p>
+<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL.</p>
 <p><strong>To install MySQL 5.7 on RHEL 7.1:</strong></p>
 <ol class="arabic simple">
 <li>Log in to the server that will host the database, and open a terminal window.</li>
@@ -208,7 +208,7 @@
 <div class="admonition note">
 <p class="first admonition-title">Note</p>
 <ol class="arabic simple">
-<li>Use a password that is more secure than &#8216;mmuser-password&#8217;</li>
+<li>Use a password that is more secure than &#8216;mmuser-password&#8217;.</li>
 <li>The &#8216;%&#8217; means that mmuser can connect from any machine on the network. However, it&#8217;s more secure to use the IP address of the machine that hosts Mattermost. For example, if you install Mattermost on the machine with IP address 10.10.10.2, then use the following command:</li>
 </ol>
 <blockquote class="last">
@@ -221,7 +221,7 @@
 <blockquote>
 <div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">database</span> <span class="pre">mattermost;</span></code></div></blockquote>
 <ol class="arabic simple" start="12">
-<li>Grant access privileges to the user &#8216;mmuser&#8217;</li>
+<li>Grant access privileges to the user &#8216;mmuser&#8217;.</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">grant</span> <span class="pre">all</span> <span class="pre">privileges</span> <span class="pre">on</span> <span class="pre">mattermost.*</span> <span class="pre">to</span> <span class="pre">'mmuser'&#64;'%';</span></code></div></blockquote>

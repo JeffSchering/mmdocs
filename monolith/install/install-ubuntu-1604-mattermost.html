@@ -188,7 +188,7 @@
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">useradd</span> <span class="pre">--system</span> <span class="pre">--user-group</span> <span class="pre">mattermost</span></code></div></blockquote>
 <ol class="loweralpha simple" start="2">
-<li>Set the user and group <em>mattermost</em> as the ownwer of the Mattermost files:</li>
+<li>Set the user and group <em>mattermost</em> as the owner of the Mattermost files:</li>
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">mattermost:mattermost</span> <span class="pre">/opt/mattermost</span></code></div></blockquote>
@@ -218,7 +218,7 @@
 </ul>
 <blockquote>
 <div><ol class="arabic simple">
-<li>Set <code class="docutils literal"><span class="pre">DriverName&quot;</span></code> to <code class="docutils literal"><span class="pre">&quot;mysql&quot;</span></code></li>
+<li>Set <code class="docutils literal"><span class="pre">&quot;DriverName&quot;</span></code> to <code class="docutils literal"><span class="pre">&quot;mysql&quot;</span></code></li>
 <li>Set <code class="docutils literal"><span class="pre">&quot;DataSource&quot;</span></code> to the following value, replacing <code class="docutils literal"><span class="pre">&lt;mmuser-password&gt;</span></code>  and <code class="docutils literal"><span class="pre">&lt;host-name-or-IP&gt;</span></code> with the appropriate values:</li>
 </ol>
 <blockquote>
@@ -244,7 +244,7 @@
 </li>
 </ol>
 <blockquote>
-<div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL-C</span></code> in the terminal window.</div></blockquote>
+<div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by typing <code class="docutils literal"><span class="pre">CTRL+C</span></code> in the terminal window.</div></blockquote>
 <ol class="arabic simple" start="8">
 <li>Setup Mattermost to use <em>systemd</em> for starting and stopping.</li>
 </ol>
