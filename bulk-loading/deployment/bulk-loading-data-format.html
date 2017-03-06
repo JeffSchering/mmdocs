@@ -165,7 +165,7 @@
 <dd>Optional. If present, Post objects must occur after all other objects in the file. Each Post object defines the team, the channel, and the username of the user who posted the message. If the corresponding team, channel, or user are not in the data file, then they must exist in the Mattermost database.</dd>
 </dl>
 <p>The following fragment is from a file that imports two teams, each with two channels, many users, and many posts.</p>
-<div class="highlight-JSON"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+<div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
  3
  4
@@ -186,28 +186,28 @@
 19
 20
 21
-22</pre></div></td><td class="code"><div class="highlight"><pre><span></span>{ type: &quot;version&quot;, ... }
-{ type: &quot;team&quot;, team: { name: &quot;TeamA&quot;, ...} }
-{ type: &quot;team&quot;, team: { name: &quot;TeamB&quot;, ...} }
-{ type: &quot;channel&quot;, channel: { team: &quot;TeamA&quot;, name: &quot;ChannelA1&quot;, ...} }
-{ type: &quot;channel&quot;, channel: { team: &quot;TeamA&quot;, name: &quot;ChannelA2&quot;, ...} }
-{ type: &quot;channel&quot;, channel: { team: &quot;TeamB&quot;, name: &quot;ChannelB1&quot;, ...} }
-{ type: &quot;channel&quot;, channel: { team: &quot;TeamB&quot;, name: &quot;ChannelB1&quot;, ...} }
-{ type: &quot;user&quot;, user: { username: &quot;user001&quot;, ...} }
-{ type: &quot;user&quot;, user: { username: &quot;user002&quot;, ...} }
-{ type: &quot;user&quot;, user: { username: &quot;user003&quot;, ...} }
-{ type: &quot;user&quot;, ... }
-{ type: &quot;user&quot;, ... }
-{ type: &quot;user&quot;, ... }
-.
-.
-.
-{ type: &quot;post&quot;, { team: &quot;TeamA&quot;, name: &quot;ChannelA1&quot;, user: &quot;user001&quot;, ...} }
-{ type: &quot;post&quot;, { team: &quot;TeamA&quot;, name: &quot;ChannelA1&quot;, user: &quot;user001&quot;, ...} }
-{ type: &quot;post&quot;, { team: &quot;TeamA&quot;, name: &quot;ChannelA1&quot;, user: &quot;user001&quot;, ...} }
-.
-.
-.
+22</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;version&quot;</span><span class="p">,</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;team&quot;</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;TeamA&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;team&quot;</span><span class="p">,</span> <span class="nx">team</span><span class="o">:</span> <span class="p">{</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;TeamB&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="nx">channel</span><span class="o">:</span> <span class="p">{</span> <span class="nx">team</span><span class="o">:</span> <span class="s2">&quot;TeamA&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;ChannelA1&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="nx">channel</span><span class="o">:</span> <span class="p">{</span> <span class="nx">team</span><span class="o">:</span> <span class="s2">&quot;TeamA&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;ChannelA2&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="nx">channel</span><span class="o">:</span> <span class="p">{</span> <span class="nx">team</span><span class="o">:</span> <span class="s2">&quot;TeamB&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;ChannelB1&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;channel&quot;</span><span class="p">,</span> <span class="nx">channel</span><span class="o">:</span> <span class="p">{</span> <span class="nx">team</span><span class="o">:</span> <span class="s2">&quot;TeamB&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;ChannelB1&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="nx">user</span><span class="o">:</span> <span class="p">{</span> <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user001&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="nx">user</span><span class="o">:</span> <span class="p">{</span> <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user002&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="nx">user</span><span class="o">:</span> <span class="p">{</span> <span class="nx">username</span><span class="o">:</span> <span class="s2">&quot;user003&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;user&quot;</span><span class="p">,</span> <span class="p">...</span> <span class="p">}</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">team</span><span class="o">:</span> <span class="s2">&quot;TeamA&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;ChannelA1&quot;</span><span class="p">,</span> <span class="nx">user</span><span class="o">:</span> <span class="s2">&quot;user001&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">team</span><span class="o">:</span> <span class="s2">&quot;TeamA&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;ChannelA1&quot;</span><span class="p">,</span> <span class="nx">user</span><span class="o">:</span> <span class="s2">&quot;user001&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">{</span> <span class="nx">type</span><span class="o">:</span> <span class="s2">&quot;post&quot;</span><span class="p">,</span> <span class="p">{</span> <span class="nx">team</span><span class="o">:</span> <span class="s2">&quot;TeamA&quot;</span><span class="p">,</span> <span class="nx">name</span><span class="o">:</span> <span class="s2">&quot;ChannelA1&quot;</span><span class="p">,</span> <span class="nx">user</span><span class="o">:</span> <span class="s2">&quot;user001&quot;</span><span class="p">,</span> <span class="p">...}</span> <span class="p">}</span>
+<span class="p">.</span>
+<span class="p">.</span>
+<span class="p">.</span>
 </pre></div>
 </td></tr></table></div>
 <div class="section" id="version-object">
