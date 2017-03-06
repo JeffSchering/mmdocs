@@ -1,0 +1,433 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configure SAML with Microsoft ADFS (Active Directory Federation Services) &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Configure SAML with Microsoft ADFS (Active Directory Federation Services)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/deployment/sso-saml-adfs.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configure-saml-with-microsoft-adfs-active-directory-federation-services">
+<span id="configure-saml-with-microsoft-adfs-active-directory-federation-services"></span><h1>Configure SAML with Microsoft ADFS (Active Directory Federation Services)<a class="headerlink" href="#configure-saml-with-microsoft-adfs-active-directory-federation-services" title="Permalink to this headline">¶</a></h1>
+<p>The following process provides steps to configure SAML with Microsoft ADFS for Mattermost.</p>
+<div class="section" id="basic-requirements-for-adfs">
+<span id="basic-requirements-for-adfs"></span><h2>Basic Requirements for ADFS<a class="headerlink" href="#basic-requirements-for-adfs" title="Permalink to this headline">¶</a></h2>
+<p>The following are basic requirements to use ADFS for Mattermost:</p>
+<ul class="simple">
+<li>An Active Directory instance where all users have a specified email and username attributes. For Mattermost servers running 3.3 and earlier, users must also have their first name and last name attributes specified.</li>
+<li>A Microsoft Server running. The screenshots used in this guide are from Microsoft Server 2012R2, but similar steps should work for other versions.</li>
+<li>An SSL certificate to sign your ADFS login page.</li>
+<li>ADFS installed on your Microsoft Server. You can find a detailed guide for deploying and configuring ADFS in <a class="reference external" href="https://msdn.microsoft.com/en-us/library/gg188612.aspx">this article</a>.</li>
+</ul>
+</div>
+<div class="section" id="pre-installation">
+<span id="pre-installation"></span><h2>Pre-installation<a class="headerlink" href="#pre-installation" title="Permalink to this headline">¶</a></h2>
+<p>1 - On your ADFS installation, note down the value of the <strong>SAML 2.0/W-Federation URL</strong> in ADFS Endpoints section, also known as the <strong>SAML SSO URL Endpoint</strong> in this guide. If you chose the defaults for the installation, this will be <code class="docutils literal"><span class="pre">/adfs/ls/</span></code>.</p>
+<p>2 - Before configuring SAML with Microsoft ADFS, make sure you have the <a class="reference external" href="https://www.aleksey.com/xmlsec/download.html">XML Security Library</a> installed on your Mattermost instance. The XML Security Library is usually included as part of Debian GNU/Linux.</p>
+<p>Also confirm if the <code class="docutils literal"><span class="pre">xmlsec1-openssl</span></code> library was successfully installed. If not, run</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libxmlsec1-openssl</span></code> on Ubuntu</li>
+<li><code class="docutils literal"><span class="pre">yum</span> <span class="pre">install</span> <span class="pre">xmlsec1-openssl</span></code> on RHEL</li>
+</ul>
+<p>3 - (Optional) If you would like to set up encryption for your SAML connection, generate encryption certificates now. You are free to use <a class="reference external" href="https://github.com/mattermost/docs/tree/master/source/scripts/generate-certificates">our script in the <code class="docutils literal"><span class="pre">/docs</span></code> repo</a> or use another method to generate them.</p>
+<p>You should save the two files that are generated, which will be referred to as the <strong>Service Provider Private Key</strong> and the <strong>Service Provider Public Certificate</strong> in this guide.</p>
+</div>
+<div class="section" id="adding-a-relying-party-trust">
+<span id="adding-a-relying-party-trust"></span><h2>Adding a Relying Party Trust<a class="headerlink" href="#adding-a-relying-party-trust" title="Permalink to this headline">¶</a></h2>
+<p>4 - In ADFS management sidebar, go to <strong>AD FS &gt; Trust Relationships &gt; Relying Party Trusts</strong> and click <strong>Add Relying Party Trust…</strong></p>
+<p><img alt="adfs_1_add_new_relying_party_trust.PNG" src="../_images/adfs_1_add_new_relying_party_trust.PNG" /></p>
+<p>5 - A configuration wizard for adding a new relying party trust opens. In the <strong>Welcome</strong> screen, click <strong>Start</strong>.</p>
+<p><img alt="adfs_2_start_wizard.PNG" src="../_images/adfs_2_start_wizard.PNG" /></p>
+<p>6 - In the <strong>Select Data Source</strong> screen, select the option <strong>Enter data about the relying party manually</strong>.</p>
+<p><img alt="adfs_3_select_data_source.PNG" src="../_images/adfs_3_select_data_source.PNG" /></p>
+<p>7 - In the <strong>Specify Display Name</strong> screen, enter a <strong>Display Name</strong> to recognize the trust, such as <code class="docutils literal"><span class="pre">Mattermost</span></code>, and add any notes you want to make.</p>
+<p><img alt="adfs_4_specify_display_name.PNG" src="../_images/adfs_4_specify_display_name.PNG" /></p>
+<p>8 - In the <strong>Choose Profile</strong> screen, select the option <strong>AD FS profile</strong>.</p>
+<p><img alt="adfs_5_choose_profile.PNG" src="../_images/adfs_5_choose_profile.PNG" /></p>
+<p>9 - In the <strong>Configure Certificate</strong> screen, leave the certificate settings at their default values.</p>
+<p><img alt="adfs_6_configure_certificate_default.PNG" src="../_images/adfs_6_configure_certificate_default.PNG" /></p>
+<p>However, if you would like to set up encryption for your SAML connection, click the <strong>Browse…</strong> button and upload your Service Provider Public Certificate.</p>
+<p><img alt="adfs_7_configure_certificate_encryption.PNG" src="../_images/adfs_7_configure_certificate_encryption.PNG" /></p>
+<p>10 - In the <strong>Configure URL</strong> screen, select the option <strong>Enable Support for the SAML 2.0 WebSSO protocol</strong> and enter the <strong>SAML 2.0 SSO service URL</strong>, which is of the form <code class="docutils literal"><span class="pre">https://&lt;your-mattermost-url&gt;/login/sso/saml</span></code>.</p>
+<p><img alt="adfs_8_configure_url.PNG" src="../_images/adfs_8_configure_url.PNG" /></p>
+<p>11 - In the <strong>Configure Identifiers</strong> screen, enter the <strong>Relying party trust identifier</strong> (also known as the <strong>Identity Provider Issuer URL</strong>) of the form <code class="docutils literal"><span class="pre">https://&lt;your-idp-url&gt;/adfs/services/trust</span></code>and click <strong>Add</strong>.</p>
+<p><img alt="adfs_9_configure_identifiers.PNG" src="../_images/adfs_9_configure_identifiers.PNG" /></p>
+<p>12 - In the <strong>Configure Multi-factor Authentication Now</strong> screen, you may enable multi-factor authentication, but this is beyond the scope of this guide.</p>
+<p><img alt="adfs_10_configure_mfa.PNG" src="../_images/adfs_10_configure_mfa.PNG" /></p>
+<p>13 - In the <strong>Choose Issuance Authorization Rules</strong> screen, select the option <strong>Permit all users to access this relying party</strong>.</p>
+<p><img alt="adfs_11_authorization.PNG" src="../_images/adfs_11_authorization.PNG" /></p>
+<p>14 - In the <strong>Ready to Add Trust</strong> screen, you can review your settings.</p>
+<p><img alt="adfs_12_ready_to_add_trust.PNG" src="../_images/adfs_12_ready_to_add_trust.PNG" /></p>
+<p>15 - In the <strong>Finish</strong> screen, select the option <strong>Open the Edit Claim Rules dialog for this relying party trust when the wizard closes</strong>, and click <strong>Close</strong>. You will now exit configuration wizard and a <strong>Claim Rules</strong> editor opens.</p>
+<p><img alt="adfs_13_finish_trust.PNG" src="../_images/adfs_13_finish_trust.PNG" /></p>
+</div>
+<div class="section" id="creating-claim-rules">
+<span id="creating-claim-rules"></span><h2>Creating Claim Rules<a class="headerlink" href="#creating-claim-rules" title="Permalink to this headline">¶</a></h2>
+<p>16 - In the <strong>Issuance Transform Rules</strong> of the <strong>Claim Rules</strong> editor, click the <strong>Add Rule…</strong> button. This action opens an <strong>Add Transform Claim Rule Wizard</strong>.</p>
+<p><img alt="adfs_14_claim_rules_editor.PNG" src="../_images/adfs_14_claim_rules_editor.PNG" /></p>
+<p>17 - In the <strong>Choose Rule Type</strong> screen, select <strong>Send LDAP Attributes as Claims</strong> from the drop-down menu, then click <strong>Next</strong>.</p>
+<p><img alt="adfs_15_choose_rule_type.PNG" src="../_images/adfs_15_choose_rule_type.PNG" /></p>
+<p>18 - In the <strong>Configure Claim Rule</strong> screen, enter a <strong>Claim Rule Name</strong> of your choice, select <strong>Active Directory</strong> as the <strong>Attribute Store</strong> and do the following:</p>
+<ul class="simple">
+<li>From the <strong>LDAP Attribute column</strong>, select <code class="docutils literal"><span class="pre">E-Mail-Addresses</span></code>. From the <strong>Outgoing Claim Type</strong>, type <code class="docutils literal"><span class="pre">Email</span></code></li>
+<li>From the <strong>LDAP Attribute column</strong>, select <code class="docutils literal"><span class="pre">Given-Name</span></code>. From the <strong>Outgoing Claim Type</strong>, type <code class="docutils literal"><span class="pre">FirstName</span></code></li>
+<li>From the <strong>LDAP Attribute column</strong>, select <code class="docutils literal"><span class="pre">Surname</span></code>. From the <strong>Outgoing Claim Type</strong>, type <code class="docutils literal"><span class="pre">LastName</span></code></li>
+<li>From the <strong>LDAP Attribute column</strong>, select <code class="docutils literal"><span class="pre">SAM-Account-Name</span></code>. From the <strong>Outgoing Claim Type</strong>, type <code class="docutils literal"><span class="pre">Username</span></code></li>
+</ul>
+<p>For Mattermost 3.4 and later, the <code class="docutils literal"><span class="pre">FirstName</span></code> and <code class="docutils literal"><span class="pre">LastName</span></code> attributes are optional.</p>
+<p>Then, click <strong>Finish</strong> to add the rule.</p>
+<p>Note that the entries in the <strong>Outgoing Claim Type</strong> column can be chosen to be something else. They can contain dashes but no spaces. Note that they will be used to map the corresponding fields in Mattermost later.</p>
+<p><img alt="adfs_16_configure_claim_rule.PNG" src="../_images/adfs_16_configure_claim_rule.PNG" /></p>
+<p>19 - Create another new rule by clicking the <strong>Add Rule…</strong> button.</p>
+<p>20 - In the <strong>Choose Rule Type</strong> screen, select <strong>Transform an Incoming Claim</strong> from the drop-down menu, then click <strong>Next</strong>.</p>
+<p><img alt="adfs_17_transformation_of_incoming_claim.PNG" src="../_images/adfs_17_transformation_of_incoming_claim.PNG" /></p>
+<p>21 - In the <strong>Configure Claim Rule</strong> screen, enter a <strong>Claim Rule Name</strong> of your choice, then</p>
+<ul class="simple">
+<li>Select <code class="docutils literal"><span class="pre">Name</span> <span class="pre">ID</span></code> for the <strong>Incoming claim type</strong></li>
+<li>Select <code class="docutils literal"><span class="pre">Unspecified</span></code> for the <strong>Incoming name ID format</strong></li>
+<li>Select <code class="docutils literal"><span class="pre">E-Mail</span> <span class="pre">Address</span></code> for the <strong>Outgoing claim type</strong></li>
+</ul>
+<p>Moreover, select the <strong>Pass through all claim values</strong> option. Then click <strong>Finish</strong>.</p>
+<p><img alt="adfs_18_configure_incoming_claim.PNG" src="../_images/adfs_18_configure_incoming_claim.PNG" /></p>
+<p>22 - Click <strong>Finish</strong> to create the claim rule, then <strong>OK</strong> to finish creating rules.</p>
+<p>23 - Open Windows PowerShell as an administrator and run the following command:</p>
+<p><code class="docutils literal"><span class="pre">Set-ADFSRelyingPartyTrust</span> <span class="pre">-TargetName</span> <span class="pre">&lt;display-name&gt;</span> <span class="pre">-SamlResponseSignature</span> <span class="pre">&quot;MessageAndAssertion&quot;</span></code></p>
+<p>where &lt;display-name&gt; is the name you specified in step 7. In our example it would be <code class="docutils literal"><span class="pre">mattermost</span></code>.</p>
+<p>This action will add the signature to SAML messages, making verification successful.</p>
+</div>
+<div class="section" id="export-identity-provider-certificate">
+<span id="export-identity-provider-certificate"></span><h2>Export Identity Provider Certificate<a class="headerlink" href="#export-identity-provider-certificate" title="Permalink to this headline">¶</a></h2>
+<p>Next, we export the identity provider certificate, which will be later uploaded to Mattermost to finish SAML configuration.</p>
+<p>24 - In ADFS management sidebar, go to <strong>AD FS &gt; Service &gt; Certificates</strong> and double click on the certificate under <strong>Token-signing</strong>. You may alternatively right-click the field, then click **View Certificate...*</p>
+<p><img alt="adfs_19_export_idp_cert_start.PNG" src="../_images/adfs_19_export_idp_cert_start.PNG" /></p>
+<p>25 - In the <strong>Certificate</strong> screen, go to the <strong>Details</strong> tab and click <strong>Copy to File…</strong>, then <strong>OK</strong>. This opens a <strong>Certificate Export Wizard</strong>.</p>
+<p><img alt="adfs_20_export_idp_cert_copy.PNG" src="../_images/adfs_20_export_idp_cert_copy.PNG" /></p>
+<p>26 - In the <strong>Certificate Export Wizard</strong> screen, click <strong>Next</strong>. Then, select the option <strong>Base-64 encoded X.509 (.CER)</strong> and click <strong>Next</strong> again.</p>
+<p><img alt="adfs_21_export_idp_cert_wizard.PNG" src="../_images/adfs_21_export_idp_cert_wizard.PNG" /></p>
+<p>27 - In the <strong>Certificate Export Wizard</strong> screen, click <strong>Browse</strong> to specify the location you want the Identity Provider Certificate to be exported, and specify the file name.</p>
+<p><img alt="adfs_21-2_export_idp_cert_wizard.PNG" src="../_images/adfs_21-2_export_idp_cert_wizard.PNG" /></p>
+<p>28 - Click <strong>Save</strong>. In the <strong>Certificate Export Wizard</strong> screen, verify the file path is correct, and click <strong>Next</strong>.</p>
+<p>29 - In the <strong>Completing the Certificate Export Wizard</strong>, click <strong>Finish</strong>, then <strong>OK</strong> to confirm the export was successful.</p>
+<p><img alt="adfs_21-3_export_idp_cert_wizard.PNG" src="../_images/adfs_21-3_export_idp_cert_wizard.PNG" /></p>
+<p>You’re now about to finish configuring SAML for Mattermost!</p>
+</div>
+<div class="section" id="configure-saml-for-mattermost">
+<span id="configure-saml-for-mattermost"></span><h2>Configure SAML for Mattermost<a class="headerlink" href="#configure-saml-for-mattermost" title="Permalink to this headline">¶</a></h2>
+<p>30 - Start Mattermost server and sign into Mattermost as a System Administrator. Go to <strong>System Console &gt; Authentication &gt; SAML</strong>.</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">SAML</span> <span class="pre">SSO</span> <span class="pre">URL</span></code>: <strong>SAML 2.0/W-Federation URL</strong> ADFS Endpoint you noted in step 1.</li>
+<li><code class="docutils literal"><span class="pre">Identity</span> <span class="pre">Provider</span> <span class="pre">Issuer</span> <span class="pre">URL</span></code>: <code class="docutils literal"><span class="pre">Relying</span> <span class="pre">party</span> <span class="pre">trust</span> <span class="pre">identifier</span></code> from ADFS you specified in step 11.</li>
+<li><code class="docutils literal"><span class="pre">Identity</span> <span class="pre">Provider</span> <span class="pre">Public</span> <span class="pre">Certificate</span></code>: X.509 Public Certificate you downloaded in step 29.</li>
+</ul>
+<p><img alt="adfs_22_mattermost_basics.PNG" src="../_images/adfs_22_mattermost_basics.PNG" /></p>
+<p>31 - (Optional) Configure Mattermost to verify the signature. The <code class="docutils literal"><span class="pre">Service</span> <span class="pre">Provider</span> <span class="pre">Login</span> <span class="pre">URL</span></code> is the <code class="docutils literal"><span class="pre">SAML</span> <span class="pre">2.0</span> <span class="pre">SSO</span> <span class="pre">service</span> <span class="pre">URL</span></code> you specified in ADFS in step 10.</p>
+<p><img alt="adfs_23_mattermost_verification.PNG" src="../_images/adfs_23_mattermost_verification.PNG" /></p>
+<p>32 - (Optional) Enable encryption by uploading the Service Provider Private Key and Service Provider Public Certificate you generated  in step 3.</p>
+<p><img alt="adfs_24_mattermost_encryption.PNG" src="../_images/adfs_24_mattermost_encryption.PNG" /></p>
+<p>33 - Set attributes for the SAML Assertions, which will be used to update user information in Mattermost. Attributes for email and username are required and should match the values you entered in ADFS in step 15. See <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html#saml-enterprise">documentation on SAML configuration settings</a> for more detail.</p>
+<p>For Mattermost servers running 3.3 and earlier, the first name and last name attributes are also required fields.</p>
+<p><img alt="adfs_25_mattermost_attributes.PNG" src="../_images/adfs_25_mattermost_attributes.PNG" /></p>
+<p>34 - (Optional) Lastly, customize the login button text.</p>
+<p><img alt="adfs_26_mattermost_login_button.PNG" src="../_images/adfs_26_mattermost_login_button.PNG" /></p>
+<p>35 - Click <code class="docutils literal"><span class="pre">Save</span></code>.</p>
+<p>You’re done! If you’d like to confirm SAML SSO is successfully enabled, switch your System Administrator account from email to SAML-based authentication via <strong>Account Settings &gt; General &gt; Sign-in Method &gt; Switch to SAML SSO</strong> and sign in with your SAML credentials to complete the switch.</p>
+<p>It is also recommended to post an announcement about how the migration will work to users.</p>
+<p>You may also configure SAML for ADFS by editing <code class="docutils literal"><span class="pre">config.json</span></code>. Before starting the Mattermost server, edit <code class="docutils literal"><span class="pre">config.json</span></code> to enable SAML based on <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html#saml-enterprise">SAML configuration settings</a>. You must restart Mattermost server for the changes to take effect.</p>
+<div class="section" id="troubleshooting">
+<span id="troubleshooting"></span><h3>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h3>
+<p>The following are troubleshooting suggestions on common error messages and issues.</p>
+<div class="section" id="system-administrator-locks-themselves-out-of-the-system">
+<span id="system-administrator-locks-themselves-out-of-the-system"></span><h4>1. System Administrator locks themselves out of the system<a class="headerlink" href="#system-administrator-locks-themselves-out-of-the-system" title="Permalink to this headline">¶</a></h4>
+<p>If the System Administrator is locked out of the system during SAML configuration process, they can set an existing account to System Administrator using <a class="reference external" href="http://docs.mattermost.com/deployment/on-boarding.html#creating-system-administrator-account-from-commandline">a commandline tool</a>.</p>
+</div>
+<div class="section" id="received-error-message-an-account-with-that-username-already-exists-please-contact-your-administrator">
+<span id="received-error-message-an-account-with-that-username-already-exists-please-contact-your-administrator"></span><h4>2. Received error message: <code class="docutils literal"><span class="pre">An</span> <span class="pre">account</span> <span class="pre">with</span> <span class="pre">that</span> <span class="pre">username</span> <span class="pre">already</span> <span class="pre">exists.</span> <span class="pre">Please</span> <span class="pre">contact</span> <span class="pre">your</span> <span class="pre">Administrator.</span></code><a class="headerlink" href="#received-error-message-an-account-with-that-username-already-exists-please-contact-your-administrator" title="Permalink to this headline">¶</a></h4>
+<p>This usually means an existing account has another authentication method enabled. If so, the user should sign in using that method (such as email and password), then change their sign-in method to SAML via <strong>Account Settings &gt; Security &gt; Sign-in method</strong>.</p>
+<p>This error message can also be received if the <code class="docutils literal"><span class="pre">Username</span> <span class="pre">Attribute</span></code> of their SAML credentials doesn&#8217;t match the username of their Mattermost account. If so, the user can update the attribute at their identity provider (for instance, back to the old value if it had been previously updated).</p>
+</div>
+<div class="section" id="received-error-message-an-account-with-that-email-already-exists-please-contact-your-administrator">
+<span id="received-error-message-an-account-with-that-email-already-exists-please-contact-your-administrator"></span><h4>3. Received error message: <code class="docutils literal"><span class="pre">An</span> <span class="pre">account</span> <span class="pre">with</span> <span class="pre">that</span> <span class="pre">email</span> <span class="pre">already</span> <span class="pre">exists.</span> <span class="pre">Please</span> <span class="pre">contact</span> <span class="pre">your</span> <span class="pre">Administrator.</span></code><a class="headerlink" href="#received-error-message-an-account-with-that-email-already-exists-please-contact-your-administrator" title="Permalink to this headline">¶</a></h4>
+<p>This usually means an existing account has another authentication method enabled. If so, the user should sign in using that method (such as email and password), then change their sign-in method to SAML via <strong>Account Settings &gt; Security &gt; Sign-in method</strong>.</p>
+<p>This error message can also be received if the <code class="docutils literal"><span class="pre">Email</span> <span class="pre">Attribute</span></code> of their SAML credentials doesn&#8217;t match the email address of their Mattermost account. If so, the user can update the attribute at their identity provider (for instance, back to the old value if it had been previously updated).</p>
+</div>
+<div class="section" id="received-error-message-saml-login-was-unsuccessful-because-one-of-the-attributes-is-incorrect-please-contact-your-system-administrator">
+<span id="received-error-message-saml-login-was-unsuccessful-because-one-of-the-attributes-is-incorrect-please-contact-your-system-administrator"></span><h4>4. Received error message: <code class="docutils literal"><span class="pre">SAML</span> <span class="pre">login</span> <span class="pre">was</span> <span class="pre">unsuccessful</span> <span class="pre">because</span> <span class="pre">one</span> <span class="pre">of</span> <span class="pre">the</span> <span class="pre">attributes</span> <span class="pre">is</span> <span class="pre">incorrect.</span> <span class="pre">Please</span> <span class="pre">contact</span> <span class="pre">your</span> <span class="pre">System</span> <span class="pre">Administrator.</span></code><a class="headerlink" href="#received-error-message-saml-login-was-unsuccessful-because-one-of-the-attributes-is-incorrect-please-contact-your-system-administrator" title="Permalink to this headline">¶</a></h4>
+<p>Confirm all attributes, including <code class="docutils literal"><span class="pre">Email</span> <span class="pre">Attribute</span></code> and <code class="docutils literal"><span class="pre">Username</span> <span class="pre">Attribute</span></code>, are correct in both the ADFS configuration and in <strong>System Console &gt; SAML</strong>.</p>
+</div>
+<div class="section" id="unable-to-switch-to-saml-authentication-successfully">
+<span id="unable-to-switch-to-saml-authentication-successfully"></span><h4>5. Unable to switch to SAML authentication successfully<a class="headerlink" href="#unable-to-switch-to-saml-authentication-successfully" title="Permalink to this headline">¶</a></h4>
+<p>First, ensure you have installed the <a class="reference external" href="https://www.aleksey.com/xmlsec/download.html">XML Security Library</a> on your Mattermost instance and that <strong>it is available in your</strong> <code class="docutils literal"><span class="pre">PATH</span></code>.</p>
+<p>Second, ensure you have completed each step in our guide for configuring SAML with Microsoft ADFS.</p>
+<p>Third, you may consult the <a class="reference external" href="https://technet.microsoft.com/en-us/library/cc776135(v=ws.10).aspx">Microsoft ADFS troubleshooting guide</a> for potential issues with the ADFS installation.</p>
+<p>Lastly, if you are still having trouble with configuration, feel free to post in our <a class="reference external" href="http://www.mattermost.org/troubleshoot/">Troubleshooting forum</a> and we&#8217;ll be happy to help with issues during setup.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/deployment/sso-saml-adfs.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

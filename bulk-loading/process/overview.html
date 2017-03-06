@@ -1,0 +1,407 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Development Process Overview &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
+        <link rel="next" title="Release Process" href="release-process.html"/>
+        <link rel="prev" title="Core Team Handbook" href="../guides/core.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/core.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Development Process Overview</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#purpose">Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#community-systems">Community Systems</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#tickets">Tickets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#pull-requests">Pull Requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#release">Release</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="release-process.html">Release Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="accepting-pull-request.html">Accepting Pull Requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="community-systems.html">Bugs, Feature Ideas, Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="documentation-guidelines.html">Documentation Conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marketing-guidelines.html">Mattermost Community Content Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/core.html">Core Team Handbook</a> &raquo;</li>
+    
+    <li>Development Process Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/process/overview.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="development-process-overview">
+<h1>Development Process Overview<a class="headerlink" href="#development-process-overview" title="Permalink to this headline">¶</a></h1>
+<p>This document describes the process through which feedback and design discussions flow into community systems, then into tickets, then into pull requests, then into bi-monthly releases based on product purpose.</p>
+<div class="section" id="purpose">
+<h2>Purpose<a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h2>
+<p>The core offer for users of Mattermost is: <strong>All your team communication in one place, searchable and accessible anywhere.</strong></p>
+<p>The design is successful if 100% of team members use Mattermost for internal communications, and are largely off of email and proprietary SaaS products that lock-in user data as part of their business model.</p>
+<p>See <a class="reference external" href="https://www.mattermost.org/manifesto/">Mattermost Manifesto</a> for more details.</p>
+</div>
+<div class="section" id="community-systems">
+<h2>Community Systems<a class="headerlink" href="#community-systems" title="Permalink to this headline">¶</a></h2>
+<p>Please see <a class="reference external" href="http://docs.mattermost.com/process/community-systems.html">Community Systems</a> documentation for how feedback from community constituents is processed into <a class="reference external" href="http://docs.mattermost.com/process/accepting-pull-request.html">tickets accepting pull requests.</a></p>
+</div>
+<div class="section" id="tickets">
+<h2>Tickets<a class="headerlink" href="#tickets" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost priorities are managed in Jira tickets, which are created by the core team via feedback from community systems as well as through the planning processes.</p>
+<div class="section" id="triage">
+<h3>Triage<a class="headerlink" href="#triage" title="Permalink to this headline">¶</a></h3>
+<p>On non-holiday weekdays new tickets are reviewed in a process called &#8220;triage&#8221;, and assigned a Fix Version of &#8220;unscheduled&#8221;, indicating the ticket has enough specificity that it can be assigned to a developer to be completed. If the ticket is a bug, it is assigned the Fix Version for the current release.</p>
+<p>By default, all tickets are created as public unless they contain sensitive information. The triage process reviews them for sufficient
+specificity. If the ticket is unclear, triage may reassign the ticket back to the original reporter to add more details.</p>
+<p>View <a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-1203?filter=10105">current issues scheduled for the next triage meeting</a>.</p>
+<div class="section" id="re-triage">
+<h4>Re-triage<a class="headerlink" href="#re-triage" title="Permalink to this headline">¶</a></h4>
+<p>If someone feels an existing ticket should be re-examined, they can add &#8220;triage&#8221; to the Fix Version and it will be routed to the triage team for review at the next meeting.</p>
+</div>
+</div>
+<div class="section" id="release-planning">
+<h3>Release Planning<a class="headerlink" href="#release-planning" title="Permalink to this headline">¶</a></h3>
+<p>Release planning sets the &#8220;Fix Version&#8221; of tickets to one of the upcoming bi-monthly releases. The Fix Version is an estimate of when a
+feature might ship, which may change as the planning process continues, until the ticket is scheduled for a Sprint.</p>
+</div>
+<div class="section" id="sprint-planning">
+<h3>Sprint Planning<a class="headerlink" href="#sprint-planning" title="Permalink to this headline">¶</a></h3>
+<p>Tickets to be completed in the upcoming week are organized on Tuesdays, with input from developers.</p>
+</div>
+</div>
+<div class="section" id="pull-requests">
+<h2>Pull Requests<a class="headerlink" href="#pull-requests" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="core-team-weekly-rhythm">
+<h3>Core Team Weekly Rhythm<a class="headerlink" href="#core-team-weekly-rhythm" title="Permalink to this headline">¶</a></h3>
+<p>Core team work on tickets in the active sprint on a weekly basis, which flow into GitHub Pull Requests.</p>
+<p>Each Pull Request needs a minimum of two reviews by other core team developers before it is merged, with possible feedback shared as reviews happen.</p>
+<p>Key contributors might also pick up tickets, or through conversations with the core team contribute pull requests as needed.</p>
+</div>
+<div class="section" id="community-contributions">
+<h3>Community Contributions<a class="headerlink" href="#community-contributions" title="Permalink to this headline">¶</a></h3>
+<p>Community members following the <a class="reference external" href="http://docs.mattermost.com/developer/contribution-guide.html#code-contribution-guidelines">Contribution Guidelines</a> might also submit pull requests. Pull requests that significantly change the user experience are opened <a class="reference external" href="http://www.mattermost.org/feature-requests/">via the feature ideas process</a>.</p>
+<div class="section" id="bug-fixes">
+<h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
+<p>If you see an obvious bug and want to submit a fix, pull requests following the <a class="reference external" href="http://docs.mattermost.com/developer/contribution-guide.html#code-contribution-guidelines">contribution guidelines</a> are gladly accepted.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/mattermost/platform/pull/1390">Fix: Unable to change password #1390</a></li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/pull/1260">Fix isBrowserEdge typo #1260</a></li>
+</ul>
+</div>
+<div class="section" id="tickets-accepting-pull-requests">
+<h4>Tickets Accepting Pull Requests<a class="headerlink" href="#tickets-accepting-pull-requests" title="Permalink to this headline">¶</a></h4>
+<p>If you&#8217;d like to improve the product beyond bug fixes, you can select from a list of tickets accepting pull requests prepared by the core team.</p>
+<p><a class="reference external" href="https://github.com/mattermost/platform/issues?utf8=%E2%9C%93&amp;q=is%3Aissue%20is%3Aopen%20%5BHelp%20Wanted%5D">Help Wanted GitHub issues</a> and <a class="reference external" href="https://mattermost.atlassian.net/issues/?filter=10101">Accepting Pull Requests</a> (APR) tickets are intended to be unambiguous projects that could be reasonably completed by contributors outside the core team and are welcome contributions.</p>
+<p>You can choose any ticket marked &#8220;Open&#8221;, even if it&#8217;s assigned, and comment to let people know you&#8217;re working on it. If you have questions post in <a class="reference external" href="http://forum.mattermost.org/">Mattermost forum</a> or join the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/tickets">Contributors</a> channel.</p>
+<p>It&#8217;s okay to submit PRs to fix obvious bugs or add small improvements, but anything that significantly changes behavior or user expectations <a class="reference external" href="http://docs.mattermost.com/process/accepting-pull-request.html">requires an APR ticket opened by the core team</a> so that the change can be tested, documented and supported.</p>
+</div>
+<div class="section" id="documentation-improvements">
+<h4>Documentation Improvements<a class="headerlink" href="#documentation-improvements" title="Permalink to this headline">¶</a></h4>
+<p>Improvements to documentation are highly welcome.</p>
+<p>Please see <a class="reference external" href="https://forum.mattermost.org/t/help-improve-mattermost-documentation/194">documentation contribution guidelines</a>
+for more details.</p>
+<p>Examples:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/mattermost/platform/pull/1134">Production installation instructions for Debian Jessie with Systemd #1134</a></li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/pull/622">Fix dead link to AWS file in doc #622</a></li>
+</ul>
+</div>
+<div class="section" id="minor-improvements">
+<h4>Minor Improvements<a class="headerlink" href="#minor-improvements" title="Permalink to this headline">¶</a></h4>
+<p>Minor improvements without an Accepting Pull Request ticket may be accepted if:</p>
+<ol class="arabic simple">
+<li>The contribution aligns with product scope</li>
+<li>The change is high quality, and does not impose a significant burden    for others to test, document and maintain your change.</li>
+<li>The change aligns with the <a class="reference external" href="http://www.mattermost.org/design-principles/">fast, obvious,    forgiving</a> design principle.</li>
+</ol>
+<p>Examples:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/mattermost/platform/pull/1396/files">Do not clear LastActivityAt for GetProfiles #1396</a></li>
+<li><a class="reference external" href="https://github.com/mattermost/platform/pull/1331">Update to proxy_pass #1331</a></li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="release">
+<h2>Release<a class="headerlink" href="#release" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost ships stable releases on the 16th of every other month. Releases begin with a planning process reviewing internal designs and community feedback in the context of the product purpose. Feature development is done in weekly sprints, and releases end with feature complete, stabilization, code complete and release candidate milestones prior to final release.</p>
+<p>See <a class="reference external" href="http://docs.mattermost.com/process/release-process.html#release-process">release process documentation</a> for more details.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="release-process.html" class="btn btn-neutral float-right" title="Release Process" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../guides/core.html" class="btn btn-neutral" title="Core Team Handbook" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/process/overview.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

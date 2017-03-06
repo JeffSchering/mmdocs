@@ -1,0 +1,381 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Statistics &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Compliance Reporting and Oversight" href="compliance.html"/>
+        <link rel="prev" title="Configuration Settings" href="config-settings.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#install-guides">Install Guides</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="command-line-tools.html">Command Line Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-settings.html">Configuration Settings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Statistics</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#site-statistics">Site statistics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#team-statistics">Team statistics</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="branding.html">Custom Branding Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html">Upgrade Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migration Guide</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Statistics</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/administration/statistics.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="statistics">
+<h1>Statistics<a class="headerlink" href="#statistics" title="Permalink to this headline">¶</a></h1>
+<p>Statistics on users, posts and channels are tracked for each system and team. Enterprise Editions have access to advanced system statistics.</p>
+<p>To maximize performance for large Enterprise deployments, statistics for total posts, total hashtag posts, total file posts, posts per day, and active users with posts per day are disabled. You can re-enable them by changing the <code class="docutils literal"><span class="pre">MaxUsersForStatistics</span></code> value <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#max-users-for-statistics">in config.json</a>.</p>
+<p>For advanced metrics for Enterprise deployments, <a class="reference external" href="http://docs.mattermost.com/deployment/metrics.html">see performance monitoring documentation to learn more</a>.</p>
+<div class="section" id="site-statistics">
+<h2>Site statistics<a class="headerlink" href="#site-statistics" title="Permalink to this headline">¶</a></h2>
+<p>System statistics are viewable under <strong>System Console</strong> &gt; <strong>Reporting</strong> &gt; <strong>Site Statistics</strong>. The data shown here is a cumulative sum
+across all teams on the system.</p>
+<dl class="docutils">
+<dt>Total Users</dt>
+<dd>The total number of active accounts created on your system. Excludes inactive accounts.</dd>
+<dt>Total Teams</dt>
+<dd>The total number of teams created on your system.</dd>
+<dt>Total Posts</dt>
+<dd>The total number of posts made in all the teams on your system, including deleted posts and posts made using automation.</dd>
+<dt>Total Channels</dt>
+<dd>The total number of public channels and private groups created in all the teams on your system, including deleted channels. Doesn&#8217;t include direct message channels.</dd>
+<dt>Total Posts (graph)</dt>
+<dd>The total number of posts made on a certain day in all the teams on your system, including deleted posts and posts made using automation.</dd>
+<dt>Active Users With Posts (graph)</dt>
+<dd>Users who made a post on a certain day in all the teams on your system, including system messages posted from the user&#8217;s account.</dd>
+</dl>
+<div class="section" id="advanced-system-statistics-enterprise">
+<h3>Advanced system statistics (Enterprise)<a class="headerlink" href="#advanced-system-statistics-enterprise" title="Permalink to this headline">¶</a></h3>
+<p>Enterprise Edition includes additional system statistics.</p>
+<dl class="docutils">
+<dt>Total Sessions</dt>
+<dd>The number of active user sessions connected to your system. Expired sessions are not counted.</dd>
+<dt>Total Commands</dt>
+<dd>The number of active slash commands currently setup on your system. Slash commands that are created and then removed in the Integrations menu are not counted.</dd>
+<dt>Incoming Webhooks</dt>
+<dd>The number of active Incoming Webhooks currently setup on your system. Incoming webhooks that are created and then removed in the Integrations menu are not counted.</dd>
+<dt>Outgoing Webhooks</dt>
+<dd>The number of active Outgoing Webhooks currently setup on your system. Outgoing webhooks that are created and then removed in the Integrations menu are not counted.</dd>
+<dt>Websocket Conns</dt>
+<dd>The number of active WebSocket connections currently on your server.</dd>
+<dt>Master DB Conns</dt>
+<dd>The number of active connections currently on your master database.</dd>
+<dt>Replica DB Conns</dt>
+<dd>The number of active connections currently on one or more of <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#database-configuration">your read replica databases</a>.</dd>
+<dt>Channel Types</dt>
+<dd>This chart displays the number of public channels and private groups in a visual format, including channels that may have been deleted.</dd>
+<dt>Posts, Files and Hashtags</dt>
+<dd>This chart displays the number of posts containing files, hashtags or only text. Posts containing both files and hashtags are counted in both categories, and deleted posts are included.</dd>
+</dl>
+</div>
+</div>
+<div class="section" id="team-statistics">
+<h2>Team statistics<a class="headerlink" href="#team-statistics" title="Permalink to this headline">¶</a></h2>
+<p>Team Statistics are viewable under <strong>System Console</strong> &gt; <strong>Teams</strong> &gt; <strong>Statistics</strong>.</p>
+<dl class="docutils">
+<dt>Total Users</dt>
+<dd>The total number of active accounts who are members of this team. Excludes inactive accounts.</dd>
+<dt>Public Channels</dt>
+<dd>The number of public channels created in this team. Doesn&#8217;t include deleted channels.</dd>
+<dt>Private Groups</dt>
+<dd>The number of private groups created in this team. Doesn&#8217;t include deleted groups.</dd>
+<dt>Total Posts</dt>
+<dd>The total number of posts made in this team, including deleted posts and posts made using automation.</dd>
+<dt>Total Posts (graph)</dt>
+<dd>The total number of posts made on a certain day in this team, including deleted posts and posts made using automation.</dd>
+<dt>Active Users With Posts (graph)</dt>
+<dd>Users who made a post on a certain day in this team, including system messages posted from the user&#8217;s account.</dd>
+<dt>Recent Active Users</dt>
+<dd>Twenty most recent users that have logged in and had recent browser activity in Mattermost.</dd>
+<dt>Newly Created Users</dt>
+<dd>Most recent users that have joined the team.</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="compliance.html" class="btn btn-neutral float-right" title="Compliance Reporting and Oversight" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="config-settings.html" class="btn btn-neutral" title="Configuration Settings" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/administration/statistics.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

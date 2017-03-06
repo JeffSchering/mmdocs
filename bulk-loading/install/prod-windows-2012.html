@@ -1,0 +1,729 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Production Install on Windows Server (Unofficial) &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
+        <link rel="next" title="Video and Audio Calling (Beta)" href="../deployment/webrtc.html"/>
+        <link rel="prev" title="Localization" href="../developer/localization-process.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#development-process">Development Process</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/developer.html#unofficial-enhancements">Unofficial Enhancements</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Production Install on Windows Server (Unofficial)</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#install-windows-server-2012">Install Windows Server 2012+</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-database-server">Set up Database Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-mattermost-server">Set up Mattermost Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#set-up-web-proxy-server">Set up Web Proxy Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#finish-mattermost-server-setup">Finish Mattermost Server Setup</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="../deployment/webrtc.html">Video and Audio Calling (Beta)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/developer.html">Mattermost Developer&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Production Install on Windows Server (Unofficial)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/install/prod-windows-2012.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="production-install-on-windows-server-unofficial">
+<span id="prod-windows"></span><h1><a class="toc-backref" href="#contents">Production Install on Windows Server (Unofficial)</a><a class="headerlink" href="#production-install-on-windows-server-unofficial" title="Permalink to this headline">¶</a></h1>
+<p>Install Mattermost in production mode on one, two or three machines.</p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">This unofficial guide is maintained by the Mattermost community and this deployment configuration is not yet officially supported by Mattermost, Inc. <a class="reference external" href="https://github.com/mattermost/docs/issues/360">Community testing, feedback and improvements are welcome and greatly appreciated.</a></p>
+</div>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#production-install-on-windows-server-unofficial" id="id1">Production Install on Windows Server (Unofficial)</a><ul>
+<li><a class="reference internal" href="#install-windows-server-2012" id="id2">Install Windows Server 2012+</a></li>
+<li><a class="reference internal" href="#set-up-database-server" id="id3">Set up Database Server</a><ul>
+<li><a class="reference internal" href="#install-configure-mysql" id="id4">Install &amp; Configure MySQL</a></li>
+<li><a class="reference internal" href="#configure-windows-path" id="id5">Configure Windows PATH</a></li>
+<li><a class="reference internal" href="#create-mattermost-database" id="id6">Create Mattermost Database</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#set-up-mattermost-server" id="id7">Set up Mattermost Server</a><ul>
+<li><a class="reference internal" href="#configure-the-firewall" id="id8">Configure the Firewall</a></li>
+<li><a class="reference internal" href="#establish-a-windows-service" id="id9">Establish a Windows Service</a></li>
+<li><a class="reference internal" href="#verify-mattermost-connectivity" id="id10">Verify Mattermost Connectivity</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#set-up-web-proxy-server" id="id11">Set up Web Proxy Server</a><ul>
+<li><a class="reference internal" href="#install-iis" id="id12">Install IIS</a></li>
+<li><a class="reference internal" href="#configure-reverse-proxy" id="id13">Configure Reverse Proxy</a></li>
+<li><a class="reference internal" href="#configure-ssl" id="id14">Configure SSL</a></li>
+<li><a class="reference internal" href="#redirect-http-to-https" id="id15">Redirect HTTP to HTTPS</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#finish-mattermost-server-setup" id="id16">Finish Mattermost Server Setup</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="install-windows-server-2012">
+<h2><a class="toc-backref" href="#contents">Install Windows Server 2012+</a><a class="headerlink" href="#install-windows-server-2012" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Set up 3 machines with any edition of Windows Server 2012+ (except core) with 2GB of RAM or more. The
+servers will be used for the Web Proxy &amp; SSL Termination, Mattermost, and Database.  The screenshots
+used in this guide are from Microsoft Server 2012, but similar steps should work for other versions.<ul>
+<li><strong>Optional:</strong> You can also use a single machine for all 3
+components in this install guide, depending on the standards of
+your data center.  In this case, replace all 10.0.0.* IP addresses
+with a single/common address.</li>
+</ul>
+</li>
+<li>Make sure the systems are up to date with the most recent security
+patches by executing Windows Update.</li>
+</ol>
+</div>
+<div class="section" id="set-up-database-server">
+<h2><a class="toc-backref" href="#contents">Set up Database Server</a><a class="headerlink" href="#set-up-database-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Login to the database server.  For the purposes of this guide we will assume this server has an IP
+address of 10.0.0.1.</li>
+</ol>
+<div class="section" id="install-configure-mysql">
+<h3><a class="toc-backref" href="#contents">Install &amp; Configure MySQL</a><a class="headerlink" href="#install-configure-mysql" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="2">
+<li><a class="reference external" href="http://dev.mysql.com/downloads/windows/installer/">Download the MySQL 5.6+</a> installer, or (PostgreSQL 9.3+).
+For the purposes of this guide, we&#8217;ll be downloading and installing the latest version of MySQL Community Server
+Edition MSI-installer (version 5.7 at the time of writing this guide). Note that the appropriate link refers
+to 32-bit (as shown in the figure below); however, this installer is 32-bit but is capable of installing the
+64-bit version of MySQL.</li>
+<li>Launch the installer.</li>
+<li>On the <strong>License Agreement</strong> page, Check the box to accept the license terms and press Next.</li>
+<li>On the <strong>Choosing a Setup Type</strong> choose <strong>Custom</strong> so you can decide exactly which packages to install. This
+is the only place where you can specify whether to install 32-bit or 64-bit MySQL Server.</li>
+<li>On the <strong>Select Products and Features</strong> page, select the <strong>64bit</strong> version of MySQL Server.</li>
+<li>On the <strong>Check Requirements</strong> page, install any missing requirements by pressing the Execute button, or go back
+to the previous page and change the packages that will be installed to remove the requirement. Once all of the
+requirements are met, press the Next button.</li>
+<li>On the <strong>Installation</strong> page, you will be shown a list of software that will be installed. Press the Execute
+button to begin the installation.  Once the installations have completed, press the Next button.</li>
+<li>On the <strong>Product Configuration</strong> page, press the Next button to begin the MySQL Server Configuration Wizard.<ol class="loweralpha">
+<li>On the <strong>Type and Networking</strong> page, select the appropriate <strong>Config Type</strong> based on your desired usage.</li>
+<li>On the <strong>Accounts and Roles</strong> page, enter a MySQL Root password and press the Next button.</li>
+<li>On the <strong>Windows Service</strong> page, keep the defaults and press the Next button.</li>
+<li>On the <strong>Plugins and Extensions</strong> page, keep the defaults and press the Next button.</li>
+<li>On the <strong>Apply Server Configuration</strong> page, press the Execute button to configure the MySQL Server installation.</li>
+</ol>
+</li>
+<li>Returning to the <strong>Product Configuration</strong> page, press the Next button.</li>
+<li>On the <strong>Installation Complete</strong> page, press the Finish button.</li>
+</ol>
+</div>
+<div class="section" id="configure-windows-path">
+<h3><a class="toc-backref" href="#contents">Configure Windows PATH</a><a class="headerlink" href="#configure-windows-path" title="Permalink to this headline">¶</a></h3>
+<p>Adding MySQL to the Windows PATH variable will allow you run various commands from the console, and
+allow 3rd party applications to execute various MySQL commands.</p>
+<ol class="arabic simple" start="12">
+<li>Press the <code class="docutils literal"><span class="pre">WIN</span> <span class="pre">+</span> <span class="pre">PAUSEBREAK</span></code> key combination to open the <strong>System</strong> Control Panel Applet.</li>
+<li>Select the <strong>Advanced System Settings</strong> link.</li>
+<li>Select the <strong>Advanced</strong> tab.</li>
+<li>Press the <strong>Environment Variables</strong> button.</li>
+<li>In the <strong>System Variables</strong> section, select the <strong>Path</strong> variable in the list, then press the Edit button.</li>
+<li>Append the path to your MySQL Server bin directory (make sure to add a semi-colon after any existing
+items in the path before appending the new path). The default path for a 64-bit
+installation is <code class="docutils literal"><span class="pre">C:\Program</span> <span class="pre">Files\MySQL\MySQL</span> <span class="pre">Server</span> <span class="pre">5.7\bin</span></code>.</li>
+</ol>
+</div>
+<div class="section" id="create-mattermost-database">
+<h3><a class="toc-backref" href="#contents">Create Mattermost Database</a><a class="headerlink" href="#create-mattermost-database" title="Permalink to this headline">¶</a></h3>
+<p>Now that MySQL has been installed and configured, a database and user account must be provisioned
+for Mattermost to utilize.</p>
+<ol class="arabic" start="18">
+<li><p class="first">Open a command prompt and enter <code class="docutils literal"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span></code> to connect to the MySQL server</p>
+</li>
+<li><p class="first">When prompted, enter the password created in step 9.a.</p>
+</li>
+<li><p class="first">At the <code class="docutils literal"><span class="pre">mysql&gt;</span></code> prompt, execute the following commands to create the database and user account</p>
+<div class="code sql highlight-default"><div class="highlight"><pre><span></span><span class="n">CREATE</span> <span class="n">DATABASE</span> <span class="n">mattermost</span><span class="p">;</span>
+<span class="n">CREATE</span> <span class="n">USER</span> <span class="n">mmuser</span> <span class="n">IDENTIFIED</span> <span class="n">BY</span> <span class="s1">&#39;mmuser_password&#39;</span><span class="p">;</span>
+<span class="n">GRANT</span> <span class="n">ALL</span> <span class="n">ON</span> <span class="n">mattermost</span><span class="o">.*</span> <span class="n">TO</span> <span class="n">mmuser</span><span class="p">;</span>
+<span class="n">exit</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">To confirm the database and user were configured correctly</p>
+<ol class="loweralpha simple">
+<li>Connect to the MySQL server/datbase by executing <code class="docutils literal"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">mmuser</span> <span class="pre">-p</span> <span class="pre">mattermost</span></code></li>
+<li>When prompted, entering <code class="docutils literal"><span class="pre">mmuser_password</span></code></li>
+<li>If If successful, you will be at the <code class="docutils literal"><span class="pre">mysql&gt;</span></code> prompt</li>
+<li>Type <code class="docutils literal"><span class="pre">exit</span></code> to finish</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="set-up-mattermost-server">
+<h2><a class="toc-backref" href="#contents">Set up Mattermost Server</a><a class="headerlink" href="#set-up-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">For the purposes of this guide we will assume this server has an IP
+address of 10.0.0.2</p>
+</li>
+<li><p class="first"><a class="reference external" href="https://www.mattermost.org/download/">Download</a> the latest Mattermost Server by opening your
+favorite browser and navigating to
+<code class="docutils literal"><span class="pre">https://releases.mattermost.com/X.X.X/mattermost-team-X.X.X-windows-amd64.zip</span></code>
+where <cite>X.X.X</cite> is the latest Mattermost release version. For example, 3.4.0.</p>
+</li>
+<li><p class="first">Create the storage directory for files. We assume you will have attached a large drive for storage
+of images and files. For this setup we will assume the directory is located at <code class="docutils literal"><span class="pre">c:\mattermost\data</span></code>.
+Your directory structure should look similar to the image below.</p>
+<img alt="../_images/windows_1_expected_directory_structure.png" src="../_images/windows_1_expected_directory_structure.png" />
+</li>
+<li><p class="first">Configure Mattermost Server by editing the config.json file at <code class="docutils literal"><span class="pre">c:\mattermost\config\config.json</span></code>.</p>
+<ul class="simple">
+<li>Update database name and server in the the connection string:<ul>
+<li>Old: <code class="docutils literal"><span class="pre">&quot;DataSource&quot;:</span> <span class="pre">&quot;mmuser:mostest&#64;tcp(dockerhost:3306)/mattermost_test?charset=utf8mb4,utf8&quot;</span></code></li>
+<li>New: <code class="docutils literal"><span class="pre">&quot;DataSource&quot;:</span> <span class="pre">&quot;mmuser:mmuser_password&#64;tcp(10.0.0.1:3306)/mattermost?charset=utf8mb4,utf8&quot;</span></code></li>
+</ul>
+</li>
+</ul>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Optionally you may continue to edit configuration settings in <code class="docutils literal"><span class="pre">config.json</span></code> or use the
+System Console described in a later section to finish the configuration.</p>
+</div>
+</li>
+<li><p class="first">Test the Mattermost Server</p>
+<ol class="loweralpha">
+<li><p class="first">Open a command prompt, and execute <code class="docutils literal"><span class="pre">cd</span> <span class="pre">c:\mattermost\bin</span></code> to change your working directory</p>
+</li>
+<li><p class="first">Execute <code class="docutils literal"><span class="pre">platform.exe</span></code></p>
+</li>
+<li><p class="first">Verify that mattermost is running and connected to the database successfully by confirmed a console
+log like <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code> letting you know the service is running.</p>
+<img alt="../_images/windows_2_platform_exe_test.png" src="../_images/windows_2_platform_exe_test.png" />
+</li>
+<li><p class="first">Stop the server for now by typing <code class="docutils literal"><span class="pre">ctrl-c</span></code></p>
+</li>
+</ol>
+</li>
+</ol>
+<div class="section" id="configure-the-firewall">
+<h3><a class="toc-backref" href="#contents">Configure the Firewall</a><a class="headerlink" href="#configure-the-firewall" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">This is not required if you are installing on a single server.</p>
+</div>
+<ol class="arabic" start="6">
+<li><p class="first">Open a command prompt as an administrator</p>
+</li>
+<li><p class="first">Execute the following command to allow inbound traffic to Mattermost</p>
+<div class="code batch highlight-default"><div class="highlight"><pre><span></span><span class="n">netsh</span> <span class="n">advfirewall</span> <span class="n">firewall</span> <span class="n">add</span> <span class="n">rule</span> <span class="n">name</span><span class="o">=</span><span class="s2">&quot;Mattermost&quot;</span> <span class="nb">dir</span><span class="o">=</span><span class="ow">in</span> <span class="n">action</span><span class="o">=</span><span class="n">allow</span> <span class="n">program</span><span class="o">=</span><span class="s2">&quot;C:\mattermost</span><span class="se">\b</span><span class="s2">in\platform.exe&quot;</span> <span class="n">enable</span><span class="o">=</span><span class="n">yes</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="establish-a-windows-service">
+<h3><a class="toc-backref" href="#contents">Establish a Windows Service</a><a class="headerlink" href="#establish-a-windows-service" title="Permalink to this headline">¶</a></h3>
+<p>Establishing a windows service to supervise the Mattermost process is recommended to prevent the need to
+manually start/stop Mattermost.  The included binary cannot be directly registered as a windows service; therefore,
+a wrapper-utility must be used.</p>
+<ol class="arabic" start="8">
+<li><p class="first">Download the latest version of <a class="reference external" href="https://nssm.cc/download">NSSM (Non-Sucking Service Manager)</a>.</p>
+</li>
+<li><p class="first">From the downloaded zip-file, extract <code class="docutils literal"><span class="pre">win64\nssm.exe</span></code> to <code class="docutils literal"><span class="pre">C:\mattermost\bin\</span></code></p>
+</li>
+<li><p class="first">Open a command line as an administrator</p>
+</li>
+<li><p class="first">To create the windows service, execute the following</p>
+<div class="code batch highlight-default"><div class="highlight"><pre><span></span><span class="n">cd</span> <span class="n">c</span><span class="p">:</span>\<span class="n">mattermost</span>\<span class="nb">bin</span>
+<span class="n">nssm</span> <span class="n">install</span> <span class="n">mattermost</span> <span class="n">c</span><span class="p">:</span>\<span class="n">mattermost</span>\<span class="nb">bin</span>\<span class="n">platform</span><span class="o">.</span><span class="n">exe</span>
+</pre></div>
+</div>
+</li>
+<li><p class="first">Start the service by executing the following</p>
+<div class="code batch highlight-default"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="n">start</span> <span class="n">mattermost</span>
+<span class="n">tasklist</span> <span class="o">/</span><span class="n">FI</span> <span class="s2">&quot;IMAGENAME eq platform.exe&quot;</span>
+</pre></div>
+</div>
+</li>
+</ol>
+</div>
+<div class="section" id="verify-mattermost-connectivity">
+<h3><a class="toc-backref" href="#contents">Verify Mattermost Connectivity</a><a class="headerlink" href="#verify-mattermost-connectivity" title="Permalink to this headline">¶</a></h3>
+<p>To verify all steps executed thus far, we&#8217;ll attempt to access Mattermost through standard HTTP traffic.  To perform
+this step, you&#8217;ll need access to a client machine with a compatible browser (e.g. Safari, Firefox, IE11, Chrome, etc).</p>
+<ol class="arabic" start="13">
+<li><p class="first">From a client workstation meeting the criteria above, launch your favorite web browser.</p>
+</li>
+<li><p class="first">Navigate to <code class="docutils literal"><span class="pre">http://10.0.0.2:8065</span></code>.  If successful, you should reach an initialization web-page similar to
+the screenshot below.</p>
+<img alt="../_images/windows_3_confirm_mattermost_browser.png" src="../_images/windows_3_confirm_mattermost_browser.png" />
+</li>
+<li><p class="first">Assuming your test was successful, close the browser as we&#8217;ll finish initializing Mattermost later in this guide.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="set-up-web-proxy-server">
+<h2><a class="toc-backref" href="#contents">Set up Web Proxy Server</a><a class="headerlink" href="#set-up-web-proxy-server" title="Permalink to this headline">¶</a></h2>
+<p>A reverse proxy is recommended in order to provide:</p>
+<ul class="simple">
+<li>SSL termination</li>
+<li>HTTP to HTTPS redirection</li>
+<li>Port mapping :80/:443 to :8065</li>
+<li>Standard request logs</li>
+<li>Load balancing (not described in this guide).</li>
+</ul>
+<p>Internet Information Server (IIS) for Windows Server is the standard capability provided out-of-the-box that
+provides this function.</p>
+<ol class="arabic simple">
+<li>For the purposes of this guide we will assume this server has an IP
+address of 10.0.0.3.</li>
+<li>Map a FQDN (fully qualitified domain name), like <strong>mattermost.example.com</strong> to the proxy server (e.g. 10.0.0.2).</li>
+</ol>
+<div class="section" id="install-iis">
+<h3><a class="toc-backref" href="#contents">Install IIS</a><a class="headerlink" href="#install-iis" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple" start="3">
+<li>On the <strong>Start</strong> page, click the <strong>Server Manager</strong> tile, and then click OK.</li>
+<li>In <strong>Server Manager</strong>, select <strong>Dashboard</strong>, and click <strong>Add roles and features</strong>.</li>
+<li>In the <strong>Add Roles and Features Wizard</strong>, on the <strong>Before you begin</strong> page, click Next.</li>
+<li>On the <strong>Select installation type</strong> page, select Role-based or feature-based installation, and click Next.</li>
+<li>On the <strong>Select destination server</strong> page, select <strong>Select a server from the server pool</strong>,
+select your server, and click Next.</li>
+<li>On the <strong>Select server roles</strong> page, select <strong>Web Server (IIS)</strong>.</li>
+<li>Expand <strong>Web Server (IIS) &gt; Web Server &gt; Application Development</strong> and select <strong>WebSockets Protocol</strong>, and then click Next.</li>
+<li>On the <strong>Add Roles and Features Wizard</strong> popup dialog, click Add Features, and then click Next.</li>
+<li>On the <strong>Select features</strong> page, click Next.</li>
+<li>On the <strong>Web Server Role (IIS)</strong> page, click Next.</li>
+<li>On the <strong>Select role services</strong> page, accept the default selections, and click Next.</li>
+<li>On the <strong>Summary of Features to Install</strong> page, click Install.</li>
+<li>On the Installation progress page, confirm that your installation of the Web Server (IIS) role and
+required role services completed successfully, and then click Close.</li>
+<li>To verify that IIS installed successfully, navigate to <code class="docutils literal"><span class="pre">http://localhost</span></code> in a web browser on
+the server, and confirm the default IIS Welcome page is displayed.</li>
+</ol>
+</div>
+<div class="section" id="configure-reverse-proxy">
+<h3><a class="toc-backref" href="#contents">Configure Reverse Proxy</a><a class="headerlink" href="#configure-reverse-proxy" title="Permalink to this headline">¶</a></h3>
+<p>Reverse proxying involves rewriting an HTTP request and relaying it to a back-end server.  IIS does not natively support this; however, Microsoft
+provides a <a class="reference external" href="http://www.iis.net/learn/extensions/url-rewrite-module">URL Rewrite</a> module and an <a class="reference external" href="http://www.iis.net/downloads/microsoft/application-request-routing">Application Request Routing</a> module which, when combined, are capable of performing these functions.
+We&#8217;ll start by installing these module, and then configure the proxy.</p>
+<ol class="arabic" start="17">
+<li><p class="first"><a class="reference external" href="http://go.microsoft.com/fwlink/?LinkID=615137">Download</a> the URL Rewrite 2.0 x64 module.</p>
+</li>
+<li><p class="first"><a class="reference external" href="http://go.microsoft.com/fwlink/?LinkID=615136">Download</a> the Application Request Routing 3.0 x64 module.</p>
+</li>
+<li><p class="first">Install the modules (trivial installers with no customizations or options to select).</p>
+</li>
+<li><p class="first">On the <strong>Start</strong> page, click the <strong>Server Manager</strong> tile, and then click OK.</p>
+</li>
+<li><p class="first">Expand the <strong>Tools</strong> menu, and select <strong>Information Information Services (IIS) Manager</strong>.</p>
+<img alt="../_images/windows_4_IIS_manager.png" src="../_images/windows_4_IIS_manager.png" />
+</li>
+<li><p class="first">In the left-hand navigation tree, expand the server node, expand <strong>Sites</strong>, and select <strong>Default Web Site</strong>.</p>
+</li>
+<li><p class="first">Double-click the URL Rewrite feature, as shown below.</p>
+<img alt="../_images/windows_5_iis_manager_url_rewrite.png" src="../_images/windows_5_iis_manager_url_rewrite.png" />
+</li>
+<li><p class="first">In the actions pane (far-right), select <strong>Add Rule(s)...</strong></p>
+</li>
+<li><p class="first">Select <strong>Reverse Proxy</strong> and press OK.</p>
+</li>
+<li><p class="first">If prompted to enable proxy functionality, press OK.</p>
+</li>
+<li><p class="first">In the <strong>Add Reverse Proxy Rules</strong> dialog,</p>
+<ol class="loweralpha simple">
+<li>Enter <code class="docutils literal"><span class="pre">10.0.0.2:8065</span></code> in the <strong>Enter the server name or IP address where HTTP requests will be forwarded</strong> field.</li>
+<li>Ensure the <strong>Enable SSL Offloading</strong> option is checked.</li>
+<li>Check <strong>Rewrite the domain names of the links in HTTP responses</strong></li>
+<li>Enter <code class="docutils literal"><span class="pre">10.0.0.2:8065</span></code> in the <strong>From</strong> field.</li>
+<li>Enter <code class="docutils literal"><span class="pre">mattermost.example.com</span></code> in the <strong>To</strong> field.</li>
+<li>Press OK</li>
+</ol>
+</li>
+<li><p class="first">At this point, your configuration will relay all incoming traffic from <cite>http://mattermost.example.com</cite>
+to <cite>http://10.0.0.2:8065/</cite>.  To confirm this, open your favorite browser and attempt to access
+<cite>http://mattermost.example.com</cite>, and upon success, you&#8217;ll see the Mattermost initialization screen.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="configure-ssl">
+<h3><a class="toc-backref" href="#contents">Configure SSL</a><a class="headerlink" href="#configure-ssl" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">SSL communication requires that the web server have a well-formed and trusted certificate.  A common
+freely-available SSL encryption and certificate managemet is Let&#8217;s Encrypt; however, this service does
+not formally support the Windows Operating system. A number of third-parties have created clients to support this, and
+you are free to try out any of them.  This section assumes that you have taken the necessary steps
+to obtain a web-server certificate that will be trusted by your users.</p>
+</div>
+<ol class="arabic simple" start="29">
+<li>Within the IIS Manager, select the server node in the left-hand connections pane.</li>
+<li>Double-click the <strong>Server Certificates</strong> option.</li>
+<li>Select <strong>Import...</strong> from the list of actions on the right-hand-side.</li>
+<li>Press the ... button to locate your PFX formatted certificate.</li>
+<li>Enter the password to the certificate file.</li>
+<li>Select the <strong>Web Hosting</strong> certificate store, and press OK.</li>
+<li>In the left-hand navigation tree, expand the server node, expand <strong>Sites</strong>, and select <strong>Default Web Site</strong>.</li>
+<li>In the right-hand-side <strong>Actions</strong> pane, select <strong>Bindings...</strong>.</li>
+<li>Press <strong>Add</strong></li>
+<li>In the <strong>Add Site Binding</strong> dialog, Set the type to <strong>https</strong> and set the <strong>SSL Certificate</strong> to the certificate loaded previously.  Press OK.</li>
+</ol>
+</div>
+<div class="section" id="redirect-http-to-https">
+<h3><a class="toc-backref" href="#contents">Redirect HTTP to HTTPS</a><a class="headerlink" href="#redirect-http-to-https" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic" start="39">
+<li><p class="first">In the left-hand navigation tree, expand the server node, expand <strong>Sites</strong> and select <strong>Default Web Site</strong>.</p>
+</li>
+<li><p class="first">Double-click to open the Url Rewrite feature.</p>
+</li>
+<li><p class="first">In the actions-pane (far-right), select <strong>Add Rule(s)..</strong></p>
+</li>
+<li><p class="first">Under the <strong>Inbound Rules</strong> section, select <strong>Blank rule</strong> and press OK.</p>
+</li>
+<li><p class="first">Populate the fields in the rule to match the screenshot below</p>
+<img alt="../_images/windows_6_http_to_https_redirect.png" src="../_images/windows_6_http_to_https_redirect.png" />
+</li>
+<li><p class="first">Press <strong>Apply</strong> and then press <strong>Back to Rules</strong>.</p>
+</li>
+<li><p class="first">Ensure that the <strong>HTTP to HTTPS Redirect</strong> rule is at the top of the list of inbound rules.  If nceessary, you can select a rule and use the <strong>Move Up</strong> and <strong>Move Down</strong> actions to reorganize.</p>
+</li>
+<li><p class="first">On a client workstation, open your favorite browser and navigate to <cite>http://mattermost.example.com</cite> and confirm that you are redirected to <cite>https://mattermost.example.com</cite>.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="finish-mattermost-server-setup">
+<h2><a class="toc-backref" href="#contents">Finish Mattermost Server Setup</a><a class="headerlink" href="#finish-mattermost-server-setup" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Navigate to <code class="docutils literal"><span class="pre">https://mattermost.example.com</span></code> and create a user and team.</p>
+</li>
+<li><p class="first">The first user in the system is automatically granted the
+<code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</p>
+</li>
+<li><p class="first">From the <code class="docutils literal"><span class="pre">town-square</span></code> channel click the dropdown next to your team name and choose the
+<code class="docutils literal"><span class="pre">System</span> <span class="pre">Console</span></code> option</p>
+</li>
+<li><p class="first">Update <strong>General</strong> &gt; <strong>Configuration</strong> settings to properly configure your reverse proxy by entering <cite>https://mattermost.example.com</cite> as the <strong>Site URL</strong></p>
+<div class="admonition attention">
+<p class="first admonition-title">Attention</p>
+<p class="last">Failure to properly set the Site URL properly __will__ result in unexpected behavior.</p>
+</div>
+</li>
+<li><p class="first">Update <strong>Notification</strong> &gt; <strong>Email</strong> settings to setup an SMTP email service. The example below assumes AmazonSES.</p>
+<ol class="loweralpha simple">
+<li>Set <strong>Send Email Notifications</strong> to true</li>
+<li>Set <strong>Require Email Verification</strong> to true</li>
+<li>Set <strong>Feedback Name</strong> to <code class="docutils literal"><span class="pre">No-Reply</span></code></li>
+<li>Set <strong>Feedback Email</strong> to <code class="docutils literal"><span class="pre">mattermost&#64;example.com</span></code></li>
+<li>Set <strong>SMTP Username</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_USERNAME]</span></code></li>
+<li>Set <strong>SMTP Password</strong> to <code class="docutils literal"><span class="pre">[YOUR_SMTP_PASSWORD]</span></code></li>
+<li>Set <strong>SMTP Server</strong> to <code class="docutils literal"><span class="pre">email-smtp.us-east-1.amazonaws.com</span></code></li>
+<li>Set <strong>SMTP Port</strong> to <code class="docutils literal"><span class="pre">465</span></code></li>
+<li>Set <strong>Connection Security</strong> to <code class="docutils literal"><span class="pre">TLS</span></code></li>
+<li>Save the Settings</li>
+</ol>
+</li>
+<li><p class="first">Update <strong>File</strong> &gt; <strong>Storage</strong> settings:</p>
+<ul class="simple">
+<li>Change <strong>Local Directory Location</strong> from <code class="docutils literal"><span class="pre">./data/</span></code> to
+<code class="docutils literal"><span class="pre">/mattermost/data</span></code></li>
+</ul>
+</li>
+<li><p class="first">Update <strong>General</strong> &gt; <strong>Logging</strong> settings:</p>
+<ul class="simple">
+<li>Set <strong>Log to The Console</strong> to <code class="docutils literal"><span class="pre">false</span></code></li>
+</ul>
+</li>
+<li><p class="first">Update <strong>Advanced</strong> &gt; <strong>Rate Limiting</strong> settings:</p>
+<ul class="simple">
+<li>Set <strong>Vary By Remote Address</strong> to false</li>
+<li>Set <strong>Vary By HTTP Header</strong> to X-Real-IP</li>
+</ul>
+</li>
+<li><p class="first">Feel free to modify other settings.</p>
+</li>
+<li><p class="first">Login to the Mattermost server (10.0.0.2) and restart the Mattermost Service by typing the following into a command line</p>
+</li>
+</ol>
+<blockquote>
+<div><div class="code batch highlight-default"><div class="highlight"><pre><span></span><span class="n">net</span> <span class="n">stop</span> <span class="n">mattermost</span>
+<span class="n">net</span> <span class="n">start</span> <span class="n">mattermost</span>
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../deployment/webrtc.html" class="btn btn-neutral float-right" title="Video and Audio Calling (Beta)" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../developer/localization-process.html" class="btn btn-neutral" title="Localization" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/prod-windows-2012.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

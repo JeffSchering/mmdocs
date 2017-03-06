@@ -1,0 +1,502 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Software &amp; Hardware Requirements &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Local Machine Setup using Docker" href="docker-local-machine.html"/>
+        <link rel="prev" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#install-guides">Install Guides</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Software &amp; Hardware Requirements</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#deployment-overview">Deployment Overview</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#software-requirements">Software Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hardware-requirements">Hardware Requirements</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-1404.html">Production Install on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-ubuntu-16.04.html">Production Install on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-rhel-6.html">Production Install on RHEL 6.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-rhel-7.html">Production Install on RHEL 7.1+</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Production Install on Debian Jessie</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="setup-tls.html">TLS Setup on Mattermost Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Software &amp; Hardware Requirements</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/install/requirements.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="software-hardware-requirements">
+<span id="requirements"></span><h1><a class="toc-backref" href="#contents">Software &amp; Hardware Requirements</a><a class="headerlink" href="#software-hardware-requirements" title="Permalink to this headline">¶</a></h1>
+<p>This guide outlines minimum software and hardware requirements for deploying Mattermost. Requirements may vary based on utilization and observing performance of pilot projects is recommended prior to scale out.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#software-hardware-requirements" id="id1">Software &amp; Hardware Requirements</a><ul>
+<li><a class="reference internal" href="#deployment-overview" id="id2">Deployment Overview</a></li>
+<li><a class="reference internal" href="#software-requirements" id="id3">Software Requirements</a><ul>
+<li><a class="reference internal" href="#client-software" id="id4">Client Software</a><ul>
+<li><a class="reference internal" href="#pc-web-experience" id="id5">PC Web Experience</a></li>
+<li><a class="reference internal" href="#mobile-app-experience" id="id6">Mobile App Experience</a></li>
+<li><a class="reference internal" href="#mobile-web-experience" id="id7">Mobile Web Experience</a></li>
+<li><a class="reference internal" href="#email-client" id="id8">Email Client</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#server-software" id="id9">Server Software</a><ul>
+<li><a class="reference internal" href="#mattermost-server-operating-system" id="id10">Mattermost Server Operating System</a></li>
+<li><a class="reference internal" href="#database-software" id="id11">Database Software</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#hardware-requirements" id="id12">Hardware Requirements</a><ul>
+<li><a class="reference internal" href="#hardware-sizing-for-team-deployments" id="id13">Hardware Sizing for Team Deployments</a></li>
+<li><a class="reference internal" href="#hardware-sizing-for-enterprise-deployments-multi-server" id="id14">Hardware Sizing for Enterprise Deployments (Multi-Server)</a></li>
+<li><a class="reference internal" href="#alternate-storage-calculations" id="id15">Alternate Storage Calculations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="deployment-overview">
+<h2><a class="toc-backref" href="#contents">Deployment Overview</a><a class="headerlink" href="#deployment-overview" title="Permalink to this headline">¶</a></h2>
+<p>Please see <a class="reference external" href="http://docs.mattermost.com/deployment/deployment.html">Mattermost Deployment Overview</a> for a summary of software systems who&#8217;s requirements are described in this document.</p>
+<div class="figure">
+<img alt="image" src="../_images/network1.PNG" />
+</div>
+<p><a class="reference external" href="https://github.com/mattermost/docs/blob/master/source/images/network.PNG">View Mattermost Network Diagram</a></p>
+</div>
+<div class="section" id="software-requirements">
+<h2><a class="toc-backref" href="#contents">Software Requirements</a><a class="headerlink" href="#software-requirements" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="client-software">
+<h3><a class="toc-backref" href="#contents">Client Software</a><a class="headerlink" href="#client-software" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="pc-web-experience">
+<h4><a class="toc-backref" href="#contents">PC Web Experience</a><a class="headerlink" href="#pc-web-experience" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>PC: Windows 7, Windows 8, Windows 10 with (IE 11*, Chrome 43+, Firefox 38+, and Edge)</li>
+<li>Mac: OS 10 (Safari 9, Chrome 43+)</li>
+<li>Linux: Arch 4.0.0 (Chrome 43+)</li>
+</ul>
+<p><cite>*</cite> IE 11 Compatiblity View is not supported.</p>
+</div>
+<div class="section" id="mobile-app-experience">
+<h4><a class="toc-backref" href="#contents">Mobile App Experience</a><a class="headerlink" href="#mobile-app-experience" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>iPhone 4s and later with iOS 9+</li>
+<li>Android devices with Android 4.4+</li>
+</ul>
+</div>
+<div class="section" id="mobile-web-experience">
+<h4><a class="toc-backref" href="#contents">Mobile Web Experience</a><a class="headerlink" href="#mobile-web-experience" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>iPhone 4s and higher (Safari on iOS 9+, Chrome 43+)</li>
+<li>Android 5 and higher (Chrome 43+)</li>
+</ul>
+</div>
+<div class="section" id="email-client">
+<h4><a class="toc-backref" href="#contents">Email Client</a><a class="headerlink" href="#email-client" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li><em>Desktop clients:</em> Outlook 2010+, Apple Mail version 7+, Thunderbird 38.2+</li>
+<li><em>Web based clients:</em> Office 365, Outlook, Gmail, Yahoo, AOL</li>
+<li><em>Mobile clients:</em> iOS Mail App (iOS 7+), Gmail Mobile App (Android, iOS)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="server-software">
+<h3><a class="toc-backref" href="#contents">Server Software</a><a class="headerlink" href="#server-software" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="mattermost-server-operating-system">
+<h4><a class="toc-backref" href="#contents">Mattermost Server Operating System</a><a class="headerlink" href="#mattermost-server-operating-system" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Ubuntu 14.04, Debian Jessie, CentOS 6.6+, CentOS 7.1+, RedHat Enterprise Linux 6.6+, RedHat Enterprise Linux 7.1+, Oracle Linux 6.6+, Oracle Linux 7.1+</li>
+</ul>
+<p>The Mattermost roadmap does not currently include production support for Fedora, FreeBSD or Arch Linux.</p>
+</div>
+<div class="section" id="database-software">
+<h4><a class="toc-backref" href="#contents">Database Software</a><a class="headerlink" href="#database-software" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>MySQL 5.6+</li>
+<li>PostgreSQL 9.4+</li>
+</ul>
+<p>Deployments requiring searching in Chinese, Japanese and Korean languages require MySQL 5.7.6+ and the configuration of <a class="reference external" href="https://dev.mysql.com/doc/refman/5.7/en/fulltext-search-ngram.html">ngram Full-Text parser</a>. For searching two characters, you will also need to set <code class="docutils literal"><span class="pre">ft_min_word_len</span></code> and <code class="docutils literal"><span class="pre">innodb_ft_min_token_size</span></code> to <code class="docutils literal"><span class="pre">2</span></code> and restart MySQL. See <a class="reference external" href="https://github.com/mattermost/platform/issues/2033#issuecomment-183872616">CJK discussion</a> for details.</p>
+</div>
+</div>
+</div>
+<div class="section" id="hardware-requirements">
+<h2><a class="toc-backref" href="#contents">Hardware Requirements</a><a class="headerlink" href="#hardware-requirements" title="Permalink to this headline">¶</a></h2>
+<p>Usage of CPU, RAM and storage space can vary significantly based on user behavior. For deployments larger than 500 users, it&#8217;s highly recommended usage patterns in a small pilot deployment representative of your large organization is observed before rolling out the full scale service.</p>
+<div class="section" id="hardware-sizing-for-team-deployments">
+<h3><a class="toc-backref" href="#contents">Hardware Sizing for Team Deployments</a><a class="headerlink" href="#hardware-sizing-for-team-deployments" title="Permalink to this headline">¶</a></h3>
+<p>Most small to medium Mattermost team deployments can be supported on a single server with the following specifications based on registered users:</p>
+<ul class="simple">
+<li>250-500 users - 2 vCPUs/cores, 4 GB RAM, and 45-90 GB storage</li>
+<li>500-1,000 users - 4 vCPUs/cores, 8 GB RAM, and 90-180 GB storage</li>
+<li>1,000-2,000 users - 4-8 vCPUs/cores, 16-32 GB RAM, and 180-360 GB storage</li>
+</ul>
+<p>Notes:</p>
+<ol class="arabic simple">
+<li>Larger deployments should estimate utilization based on pilots representative of full scale usage.</li>
+<li>Storage recommendation is based on storing 3 years of archives with moderate file sharing.</li>
+<li>Solid state drives (SSD) can be used in place of disk storage for higher concurrency.</li>
+<li>Team deployments assume registered users are divided into teams of 10-100.</li>
+</ol>
+</div>
+<div class="section" id="hardware-sizing-for-enterprise-deployments-multi-server">
+<h3><a class="toc-backref" href="#contents">Hardware Sizing for Enterprise Deployments (Multi-Server)</a><a class="headerlink" href="#hardware-sizing-for-enterprise-deployments-multi-server" title="Permalink to this headline">¶</a></h3>
+<p>Mattermost can also be configured with a redundant, highly available, highly scalable mode to support large organizations. The following is an example that can be scaled up or down in size:</p>
+<p>For enterprise deployments of 10,000-20,000 registered users with moderate usage and a peak of 2,000-4,000 concurrent users, the following hardware deployment configurations are recommended:</p>
+<p><strong>Proxy Server</strong></p>
+<ul class="simple">
+<li>One server with 4-8 vCPUs/cores, 16-32 GB RAM, minimum 4 GB SSD storage</li>
+<li>(Optional) Add one additional identical server for high availability mode, where one Mattermost server can be disabled or upgraded without interrupting service quality. Second server should be sized to carry the full load of the first server so performance does not degrade when the first server is taken offline.</li>
+</ul>
+<p><strong>Mattermost Server</strong> (1 to 2 depending on level of redundancy and high availability required)</p>
+<ul class="simple">
+<li>One server with 4-8 vCPUs/cores, 16-32 GB RAM, minimum 4 GB SSD storage</li>
+<li>(Optional) Add one additional identical server for high availability mode, where one Mattermost server can be disabled or upgraded without interrupting service quality. Second server should be sized to carry the full load of the first server so performance does not degrade when the first server is taken offline. Note: The high availability option is available only by <a class="reference external" href="https://about.mattermost.com/contact/">contacting the Enterprise Edition team</a>.</li>
+</ul>
+<p><strong>Network Attached Storage</strong></p>
+<ul class="simple">
+<li>One NAS server with 4-8 TB of storage (based on moderate storage of 10 MB per user per month times 20,000 users times 3 years of history, times 2x safety factor) or sized appropriately for your desired usage requirements. For high availability it is recommended you select a NAS server offering redundancy.</li>
+</ul>
+<p><strong>Database Server</strong> (2 recommended for redundancy)</p>
+<ul class="simple">
+<li>One database server with 8-16 vCPUs/cores, 16-32 GB memory, minimum 100 GB SSD storage</li>
+<li>(Recommended) Add one identical database server to setup a Master-Slave configuration where the master can failover to slave with minimal disruption to service.</li>
+</ul>
+<p><strong>Notes:</strong></p>
+<ul class="simple">
+<li>Regular hard drives can be used in place of solid-state hard drives if having top performance is not a priority. If using a mix of HDD and SSD drives, the greatest performance gain would come from using SSD in the database server.</li>
+</ul>
+</div>
+<div class="section" id="alternate-storage-calculations">
+<h3><a class="toc-backref" href="#contents">Alternate Storage Calculations</a><a class="headerlink" href="#alternate-storage-calculations" title="Permalink to this headline">¶</a></h3>
+<p>As an alternative to recommended storage sizing above, you can forecast your own storage usuage. Begin with a Mattermost server approximately 600 MB to 800 MB in size including operating system and database, then add the multiplied product of:</p>
+<ul class="simple">
+<li>Estimated storage per user per month (see below), multipled by 12 months in a year</li>
+<li>Estimated mean average number of users in a year</li>
+<li>A 1-2x safety factor</li>
+</ul>
+<p><strong>Estimated storage per user per month</strong></p>
+<p>File usage per user varies significantly across industries. The below benchmarks are recommended:</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt><strong>Low usage teams</strong> (1-5 MB/user/month)</dt>
+<dd><ul class="first last">
+<li>Primarily use text-messages and links to communicate. Examples would include software development teams that heavily use web-based document creation and management tools, and therefore rarely upload files to the server.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>Medium usage teams</strong> (5-25 MB/user/month)</dt>
+<dd><ul class="first last">
+<li>Use a mix of text-messages as well as shared documents and images to communicate. Examples might include business teams that may commonly drag and drop screenshots, PDFs and Microsoft Office documents into Mattermost for sharing and review.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><strong>High usage teams</strong> - (25-100 MB/user/month)</dt>
+<dd><ul class="first last">
+<li>Heaviest utlization comes from teams uploading a high number of large files into Mattermost on a regular basis. Examples include creative teams who share and store artwork and media with tags and commentary in a pipeline production process.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p><em>Example:</em> A 30-person team with medium usage (5-25 MB/user/month) with a safety factor of 2x would require between 300 MB (30 users * 5 MB * 2x safety factor) and 1500 MB (30 users * 25 MB * 2x safety factor) of free space in the next year.</p>
+<p>It&#8217;s recommended to review storage utilization at least quarterly to ensure adequate free space is available.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="docker-local-machine.html" class="btn btn-neutral float-right" title="Local Machine Setup using Docker" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../guides/administrator.html" class="btn btn-neutral" title="Mattermost Administrator’s Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/requirements.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

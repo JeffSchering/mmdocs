@@ -1,0 +1,530 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Using Mattermost Desktop App &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Sending Messages" href="../messaging/sending-messages.html"/>
+        <link rel="prev" title="Organizing Mattermost" href="../getting-started/organizing.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/signing-in.html">Signing in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/messaging-basics.html">Messaging Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/configuring-notifications.html">Configuring Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/organizing-conversations.html">Organizing Conversations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/searching.html">Searching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/creating-teams.html">Creating Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/managing-members.html">Managing Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../getting-started/organizing.html">Organizing Mattermost</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Using Mattermost Desktop App</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Team Management</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id2">App Options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id3">Menu Bar</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Troubleshooting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Using Mattermost Desktop App</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/apps/desktop-guide.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="using-mattermost-desktop-app">
+<h1>Using Mattermost Desktop App<a class="headerlink" href="#using-mattermost-desktop-app" title="Permalink to this headline">¶</a></h1>
+<p>Mattermost desktop applications are available for Windows, Mac and Linux operating systems.</p>
+<p>You can <a class="reference external" href="https://about.mattermost.com/downloads/">download the apps directly from our download page</a> and visit our <a class="reference external" href="https://docs.mattermost.com/install/desktop.html">installation guides</a> for help during set up.</p>
+<p>To view the latest updates, please see our <a class="reference external" href="https://docs.mattermost.com/help/apps/desktop-changelog.html">changelog</a>.</p>
+<p>Below are a few tips to get you started and configuring your experience on the desktop app:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/help/apps/desktop-guide.html#id1">Team Management</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/help/apps/desktop-guide.html#id2">App Options</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/help/apps/desktop-guide.html#id3">Menu Bar</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/help/apps/desktop-guide.html#id4">Troubleshooting</a></li>
+</ul>
+</div></blockquote>
+<div class="section" id="id1">
+<h2>Team Management<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>You can connect to multiple Mattermost servers from a single interface on the desktop app.</p>
+<p>Team Management appears in the Settings page, available from the <cite>File</cite> menu under <cite>Settings</cite>.</p>
+<div class="section" id="adding-servers-and-teams">
+<h3>Adding servers and teams<a class="headerlink" href="#adding-servers-and-teams" title="Permalink to this headline">¶</a></h3>
+<p>To add a new server on the Mattermost instance,</p>
+<ol class="arabic simple">
+<li>Click <strong>Add new team</strong> next to the right of Team Management section.</li>
+<li>Enter <strong>Name</strong> and a valid <strong>URL</strong>, which begins with either <code class="docutils literal"><span class="pre">http://</span></code> or <code class="docutils literal"><span class="pre">https://</span></code>.</li>
+<li>Click <strong>Add</strong>.</li>
+</ol>
+<p>You can now access all teams you have joined in the server once you have saved the settings, and each will appear as a separate tab in the app.</p>
+<p>You may also add each team separately, if you&#8217;d like.</p>
+</div>
+<div class="section" id="editing-servers-and-teams">
+<h3>Editing servers and teams<a class="headerlink" href="#editing-servers-and-teams" title="Permalink to this headline">¶</a></h3>
+<p>To edit a server,</p>
+<ol class="arabic simple">
+<li>To the right of the team or server you want update, click <strong>Edit</strong>.</li>
+<li>Edit <strong>Name</strong> and/or <strong>URL</strong>.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+</div>
+<div class="section" id="removing-servers-and-teams">
+<h3>Removing servers and teams<a class="headerlink" href="#removing-servers-and-teams" title="Permalink to this headline">¶</a></h3>
+<p>To remove a server from your desktop app environment, click on <strong>Remove</strong> next to the server or a team you want removed.</p>
+</div>
+</div>
+<div class="section" id="id2">
+<h2>App Options<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<p>In addition to <a class="reference external" href="https://docs.mattermost.com/help/settings/account-settings.html">Mattermost Account Settings</a> , the desktop app provides additional options to customize your experience.</p>
+<p>The options appear in the Settings page, available from the <cite>File</cite> menu under <cite>Settings</cite>.</p>
+<p>A description of each setting is included below this table.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="49%" />
+<col width="17%" />
+<col width="17%" />
+<col width="17%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Setting</th>
+<th class="head">Windows</th>
+<th class="head">Mac</th>
+<th class="head">Linux</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Allow mixed content</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Show red badge on taskbar icon to indicate unread messages</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Flash taskbar icon when a new message is received</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Start app on login</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+</tr>
+<tr class="row-even"><td>Hide menu bar</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Toggle window visibility when clicking on the tray icon</td>
+<td>Yes</td>
+<td>&nbsp;</td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Show icon on menu bar</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr class="row-odd"><td>Leave app running in notification center when application window is closed</td>
+<td>&nbsp;</td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+</tbody>
+</table>
+<div class="section" id="allow-mixed-content">
+<h3>Allow mixed content<a class="headerlink" href="#allow-mixed-content" title="Permalink to this headline">¶</a></h3>
+<p>If your server is hosted on <code class="docutils literal"><span class="pre">https://</span></code>, insecure content, images and scripts with <code class="docutils literal"><span class="pre">http://</span></code> are not rendered by default. This option allows such content to be rendered. If you do enable it, please be mindful of potential security risks shared over <code class="docutils literal"><span class="pre">http://</span></code> protocols.</p>
+<p>This setting is on by default.</p>
+<p>Note: Enabling mixed content will disable YouTube video previews <a class="reference external" href="https://github.com/electron/electron/issues/2749">due to an issue in the underlying technology</a> used by the Mattermost Desktop app.</p>
+</div>
+<div class="section" id="show-red-badge-on-taskbar-icon-to-indicate-unread-messages-windows-mac-only">
+<h3>Show red badge on taskbar icon to indicate unread messages (Windows, Mac only)<a class="headerlink" href="#show-red-badge-on-taskbar-icon-to-indicate-unread-messages-windows-mac-only" title="Permalink to this headline">¶</a></h3>
+<p>When enabled, a red badge is shown on the taskbar icon for unread messages with a number count indicating unread mentions. If disabled, a red badge is only shown for unread mentions (with a number count).</p>
+<p>This setting is on by default.</p>
+</div>
+<div class="section" id="flash-taskbar-icon-when-a-new-message-is-received-windows-linux-only">
+<h3>Flash taskbar icon when a new message is received (Windows, Linux only)<a class="headerlink" href="#flash-taskbar-icon-when-a-new-message-is-received-windows-linux-only" title="Permalink to this headline">¶</a></h3>
+<p>Configure whether the taskbar icon flashes when a new message is received on any of your active teams and servers.</p>
+<p>This setting is off by default.</p>
+</div>
+<div class="section" id="start-app-on-login-windows-linux-only">
+<h3>Start app on login (Windows, Linux only)<a class="headerlink" href="#start-app-on-login-windows-linux-only" title="Permalink to this headline">¶</a></h3>
+<p>When enabled, Mattermost application starts when you log in to your machine.</p>
+<p>This setting is on by default.</p>
+</div>
+<div class="section" id="hide-menu-bar-windows-linux-only">
+<h3>Hide menu bar (Windows, Linux only)<a class="headerlink" href="#hide-menu-bar-windows-linux-only" title="Permalink to this headline">¶</a></h3>
+<p>Hides the menu bar. When enabled, pressing ALT will toggle whether the menu bar is shown or hidden.</p>
+<p>This setting is off by default.</p>
+</div>
+<div class="section" id="toggle-window-visibility-when-clicking-on-the-tray-icon-windows-only">
+<h3>Toggle window visibility when clicking on the tray icon (Windows only)<a class="headerlink" href="#toggle-window-visibility-when-clicking-on-the-tray-icon-windows-only" title="Permalink to this headline">¶</a></h3>
+<p>When enabled, clicking on the system tray icon allows you to toggle the window open and minimized.</p>
+<p>This setting is off by default.</p>
+</div>
+<div class="section" id="show-icon-on-menu-bar-mac-linux-only">
+<h3>Show icon on Menu Bar (Mac, Linux only)<a class="headerlink" href="#show-icon-on-menu-bar-mac-linux-only" title="Permalink to this headline">¶</a></h3>
+<p>When enabled, a red dot with a count of unread mentions is displayed on the team tab bar.</p>
+<p>This setting is off by default.</p>
+</div>
+<div class="section" id="leave-app-running-in-notification-center-when-application-window-is-closed-mac-linux-only">
+<h3>Leave app running in notification center when application window is closed (Mac, Linux only)<a class="headerlink" href="#leave-app-running-in-notification-center-when-application-window-is-closed-mac-linux-only" title="Permalink to this headline">¶</a></h3>
+<p>When enabled, closing the application window will leave the Mattermost desktop app running in your notification center. This can be useful if you’d like to check for unread mentions while away from the app.</p>
+<p>This setting is off by default.</p>
+</div>
+</div>
+<div class="section" id="id3">
+<h2>Menu Bar<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<p>The desktop app contains a menu bar with additional features and shortcuts to streamline your experience.</p>
+<p>If the menu bar is hidden, you may use the ALT key to display the menu. To have the menu displayed at all times, go to the Settings page and uncheck the <strong>Hide menu bar</strong> setting.</p>
+<p>Below is a list of menu options with the corresponding keyboard shortcuts. For Mac, replace CTRL by CMD unless otherwise specified.</p>
+<p><strong>File</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Settings (CTRL+COMMA): Opens app settings where you can manage your servers and configure desktop app settings</li>
+<li>Exit (CTRL+Q): Closes the application. Labeled <strong>Quit</strong> on Mac</li>
+</ul>
+</div></blockquote>
+<p><strong>Edit</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Undo (CTRL+Z): Reverses previous action</li>
+<li>Redo (CTRL+SHIFT+Z; CTRL+Y): Redoes the most recent action</li>
+<li>Cut (CTRL+X): Cuts selected text</li>
+<li>Copy (CTRL+C): Copies selected text</li>
+<li>Paste (CTRL+V): Pastes text from the clipboard</li>
+<li>Select All (CTRL+A): Selects all text in input box</li>
+<li>Search in Team (CTRL+S): Sets focus on the Mattermost search box</li>
+</ul>
+</div></blockquote>
+<p><strong>View</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Reload (CTRL+R): Reloads the current page</li>
+<li>Clear Cache and Reload (CTRL+SHIFT+R): Clears cached content in application and reloads the current page</li>
+<li>Toggle Full Screen (F11): Toggles the application window full screen mode</li>
+<li>Actual Size (CTRL+0) - Resets zoom level to default</li>
+<li>Zoom In (CTRL+=; CTRL+SHIFT+=) - Increase font size (zoom in)</li>
+<li>Zoom In (CTRL+MINUS) - Decrease font size (zoom out)</li>
+<li>Toggle Developer Tools (CTRL+SHIFT+I): Toggles sidebar showing developer tools</li>
+</ul>
+</div></blockquote>
+<p><strong>History</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Back (ALT+Left Arrow; CMD+[ on Mac): Go to previous page in history</li>
+<li>Forward (ALT+Right Arrow; CMD+] on Mac): Go to next page in history</li>
+</ul>
+</div></blockquote>
+<p><strong>Window</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Close (CTRL+W) - Closes the application window</li>
+<li>Minimize (CTRL+M) - Minimizes the application window to the taskbar</li>
+<li>Team Name (CTRL+{1-9}) - Opens the n-th tab</li>
+<li>Select Next Team (CTRL+TAB; ALT+CMD+Right Arrow on Mac) - Opens the next tab</li>
+<li>Select Previous Team (CTRL+SHIFT+TAB; ALT+CMD+Left Arrow on Mac) - Open the previous tab</li>
+</ul>
+</div></blockquote>
+<p><strong>Help</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>Learn More - Links to <a class="reference external" href="https://docs.mattermost.com/help/apps/desktop-guide.html">Desktop Application’s User Guide</a> .</li>
+<li>Version - Indicates the desktop application version in use</li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="id4">
+<h2>Troubleshooting<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
+<p>Possible solutions to issues encountered when using the Desktop App.</p>
+<div class="section" id="desktop-app-window-is-black-and-doesn-t-load-the-page">
+<h3>Desktop App window is black and doesn&#8217;t load the page<a class="headerlink" href="#desktop-app-window-is-black-and-doesn-t-load-the-page" title="Permalink to this headline">¶</a></h3>
+<p>If you are using a special video driver such as Optimus, try disabling it to see if the problem is resolved.</p>
+<p>Otherwise, try disabling GPU hardware acceleration by using the <a class="reference external" href="http://peter.sh/experiments/chromium-command-line-switches/#disable-gpu">&#8211;disable-gpu</a> Chromium command line switch.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../messaging/sending-messages.html" class="btn btn-neutral float-right" title="Sending Messages" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../getting-started/organizing.html" class="btn btn-neutral" title="Organizing Mattermost" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/apps/desktop-guide.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

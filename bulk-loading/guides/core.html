@@ -1,0 +1,441 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Core Team Handbook &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="next" title="Development Process Overview" href="../process/overview.html"/>
+        <link rel="prev" title="Video and Audio Calling (Beta)" href="../deployment/webrtc.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Core Team Handbook</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#development-process">Development Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/overview.html">Development Process Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/release-process.html">Release Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/accepting-pull-request.html">Accepting Pull Requests</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/community-systems.html">Bugs, Feature Ideas, Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/documentation-guidelines.html">Documentation Conventions</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/marketing-guidelines.html">Mattermost Community Content Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#documentation-style-guide">Documentation Style Guide</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html">Documentation Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#joining-the-team">Joining the Team</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/handbook.html">About Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/working-at-mattermost.html">Working at Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/security.html">Security Policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/training.html">Onboarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/people-ops.html">People Ops</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Core Team Handbook</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/guides/core.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="core-team-handbook">
+<h1>Core Team Handbook<a class="headerlink" href="#core-team-handbook" title="Permalink to this headline">¶</a></h1>
+<p>This handbook is a guide to working at Mattermost. Please consider it&#8211;along with all our documentation&#8211;as a work-in-progress and constantly updating to best achieve our shared mission.</p>
+<div class="section" id="development-process">
+<h2>Development Process<a class="headerlink" href="#development-process" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../process/overview.html">Development Process Overview</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/overview.html#purpose">Purpose</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/overview.html#community-systems">Community Systems</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/overview.html#tickets">Tickets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/overview.html#pull-requests">Pull Requests</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/overview.html#release">Release</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/release-process.html">Release Process</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/release-process.html#release-timeline">Release Timeline</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/release-process.html#templates">Templates</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/release-process.html#release-numbering">Release Numbering</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/accepting-pull-request.html">Accepting Pull Requests</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/accepting-pull-request.html#nominating-changes-for-accepting-pull-request-status">Nominating changes for Accepting Pull Request status</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/community-systems.html">Bugs, Feature Ideas, Troubleshooting</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/community-systems.html#how-improvements-are-made-to-mattermost">How improvements are made to Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/community-systems.html#drafting-a-ticket-for-new-features">Drafting a Ticket for New Features</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/community-systems.html#github-issues-workflow">GitHub Issues Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/documentation-guidelines.html">Documentation Conventions</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/documentation-guidelines.html#star-requirements-correctness">1-Star Requirements: Correctness</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/documentation-guidelines.html#star-requirements-objective-formatting-checklist">2-Star Requirements: Objective Formatting Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/documentation-guidelines.html#star-requirements-subjective-style-guidelines">3-Star Requirements: Subjective Style Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/marketing-guidelines.html">Mattermost Community Content Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/marketing-guidelines.html#how-to-write-purposefully-and-persuasively">How to write purposefully and persuasively</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/marketing-guidelines.html#guidelines-for-twitter-accounts">Guidelines for Twitter accounts</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="documentation-style-guide">
+<h2>Documentation Style Guide<a class="headerlink" href="#documentation-style-guide" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../process/mattermost-doc-style.html">Documentation Guidelines</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/mattermost-doc-style.html#document-structure">Document structure</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#document-title">Document title</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#introductory-paragraph">Introductory paragraph</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#document-sections">Document sections</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/mattermost-doc-style.html#grammar-spelling-and-mechanics">Grammar, spelling, and mechanics</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#language-and-spelling">Language and spelling</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#paragraphs-and-sentences">Paragraphs and sentences</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#commas">Commas</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#tone">Tone</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#capitalization">Capitalization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#voice">Voice</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#person">Person</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#numbers">Numbers</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#text-highlighting">Text highlighting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#verb-tense">Verb tense</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#bullet-lists">Bullet lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#numbered-lists-and-procedures">Numbered lists and procedures</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#linking-to-other-documents">Linking to other documents</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../process/mattermost-doc-style.html#using-restructuredtext-markup">Using reStructuredText Markup</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#page-titles">Page titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#section-titles">Section titles</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#inline-markup">Inline markup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#arbitrary-text-label">Bullet lists</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#numbered-lists-and-procedure-steps">Numbered lists and procedure steps</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#links-to-external-web-pages">Links to external web pages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#links-to-targets-within-the-mattermost-docs">Links to targets within the Mattermost docs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#images">Images</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#literal-blocks">Literal blocks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../process/mattermost-doc-style.html#code-blocks-with-syntax-highlighting">Code blocks with syntax highlighting</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="joining-the-team">
+<h2>Joining the Team<a class="headerlink" href="#joining-the-team" title="Permalink to this headline">¶</a></h2>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../process/handbook.html">About Mattermost</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/handbook.html#mission">Mission</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/working-at-mattermost.html">Working at Mattermost</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/working-at-mattermost.html#working-remotely">Working Remotely</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/working-at-mattermost.html#paid-time-off">Paid Time Off</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/working-at-mattermost.html#benefits">Benefits</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/security.html">Security Policies</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/security.html#security-benefits-of-an-open-source-platform">Security benefits of an open source platform</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/security.html#mattermost-development-guidelines">Mattermost Development Guidelines</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/security.html#common-security-related-questions-for-enterprises">Common Security Related Questions for Enterprises</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/security.html#infrastructure-security-policies">Infrastructure Security Policies</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/security.html#business-continuity-plan">Business Continuity Plan</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/training.html">Onboarding</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/training.html#getting-started-checklist">Getting Started Checklist</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/training.html#meetings">Meetings</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/training.html#mindsets">Mindsets</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/training.html#terminology">Terminology</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/training.html#training">Training</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../process/people-ops.html">People Ops</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="../process/people-ops.html#office-address">Office Address</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/people-ops.html#letter-of-employment">Letter of Employment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../process/people-ops.html#regular-compensation">Regular Compensation</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p><strong>Credits:</strong> Our culture and process draws from the fantastic work of <a class="reference external" href="https://wordpress.org/about/philosophy/">Wordpress</a>, <a class="reference external" href="https://gitlab.com/gitlab-com/www-gitlab-com/tree/master/source/handbook">GitLab</a>, <a class="reference external" href="https://www.amazon.com/Creativity-Inc-Overcoming-Unseen-Inspiration/dp/0812993012">Pixar</a> and <a class="reference external" href="https://www.amazon.com/High-Output-Management-Andrew-Grove/dp/0679762884/ref=sr_1_1?s=books&amp;ie=UTF8&amp;qid=1481613210&amp;sr=1-1&amp;keywords=high+output+management">Intel</a> in different ways.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../process/overview.html" class="btn btn-neutral float-right" title="Development Process Overview" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../deployment/webrtc.html" class="btn btn-neutral" title="Video and Audio Calling (Beta)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/guides/core.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

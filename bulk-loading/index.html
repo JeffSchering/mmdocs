@@ -1,0 +1,384 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mattermost Documentation &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+
+  
+  
+    <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="genindex.html"/>
+        <link rel="search" title="Search" href="search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="#"/> 
+
+  
+  <script src="_static/js/modernizr.min.js"></script>
+
+  <style type="text/css">
+
+    .wy-nav-content {
+        max-width: none;
+    }
+
+    .wy-nav-content .document {
+        max-width: none;
+    }
+
+    .wy-nav-content-wrap {
+        margin-left: 0px;
+    }
+
+  </style>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+  
+   
+   
+
+  <div class="wy-grid-for-nav">
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">Mattermost</a>
+        
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+
+    <style type="text/css">
+
+        .landing {
+            width: 100%;
+            max-width: 700px; /* Force to a maximum of 3 tiles wide */
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .landing .landing-title {
+            text-align:center;
+            font-size: 2em;
+            margin: .67em 0
+        }
+
+        .landing .landing-search {
+            overflow: hidden;
+            padding:20px;
+        }
+
+        .landing .landing-search input[type="text"] {
+            width: 640px;
+            border-style: none;
+            padding: 8px 12px;
+            font-size: 16px;
+            box-shadow: .5px 2px 4px 0 #bdbdbd;
+        }
+
+        @media screen and (max-width: 728px) {
+            .landing .landing-search input[type="text"] {
+                width: 420px;
+            }
+        }
+
+        @media screen and (max-width: 508px) {
+            .landing .landing-search {
+                display: none;
+            }
+        }
+
+        .tiles-flex {
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            align-items: center;
+            -ms-flex-line-pack: center;
+            align-content: center;
+            max-width: 700px; /* purely to stop the max width of tiles at 3 */
+        }
+
+        .tile {
+            /* looks */
+            border-top: 8px solid #343537;
+            background-color: #fff;
+            box-shadow: .5px 2px 4px 0 #bdbdbd;
+            /* sizing/boxing */
+            width: 200px;
+            height: 220px;
+            margin: 10px;
+            padding: 10px;
+            /* animation */
+            -webkit-transition: 250ms;
+            transition: 250ms;
+            -webkit-transform: translate3d(0,0,0);
+            transform: translate3d(0,0,0);
+            will-change: transform;
+            /* layout */
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: flex;
+            -webkit-box-orient: horizontal;
+            -webkit-box-direction: normal;
+            -ms-flex-direction: row;
+            flex-direction: row;
+            -ms-flex-wrap: wrap;
+            flex-wrap: wrap;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            justify-content: center;
+            -ms-flex-line-pack: stretch;
+            align-content: stretch;
+            -webkit-box-align: stretch;
+            -ms-flex-align: stretch;
+            align-items: stretch;
+        }
+
+        .tile:hover {
+            -webkit-transform: translate3d(0,-6px,0);
+            transform: translate3d(0,-6px,0)
+        }
+
+        .tile .tile-title {
+            /* looks */
+            font-size: 20px;
+            letter-spacing: .4px;
+            color: #676363;
+            /* sizing/boxing */
+            height: 89px;
+            width: 100%;
+            margin: 0px;
+            padding: 0px 20px;
+            /* layout */
+            display:-webkit-box;
+            display:-ms-flexbox;
+            display:flex;
+            -ms-flex-item-align: auto;
+            align-self: auto;
+            -webkit-box-orient:vertical;
+            -webkit-box-direction:normal;
+            -ms-flex-direction:column;
+            flex-direction:column;
+            -ms-flex-pack:distribute;
+            justify-content:space-around;
+        }
+
+        .tile .tile-divider {
+            height:2px;
+            width: 100%;
+            margin: 0 5px;
+            border: .5px solid #343537;
+            background-color: #343537;
+            -ms-flex-item-align: auto;
+            align-self: auto;
+        }
+
+        .tile .tile-description {
+            /* looks */
+            font-size: 14px;
+            letter-spacing: .2px;
+            line-height: 1.25;
+            color: #757575;
+            /* sizing/boxing */
+            height: 89px;
+            width: 100%;
+            margin: 0px;
+            /* layout */            
+            display:-webkit-box;
+            display:-ms-flexbox;
+            display:flex;
+            -ms-flex-item-align: auto;
+            align-self: auto;
+            -webkit-box-orient:vertical;
+            -webkit-box-direction:normal;
+            -ms-flex-direction:column;
+            flex-direction:column;
+            -ms-flex-pack:distribute;
+            justify-content:space-around;
+        }
+
+    </style>
+
+    <div class="landing">
+        <h1 class="landing-title">Mattermost Documentation</h1>
+        <div class="landing-search" role="search">
+            <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+        </div>
+        <div class="tiles-flex">
+            <a class="tile" href="overview/index.html">
+                <h2 class="tile-title">Overview</h2>
+                <div class="tile-divider"></div>
+                <p class="tile-description">Features, security, deployment & integration.</p>
+            </a>
+            <a class="tile" href="guides/user.html">
+                <h2 class="tile-title">User's Guide</h2>
+                <div class="tile-divider"></div>
+                <p class="tile-description">End user help and documentation</p>
+            </a>
+            <a class="tile" href="guides/administrator.html">
+                <h2 class="tile-title">Administrator's Guide</h2>
+                <div class="tile-divider"></div>
+                <p class="tile-description"> Installation, deployment & administration guides</p>
+            </a>
+            <a class="tile" href="guides/integration.html">
+                <h2 class="tile-title">Integration Guide</h2>
+                <div class="tile-divider"></div>
+                <p class="tile-description">Integrating other systems into messaging solution</p>
+            </a>
+            <a class="tile" href="guides/developer.html">
+                <h2 class="tile-title">Developer's Guide</h2>
+                <div class="tile-divider"></div>
+                <p class="tile-description">Contributing to the open source project</p>
+            </a>
+            <a class="tile" href="guides/core.html">
+                <h2 class="tile-title">Core Team Handbook</h2>
+                <div class="tile-divider"></div>
+                <p class="tile-description">Joining the Mattermost core team</p>
+            </a>
+        </div>
+    </div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'./',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="_static/jquery.js"></script>
+      <script type="text/javascript" src="_static/underscore.js"></script>
+      <script type="text/javascript" src="_static/doctools.js"></script>
+      <script type="text/javascript" src="_static/myscript.js"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+
+  
+    <header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+  
+
+</body>
+</html>

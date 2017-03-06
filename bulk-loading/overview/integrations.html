@@ -1,0 +1,391 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Integrations Overview &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Overview" href="index.html"/>
+        <link rel="next" title="Corporate Directory Integration" href="auth.html"/>
+        <link rel="prev" title="Deployment Overview" href="../deployment/deployment.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="product.html">Product Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deployment/deployment.html">Deployment Overview</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Integrations Overview</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#pre-configured-integrations">Pre-configured integrations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#open-source-self-hosted-integrations-private-and-public-cloud">Open source, self-hosted integrations (private and public cloud)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slack-compatible-webhooks-private-and-public-cloud">Slack-compatible webhooks (private and public cloud)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#app-integrations-using-zapier-public-cloud-only">700 app integrations using Zapier (public cloud only)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#self-hosted-bots-interfacing-to-other-systems-private-and-public-cloud">Self-hosted bots interfacing to other systems (private and public cloud)</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#custom-integrations">Custom Integrations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#command-line-interface-private-and-public-cloud">Command line interface (private and public cloud)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#custom-applications-using-apis-and-drivers-private-and-public-cloud">Custom applications using APIs and Drivers (private and public cloud)</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#slack-compatible-slash-commands-private-and-public-cloud">Slack-compatible Slash Commands (private and public cloud)</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="auth.html">Corporate Directory Integration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">Mattermost Overview</a> &raquo;</li>
+    
+    <li>Integrations Overview</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/overview/integrations.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="integrations-overview">
+<h1>Integrations Overview<a class="headerlink" href="#integrations-overview" title="Permalink to this headline">¶</a></h1>
+<p>Mattermost offers a host of options for connecting to systems on your private network as well as services hosted on hybrid and public clouds.</p>
+<p><strong>Pre-configured integrations options include:</strong></p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#open-source-self-hosted-integrations-private-and-public-cloud">Open source, self-hosted integrations (private and public cloud)</a></li>
+<li><a class="reference internal" href="#slack-compatible-webhooks-private-and-public-cloud">Slack-compatible webhooks (private and public cloud)</a></li>
+<li><a class="reference internal" href="#app-integrations-using-zapier-public-cloud-only">700 app integrations using Zapier (public cloud only)</a></li>
+<li><a class="reference internal" href="#self-hosted-bots-interfacing-to-other-systems-private-and-public-cloud">Self-hosted bots interfacing to other systems (private and public cloud)</a></li>
+</ol>
+<p><strong>Custom integrations options include:</strong></p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="#command-line-interface-private-and-public-cloud">Command line interface (private and public cloud)</a></li>
+<li><a class="reference internal" href="#custom-applications-using-apis-and-drivers-private-and-public-cloud">Custom applications using APIs and Drivers (private and public cloud)</a></li>
+<li><a class="reference internal" href="#slack-compatible-slash-commands-private-and-public-cloud">Slack-compatible Slash Commands (private and public cloud)</a></li>
+</ol>
+<div class="section" id="pre-configured-integrations">
+<h2>Pre-configured integrations<a class="headerlink" href="#pre-configured-integrations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="open-source-self-hosted-integrations-private-and-public-cloud">
+<h3>Open source, self-hosted integrations (private and public cloud)<a class="headerlink" href="#open-source-self-hosted-integrations-private-and-public-cloud" title="Permalink to this headline">¶</a></h3>
+<p>A wide array of open source self-hosted integrations are available from the community applications directory.</p>
+<p>Many of these use Mattermost incoming webhooks to deliver data into Mattermost from on-premises systems like Jira, Jenkins, GitLab and other popular products.</p>
+<ul class="simple">
+<li>Learn about <a class="reference external" href="https://www.mattermost.org/community-applications/">Mattermost open source apps and integrations</a></li>
+</ul>
+</div>
+<div class="section" id="slack-compatible-webhooks-private-and-public-cloud">
+<h3>Slack-compatible webhooks (private and public cloud)<a class="headerlink" href="#slack-compatible-webhooks-private-and-public-cloud" title="Permalink to this headline">¶</a></h3>
+<p>Mattermost webhooks are &#8220;Slack-compatible, not Slack limited&#8221;. In applications supporting Slack webhooks you can replace the Slack webhook URL with a Mattermost webhook URL and the integration will work.</p>
+<ul class="simple">
+<li>Learn about <a class="reference external" href="https://docs.mattermost.com/developer/webhooks-incoming.html">incoming Webhooks</a></li>
+<li>Learn about <a class="reference external" href="https://docs.mattermost.com/developer/webhooks-outgoing.html">Outgoing Webhooks</a></li>
+</ul>
+</div>
+<div class="section" id="app-integrations-using-zapier-public-cloud-only">
+<h3>700 app integrations using Zapier (public cloud only)<a class="headerlink" href="#app-integrations-using-zapier-public-cloud-only" title="Permalink to this headline">¶</a></h3>
+<p>Mattermost&#8217;s Zapier support enables you to connect to over 700 public cloud services, like Email, Gmail, GitHub, Jira, BitBucket and Confluence.</p>
+<ul class="simple">
+<li>Learn about <a class="reference external" href="https://docs.mattermost.com/integrations/zapier.html">Mattermost-Zapier integration</a></li>
+</ul>
+</div>
+<div class="section" id="self-hosted-bots-interfacing-to-other-systems-private-and-public-cloud">
+<h3>Self-hosted bots interfacing to other systems (private and public cloud)<a class="headerlink" href="#self-hosted-bots-interfacing-to-other-systems-private-and-public-cloud" title="Permalink to this headline">¶</a></h3>
+<p>You can deploy interactive bots with Mattermost to issue commands and receive responses through a centralized interface. The Hubot open source project, created by GitHub, Inc., is among the most popular of the bot options.</p>
+<ul class="simple">
+<li>Learn about <a class="reference external" href="https://www.npmjs.com/package/hubot-matteruser">Mattermost Hubot integration (hubot-matteruser on npm)</a></li>
+<li>Learn about <a class="reference external" href="https://www.mattermost.org/community-applications/#bots">all the open source community bots available</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="custom-integrations">
+<h2>Custom Integrations<a class="headerlink" href="#custom-integrations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="command-line-interface-private-and-public-cloud">
+<h3>Command line interface (private and public cloud)<a class="headerlink" href="#command-line-interface-private-and-public-cloud" title="Permalink to this headline">¶</a></h3>
+<p>You can send data into Mattermost real-time using command line tools by posting HTTP requests with JSON payloads into a Mattermost webhook. You can do this using <cite>curl</cite> or use an open source tool, like <a class="reference external" href="https://github.com/mtorromeo/mattersend">mattersend</a>, to create an integration.</p>
+<ul class="simple">
+<li>Learn about <a class="reference external" href="https://docs.mattermost.com/developer/webhooks-incoming.html">incoming Webhooks</a></li>
+<li>Learn about the <a class="reference external" href="https://github.com/mtorromeo/mattersend">mattersend CLI integration in Python</a></li>
+</ul>
+</div>
+<div class="section" id="custom-applications-using-apis-and-drivers-private-and-public-cloud">
+<h3>Custom applications using APIs and Drivers (private and public cloud)<a class="headerlink" href="#custom-applications-using-apis-and-drivers-private-and-public-cloud" title="Permalink to this headline">¶</a></h3>
+<p>Mattermost provides complete access to <a class="reference external" href="https://api.mattermost.com/">server APIs</a>, along with language specific drivers to integrate into your own applications. You can also draw from dozens of open source applications to build your own.</p>
+<ul class="simple">
+<li>Learn about <a class="reference external" href="https://api.mattermost.com/">Mattermost REST APIs</a></li>
+<li>Learn about <a class="reference external" href="https://docs.mattermost.com/developer/api.html">Mattermost drivers, webhooks and slash commands</a></li>
+<li>Learn about <a class="reference external" href="https://www.mattermost.org/community-applications/">Mattermost open source apps and integrations</a></li>
+<li>Learn about the <a class="reference external" href="https://github.com/mattermost/mattermost-bot-sample-golang">Mattermost Golang Bot Sample</a></li>
+</ul>
+</div>
+<div class="section" id="slack-compatible-slash-commands-private-and-public-cloud">
+<h3>Slack-compatible Slash Commands (private and public cloud)<a class="headerlink" href="#slack-compatible-slash-commands-private-and-public-cloud" title="Permalink to this headline">¶</a></h3>
+<p>In addition to built-in slash commands, Mattermost lets you add your own to execute commands and actions from the Mattermost user interface. The Mattermost slash command format is compatible with Slack&#8217;s format, so you can re-create functionality your team had in Slack.</p>
+<ul class="simple">
+<li>Learn about <a class="reference external" href="https://docs.mattermost.com/developer/slash-commands.html">Mattermost Slash Commands</a></li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="auth.html" class="btn btn-neutral float-right" title="Corporate Directory Integration" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../deployment/deployment.html" class="btn btn-neutral" title="Deployment Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/overview/integrations.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

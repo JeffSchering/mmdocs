@@ -1,0 +1,417 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configuring Notifications &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Organizing Conversations" href="organizing-conversations.html"/>
+        <link rel="prev" title="Messaging Basics" href="messaging-basics.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="signing-in.html">Signing in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="messaging-basics.html">Messaging Basics</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuring Notifications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#unreads-and-mentions">Unreads and Mentions</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#email-notifications">Email Notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#desktop-notifications">Desktop Notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mobile-push-notifications">Mobile Push Notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#team-sidebar-notifications">Team Sidebar Notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#browser-tab-notifications">Browser Tab Notifications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="organizing-conversations.html">Organizing Conversations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-teams.html">Creating Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-members.html">Managing Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="organizing.html">Organizing Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/desktop-guide.html">Using Mattermost Desktop App</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Configuring Notifications</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/configuring-notifications.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configuring-notifications">
+<h1>Configuring Notifications<a class="headerlink" href="#configuring-notifications" title="Permalink to this headline">¶</a></h1>
+<p>Notifications in Mattermost alert you to unread messages and mentions.</p>
+<div class="section" id="unreads-and-mentions">
+<h2>Unreads and Mentions<a class="headerlink" href="#unreads-and-mentions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="unread-messages-indicator">
+<h3>Unread Messages Indicator<a class="headerlink" href="#unread-messages-indicator" title="Permalink to this headline">¶</a></h3>
+<p>The name of a channel in the left-hand sidebar shows as <strong>bold</strong> when
+there are unread messages in the channel. Clicking on the channel
+removes the bold indicator, and brings you to the earliest unread
+message in the channel.</p>
+<p>You can choose not to show unread indicators in a channel by clicking
+<strong>Channel Menu</strong> &gt; <strong>Notification Preferences</strong> &gt; <strong>Mark Channel
+Unread</strong> and selecting <strong>Only for mentions</strong>. This will only notify you if a mention is triggered on your name or a
+keyword for which you&#8217;re listening.</p>
+</div>
+<div class="section" id="mentions-indicator">
+<h3>Mentions Indicator<a class="headerlink" href="#mentions-indicator" title="Permalink to this headline">¶</a></h3>
+<p>Mentions are triggered by <a class="reference external" href="https://docs.mattermost.com/help/settings/account-settings.html#words-that-trigger-mentions">selected
+keywords</a>
+in a channel. Unread mentions are indicated by bold text and a mention counter next to
+the channel name in the left-hand sidebar.</p>
+<p>Clicking the channel name removes the bolding and mention count. You can
+review your recent mentions by clicking <strong>&#64;</strong> next to the search box
+at the top of the screen.</p>
+<p>Learn more about <a class="reference external" href="http://docs.mattermost.com/help/messaging/mentioning-teammates.html">mentioning
+teammates</a>.</p>
+</div>
+</div>
+<div class="section" id="email-notifications">
+<h2>Email Notifications<a class="headerlink" href="#email-notifications" title="Permalink to this headline">¶</a></h2>
+<p>Emails are sent for any mentions you receive if you have Mattermost
+closed or have not had any browser activity for a short time.</p>
+<ul class="simple">
+<li>Turn email notifications On or Off in <strong>Account Settings</strong> &gt;
+<strong>Notifications</strong> &gt; <strong>Email Notifications</strong>.</li>
+<li>Configure the email address where notifications are sent in <strong>Account
+Settings</strong> &gt; <strong>General</strong> &gt; <strong>Email</strong>.</li>
+</ul>
+</div>
+<div class="section" id="desktop-notifications">
+<h2>Desktop Notifications<a class="headerlink" href="#desktop-notifications" title="Permalink to this headline">¶</a></h2>
+<p>These are browser notifications that appear in the corner of your main monitor for activity in channels you are not actively viewing. By default, these notifications are sent for all unread messages while Mattermost is open. Desktop notifications are available on Edge, Firefox, Safari, Chrome and <a class="reference external" href="https://about.mattermost.com/download/#mattermostApps">Mattermost Desktop Apps</a>.</p>
+<ul class="simple">
+<li>Configure when desktop notifications are sent from <strong>Account
+Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Desktop Notifications</strong> &gt; <strong>Send
+Desktop Notifications</strong>.</li>
+<li>Configure channel specific desktop notifications from <strong>Channel
+Menu</strong> &gt; <strong>Notification Preferences</strong> &gt; <strong>Send Desktop
+Notifications</strong>. By default, all channels use the global setting
+configured in <em>Account Settings</em>.</li>
+</ul>
+<div class="section" id="notification-sounds">
+<h3>Notification Sounds<a class="headerlink" href="#notification-sounds" title="Permalink to this headline">¶</a></h3>
+<p>A notification sound plays for all activity that would fire a desktop
+notification. Notification sounds are available on IE11, Edge, Safari, Chrome and
+<a class="reference external" href="https://about.mattermost.com/download/#mattermostApps">Mattermost Desktop Apps</a>.</p>
+<ul class="simple">
+<li>Turn notification sounds On or Off in <strong>Account Settings</strong> &gt;
+<strong>Notifications</strong> &gt; <strong>Desktop Notification Sounds</strong>.</li>
+<li>Configure desktop notification triggers, sounds and duration in
+<strong>Account Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Desktop Notifications</strong>.</li>
+<li>Configure channel specific desktop notifications from <strong>Channel
+Menu</strong> &gt; <strong>Notification Preferences</strong> &gt; <strong>Send Desktop
+Notifications</strong>. By default, all channels use the global setting
+configured in <em>Account Settings</em>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="mobile-push-notifications">
+<h2>Mobile Push Notifications<a class="headerlink" href="#mobile-push-notifications" title="Permalink to this headline">¶</a></h2>
+<p>If the Mattermost Android or iOS app is installed, push notifications
+can be sent to your mobile device. By default, these notifications are
+sent for mentions in any channel or direct message channel that is not
+being viewed on desktop.</p>
+<ul class="simple">
+<li>Configure when push notifications are sent from <strong>Account Settings</strong>
+&gt; <strong>Notifications</strong> &gt; <strong>Mobile Push Notifications</strong> &gt; <strong>Send mobile
+push notifications</strong>.</li>
+<li>Configure when push notifications are sent depending on your status
+from <strong>Account Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Mobile Push
+Notifications</strong> &gt; <strong>Trigger push notifications when</strong>.</li>
+</ul>
+</div>
+<div class="section" id="team-sidebar-notifications">
+<h2>Team Sidebar Notifications<a class="headerlink" href="#team-sidebar-notifications" title="Permalink to this headline">¶</a></h2>
+<p>If you belong to more than one team, a team sidebar appears to the left of your channel list. It will inform you of unread messages and mentions across teams.</p>
+<ul class="simple">
+<li>Unread messages are denoted by a small dot left of the team icon.</li>
+<li>Unread mentions are displayed with a mention counter that appears on the top right corner of the team icon.</li>
+</ul>
+<img alt="../../_images/team-sidebar-notifications.png" src="../../_images/team-sidebar-notifications.png" />
+</div>
+<div class="section" id="browser-tab-notifications">
+<h2>Browser Tab Notifications<a class="headerlink" href="#browser-tab-notifications" title="Permalink to this headline">¶</a></h2>
+<p>If Mattermost is open in a browser tab the favicon updates to inform you of unread messages and
+mentions. Browser tab notifications are available on Firefox and Chrome.</p>
+<ul class="simple">
+<li>Unread messages are denoted by an asterisk (*) next to the Mattermost icon.</li>
+<li>Unread mentions are counted in brackets and incorporate mentions and direct messages from all of your teams.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="organizing-conversations.html" class="btn btn-neutral float-right" title="Organizing Conversations" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="messaging-basics.html" class="btn btn-neutral" title="Messaging Basics" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/configuring-notifications.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,344 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Sending Messages &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Mentioning Teammates" href="mentioning-teammates.html"/>
+        <link rel="prev" title="Using Mattermost Desktop App" href="../apps/desktop-guide.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Sending Messages</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#message-types">Message Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#posting-a-message">Posting a Message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#editing-a-message">Editing a Message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#deleting-a-message">Deleting a message</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#linking-to-a-message">Linking to a message</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mentioning-teammates.html">Mentioning Teammates</a></li>
+<li class="toctree-l3"><a class="reference internal" href="formatting-text.html">Formatting Text</a></li>
+<li class="toctree-l3"><a class="reference internal" href="attaching-files.html">Attaching Files</a></li>
+<li class="toctree-l3"><a class="reference internal" href="executing-commands.html">Executing Commands</a></li>
+<li class="toctree-l3"><a class="reference internal" href="flagging-messages.html">Flagging Messages</a></li>
+<li class="toctree-l3"><a class="reference internal" href="keyboard-shortcuts.html">Keyboard Shortcuts</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Sending Messages</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/sending-messages.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="sending-messages">
+<span id="sending-messages"></span><h1>Sending Messages<a class="headerlink" href="#sending-messages" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="message-types">
+<span id="message-types"></span><h2>Message Types<a class="headerlink" href="#message-types" title="Permalink to this headline">¶</a></h2>
+<p>Reply to posts to keep conversations organized in threads.</p>
+<div class="section" id="posts">
+<span id="posts"></span><h3>Posts<a class="headerlink" href="#posts" title="Permalink to this headline">¶</a></h3>
+<p>Posts can be considered parent messages. They are the messages that often start a thread of replies. Posts can be written and sent from the text input box at the bottom of the center pane.</p>
+</div>
+<div class="section" id="replies">
+<span id="replies"></span><h3>Replies<a class="headerlink" href="#replies" title="Permalink to this headline">¶</a></h3>
+<p>Reply to a message by clicking the reply icon next to any message text. This action opens the right-hand sidebar (RHS) where you can see the message thread, then compose and send your reply. Replies are indented slightly in the center pane to indicate that they are child messages of a parent post.</p>
+<p>When composing a reply in the right-hand sidebar, click the expand/collapse icon with two arrows at the top of the sidebar to make things easier to read.</p>
+</div>
+</div>
+<div class="section" id="posting-a-message">
+<span id="posting-a-message"></span><h2>Posting a Message<a class="headerlink" href="#posting-a-message" title="Permalink to this headline">¶</a></h2>
+<p>Write a message by typing into the text input box, then press <strong>ENTER</strong> to send it. Use <strong>Shift + ENTER</strong> to create a new line without sending a message. To send messages by pressing <strong>Ctrl+Enter</strong> go to <strong>Main Menu &gt; Account Settings &gt; Send messages on Ctrl + Enter</strong>.</p>
+</div>
+<div class="section" id="editing-a-message">
+<span id="editing-a-message"></span><h2>Editing a Message<a class="headerlink" href="#editing-a-message" title="Permalink to this headline">¶</a></h2>
+<p>Edit a message by clicking the <strong>[...]</strong> icon next to any message that you’ve sent, then click <strong>Edit</strong>. When you&#8217;re done editing, press <strong>ENTER</strong> to save the changes. Message edits do not trigger new &#64;mention notifications, desktop notifications or notification sounds.</p>
+</div>
+<div class="section" id="deleting-a-message">
+<span id="deleting-a-message"></span><h2>Deleting a message<a class="headerlink" href="#deleting-a-message" title="Permalink to this headline">¶</a></h2>
+<p>Delete a message by clicking the <strong>[...]</strong> icon next to any message that you&#8217;ve sent, then click <strong>Delete</strong>. System and Team Admins can delete any message on their system or team.</p>
+</div>
+<div class="section" id="linking-to-a-message">
+<span id="linking-to-a-message"></span><h2>Linking to a message<a class="headerlink" href="#linking-to-a-message" title="Permalink to this headline">¶</a></h2>
+<p>The <strong>Permalink</strong> feature creates a link to any message. Get the permalink to any message by clicking the <strong>[...]</strong> icon next to the a message  &gt; <strong>Permalink</strong> &gt; <strong>Copy Link</strong>. Sharing this link will let other users view the linked message in the Message Archives. If the link is to a message in a Public Channel, any user of the team can see the message. If the link is to a message in a Private Group, only other users in the group will be able to see the message.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="mentioning-teammates.html" class="btn btn-neutral float-right" title="Mentioning Teammates" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../apps/desktop-guide.html" class="btn btn-neutral" title="Using Mattermost Desktop App" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/sending-messages.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

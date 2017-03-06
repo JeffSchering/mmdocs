@@ -1,0 +1,357 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mattermost APIs &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Integration Guide" href="../guides/integration.html"/>
+        <link rel="next" title="Incoming Webhooks" href="webhooks-incoming.html"/>
+        <link rel="prev" title="Mattermost Integration Guide" href="../guides/integration.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Mattermost APIs</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#mattermost-web-service-api">Mattermost Web Service API</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mattermost-drivers">Mattermost Drivers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#reactjs-javascript-driver">ReactJS Javascript Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#golang-driver">Golang Driver</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#building-api-integrations">Building API Integrations</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#mattermost-golang-bot-sample-driver-example">Mattermost Golang Bot Sample (Driver Example)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#community-apps-and-integrations">Community Apps and Integrations</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-incoming.html">Incoming Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-outgoing.html">Outgoing Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slash-commands.html">Slash Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-attachments.html">Message Attachments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth-2-0-applications.html">OAuth 2.0 Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/zapier.html">Zapier Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-faq.html">Integrations FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/integration.html">Mattermost Integration Guide</a> &raquo;</li>
+    
+    <li>Mattermost APIs</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/developer/api.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mattermost-apis">
+<span id="mattermost-apis"></span><h1>Mattermost APIs<a class="headerlink" href="#mattermost-apis" title="Permalink to this headline">¶</a></h1>
+<p>With Mattermost you have complete access to the server&#8217;s <a class="reference external" href="https://docs.mattermost.com/developer/api.html#mattermost-web-service-api">Web Service APIs</a>, along with <a class="reference external" href="https://docs.mattermost.com/developer/api.html#mattermost-drivers">language specific drivers</a> (the same used by the web, desktop and mobile experiences).</p>
+<p>There&#8217;s a <a class="reference external" href="https://docs.mattermost.com/developer/api.html#community-apps-and-integrations">vibrant community developing open source apps on Mattermost</a> and you can start your work based on their code, or use <a class="reference external" href="https://docs.mattermost.com/developer/api.html#matermost-golang-bot-sample">a pre-made sample</a> provided by the Mattermost team.</p>
+<div class="section" id="mattermost-web-service-api">
+<span id="mattermost-web-service-api"></span><h2>Mattermost Web Service API<a class="headerlink" href="#mattermost-web-service-api" title="Permalink to this headline">¶</a></h2>
+<p>To learn more about the Mattermost Web Service API, see the references listed below:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://api.mattermost.com/">API Reference for latest Mattermost release</a></li>
+<li><a class="reference external" href="https://api.mattermost.com/master.html">API Reference for master branch</a></li>
+</ul>
+<p>We accept bug reports and contributions to our API references at <a class="reference external" href="https://github.com/mattermost/mattermost-api-reference">our repository here</a>.</p>
+</div>
+<div class="section" id="mattermost-drivers">
+<span id="mattermost-drivers"></span><h2>Mattermost Drivers<a class="headerlink" href="#mattermost-drivers" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost drivers offer access to the Mattermost web service API in different programming languages and frameworks.</p>
+<div class="section" id="reactjs-javascript-driver">
+<span id="reactjs-javascript-driver"></span><h3><a class="reference external" href="https://github.com/mattermost/platform/blob/master/webapp/client/client.jsx">ReactJS Javascript Driver</a><a class="headerlink" href="#reactjs-javascript-driver" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/mattermost/platform/blob/master/webapp/client/client.jsx">web-client.jsx</a> - This Javascript driver connects with the ReactJS components of Mattermost. The web client does the vast majority of its work by connecting to a RESTful JSON web service. There is a very small amount of processing for error checking and set up that happens on the web server.</p>
+<ul class="simple">
+<li>The Javascript Driver is <a class="reference external" href="https://github.com/mattermost/mattermost-driver-javascript">mirrored in an external repository</a> that can be included in custom projects.</li>
+</ul>
+</div>
+<div class="section" id="golang-driver">
+<span id="golang-driver"></span><h3><a class="reference external" href="https://github.com/mattermost/platform/blob/master/model/client.go">Golang Driver</a><a class="headerlink" href="#golang-driver" title="Permalink to this headline">¶</a></h3>
+<p><a class="reference external" href="https://github.com/mattermost/platform/blob/master/model/client.go">client.go</a> - This is a RESTful driver connecting with the Golang-based webservice of Mattermost and is used by unit tests.</p>
+<ul class="simple">
+<li>See <a class="reference external" href="https://godoc.org/github.com/mattermost/platform/model">GoDocs</a> for documentation on the Golang Driver.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="building-api-integrations">
+<span id="building-api-integrations"></span><h2>Building API Integrations<a class="headerlink" href="#building-api-integrations" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;re building a deep integration with Mattermost, for example a mobile native client, and there is a driver available to support the programming language you are using, it&#8217;s best to use the driver available to access the <a class="reference external" href="http://docs.mattermost.com/developer/web-service.html">Mattermost Web Service APIs</a>.</p>
+<p>If no driver is available for the programming language of your choice, you can view the <a class="reference external" href="https://github.com/mattermost/platform/blob/master/model/client.go">Golang Driver</a> source code to understand how it exercises the Web Service API. You can also learn more by reviewing open source projects that use the Web Service API, like <a class="reference external" href="https://github.com/42wim/matterircd">matterircd</a>.</p>
+<p>There are a wide range of <a class="reference external" href="http://www.mattermost.org/installation/">installation guides</a> for setting up your own Mattermost server on which to develop and test your integrations.</p>
+</div>
+<div class="section" id="mattermost-golang-bot-sample-driver-example">
+<span id="mattermost-golang-bot-sample-driver-example"></span><h2>Mattermost Golang Bot Sample (Driver Example)<a class="headerlink" href="#mattermost-golang-bot-sample-driver-example" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost provides a <a class="reference external" href="https://github.com/mattermost/mattermost-bot-sample-golang">Golang Bot Sample</a> to demonstrate how Mattermost works with the Golang driver and the APIs.</p>
+</div>
+<div class="section" id="community-apps-and-integrations">
+<span id="community-apps-and-integrations"></span><h2>Community Apps and Integrations<a class="headerlink" href="#community-apps-and-integrations" title="Permalink to this headline">¶</a></h2>
+<p>The Mattermost community has shared back dozens of open source integrations showing how to use webhooks, drivers and APIs in different ways. See the <a class="reference external" href="https://www.mattermost.org/community-applications/">Community Applications Directory</a> to learn more.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="webhooks-incoming.html" class="btn btn-neutral float-right" title="Incoming Webhooks" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../guides/integration.html" class="btn btn-neutral" title="Mattermost Integration Guide" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/api.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

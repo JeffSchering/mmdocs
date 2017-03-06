@@ -1,0 +1,504 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Account Settings &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Theme Colors" href="theme-colors.html"/>
+        <link rel="prev" title="Keyboard Shortcuts" href="../messaging/keyboard-shortcuts.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#settings">Settings</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Account Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#security">Security</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#notifications">Notifications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#display">Display</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#advanced">Advanced</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="theme-colors.html">Theme Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channel-settings.html">Channel Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="team-settings.html">Team Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom-emoji.html">Custom Emoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integration-settings.html">Integrations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Account Settings</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/settings/account-settings.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="account-settings">
+<span id="account-settings"></span><h1>Account Settings<a class="headerlink" href="#account-settings" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p>Account Settings is accessible from the <strong>Main Menu</strong> by clicking the three dots at the top of the channels pane. From here, you can configure your profile settings, notification preferences, integrations, theme settings, and display options.</p>
+<div class="section" id="general">
+<span id="general"></span><h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<p>Settings to configure name, username, nickname, email and profile picture.</p>
+<div class="section" id="full-name">
+<span id="full-name"></span><h3>Full Name<a class="headerlink" href="#full-name" title="Permalink to this headline">¶</a></h3>
+<p>Full names appear in the Direct Messages member list and team management modal. By default, you will receive mention notifications when someone types your first name. Entering a full name is optional.</p>
+</div>
+<div class="section" id="username">
+<span id="username"></span><h3>Username<a class="headerlink" href="#username" title="Permalink to this headline">¶</a></h3>
+<p>Usernames are unique identifers appearing next to all posts. Pick something easy for teammates to recognize and recall. By default, you will receive mention notifications when someone types your username. In order to maintain message integrity, changing your username does not update &#64;mentions in messages already posted.</p>
+</div>
+<div class="section" id="nickname">
+<span id="nickname"></span><h3>Nickname<a class="headerlink" href="#nickname" title="Permalink to this headline">¶</a></h3>
+<p>Nicknames appear in the Direct Messages member list and team management modal. You will not receive mention notifications when someone types your nickname unless you add it to the <em>Words That Trigger Mentions</em> in <strong>Account Settings &gt; Notifications</strong>.</p>
+</div>
+<div class="section" id="position">
+<span id="position"></span><h3>Position<a class="headerlink" href="#position" title="Permalink to this headline">¶</a></h3>
+<p>Position can be used to describe your role or job title. It appears in the profile popup that shows up when you click a user&#8217;s name in the center channel or right-hand sidebar.</p>
+</div>
+<div class="section" id="email">
+<span id="email"></span><h3>Email<a class="headerlink" href="#email" title="Permalink to this headline">¶</a></h3>
+<p>Email is used for sign-in, notifications, and password reset. Email requires verification if changed. If you are signing in using a single sign-on service, the email field is not editable and you will receive email notifications to the email you used to sign up to your SSO service.</p>
+</div>
+<div class="section" id="profile-picture">
+<span id="profile-picture"></span><h3>Profile Picture<a class="headerlink" href="#profile-picture" title="Permalink to this headline">¶</a></h3>
+<p>Profile pictures appear next to all posts and in the top of the channels pane next to your name. All users have a generic profile picture when they sign up for an account. Edit your profile picture by clicking <strong>Select</strong> and then choosing a picture in either JPG or PNG format that’s at least 128px wide and 128px high. For best results, choose an image that is square with the subject of interest centered. If you edit your profile picture, all past posts will appear with the new picture.</p>
+</div>
+</div>
+<div class="section" id="security">
+<span id="security"></span><h2>Security<a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<p>Settings to configure your password, view access history, and view or logout of active sessions.</p>
+<div class="section" id="password">
+<span id="password"></span><h3>Password<a class="headerlink" href="#password" title="Permalink to this headline">¶</a></h3>
+<p>You may change your password if you’ve logged in by email. If you are signing in using a single sign-on service, the password field is not editable, and you must access your SSO service’s account settings to update your password.</p>
+</div>
+<div class="section" id="multi-factor-authentication">
+<span id="multi-factor-authentication"></span><h3>Multi-Factor Authentication<a class="headerlink" href="#multi-factor-authentication" title="Permalink to this headline">¶</a></h3>
+<p>When this option is available you can require a phone-based passcode in addition to your password for sign-in.</p>
+<p>To enable, download Google Authenticator from <a class="reference external" href="https://itunes.apple.com/us/app/google-authenticator/id388497605?mt=8">iTunes</a> or <a class="reference external" href="https://play.google.com/store/apps/details?id=com.google.android.apps.authenticator2&amp;hl=en">Google Play</a> for your phone, then:</p>
+<ol class="simple">
+<li>Click the <strong>Add MFA to your account</strong> button.</li>
+<li>Use Google Authenticator to scan the QR code that appears.</li>
+<li>Type in the Token generated by Google Authenticator and click <strong>Save</strong>.</li>
+</ol>
+<p>In future, you will be asked to enter a passcode from Google Authenticator in addition to your password on login.</p>
+<p>If you are unable to scan the QR code, you can:</p>
+<ol class="simple">
+<li>Click the <strong>Add MFA to your account</strong> button, and you should see a <code class="docutils literal"><span class="pre">Secret</span> <span class="pre">Key</span></code> below the QR code.</li>
+<li>Open Google Authenticator.</li>
+<li>Click the <strong>+</strong> button, and select <strong>Manual Entry</strong>.</li>
+<li>Enter an account name.</li>
+<li>Enter the <code class="docutils literal"><span class="pre">Secret</span> <span class="pre">Key</span></code> from Mattermost into the <code class="docutils literal"><span class="pre">Key</span></code> field in Google Authenticator, and save.</li>
+<li>In Mattermost, type the token generated by Google Authenticator and click <strong>Save</strong>.</li>
+</ol>
+</div>
+<div class="section" id="sign-in-method">
+<span id="sign-in-method"></span><h3>Sign-in Method<a class="headerlink" href="#sign-in-method" title="Permalink to this headline">¶</a></h3>
+<p>This option allows you to switch your sign-in method from email/password to a single-sign-on option, and back again.</p>
+<p>For example, if AD/LDAP single-sign-on is enabled, users can click a &#8220;Switch to using AD/LDAP&#8221; button and the enter their AD/LDAP credentials to switch sign-in over to AD/LDAP. They also need to enter the password for their email account to verify their existing credentials. Following the change, users receive an email to confirm the action.</p>
+</div>
+<div class="section" id="view-access-history">
+<span id="view-access-history"></span><h3>View Access History<a class="headerlink" href="#view-access-history" title="Permalink to this headline">¶</a></h3>
+<p>Access History displays a chronological list of the last 20 login and logout attempts, channel creations and deletions, account settings changes, or channel setting modifications made on your account. The details of the Session ID (unique identifier for each Mattermost browser session) and IP Address of the action is recorded for audit log purposes.</p>
+</div>
+<div class="section" id="view-and-logout-of-active-sessions">
+<span id="view-and-logout-of-active-sessions"></span><h3>View and Logout of Active Sessions<a class="headerlink" href="#view-and-logout-of-active-sessions" title="Permalink to this headline">¶</a></h3>
+<p>Sessions are created when you log in with your email and password to a new browser on a device. Sessions let you use Mattermost for up to 30 days without having to log in again. Click <strong>Logout</strong> on an active session if you want to revoke automatic login privileges for a specific browser or device. Click <strong>More Info</strong> to view details on browser and operating system.</p>
+</div>
+</div>
+<div class="section" id="notifications">
+<span id="notifications"></span><h2>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
+<p>Settings to configure desktop notifications, desktop notification sounds, email notifications, and words that trigger mentions.</p>
+<div class="section" id="desktop-notifications">
+<span id="desktop-notifications"></span><h3>Desktop Notifications<a class="headerlink" href="#desktop-notifications" title="Permalink to this headline">¶</a></h3>
+<p>Desktop notifications appear in the corner of your main monitor when there is activity in Mattermost.</p>
+<div class="section" id="send-desktop-notifications">
+<span id="send-desktop-notifications"></span><h4>Send Desktop Notifications<a class="headerlink" href="#send-desktop-notifications" title="Permalink to this headline">¶</a></h4>
+<p>Choose what activity triggers a desktop notification. This setting applies globally, but this preference is customizable for each channel from the channel name drop-down menu. Desktop notifications are available on Firefox, Safari, and Chrome.</p>
+</div>
+<div class="section" id="notification-sound">
+<span id="notification-sound"></span><h4>Notification Sound<a class="headerlink" href="#notification-sound" title="Permalink to this headline">¶</a></h4>
+<p>Notification sounds fire for any activity that would trigger a desktop notification. Notification sounds are available on IE11, Edge, Safari and Chrome.</p>
+</div>
+<div class="section" id="notification-duration">
+<span id="notification-duration"></span><h4>Notification Duration<a class="headerlink" href="#notification-duration" title="Permalink to this headline">¶</a></h4>
+<p>Sets how long desktop notifications will remain on screen. If set to <strong>Unlimited</strong>, the user will have to manually clear each notification as it appears on screen. Desktop notifications in Safari can only stay on screen for a maximum of 5 seconds.</p>
+</div>
+</div>
+<div class="section" id="email-notifications">
+<span id="email-notifications"></span><h3>Email Notifications<a class="headerlink" href="#email-notifications" title="Permalink to this headline">¶</a></h3>
+<p>Email notifications are sent for mentions and direct messages after you’ve been offline for more than 60 seconds or away from Mattermost for more than 5 minutes. Change the email where notifications are sent in <strong>Account Settings &gt; General &gt; Email</strong>.</p>
+<p>If your System Administrator has enabled <strong>Email Batching</strong>, you will have additional options under this settings to select how often email notifications will be sent. All notifications received over this time period are combined and sent in a single email.</p>
+</div>
+<div class="section" id="send-mobile-push-notifications">
+<span id="send-mobile-push-notifications"></span><h3>Send Mobile Push Notifications<a class="headerlink" href="#send-mobile-push-notifications" title="Permalink to this headline">¶</a></h3>
+<p>Push notifications can be sent to your mobile device if you have the Android or iOS app installed. You can choose the type of activity that will send a notification. By default, push notifications are sent &#8220;For mentions and direct messages&#8221;. If push notifications are sent &#8220;Never&#8221;, the Mattermost setting to trigger push notifications depending on your status is hidden. If your System Administrator has not set up push notifications, this setting will be disabled.</p>
+<p>If you are actively viewing a channel (public, private, or direct message) on desktop or web, no push notifications will be sent for that channel. If a notification is viewed on desktop or web, the lockscreen notification will clear on Android, and on iOS the badge on the Mattermost app icon will decrement accordingly.</p>
+</div>
+<div class="section" id="trigger-mobile-push-notifications-when">
+<span id="trigger-mobile-push-notifications-when"></span><h3>Trigger Mobile Push Notifications When<a class="headerlink" href="#trigger-mobile-push-notifications-when" title="Permalink to this headline">¶</a></h3>
+<p>You can also choose when to send push notifications depending on your status. By default, push notifications are sent if your status is &#8220;Online, away or offline&#8221;. If &#8220;Send Mobile Push Notifications&#8221; is set as &#8220;Never&#8221;, this setting is hidden. If your System Administrator has not set up push notifications, this setting will be disabled.</p>
+</div>
+<div class="section" id="words-that-trigger-mentions">
+<span id="words-that-trigger-mentions"></span><h3>Words That Trigger Mentions<a class="headerlink" href="#words-that-trigger-mentions" title="Permalink to this headline">¶</a></h3>
+<p>By default, you will receive mention notifications from your non-case sensitive username, mentioned &#64;username and &#64;channel. Customize the words that trigger mentions by typing them in the input box. This is useful if you want to be notified of all posts on a certain topic, for example, “marketing”.</p>
+</div>
+<div class="section" id="reply-notifications">
+<span id="reply-notifications"></span><h3>Reply Notifications<a class="headerlink" href="#reply-notifications" title="Permalink to this headline">¶</a></h3>
+<p>In addition to <strong>Words that Trigger Mentions</strong>, this setting allows you to receive mention notifications when someone replies to a thread that you started or participated in. You are considered to start a thread when you post a message to which other members of your team reply. You are considered to participate in a thread when you post a message using the <a class="reference external" href="https://docs.mattermost.com/help/getting-started/messaging-basics.html#messaging-basics">reply button</a> in an already existing thread.</p>
+</div>
+</div>
+<div class="section" id="display">
+<span id="display"></span><h2>Display<a class="headerlink" href="#display" title="Permalink to this headline">¶</a></h2>
+<p>Settings to configure clock and teammate name display preferences.</p>
+<div class="section" id="theme">
+<span id="theme"></span><h3>Theme<a class="headerlink" href="#theme" title="Permalink to this headline">¶</a></h3>
+<p>Select <strong>Theme Colors</strong> to select from four standard themes designed by the Mattermost team. To make custom adjustments on the four standard theme colours, click a standard theme and then select <strong>Custom Theme</strong> to load the standard theme into the custom theme color selectors.</p>
+<p>Select <strong>Custom Theme</strong> to customize your theme colors and share them with others by copying and pasting theme vectors into the input box. Observe a live preview as you customize theme colors and then click <strong>Save</strong> to confirm your changes. Discard your changes by clicking <strong>Cancel</strong> or by exiting the settings modal and clicking <strong>Yes, Discard</strong>.</p>
+<p>In Enterprise Edition, if you belong to multiple teams, you can optionally select the checkbox &#8220;Apply new theme to all my teams&#8221; to have the theme show up across teams. Otherwise, the changes will only apply to the current team.</p>
+<p>Learn more about the custom theme color selectors <a class="reference external" href="http://docs.mattermost.com/help/settings/theme-colors.html#custom-themes">here</a>.</p>
+<p>Select <strong>Import theme colors from Slack</strong> to import a Slack theme. In Slack, go to <strong>Preferences &gt; Sidebar Theme</strong> and open the custom theme option. From there, copy the theme color vector and then paste it into the <em>Input Slack Theme</em> input box in Mattermost. Any theme settings that are not customizable in Slack will default to the “Mattermost” standard theme settings.</p>
+</div>
+<div class="section" id="display-font">
+<span id="display-font"></span><h3>Display Font<a class="headerlink" href="#display-font" title="Permalink to this headline">¶</a></h3>
+<p>Select what font is used.</p>
+</div>
+<div class="section" id="clock-display">
+<span id="clock-display"></span><h3>Clock Display<a class="headerlink" href="#clock-display" title="Permalink to this headline">¶</a></h3>
+<p>Choose a 12-hour or 24-hour time preference that appears on the time stamp for all posts.</p>
+</div>
+<div class="section" id="teammate-name-display">
+<span id="teammate-name-display"></span><h3>Teammate Name Display<a class="headerlink" href="#teammate-name-display" title="Permalink to this headline">¶</a></h3>
+<p>Configure how names are displayed in Mattermost: nickname, username or full name.</p>
+</div>
+<div class="section" id="link-previews">
+<span id="link-previews"></span><h3>Link Previews<a class="headerlink" href="#link-previews" title="Permalink to this headline">¶</a></h3>
+<p>Select whether links posted on Mattermost show a preview below them. When &#8220;On&#8221;, a preview will be shown below links to Youtube Videos and GIF, PNG, JPEG, and BMP files. When &#8220;Off&#8221;, no preview will be shown. This setting can also be controlled using the slash commands <code class="docutils literal"><span class="pre">/expand</span></code> and <code class="docutils literal"><span class="pre">/collapse</span></code>.</p>
+</div>
+<div class="section" id="message-display">
+<span id="message-display"></span><h3>Message Display<a class="headerlink" href="#message-display" title="Permalink to this headline">¶</a></h3>
+<p>Select the formatting for messages in the center channel. &#8220;Compact&#8221; mode decreases the spacing around posts, collapses link previews, and hides thumbnails so only file names are shown. Some formatting types, such as block quotes and headings, are also reduced in size.</p>
+</div>
+<div class="section" id="channel-display-mode">
+<span id="channel-display-mode"></span><h3>Channel Display Mode<a class="headerlink" href="#channel-display-mode" title="Permalink to this headline">¶</a></h3>
+<p>Select if the text in the center channel is fixed width and centered, or full width.</p>
+</div>
+<div class="section" id="language">
+<span id="language"></span><h3>Language<a class="headerlink" href="#language" title="Permalink to this headline">¶</a></h3>
+<p>Select what language Mattermost displays in the user interface. Options include:</p>
+<ul class="simple">
+<li>Deutsch - German</li>
+<li>English</li>
+<li>Español - Spanish</li>
+<li>Français - French</li>
+<li>Nederlands - Dutch</li>
+<li>Português (Brasil) - Portuguese</li>
+<li>Pусский - Russian</li>
+<li>한국어 - Korean</li>
+<li>中文 (简体) - Simplified Chinese</li>
+<li>中文 (繁體) - Traditional Chinese</li>
+<li>日本語 - Japanese</li>
+</ul>
+</div>
+</div>
+<div class="section" id="advanced">
+<span id="advanced"></span><h2>Advanced<a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
+<p>Setting to configure when messages are sent.</p>
+<div class="section" id="send-messages-on-ctrl-enter">
+<span id="send-messages-on-ctrl-enter"></span><h3>Send Messages on Ctrl+Enter<a class="headerlink" href="#send-messages-on-ctrl-enter" title="Permalink to this headline">¶</a></h3>
+<p>If enabled, press <strong>Enter</strong> to insert a new line and <strong>Ctrl + Enter</strong> posts the message. If disabled, <strong>Shift + Enter</strong> inserts a new line and <strong>Enter</strong> posts the message.</p>
+</div>
+<div class="section" id="enable-post-formatting">
+<span id="enable-post-formatting"></span><h3>Enable Post Formatting<a class="headerlink" href="#enable-post-formatting" title="Permalink to this headline">¶</a></h3>
+<p>This setting controls whether post formatting is rendered. When &#8220;On&#8221;, posts will be rendered with <a class="reference external" href="http://docs.mattermost.com/help/messaging/formatting-text.html">markdown formatting</a>, emoji, autolinked URLs, and line breaks. When &#8220;Off&#8221;, the raw text will be shown.</p>
+</div>
+<div class="section" id="enable-join-leave-messages-enterprise-edition">
+<span id="enable-join-leave-messages-enterprise-edition"></span><h3>Enable Join/Leave Messages (Enterprise Edition)<a class="headerlink" href="#enable-join-leave-messages-enterprise-edition" title="Permalink to this headline">¶</a></h3>
+<p>This setting controls whether system messages about users joining or leaving a channel are visible. When <strong>On</strong> these messages will appear. When <strong>Off</strong>, these messages will be hidden. If any users are added to or removed from a channel or group, a system message will still be shown even if this setting is <strong>Off</strong>.</p>
+</div>
+<div class="section" id="preview-pre-release-features">
+<span id="preview-pre-release-features"></span><h3>Preview pre-release features<a class="headerlink" href="#preview-pre-release-features" title="Permalink to this headline">¶</a></h3>
+<p>Turn on preview features to view them early, ahead of their official release:</p>
+<ul class="simple">
+<li><strong>Show markdown preview option in message input box:</strong> Turning this on will show a &#8220;Preview&#8221; option when typing in the text input box. Pressing &#8220;Preview&#8221; shows what the Markdown formatting in the message looks like before the message is sent.</li>
+<li><strong>Show preview snippet of links below message:</strong> Turning this on will show a preview snippet posted below links from select websites.</li>
+<li><strong>Enable the ability to make and receive one-on-one WebRTC calls:</strong> Turning this on will allow user to make one-on-one video calls on Chrome, Firefox and Mattermost Desktop Apps inside Mattermost. This feature is only available if WebRTC is enabled on the server. See <a class="reference external" href="https://docs.mattermost.com/deployment/webrtc.html">documentation</a> to learn more.</li>
+</ul>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="theme-colors.html" class="btn btn-neutral float-right" title="Theme Colors" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../messaging/keyboard-shortcuts.html" class="btn btn-neutral" title="Keyboard Shortcuts" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/settings/account-settings.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

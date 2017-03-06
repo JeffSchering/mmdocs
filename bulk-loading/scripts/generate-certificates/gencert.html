@@ -1,0 +1,334 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>gencert.sh for Mattermost &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../../index.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+    <li>gencert.sh for Mattermost</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/scripts/generate-certificates/gencert.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="gencert-sh-for-mattermost">
+<span id="gencert-sh-for-mattermost"></span><h1>gencert.sh for Mattermost<a class="headerlink" href="#gencert-sh-for-mattermost" title="Permalink to this headline">¶</a></h1>
+<p>Generate a self-signed x509v3 certificate for use with multiple URLs / IPs.</p>
+<div class="section" id="generate-certificates">
+<span id="generate-certificates"></span><h2>Generate Certificates<a class="headerlink" href="#generate-certificates" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="default-values">
+<span id="default-values"></span><h3>Default values<a class="headerlink" href="#default-values" title="Permalink to this headline">¶</a></h3>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nv">CRT_CN</span><span class="o">=</span><span class="s2">&quot;client.com&quot;</span> <span class="nv">CRT_SAN</span><span class="o">=</span><span class="s2">&quot;DNS.1:www.client.com,DNS.2:admin.client.com,IP.1:192.168.1.10,IP.2:10.0.0.234&quot;</span> gencert.sh
+</pre></div>
+</div>
+</div>
+<div class="section" id="custom-values">
+<span id="custom-values"></span><h3>Custom values<a class="headerlink" href="#custom-values" title="Permalink to this headline">¶</a></h3>
+<p>You may change the <code class="docutils literal"><span class="pre">CRT_CN</span></code> and <code class="docutils literal"><span class="pre">CRT_SAN</span></code> values of the above command based on your needs.</p>
+<p>Additionally you may use any of the following environment variables :</p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">CRT_C</span></code> : Country value</li>
+<li><code class="docutils literal"><span class="pre">CRT_L</span></code> : Locality value</li>
+<li><code class="docutils literal"><span class="pre">CRT_O</span></code> : Organization value</li>
+<li><code class="docutils literal"><span class="pre">CRT_OU</span></code> : Organizational Unit value</li>
+<li><code class="docutils literal"><span class="pre">CRT_CN</span></code> : Common Name value</li>
+<li><code class="docutils literal"><span class="pre">CRT_SAN</span></code> : SubjectAltName value</li>
+</ul>
+</div>
+<div class="section" id="result">
+<span id="result"></span><h3>Result<a class="headerlink" href="#result" title="Permalink to this headline">¶</a></h3>
+<p>The command will generate two files:</p>
+<ul class="simple">
+<li>pkcs#8 private key : <code class="docutils literal"><span class="pre">mattermost-x509.key</span></code></li>
+<li>x509v3 certificate : <code class="docutils literal"><span class="pre">mattermost-x509.crt</span></code></li>
+</ul>
+<p>You can confirm the certificate content by using the following standard <code class="docutils literal"><span class="pre">x509</span></code> command:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span>openssl x509 -in mattermost-x509.crt -noout -text
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="secure-unsecure-certificates">
+<span id="secure-unsecure-certificates"></span><h2>Secure/Unsecure Certificates<a class="headerlink" href="#secure-unsecure-certificates" title="Permalink to this headline">¶</a></h2>
+<p>The generated private key is passwordless by default.</p>
+<p>You can secure/unsecure the certificates using standard <code class="docutils literal"><span class="pre">pkcs8</span></code> commands:</p>
+<div class="highlight-bash"><div class="highlight"><pre><span></span><span class="c1"># secure</span>
+openssl pkcs8 -in mattermost-x509.key -topk8 -v2 des3 -out mattermost-x509.secure.key
+
+<span class="c1"># unsecure</span>
+openssl pkcs8 -in mattermost-x509.secure.key -topk8 -nocrypt -out mattermost-x509.key
+</pre></div>
+</div>
+</div>
+<div class="section" id="additional-reading">
+<span id="additional-reading"></span><h2>Additional Reading<a class="headerlink" href="#additional-reading" title="Permalink to this headline">¶</a></h2>
+<p>Below are additional guides and documentation for optional reading:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://www.openssl.org/docs/apps/x509v3_config.html#Subject-Alternative-Name">OpenSSL&#8217;s Subject Alternative Name documentation</a></li>
+<li><a class="reference external" href="https://en.wikipedia.org/wiki/SubjectAltName">SubjectAltName page on wikipedia</a></li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/scripts/generate-certificates/gencert.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,622 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Developer Machine Setup &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
+        <link rel="next" title="Developer Flow" href="developer-flow.html"/>
+        <link rel="prev" title="Code Contribution Guidelines" href="contribution-guide.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/developer.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Developer Machine Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#mac-os-x">Mac OS X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#ubuntu">Ubuntu</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#archlinux">Archlinux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#windows">Windows</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#troubleshooting">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#build-errors">Build errors</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#other-errors">Other errors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization-process.html">Localization</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#unofficial-enhancements">Unofficial Enhancements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/developer.html">Mattermost Developer&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Developer Machine Setup</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/developer/developer-setup.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="developer-machine-setup">
+<span id="developer-machine-setup"></span><h1>Developer Machine Setup<a class="headerlink" href="#developer-machine-setup" title="Permalink to this headline">¶</a></h1>
+<p>If you run into any issues getting your environment set up, please check the Troubleshooting section at the bottom for common solutions.</p>
+<div class="section" id="mac-os-x">
+<span id="mac-os-x"></span><h2>Mac OS X<a class="headerlink" href="#mac-os-x" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li>Install <a class="reference external" href="https://docs.docker.com/docker-for-mac/">Docker for Mac</a></li>
+<li>Add the following line to <code class="docutils literal"><span class="pre">/etc/hosts</span></code></li>
+</ol>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">127.0.0.1</span> <span class="pre">dockerhost</span></code></li>
+</ul>
+<ol class="simple">
+<li><a class="reference external" href="http://golang.org/dl/">Download Go 1.6</a> (Go 1.5 and earlier is not supported) and Node.js using Homebrew.<ol>
+<li>Download Homebrew from <a class="reference external" href="http://brew.sh/">http://brew.sh/</a></li>
+<li><code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">go</span></code></li>
+<li><code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">node</span></code></li>
+</ol>
+</li>
+<li>Set up your Go workspace<ol>
+<li><code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">~/go</span></code></li>
+<li>Add the following to your <code class="docutils literal"><span class="pre">~/.bash_profile</span></code><ul>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">GOPATH=$HOME/go</span></code></li>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=$PATH:$GOPATH/bin</span></code></li>
+<li><code class="docutils literal"><span class="pre">ulimit</span> <span class="pre">-n</span> <span class="pre">8096</span></code></li>
+<li>If you don&#8217;t increase the file handle limit you may see some weird build issues with browserify or npm.</li>
+</ul>
+</li>
+<li>Reload your bash profile<code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bash_profile</span></code></li>
+<li>Set GOROOT (optional) in your <code class="docutils literal"><span class="pre">~/.bash_profile</span></code><ul>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">GOROOT=/usr/local/go/</span></code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Fork Mattermost on GitHub.com from <a class="reference external" href="https://github.com/mattermost/platform">https://github.com/mattermost/platform</a>, then:<ol>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">~/go</span></code></li>
+<li><code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">src/github.com/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">src/github.com/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;username&gt;/platform.git</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">platform</span></code></li>
+</ol>
+</li>
+<li>Run <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> to start Mattermost</li>
+<li>Browse to <code class="docutils literal"><span class="pre">http://localhost:8065</span></code> to create an account. The first account created has System Administrator privileges.</li>
+<li>You can stop Mattermost using <code class="docutils literal"><span class="pre">make</span> <span class="pre">stop</span></code></li>
+<li>If you want to setup for cross compilation (required for the <code class="docutils literal"><span class="pre">make</span> <span class="pre">package</span></code> and dependant targets) run:<ul>
+<li>Note: You can skip the platform you are on because you have that target installed by default.</li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=windows</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=darwin</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=linux</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+</ul>
+</li>
+</ol>
+<p>Any issues? Please let us know on our forums at: https://forum.mattermost.org/</p>
+</div>
+<div class="section" id="ubuntu">
+<span id="ubuntu"></span><h2>Ubuntu<a class="headerlink" href="#ubuntu" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li>Download Docker, follow the instructions at <a class="reference external" href="https://docs.docker.com/engine/installation/linux/ubuntulinux/">https://docs.docker.com/engine/installation/linux/ubuntulinux/</a></li>
+<li>Set up your dockerhost address<ol>
+<li>Edit your <code class="docutils literal"><span class="pre">/etc/hosts</span></code> file to include the following line<ul>
+<li><code class="docutils literal"><span class="pre">127.0.0.1</span> <span class="pre">dockerhost</span></code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Install build essentials<ol>
+<li><code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">build-essential</span></code></li>
+</ol>
+</li>
+<li><a class="reference external" href="http://golang.org/dl/">Download Go 1.6</a> (Go 1.5 and earlier is not supported).</li>
+<li>Set up your Go workspace and add Go to the PATH<ol>
+<li><code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">~/go</span></code></li>
+<li>Add the following to your <code class="docutils literal"><span class="pre">~/.bashrc</span></code><ul>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">GOPATH=$HOME/go</span></code></li>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=$PATH:$GOPATH/bin</span></code></li>
+<li><code class="docutils literal"><span class="pre">ulimit</span> <span class="pre">-n</span> <span class="pre">8096</span></code></li>
+<li>If you don&#8217;t increase the file handle limit you may see some weird build issues with browserify or npm.</li>
+</ul>
+</li>
+<li>Reload your bashrc<ul>
+<li><code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code></li>
+</ul>
+</li>
+<li>Set GOROOT (optional) in your <code class="docutils literal"><span class="pre">~/.bash_profile</span></code><ul>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">GOROOT=/usr/local/go/</span></code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Install Node.js<ul>
+<li><code class="docutils literal"><span class="pre">curl</span> <span class="pre">-sL</span> <span class="pre">https://deb.nodesource.com/setup_5.x</span> <span class="pre">|</span> <span class="pre">sudo</span> <span class="pre">-E</span> <span class="pre">bash</span> <span class="pre">-</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">-y</span> <span class="pre">nodejs</span></code></li>
+</ul>
+</li>
+<li>Fork Mattermost on GitHub.com from <a class="reference external" href="https://github.com/mattermost/platform">https://github.com/mattermost/platform</a>, then:<ol>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">~/go</span></code></li>
+<li><code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">src/github.com/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">src/github.com/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;username&gt;/platform.git</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">platform</span></code></li>
+</ol>
+</li>
+<li>Run <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> to start Mattermost</li>
+<li>Browse to <code class="docutils literal"><span class="pre">http://localhost:8065</span></code> to create an account. The first account created has System Administrator privileges.</li>
+<li>You can stop Mattermost using <code class="docutils literal"><span class="pre">make</span> <span class="pre">stop</span></code></li>
+<li>If you want to setup for cross compilation (required for the <code class="docutils literal"><span class="pre">make</span> <span class="pre">package</span></code> and dependant targets) run:<ul>
+<li>Note: You can skip the platform you are on because you have that target installed by default.</li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=windows</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=darwin</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=linux</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+</ul>
+</li>
+</ol>
+<p>Any issues? Please let us know on our forums at: http://forum.mattermost.org</p>
+</div>
+<div class="section" id="archlinux">
+<span id="archlinux"></span><h2>Archlinux<a class="headerlink" href="#archlinux" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p class="first">Install Docker</p>
+<ol class="simple">
+<li><code class="docutils literal"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">docker</span></code></li>
+<li><code class="docutils literal"><span class="pre">gpasswd</span> <span class="pre">-a</span> <span class="pre">user</span> <span class="pre">docker</span></code></li>
+<li><code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">docker.service</span></code></li>
+<li><code class="docutils literal"><span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">docker.service</span></code></li>
+<li><code class="docutils literal"><span class="pre">newgrp</span> <span class="pre">docker</span></code></li>
+</ol>
+</li>
+<li><p class="first">Set up your dockerhost address</p>
+<ol class="simple">
+<li>Edit your /etc/hosts file to include the following line
+<code class="docutils literal"><span class="pre">127.0.0.1</span> <span class="pre">dockerhost</span></code></li>
+</ol>
+</li>
+<li><p class="first">Install Go</p>
+<ol class="simple">
+<li><code class="docutils literal"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">go</span></code></li>
+</ol>
+</li>
+<li><p class="first">Set up your Go workspace and add Go to the PATH</p>
+<ol class="simple">
+<li><code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">~/go</span></code></li>
+<li>Add the following to your ~/.bashrc<ul>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">GOPATH=$HOME/go</span></code></li>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">GOROOT=/usr/lib/go</span></code></li>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">PATH=$PATH:$GOROOT/bin</span></code></li>
+</ul>
+</li>
+<li>Reload your bashrc<ul>
+<li><code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bashrc</span></code></li>
+</ul>
+</li>
+<li>Set GOROOT (optional) in your <code class="docutils literal"><span class="pre">~/.bash_profile</span></code><ul>
+<li><code class="docutils literal"><span class="pre">export</span> <span class="pre">GOROOT=/usr/local/go/</span></code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li><p class="first">Edit /etc/security/limits.conf and add the following lines (replace <em>username</em> with your user):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>    <span class="n">username</span>    <span class="n">soft</span>    <span class="n">nofile</span>  <span class="mi">8096</span>  
+    <span class="n">username</span>    <span class="n">hard</span>    <span class="n">nofile</span>  <span class="mi">8096</span>  
+</pre></div>
+</div>
+<p>You will need to reboot after changing this. If you don&#8217;t increase the file handle limit you may see some weird build issues with browserify or npm.</p>
+</li>
+<li><p class="first">Install Node.js
+<code class="docutils literal"><span class="pre">pacman</span> <span class="pre">-S</span> <span class="pre">nodejs</span> <span class="pre">npm</span></code></p>
+</li>
+<li><p class="first">Fork Mattermost on GitHub.com from <a class="reference external" href="https://github.com/mattermost/platform">https://github.com/mattermost/platform</a>, then:</p>
+<ol class="simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">~/go</span></code></li>
+<li><code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">src/github.com/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">src/github.com/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;username&gt;/platform.git</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">platform</span></code></li>
+</ol>
+</li>
+<li><p class="first">Run <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> to start Mattermost</p>
+</li>
+<li><p class="first">Browse to <code class="docutils literal"><span class="pre">http://localhost:8065</span></code> to create an account. The first account created has System Administrator privileges.</p>
+</li>
+<li><p class="first">You can stop Mattermost using <code class="docutils literal"><span class="pre">make</span> <span class="pre">stop</span></code></p>
+</li>
+<li><p class="first">If you want to setup for cross compilation (required for the <code class="docutils literal"><span class="pre">make</span> <span class="pre">package</span></code> and dependant targets) run:</p>
+<ul class="simple">
+<li>Note: You can skip the platform you are on because you have that target installed by default.</li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=windows</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=darwin</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=linux</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+</ul>
+</li>
+</ol>
+<p>Any issues? Please let us know on our forums at: http://forum.mattermost.org</p>
+</div>
+<div class="section" id="windows">
+<span id="windows"></span><h2>Windows<a class="headerlink" href="#windows" title="Permalink to this headline">¶</a></h2>
+<ol>
+<li><p class="first">Install and setup Docker</p>
+<ol class="simple">
+<li>If you are using Windows 10 Pro or Enterprise, you may use Docker for Windows<ol>
+<li>Install <a class="reference external" href="https://docs.docker.com/docker-for-windows/">Docker for Windows</a></li>
+<li>Add the line <code class="docutils literal"><span class="pre">127.0.0.1</span> <span class="pre">dockerhost</span></code> to <code class="docutils literal"><span class="pre">C:\Windows\System32\drivers\etc\hosts</span></code> using a text editor with administrator privileges</li>
+</ol>
+</li>
+<li>For other Windows versions, or if you prefer to use <a class="reference external" href="https://www.virtualbox.org/wiki/Downloads">VirtualBox</a>, use Docker Toolbox<ol>
+<li>Install <a class="reference external" href="https://www.docker.com/products/docker-toolbox">Docker Toolbox</a></li>
+<li>Run the <code class="docutils literal"><span class="pre">Docker</span> <span class="pre">Quickstart</span> <span class="pre">Terminal</span></code> and let it configure the <code class="docutils literal"><span class="pre">default</span></code> machine</li>
+<li>Run <code class="docutils literal"><span class="pre">docker-machine</span> <span class="pre">ip</span> <span class="pre">default</span></code> in the terminal to get <code class="docutils literal"><span class="pre">default</span></code> IP</li>
+<li>Add the line <code class="docutils literal"><span class="pre">&lt;Docker-IP&gt;</span> <span class="pre">dockerhost</span></code> to <code class="docutils literal"><span class="pre">C:\Windows\System32\drivers\etc\hosts</span></code> using a text editor with administrator privileges</li>
+</ol>
+</li>
+</ol>
+</li>
+<li><p class="first">Download and install Node.js from <a class="reference external" href="https://nodejs.org/">https://nodejs.org/</a></p>
+</li>
+<li><p class="first">Download and install Go from <a class="reference external" href="https://golang.org/dl/">https://golang.org/dl/</a></p>
+</li>
+<li><p class="first">Fork Mattermost on GitHub.com from <a class="reference external" href="https://github.com/mattermost/platform">https://github.com/mattermost/platform</a>, then:</p>
+<ol class="simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">~/go</span></code></li>
+<li><code class="docutils literal"><span class="pre">mkdir</span> <span class="pre">-p</span> <span class="pre">src/github.com/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">src/github.com/mattermost</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;username&gt;/platform.git</span></code></li>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">platform</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">core.eol</span> <span class="pre">lf</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">config</span> <span class="pre">core.autocrlf</span> <span class="pre">input</span></code></li>
+<li><code class="docutils literal"><span class="pre">git</span> <span class="pre">reset</span> <span class="pre">--hard</span> <span class="pre">HEAD</span></code></li>
+</ol>
+</li>
+<li><p class="first">Install and setup babun from <a class="reference external" href="http://babun.github.io/">http://babun.github.io/</a></p>
+</li>
+<li><p class="first">Setup the following environment variables (change the path accordingly):</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span>export PATH=&quot;/c/Program Files/go/bin&quot;:$PATH
+export PATH=&quot;/c/Program Files/nodejs&quot;:$PATH
+export PATH=&quot;/c/Program Files/Git/bin&quot;:$PATH    
+export GOROOT=&#39;c:\\Program Files\\go&#39;
+export GOPATH=&#39;c:\\User\\&lt;user-name\\go&#39;
+export PATH=&quot;/c/Program Files/Docker Toolbox&quot;:$PATH #change the path accordingly if you are using Docker for Windows
+eval $(docker-machine env default) #skip this line if you are using Docker for Windows
+</pre></div>
+</div>
+</li>
+<li><p class="first">Run <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> to start Mattermost</p>
+</li>
+<li><p class="first">You can now log in to Mattermost as the user you created in step 9</p>
+</li>
+<li><p class="first">If you want to setup for cross compilation (required for the <code class="docutils literal"><span class="pre">make</span> <span class="pre">package</span></code> and dependant targets) run:</p>
+<ul class="simple">
+<li>Note: You can skip the platform you are on because you have that target installed by default.</li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=windows</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=darwin</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=linux</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+</ul>
+</li>
+</ol>
+<p>Any issues? Please let us know on our forums at: http://forum.mattermost.org</p>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<span id="troubleshooting"></span><h1>Troubleshooting<a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="build-errors">
+<span id="build-errors"></span><h2>Build errors<a class="headerlink" href="#build-errors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon">
+<span id="i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon"></span><h3>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> on Mac OS X: &#8220;Cannot connect ot the Docker daemon&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-on-mac-os-x-cannot-connect-ot-the-docker-daemon" title="Permalink to this headline">¶</a></h3>
+<p>If you have Docker Tools installed (as opposed to Docker for Mac), you need make sure <code class="docutils literal"><span class="pre">docker-machine</span></code> is running with the following:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">docker</span><span class="o">-</span><span class="n">machine</span> <span class="n">start</span> <span class="n">dev</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused">
+<span id="i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused"></span><h3>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>: &#8220;Failed to ping db err:dial tcp 192.168.99.100:3306: getsockopt: connection refused&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-failed-to-ping-db-err-dial-tcp-192-168-99-100-3306-getsockopt-connection-refused" title="Permalink to this headline">¶</a></h3>
+<p>It appears that your MySQL database isn&#8217;t running. If you run <code class="docutils literal"><span class="pre">docker</span> <span class="pre">ps</span></code>, you should see a line like</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">ecb17c10973d</span>    <span class="n">mysql</span><span class="p">:</span><span class="mf">5.7</span>  <span class="s2">&quot;/entrypoint.sh mysql&quot;</span>   <span class="mi">2</span> <span class="n">weeks</span> <span class="n">ago</span>    <span class="n">Up</span> <span class="mi">24</span> <span class="n">hours</span>  <span class="mf">0.0</span><span class="o">.</span><span class="mf">0.0</span><span class="p">:</span><span class="mi">3306</span><span class="o">-&gt;</span><span class="mi">3306</span><span class="o">/</span><span class="n">tcp</span>     <span class="n">mattermost</span><span class="o">-</span><span class="n">mysql</span>
+</pre></div>
+</div>
+<p>If not, running <code class="docutils literal"><span class="pre">make</span> <span class="pre">clean-docker</span></code> will remove all existing docker containers so that they&#8217;ll be recreated next time you call <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>.</p>
+</div>
+<div class="section" id="i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use">
+<span id="i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use"></span><h3>I get the following error when running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code>: &#8220;Error starting server, err:listen tcp :8065: bind: address already in use&#8221;<a class="headerlink" href="#i-get-the-following-error-when-running-make-run-error-starting-server-err-listen-tcp-8065-bind-address-already-in-use" title="Permalink to this headline">¶</a></h3>
+<p>There&#8217;s likely another Mattermost instance already running. You can use <code class="docutils literal"><span class="pre">make</span> <span class="pre">stop</span></code> to stop it before running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> again.</p>
+<p>If there isn&#8217;t another copy of Mattermost running and you need to change the port that Mattermost is running on, you can do so by changing the <code class="docutils literal"><span class="pre">ListenAddress</span></code> setting in the <code class="docutils literal"><span class="pre">ServiceSettings</span></code> section of <code class="docutils literal"><span class="pre">config/config.json</span></code>.</p>
+</div>
+</div>
+<div class="section" id="other-errors">
+<span id="other-errors"></span><h2>Other errors<a class="headerlink" href="#other-errors" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065">
+<span id="i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065"></span><h3>I don&#8217;t see any error messages, but I can&#8217;t access <code class="docutils literal"><span class="pre">http://localhost:8065</span></code><a class="headerlink" href="#i-don-t-see-any-error-messages-but-i-can-t-access-http-localhost-8065" title="Permalink to this headline">¶</a></h3>
+<p>It&#8217;s possible that the server reported an error, but it was missed because of all of the output from the Javascript compiler. Try running <code class="docutils literal"><span class="pre">make</span> <span class="pre">run-server</span></code> by itself to see its output. If you still don&#8217;t see any error messages, continue to the next section.</p>
+</div>
+<div class="section" id="i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running">
+<span id="i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running"></span><h3>I don&#8217;t see anything logged to the console when Mattermost is running<a class="headerlink" href="#i-don-t-see-anything-logged-to-the-console-when-mattermost-is-running" title="Permalink to this headline">¶</a></h3>
+<p>You can enable console logging in the <code class="docutils literal"><span class="pre">LogSettings</span></code> section of your <code class="docutils literal"><span class="pre">config/config.json</span></code> by setting <code class="docutils literal"><span class="pre">EnableConsole</span></code> to <code class="docutils literal"><span class="pre">true</span></code>.</p>
+</div>
+<div class="section" id="i-can-t-log-into-mattermost-because-i-don-t-have-an-account">
+<span id="i-can-t-log-into-mattermost-because-i-don-t-have-an-account"></span><h3>I can&#8217;t log into Mattermost because I don&#8217;t have an account<a class="headerlink" href="#i-can-t-log-into-mattermost-because-i-don-t-have-an-account" title="Permalink to this headline">¶</a></h3>
+<p>You can create an account using the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">run</span> <span class="o">./</span><span class="n">cmd</span><span class="o">/</span><span class="n">platform</span><span class="o">/*.</span><span class="n">go</span> <span class="n">user</span> <span class="n">create</span> <span class="o">--</span><span class="n">email</span> <span class="n">user</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span> <span class="o">--</span><span class="n">username</span> <span class="n">test1</span> <span class="o">--</span><span class="n">password</span> <span class="n">mypassword</span>
+</pre></div>
+</div>
+<p>Optionally, you can make that account a System Admin with the following command:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">go</span> <span class="n">run</span> <span class="o">./</span><span class="n">cmd</span><span class="o">/</span><span class="n">platform</span><span class="o">/*.</span><span class="n">go</span> <span class="n">user</span> <span class="n">create</span> <span class="o">--</span><span class="n">email</span> <span class="n">user</span><span class="nd">@example</span><span class="o">.</span><span class="n">com</span> <span class="o">--</span><span class="n">username</span> <span class="n">test1</span> <span class="o">--</span><span class="n">password</span> <span class="n">mypassword</span> <span class="o">--</span><span class="n">system_admin</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="developer-flow.html" class="btn btn-neutral float-right" title="Developer Flow" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="contribution-guide.html" class="btn btn-neutral" title="Code Contribution Guidelines" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/developer-setup.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

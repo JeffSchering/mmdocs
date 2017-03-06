@@ -1,0 +1,343 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Team Settings &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../../genindex.html"/>
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Custom Emoji" href="custom-emoji.html"/>
+        <link rel="prev" title="Channel Settings" href="channel-settings.html"/> 
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#settings">Settings</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="account-settings.html">Account Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theme-colors.html">Theme Colors</a></li>
+<li class="toctree-l3"><a class="reference internal" href="channel-settings.html">Channel Settings</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Team Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#general">General</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#import">Import</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="custom-emoji.html">Custom Emoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integration-settings.html">Integrations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Team Settings</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/settings/team-settings.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="team-settings">
+<span id="team-settings"></span><h1>Team Settings<a class="headerlink" href="#team-settings" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<p>The Team Settings menu offers Team Administrators and System Administrators the ability to adjust settings applied to a specific team.</p>
+<p>The following settings are found in a Team Site from the <strong>Three-Dot</strong> menu at the top of the left sidebar under <strong>Team Settings</strong>.</p>
+<div class="section" id="general">
+<span id="general"></span><h2>General<a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<p>General settings under the <strong>Team Settings</strong> &gt; <strong>General</strong> configure how a team is displayed to users.</p>
+<div class="section" id="team-name">
+<span id="team-name"></span><h3>Team Name<a class="headerlink" href="#team-name" title="Permalink to this headline">¶</a></h3>
+<p>Your <strong>Team Name</strong> is displayed on the sign-in page, and in the top of the left-hand sidebar for your team.</p>
+<p>You can enter a name up to 15 characters in length. The length of team names is limited to ensure readability.</p>
+</div>
+<div class="section" id="team-description">
+<span id="team-description"></span><h3>Team Description<a class="headerlink" href="#team-description" title="Permalink to this headline">¶</a></h3>
+<p>Your <strong>Team Description</strong> is displayed when viewing the list of teams available to join and in the tooltip when hovering over the team name in the team sidebar.</p>
+<p>You can enter a description up to 50 characters in length.</p>
+</div>
+<div class="section" id="allow-anyone-to-join-this-team">
+<span id="allow-anyone-to-join-this-team"></span><h3>Allow anyone to join this team<a class="headerlink" href="#allow-anyone-to-join-this-team" title="Permalink to this headline">¶</a></h3>
+<p>After a user logs in to the site, they are shown a Team Selection page if they don&#8217;t belong to a team. Any team with <strong>Allow anyone to join this team</strong> option set to <strong>Yes</strong> will show up on this page under &#8220;Teams you can join&#8221;.</p>
+<p>A user can access the Team Selection page by also clicking the &#8220;+&#8221; icon at the bottom of their team sidebar or from the <strong>Main Menu</strong> &gt; <strong>Join Another Team</strong>.</p>
+</div>
+<div class="section" id="invite-code">
+<span id="invite-code"></span><h3>Invite Code<a class="headerlink" href="#invite-code" title="Permalink to this headline">¶</a></h3>
+<p>The <strong>Invite Code</strong> is used as part of the URL in the team invitation link retrieved from the <strong>Main Menu</strong> &gt; <strong>Get Team Invite Link</strong>. Click <strong>Re-Generate</strong> and then <strong>Save</strong> to generate a new team invitation link and invalidate the previous link.</p>
+</div>
+</div>
+<div class="section" id="import">
+<span id="import"></span><h2>Import<a class="headerlink" href="#import" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="import-from-slack-beta">
+<span id="import-from-slack-beta"></span><h3>Import from Slack (Beta)<a class="headerlink" href="#import-from-slack-beta" title="Permalink to this headline">¶</a></h3>
+<p>You can import channels and users from Slack into Mattermost from <strong>Team Settings &gt; Import</strong>. Please review our documentation on <a class="reference external" href="https://docs.mattermost.com/administration/migrating.html#migrating-from-slack">Slack Import</a> for more details.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="custom-emoji.html" class="btn btn-neutral float-right" title="Custom Emoji" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="channel-settings.html" class="btn btn-neutral" title="Channel Settings" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/settings/team-settings.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

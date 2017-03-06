@@ -1,0 +1,518 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <script type="text/javascript">
+
+      var _gaq = _gaq || [];
+      _gaq.push(['_setAccount', 'UA-67846571-2']);
+      _gaq.push(['_trackPageview']);
+
+      (function() {
+        var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+        ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+        var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+      })();
+    </script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>High Availability (E20) - Beta &mdash; Mattermost 3.7 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="index" title="Index"
+              href="../genindex.html"/>
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.7 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="GitLab Single-Sign-On" href="sso-gitlab.html"/>
+        <link rel="prev" title="Scaling for Enterprise" href="scaling.html"/> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.7
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#install-guides">Install Guides</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="on-boarding.html">Administrator Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bulk-loading.html">Bulk Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="push.html">Push Notifications and Mobile Devices</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-ldap.html">Active Directory/LDAP Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auth.html">Multi-Factor Authentication (E10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-saml.html">SAML Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scaling.html">Scaling for Enterprise</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">High Availability (E20) - Beta</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Deployment Guide</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id13">Configuration and Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id14">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sso-gitlab.html">GitLab Single-Sign-On</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-google.html">Google Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-office.html">Office 365 Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metrics.html">Performance Monitoring (E20) - Beta</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Mattermost Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>High Availability (E20) - Beta</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/deployment/cluster.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="high-availability-e20-beta">
+<h1>High Availability (E20) - Beta<a class="headerlink" href="#high-availability-e20-beta" title="Permalink to this headline">¶</a></h1>
+<p><em>Available in Enterprise Edition E20.</em></p>
+<p>High Availability support enables a Mattermost server to scale and maintain service during outages and hardware failures through the use of redundant infrastructure.</p>
+<ul class="simple">
+<li>Support for high availability database configurations is available in Mattermost Enterprise Edition E20 version 3.1 and higher.</li>
+<li>Support for high availability configurations of the Mattermost application server is available in Mattermost Enterprise Edition E20 version 3.3 and higher.</li>
+</ul>
+<p>This documentation provides a deployment guide, configuration and compatibility details, as well as troubleshooting advice.</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#id1">Deployment Guide</a> - <strong>Instructions to set up and maintain high availability on your Mattermost servers.</strong></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#id2">Initial Setup Guide for High Availability</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#id4">Adding a Server to the Cluster</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#id9">Removing a Server from the Cluster</a></li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#id13">Configuration and Compatibility</a> - <strong>Details on configuring your system for high availability.</strong></li>
+</ul>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#mattermost-server-configuration">Mattermost Server</a> - Configure the cluster settings for the Mattermost application server.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#proxy-server-configuration">Proxy Server</a> - Configure NGINX or another load balancer to proxy servers in the cluster.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#file-storage-configuration">File Storage Location</a> - Configure the file storage location to be compatible with a high availability setup.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#database-configuration">Database</a> - Size and deploy a multi-database configuration for high availability and scaling.</li>
+</ul>
+</div></blockquote>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#id14">Troubleshooting</a> - <strong>Advice on troubleshooting your high availability setup.</strong></li>
+</ul>
+<hr class="docutils" />
+<div class="section" id="id1">
+<h2>Deployment Guide<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Deployment guide to setup and maintain high availability on your Mattermost servers.</p>
+<div class="section" id="id2">
+<h3>Initial Setup Guide for High Availability<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h3>
+<p>To ensure your instance and configuration are compatible with high availability, please review the <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#id13">Configuration and Compatibility</a> section.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Backup your <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#database-configuration">Mattermost database</a> and <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#file-storage-configuration">file storage locations</a> before configuring high availability.</p>
+</div>
+<ol class="arabic simple">
+<li>Follow our <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html">upgrade guide</a> to upgrade your Mattermost server to v3.3 or later.</li>
+<li>Setup a new Mattermost server with v3.3 or later following one of our <strong>Install Guides</strong>. This server must use an identical copy of the configuration file, <code class="docutils literal"><span class="pre">config.json</span></code>. Verify the servers are functioning by hitting each independent server through it’s private IP address.</li>
+<li>Modify the <code class="docutils literal"><span class="pre">config.json</span></code> files on both servers to add the <code class="docutils literal"><span class="pre">ClusterSettings</span></code> as <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#id58">described in this documentation</a>.</li>
+<li>Verify the configuration files are identical on both servers then restart each machine in the cluster.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#proxy-server-configuration">Modify your NGINX setup</a> so it proxies to both servers.</li>
+<li>Open the <strong>System Console</strong> &gt; <strong>Advanced</strong> &gt; <strong>High Availability (Beta)</strong> to verify all the machines in the cluster are communicating as expected with green status indicators. If not, investigate the log files for any extra information.</li>
+</ol>
+</div>
+<div class="section" id="id4">
+<h3>Adding a Server to the Cluster<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Backup your <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#database-configuration">Mattermost database</a> and <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#file-storage-configuration">file storage location</a>.</li>
+<li>Setup a new Mattermost server following one of our <strong>Install Guides</strong>. This server must use an identical copy of the configuration file, <code class="docutils literal"><span class="pre">config.json</span></code>. Verify the server is functioning by hitting the private IP address.</li>
+<li>Modify the <code class="docutils literal"><span class="pre">config.json</span></code> files on all servers with the <code class="docutils literal"><span class="pre">ClusterSettings</span></code> as <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#high-availability-beta">described in this documentation</a>. Be sure to add the new server URL to <code class="docutils literal"><span class="pre">InterNodeUrls</span></code>.</li>
+<li>Verify the configuration files are identical on all servers, then restart each machine in the cluster in sequence with 10 or more seconds between each restart.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#proxy-server-configuration">Modify your NGINX setup</a> to add the new server.</li>
+<li>Open the <strong>System Console</strong> &gt; <strong>Advanced</strong> &gt; <strong>High Availability (Beta)</strong> to verify all the machines in the cluster are communicating as expected with green status indicators. If not, investigate the log files for any extra information.</li>
+</ol>
+</div>
+<div class="section" id="id9">
+<h3>Removing a Server from the Cluster<a class="headerlink" href="#id9" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Backup your <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#database-configuration">Mattermost database</a> and <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#file-storage-configuration">file storage location</a>.</li>
+<li><a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html#proxy-server-configuration">Modify your NGINX setup</a> to remove the server.</li>
+<li>On all servers staying active in the cluster, modify the <code class="docutils literal"><span class="pre">ClusterSettings</span></code> in <code class="docutils literal"><span class="pre">config.json</span></code> to remove the server from <code class="docutils literal"><span class="pre">InterNodeUrls</span></code></li>
+<li>Verify the configuration files are identical on all servers, then restart each machine in the cluster in sequence with 10 or more seconds between each restart.</li>
+<li>Open the <strong>System Console</strong> &gt; <strong>Advanced</strong> &gt; <strong>High Availability (Beta)</strong> to verify all the machines in the cluster are communicating as expected with green status indicators. If not, investigate the log files for any extra information.</li>
+</ol>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id13">
+<h2>Configuration and Compatibility<a class="headerlink" href="#id13" title="Permalink to this headline">¶</a></h2>
+<p>Details on configuring your system for high availability.</p>
+<div class="section" id="mattermost-server-configuration">
+<h3>Mattermost Server Configuration<a class="headerlink" href="#mattermost-server-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="configuration-settings">
+<h4>Configuration Settings<a class="headerlink" href="#configuration-settings" title="Permalink to this headline">¶</a></h4>
+<p>High availability is configured in the <code class="docutils literal"><span class="pre">ClusterSettings</span></code> section of <code class="docutils literal"><span class="pre">config.json</span></code> and the settings are viewable in the System Console. When high availability is enabled, the System Console is set to read-only mode to ensure all the <code class="docutils literal"><span class="pre">config.json</span></code> files on the Mattermost servers are identical.</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span><span class="s2">&quot;ClusterSettings&quot;</span><span class="p">:</span> <span class="p">{</span>
+      <span class="s2">&quot;Enable&quot;</span><span class="p">:</span> <span class="n">false</span><span class="p">,</span>
+      <span class="s2">&quot;InterNodeListenAddress&quot;</span><span class="p">:</span> <span class="s2">&quot;:8075&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;InterNodeUrls&quot;</span><span class="p">:</span> <span class="p">[]</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p>Please refer to our <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#high-availability-beta">Configuration Settings documentation</a> for more details on these settings.</p>
+</div>
+<div class="section" id="state">
+<h4>State<a class="headerlink" href="#state" title="Permalink to this headline">¶</a></h4>
+<p>The Mattermost Server is designed to have very little state to allow for horizontal scaling.  The items in state considered for scaling Mattermost are listed below:</p>
+<ul class="simple">
+<li>In memory session cache for quick validation and channel access,</li>
+<li>In memory online/offline cache for quick response,</li>
+<li>System configuration file that is loaded and stored in memory,</li>
+<li>WebSocket connections from clients used to send messages.</li>
+</ul>
+<p>When the Mattermost Server is configured for high availability, the servers will use an inter-node communication protocol on a different listening address to keep the state in sync.  When a state changes it is written back to the database and an inter-node message is sent to notify the other servers of the state change.  The true state of the items can always be read from the database.  Mattermost also uses inter-node communication to forward WebSocket messages to the other servers in the cluster for real-time messages like “[User X] is typing.”</p>
+</div>
+</div>
+<div class="section" id="proxy-server-configuration">
+<h3>Proxy Server Configuration<a class="headerlink" href="#proxy-server-configuration" title="Permalink to this headline">¶</a></h3>
+<p>The proxy server will expose the cluster of Mattermost servers to the outside world.  The Mattermost servers are designed for use with a proxy server like NGINX, hardware load balancer, or a cloud service like Amazon Elastic Load Balancer.</p>
+<p>If you wish to monitor the server with a health check you can use <code class="docutils literal"><span class="pre">http://10.10.10.2/api/v3/general/ping</span></code> and check the response for <code class="docutils literal"><span class="pre">Status</span> <span class="pre">200</span></code>, indicating success.  Use this health check route to mark the server in-service or out-of-service.</p>
+<p>A sample configuration for NGINX is provided below.  It assumes you have two Mattermost servers running on private IP addresses of <code class="docutils literal"><span class="pre">10.10.10.2</span></code> and <code class="docutils literal"><span class="pre">10.10.10.4</span></code>.</p>
+<div class="code highlight-default"><div class="highlight"><pre><span></span>upstream backend {
+        server 10.10.10.2:8065;
+        server 10.10.10.4:8065;
+  }
+
+  server {
+      server_name mattermost.example.com;
+
+      location / {
+            client_max_body_size 50M;
+            proxy_set_header Upgrade $http_upgrade;
+            proxy_set_header Connection &quot;upgrade&quot;;
+            proxy_set_header Host $http_host;
+            proxy_set_header X-Real-IP $remote_addr;
+            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+            proxy_set_header X-Forwarded-Proto $scheme;
+            proxy_set_header X-Frame-Options SAMEORIGIN;
+            proxy_pass http://backend;
+      }
+}
+</pre></div>
+</div>
+<p>A setup with multiple proxy servers can be utilized to limit a single point of failure, but is beyond the scope of this documentation.</p>
+</div>
+<div class="section" id="file-storage-configuration">
+<h3>File Storage Configuration<a class="headerlink" href="#file-storage-configuration" title="Permalink to this headline">¶</a></h3>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">File storage is assumed to be shared between all the machines utilizing services such as NAS or Amazon S3. If <code class="docutils literal"><span class="pre">&quot;DriverName&quot;:</span> <span class="pre">&quot;local&quot;</span></code> is used then the directory at <code class="docutils literal"><span class="pre">&quot;FileSettings&quot;:</span></code> <code class="docutils literal"><span class="pre">&quot;Directory&quot;:</span> <span class="pre">&quot;./data/&quot;</span></code> is expected to be a NAS location mapped as a local directory, otherwise high availability will not function correctly and may corrupt your file storage. If you’re using Amazon S3 for file storage then no other configuration is required.</p>
+</div>
+<p>If you’re using the Compliance Reports feature in Enterprise Edition E20, you will need to configure the  <code class="docutils literal"><span class="pre">&quot;ComplianceSettings&quot;:</span></code> <code class="docutils literal"><span class="pre">&quot;Directory&quot;:</span> <span class="pre">&quot;./data/&quot;,</span></code> to share between all machines or the reports will only be available from the System Console on the local Mattermost server.</p>
+<p>Migrating to NAS or S3 from local storage is beyond the scope of this document.</p>
+</div>
+<div class="section" id="database-configuration">
+<h3>Database Configuration<a class="headerlink" href="#database-configuration" title="Permalink to this headline">¶</a></h3>
+<p>Scaling the database can be accomplished by utilizing the read-replica feature. The Mattermost server can be set up to use one &#8220;master&#8221; database and up to 8 read replica databases. Mattermost distributes read requests across all databases, and sends write requests to the master database, and those changes are then sent to update the read replicas.</p>
+<div class="section" id="sizing-databases">
+<h4>Sizing databases<a class="headerlink" href="#sizing-databases" title="Permalink to this headline">¶</a></h4>
+<p>Please see <a class="reference external" href="http://docs.mattermost.com/install/requirements.html#hardware-requirements">documentation on sizing database servers</a> for guidance to determine appropriate hardware.</p>
+<p>In a master/slave environment, make sure to size the slave machine to take 100% of the load in the event that the master machine goes down and you need to fail over.</p>
+</div>
+<div class="section" id="deploying-a-multi-database-configuration">
+<h4>Deploying a multi-database configuration<a class="headerlink" href="#deploying-a-multi-database-configuration" title="Permalink to this headline">¶</a></h4>
+<p>To configure a multi-database Mattermost server:</p>
+<ol class="arabic simple">
+<li>Update the <code class="docutils literal"><span class="pre">DataSource</span></code> setting in <code class="docutils literal"><span class="pre">config.json</span></code> with a connection string to your master database server. The connection string is based on the database type set in <code class="docutils literal"><span class="pre">DriverName</span></code>, either <code class="docutils literal"><span class="pre">postgres</span></code> or <code class="docutils literal"><span class="pre">mysql</span></code>.</li>
+<li>Update the <code class="docutils literal"><span class="pre">DataSourceReplicas</span></code> setting in <code class="docutils literal"><span class="pre">config.json</span></code> with a series of connection strings to your database read replica servers in the format <code class="docutils literal"><span class="pre">[&quot;readreplica1&quot;,</span> <span class="pre">&quot;readreplica2&quot;]</span></code>. Each connection should also be compatible with the <code class="docutils literal"><span class="pre">DriverName</span></code> setting.</li>
+</ol>
+<p>The new settings can be applied by either stopping and starting the server, or by loading the configuration settings as described in the next section.</p>
+<p>Once loaded, database write requests will be sent to the master database and read requests will be distributed among the other databases in the list.</p>
+</div>
+<div class="section" id="loading-a-multi-database-configuration-onto-an-active-server">
+<h4>Loading a multi-database configuration onto an active server<a class="headerlink" href="#loading-a-multi-database-configuration-onto-an-active-server" title="Permalink to this headline">¶</a></h4>
+<p>After a multi-database configuration has been defined in <code class="docutils literal"><span class="pre">config.json</span></code> the following procedure can be used to apply the settings without shutting down the Mattermost server:</p>
+<ol class="arabic simple">
+<li>Go to <strong>System Console</strong> &gt; <strong>Configuration</strong> and press <strong>Reload Configuration from Disk</strong> to reload configuration settings for the Mattermost server from <code class="docutils literal"><span class="pre">config.json</span></code>.</li>
+<li>Go to <strong>System Console</strong> &gt; <strong>Database</strong> and press <strong>Recycle Database Connections</strong> to takedown existing database connections and set up new connections in the multi-database configuration.</li>
+</ol>
+<p>While connection settings are changing there may be a brief moment when writes to the master database will be unsuccessful. The process waits for all existing connections to finish and starts serving new requests with the new connections. End users attempting to send messages while the switch is happening will have an experience similar to losing connection to the Mattermost server.</p>
+</div>
+<div class="section" id="manual-failover-for-master-database">
+<h4>Manual failover for master database<a class="headerlink" href="#manual-failover-for-master-database" title="Permalink to this headline">¶</a></h4>
+<p>If the need arises to switch from the current master database&#8211;for example, if it is running out of disk space, or requires maintenance updates, or for other reasons&#8211;the Mattermost server can switch to using one of its read replicas as a master database by updating <code class="docutils literal"><span class="pre">DataSource</span></code> in <code class="docutils literal"><span class="pre">config.json</span></code>. The following procedure can be used to apply the settings without shutting down the Mattermost server:</p>
+<ol class="arabic simple">
+<li>Go to <strong>System Console</strong> &gt; <strong>Configuration</strong> and press <strong>Reload Configuration from Disk</strong> to reload configuration settings for the Mattermost server from <code class="docutils literal"><span class="pre">config.json</span></code>.</li>
+<li>Go to <strong>System Console</strong> &gt; <strong>Database</strong> and press <strong>Recycle Database Connections</strong> to takedown existing database connections and set up new connections in the multi-database configuration.</li>
+</ol>
+<p>While connection settings are changing there may be a brief moment when writes to the master database will be unsuccessful. The process waits for all existing connections to finish and starts serving new requests with the new connections. End users attempting to send messages while the switch is happening will have an experience similar to losing connection to the Mattermost server.</p>
+</div>
+<div class="section" id="transparent-failover">
+<h4>Transparent Failover<a class="headerlink" href="#transparent-failover" title="Permalink to this headline">¶</a></h4>
+<p>The database can be configured for high availability and transparent failover utilizing the existing database technologies.  We recommend MySQL Clustering, Postgres Clustering, or Amazon Aoura.  Database transparent failover is beyond the scope of this documentation.</p>
+</div>
+</div>
+</div>
+<hr class="docutils" />
+<div class="section" id="id14">
+<h2>Troubleshooting<a class="headerlink" href="#id14" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="red-server-status">
+<h3>Red Server Status<a class="headerlink" href="#red-server-status" title="Permalink to this headline">¶</a></h3>
+<p>When high availability is enabled, the System Console displays the server status as red or green, indicating if the servers are communicating correctly with the cluster. The servers use inter-node communication to ping the other machines in the cluster, and once a ping is established the servers exchange information, such as server version and configuration files. Red server status may display for the following reasons:</p>
+<ul class="simple">
+<li><strong>Configuration file mismatch</strong>: Mattermost will still attempt the inter-node communication, but the System Console will show a red status for the server since the high availability feature assumes the same configuration file to function properly.</li>
+<li><strong>Server version mismatch</strong>: Mattermost will still attempt the inter-node communication, but the System Console will show a red status for the server since the high availability feature assumes the same version of Mattermost is installed on each server in the cluster. It is recommended to use the <a class="reference external" href="https://www.mattermost.org/download/">latest version of Mattermost</a> on all servers. Follow the <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html">upgrade procedure</a> for any server that needs to be upgraded.</li>
+<li><strong>Server is down</strong>: If an inter-node communication fails to send a message it will attempt again in 15 seconds.  If the second attempt fails, the server is assumed to be down. An error message is written to the logs and the System Console will show a status of red for that server.</li>
+</ul>
+</div>
+<div class="section" id="websocket-disconnect">
+<h3>WebSocket Disconnect<a class="headerlink" href="#websocket-disconnect" title="Permalink to this headline">¶</a></h3>
+<p>When a client WebSocket receives a disconnect it will automatically attempt to re-establish a connection every three seconds with a backoff.  Once the connection is established the client will attempt to receive any missing messages since it was disconnected.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sso-gitlab.html" class="btn btn-neutral float-right" title="GitLab Single-Sign-On" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="scaling.html" class="btn btn-neutral" title="Scaling for Enterprise" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/deployment/cluster.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.7',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2016/01/logo.png">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>
