@@ -195,14 +195,14 @@
 <div class="contents local topic" id="contents">
 <p class="topic-title first">Contents</p>
 <ul class="simple">
-<li><a class="reference internal" href="#about-the-bulk-loading-command" id="id3">About the bulk loading command</a></li>
-<li><a class="reference internal" href="#running-the-bulk-loading-command" id="id4">Running the bulk loading command</a></li>
-<li><a class="reference internal" href="#data-format" id="id5">Data Format</a><ul>
-<li><a class="reference internal" href="#version-object" id="id6">Version object</a></li>
-<li><a class="reference internal" href="#team-object" id="id7">Team object</a></li>
-<li><a class="reference internal" href="#channel-object" id="id8">Channel object</a></li>
-<li><a class="reference internal" href="#user-object" id="id9">User object</a></li>
-<li><a class="reference internal" href="#post-object" id="id10">Post object</a></li>
+<li><a class="reference internal" href="#about-the-bulk-loading-command" id="id4">About the bulk loading command</a></li>
+<li><a class="reference internal" href="#running-the-bulk-loading-command" id="id5">Running the bulk loading command</a></li>
+<li><a class="reference internal" href="#data-format" id="id6">Data Format</a><ul>
+<li><a class="reference internal" href="#version-object" id="id7">Version object</a></li>
+<li><a class="reference internal" href="#team-object" id="id8">Team object</a></li>
+<li><a class="reference internal" href="#channel-object" id="id9">Channel object</a></li>
+<li><a class="reference internal" href="#user-object" id="id10">User object</a></li>
+<li><a class="reference internal" href="#post-object" id="id11">Post object</a></li>
 </ul>
 </li>
 </ul>
@@ -229,7 +229,7 @@
 <p>Before running the bulk loading command, you must first create a JSON file that contains the data that you want to import. After you create the file, run the bulk load command in validation mode. In this mode, the data is checked for correctness, but is not written to the database. After validating, run the command in apply mode, which saves the data to the database.</p>
 <p><strong>To bulk load data</strong>:</p>
 <ol class="arabic simple">
-<li>Create the JSON data file in your Mattermost <code class="docutils literal"><span class="pre">bin</span></code> directory. The file can have any name, but in this procedure it&#8217;s called <code class="docutils literal"><span class="pre">data.json</span></code>. The format of the file is described in the <a class="reference internal" href="bulk-loading-data-format.html#data-format"><span class="std std-ref">Data Format</span></a> section.</li>
+<li>Create the JSON data file in your Mattermost <code class="docutils literal"><span class="pre">bin</span></code> directory. The file can have any name, but in this procedure it&#8217;s called <code class="docutils literal"><span class="pre">data.json</span></code>. The format of the file is described in the <a class="reference internal" href="#data-format"><span class="std std-ref">Data Format</span></a> section.</li>
 <li>Validate that the file is correct:</li>
 </ol>
 <blockquote>
@@ -250,6 +250,9 @@
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">./platform</span> <span class="pre">import</span> <span class="pre">bulk</span> <span class="pre">data.json</span> <span class="pre">--apply</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>When the bulk load command completes, clear all caches. Open the System Console, and click <strong>General &gt; Configuration &gt; Purge All Caches</strong>.</li>
+</ol>
 </div>
 <div class="section" id="data-format">
 <span id="id2"></span><h2><a class="toc-backref" href="#contents">Data Format</a><a class="headerlink" href="#data-format" title="Permalink to this headline">¶</a></h2>
@@ -266,6 +269,43 @@
 <dt>Post</dt>
 <dd>Optional. If present, Post objects must occur after all other objects in the file. Each Post object defines the team, the channel, and the username of the user who posted the message. If the corresponding team, channel, or user are not in the data file, then they must exist in the Mattermost database.</dd>
 </dl>
+<p>With the exception of the Version object, each object has a field or a combination of fields that is used as the unique identifier of that object. The bulk loader uses the unique identifier to determine if the object being imported is a new object or an update to an existing object.</p>
+<p>The identifiers for each object are listed in the following table:</p>
+<table border="1" class="docutils" id="id3">
+<caption><span class="caption-text">Objects and their unique identifiers</span><a class="headerlink" href="#id3" title="Permalink to this table">¶</a></caption>
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Object</th>
+<th class="head">Unique Identifier</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Version</td>
+<td>Not Applicable</td>
+</tr>
+<tr class="row-odd"><td>Team</td>
+<td><em>name</em></td>
+</tr>
+<tr class="row-even"><td>Channel</td>
+<td><em>name</em>, <em>team</em></td>
+</tr>
+<tr class="row-odd"><td>User</td>
+<td><em>username</em></td>
+</tr>
+<tr class="row-even"><td>UserTeamMembership</td>
+<td><em>team</em>, <em>username</em></td>
+</tr>
+<tr class="row-odd"><td>UserChannelMembership</td>
+<td><em>team</em>, <em>channel</em>, <em>username</em></td>
+</tr>
+<tr class="row-even"><td>Post</td>
+<td><em>channel</em>, <em>message</em>, <em>create_at</em></td>
+</tr>
+</tbody>
+</table>
 <p>The following fragment is from a file that imports two teams, each with two channels, many users, and many posts.</p>
 <div class="highlight-javascript"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
  2
