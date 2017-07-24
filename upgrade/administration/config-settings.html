@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuration Settings &mdash; Mattermost 3.10 documentation</title>
+  <title>Configuration Settings &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
         <link rel="next" title="Statistics" href="statistics.html"/>
         <link rel="prev" title="Command Line Tools" href="command-line-tools.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -200,75 +200,73 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 <p>For any setting that is not set in <code class="docutils literal"><span class="pre">config.json</span></code> or in environment variables, the Mattermost server uses the default value as documented here.</p>
 <div class="contents local topic" id="contents">
 <ul class="simple">
-<li><a class="reference internal" href="#general" id="id34">General</a><ul>
-<li><a class="reference internal" href="#configuration" id="id35">Configuration</a></li>
-<li><a class="reference internal" href="#localization" id="id36">Localization</a></li>
-<li><a class="reference internal" href="#users-and-teams" id="id37">Users and Teams</a></li>
-<li><a class="reference internal" href="#policy" id="id38">Policy</a></li>
-<li><a class="reference internal" href="#privacy" id="id39">Privacy</a></li>
-<li><a class="reference internal" href="#compliance" id="id40">Compliance</a></li>
-<li><a class="reference internal" href="#logging" id="id41">Logging</a></li>
+<li><a class="reference internal" href="#general" id="id36">General</a><ul>
+<li><a class="reference internal" href="#configuration" id="id37">Configuration</a></li>
+<li><a class="reference internal" href="#localization" id="id38">Localization</a></li>
+<li><a class="reference internal" href="#users-and-teams" id="id39">Users and Teams</a></li>
+<li><a class="reference internal" href="#policy" id="id40">Policy</a></li>
+<li><a class="reference internal" href="#privacy" id="id41">Privacy</a></li>
+<li><a class="reference internal" href="#compliance" id="id42">Compliance</a></li>
+<li><a class="reference internal" href="#logging" id="id43">Logging</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#authentication" id="id42">Authentication</a><ul>
-<li><a class="reference internal" href="#email-auth" id="id43">Email Auth</a></li>
-<li><a class="reference internal" href="#oauth-2-0" id="id44">OAuth 2.0</a></li>
-<li><a class="reference internal" href="#select-oauth-2-0-service-provider" id="id45">Select OAuth 2.0 service provider:</a></li>
-<li><a class="reference internal" href="#gitlab" id="id46">GitLab</a></li>
-<li><a class="reference internal" href="#google" id="id47">Google</a></li>
-<li><a class="reference internal" href="#office-365" id="id48">Office 365</a></li>
-<li><a class="reference internal" href="#ad-ldap" id="id49">AD/LDAP</a></li>
-<li><a class="reference internal" href="#login-field-name" id="id50">Login Field Name</a></li>
-<li><a class="reference internal" href="#saml" id="id51">SAML</a></li>
+<li><a class="reference internal" href="#authentication" id="id44">Authentication</a><ul>
+<li><a class="reference internal" href="#email-auth" id="id45">Email Auth</a></li>
+<li><a class="reference internal" href="#oauth-2-0" id="id46">OAuth 2.0</a></li>
+<li><a class="reference internal" href="#select-oauth-2-0-service-provider" id="id47">Select OAuth 2.0 service provider:</a></li>
+<li><a class="reference internal" href="#gitlab" id="id48">GitLab</a></li>
+<li><a class="reference internal" href="#google" id="id49">Google</a></li>
+<li><a class="reference internal" href="#office-365" id="id50">Office 365</a></li>
+<li><a class="reference internal" href="#ad-ldap" id="id51">AD/LDAP</a></li>
+<li><a class="reference internal" href="#login-field-name" id="id52">Login Field Name</a></li>
+<li><a class="reference internal" href="#saml" id="id53">SAML</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#mfa" id="id52">MFA</a></li>
-<li><a class="reference internal" href="#security" id="id53">Security</a><ul>
-<li><a class="reference internal" href="#sign-up" id="id54">Sign Up</a></li>
-<li><a class="reference internal" href="#password" id="id55">Password</a></li>
-<li><a class="reference internal" href="#public-links" id="id56">Public Links</a></li>
-<li><a class="reference internal" href="#sessions" id="id57">Sessions</a></li>
-<li><a class="reference internal" href="#connections" id="id58">Connections</a></li>
+<li><a class="reference internal" href="#mfa" id="id54">MFA</a></li>
+<li><a class="reference internal" href="#security" id="id55">Security</a><ul>
+<li><a class="reference internal" href="#sign-up" id="id56">Sign Up</a></li>
+<li><a class="reference internal" href="#password" id="id57">Password</a></li>
+<li><a class="reference internal" href="#public-links" id="id58">Public Links</a></li>
+<li><a class="reference internal" href="#sessions" id="id59">Sessions</a></li>
+<li><a class="reference internal" href="#connections" id="id60">Connections</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#notifications" id="id59">Notifications</a><ul>
-<li><a class="reference internal" href="#email" id="id60">Email</a></li>
-<li><a class="reference internal" href="#mobile-push" id="id61">Mobile Push</a></li>
+<li><a class="reference internal" href="#notifications" id="id61">Notifications</a><ul>
+<li><a class="reference internal" href="#email" id="id62">Email</a></li>
+<li><a class="reference internal" href="#mobile-push" id="id63">Mobile Push</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#integrations" id="id62">Integrations</a><ul>
-<li><a class="reference internal" href="#custom-integrations" id="id63">Custom Integrations</a></li>
-<li><a class="reference internal" href="#webrtc-beta" id="id64">WebRTC (Beta)</a></li>
-<li><a class="reference internal" href="#external-services" id="id65">External Services</a></li>
+<li><a class="reference internal" href="#integrations" id="id64">Integrations</a><ul>
+<li><a class="reference internal" href="#custom-integrations" id="id65">Custom Integrations</a></li>
+<li><a class="reference internal" href="#webrtc-beta" id="id66">WebRTC (Beta)</a></li>
+<li><a class="reference internal" href="#external-services" id="id67">External Services</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#files" id="id66">Files</a><ul>
-<li><a class="reference internal" href="#storage" id="id67">Storage</a></li>
-<li><a class="reference internal" href="#images" id="id68">Images</a></li>
+<li><a class="reference internal" href="#files" id="id68">Files</a><ul>
+<li><a class="reference internal" href="#storage" id="id69">Storage</a></li>
+<li><a class="reference internal" href="#images" id="id70">Images</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#customization" id="id69">Customization</a><ul>
-<li><a class="reference internal" href="#custom-branding" id="id70">Custom Branding</a></li>
-<li><a class="reference internal" href="#link-previews" id="id71">Link Previews</a></li>
-<li><a class="reference internal" href="#enable-link-previews" id="id72">Enable Link Previews</a></li>
-<li><a class="reference internal" href="#custom-emoji" id="id73">Custom Emoji</a></li>
-<li><a class="reference internal" href="#enable-custom-emoji" id="id74">Enable Custom Emoji</a></li>
-<li><a class="reference internal" href="#restrict-custom-emoji-creation" id="id75">Restrict Custom Emoji Creation</a></li>
-<li><a class="reference internal" href="#legal-and-support" id="id76">Legal and Support</a></li>
-<li><a class="reference internal" href="#mattermost-app-links" id="id77">Mattermost App Links</a></li>
+<li><a class="reference internal" href="#customization" id="id71">Customization</a><ul>
+<li><a class="reference internal" href="#custom-branding" id="id72">Custom Branding</a></li>
+<li><a class="reference internal" href="#link-previews" id="id73">Link Previews</a></li>
+<li><a class="reference internal" href="#enable-link-previews" id="id74">Enable Link Previews</a></li>
+<li><a class="reference internal" href="#emoji" id="id75">Emoji</a></li>
+<li><a class="reference internal" href="#enable-emoji-picker" id="id76">Enable Emoji Picker</a></li>
+<li><a class="reference internal" href="#enable-custom-emoji" id="id77">Enable Custom Emoji</a></li>
+<li><a class="reference internal" href="#restrict-custom-emoji-creation" id="id78">Restrict Custom Emoji Creation</a></li>
+<li><a class="reference internal" href="#legal-and-support" id="id79">Legal and Support</a></li>
+<li><a class="reference internal" href="#mattermost-app-links" id="id80">Mattermost App Links</a></li>
 </ul>
 </li>
-<li><a class="reference internal" href="#advanced" id="id78">Advanced</a><ul>
-<li><a class="reference internal" href="#rate-limiting" id="id79">Rate Limiting</a></li>
-<li><a class="reference internal" href="#database" id="id80">Database</a></li>
-<li><a class="reference internal" href="#developer" id="id81">Developer</a></li>
-<li><a class="reference internal" href="#high-availability-beta" id="id82">High Availability (Beta)</a></li>
-<li><a class="reference internal" href="#enable-high-availability-mode" id="id83">Enable High Availability Mode</a></li>
-<li><a class="reference internal" href="#inter-node-listen-address" id="id84">Inter-Node Listen Address</a></li>
-<li><a class="reference internal" href="#inter-node-urls" id="id85">Inter-Node URLs</a></li>
-<li><a class="reference internal" href="#performance-monitoring-beta" id="id86">Performance Monitoring (Beta)</a></li>
+<li><a class="reference internal" href="#advanced" id="id81">Advanced</a><ul>
+<li><a class="reference internal" href="#rate-limiting" id="id82">Rate Limiting</a></li>
+<li><a class="reference internal" href="#database" id="id83">Database</a></li>
+<li><a class="reference internal" href="#developer" id="id84">Developer</a></li>
+<li><a class="reference internal" href="#id27" id="id85">High Availability</a></li>
+<li><a class="reference internal" href="#performance-monitoring" id="id86">Performance Monitoring</a></li>
 <li><a class="reference internal" href="#enable-performance-monitoring" id="id87">Enable Performance Monitoring</a></li>
-<li><a class="reference internal" href="#id28" id="id88">Listen Address</a></li>
+<li><a class="reference internal" href="#id30" id="id88">Listen Address</a></li>
 </ul>
 </li>
 <li><a class="reference internal" href="#settings-configurable-only-in-config-json" id="id89">Settings configurable only in config.json</a><ul>
@@ -281,12 +279,12 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 <li><a class="reference internal" href="#email-batching-buffer-size" id="id96">Email Batching Buffer Size</a></li>
 <li><a class="reference internal" href="#email-batching-interval" id="id97">Email Batching Interval</a></li>
 <li><a class="reference internal" href="#skip-server-certificate-verification" id="id98">Skip Server Certificate Verification</a></li>
-<li><a class="reference internal" href="#id29" id="id99">GitLab Settings</a></li>
+<li><a class="reference internal" href="#id31" id="id99">GitLab Settings</a></li>
 <li><a class="reference internal" href="#scope" id="id100">Scope</a></li>
-<li><a class="reference internal" href="#id30" id="id101">Google Settings</a></li>
-<li><a class="reference internal" href="#id31" id="id102">Scope</a></li>
-<li><a class="reference internal" href="#id32" id="id103">Office 365 Settings</a></li>
-<li><a class="reference internal" href="#id33" id="id104">Scope</a></li>
+<li><a class="reference internal" href="#id32" id="id101">Google Settings</a></li>
+<li><a class="reference internal" href="#id33" id="id102">Scope</a></li>
+<li><a class="reference internal" href="#id34" id="id103">Office 365 Settings</a></li>
+<li><a class="reference internal" href="#id35" id="id104">Scope</a></li>
 <li><a class="reference internal" href="#metrics-settings" id="id105">Metrics Settings</a></li>
 <li><a class="reference internal" href="#block-profile-rate" id="id106">Block Profile Rate</a></li>
 <li><a class="reference internal" href="#analytics-settings" id="id107">Analytics Settings</a></li>
@@ -296,10 +294,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </ul>
 </div>
 <div class="section" id="general">
-<h2><a class="toc-backref" href="#id34">General</a><a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id36">General</a><a class="headerlink" href="#general" title="Permalink to this headline">¶</a></h2>
 <p>General settings for server configuration, language defaults, user and team management, privacy, compliance reporting and logs.</p>
 <div class="section" id="configuration">
-<h3><a class="toc-backref" href="#id35">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id37">Configuration</a><a class="headerlink" href="#configuration" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="site-url">
 <h4>Site URL<a class="headerlink" href="#site-url" title="Permalink to this headline">¶</a></h4>
 <p>The URL that users will use to access Mattermost. The port number is required if it&#8217;s not a standard port such as 80 or 443.</p>
@@ -442,6 +440,19 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </tbody>
 </table>
 </div>
+<div class="section" id="allow-use-of-api-v3-endpoints">
+<h4>Allow use of API v3 endpoints<a class="headerlink" href="#allow-use-of-api-v3-endpoints" title="Permalink to this headline">¶</a></h4>
+<p>Set to false to disable all version 3 endpoints of the REST API. Integrations that rely on API v3 will fail and can then be identified for migration to API v4. API v3 is deprecated and will be removed in the near future. See <a class="reference external" href="https://api.mattermost.com">https://api.mattermost.com</a> for details.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;EnableAPIv3&quot;:</span> <span class="pre">true</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
 <div class="section" id="webserver-mode">
 <h4>Webserver Mode<a class="headerlink" href="#webserver-mode" title="Permalink to this headline">¶</a></h4>
 <p>gzip compression applies to the HTML, CSS, Javascript, and other static content files that make up the Mattermost web client. It is recommended to enable gzip to improve performance unless your environment has specific restrictions, such as a web proxy that distributes gzip files poorly. This setting requires a server restart to take effect.</p>
@@ -471,7 +482,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="localization">
-<h3><a class="toc-backref" href="#id36">Localization</a><a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id38">Localization</a><a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="default-server-language">
 <h4>Default Server Language<a class="headerlink" href="#default-server-language" title="Permalink to this headline">¶</a></h4>
 <p>Default language for system messages and logs. Changing this will require a server restart before taking effect.</p>
@@ -480,7 +491,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 <col width="100%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;DefaultServerLocale&quot;:</span> <span class="pre">&quot;en&quot;</span></code> with options <code class="docutils literal"><span class="pre">de</span></code>, <code class="docutils literal"><span class="pre">en</span></code>, <code class="docutils literal"><span class="pre">es</span></code>, <code class="docutils literal"><span class="pre">fr</span></code>, <code class="docutils literal"><span class="pre">ja</span></code>, <code class="docutils literal"><span class="pre">ko</span></code>, <code class="docutils literal"><span class="pre">nl</span></code>, <code class="docutils literal"><span class="pre">pl</span></code>, <code class="docutils literal"><span class="pre">pt-br</span></code>, <code class="docutils literal"><span class="pre">ru</span></code>, <code class="docutils literal"><span class="pre">tr</span></code>, <code class="docutils literal"><span class="pre">zh_CN</span></code> and <code class="docutils literal"><span class="pre">zh_TW</span></code></td>
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;DefaultServerLocale&quot;:</span> <span class="pre">&quot;en&quot;</span></code> with options <code class="docutils literal"><span class="pre">de</span></code>, <code class="docutils literal"><span class="pre">en</span></code>, <code class="docutils literal"><span class="pre">es</span></code>, <code class="docutils literal"><span class="pre">fr</span></code>, <code class="docutils literal"><span class="pre">it</span></code>, <code class="docutils literal"><span class="pre">ja</span></code>, <code class="docutils literal"><span class="pre">ko</span></code>, <code class="docutils literal"><span class="pre">nl</span></code>, <code class="docutils literal"><span class="pre">pl</span></code>, <code class="docutils literal"><span class="pre">pt-br</span></code>, <code class="docutils literal"><span class="pre">ru</span></code>, <code class="docutils literal"><span class="pre">tr</span></code>, <code class="docutils literal"><span class="pre">zh_CN</span></code> and <code class="docutils literal"><span class="pre">zh_TW</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -493,7 +504,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 <col width="100%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;DefaultClientLocale&quot;:</span> <span class="pre">&quot;en&quot;</span></code> with options <code class="docutils literal"><span class="pre">de</span></code>, <code class="docutils literal"><span class="pre">en</span></code>, <code class="docutils literal"><span class="pre">es</span></code>, <code class="docutils literal"><span class="pre">fr</span></code>, <code class="docutils literal"><span class="pre">ja</span></code>, <code class="docutils literal"><span class="pre">ko</span></code>, <code class="docutils literal"><span class="pre">nl</span></code>, <code class="docutils literal"><span class="pre">pl</span></code>, <code class="docutils literal"><span class="pre">pt-br</span></code>, <code class="docutils literal"><span class="pre">ru</span></code>, <code class="docutils literal"><span class="pre">tr</span></code>, <code class="docutils literal"><span class="pre">zh_CN</span></code> and <code class="docutils literal"><span class="pre">zh_TW</span></code></td>
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;DefaultClientLocale&quot;:</span> <span class="pre">&quot;en&quot;</span></code> with options <code class="docutils literal"><span class="pre">de</span></code>, <code class="docutils literal"><span class="pre">en</span></code>, <code class="docutils literal"><span class="pre">es</span></code>, <code class="docutils literal"><span class="pre">fr</span></code>, <code class="docutils literal"><span class="pre">it</span></code>, <code class="docutils literal"><span class="pre">ja</span></code>, <code class="docutils literal"><span class="pre">ko</span></code>, <code class="docutils literal"><span class="pre">nl</span></code>, <code class="docutils literal"><span class="pre">pl</span></code>, <code class="docutils literal"><span class="pre">pt-br</span></code>, <code class="docutils literal"><span class="pre">ru</span></code>, <code class="docutils literal"><span class="pre">tr</span></code>, <code class="docutils literal"><span class="pre">zh_CN</span></code> and <code class="docutils literal"><span class="pre">zh_TW</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -507,7 +518,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 <col width="100%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;AvailableLocales&quot;:</span> <span class="pre">&quot;&quot;</span></code> with options <code class="docutils literal"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal"><span class="pre">de</span></code>, <code class="docutils literal"><span class="pre">en</span></code>, <code class="docutils literal"><span class="pre">es</span></code>, <code class="docutils literal"><span class="pre">fr</span></code>, <code class="docutils literal"><span class="pre">ja</span></code>, <code class="docutils literal"><span class="pre">ko</span></code>, <code class="docutils literal"><span class="pre">nl</span></code>, <code class="docutils literal"><span class="pre">pl</span></code>, <code class="docutils literal"><span class="pre">pt-br</span></code>, <code class="docutils literal"><span class="pre">ru</span></code>, <code class="docutils literal"><span class="pre">tr</span></code>, <code class="docutils literal"><span class="pre">zh_CN</span></code> and <code class="docutils literal"><span class="pre">zh_TW</span></code></td>
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;AvailableLocales&quot;:</span> <span class="pre">&quot;&quot;</span></code> with options <code class="docutils literal"><span class="pre">&quot;&quot;</span></code>, <code class="docutils literal"><span class="pre">de</span></code>, <code class="docutils literal"><span class="pre">en</span></code>, <code class="docutils literal"><span class="pre">es</span></code>, <code class="docutils literal"><span class="pre">fr</span></code>, <code class="docutils literal"><span class="pre">it</span></code>, <code class="docutils literal"><span class="pre">ja</span></code>, <code class="docutils literal"><span class="pre">ko</span></code>, <code class="docutils literal"><span class="pre">nl</span></code>, <code class="docutils literal"><span class="pre">pl</span></code>, <code class="docutils literal"><span class="pre">pt-br</span></code>, <code class="docutils literal"><span class="pre">ru</span></code>, <code class="docutils literal"><span class="pre">tr</span></code>, <code class="docutils literal"><span class="pre">zh_CN</span></code> and <code class="docutils literal"><span class="pre">zh_TW</span></code></td>
 </tr>
 </tbody>
 </table>
@@ -515,7 +526,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="users-and-teams">
-<h3><a class="toc-backref" href="#id37">Users and Teams</a><a class="headerlink" href="#users-and-teams" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id39">Users and Teams</a><a class="headerlink" href="#users-and-teams" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-account-creation">
 <h4>Enable Account Creation<a class="headerlink" href="#enable-account-creation" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Ability to create new accounts is enabled via inviting new members or sharing the team invite link.</p>
@@ -546,10 +557,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <div class="section" id="max-users-per-team">
 <h4>Max Users Per Team<a class="headerlink" href="#max-users-per-team" title="Permalink to this headline">¶</a></h4>
-<p>Maximum number of users per team, including both active and inactive users.</p>
+<p>Maximum number of users per team, excluding inactive users.</p>
 <p>The <strong>Max Users Per Team</strong> refers to the size of the &#8220;team site&#8221; which is workspace a &#8220;team of people&#8221; inhabits. A team of people is considered a small organization where people work closely together towards a specific shared goal and share the same etiquette. In the physical world, a team of people could typically be seated around a single table to have a meal and discuss their project.</p>
-<p>The default maximum of 50 people, is a the extreme high end of a single team of people. At this point organizations are more often &#8220;multiple teams of people&#8221; and investments in explicitly defining etiquette, such as <a class="reference external" href="https://docs.mattermost.com/help/getting-started/organizing.html">channel organization</a> or turning on <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#policy">policy features</a> in Enterprise Edition, are often used to scale the high levels of productivity found in a team of people using Mattermost to multiple teams of people.</p>
-<p>In terms of technical performance, <a class="reference external" href="https://docs.mattermost.com/install/requirements.html">with appropriate hardware, Mattermost can easily scale to hundreds and even thousands of users</a> and provided the administrator believes the appropriate etiquette is in place, they should free to increase the default value.</p>
+<p>The default maximum of 50 people, is at the extreme high end of a single team of people. At this point organizations are more often &#8220;multiple teams of people&#8221; and investments in explicitly defining etiquette, such as <a class="reference external" href="https://docs.mattermost.com/help/getting-started/organizing.html">channel organization</a> or turning on <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#policy">policy features</a> in Enterprise Edition, are often used to scale the high levels of productivity found in a team of people using Mattermost to multiple teams of people.</p>
+<p>In terms of technical performance, <a class="reference external" href="https://docs.mattermost.com/install/requirements.html">with appropriate hardware, Mattermost can easily scale to hundreds and even thousands of users</a>, and provided the administrator believes the appropriate etiquette is in place, they should feel free to increase the default value.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
@@ -643,10 +654,26 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </tbody>
 </table>
 </div>
+<div class="section" id="teammate-name-display">
+<h4>Teammate Name Display<a class="headerlink" href="#teammate-name-display" title="Permalink to this headline">¶</a></h4>
+<p>Specifies how names are displayed in the user interface.</p>
+<p><strong>Show username</strong>: Displays the user&#8217;s username.</p>
+<p><strong>Show nickname if one exists</strong>: Displays the user&#8217;s nickname. If the user does not have a nickname, their full name is displayed. If the user does not have a full name, their username is displayed.</p>
+<p><strong>Show first and last name</strong>: Displays the user&#8217;s full name. If the user does not have a full name, their username is displayed. Recommended when using SAML or LDAP if first name and last name attributes are configured.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;TeammateNameDisplay&quot;:</span> <span class="pre">&quot;username&quot;</span></code> with options <code class="docutils literal"><span class="pre">username</span></code>, <code class="docutils literal"><span class="pre">nickname_full_name</span></code>, and <code class="docutils literal"><span class="pre">full_name</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <hr class="docutils" />
 <div class="section" id="policy">
-<h3><a class="toc-backref" href="#id38">Policy</a><a class="headerlink" href="#policy" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id40">Policy</a><a class="headerlink" href="#policy" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E10 and higher</em></p>
 <p>Settings to configure the permission restrictions for sending team invite links and managing channels.</p>
 <div class="section" id="enable-sending-team-invites-from">
@@ -886,7 +913,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 </div>
 <div class="section" id="privacy">
-<h3><a class="toc-backref" href="#id39">Privacy</a><a class="headerlink" href="#privacy" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id41">Privacy</a><a class="headerlink" href="#privacy" title="Permalink to this headline">¶</a></h3>
 <p>Settings to configure the name and email privacy of users on your system.</p>
 <div class="section" id="show-email-address">
 <h4>Show Email Address<a class="headerlink" href="#show-email-address" title="Permalink to this headline">¶</a></h4>
@@ -919,7 +946,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="compliance">
-<h3><a class="toc-backref" href="#id40">Compliance</a><a class="headerlink" href="#compliance" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id42">Compliance</a><a class="headerlink" href="#compliance" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E20</em></p>
 <p>Settings used to enable and configure Mattermost compliance reports.</p>
 <div class="section" id="enable-compliance-reporting">
@@ -966,7 +993,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="logging">
-<h3><a class="toc-backref" href="#id41">Logging</a><a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id43">Logging</a><a class="headerlink" href="#logging" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="output-logs-to-console">
 <h4>Output logs to console<a class="headerlink" href="#output-logs-to-console" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Output log messages to the console based on <strong>ConsoleLevel</strong> option. The server writes messages to the standard output stream (stdout).</p>
@@ -1115,10 +1142,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="authentication">
-<h2><a class="toc-backref" href="#id42">Authentication</a><a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id44">Authentication</a><a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h2>
 <p>Authentication settings to enable account creation and sign in with email, GitLab, Google or Office 365 OAuth, AD/LDAP, or SAML.</p>
 <div class="section" id="email-auth">
-<h3><a class="toc-backref" href="#id43">Email Auth</a><a class="headerlink" href="#email-auth" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id45">Email Auth</a><a class="headerlink" href="#email-auth" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-account-creation-with-email">
 <h4>Enable account creation with email<a class="headerlink" href="#enable-account-creation-with-email" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Allow team creation and account signup using email and password.</p>
@@ -1164,12 +1191,12 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="oauth-2-0">
-<h3><a class="toc-backref" href="#id44">OAuth 2.0</a><a class="headerlink" href="#oauth-2-0" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id46">OAuth 2.0</a><a class="headerlink" href="#oauth-2-0" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E10 and higher</em></p>
 <p>Settings to configure OAuth login for account creation and login.</p>
 </div>
 <div class="section" id="select-oauth-2-0-service-provider">
-<h3><a class="toc-backref" href="#id45">Select OAuth 2.0 service provider:</a><a class="headerlink" href="#select-oauth-2-0-service-provider" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id47">Select OAuth 2.0 service provider:</a><a class="headerlink" href="#select-oauth-2-0-service-provider" title="Permalink to this headline">¶</a></h3>
 <p>Choose whether OAuth can be used for account creation and login. Options include:</p>
 <blockquote>
 <div><ul class="simple">
@@ -1183,7 +1210,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="gitlab">
-<h3><a class="toc-backref" href="#id46">GitLab</a><a class="headerlink" href="#gitlab" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id48">GitLab</a><a class="headerlink" href="#gitlab" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-authentication-with-gitlab">
 <h4>Enable authentication with GitLab<a class="headerlink" href="#enable-authentication-with-gitlab" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Allow team creation and account signup using GitLab OAuth. To configure, input the <strong>Secret</strong> and <strong>Id</strong> credentials.</p>
@@ -1267,7 +1294,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="google">
-<h3><a class="toc-backref" href="#id47">Google</a><a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id49">Google</a><a class="headerlink" href="#google" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E20</em></p>
 <p>Enable authentication with Google by selecting <code class="docutils literal"><span class="pre">Google</span> <span class="pre">Apps</span></code> from <strong>OAuth 2.0 &gt; Select OAuth 2.0 service provider</strong></p>
 <p><strong>True</strong>: Allow team creation and account signup using Google OAuth. To configure, input the <strong>Client ID</strong> and <strong>Client Secret</strong> credentials. See <a class="reference external" href="https://docs.mattermost.com/deployment/sso-google.html">Documentation</a> for more detail.</p>
@@ -1349,7 +1376,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="office-365">
-<h3><a class="toc-backref" href="#id48">Office 365</a><a class="headerlink" href="#office-365" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id50">Office 365</a><a class="headerlink" href="#office-365" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E20</em></p>
 <p>Enable authentication with Office 365 by selecting <code class="docutils literal"><span class="pre">Office</span> <span class="pre">365</span> <span class="pre">(Beta)</span></code> from <strong>OAuth 2.0 &gt; Select OAuth 2.0 service provider</strong></p>
 <p><strong>True</strong>: Allow team creation and account signup using Office 365 OAuth. To configure, input the <strong>Application ID</strong> and <strong>Application Secret Password</strong> credentials. See <a class="reference external" href="https://docs.mattermost.com/deployment/sso-office.html">Documentation</a> for more detail.</p>
@@ -1431,7 +1458,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="ad-ldap">
-<h3><a class="toc-backref" href="#id49">AD/LDAP</a><a class="headerlink" href="#ad-ldap" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id51">AD/LDAP</a><a class="headerlink" href="#ad-ldap" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E10 and higher</em></p>
 <div class="section" id="enable-sign-in-with-ad-ldap">
 <h4>Enable sign-in with AD/LDAP<a class="headerlink" href="#enable-sign-in-with-ad-ldap" title="Permalink to this headline">¶</a></h4>
@@ -1655,7 +1682,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 </div>
 <div class="section" id="login-field-name">
-<h3><a class="toc-backref" href="#id50">Login Field Name</a><a class="headerlink" href="#login-field-name" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id52">Login Field Name</a><a class="headerlink" href="#login-field-name" title="Permalink to this headline">¶</a></h3>
 <p>The placeholder text that appears in the login field on the login page. Typically this would be whatever name is used to refer to AD/LDAP credentials in your company, so it is recognizable to your users. Defaults to <strong>AD/LDAP Username</strong>.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -1716,7 +1743,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 </div>
 <div class="section" id="saml">
-<span id="saml-enterprise"></span><h3><a class="toc-backref" href="#id51">SAML</a><a class="headerlink" href="#saml" title="Permalink to this headline">¶</a></h3>
+<span id="saml-enterprise"></span><h3><a class="toc-backref" href="#id53">SAML</a><a class="headerlink" href="#saml" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E20</em></p>
 <div class="section" id="enable-login-with-saml">
 <h4>Enable Login With SAML<a class="headerlink" href="#enable-login-with-saml" title="Permalink to this headline">¶</a></h4>
@@ -1947,7 +1974,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="mfa">
-<h2><a class="toc-backref" href="#id52">MFA</a><a class="headerlink" href="#mfa" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id54">MFA</a><a class="headerlink" href="#mfa" title="Permalink to this headline">¶</a></h2>
 <p><em>Available in Enterprise Edition E10 and higher</em></p>
 <p>Configure security settings for multi-factor authentication.</p>
 <p>The default recommendation for secure deployment is to host Mattermost within your own private network, with VPN clients on mobile, so everything works under your existing security policies and authentication protocols, which may already include multi-factor authentication.</p>
@@ -1959,10 +1986,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="security">
-<h2><a class="toc-backref" href="#id53">Security</a><a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id55">Security</a><a class="headerlink" href="#security" title="Permalink to this headline">¶</a></h2>
 <p>Configure security settings for account creation, login, public links and connection requests.</p>
 <div class="section" id="sign-up">
-<h3><a class="toc-backref" href="#id54">Sign Up</a><a class="headerlink" href="#sign-up" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id56">Sign Up</a><a class="headerlink" href="#sign-up" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="require-email-verification">
 <h4>Require Email Verification<a class="headerlink" href="#require-email-verification" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Require email verification after account creation prior to allowing login.</p>
@@ -2007,7 +2034,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="password">
-<h3><a class="toc-backref" href="#id55">Password</a><a class="headerlink" href="#password" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id57">Password</a><a class="headerlink" href="#password" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="minimum-password-length">
 <h4>Minimum Password Length<a class="headerlink" href="#minimum-password-length" title="Permalink to this headline">¶</a></h4>
 <p><em>Available in Enterprise Edition E10 and higher</em></p>
@@ -2065,7 +2092,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="public-links">
-<h3><a class="toc-backref" href="#id56">Public Links</a><a class="headerlink" href="#public-links" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id58">Public Links</a><a class="headerlink" href="#public-links" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-public-file-links">
 <h4>Enable Public File Links<a class="headerlink" href="#enable-public-file-links" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Allow users to generate public links to files and images for sharing outside the Mattermost system with a public URL.</p>
@@ -2097,7 +2124,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="sessions">
-<h3><a class="toc-backref" href="#id57">Sessions</a><a class="headerlink" href="#sessions" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id59">Sessions</a><a class="headerlink" href="#sessions" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="session-length-for-email-and-ad-ldap-authentication-days">
 <h4>Session length for email and AD/LDAP authentication (days)<a class="headerlink" href="#session-length-for-email-and-ad-ldap-authentication-days" title="Permalink to this headline">¶</a></h4>
 <p>Set the number of days before web sessions expire and users will need to log in again.</p>
@@ -2153,7 +2180,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="connections">
-<h3><a class="toc-backref" href="#id58">Connections</a><a class="headerlink" href="#connections" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id60">Connections</a><a class="headerlink" href="#connections" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-cross-origin-requests-from">
 <h4>Enable cross-origin requests from<a class="headerlink" href="#enable-cross-origin-requests-from" title="Permalink to this headline">¶</a></h4>
 <p>Enable HTTP cross-origin requests from specific domains separated by spaces. Type <code class="docutils literal"><span class="pre">*</span></code> to allow CORS from any domain or leave it blank to disable it.</p>
@@ -2186,10 +2213,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="notifications">
-<h2><a class="toc-backref" href="#id59">Notifications</a><a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id61">Notifications</a><a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h2>
 <p>Settings to configure email and mobile push notifications.</p>
 <div class="section" id="email">
-<h3><a class="toc-backref" href="#id60">Email</a><a class="headerlink" href="#email" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id62">Email</a><a class="headerlink" href="#email" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-email-notifications">
 <h4>Enable Email Notifications<a class="headerlink" href="#enable-email-notifications" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Enables sending of email notifications.</p>
@@ -2343,7 +2370,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="mobile-push">
-<h3><a class="toc-backref" href="#id61">Mobile Push</a><a class="headerlink" href="#mobile-push" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id63">Mobile Push</a><a class="headerlink" href="#mobile-push" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-push-notifications">
 <h4>Enable Push Notifications<a class="headerlink" href="#enable-push-notifications" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Your Mattermost server sends mobile push notifications to the server specified in <strong>PushNotificationServer</strong>.</p>
@@ -2361,7 +2388,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 <div class="section" id="push-notification-server">
 <h4>Push Notification Server<a class="headerlink" href="#push-notification-server" title="Permalink to this headline">¶</a></h4>
 <p>Location of Mattermost Push Notification Service (MPNS), which re-sends push notifications from Mattermost to services like Apple Push Notification Service (APNS) and Google Cloud Messaging (GCM).</p>
-<p>To confirm push notifications are working, connect to the <a class="reference external" href="https://itunes.apple.com/us/app/mattermost/id984966508?mt=8">Mattermost iOS App on iTunes</a> or the <a class="reference external" href="https://play.google.com/store/apps/details?id=com.mattermost.mattermost&amp;hl=en">Mattermost Android App on Google Play</a>:</p>
+<p>To confirm push notifications are working, connect to the <a class="reference external" href="https://about.mattermost.com/mattermost-ios-app">Mattermost iOS App on iTunes</a> or the <a class="reference external" href="https://about.mattermost.com/mattermost-android-app">Mattermost Android App on Google Play</a>:</p>
 <ul class="simple">
 <li>For Enterprise Edition, enter <code class="docutils literal"><span class="pre">http://push.mattermost.com</span></code></li>
 <li>For Team Edition, enter <code class="docutils literal"><span class="pre">http://push-test.mattermost.com</span></code></li>
@@ -2394,19 +2421,18 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 <p><strong>Troubleshooting Push Notifications</strong></p>
 <p>To confirm push notifications are working:</p>
 <ol class="arabic simple">
-<li>Set <strong>System Console</strong> &gt; <strong>Email Settings</strong> &gt; <strong>Send Push Notifications</strong> to <cite>true</cite>.</li>
-<li>Set <strong>System Console</strong> &gt; <strong>Email Settings</strong> &gt; <strong>Send Push Notifications</strong> to <cite>true</cite> (if using Mattermost 1.4 or earlier).</li>
-<li>Set <strong>System Console</strong> &gt; <strong>Email Settings</strong> &gt; <strong>Push Notification Server</strong> to <code class="docutils literal"><span class="pre">http://push.mattermost.com</span></code> if using Enterprise Edition or if using Team Edition, set the value to <cite>http://push-test.mattermost.com</cite>.</li>
-<li>Download and install <a class="reference external" href="https://itunes.apple.com/us/app/mattermost/id984966508?mt=8">the Mattermost iOS app from iTunes</a> on your iPhone or iPad and log in to your team site.</li>
+<li>Go to <strong>System Console &gt; Notifications &gt; Mobile Push &gt; Send Push Notifications</strong> and select <strong>Use iOS and Android apps on iTunes and Google Play with TPNS</strong>.</li>
+<li>Set <strong>Push Notification Server</strong> to <em>http://push.mattermost.com</em> if using Enterprise Edition. If using Team Edition, set the value to <em>http://push-test.mattermost.com</em>.</li>
+<li>To confirm push notifications are working, connect to the <a class="reference external" href="https://about.mattermost.com/mattermost-ios-app">Mattermost iOS App on iTunes</a> or the <a class="reference external" href="https://about.mattermost.com/mattermost-android-app">Mattermost Android App on Google Play</a> and log in to your team site.</li>
 <li>Close the app on your device, and close any other connections to your team site.</li>
-<li>Wait 5 minutes and have another team member send you a direct messages, which should trigger a push notification to the Mattermost app on your mobile device.</li>
+<li>Wait 5 minutes and have another team member send you a direct message, which should trigger a push notification to the Mattermost app on your mobile device.</li>
 <li>You should receive a push notification on your device alerting you of the direct message.</li>
 </ol>
 <p>If you did not receive an alert:</p>
 <ol class="arabic simple">
-<li>Set <strong>System Console</strong> &gt; <strong>Log Settings</strong> &gt; <strong>File Log Level</strong> to <cite>DEBUG</cite> (make sure to set this back to <cite>INFO</cite> after troubleshooting to save disk space).</li>
-<li>Repeat the above steps</li>
-<li>Go to <strong>System Console</strong> &gt; <strong>OTHER</strong> &gt; <strong>Logs</strong> and copy the log output into a file</li>
+<li>Set <strong>System Console &gt; General &gt; Logging &gt; File Log Level</strong> to <em>DEBUG</em> (make sure to set this back to <em>INFO</em> after troubleshooting to save disk space).</li>
+<li>Repeat the above steps.</li>
+<li>Go to <strong>System Console &gt; Logs</strong> and copy the log output into a file.</li>
 <li>For Enterprise Edition customers, <a class="reference external" href="https://mattermost.zendesk.com/hc/en-us/requests/new">submit a support request with the file attached</a>. For Team Edition users, please start a thread in the <a class="reference external" href="https://forum.mattermost.org/t/how-to-use-the-troubleshooting-forum/150">Troubleshooting forum</a> for peer-to-peer support.</li>
 </ol>
 </div>
@@ -2414,10 +2440,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="integrations">
-<h2><a class="toc-backref" href="#id62">Integrations</a><a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id64">Integrations</a><a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h2>
 <p>Settings to configure webhooks, slash commands and external integration services.</p>
 <div class="section" id="custom-integrations">
-<h3><a class="toc-backref" href="#id63">Custom Integrations</a><a class="headerlink" href="#custom-integrations" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id65">Custom Integrations</a><a class="headerlink" href="#custom-integrations" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-incoming-webhooks">
 <h4>Enable Incoming Webhooks<a class="headerlink" href="#enable-incoming-webhooks" title="Permalink to this headline">¶</a></h4>
 <p>Developers building integrations can create webhook URLs for public channels and private channels. Please see our <a class="reference external" href="http://docs.mattermost.com/developer/webhooks-incoming.html">documentation page</a> to learn about creating webhooks, view samples, and to let the community know about integrations you have built.</p>
@@ -2525,7 +2551,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="webrtc-beta">
-<h3><a class="toc-backref" href="#id64">WebRTC (Beta)</a><a class="headerlink" href="#webrtc-beta" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id66">WebRTC (Beta)</a><a class="headerlink" href="#webrtc-beta" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-mattermost-webrtc">
 <h4>Enable Mattermost WebRTC<a class="headerlink" href="#enable-mattermost-webrtc" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: Mattermost will allow making one-on-one video calls on Chrome, Firefox and <a class="reference external" href="https://about.mattermost.com/download/#mattermostApps">Mattermost Desktop Apps</a> on a server running in SSL mode.</p>
@@ -2635,7 +2661,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="external-services">
-<h3><a class="toc-backref" href="#id65">External Services</a><a class="headerlink" href="#external-services" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id67">External Services</a><a class="headerlink" href="#external-services" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="google-api-key">
 <h4>Google API Key<a class="headerlink" href="#google-api-key" title="Permalink to this headline">¶</a></h4>
 <p>Mattermost offers the ability to embed YouTube videos from URLs shared by end users. Set this key to enable the display of titles for embedded YouTube video previews. Without the key, YouTube previews will still be created based on hyperlinks appearing in messages or comments but they will not show the video title. If Google detects the number of views is exceedingly high, they may throttle embed access. Should this occur, you can remove the throttle by registering for a Google Developer Key and entering it in this field following these instructions: <a class="reference external" href="https://www.youtube.com/watch?v=Im69kzhpR3I">https://www.youtube.com/watch?v=Im69kzhpR3I</a>. Your Google Developer Key is used in client-side Javascript.</p>
@@ -2654,10 +2680,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="files">
-<h2><a class="toc-backref" href="#id66">Files</a><a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id68">Files</a><a class="headerlink" href="#files" title="Permalink to this headline">¶</a></h2>
 <p>Settings to configure files storage and image handling.</p>
 <div class="section" id="storage">
-<h3><a class="toc-backref" href="#id67">Storage</a><a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id69">Storage</a><a class="headerlink" href="#storage" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="file-storage-system">
 <h4>File Storage System<a class="headerlink" href="#file-storage-system" title="Permalink to this headline">¶</a></h4>
 <p>Storage system where files and image attachments are saved.</p>
@@ -2725,15 +2751,15 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </tbody>
 </table>
 </div>
-<div class="section" id="amazon-s3-region">
-<h4>Amazon S3 Region<a class="headerlink" href="#amazon-s3-region" title="Permalink to this headline">¶</a></h4>
-<p>AWS region you selected for creating your S3 bucket. Refer to <a class="reference external" href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">AWS Reference Documentation</a> and choose this variable from the Region column.</p>
+<div class="section" id="amazon-s3-endpoint">
+<h4>Amazon S3 Endpoint<a class="headerlink" href="#amazon-s3-endpoint" title="Permalink to this headline">¶</a></h4>
+<p>Hostname of your S3 Compatible Storage provider. Defaults to <code class="docutils literal"><span class="pre">s3.amazonaws.com</span></code>.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;AmazonS3Region&quot;:</span> <span class="pre">&quot;&quot;</span></code> with string input.</td>
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;AmazonS3Endpoint&quot;:</span> <span class="pre">&quot;s3.amazonaws.com&quot;</span></code> with string input.</td>
 </tr>
 </tbody>
 </table>
@@ -2785,9 +2811,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="images">
-<h3><a class="toc-backref" href="#id68">Images</a><a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id70">Images</a><a class="headerlink" href="#images" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="attachment-thumbnail-width">
 <h4>Attachment Thumbnail Width<a class="headerlink" href="#attachment-thumbnail-width" title="Permalink to this headline">¶</a></h4>
+<p><em>Removed in July 16th, 2017 release</em></p>
 <p>Width of thumbnails generated from uploaded images. Updating this value changes how thumbnail images render in future, but does not change images created in the past.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2801,6 +2828,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <div class="section" id="attachment-thumbnail-height">
 <h4>Attachment Thumbnail Height<a class="headerlink" href="#attachment-thumbnail-height" title="Permalink to this headline">¶</a></h4>
+<p><em>Removed in July 16th, 2017 release</em></p>
 <p>Height of thumbnails generated from uploaded images. Updating this value changes how thumbnail images render in future, but does not change images created in the past.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2814,6 +2842,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <div class="section" id="image-preview-width">
 <h4>Image Preview Width<a class="headerlink" href="#image-preview-width" title="Permalink to this headline">¶</a></h4>
+<p><em>Removed in July 16th, 2017 release</em></p>
 <p>Maximum width of preview image. Updating this value changes how preview images render in future, but does not change images created in the past.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2827,6 +2856,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <div class="section" id="image-preview-height">
 <h4>Image Preview Height<a class="headerlink" href="#image-preview-height" title="Permalink to this headline">¶</a></h4>
+<p><em>Removed in July 16th, 2017 release</em></p>
 <p>Maximum height of preview image (&#8220;0&#8221;: Sets to auto-size). Updating this value changes how preview images render in future, but does not change images created in the past.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2840,6 +2870,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <div class="section" id="profile-picture-width">
 <h4>Profile Picture Width<a class="headerlink" href="#profile-picture-width" title="Permalink to this headline">¶</a></h4>
+<p><em>Removed in July 16th, 2017 release</em></p>
 <p>The width to which profile pictures are resized after being uploaded via Account Settings.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2853,6 +2884,7 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <div class="section" id="profile-picture-height">
 <h4>Profile Picture Height<a class="headerlink" href="#profile-picture-height" title="Permalink to this headline">¶</a></h4>
+<p><em>Removed in July 16th, 2017 release</em></p>
 <p>The height to which profile pictures are resized after being uploaded via Account Settings.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -2868,10 +2900,10 @@ Starting in Mattermost version 3.8, you can use environment variables to manage 
 </div>
 <hr class="docutils" />
 <div class="section" id="customization">
-<h2><a class="toc-backref" href="#id69">Customization</a><a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id71">Customization</a><a class="headerlink" href="#customization" title="Permalink to this headline">¶</a></h2>
 <p>Settings to customize your deployment with custom branding and legal and support links.</p>
 <div class="section" id="custom-branding">
-<h3><a class="toc-backref" href="#id70">Custom Branding</a><a class="headerlink" href="#custom-branding" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id72">Custom Branding</a><a class="headerlink" href="#custom-branding" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="site-name">
 <h4>Site Name<a class="headerlink" href="#site-name" title="Permalink to this headline">¶</a></h4>
 <p>Name of service shown in login screens and UI. Maximum 30 characters.</p>
@@ -2945,10 +2977,10 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </div>
 <hr class="docutils" />
 <div class="section" id="link-previews">
-<h3><a class="toc-backref" href="#id71">Link Previews</a><a class="headerlink" href="#link-previews" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id73">Link Previews</a><a class="headerlink" href="#link-previews" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="enable-link-previews">
-<h3><a class="toc-backref" href="#id72">Enable Link Previews</a><a class="headerlink" href="#enable-link-previews" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id74">Enable Link Previews</a><a class="headerlink" href="#enable-link-previews" title="Permalink to this headline">¶</a></h3>
 <p><strong>True</strong>: Enables users to display a preview of website content below the message, if available. When true, website previews can be enabled from Account Settings &gt; Advanced &gt; Preview pre-release features.</p>
 <p><strong>False</strong>: Website link previews are disabled.</p>
 <table border="1" class="docutils">
@@ -2962,11 +2994,25 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </table>
 </div>
 <hr class="docutils" />
-<div class="section" id="custom-emoji">
-<h3><a class="toc-backref" href="#id73">Custom Emoji</a><a class="headerlink" href="#custom-emoji" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="emoji">
+<h3><a class="toc-backref" href="#id75">Emoji</a><a class="headerlink" href="#emoji" title="Permalink to this headline">¶</a></h3>
+</div>
+<div class="section" id="enable-emoji-picker">
+<h3><a class="toc-backref" href="#id76">Enable Emoji Picker</a><a class="headerlink" href="#enable-emoji-picker" title="Permalink to this headline">¶</a></h3>
+<p><strong>True</strong>: Enables an emoji picker that allows users to select emoji to add as reactions or use in messages. Enabling the emoji picker with a large number of custom emoji may slow down performance.</p>
+<p><strong>False</strong>: Emoji picker is disabled.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;EnableCustomEmoji&quot;:</span> <span class="pre">true</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code> for above settings respectively.</td>
+</tr>
+</tbody>
+</table>
 </div>
 <div class="section" id="enable-custom-emoji">
-<h3><a class="toc-backref" href="#id74">Enable Custom Emoji</a><a class="headerlink" href="#enable-custom-emoji" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id77">Enable Custom Emoji</a><a class="headerlink" href="#enable-custom-emoji" title="Permalink to this headline">¶</a></h3>
 <p><strong>True</strong>: Enables a Custom Emoji option in the Main Menu, where users can go to create customized emoji.</p>
 <p><strong>False</strong>: Custom emojis are disabled.</p>
 <table border="1" class="docutils">
@@ -2980,7 +3026,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </table>
 </div>
 <div class="section" id="restrict-custom-emoji-creation">
-<h3><a class="toc-backref" href="#id75">Restrict Custom Emoji Creation</a><a class="headerlink" href="#restrict-custom-emoji-creation" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id78">Restrict Custom Emoji Creation</a><a class="headerlink" href="#restrict-custom-emoji-creation" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E10 and higher</em></p>
 <p><strong>Allow everyone to create custom emoji</strong>: Allows everyone to create custom emoji from the <strong>Main Menu</strong> &gt; <strong>Custom Emoji</strong>.</p>
 <p><strong>Allow System and Team Admins to create custom emoji</strong>: The Custom Emoji option is hidden from the Main Menu for users who are not System or Team Admins.</p>
@@ -2997,7 +3043,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </div>
 <hr class="docutils" />
 <div class="section" id="legal-and-support">
-<h3><a class="toc-backref" href="#id76">Legal and Support</a><a class="headerlink" href="#legal-and-support" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id79">Legal and Support</a><a class="headerlink" href="#legal-and-support" title="Permalink to this headline">¶</a></h3>
 <p>Legal and Support links will be hidden in the user interface if these fields are left blank.</p>
 <div class="section" id="terms-of-service-link">
 <h4>Terms of Service link<a class="headerlink" href="#terms-of-service-link" title="Permalink to this headline">¶</a></h4>
@@ -3081,7 +3127,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </div>
 <hr class="docutils" />
 <div class="section" id="mattermost-app-links">
-<h3><a class="toc-backref" href="#id77">Mattermost App Links</a><a class="headerlink" href="#mattermost-app-links" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id80">Mattermost App Links</a><a class="headerlink" href="#mattermost-app-links" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="mattermost-apps-download-page-link">
 <h4>Mattermost Apps Download Page Link<a class="headerlink" href="#mattermost-apps-download-page-link" title="Permalink to this headline">¶</a></h4>
 <p>Configurable link to a download page for Mattermost Apps. When a link is present, an option to &#8220;Download Apps&#8221; will be added in the Main Menu so users can find the download page. Leave this field blank to hide the option from the Main Menu. Defaults to a page on about.mattermost.com where users can download the iOS, Android, and Desktop clients. If you are using an <a class="reference external" href="https://docs.mattermost.com/deployment/push.html?highlight=enterprise%20app#push-notifications-and-mobile-devices">Enterprise App Store</a> for your mobile apps, change this link to point to a customized download page where users can find the correct apps.</p>
@@ -3125,10 +3171,10 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </div>
 <hr class="docutils" />
 <div class="section" id="advanced">
-<h2><a class="toc-backref" href="#id78">Advanced</a><a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
+<h2><a class="toc-backref" href="#id81">Advanced</a><a class="headerlink" href="#advanced" title="Permalink to this headline">¶</a></h2>
 <p>Advanced settings to configure rate limiting, databases and developer options.</p>
 <div class="section" id="rate-limiting">
-<h3><a class="toc-backref" href="#id79">Rate Limiting</a><a class="headerlink" href="#rate-limiting" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id82">Rate Limiting</a><a class="headerlink" href="#rate-limiting" title="Permalink to this headline">¶</a></h3>
 <p>Changing properties in this section will require a server restart before taking effect.</p>
 <div class="section" id="enable-rate-limiting">
 <h4>Enable Rate Limiting<a class="headerlink" href="#enable-rate-limiting" title="Permalink to this headline">¶</a></h4>
@@ -3205,7 +3251,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </div>
 <hr class="docutils" />
 <div class="section" id="database">
-<h3><a class="toc-backref" href="#id80">Database</a><a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id83">Database</a><a class="headerlink" href="#database" title="Permalink to this headline">¶</a></h3>
 <p>Changing properties in this section will require a server restart before taking effect.</p>
 <div class="section" id="driver-name">
 <h4>Driver Name<a class="headerlink" href="#driver-name" title="Permalink to this headline">¶</a></h4>
@@ -3263,7 +3309,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </div>
 <div class="section" id="sql-query-timeout">
 <h4>SQL Query Timeout<a class="headerlink" href="#sql-query-timeout" title="Permalink to this headline">¶</a></h4>
-<p>The number of seconds to wait for a response from the database after opening a connection and sending the query. Errors that you see in the UI or in the logs as a result of a query timeout can vary depending on the type of query. This setting has no effect on PostgreSQL databases.</p>
+<p>The number of seconds to wait for a response from the database after opening a connection and sending the query. Errors that you see in the UI or in the logs as a result of a query timeout can vary depending on the type of query.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
@@ -3310,7 +3356,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </div>
 <hr class="docutils" />
 <div class="section" id="developer">
-<h3><a class="toc-backref" href="#id81">Developer</a><a class="headerlink" href="#developer" title="Permalink to this headline">¶</a></h3>
+<h3><a class="toc-backref" href="#id84">Developer</a><a class="headerlink" href="#developer" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="enable-testing-commands">
 <h4>Enable Testing Commands<a class="headerlink" href="#enable-testing-commands" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: <cite>/test</cite> slash command is enabled to load test accounts and test data.</p>
@@ -3341,40 +3387,130 @@ Description of service shown in login screens and UI. When not specified, &#8220
 <hr class="docutils" />
 </div>
 </div>
-<div class="section" id="high-availability-beta">
-<span id="id25"></span><h3><a class="toc-backref" href="#id82">High Availability (Beta)</a><a class="headerlink" href="#high-availability-beta" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id27">
+<span id="id28"></span><h3><a class="toc-backref" href="#id85">High Availability</a><a class="headerlink" href="#id27" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E20</em></p>
-<p>Changing properties in this section will require a server restart before taking effect. When High Availability mode is enabled, the System Console is set to read-only and can only be changed from the configuration file. Learn more about configuring high availability in our <a class="reference external" href="https://docs.mattermost.com/deployment/cluster.html">documentation</a>.</p>
-</div>
+<p>Changing properties in this section will require a server restart before taking effect.</p>
+<p>When High Availability mode is enabled, the System Console is set to read-only and settings can only be changed by editing the configuration file directly. However, for testing and validating a High Availability setup, you can set <em>ReadOnlyConfig</em> to <code class="docutils literal"><span class="pre">false</span></code>, which allows changes made in the System Console to be saved back to the configuration file.</p>
+<p>To learn more about configuring High Availability, see <a class="reference external" href="../deployment/cluster.html">High Availability Cluster</a>.</p>
 <div class="section" id="enable-high-availability-mode">
-<h3><a class="toc-backref" href="#id83">Enable High Availability Mode</a><a class="headerlink" href="#enable-high-availability-mode" title="Permalink to this headline">¶</a></h3>
-<p><strong>True</strong>: The Mattermost Server will attempt inter-node communication with the other servers in the cluster. This sets the System Console to read-only mode to keep the servers <code class="docutils literal"><span class="pre">config.json</span></code> files in sync.</p>
-<p><strong>False</strong>: Mattemost high availability is disabled.</p>
+<h4>Enable High Availability Mode<a class="headerlink" href="#enable-high-availability-mode" title="Permalink to this headline">¶</a></h4>
+<p><strong>True</strong>: The Mattermost Server will attempt inter-node communication with the other servers in the cluster that have the same Cluster Name. This sets the System Console to read-only mode to keep the servers <code class="docutils literal"><span class="pre">config.json</span></code> files in sync.</p>
+<p><strong>False</strong>: Mattermost high availability is disabled.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>This feature’s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;Enable&quot;:</span> <span class="pre">false</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code> for above settings respectively.</td>
+<tr class="row-odd"><td>This feature’s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;Enable&quot;:</span> <span class="pre">false</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="cluster-name">
+<h4>Cluster Name<a class="headerlink" href="#cluster-name" title="Permalink to this headline">¶</a></h4>
+<p>The cluster to join by name. Only nodes with the same cluster name will join together. This is to support Blue-Green deployments or staging pointing to the same database.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;ClusterName&quot;:</span> <span class="pre">&quot;&quot;</span></code> with string input.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="override-hostname">
+<h4>Override Hostname<a class="headerlink" href="#override-hostname" title="Permalink to this headline">¶</a></h4>
+<p>If blank, Mattermost attempts to get the Hostname from the OS or use the IP Address. You can override the hostname of this server with this property. It is not recommended to override the Hostname unless needed. This property can also be set to a specific IP Address if needed.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;OverrideHostname&quot;:</span> <span class="pre">&quot;&quot;</span></code> with string input.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="use-ip-address">
+<h4>Use IP Address<a class="headerlink" href="#use-ip-address" title="Permalink to this headline">¶</a></h4>
+<p><strong>True</strong>: The cluster attempts to communicate using the IP Address.</p>
+<p><strong>False</strong>: The cluster attempts to communicate using the hostname.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;UseIpAddress&quot;:</span> <span class="pre">true</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="use-experimental-gossip">
+<h4>Use Experimental Gossip<a class="headerlink" href="#use-experimental-gossip" title="Permalink to this headline">¶</a></h4>
+<p><strong>True</strong>: The server attempts to communicate via the gossip protocol over the gossip port.</p>
+<p><strong>False</strong>: The server attempts to communicate over the streaming port.</p>
+<p>Note that the gossip port and gossip protocol are used to determine cluster health even when this setting is <code class="docutils literal"><span class="pre">false</span></code>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;UseExperimentalGossip&quot;:</span> <span class="pre">false</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="read-only-config">
+<h4>Read Only Config<a class="headerlink" href="#read-only-config" title="Permalink to this headline">¶</a></h4>
+<p><strong>True</strong>: Changes made to settings in the System Console are ignored.</p>
+<p><strong>False</strong>: Changes made to settings in the System Console are written to <code class="docutils literal"><span class="pre">config.json</span></code>.</p>
+<p>When running in production it is recommended to set this to true.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;ReadOnlyConfig&quot;:</span> <span class="pre">true</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="gossip-port">
+<h4>Gossip Port<a class="headerlink" href="#gossip-port" title="Permalink to this headline">¶</a></h4>
+<p>The port used for the gossip protocol. Both UDP and TCP should be allowed on this port.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;GossipPort&quot;:</span> <span class="pre">8074</span></code> with whole number input.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="streaming-port">
+<h4>Streaming Port<a class="headerlink" href="#streaming-port" title="Permalink to this headline">¶</a></h4>
+<p>The port used for streaming data between servers.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;StreamingPort&quot;:</span> <span class="pre">8075</span></code> with whole number input.</td>
 </tr>
 </tbody>
 </table>
 </div>
 <div class="section" id="inter-node-listen-address">
-<h3><a class="toc-backref" href="#id84">Inter-Node Listen Address</a><a class="headerlink" href="#inter-node-listen-address" title="Permalink to this headline">¶</a></h3>
+<h4>Inter-Node Listen Address<a class="headerlink" href="#inter-node-listen-address" title="Permalink to this headline">¶</a></h4>
+<p><em>Deprecated. Not used in version 4.0 and later</em></p>
 <p>The address the Mattermost Server will listen on for inter-node communication. When setting up your network you should secure the listen address so that only machines in the cluster have access to that port. This can be done in different ways, for example, using IPsec, security groups, or routing tables.</p>
-<table border="1" class="docutils">
-<colgroup>
-<col width="100%" />
-</colgroup>
-<tbody valign="top">
-<tr class="row-odd"><td>This feature’s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;InterNodeListenAddress&quot;:</span> <span class="pre">&quot;:8075&quot;</span></code> with string input.</td>
-</tr>
-</tbody>
-</table>
 </div>
 <div class="section" id="inter-node-urls">
-<h3><a class="toc-backref" href="#id85">Inter-Node URLs</a><a class="headerlink" href="#inter-node-urls" title="Permalink to this headline">¶</a></h3>
+<h4>Inter-Node URLs<a class="headerlink" href="#inter-node-urls" title="Permalink to this headline">¶</a></h4>
+<p><em>Deprecated. Not used in version 4.0 and later</em></p>
 <p>A list of all the machines in the cluster, separated by commas, for example, <code class="docutils literal"><span class="pre">[&quot;http://10.10.10.2&quot;,</span> <span class="pre">&quot;http://10.10.10.4&quot;]</span></code>. It is recommended to use the internal IP addresses so all the traffic can be secured.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -3386,9 +3522,10 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </tbody>
 </table>
 </div>
+</div>
 <hr class="docutils" />
-<div class="section" id="performance-monitoring-beta">
-<h3><a class="toc-backref" href="#id86">Performance Monitoring (Beta)</a><a class="headerlink" href="#performance-monitoring-beta" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="performance-monitoring">
+<h3><a class="toc-backref" href="#id86">Performance Monitoring</a><a class="headerlink" href="#performance-monitoring" title="Permalink to this headline">¶</a></h3>
 <p><em>Available in Enterprise Edition E20</em></p>
 </div>
 <div class="section" id="enable-performance-monitoring">
@@ -3405,8 +3542,8 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </tbody>
 </table>
 </div>
-<div class="section" id="id28">
-<h3><a class="toc-backref" href="#id88">Listen Address</a><a class="headerlink" href="#id28" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id30">
+<h3><a class="toc-backref" href="#id88">Listen Address</a><a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
 <p>The address the Mattermost server will listen on to expose performance metrics.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -3499,6 +3636,19 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </colgroup>
 <tbody valign="top">
 <tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;EnableUserStatuses&quot;:</span> <span class="pre">true</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>.</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="enable-channel-viewed-websocket-messages">
+<h4>Enable Channel Viewed WebSocket Messages<a class="headerlink" href="#enable-channel-viewed-websocket-messages" title="Permalink to this headline">¶</a></h4>
+<p>This setting determines whether channel_viewed WebSocket events are sent, which synchronize unread notifications across clients and devices. Disabling the setting in larger deployments may improve server performance.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="100%" />
+</colgroup>
+<tbody valign="top">
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;EnableChannelViewedMessages&quot;:</span> <span class="pre">true</span></code> with options <code class="docutils literal"><span class="pre">true</span></code> and <code class="docutils literal"><span class="pre">false</span></code>.</td>
 </tr>
 </tbody>
 </table>
@@ -3605,15 +3755,15 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </tbody>
 </table>
 </div>
-<div class="section" id="amazon-s3-endpoint">
-<h4>Amazon S3 Endpoint<a class="headerlink" href="#amazon-s3-endpoint" title="Permalink to this headline">¶</a></h4>
-<p>Set an endpoint URL for an Amazon S3 instance.</p>
+<div class="section" id="amazon-s3-region">
+<h4>Amazon S3 Region<a class="headerlink" href="#amazon-s3-region" title="Permalink to this headline">¶</a></h4>
+<p>AWS region you selected for creating your S3 bucket. Refer to <a class="reference external" href="http://docs.aws.amazon.com/general/latest/gr/rande.html#s3_region">AWS Reference Documentation</a> and choose this variable from the Region column.</p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
 </colgroup>
 <tbody valign="top">
-<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;AmazonS3Endpoint&quot;:</span> <span class="pre">&quot;&quot;</span></code> with string input.</td>
+<tr class="row-odd"><td>This feature&#8217;s <code class="docutils literal"><span class="pre">config.json</span></code> setting is <code class="docutils literal"><span class="pre">&quot;AmazonS3Region&quot;:</span> <span class="pre">&quot;&quot;</span></code> with string input.</td>
 </tr>
 </tbody>
 </table>
@@ -3621,6 +3771,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 <div class="section" id="amazon-s3-bucket-endpoint">
 <h4>Amazon S3 Bucket Endpoint<a class="headerlink" href="#amazon-s3-bucket-endpoint" title="Permalink to this headline">¶</a></h4>
 <p>Set an endpoint URL for Amazon S3 buckets.</p>
+<p><em>Removed in November 16th, 2016 release</em></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
@@ -3635,6 +3786,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 <h4>Amazon S3 Location Constraint<a class="headerlink" href="#amazon-s3-location-constraint" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: S3 region is location constrained.</p>
 <p><strong>False</strong>: S3 region is not location constrained.</p>
+<p><em>Removed in November 16th, 2016 release</em></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
@@ -3649,6 +3801,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
 <h4>Amazon S3 Lowercase Bucket<a class="headerlink" href="#amazon-s3-lowercase-bucket" title="Permalink to this headline">¶</a></h4>
 <p><strong>True</strong>: S3 bucket names are fully lowercase.</p>
 <p><strong>False</strong>: S3 bucket names may contain uppercase and lowercase letters.</p>
+<p><em>Removed in November 16th, 2016 release</em></p>
 <table border="1" class="docutils">
 <colgroup>
 <col width="100%" />
@@ -3718,8 +3871,8 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </tbody>
 </table>
 </div>
-<div class="section" id="id29">
-<h3><a class="toc-backref" href="#id99">GitLab Settings</a><a class="headerlink" href="#id29" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id31">
+<h3><a class="toc-backref" href="#id99">GitLab Settings</a><a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
 </div>
 <div class="section" id="scope">
 <h3><a class="toc-backref" href="#id100">Scope</a><a class="headerlink" href="#scope" title="Permalink to this headline">¶</a></h3>
@@ -3735,11 +3888,11 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </table>
 </div>
 <hr class="docutils" />
-<div class="section" id="id30">
-<h3><a class="toc-backref" href="#id101">Google Settings</a><a class="headerlink" href="#id30" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id32">
+<h3><a class="toc-backref" href="#id101">Google Settings</a><a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="id31">
-<h3><a class="toc-backref" href="#id102">Scope</a><a class="headerlink" href="#id31" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id33">
+<h3><a class="toc-backref" href="#id102">Scope</a><a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
 <p>Standard setting for OAuth to determine the scope of information shared with OAuth client. Recommended setting is <code class="docutils literal"><span class="pre">profile</span> <span class="pre">email</span></code>.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -3752,11 +3905,11 @@ Description of service shown in login screens and UI. When not specified, &#8220
 </table>
 </div>
 <hr class="docutils" />
-<div class="section" id="id32">
-<h3><a class="toc-backref" href="#id103">Office 365 Settings</a><a class="headerlink" href="#id32" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id34">
+<h3><a class="toc-backref" href="#id103">Office 365 Settings</a><a class="headerlink" href="#id34" title="Permalink to this headline">¶</a></h3>
 </div>
-<div class="section" id="id33">
-<h3><a class="toc-backref" href="#id104">Scope</a><a class="headerlink" href="#id33" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id35">
+<h3><a class="toc-backref" href="#id104">Scope</a><a class="headerlink" href="#id35" title="Permalink to this headline">¶</a></h3>
 <p>Standard setting for OAuth to determine the scope of information shared with OAuth client. Recommended setting is <code class="docutils literal"><span class="pre">User.Read</span></code>.</p>
 <table border="1" class="docutils">
 <colgroup>
@@ -3873,7 +4026,7 @@ Description of service shown in login screens and UI. When not specified, &#8220
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

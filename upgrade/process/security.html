@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Security Policies &mdash; Mattermost 3.10 documentation</title>
+  <title>Security Policies &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
         <link rel="next" title="Onboarding" href="training.html"/>
         <link rel="prev" title="Working at Mattermost" href="working-at-mattermost.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -129,6 +129,8 @@
 <li class="toctree-l3"><a class="reference internal" href="developer.html">Staff Developers</a></li>
 </ul>
 </li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#marketing">Marketing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#partners">Partners</a></li>
 </ul>
 </li>
 </ul>
@@ -248,6 +250,20 @@
 <li>Preventing cross-site scripting</li>
 <li>Preventing cross-site forgery</li>
 <li>Preventing remote code execution</li>
+</ul>
+</div>
+<div class="section" id="security-update-monitoring">
+<span id="security-update-monitoring"></span><h3>Security Update Monitoring<a class="headerlink" href="#security-update-monitoring" title="Permalink to this headline">¶</a></h3>
+<p>The following resources are monitoring for information about new security threats and attack vectors.</p>
+<ul class="simple">
+<li>https://www.iacr.org/</li>
+<li>http://www.acm.org/</li>
+<li>https://www.usenix.org/</li>
+<li>https://www.exploit-db.com/</li>
+<li>https://security.googleblog.com/</li>
+<li>https://groups.google.com/forum/#!forum/golang-announce</li>
+<li>http://www.cert.org/</li>
+<li>https://www.reddit.com/r/netsec/</li>
 </ul>
 </div>
 </div>
@@ -424,6 +440,17 @@
 </div>
 <div class="section" id="business-continuity-plan">
 <span id="business-continuity-plan"></span><h2>Business Continuity Plan<a class="headerlink" href="#business-continuity-plan" title="Permalink to this headline">¶</a></h2>
+<p>This document outlines Mattermost, Inc.&#8217;s <strong>Disaster Recovery and Business Continuity Plan (DRBCP)</strong> informed by the Federal Financial Institutions Examination Council guidelines on Business Continuity Planning in the context of Mattermost, Inc. being a vendor providing self-hosted software and consulting services to financial institutions.</p>
+<p>Because Mattermost software runs within a customer&#8217;s data center, behind a customer&#8217;s firewall and existing layers of security, without dependency to services hosted by Mattermost, the disruption of the business continuity of Mattermost, Inc. does not immediately impact the operating continuity of its customers. It does affect Mattermost&#8217;s ability to answer support requests, provide consulting services and provide new improvements or patches to Mattermost software.</p>
+<p>At a high level, precautions include:</p>
+<ul class="simple">
+<li>DRBCP is tested, evaluated and refined annually to ensure our processes are working and up-to-date</li>
+<li>As support is the most critical service offered, multiple channels for support engagement are available and monitored, including email, a Mattermost community server available on web, desktop and mobile, online forums, online forms, social media channels (Twitter and Facebook), and for Premier Support customers, we offer a telephone-based call center.</li>
+<li>Subject Matter Experts for escalations are available in at least three centers in different timezones to provide redundant coverage should communication with one or multiple centers be disrupted. Mattermost staff use a diverse set of operating systems, including Mac, Windows and different distributions of Linux, and a diverse set of global internet service providers, to reduce the potential damage of a single strain of malware, single desktop computing exploit or single telecommunications outage.</li>
+<li>As further redundancy, we have a network of <a class="reference external" href="https://about.mattermost.com/partners/">partners</a> around the world skilled in Mattermost technologies to be contacted for assistance for critical customer issues.</li>
+<li>As further redundancy, we have a community of several hundred engineers around the world and over a thousands contributors to our online forums, who have sufficient access and expertise in Mattermost&#8217;s open source technologies that could be contact in the highly unlikely event both Mattermost, Inc. and our partner networks are unable to service our customers.</li>
+<li>As further redundancy, Mattermost provides open source code for its core server technology, mobile applications, desktop applications and a wide array of extensions which allows customers to have transparency into the functionality of the software and solve the issue with their internal technical teams should a massive worldwide failure of Mattermost, Inc., its partners and its community arise.</li>
+</ul>
 <p>Mattermost, Inc. is headquartered in Palo Alto, California with a distributed organization across three timezones, and is therefore not easily affected by typical causes of business disruption, such as local failures of equipment, power, telecommunications, social unrest, fire, or natural disasters. Even so, threats considered in the context of business continuity are categorized by impact of the disruption.</p>
 <div class="section" id="priority-1-outages-that-would-have-immediate-impact-on-a-mattermost-customer">
 <span id="priority-1-outages-that-would-have-immediate-impact-on-a-mattermost-customer"></span><h3>Priority 1: Outages that would have immediate impact on a Mattermost customer<a class="headerlink" href="#priority-1-outages-that-would-have-immediate-impact-on-a-mattermost-customer" title="Permalink to this headline">¶</a></h3>
@@ -594,7 +621,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

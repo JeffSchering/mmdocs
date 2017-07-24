@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing Mattermost on Ubuntu 16.04 LTS &mdash; Mattermost 3.10 documentation</title>
+  <title>Installing Mattermost on Ubuntu 16.04 LTS &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Installing Mattermost on RHEL 6.6" href="install-rhel-66.html"/>
+        <link rel="next" title="Installing Mattermost on Debian Jessie" href="install-debian-88.html"/>
         <link rel="prev" title="Installing Mattermost on Ubuntu 14.04 LTS" href="install-ubuntu-1404.html"/>
 	
 		<!-- Google Analytics -->
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -121,9 +121,11 @@
 <li class="toctree-l4"><a class="reference internal" href="#configuring-nginx-with-ssl-and-http-2">Configuring NGINX with SSL and HTTP/2</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="install-debian-88.html">Installing on Debian Jessie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-rhel-71.html">Installing on RHEL 7.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-centos-oracle-scientific.html">Installing on CentOS, Oracle Linux, and Scientific Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Installing on Debian Jessie (Unofficial)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
@@ -132,8 +134,7 @@
 <li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
-<li class="toctree-l3"><a class="reference internal" href="config-proxy-apache2.html">Configuring Apache2 as a proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="config-ssl-http2-apache2.html">Configuring Apache2 with SSL and HTTP/2 (Unofficial)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-apache2.html">Configuring Apache2 (Unofficial)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
@@ -643,8 +644,10 @@ WantedBy=multi-user.target
 <li>Restart the Mattermost Service.</li>
 </ol>
 <blockquote>
-<div><p>On Ubuntu 14.04 and RHEL 6.6: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></p>
-<p>On Ubuntu 16.04 and RHEL 7.1: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></p>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></p>
+<p>On Ubuntu 16.04, Debian Jessie, and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></p>
 </div></blockquote>
 </div>
 <div class="section" id="configuring-tls-on-mattermost-server">
@@ -835,7 +838,7 @@ server {
 </ol>
 <blockquote>
 <div><p>On Ubuntu 14.04 and RHEL 6.6: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></p>
-<p>On Ubuntu 16.04 and RHEL 7.1: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
+<p>On Ubuntu 16.04, Debian Jessie, and RHEL 7.1: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
 </div></blockquote>
 <ol class="arabic simple" start="7">
 <li>Verify that you can see Mattermost through the proxy.</li>
@@ -883,7 +886,7 @@ server {
 <blockquote>
 <div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
 <p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></p>
-<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p>On Ubuntu 16.04, Debian Jessie, and RHEL 7.1:</p>
 <p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">nginx</span></code></p>
 </div></blockquote>
 <ol class="arabic simple" start="6">
@@ -927,7 +930,7 @@ server {
 </span><span class="hll">  ssl_session_cache shared:SSL:10m;
 </span>}
 
-location /api/v3/users/websocket {
+location ~ /api/v[0-9]+/(users/)?websocket$ {
     proxy_set_header Upgrade $http_upgrade;
     .
     .
@@ -941,7 +944,7 @@ location /api/v3/users/websocket {
 <blockquote>
 <div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
 <p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></p>
-<p>On Ubuntu 16.04 and RHEL 7.1:</p>
+<p>On Ubuntu 16.04, Debian Jessie, and RHEL 7.1:</p>
 <p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">nginx</span></code></p>
 </div></blockquote>
 <ol class="arabic simple" start="10">
@@ -971,7 +974,7 @@ location /api/v3/users/websocket {
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="install-rhel-66.html" class="btn btn-neutral float-right" title="Installing Mattermost on RHEL 6.6" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="install-debian-88.html" class="btn btn-neutral float-right" title="Installing Mattermost on Debian Jessie" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="install-ubuntu-1404.html" class="btn btn-neutral" title="Installing Mattermost on Ubuntu 14.04 LTS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -1029,7 +1032,7 @@ location /api/v3/users/websocket {
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

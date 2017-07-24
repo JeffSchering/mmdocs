@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Data Format &mdash; Mattermost 3.10 documentation</title>
+  <title>Data Format &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
 	
 		<!-- Google Analytics -->
 		<script>
@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -164,7 +164,11 @@
 <dt>User</dt>
 <dd>Optional. If present, User objects must occur after the Team and Channel objects in the file and before any Post objects. Each User object defines the teams and channels that the user is a member of. If the corresponding teams and channels are not in the data file, then they must exist in the Mattermost database.</dd>
 <dt>Post</dt>
-<dd>Optional. If present, Post objects must occur after all other objects in the file. Each Post object defines the team, the channel, and the username of the user who posted the message. If the corresponding team, channel, or user are not in the data file, then they must exist in the Mattermost database.</dd>
+<dd>Optional. If present, Post objects must occur after the last User object but before any DirectChannel objects. Each Post object defines the team, the channel, and the username of the user who posted the message. If the corresponding team, channel, or user are not in the data file, then they must exist in the Mattermost database.</dd>
+<dt>DirectChannel</dt>
+<dd>Optional. If present, DirectChannel objects must occur after all Post objects in the file and before any DirectPost objects.</dd>
+<dt>DirectPost</dt>
+<dd>Optional. If present, DirectPost objects must occur after all other objects in the file. Each DirectPost object defines the usernames of the channel members and the username of the user who posted the message. If the corresponding usernames are not in the data file, then they must exist in the Mattermost database.</dd>
 </dl>
 <p>With the exception of the Version object, each object has a field or a combination of fields that is used as the unique identifier of that object. The bulk loader uses the unique identifier to determine if the object being imported is a new object or an update to an existing object.</p>
 <p>The identifiers for each object are listed in the following table:</p>
@@ -200,6 +204,12 @@
 </tr>
 <tr class="row-even"><td>Post</td>
 <td><em>channel</em>, <em>message</em>, <em>create_at</em></td>
+</tr>
+<tr class="row-odd"><td>DirectChannel</td>
+<td><em>members</em></td>
+</tr>
+<tr class="row-even"><td>DirectPost</td>
+<td><em>channel_members</em>, <em>user</em>, <em>message</em>, <em>create_at</em></td>
 </tr>
 </tbody>
 </table>
@@ -757,7 +767,8 @@
 </div>
 <div class="section" id="post-object">
 <h2>Post object<a class="headerlink" href="#post-object" title="Permalink to this headline">¶</a></h2>
-<p>Post objects must occur after all other objects in the file.</p>
+<blockquote>
+<div>If present, Post objects must occur after the last User object in the file, but before any DirectChannel objects.</div></blockquote>
 <div class="section" id="example-post-object">
 <h3>Example Post object<a class="headerlink" href="#example-post-object" title="Permalink to this headline">¶</a></h3>
 <p>For clarity, the object is shown using regular JSON formatting, but in the data file it cannot be spread across several lines. It must be all on one line.</p>
@@ -811,6 +822,126 @@
     <td valign="middle">string</td>
     <td>The username of the user for this post.</td>
     <td align="center" valign="middle">No [3]</td>
+    <td align="center" valign="middle">Yes</td>
+  </tr>
+  <tr class="row-odd">
+    <td valign="middle">message</td>
+    <td valign="middle">string</td>
+    <td>The message that the post contains.</td>
+    <td align="center" valign="middle">Yes</td>
+    <td align="center" valign="middle">Yes</td>
+  </tr>
+  <tr class="row-odd">
+    <td valign="middle">create_at</td>
+    <td valign="middle">int</td>
+    <td>The timestamp for the post, in milliseconds since the Unix epoch.</td>
+    <td align="center" valign="middle">Yes</td>
+    <td align="center" valign="middle">Yes</td>
+  </tr>
+</table></div>
+</div>
+<div class="section" id="directchannel-object">
+<h2>DirectChannel object<a class="headerlink" href="#directchannel-object" title="Permalink to this headline">¶</a></h2>
+<p>A direct channel can have from two to eight users as members of the channel. If there are only two members, Mattermost treats it as a Direct Message channel. If there are three or more members, Mattermost treats it as a Group Message channel.</p>
+<div class="section" id="example-directchannel-object">
+<h3>Example DirectChannel object<a class="headerlink" href="#example-directchannel-object" title="Permalink to this headline">¶</a></h3>
+<p>For clarity, the object is shown using regular JSON formatting, but in the data file it cannot be spread across several lines. It must be all on one line.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;direct_channel&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;direct_channel&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;members&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;username1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;username2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;username3&quot;</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;header&quot;</span><span class="o">:</span> <span class="s2">&quot;The Channel Header&quot;</span><span class="p">,</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fields-of-the-directchannel-object">
+<h3>Fields of the DirectChannel object<a class="headerlink" href="#fields-of-the-directchannel-object" title="Permalink to this headline">¶</a></h3>
+<table width="100%" border="1" cellpadding="5px" style="margin-bottom:20px;">
+  <tfoot>
+    <tr>
+      <td colspan="5">[1] Not validated, but an error occurs if one or more of the users don't exist when running in apply mode.
+      </td>
+    </tr>
+  </tfoot>
+  <tr class="row-odd">
+    <th class="head">Field name</th>
+    <th class="head">Type</th>
+    <th class="head">Description</th>
+    <th class="head">Validated</th>
+    <th class="head">Mandatory</th>
+  </tr>
+  <tr class="row-odd">
+    <td valign="middle">members</td>
+    <td valign="middle">array</td>
+    <td>Must contain a list of members, with a minimum of two usernames and a maximum of eight usernames.</td>
+    <td align="center" valign="middle">No [1]</td>
+    <td align="center" valign="middle">Yes</td>
+  </tr>
+  <tr class="row-odd">
+    <td valign="middle">header</td>
+    <td valign="middle">string</td>
+    <td>The channel header.</td>
+    <td align="center" valign="middle">Yes</td>
+    <td align="center" valign="middle">No</td>
+  </tr>
+</table></div>
+</div>
+<div class="section" id="directpost-object">
+<h2>DirectPost object<a class="headerlink" href="#directpost-object" title="Permalink to this headline">¶</a></h2>
+<p>DirectPost objects must occur after all other objects in the file.</p>
+<div class="section" id="example-directpost-object">
+<h3>Example DirectPost object<a class="headerlink" href="#example-directpost-object" title="Permalink to this headline">¶</a></h3>
+<p>For clarity, the object is shown using regular JSON formatting, but in the data file it cannot be spread across several lines. It must be all on one line.</p>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;type&quot;</span><span class="o">:</span> <span class="s2">&quot;direct_post&quot;</span><span class="p">,</span>
+  <span class="s2">&quot;direct_post&quot;</span><span class="o">:</span> <span class="p">{</span>
+    <span class="s2">&quot;channel_members&quot;</span><span class="o">:</span> <span class="p">[</span>
+      <span class="s2">&quot;username1&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;username2&quot;</span><span class="p">,</span>
+      <span class="s2">&quot;username3&quot;</span><span class="p">,</span>
+    <span class="p">],</span>
+    <span class="s2">&quot;user&quot;</span><span class="o">:</span> <span class="s2">&quot;username2&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;message&quot;</span><span class="o">:</span> <span class="s2">&quot;Hello Group Channel&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;create_at&quot;</span><span class="o">:</span> <span class="mi">140012340013</span>
+  <span class="p">}</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="fields-of-the-directpost-object">
+<h3>Fields of the DirectPost object<a class="headerlink" href="#fields-of-the-directpost-object" title="Permalink to this headline">¶</a></h3>
+<table width="100%" border="1" cellpadding="5px" style="margin-bottom:20px;">
+  <tfoot>
+    <tr>
+      <td colspan="5">[1] Not validated, but an error occurs if no channels contain an identical list when running in apply mode.<br>[2] Not validated, but an error occurs if the user does not exist when running in apply mode.
+      </td>
+    </tr>
+  </tfoot>
+  <tr class="row-odd">
+    <th class="head">Field name</th>
+    <th class="head">Type</th>
+    <th class="head">Description</th>
+    <th class="head">Validated</th>
+    <th class="head">Mandatory</th>
+  </tr>
+  <tr class="row-odd">
+    <td valign="middle">channel_members</td>
+    <td valign="middle">array</td>
+    <td>Must contain a list of members, with a minimum of two usernames and a maximum of eight usernames.</td>
+    <td align="center" valign="middle">No [1]</td>
+    <td align="center" valign="middle">Yes</td>
+  </tr>
+  <tr class="row-odd">
+    <td valign="middle">user</td>
+    <td valign="middle">string</td>
+    <td>The username of the user for this post.</td>
+    <td align="center" valign="middle">No [2]</td>
     <td align="center" valign="middle">Yes</td>
   </tr>
   <tr class="row-odd">
@@ -887,7 +1018,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

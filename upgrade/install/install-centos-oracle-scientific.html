@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing Mattermost on CentOS, Oracle Linux, and Scientific Linux &mdash; Mattermost 3.10 documentation</title>
+  <title>Installing Mattermost on CentOS, Oracle Linux, and Scientific Linux &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,9 +36,9 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Local Machine Setup using Docker" href="docker-local-machine.html"/>
+        <link rel="next" title="Production Install on Debian Jessie" href="prod-debian.html"/>
         <link rel="prev" title="Installing Mattermost on RHEL 7.1" href="install-rhel-71.html"/>
 	
 		<!-- Google Analytics -->
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -110,9 +110,11 @@
 <li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-debian-88.html">Installing on Debian Jessie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-rhel-71.html">Installing on RHEL 7.1</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">Installing on CentOS, Oracle Linux, and Scientific Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Installing on Debian Jessie (Unofficial)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
@@ -121,8 +123,7 @@
 <li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
-<li class="toctree-l3"><a class="reference internal" href="config-proxy-apache2.html">Configuring Apache2 as a proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="config-ssl-http2-apache2.html">Configuring Apache2 with SSL and HTTP/2 (Unofficial)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-apache2.html">Configuring Apache2 (Unofficial)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
@@ -193,7 +194,7 @@
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="docker-local-machine.html" class="btn btn-neutral float-right" title="Local Machine Setup using Docker" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="prod-debian.html" class="btn btn-neutral float-right" title="Production Install on Debian Jessie" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
         <a href="install-rhel-71.html" class="btn btn-neutral" title="Installing Mattermost on RHEL 7.1" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
@@ -251,7 +252,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

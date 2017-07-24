@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Administrator Tasks &mdash; Mattermost 3.10 documentation</title>
+  <title>Administrator Tasks &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,10 +36,10 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
         <link rel="next" title="Bulk Loading Data" href="bulk-loading.html"/>
-        <link rel="prev" title="Configuring Apache2 with SSL and HTTP/2 (Unofficial)" href="../install/config-ssl-http2-apache2.html"/>
+        <link rel="prev" title="Configuring Apache2 (Unofficial)" href="../install/config-apache2.html"/>
 	
 		<!-- Google Analytics -->
 		<script>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -211,6 +211,7 @@
 <dd><ul class="first last simple">
 <li>System Admins can go to <strong>System Console &gt; Users</strong> for a list of all users on the server. The list can be searched and filtered to make finding the user easier. Click the user&#8217;s role and in the menu that opens, click <strong>Deactivate</strong>.</li>
 <li>To preserve audit history, users are never deleted from the system. It is highly recommended that System Admins do not attempt to delete users manually from the database, as this may compromise system integrity and the ability to upgrade in the future.</li>
+<li>Note that AD/LDAP user accounts cannot be deactivated from Mattermost; they must be deactivated from your Active Directory.</li>
 </ul>
 </dd>
 <dt>Checking for a valid license in Enterprise Edition without logging in</dt>
@@ -236,7 +237,7 @@
         <a href="bulk-loading.html" class="btn btn-neutral float-right" title="Bulk Loading Data" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="../install/config-ssl-http2-apache2.html" class="btn btn-neutral" title="Configuring Apache2 with SSL and HTTP/2 (Unofficial)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="../install/config-apache2.html" class="btn btn-neutral" title="Configuring Apache2 (Unofficial)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   
@@ -291,7 +292,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

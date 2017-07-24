@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Outgoing Webhooks &mdash; Mattermost 3.10 documentation</title>
+  <title>Outgoing Webhooks &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Integration Guide" href="../guides/integration.html"/>
         <link rel="next" title="Slash Commands" href="slash-commands.html"/>
         <link rel="prev" title="Incoming Webhooks" href="webhooks-incoming.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api4.html">APIv4 Development Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks-incoming.html">Incoming Webhooks</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Outgoing Webhooks</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#enabling-outgoing-webhooks">Enabling Outgoing Webhooks</a></li>
@@ -179,15 +179,16 @@
             
   <div class="section" id="outgoing-webhooks">
 <span id="id1"></span><h1>Outgoing Webhooks<a class="headerlink" href="#outgoing-webhooks" title="Permalink to this headline">¶</a></h1>
-<p>Outgoing webhooks allow external applications, written in the programming language of your choice&#8211;to receive HTTP POST requests whenever a user posts to a certain channel, with a trigger word at the beginning of the message, or a combination of both. If the external application responds appropriately to the HTTP request, as response post can be made in the channel where the original post occurred.</p>
-<p>A couple key points:</p>
+<p>In addition to <a class="reference internal" href="webhooks-incoming.html"><span class="doc">Incoming Webhooks</span></a> Mattermost also supports outgoing webhooks. This allows Mattermost to send a request to a web service and process the response. The outgoing webhook is triggered whenever a user posts to a certain channel, with a trigger word at the beginning of a message, or a combination of both. If the application responds appropriately to the HTTP request, a response message can be posted in the channel where the original post occurred.</p>
+<p>A couple of key points:</p>
 <ul class="simple">
-<li><strong>Mattermost outgoing webhooks are Slack-compatible.</strong> If you&#8217;ve used Slack&#8217;s outgoing webhooks to create integrations, you can copy and paste that code to create Mattermost integrations. Mattermost automatically translates Slack&#8217;s proprietary JSON payload format into markdown to render in Mattermost messages</li>
-<li><strong>Mattermost outgoing webhooks support full markdown.</strong> When an integration responds with a message to post, it will have access to a rich range of formatting unavailable in Slack that is made possible through <a class="reference internal" href="../help/messaging/formatting-text.html"><span class="doc">markdown support</span></a> in Mattermost, including headings, formatted fonts, tables, inline images and other options supported by Mattermost Markdown.</li>
-<li><strong>Outgoing webhooks are only supported in public channels.</strong> If you need something that works in a private channel, consider using a <a class="reference internal" href="slash-commands.html"><span class="doc">Slash Command</span></a>.</li>
+<li><strong>The outgoing webhook is similar to the incoming webhook.</strong> As described in the chapter <a class="reference internal" href="webhooks-incoming.html"><span class="doc">Incoming Webhooks</span></a> the application may be written in the programming language of your choice. It needs to provide a URL which reacts to the request send by your Mattermost instance, and may be able to send a HTTP POST in the required JSON format as a response.</li>
+<li><strong>Mattermost outgoing webhooks are Slack-compatible.</strong> If you&#8217;ve used Slack&#8217;s outgoing webhooks before, than you can copy and paste that code to create Mattermost integrations. Mattermost automatically translates Slack&#8217;s proprietary JSON payload format.</li>
+<li><strong>Outgoing webhooks are supported in public channels only.</strong> If you need a trigger that works in a private channel, consider using a <a class="reference internal" href="slash-commands.html"><span class="doc">Slash Command</span></a> instead.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<p>Suppose you had an external application that received a post event whenever a message started with <em>#build</em>. If a user posted the message <em>#build Let&#8217;s see the status</em>, then the external application would receive an HTTP POST with data about that message. The application could then respond with a table of total tests run and total tests failed by component category, with links to failed tests by category. An example response might be:</p>
+<p>Suppose you have an external application that should be triggered whenever a message in Mattermost starts with <em>#build</em>. If a user posted the message <em>#build Let&#8217;s see the status</em>, then the external application would receive an HTTP POST with data about that message. The application could then calculate all necessary data, such as a statistic of executed software tests. The application then builds the required JSON payload format and sends it as response to Mattermost. Mattermost reads the response and posts a new message.</p>
+<p>An example response of such an application might be:</p>
 <div class="highlight-text"><div class="highlight"><pre><span></span>{&quot;text&quot;: &quot;
 | Component  | Tests Run   | Tests Failed                                   |
 |:-----------|:------------|:-----------------------------------------------|
@@ -201,7 +202,7 @@
 <img alt="Shows what the output of the JSON payload renders as in Mattermost" src="../_images/webhooksTable.PNG" />
 <div class="section" id="enabling-outgoing-webhooks">
 <h2>Enabling Outgoing Webhooks<a class="headerlink" href="#enabling-outgoing-webhooks" title="Permalink to this headline">¶</a></h2>
-<p>Outgoing webhooks are off by default, and can be enabled by the system administrator. If you are the system administrator you can enable them by doing the following:</p>
+<p>Outgoing webhooks are off by default. They need to be enabled by the system administrator. If you are the system administrator you can enable them by doing the following:</p>
 <ol class="arabic simple">
 <li>Login to your Mattermost team account that has the system administrator role.</li>
 <li>Enable outgoing webhooks from <strong>System Console &gt; Integrations &gt; Custom Integrations</strong>.</li>
@@ -212,13 +213,13 @@
 </div>
 <div class="section" id="set-up-an-outgoing-webhook">
 <h2>Set Up an Outgoing Webhook<a class="headerlink" href="#set-up-an-outgoing-webhook" title="Permalink to this headline">¶</a></h2>
-<p>Once outgoing webhooks are enabled, you will be able to set one up through the Mattermost UI. You will need to know the following</p>
+<p>Once outgoing webhooks are enabled in general, you will be able to set individual webhooks through the Mattermost UI. You will need to know the following:</p>
 <ol class="arabic simple">
 <li>The channel you want to listen to post events from (you can leave the channel field blank if you would like to set up the webhook for all channels).</li>
 <li>The trigger words (if any) that will trigger a post event if they are the <strong>first word</strong> of the post.</li>
 <li>The URL you want Mattermost to report the events to.</li>
 </ol>
-<p>Once you have those, you can follow these steps to set up your webhook:</p>
+<p>Once you have this information, you can follow these steps to set up your new webhook:</p>
 <ol class="arabic simple">
 <li>Login to your Mattermost team site and go to <strong>Main Menu &gt; Integrations &gt; Outgoing Webhooks</strong>.</li>
 <li>Click <strong>Add outgoing webhook</strong>, and select your options.</li>
@@ -238,9 +239,9 @@
 </div>
 <div class="section" id="creating-integrations-using-outgoing-webhooks">
 <h2>Creating Integrations using Outgoing Webhooks<a class="headerlink" href="#creating-integrations-using-outgoing-webhooks" title="Permalink to this headline">¶</a></h2>
-<p>If you&#8217;d like to build your own integration that uses outgoing webhooks, you can follow these general guidelines:</p>
+<p>If you&#8217;d like to build your own application that uses outgoing webhooks, you can follow these general guidelines:</p>
 <ol class="arabic simple">
-<li>In the programming language of your choice, write your integration to perform what you had in mind.</li>
+<li>In the programming language of your choice, write your application to perform what you had in mind.</li>
 </ol>
 <blockquote>
 <div><ol class="arabic simple">
@@ -378,7 +379,7 @@ user_name=somename
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

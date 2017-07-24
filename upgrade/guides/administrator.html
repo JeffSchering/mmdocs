@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Administrator’s Guide &mdash; Mattermost 3.10 documentation</title>
+  <title>Administrator’s Guide &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="next" title="Software &amp; Hardware Requirements" href="../install/requirements.html"/>
         <link rel="prev" title="Integrations" href="../help/settings/integration-settings.html"/>
 	
@@ -80,7 +80,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -109,9 +109,11 @@
 <li class="toctree-l3"><a class="reference internal" href="../install/requirements.html">Software &amp; Hardware Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/install-debian-88.html">Installing on Debian Jessie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/install-rhel-66.html">Installing on RHEL 6.6</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/install-rhel-71.html">Installing on RHEL 7.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/install-centos-oracle-scientific.html">Installing on CentOS, Oracle Linux, and Scientific Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/prod-debian.html">Installing on Debian Jessie (Unofficial)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/ee-install.html">Enterprise Install and Upgrade</a></li>
@@ -120,8 +122,7 @@
 <li class="toctree-l3"><a class="reference internal" href="../install/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../install/desktop.html">Desktop Application Install Guides</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../install/config-proxy-apache2.html">Configuring Apache2 as a proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../install/config-ssl-http2-apache2.html">Configuring Apache2 with SSL and HTTP/2 (Unofficial)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../install/config-apache2.html">Configuring Apache2 (Unofficial)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#deployment">Deployment</a><ul>
@@ -215,9 +216,11 @@
 <li class="toctree-l1"><a class="reference internal" href="../install/requirements.html">Software &amp; Hardware Requirements</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/install-debian-88.html">Installing on Debian Jessie</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/install-rhel-66.html">Installing on RHEL 6.6</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/install-rhel-71.html">Installing on RHEL 7.1</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/install-centos-oracle-scientific.html">Installing on CentOS, Oracle Linux, and Scientific Linux</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/prod-debian.html">Installing on Debian Jessie (Unofficial)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/ee-install.html">Enterprise Install and Upgrade</a></li>
@@ -226,8 +229,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../install/troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../install/desktop.html">Desktop Application Install Guides</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install/config-proxy-apache2.html">Configuring Apache2 as a proxy</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../install/config-ssl-http2-apache2.html">Configuring Apache2 with SSL and HTTP/2 (Unofficial)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../install/config-apache2.html">Configuring Apache2 (Unofficial)</a></li>
 </ul>
 </div>
 </div>
@@ -284,6 +286,7 @@
 <li class="toctree-l2"><a class="reference internal" href="../deployment/cluster.html#deployment-guide">Deployment Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../deployment/cluster.html#configuration-and-compatibility">Configuration and Compatibility</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../deployment/cluster.html#upgrade-guide">Upgrade Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deployment/cluster.html#frequently-asked-questions-faq">Frequently Asked Questions (FAQ)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../deployment/cluster.html#troubleshooting">Troubleshooting</a></li>
 </ul>
 </li>
@@ -299,6 +302,7 @@
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../deployment/metrics.html">Performance Monitoring (E20)</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="../deployment/metrics.html#deployment-guide">Deployment Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deployment/metrics.html#getting-started">Getting Started</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../deployment/metrics.html#statistics">Statistics</a></li>
 </ul>
 </li>
@@ -388,7 +392,8 @@
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#custom-branding">Custom Branding</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#link-previews">Link Previews</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#enable-link-previews">Enable Link Previews</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#custom-emoji">Custom Emoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#emoji">Emoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#enable-emoji-picker">Enable Emoji Picker</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#enable-custom-emoji">Enable Custom Emoji</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#restrict-custom-emoji-creation">Restrict Custom Emoji Creation</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#legal-and-support">Legal and Support</a></li>
@@ -399,13 +404,10 @@
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#rate-limiting">Rate Limiting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#database">Database</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#developer">Developer</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#high-availability-beta">High Availability (Beta)</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#enable-high-availability-mode">Enable High Availability Mode</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#inter-node-listen-address">Inter-Node Listen Address</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#inter-node-urls">Inter-Node URLs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#performance-monitoring-beta">Performance Monitoring (Beta)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id27">High Availability</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#performance-monitoring">Performance Monitoring</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#enable-performance-monitoring">Enable Performance Monitoring</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id28">Listen Address</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id30">Listen Address</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../administration/config-settings.html#settings-configurable-only-in-config-json">Settings configurable only in config.json</a><ul>
@@ -418,12 +420,12 @@
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#email-batching-buffer-size">Email Batching Buffer Size</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#email-batching-interval">Email Batching Interval</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#skip-server-certificate-verification">Skip Server Certificate Verification</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id29">GitLab Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id31">GitLab Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#scope">Scope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id30">Google Settings</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id31">Scope</a></li>
-<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id32">Office 365 Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id32">Google Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id33">Scope</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id34">Office 365 Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#id35">Scope</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#metrics-settings">Metrics Settings</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#block-profile-rate">Block Profile Rate</a></li>
 <li class="toctree-l3"><a class="reference internal" href="../administration/config-settings.html#analytics-settings">Analytics Settings</a></li>
@@ -505,9 +507,10 @@
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../administration/changelog.html">Mattermost Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-10-0">Release v3.10.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-9-0">Release v3.9.0</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-8-2">Release v3.8.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v4-0-1">Release v4.0.1</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-10-2">Release v3.10.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-9-2">Release v3.9.2</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-8-3">Release v3.8.3</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-7-5">Release v3.7.5</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-6-7">Release v3.6.7</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../administration/changelog.html#release-v3-5-1">Release v3.5.1</a></li>
@@ -600,7 +603,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

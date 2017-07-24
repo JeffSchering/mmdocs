@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing Developer Components on Ubuntu 16.04 &mdash; Mattermost 3.10 documentation</title>
+  <title>Installing Developer Components on Ubuntu 16.04 &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Developer Machine Setup" href="dev-setup.html"/>
         <link rel="next" title="Installing Developer Components on Mac OS X" href="dev-setup-osx.html"/>
         <link rel="prev" title="Developer Machine Setup" href="dev-setup.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -122,7 +122,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobile-developer-setup.html">Mobile Developer Machine Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Development Process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-to-redux.html">Migrating the Webapp to Redux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-component.html">Building a Webapp React Component</a></li>
@@ -231,12 +231,7 @@
 <li><p class="first">Install the Go binary.</p>
 <p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">tar</span> <span class="pre">-C</span> <span class="pre">/usr/local</span> <span class="pre">-xzf</span> <span class="pre">go1.8.linux-amd64.tar.gz</span></code></p>
 </li>
-<li><p class="first">Modify permissions on <code class="docutils literal"><span class="pre">/usr/local/go</span></code>. Replace <em>{user}</em> and <em>{group}</em> with the user and group that you are logged in with.</p>
-</li>
 </ol>
-<blockquote>
-<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">{user}.{group}</span> <span class="pre">/usr/local/go</span></code></p>
-</div></blockquote>
 </div></blockquote>
 </li>
 <li><p class="first">Set up your Go workspace:</p>
@@ -268,7 +263,7 @@
 <li>Add the Node.js repository to your repository list.</li>
 </ol>
 <blockquote>
-<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">-sL</span> <span class="pre">https://deb.nodesource.com/setup_6.x</span> <span class="pre">|</span> <span class="pre">sudo</span> <span class="pre">-E</span> <span class="pre">bash</span> <span class="pre">-</span></code></p>
+<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">-sL</span> <span class="pre">https://deb.nodesource.com/setup_8.x</span> <span class="pre">|</span> <span class="pre">sudo</span> <span class="pre">-E</span> <span class="pre">bash</span> <span class="pre">-</span></code></p>
 </div></blockquote>
 <ol class="loweralpha simple" start="2">
 <li>Install Node.js</li>
@@ -370,7 +365,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

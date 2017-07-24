@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>AWS Elastic Beanstalk Docker Setup &mdash; Mattermost 3.10 documentation</title>
+  <title>AWS Elastic Beanstalk Docker Setup &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
         <link rel="next" title="Enterprise Install and Upgrade" href="ee-install.html"/>
         <link rel="prev" title="Local Machine Setup using Docker" href="docker-local-machine.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -110,9 +110,11 @@
 <li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-debian-88.html">Installing on Debian Jessie</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-rhel-71.html">Installing on RHEL 7.1</a></li>
 <li class="toctree-l3"><a class="reference internal" href="install-centos-oracle-scientific.html">Installing on CentOS, Oracle Linux, and Scientific Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Installing on Debian Jessie (Unofficial)</a></li>
 <li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
 <li class="toctree-l3 current"><a class="current reference internal" href="#">AWS Elastic Beanstalk Docker Setup</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#configuration-settings">Configuration Settings</a></li>
@@ -125,8 +127,7 @@
 <li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
 <li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
 <li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
-<li class="toctree-l3"><a class="reference internal" href="config-proxy-apache2.html">Configuring Apache2 as a proxy</a></li>
-<li class="toctree-l3"><a class="reference internal" href="config-ssl-http2-apache2.html">Configuring Apache2 with SSL and HTTP/2 (Unofficial)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-apache2.html">Configuring Apache2 (Unofficial)</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
@@ -207,7 +208,7 @@ list.</li>
 </li>
 <li>For Application Source, select <strong>Upload your own</strong> and upload the
 Dockerrun.aws.json file from
-<a class="reference external" href="https://raw.githubusercontent.com/mattermost/mattermost-docker/master/Dockerrun.aws.json">https://raw.githubusercontent.com/mattermost/mattermost-docker/master/Dockerrun.aws.json</a> (select
+<a class="reference external" href="https://raw.githubusercontent.com/mattermost/mattermost-docker/master/contrib/aws/Dockerrun.aws.json">https://raw.githubusercontent.com/mattermost/mattermost-docker/master/contrib/aws/Dockerrun.aws.json</a> (select
 version you&#8217;d like to use), then click <strong>Next</strong>.</li>
 <li>Type an Environment Name and URL. Make sure the URL is available by
 clicking <strong>Check availability</strong>, then click <strong>Next</strong>.</li>
@@ -489,7 +490,7 @@ the <a class="reference external" href="https://www.mattermost.org/troubleshoot/
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

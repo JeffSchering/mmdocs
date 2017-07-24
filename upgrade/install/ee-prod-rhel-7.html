@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Production Enterprise Install on RHEL 7.1+ &mdash; Mattermost 3.10 documentation</title>
+  <title>Production Enterprise Install on RHEL 7.1+ &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
 	
 		<!-- Google Analytics -->
 		<script>
@@ -78,7 +78,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -180,7 +180,8 @@ pre-built binaries), and Database.<ul>
 </li>
 <li>Make sure the system is up to date with the most recent security
 patches.<ul>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">upgrade</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">update</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">upgrade</span></code></li>
 </ul>
 </li>
 </ol>
@@ -200,11 +201,11 @@ address of <code class="docutils literal"><span class="pre">10.10.10.1</span></c
 </ul>
 </li>
 <li>Install PostgreSQL 9.4+ (or MySQL 5.6+)<ul>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">http://yum.postgresql.org/9.4/redhat/rhel-6-x86_64/pgdg-redhat94-9.4-1.noarch.rpm</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">postgresql94-server</span> <span class="pre">postgresql94-contrib</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">http://yum.postgresql.org/9.4/redhat/rhel-7-x86_64/pgdg-redhat94-9.4-3.noarch.rpm</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">postgresql94-server</span> <span class="pre">postgresql94-contrib</span></code></li>
 <li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">/usr/pgsql-9.4/bin/postgresql94-setup</span> <span class="pre">initdb</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">postgresql.service</span></code></li>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">postgresql.service</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">postgresql-9.4.service</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">postgresql-9.4.service</span></code></li>
 </ul>
 </li>
 <li>PostgreSQL created a user account called <code class="docutils literal"><span class="pre">postgres</span></code>. You will need
@@ -236,23 +237,52 @@ to log into that account with:<ul>
 <li><code class="docutils literal"><span class="pre">exit</span></code></li>
 </ul>
 </li>
+<li>Allow Postgres to listen on all assigned IP Addresses:</li>
 </ol>
-<p>10. Alter <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.4/data/postgresql.conf</span></code> to allow Postgres to listen
-on all assigned IP Addresses:</p>
 <blockquote>
-<div><ul class="simple">
-<li>Uncomment <code class="docutils literal"><span class="pre">listen_addresses</span></code> and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">\*</span></code></li>
-</ul>
+<div><ol class="loweralpha simple">
+<li>Open <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.4/data/postgresql.conf</span></code> as root in a text editor</li>
+<li>Find the following line:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">#listen_addresses</span> <span class="pre">=</span> <span class="pre">'localhost'</span></code></div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Uncomment the line and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">*</span></code>:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code></div></blockquote>
 </div></blockquote>
 <ol class="arabic simple" start="11">
-<li>Alter <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.4/data/pg_hba.conf</span></code> to allow the Mattermost Server to talk to the
-Postgres database:<ul>
-<li>Add the following line to the <code class="docutils literal"><span class="pre">IPv4</span> <span class="pre">local</span> <span class="pre">connections</span></code>:</li>
-<li><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">10.10.10.2/32</span> <span class="pre">md5</span></code></li>
-</ul>
-</li>
+<li>Modify the file <code class="docutils literal"><span class="pre">pg_hba.conf</span></code> to allow the Mattermost server to communicate with the database.</li>
+</ol>
+<blockquote>
+<div><p><strong>If the Mattermost server and the database are on the same machine</strong>:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Open <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.4/data/pg_hba.conf</span></code> as root in a text editor.</li>
+<li>Find the following line:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">local</span>&#160;&#160; <span class="pre">all</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">all</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">peer</span></code></div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Change <code class="docutils literal"><span class="pre">peer</span></code> to <code class="docutils literal"><span class="pre">trust</span></code>:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">local</span>&#160;&#160; <span class="pre">all</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">all</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">trust</span></code></div></blockquote>
+</div></blockquote>
+<p><strong>If the Mattermost server and the database are on different machines</strong>:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Open <code class="docutils literal"><span class="pre">/var/lib/pgsql/9.4/data/pg_hba.conf</span></code> as root in a text editor.</li>
+<li>Add the following line to the end of the file, where <em>{mattermost-server-IP}</em> is the IP address of the machine that contains the Mattermost server.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">{mattermost-server-IP}/32</span> <span class="pre">md5</span></code></div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="12">
 <li>Reload Postgres database:<ul>
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">postgresql.service</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">postgresql-9.4.service</span></code></li>
 </ul>
 </li>
 <li>Attempt to connect with the new created user to verify everything
@@ -275,7 +305,7 @@ address of <code class="docutils literal"><span class="pre">10.10.10.2</span></c
 <li><p class="first">Download <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">any version of Mattermost Enterprise Edition</a> by typing:</p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code></li>
-<li>Where <code class="docutils literal"><span class="pre">vX.X.X</span></code> is typically the latest Mattermost release version, which is currently <code class="docutils literal"><span class="pre">v3.3.0</span></code>.</li>
+<li>Where <code class="docutils literal"><span class="pre">vX.X.X</span></code> is typically the latest Mattermost release version, which you can find out from the <a class="reference external" href="https://about.mattermost.com/download/">download page</a>.</li>
 </ul>
 </li>
 <li><p class="first">Install Mattermost under <code class="docutils literal"><span class="pre">/opt</span></code></p>
@@ -335,11 +365,32 @@ letting you know the service is running.</li>
 <li><p class="first">Set up Mattermost to use the systemd init daemon which handles
 supervision of the Mattermost process.</p>
 <ul>
-<li><p class="first">Create and edit <code class="docutils literal"><span class="pre">/etc/systemd/system/mattermost.service</span></code></p>
+<li><p class="first">In case you use PostgreSQL, create and edit <code class="docutils literal"><span class="pre">/etc/systemd/system/mattermost.service</span></code></p>
 <blockquote>
 <div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
 <span class="n">Description</span><span class="o">=</span><span class="n">Mattermost</span> <span class="n">server</span>
-<span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span> <span class="n">postgresql</span><span class="o">.</span><span class="n">service</span>
+<span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span> <span class="n">postgresql</span><span class="o">-</span><span class="mf">9.4</span><span class="o">.</span><span class="n">service</span>
+
+<span class="p">[</span><span class="n">Service</span><span class="p">]</span>
+<span class="n">User</span><span class="o">=</span><span class="n">mattermost</span>
+<span class="n">Group</span><span class="o">=</span><span class="n">mattermost</span>
+<span class="n">WorkingDirectory</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">mattermost</span>
+<span class="n">ExecStart</span><span class="o">=/</span><span class="n">opt</span><span class="o">/</span><span class="n">mattermost</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">platform</span>
+<span class="n">Restart</span><span class="o">=</span><span class="n">on</span><span class="o">-</span><span class="n">failures</span>
+<span class="n">PIDFile</span><span class="o">=/</span><span class="n">var</span><span class="o">/</span><span class="n">spool</span><span class="o">/</span><span class="n">mattermost</span><span class="o">/</span><span class="n">pid</span><span class="o">/</span><span class="n">master</span><span class="o">.</span><span class="n">pid</span>
+<span class="n">LimitNOFILE</span><span class="o">=</span><span class="mi">49152</span>
+
+<span class="p">[</span><span class="n">Install</span><span class="p">]</span>
+<span class="n">WantedBy</span><span class="o">=</span><span class="n">multi</span><span class="o">-</span><span class="n">user</span><span class="o">.</span><span class="n">target</span>
+</pre></div>
+</div>
+</div></blockquote>
+</li>
+<li><p class="first">In case you use MySQL, create and edit <code class="docutils literal"><span class="pre">/etc/systemd/system/mattermost.service</span></code></p>
+<blockquote>
+<div><div class="highlight-default"><div class="highlight"><pre><span></span><span class="p">[</span><span class="n">Unit</span><span class="p">]</span>
+<span class="n">Description</span><span class="o">=</span><span class="n">Mattermost</span> <span class="n">server</span>
+<span class="n">After</span><span class="o">=</span><span class="n">network</span><span class="o">.</span><span class="n">target</span> <span class="n">mysqld</span><span class="o">.</span><span class="n">service</span>
 
 <span class="p">[</span><span class="n">Service</span><span class="p">]</span>
 <span class="n">User</span><span class="o">=</span><span class="n">mattermost</span>
@@ -437,7 +488,7 @@ enabled=1
 </pre></div>
 </div>
 </li>
-<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">nginx.x86_64</span></code></p>
+<li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">nginx.x86_64</span></code></p>
 </li>
 <li><p class="first"><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></p>
 </li>
@@ -511,7 +562,7 @@ preventing the connection</p>
 Encrypt</a>, this is how to proceed</li>
 </ol>
 <ul class="simple">
-<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dnf</span> <span class="pre">install</span> <span class="pre">git</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git</span></code></li>
 <li><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/letsencrypt/letsencrypt</span></code></li>
 <li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">letsencrypt</span></code></li>
 </ul>
@@ -719,7 +770,7 @@ user.</li>
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

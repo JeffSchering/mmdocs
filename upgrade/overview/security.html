@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Security Overview &mdash; Mattermost 3.10 documentation</title>
+  <title>Security Overview &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Overview" href="index.html"/>
         <link rel="next" title="Deployment Overview" href="../deployment/deployment.html"/>
         <link rel="prev" title="Product Overview" href="product.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -227,10 +227,10 @@
 <h3>Integrity &amp; Audit Controls<a class="headerlink" href="#integrity-audit-controls" title="Permalink to this headline">¶</a></h3>
 <blockquote>
 <div><ul class="simple">
-<li>By default, Mattermost stores a complete history of messages, including edits and deletes, along with all files uploaded. User interface actions for &#8220;deleting&#8221; messages and channels remove the data only from the user interface; the data is retained within your database.</li>
+<li>By default, Mattermost stores a complete history of messages, including edits and deletes, along with all files uploaded. User interface actions for &#8220;deleting&#8221; messages and channels remove the data only from the user interface; the data is retained within your database. If your compliance guidelines require it, you can turn off users&#8217; ability to edit and delete their messages after they are posted.</li>
 <li>The <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#file-log-directory">output and archives of server logs</a> can be saved to a directory of your choice. Mattermost server logs plus logs from your web proxy can provide an end-to-end history of system usage.</li>
 <li><a class="reference external" href="https://docs.mattermost.com/administration/compliance.html">Ad hoc compliance reports of messaging by user, date range, and keyword, including edited and deleted messages</a> are available (E20). To protect against unauthorized use, all ad hoc report requests are logged.</li>
-<li>Daily compliance reports compatible with 3rd compliance solutions such as <a class="reference external" href="https://docs.mattermost.com/administration/compliance.html#global-relay-support">Global Relay</a> are also available (E20).</li>
+<li>Daily compliance reports compatible with 3rd party compliance solutions such as <a class="reference external" href="https://docs.mattermost.com/administration/compliance.html#global-relay-support">Global Relay</a> are also available (E20).</li>
 </ul>
 </div></blockquote>
 </div>
@@ -394,7 +394,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

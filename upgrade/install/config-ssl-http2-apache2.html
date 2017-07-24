@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configuring Apache2 with SSL and HTTP/2 (Unofficial) &mdash; Mattermost 3.10 documentation</title>
+  <title>Configuring Apache2 with SSL and HTTP/2 (Unofficial) &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,10 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
-        <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
-        <link rel="next" title="Administrator Tasks" href="../deployment/on-boarding.html"/>
-        <link rel="prev" title="Configuring Apache2 as a proxy for Mattermost Server (Unofficial)" href="config-proxy-apache2.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
 	
 		<!-- Google Analytics -->
 		<script>
@@ -81,7 +78,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -102,33 +99,10 @@
           
             
             
-                <ul class="current">
+                <ul>
 <li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
-<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
-<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
-<li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-rhel-71.html">Installing on RHEL 7.1</a></li>
-<li class="toctree-l3"><a class="reference internal" href="install-centos-oracle-scientific.html">Installing on CentOS, Oracle Linux, and Scientific Linux</a></li>
-<li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
-<li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
-<li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
-<li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
-<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
-<li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
-<li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
-<li class="toctree-l3"><a class="reference internal" href="config-proxy-apache2.html">Configuring Apache2 as a proxy</a></li>
-<li class="toctree-l3 current"><a class="current reference internal" href="#">Configuring Apache2 with SSL and HTTP/2 (Unofficial)</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
-</ul>
-</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
@@ -163,8 +137,6 @@
   <ul class="wy-breadcrumbs">
     <li><a href="../index.html">Docs</a> &raquo;</li>
     
-      <li><a href="../guides/administrator.html">Administrator&#8217;s Guide</a> &raquo;</li>
-    
     <li>Configuring Apache2 with SSL and HTTP/2 (Unofficial)</li>
     <li class="wy-breadcrumbs-aside">
       
@@ -183,7 +155,7 @@
 <span id="config-ssl-http2-apache2"></span><h1>Configuring Apache2 with SSL and HTTP/2 (Unofficial)<a class="headerlink" href="#configuring-apache2-with-ssl-and-http-2-unofficial" title="Permalink to this headline">¶</a></h1>
 <div class="admonition important">
 <p class="first admonition-title">Important</p>
-<p class="last">This unofficial guide is maintained by the Mattermost community and this deployment configuration is not yet officially supported by Mattermost, Inc. Community testing, feedback and improvements are welcome and greatly appreciated. You can <a class="reference external" href="https://github.com/mattermost/docs/blob/master/source/install/config-ssl-http2-apache2.rst">edit this page on GitHub</a>.</p>
+<p class="last">This unofficial guide is maintained by the Mattermost community and this deployment configuration is not yet officially supported by Mattermost, Inc. <a class="reference external" href="https://github.com/mattermost/docs/issues/1295">Community testing, feedback and improvements are welcome and greatly appreciated</a>. You can <a class="reference external" href="https://github.com/mattermost/docs/blob/master/source/install/config-ssl-http2-apache2.rst">edit this page on GitHub</a>.</p>
 </div>
 <p>Once you&#8217;ve configured Apache2 as a proxy for your Mattermost Server, the easiest way to enable SSL on Apache2 is via Let&#8217;s Encrypt and <a class="reference external" href="https://certbot.eff.org/#ubuntuxenial-apache">Certbot</a>.</p>
 <p>Once installed, run <code class="docutils literal"><span class="pre">$</span> <span class="pre">certbot</span> <span class="pre">--apache</span></code> and follow the guide. Afterwards you should find a new configuration file in <code class="docutils literal"><span class="pre">/etc/apache2/sites-available</span></code> which should follow the format <code class="docutils literal"><span class="pre">mysubdomain.mydomain.com-le-ssl.conf</span></code>.</p>
@@ -252,15 +224,6 @@
           </div>
           <footer>
   
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-      
-        <a href="../deployment/on-boarding.html" class="btn btn-neutral float-right" title="Administrator Tasks" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
-      
-      
-        <a href="config-proxy-apache2.html" class="btn btn-neutral" title="Configuring Apache2 as a proxy for Mattermost Server (Unofficial)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
-      
-    </div>
-  
 
   <hr/>
 
@@ -312,7 +275,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

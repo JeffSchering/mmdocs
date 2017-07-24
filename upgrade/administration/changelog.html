@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Mattermost Changelog &mdash; Mattermost 3.10 documentation</title>
+  <title>Mattermost Changelog &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
         <link rel="next" title="Mattermost Integration Guide" href="../guides/integration.html"/>
         <link rel="prev" title="Migration Guide" href="migrating.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -108,7 +108,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a><ul class="current">
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Mattermost Changelog</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#release-v3-10-0">Release v3.10.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-v4-0-1">Release v4.0.1</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#compatibility">Compatibility</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#api-v4-changes">API v4 Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#websocket-event-changes">Websocket Event Changes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#known-issues">Known Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-10-2">Release v3.10.2</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#bug-fixes">Bug Fixes</a></li>
@@ -118,7 +130,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#release-v3-9-0">Release v3.9.0</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-9-2">Release v3.9.2</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#improvements">Improvements</a></li>
@@ -131,7 +143,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#contributors">Contributors</a></li>
 </ul>
 </li>
-<li class="toctree-l3"><a class="reference internal" href="#release-v3-8-2">Release v3.8.2</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#release-v3-8-3">Release v3.8.3</a><ul>
 <li class="toctree-l4"><a class="reference internal" href="#notes-on-patch-release">Notes on Patch Release</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#security-update">Security Update</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#highlights">Highlights</a></li>
@@ -390,13 +402,396 @@
 <span id="mattermost-changelog"></span><h1>Mattermost Changelog<a class="headerlink" href="#mattermost-changelog" title="Permalink to this headline">¶</a></h1>
 <p>This changelog summarizes updates to <a class="reference external" href="http://www.mattermost.org/">Mattermost Team Edition</a>, an open source team messaging solution released monthly under an MIT license, and <a class="reference external" href="https://about.mattermost.com/pricing/">Mattermost Enterprise Edition</a>, a commercial upgrade offering enterprise messaging for large organizations.</p>
 <p>Also see <a class="reference external" href="http://bit.ly/2nK3cVf">changelog in progress</a> for the next release.</p>
-<div class="section" id="release-v3-10-0">
-<span id="release-v3-10-0"></span><h2>Release v3.10.0<a class="headerlink" href="#release-v3-10-0" title="Permalink to this headline">¶</a></h2>
-<p>Release Date: June 16, 2017</p>
+<div class="section" id="release-v4-0-1">
+<span id="release-v4-0-1"></span><h2>Release v4.0.1<a class="headerlink" href="#release-v4-0-1" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>v4.0.1, released 2017-07-18</strong><ul>
+<li>If <code class="docutils literal"><span class="pre">AllowTimeLimit</span></code> config setting is set to <code class="docutils literal"><span class="pre">Never</span></code>, pinning and un-pinning messages now work.</li>
+<li>If you upload or remove the <strong>Service Provider Public Certificate</strong> file in <strong>System Console &gt; SAML</strong>, the page no longer refreshes losing all unchanged settings.</li>
+<li>Deactivated users no longer appear in channel member, team member or direct message lists.</li>
+<li>PDF previews now load properly.</li>
+</ul>
+</li>
+<li><strong>v4.0.0, released 2017-07-16</strong><ul>
+<li>Original 4.0.0 release</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="security-update">
+<span id="security-update"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Mattermost v4.0.0 contains multiple security fixes ranging from low to high severity. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading</a> is highly recommended. Details will be posted on our <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates page</a> 14 days after release as per the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
+</ul>
+</div>
 <div class="section" id="highlights">
 <span id="highlights"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="native-ios-and-android-apps">
+<span id="native-ios-and-android-apps"></span><h4>Native iOS and Android Apps<a class="headerlink" href="#native-ios-and-android-apps" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Second generation mobile apps released for <a class="reference external" href="https://itunes.apple.com/us/app/mattermost/id1257222717?mt=8">iOS</a> and <a class="reference external" href="https://play.google.com/store/apps/details?id=com.mattermost.rn">Android</a>.</li>
+<li>The apps are <a class="reference external" href="https://about.mattermost.com/mattermost-2nd-gen-mobile-apps-released-emm-compatible-starting-with-blackberry-dynamics/">EMM compatible starting with BlackBerry Dynamics</a>.</li>
+</ul>
+</div>
+<div class="section" id="updated-web-user-interface">
+<span id="updated-web-user-interface"></span><h4>Updated Web User Interface<a class="headerlink" href="#updated-web-user-interface" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Updated the appearance of channel header and channel sidebar in the web user interface.</li>
+<li>Updated the default theme, &#8220;Mattermost&#8221;. To try it, go to <strong>Account Settings &gt; Display &gt; Theme</strong>.</li>
+</ul>
+</div>
+<div class="section" id="emoji-picker">
+<span id="emoji-picker"></span><h4>Emoji Picker<a class="headerlink" href="#emoji-picker" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>The emoji picker offers quick access to emoji when composing messages or adding reactions.</li>
+<li>Promoted from Beta, and enabled to all users by default.</li>
+</ul>
+</div>
 <div class="section" id="languages">
 <span id="languages"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added Italian translations to the user interface.</li>
+</ul>
+</div>
+<div class="section" id="api-v4-stable-release">
+<span id="api-v4-stable-release"></span><h4>API v4 (Stable Release)<a class="headerlink" href="#api-v4-stable-release" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Mattermost webapp moved to API v4 endpoints, which allow for more powerful integrations and server interaction.</li>
+<li>API v3 endpoints are supported until January 16, 2018. To learn more about migrating to APIv4 endpoints, <a class="reference external" href="https://api.mattermost.com/">see https://api.mattermost.com/</a>.</li>
+</ul>
+</div>
+<div class="section" id="high-availability-enterprise-edition-e20">
+<span id="high-availability-enterprise-edition-e20"></span><h4>High Availability (<a class="reference external" href="https://about.mattermost.com/pricing/">Enterprise Edition E20</a>)<a class="headerlink" href="#high-availability-enterprise-edition-e20" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Mattermost servers are dynamically added and removed based on discovery and their cluster name using the hashicorp memberlist.</li>
+<li>Added support for experimental gossip protocol, where the server will attempt to communicate via the gossip protocol over the gossip port.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="improvements">
+<span id="improvements"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="web-user-interface">
+<span id="web-user-interface"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Adjusted post spacing to be consistent across Markdown formatting, replies and consecutive posts.</li>
+<li>On hover colour for pin and channel member icons now consistent with flag and recent mentions icons.</li>
+<li>Emojis are now vertically aligned in post view.</li>
+<li>Channel name, header and purpose now update in real time for all users.</li>
+<li>For reply threads in the center channel, the &#8220;Commented on&#8221; phrase now respects the teammate name display config setting.</li>
+<li>Code block language tag is no longer selectable making it easier to copy the code.</li>
+<li>Aligned the search box with right-hand side reply thread.</li>
+<li>New user profile pictures now update for other users upon refresh.</li>
+<li>Improved rendering of &#64;mention highlighting in message view.</li>
+</ul>
+</div>
+<div class="section" id="mobile-web">
+<span id="mobile-web"></span><h4>Mobile Web<a class="headerlink" href="#mobile-web" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added &#8220;Create Team&#8221; and &#8220;Leave Team&#8221; options to the Main Menu.</li>
+<li>Updated the look of Account Settings pages on mobile.</li>
+<li>User profile popover no longer gets cropped in the center channel on iOS browser.</li>
+<li>Link preview image now resizes correctly on iOS browser.</li>
+</ul>
+</div>
+<div class="section" id="notifications">
+<span id="notifications"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Unread messages and mentions now sync across browser tabs and devices.</li>
+<li>Improved desktop notifications for webhook attachments.</li>
+</ul>
+</div>
+<div class="section" id="emoji-picker-custom-emoji">
+<span id="emoji-picker-custom-emoji"></span><h4>Emoji Picker &amp; Custom Emoji<a class="headerlink" href="#emoji-picker-custom-emoji" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Newly created custom emoji immediately display to all users without requiring a refresh.</li>
+<li>Improved position of the emoji picker near the top of the channel or the right-hand side comment thread.</li>
+</ul>
+</div>
+<div class="section" id="keyboard-shortcuts">
+<span id="keyboard-shortcuts"></span><h4>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>CTRL+SHIFT+K shortcut now toggles the Direct Message dialog open and closed.</li>
+<li>SHIFT+UP now opens a reply thread for the most recent message posted by a user, skipping system messages.</li>
+</ul>
+</div>
+<div class="section" id="slash-commands">
+<span id="slash-commands"></span><h4>Slash Commands<a class="headerlink" href="#slash-commands" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added the following built-in slash commands:<ul>
+<li><code class="docutils literal"><span class="pre">/header</span></code> command to set the channel header.</li>
+<li><code class="docutils literal"><span class="pre">/help</span></code> command to open the Mattermost help page in a new browser tab.</li>
+<li><code class="docutils literal"><span class="pre">/open</span></code> command to switch or join a channel.</li>
+<li><code class="docutils literal"><span class="pre">/search</span></code> command to search text in messages.</li>
+<li><code class="docutils literal"><span class="pre">/settings</span></code> command to open the Account Settings dialog.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">/invite_people</span></code> slash command is now disabled when account creation is set to false.</li>
+<li>If a message starts with a / but fails to send (either due to timeout or invalid command), the message is put back to the input box.</li>
+</ul>
+</div>
+<div class="section" id="bulk-import-tool">
+<span id="bulk-import-tool"></span><h4>Bulk Import Tool<a class="headerlink" href="#bulk-import-tool" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added support for Direct Message channels and posts to the <a class="reference external" href="https://docs.mattermost.com/deployment/bulk-loading.html">bulk import tool</a>.</li>
+</ul>
+</div>
+<div class="section" id="authentication">
+<span id="authentication"></span><h4>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>User creation via OAuth (GitLab/Google/Office365) properly restricted to accepted domains, <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#restrict-account-creation-to-specified-email-domains">if specified</a>.</li>
+<li><strong>Invite New Member</strong> dialog validates email addresses against accepted domains, if set.</li>
+</ul>
+</div>
+<div class="section" id="new-url-routes">
+<span id="new-url-routes"></span><h4>New URL Routes<a class="headerlink" href="#new-url-routes" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>Added the ability to Direct Message by email or username with the following new routes for Direct Message channels:<ul>
+<li><code class="docutils literal"><span class="pre">.../teamname/messages/&#64;username</span></code></li>
+<li><code class="docutils literal"><span class="pre">.../teamname/messages/email</span></code></li>
+<li><code class="docutils literal"><span class="pre">.../teamname/messages/user_id</span></code> (redirects to <code class="docutils literal"><span class="pre">...teamname/messages/&#64;username</span></code>)</li>
+<li><code class="docutils literal"><span class="pre">.../teamname/messages/id1_id2</span></code> (redirects to <code class="docutils literal"><span class="pre">...teamname/messages/&#64;username</span></code>)</li>
+</ul>
+</li>
+<li>Also added a new route for Group Message channels:<ul>
+<li><code class="docutils literal"><span class="pre">.../teamname/messages/generated_id</span></code></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="link-previews">
+<span id="link-previews"></span><h4>Link Previews<a class="headerlink" href="#link-previews" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>After posting a message containing an image link, a preview is loaded only if one is available.</li>
+</ul>
+</div>
+<div class="section" id="enterprise-edition">
+<span id="enterprise-edition"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>When a SAML user uses a non-supported locale, the language now defaults to English, preventing login issues.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="bug-fixes">
+<span id="bug-fixes"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Emoji picker now closes in Firefox when clicking outside of it.</li>
+<li>[...] menu no longer disappears in the comment thread when hovering over another post.</li>
+<li>New direct messages received while in no teams do not show as unread after rejoining a team.</li>
+<li>Fixed JavaScript errors when receiving messages when not belonging to a team.</li>
+<li>An empty push notification no longer sent for messages only containing file attachments.</li>
+<li>Custom emoji search results no longer filter by creator&#8217;s first and last name.</li>
+<li><code class="docutils literal"><span class="pre">/expand</span></code> and <code class="docutils literal"><span class="pre">/collapse</span></code> slash commands now properly collapse images in website link previews.</li>
+<li>Group Message channels that are favorited can now be closed.</li>
+<li>Deactivated users now properly listed in Direct and Group Message channels in the left-hand sidebar.</li>
+<li>Fixed search in team and channel Manage Members dialog.</li>
+<li>File upload cancelled if you click &#8220;x&#8221; on thumbnail while file is uploading in your message draft.</li>
+<li>Status no longer appears offline after joining a new team.</li>
+<li>An empty push notification is no longer sent for messages only containing file attachments.</li>
+<li>Center channel maintains scroll position when new messages are received in the channel.</li>
+<li>Deleting the focused post in permalink view now sends user to normal channel view.</li>
+<li>Max Users per Team setting in <strong>System Console &gt; Users and Teams</strong> no longer includes inactive users.</li>
+</ul>
+</div>
+<div class="section" id="compatibility">
+<span id="compatibility"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="breaking-changes">
+<span id="breaking-changes"></span><h4>Breaking Changes<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>If you are using NGINX as a proxy for the Mattermost Server, replace the <code class="docutils literal"><span class="pre">location</span> <span class="pre">/api/v3/users/websocket</span> <span class="pre">{</span></code> line with <code class="docutils literal"><span class="pre">location</span> <span class="pre">~</span> <span class="pre">/api/v[0-9]+/(users/)?websocket$</span> <span class="pre">{</span></code> in the <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> NGINX configuration file. <a class="reference external" href="https://docs.mattermost.com/install/install-ubuntu-1404.html#configuring-nginx-as-a-proxy-for-mattermost-server">See documentation to learn more</a>.</li>
+<li>If you are upgrading a High Availability Cluster: When upgrading from 3.10 or earlier to 4.0 or later, you must manually add new items to the <em>ClusterSettings</em> section of your existing <code class="docutils literal"><span class="pre">config.json</span></code>. For more information about this, see the <em>Upgrading to Version 4.0 and Later</em> section of :doc:<code class="docutils literal"><span class="pre">../deployment/cluster</span></code>.</li>
+<li>Microsoft Edge v39 and earlier (EdgeHTML v14 and earlier) has <a class="reference external" href="https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/8546263/">an issue</a> that may case errors during account creation, login and if MFA is enforced. We recommend upgrading to Edge v40 (or EdgeHTML v15).</li>
+</ul>
+</div>
+<div class="section" id="removed-and-deprecated-features">
+<span id="removed-and-deprecated-features"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
+<ul class="simple">
+<li>System Console settings in <strong>Files &gt; Images</strong> removed. This includes:<ul>
+<li>Image preview height and width</li>
+<li>Profile picture height and width</li>
+<li>Image thumbnail height and width</li>
+</ul>
+</li>
+<li>Font setting in Account Settings &gt; Display removed.</li>
+<li>Account Settings option <strong>Display</strong> &gt; <strong>Teammate Name Display</strong> moved to the System Console.</li>
+<li>All APIv3 endpoints are scheduled for removal on January 16, 2018.</li>
+</ul>
+<p>For a list of past and upcoming deprecated features, <a class="reference external" href="https://about.mattermost.com/deprecated-features/">see our website</a>.</p>
+</div>
+<div class="section" id="config-json">
+<span id="config-json"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code>, or the System Console when available.</p>
+<p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
+<ul class="simple">
+<li>Under <code class="docutils literal"><span class="pre">ServiceSettings</span></code> in <code class="docutils literal"><span class="pre">config.json</span></code>:<ul>
+<li>Added <code class="docutils literal"><span class="pre">&quot;EnableEmojiPicker&quot;:</span> <span class="pre">true</span></code> to control whether emoji picker is enabled on the server. Enabling the emoji picker with a large number of custom emoji may slow down performance.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;EnableChannelViewedMessages&quot;:</span> <span class="pre">true</span></code> to control whether <code class="docutils literal"><span class="pre">channel_viewed</span></code> WebSocket event is sent, which syncs unreads across clients and devices. Setting to false can lead to higher performance in large deployments.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;TeammateNameDisplay&quot;:</span> <span class="pre">&quot;username&quot;</span></code> to set how to display users&#8217; names in posts and the Direct Messages list. Deployments with LDAP or SAML enabled will have this set to <code class="docutils literal"><span class="pre">full_name</span></code> by default for better experience.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;EnableAPIv3&quot;:</span> <span class="pre">&quot;true&quot;</span></code> to control whether version 3 endpoints of the REST API are allowed on the server. If the setting is disabled, integrations that rely on API v3 will fail and can then be identified for migration to API v4.</li>
+</ul>
+</li>
+<li>Under <code class="docutils literal"><span class="pre">FileSettings</span></code> in <code class="docutils literal"><span class="pre">config.json</span></code>:<ul>
+<li>Removed System Console settings in <strong>Files &gt; Images</strong>, including:<ul>
+<li><code class="docutils literal"><span class="pre">&quot;ThumbnailWidth&quot;:</span> <span class="pre">120</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;ThumbnailHeight&quot;:</span> <span class="pre">100</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;PreviewWidth&quot;:</span> <span class="pre">1024</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;PreviewHeight&quot;:</span> <span class="pre">0</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;ProfileWidth&quot;:</span> <span class="pre">128</span></code></li>
+<li><code class="docutils literal"><span class="pre">&quot;ProfileHeight&quot;:</span> <span class="pre">128</span></code></li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Under <code class="docutils literal"><span class="pre">SqlSettings</span></code> in <code class="docutils literal"><span class="pre">config.json</span></code>:<ul>
+<li>Modified <code class="docutils literal"><span class="pre">&quot;QueryTimeout&quot;:</span> <span class="pre">30</span></code> to also support query timeouts on PostgreSQL, in addition to MySQL.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Additional Changes to Enterprise Edition</strong>:</p>
+<ul class="simple">
+<li>Under <code class="docutils literal"><span class="pre">ClusterSettings</span></code> in <code class="docutils literal"><span class="pre">config.json</span></code>:<ul>
+<li>Added <code class="docutils literal"><span class="pre">&quot;ClusterName&quot;:</span> <span class="pre">&quot;&quot;</span></code> to set the cluster to join by name. Only nodes with the same cluster name will join together. This is to support Blue-Green deployments or staging pointing to the same database.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;OverrideHostname&quot;:</span> <span class="pre">&quot;&quot;</span></code> to override the hostname of this server with this property. It is not recommended to override the Hostname unless needed.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;UseIpAddress&quot;:</span> <span class="pre">true</span></code> to control whether the cluster attempts to communicate using the IP Address.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;UseExperimentalGossip&quot;:</span> <span class="pre">false</span></code> to control whether the server attempts to communicate via the gossip protocol over the gossip port.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;ReadOnlyConfig&quot;:</span> <span class="pre">true</span></code> to control whether changes made to settings in the System Console are ignored. When running in production it is recommended to set this value to true.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;GossipPort&quot;:</span> <span class="pre">8074</span></code> to set the port used for the gossip protocol. Both UDP and TCP should be allowed on this port.</li>
+<li>Added <code class="docutils literal"><span class="pre">&quot;StreamingPort&quot;:</span> <span class="pre">8075</span></code> to set the port used for streaming data between servers.</li>
+<li>Removed <code class="docutils literal"><span class="pre">&quot;InterNodeListenAddress&quot;:</span> <span class="pre">&quot;:8075&quot;</span></code> as this setting is no longer used.</li>
+<li>Removed <code class="docutils literal"><span class="pre">&quot;InterNodeUrls&quot;:</span> <span class="pre">[]</span></code> as this setting is no longer used.</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="api-v4-changes">
+<span id="api-v4-changes"></span><h3>API v4 Changes<a class="headerlink" href="#api-v4-changes" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Mattermost 4.0 has a stable release of API v4 endpoints. It is recommended that any new integrations use the v4 endpoints. For more details, and for a complete list of available endpoints, see <a class="reference external" href="https://api.mattermost.com/">https://api.mattermost.com/</a>.</li>
+<li>All APIv3 endpoints are scheduled for removal on January 16, 2018.</li>
+</ul>
+<p><strong>Added routes (API v4)</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">GET</span></code> at <code class="docutils literal"><span class="pre">/teams/invite/{invite_id}</span></code><ul>
+<li>To retrieve information about a team (including the name and id) corresponding to an invite_id.</li>
+</ul>
+</li>
+</ul>
+<p><strong>Modified routes (API v4)</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">DELETE</span></code> at <code class="docutils literal"><span class="pre">/teams/{team_id}</span></code><ul>
+<li>Added an optional query parameter, <code class="docutils literal"><span class="pre">permanent</span></code>, to permanently delete a team for compliance reasons.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">GET</span></code> at <code class="docutils literal"><span class="pre">/users</span></code><ul>
+<li>Added the <code class="docutils literal"><span class="pre">sort</span></code> query parameter to add basic sorting when selecting users on a team.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">GET</span></code> at <code class="docutils literal"><span class="pre">/emoji</span></code><ul>
+<li>Added paging to the <code class="docutils literal"><span class="pre">/emoji</span></code> call for increased performance.</li>
+</ul>
+</li>
+<li><code class="docutils literal"><span class="pre">POST</span></code> at <code class="docutils literal"><span class="pre">/teams/{team_id}/import</span></code><ul>
+<li>Updated to return a JSON body with the import results under a <code class="docutils literal"><span class="pre">results</span></code> JSON field to allow more data to be returned in the future without breaking changes.</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="websocket-event-changes">
+<span id="websocket-event-changes"></span><h3>Websocket Event Changes<a class="headerlink" href="#websocket-event-changes" title="Permalink to this headline">¶</a></h3>
+<p><strong>Added:</strong></p>
+<ul class="simple">
+<li><code class="docutils literal"><span class="pre">channel_updated</span></code> that occurs each time channel information is updated (such as name or header), so that the changes are propagated across clients.</li>
+<li><code class="docutils literal"><span class="pre">channel_viewed</span></code> that occurs each time you view a channel, propagating the event to all clients and devices and syncing unreads.</li>
+</ul>
+</div>
+<div class="section" id="known-issues">
+<span id="known-issues"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Google login fails on the Classic mobile apps.</li>
+<li>Edge overlays desktop notification sound and system notification sound.</li>
+<li>Clicking on a channel during the tutorial makes the tutorial disappear.</li>
+<li>User can receive a video call from another browser tab while already on a call.</li>
+<li>Search autocomplete picker is broken on Classic Android app.</li>
+<li>Jump link in search results does not always jump to display the expected post.</li>
+<li>First load of the emoji picker is slow on low-speed connections or on deployments with hundreds of custom emoji.</li>
+<li>Scrollbar is sometimes not visible in the left-hand sidebar after switching teams.</li>
+<li>Certain code block labels don&#8217;t appear while scrolling on iOS mobile web.</li>
+<li>Outgoing webhooks do not fire when posts have no text content.</li>
+<li>A public channel doesn&#8217;t always show up in another browser tab or client until after refresh.</li>
+<li>Null values in Slack attachments cause a 500 error for incoming webhooks.</li>
+<li>Keyboard shortcut CTRL/CMD+SHIFT+A does not close Account Settings.</li>
+<li>Deleted message doesn&#8217;t clear unreads or unread mentions.</li>
+<li>Changing the search term in the More Direct Messages modal doesn&#8217;t reset the page.</li>
+<li>Status may sometimes get stuck as away or offline in High Availability mode with IP Hash turned off.</li>
+<li>Cannot delete or edit parent posts in right-hand side reply threads.</li>
+<li>Empty cells in Markdown tables render incorrectly.</li>
+<li><code class="docutils literal"><span class="pre">platform</span> <span class="pre">user</span> <span class="pre">deleteall</span></code> CLI command expects a user as an argument.</li>
+</ul>
+</div>
+<div class="section" id="contributors">
+<span id="contributors"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<p>Many thanks to all our contributors. In alphabetical order:</p>
+<p>/platform</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/94117nl">94117nl</a>, <a class="reference external" href="https://github.com/abustany">abustany</a>, <a class="reference external" href="https://github.com/alexrford">alexrford</a>, <a class="reference external" href="https://github.com/asaadmahmood">asaadmahmood</a>, <a class="reference external" href="https://github.com/ccbrown">ccbrown</a>, <a class="reference external" href="https://github.com/coreyhulen">coreyhulen</a>, <a class="reference external" href="https://github.com/cpanato">cpanato</a>, <a class="reference external" href="https://github.com/crspeller">crspeller</a>, <a class="reference external" href="https://github.com/dmeza">dmeza</a>, <a class="reference external" href="https://github.com/enahum">enahum</a>, <a class="reference external" href="https://github.com/ftKnox">ftKnox</a>, <a class="reference external" href="https://github.com/grundleborg">grundleborg</a>, <a class="reference external" href="https://github.com/hmhealey">hmhealey</a>, <a class="reference external" href="https://github.com/it33">it33</a>, <a class="reference external" href="https://github.com/jasonblais">jasonblais</a>, <a class="reference external" href="https://github.com/JeffSchering">JeffSchering</a>, <a class="reference external" href="https://github.com/jwilander">jwilander</a>, <a class="reference external" href="https://github.com/kkamdooong">kkamdooong</a>, <a class="reference external" href="https://github.com/lindalumitchell">lindalumitchell</a>, <a class="reference external" href="https://github.com/megos">megos</a>, <a class="reference external" href="https://github.com/meilon">meilon</a>, <a class="reference external" href="https://github.com/moonmeister">moonmeister</a>, <a class="reference external" href="https://github.com/pieterlexis">pieterlexis</a>, <a class="reference external" href="https://github.com/saturninoabril">saturninoabril</a>, <a class="reference external" href="https://github.com/VeraLyu">VeraLyu</a>, <a class="reference external" href="https://github.com/ZJvandeWeg">ZJvandeWeg</a></li>
+</ul>
+<p>/mattermost-mobile</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/asaadmahmood">asaadmahmood</a>, <a class="reference external" href="https://github.com/csduarte">csduarte</a>, <a class="reference external" href="https://github.com/enahum">enahum</a>, <a class="reference external" href="https://github.com/hmhealey">hmhealey</a>, <a class="reference external" href="https://github.com/lfbrock">lfbrock</a>, <a class="reference external" href="https://github.com/omar-dev">omar-dev</a></li>
+</ul>
+<p>/mattermost-redux</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/94117nl">94117nl</a>, <a class="reference external" href="https://github.com/csduarte">csduarte</a>, <a class="reference external" href="https://github.com/enahum">enahum</a>, <a class="reference external" href="https://github.com/grundleborg">grundleborg</a>, <a class="reference external" href="https://github.com/hmhealey">hmhealey</a>, <a class="reference external" href="https://github.com/jarredwitt">jarredwitt</a>, <a class="reference external" href="https://github.com/jwilander">jwilander</a>, <a class="reference external" href="https://github.com/saturninoabril">saturninoabril</a></li>
+</ul>
+<p>/mattermost-api-reference</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/cpanato">cpanato</a>, <a class="reference external" href="https://github.com/grundleborg">grundleborg</a>, <a class="reference external" href="https://github.com/hmhealey">hmhealey</a>, <a class="reference external" href="https://github.com/jasonblais">jasonblais</a>, <a class="reference external" href="https://github.com/jwilander">jwilander</a>, <a class="reference external" href="https://github.com/Vaelor">Vaelor</a>, <a class="reference external" href="https://github.com/ZJvandeWeg">ZJvandeWeg</a></li>
+</ul>
+<p>/docs</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/94117nl">94117nl</a>, <a class="reference external" href="https://github.com/acgustafson">acgustafson</a>, <a class="reference external" href="https://github.com/amyblais">amyblais</a>, <a class="reference external" href="https://github.com/ccbrown">ccbrown</a>, <a class="reference external" href="https://github.com/crspeller">crspeller</a>, <a class="reference external" href="https://github.com/esethna">esethna</a>, <a class="reference external" href="https://github.com/it33">it33</a>, <a class="reference external" href="https://github.com/jasonblais">jasonblais</a>, <a class="reference external" href="https://github.com/JeffSchering">JeffSchering</a>, <a class="reference external" href="https://github.com/jwilander">jwilander</a>, <a class="reference external" href="https://github.com/kjkeane">kjkeane</a>, <a class="reference external" href="https://github.com/megos">megos</a>, <a class="reference external" href="https://github.com/pieterlexis">pieterlexis</a></li>
+</ul>
+<p>/desktop</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/yuya-oc">yuya-oc</a></li>
+</ul>
+<p>/mattermost-kubernetes</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/coreyhulen">coreyhulen</a></li>
+</ul>
+<p>/mattermost-push-proxy</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/coreyhulen">coreyhulen</a>, <a class="reference external" href="https://github.com/ftKnox">ftKnox</a></li>
+</ul>
+<p>/mattermost-docker</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/pichouk">pichouk</a>, <a class="reference external" href="https://github.com/tejasbubane">tejasbubane</a></li>
+</ul>
+<p>/mattermost-load-test</p>
+<ul class="simple">
+<li><a class="reference external" href="https://github.com/crspeller">crspeller</a>, <a class="reference external" href="https://github.com/JeffSchering">JeffSchering</a></li>
+</ul>
+</div>
+</div>
+<div class="section" id="release-v3-10-2">
+<span id="release-v3-10-2"></span><h2>Release v3.10.2<a class="headerlink" href="#release-v3-10-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>v3.10.2, released 2017-07-18</strong><ul>
+<li>Mattermost v3.10.2 contains low severity security fixes. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading</a> is highly recommended. Details will be posted on our <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates page</a> 14 days after release as per the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
+</ul>
+</li>
+<li><strong>v3.10.1, released 2017-07-16</strong><ul>
+<li>Mattermost v3.10.1 contains a high severity security fix for an OAuth SSO vulnerability and two additional fixes for low severity security issues. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading</a> is highly recommended. Details will be posted on our <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates page</a> 14 days after release as per the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
+</ul>
+</li>
+<li><strong>v3.10.0, released 2017-06-16</strong><ul>
+<li>Original 3.10 release</li>
+</ul>
+</li>
+</ul>
+<div class="section" id="highlights">
+<span id="id1"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="languages">
+<span id="id2"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added Turkish translations for the user interface.</li>
 </ul>
@@ -410,9 +805,9 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="improvements"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id3"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="web-user-interface">
-<span id="web-user-interface"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
+<span id="id4"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Enter key now confirms deletion on the screens to delete a custom emoji and delete a channel.</li>
 <li>Team and channel URLs now replace accented characters with their ASCII equivalents.</li>
@@ -426,11 +821,11 @@
 <li>/loadtest command changed to /test.</li>
 <li>Ephemeral messages are removed from the right-hand sidebar after it is reopened.</li>
 <li>Added a markdown preview option to the message editing modal.</li>
-<li>Status indicators are now shown in the Direct Massages list.</li>
+<li>Status indicators are now shown in the Direct Messages list.</li>
 </ul>
 </div>
 <div class="section" id="notifications">
-<span id="notifications"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
+<span id="id5"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added &#8220;&#64;here&#8221; to the list of channel-wide mentions in Account Settings.</li>
 <li>Added a reminder when your Mattermost window is refreshed if a status override slash command is used to set yourself as /away or /offline.</li>
@@ -455,7 +850,7 @@
 </ul>
 </div>
 <div class="section" id="authentication">
-<span id="authentication"></span><h4>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h4>
+<span id="id6"></span><h4>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added a redirect to the appropriate team, channel or post if navigating to a Mattermost URL when logged out.</li>
 <li>Clicking a team invite link now joins the team in all active sessions.</li>
@@ -474,14 +869,14 @@
 </ul>
 </div>
 <div class="section" id="enterprise-edition">
-<span id="enterprise-edition"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<span id="id7"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added an announcement banner visible to all end users to make maintenance announcements across the system.</li>
 </ul>
 </div>
 </div>
 <div class="section" id="bug-fixes">
-<span id="bug-fixes"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id8"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Dragging and dropping a file onto the left-hand sidebar no longer navigates away from Mattermost to open the file in the browser.</li>
 <li>Textbox will no longer overlap the center pane message area as it expands when typing.</li>
@@ -508,9 +903,9 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="compatibility"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id9"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="removed-and-deprecated-features">
-<span id="removed-and-deprecated-features"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
+<span id="id10"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>System Console settings in <strong>Files &gt; Images</strong> scheduled for removal in July 2017 release. This includes:<ul>
 <li>Image preview height and width</li>
@@ -525,7 +920,7 @@
 <p>For a list of past and upcoming deprecated features, <a class="reference external" href="https://about.mattermost.com/deprecated-features/">see our website</a>.</p>
 </div>
 <div class="section" id="config-json">
-<span id="config-json"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id11"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code>, or the System Console when available.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
 <ul class="simple">
@@ -567,7 +962,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="known-issues"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id12"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Google login fails on the mobile apps.</li>
 <li>Edge overlays desktop notification sound and system notification sound.</li>
@@ -591,7 +986,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="contributors"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id13"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -643,19 +1038,32 @@
 </ul>
 </div>
 </div>
-<div class="section" id="release-v3-9-0">
-<span id="release-v3-9-0"></span><h2>Release v3.9.0<a class="headerlink" href="#release-v3-9-0" title="Permalink to this headline">¶</a></h2>
-<p>Release Date: May 16, 2017</p>
+<div class="section" id="release-v3-9-2">
+<span id="release-v3-9-2"></span><h2>Release v3.9.2<a class="headerlink" href="#release-v3-9-2" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li><strong>v3.9.2, released 2017-07-18</strong><ul>
+<li>Mattermost v3.9.2 contains low severity security fixes. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading</a> is highly recommended. Details will be posted on our <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates page</a> 14 days after release as per the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
+</ul>
+</li>
+<li><strong>v3.9.1, released 2017-07-16</strong><ul>
+<li>Mattermost v3.10.1 contains a high severity security fix for an OAuth SSO vulnerability and two additional fixes for low severity security issues. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading</a> is highly recommended. Details will be posted on our <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates page</a> 14 days after release as per the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
+</ul>
+</li>
+<li><strong>v3.9.0, released 2017-05-16</strong><ul>
+<li>Original 3.10 release</li>
+</ul>
+</li>
+</ul>
 <div class="section" id="security-update">
-<span id="security-update"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id14"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.9.0 contains a low severity <a class="reference external" href="http://about.mattermost.com/security-updates/">security update</a>. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading to Mattermost v3.9.0</a> is highly recommended.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id1"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id15"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="languages">
-<span id="id2"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
+<span id="id16"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added Polish translations for the user interface.</li>
 </ul>
@@ -676,9 +1084,9 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id3"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id17"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="web-user-interface">
-<span id="id4"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
+<span id="id18"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Lower and upper vertical margins for posts are now equal.</li>
 <li>Comments only containing a file attachment have a reduced vertical spacing in the center channel.</li>
@@ -691,7 +1099,7 @@
 </ul>
 </div>
 <div class="section" id="performance">
-<span id="id5"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
+<span id="id19"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added the ability to isolate searches to specific read-replicas for full text search queries for higher performance.</li>
 <li>Added default read and write timeouts for MySQL datasource to prevent hub processing deadlock.</li>
@@ -708,7 +1116,7 @@
 </ul>
 </div>
 <div class="section" id="keyboard-shortcuts">
-<span id="keyboard-shortcuts"></span><h4>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h4>
+<span id="id20"></span><h4>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added a link to keyboard shortcuts documentation via the team Main Menu.</li>
 <li>Pressing ENTER once in the channel switcher (CTRL/CMD+K) now switches the channel.</li>
@@ -753,7 +1161,7 @@
 </ul>
 </div>
 <div class="section" id="system-console">
-<span id="id6"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
+<span id="id21"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added a confirmation dialog when deactivating a user.</li>
 <li>Server logs are now always printed in English regardless of Default Server Language, for easier troubelshooting.</li>
@@ -762,7 +1170,7 @@
 </ul>
 </div>
 <div class="section" id="enterprise-edition">
-<span id="id7"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<span id="id22"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added new <a class="reference external" href="https://docs.mattermost.com/deployment/metrics.html">performance monitoring metrics</a> for<ul>
 <li>The total number of connections to all the search replica databases</li>
@@ -773,7 +1181,7 @@
 </div>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id8"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id23"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Long custom emoji names no longer float out of the emoji picker.</li>
 <li>Deleted custom emojis no longer stay in &#8220;recently used&#8221; section of the emoji picker.</li>
@@ -806,16 +1214,17 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id9"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id24"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="breaking-changes">
-<span id="breaking-changes"></span><h4>Breaking changes:<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h4>
+<span id="id25"></span><h4>Breaking changes:<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>If you&#8217;re using NGINX as a proxy for the Mattermost Server, replace the <code class="docutils literal"><span class="pre">location</span> <span class="pre">/api/v3/users/websocket</span> <span class="pre">{</span></code> line with <code class="docutils literal"><span class="pre">location</span> <span class="pre">~</span> <span class="pre">/api/v[0-9]+/(users/)?websocket$</span> <span class="pre">{</span></code> in the <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> NGINX configuration file. <a class="reference external" href="https://docs.mattermost.com/install/install-ubuntu-1404.html#configuring-nginx-as-a-proxy-for-mattermost-server">See documentation to learn more</a>.</li>
-<li>Existing team invite links, password reset links and email verification links will be invalidated after upgrading to v3.9.0.</li>
+<li>Existing email invite links, password reset links, and email verification links in emails generated by your Mattermost server will be invalidated after upgrading to v3.9.0.</li>
+<li>Firefox ESR 45 has an <a class="reference external" href="https://en.wikipedia.org/wiki/Firefox_version_history">end-of-life scheduled for June 13</a> and is therefore no longer supported. We recommend upgrading to <a class="reference external" href="https://www.mozilla.org/en-US/firefox/organizations/all/">Firefox ESR 52</a>.</li>
 </ul>
 </div>
 <div class="section" id="removed-and-deprecated-features">
-<span id="id10"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
+<span id="id26"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>System Console settings in <strong>Files &gt; Images</strong> scheduled for removal in July 2017 release. This includes:<ul>
 <li>Image preview height and width</li>
@@ -823,12 +1232,12 @@
 <li>Image thumbnail height and width</li>
 </ul>
 </li>
-<li>All APIv3 endpoints to be removed in September 2017 release.</li>
+<li>All APIv3 endpoints are scheduled for removal six months after APIv4 is stable.</li>
 </ul>
 <p>For a list of past and upcoming deprecated features, <a class="reference external" href="https://about.mattermost.com/deprecated-features/">see our website</a>.</p>
 </div>
 <div class="section" id="config-json">
-<span id="id11"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id27"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code>, or the System Console when available.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
 <ul class="simple">
@@ -871,20 +1280,20 @@
 </ul>
 </div>
 <div class="section" id="api-changes">
-<span id="id12"></span><h3>API Changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h3>
+<span id="id28"></span><h3>API Changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost 3.9 has a release candidate of APIv4 endpoints. To see the complete list of available endpoints, see <a class="reference external" href="https://api.mattermost.com/v4/">https://api.mattermost.com/v4/</a>.</li>
 <li>All APIv3 endpoints to be removed six months after APIv4 endpoints are stable.</li>
 </ul>
 </div>
 <div class="section" id="websocket-event-changes">
-<span id="websocket-event-changes"></span><h3>Websocket Event Changes<a class="headerlink" href="#websocket-event-changes" title="Permalink to this headline">¶</a></h3>
+<span id="id29"></span><h3>Websocket Event Changes<a class="headerlink" href="#websocket-event-changes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added <code class="docutils literal"><span class="pre">preferences_changed</span></code> and <code class="docutils literal"><span class="pre">preferences_deleted</span></code> to sync preferences between browser tabs, between different browsers, and across devices when a preference is changed or deleted.</li>
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id13"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id30"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Google login fails on the mobile apps.</li>
 <li>Slack import doesn&#8217;t add merged members/e-mail accounts to imported channels.</li>
@@ -905,7 +1314,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id14"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id31"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -953,11 +1362,15 @@
 </ul>
 </div>
 </div>
-<div class="section" id="release-v3-8-2">
-<span id="release-v3-8-2"></span><h2>Release v3.8.2<a class="headerlink" href="#release-v3-8-2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="release-v3-8-3">
+<span id="release-v3-8-3"></span><h2>Release v3.8.3<a class="headerlink" href="#release-v3-8-3" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="notes-on-patch-release">
 <span id="notes-on-patch-release"></span><h3>Notes on Patch Release<a class="headerlink" href="#notes-on-patch-release" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
+<li><strong>v3.8.3, released 2017-07-16</strong><ul>
+<li>Mattermost v3.8.3 contains a high severity security fix for an OAuth SSO vulnerability and two additional fixes for low severity security issues. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading</a> is highly recommended. Details will be posted on our <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates page</a> 14 days after release as per the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
+</ul>
+</li>
 <li><strong>v3.8.2, released 2017-04-21</strong><ul>
 <li>Changed the client to use <code class="docutils literal"><span class="pre">window.location.origin</span></code> instead of siteURL, fixing WebSocket connection issues with Mattermost 3.8 upgrade.</li>
 <li>Fixed a few APIv4 endpoints in support of the next <a class="reference external" href="https://github.com/mattermost/mattermost-mobile">React Native mobile app</a> release.</li>
@@ -977,13 +1390,13 @@
 </ul>
 </div>
 <div class="section" id="security-update">
-<span id="id15"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id32"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.8.0 contains multiple <a class="reference external" href="http://about.mattermost.com/security-updates/">security updates</a>. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading to Mattermost v3.8.0</a> is highly recommended.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id16"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id33"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="native-ios-and-android-apps-beta">
 <span id="native-ios-and-android-apps-beta"></span><h4>Native iOS and Android Apps (Beta)<a class="headerlink" href="#native-ios-and-android-apps-beta" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -1017,9 +1430,9 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id17"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id34"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="web-user-interface">
-<span id="id18"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
+<span id="id35"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Date separators now appear between posts in the right-hand sidebar.</li>
 <li>Non-square profile pictures are now cropped in the middle rather than being stretched.</li>
@@ -1032,7 +1445,7 @@
 </ul>
 </div>
 <div class="section" id="performance">
-<span id="id19"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
+<span id="id36"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added index and cache to reactions store</li>
 </ul>
@@ -1060,20 +1473,20 @@
 </ul>
 </div>
 <div class="section" id="integrations">
-<span id="id20"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
+<span id="id37"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>The integrations confirmation page can now be dismissed with the ENTER key.</li>
 </ul>
 </div>
 <div class="section" id="link-previews">
-<span id="link-previews"></span><h4>Link Previews<a class="headerlink" href="#link-previews" title="Permalink to this headline">¶</a></h4>
+<span id="id38"></span><h4>Link Previews<a class="headerlink" href="#link-previews" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Updated the UI for link previews by removing an extra blue vertical bar.</li>
 <li>Added support for link preview requests through a separate proxy.</li>
 </ul>
 </div>
 <div class="section" id="notifications">
-<span id="id21"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
+<span id="id39"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Users can no longer configure email notification settings if the notifications are disabled for the system.</li>
 </ul>
@@ -1085,7 +1498,7 @@
 </ul>
 </div>
 <div class="section" id="enterprise-edition">
-<span id="id22"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<span id="id40"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Policy controls for restricting permissions to add and remove members from private channels.</li>
 <li>Added the ability to read the license file from the disk.</li>
@@ -1094,7 +1507,7 @@
 </div>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id23"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id41"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed line wrapping of the timestamp in Account Settings &gt; Security &gt; View Access History.</li>
 <li>Fixed an inconsistent error message when creating a channel with a display name of one or two characters.</li>
@@ -1116,16 +1529,16 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id24"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id42"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="breaking-changes">
-<span id="id25"></span><h4>Breaking changes:<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h4>
+<span id="id43"></span><h4>Breaking changes:<a class="headerlink" href="#breaking-changes" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>The <strong>System Console &gt; Configuration &gt; <a class="reference external" href="..\administration\config-settings.html#site-url">Site URL</a></strong> field is now mandatory. Set the Site URL in the System Console, or in the <code class="docutils literal"><span class="pre">gitlab.rb</span></code> file if you are using GitLab Mattermost.</li>
 <li>Server logs are now written to the <code class="docutils literal"><span class="pre">mattermost.log</span></code> file located in the directory specified in <strong>System Console &gt; Logging &gt; <a class="reference external" href="..\administration\config-settings.html#file-log-directory">File Log Directory</a></strong>. Set the directory name in the System Console, or in the <code class="docutils literal"><span class="pre">gitlab.rb</span></code> file if you are using GitLab Mattermost.</li>
 </ul>
 </div>
 <div class="section" id="removed-and-deprecated-features">
-<span id="id26"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
+<span id="id44"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Backwards compatibility with the old CLI tool is removed in v3.8. See <a class="reference external" href="..\administration\command-line-tools.html">documentation to learn more about the new CLI tool</a>.</li>
 <li>Deprecated APIv3 routes removed in v3.8:<ul>
@@ -1140,7 +1553,7 @@
 <p>For a list of past and upcoming deprecated features, <a class="reference external" href="https://about.mattermost.com/deprecated-features/">see our website</a>.</p>
 </div>
 <div class="section" id="config-json">
-<span id="id27"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id45"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code> or the System Console.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
 <ul class="simple">
@@ -1159,14 +1572,14 @@
 </div>
 </div>
 <div class="section" id="database-changes">
-<span id="id28"></span><h3>Database Changes<a class="headerlink" href="#database-changes" title="Permalink to this headline">¶</a></h3>
+<span id="id46"></span><h3>Database Changes<a class="headerlink" href="#database-changes" title="Permalink to this headline">¶</a></h3>
 <p><strong>Posts Table:</strong></p>
 <ul class="simple">
 <li>Added <code class="docutils literal"><span class="pre">IsPinned</span></code> column</li>
 </ul>
 </div>
 <div class="section" id="api-changes">
-<span id="id29"></span><h3>API Changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h3>
+<span id="id47"></span><h3>API Changes<a class="headerlink" href="#api-changes" title="Permalink to this headline">¶</a></h3>
 <p><strong>New routes (APIv3):</strong></p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">GET</span></code> at <code class="docutils literal"><span class="pre">/channels/{channel_id}/pinned</span></code><ul>
@@ -1191,7 +1604,7 @@
 </ul>
 </div>
 <div class="section" id="websocket-event-changes">
-<span id="id30"></span><h3>Websocket Event Changes<a class="headerlink" href="#websocket-event-changes" title="Permalink to this headline">¶</a></h3>
+<span id="id48"></span><h3>Websocket Event Changes<a class="headerlink" href="#websocket-event-changes" title="Permalink to this headline">¶</a></h3>
 <p><strong>Added:</strong></p>
 <ul class="simple">
 <li><code class="docutils literal"><span class="pre">added_to_team</span></code> that occurs when the current user is added to a team by another user.</li>
@@ -1202,7 +1615,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id31"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id49"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>&#8220;Pinned&#8221; icon sometimes overlaps image posts.</li>
 <li>Full name is not editable in Account Settings if the first and last name attributes are removed from <strong>System Console &gt; Authentication &gt; LDAP</strong>.</li>
@@ -1221,7 +1634,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id32"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id50"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform:</p>
 <ul class="simple">
@@ -1268,7 +1681,7 @@
 <div class="section" id="release-v3-7-5">
 <span id="release-v3-7-5"></span><h2>Release v3.7.5<a class="headerlink" href="#release-v3-7-5" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="notes-on-patch-release">
-<span id="id33"></span><h3>Notes on Patch Release<a class="headerlink" href="#notes-on-patch-release" title="Permalink to this headline">¶</a></h3>
+<span id="id51"></span><h3>Notes on Patch Release<a class="headerlink" href="#notes-on-patch-release" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>v3.7.5, released 2017-04-27</strong><ul>
 <li>Fixed a number of low to moderate severity security issues, and <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">upgrading</a> is highly recommended. Details will be posted on our <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates page</a> 14 days after release as per the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a><ul>
@@ -1301,13 +1714,13 @@
 </ul>
 </div>
 <div class="section" id="security-update">
-<span id="id34"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id52"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.7.0 contains a <a class="reference external" href="http://about.mattermost.com/security-updates/">security update</a>. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading to Mattermost v3.7.0</a> is highly recommended.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id35"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id53"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="group-messaging">
 <span id="group-messaging"></span><h4>Group Messaging<a class="headerlink" href="#group-messaging" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -1346,9 +1759,9 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id36"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id54"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="performance">
-<span id="id37"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
+<span id="id55"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Loading new users can now be run on a live system without a major impact on performance through the new bulk user import tool</li>
 <li>Optimized SQL queries by adding index for PostId, removing ParentId from delete post queries, and fixing blank post queries</li>
@@ -1373,7 +1786,7 @@
 </ul>
 </div>
 <div class="section" id="web-user-interface">
-<span id="id38"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
+<span id="id56"></span><h4>Web User Interface<a class="headerlink" href="#web-user-interface" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Update status indicators shown in post view</li>
 <li>Show <code class="docutils literal"><span class="pre">(Edited)</span></code> indicator if a message has been edited</li>
@@ -1393,7 +1806,7 @@
 </ul>
 </div>
 <div class="section" id="mobile">
-<span id="id39"></span><h4>Mobile<a class="headerlink" href="#mobile" title="Permalink to this headline">¶</a></h4>
+<span id="id57"></span><h4>Mobile<a class="headerlink" href="#mobile" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>New push proxy server supports multiple apps (in preparation for the second generation mobile apps)</li>
 <li>New push proxy server is backwards compatible with the old iOS and Android apps</li>
@@ -1416,7 +1829,7 @@
 </ul>
 </div>
 <div class="section" id="integrations">
-<span id="id40"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
+<span id="id58"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added edit screens for incoming and outgoing webhooks</li>
 <li>When no username is set for a slash command response, the username of the person is now used instead of &#8220;webhook&#8221;</li>
@@ -1430,7 +1843,7 @@
 </ul>
 </div>
 <div class="section" id="onboarding">
-<span id="id41"></span><h4>Onboarding<a class="headerlink" href="#onboarding" title="Permalink to this headline">¶</a></h4>
+<span id="id59"></span><h4>Onboarding<a class="headerlink" href="#onboarding" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Clicking on email verification link now automatically fills in your email address on the sign in page</li>
 <li>On login with GitLab SSO, Mattermost username and email are now synced with GitLab username and email</li>
@@ -1446,14 +1859,14 @@
 </ul>
 </div>
 <div class="section" id="system-console">
-<span id="id42"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
+<span id="id60"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added active users statistics to Site Statistics page</li>
 <li>Focus is set to server log control in <strong>System Console &gt; Reporting &gt; Logs</strong> when loading the panel</li>
 </ul>
 </div>
 <div class="section" id="enterprise-edition">
-<span id="id43"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<span id="id61"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added WebSocket events, webhook events and cluster request time logging for Performance Monitoring</li>
 <li>Added new policy settings to <strong>System Console &gt; General &gt; Policy</strong> to<ul>
@@ -1465,7 +1878,7 @@
 </div>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id44"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id62"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed an error where a channel would no longer load after using a GitLab built-in Mattermost slash command <code class="docutils literal"><span class="pre">/project</span> <span class="pre">issue</span> <span class="pre">show</span> <span class="pre">&lt;number&gt;</span></code></li>
 <li>Outdated results in modal searches are now properly discarded</li>
@@ -1493,9 +1906,9 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id45"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id63"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="removed-and-deprecated-features">
-<span id="id46"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
+<span id="id64"></span><h4>Removed and deprecated features<a class="headerlink" href="#removed-and-deprecated-features" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Removed <code class="docutils literal"><span class="pre">ServiceSettings:</span> <span class="pre">&quot;SegmentDeveloperKey&quot;</span></code> setting in <code class="docutils literal"><span class="pre">config.json</span></code></li>
 <li>Backwards compatibility with the old CLI tool will be removed in Mattermost v3.8 April/2017 release. See <a class="reference external" href="https://docs.mattermost.com/administration/command-line-tools.html">documentation to learn more about the new CLI tool</a>.</li>
@@ -1511,7 +1924,7 @@
 <p>For a list of past and upcoming deprecated features, <a class="reference external" href="https://about.mattermost.com/deprecated-features/">see our website</a>.</p>
 </div>
 <div class="section" id="config-json">
-<span id="id47"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id65"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Changes from v3.6 to v3.7:</p>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code> or the System Console.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
@@ -1581,7 +1994,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id48"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id66"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Slack import doesn&#8217;t add merged members/e-mail accounts to imported channels</li>
 <li>User can receive a video call from another browser tab while already on a call</li>
@@ -1598,7 +2011,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id49"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id67"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -1641,7 +2054,7 @@
 <div class="section" id="release-v3-6-7">
 <span id="release-v3-6-7"></span><h2>Release v3.6.7<a class="headerlink" href="#release-v3-6-7" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="notes-on-patch-release">
-<span id="id50"></span><h3>Notes on Patch Release<a class="headerlink" href="#notes-on-patch-release" title="Permalink to this headline">¶</a></h3>
+<span id="id68"></span><h3>Notes on Patch Release<a class="headerlink" href="#notes-on-patch-release" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>v3.6.7, released 2017-04-27</strong><ul>
 <li>Fixed a number of low to moderate severity security issues, and <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">upgrading</a> is highly recommended. Details will be posted on our <a class="reference external" href="https://about.mattermost.com/security-updates/">security updates page</a> 14 days after release as per the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a><ul>
@@ -1688,13 +2101,13 @@
 </ul>
 </div>
 <div class="section" id="security-update">
-<span id="id51"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id69"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.6.0 contains a <a class="reference external" href="http://about.mattermost.com/security-updates/">security update</a>. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading to Mattermost v3.6.0</a> is highly recommended. Thanks to Julien Ahrens for contributing the security report through the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id52"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id70"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="team-sidebar">
 <span id="team-sidebar"></span><h4>Team Sidebar<a class="headerlink" href="#team-sidebar" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -1723,9 +2136,9 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id53"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id71"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="performance">
-<span id="id54"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
+<span id="id72"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added server-based channel autocomplete, search and paging</li>
 <li>Reduced lag on channel switcher (CTRL/CMD+K) and at-mention autocomplete</li>
@@ -1740,7 +2153,7 @@
 </ul>
 </div>
 <div class="section" id="notifications">
-<span id="id55"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
+<span id="id73"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Desktop notifications no longer appear for the channel you are actively viewing</li>
 <li>Push and email notifications now follow the setting for Teammate Name Display</li>
@@ -1761,7 +2174,7 @@
 </ul>
 </div>
 <div class="section" id="slash-commands">
-<span id="slash-commands"></span><h4>Slash Commands<a class="headerlink" href="#slash-commands" title="Permalink to this headline">¶</a></h4>
+<span id="id74"></span><h4>Slash Commands<a class="headerlink" href="#slash-commands" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Existing slash commands can now be edited by the creator or by Team and System Admins</li>
 <li>Slash commands now work on the right-hand sidebar</li>
@@ -1769,7 +2182,7 @@
 </ul>
 </div>
 <div class="section" id="channels">
-<span id="id56"></span><h4>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h4>
+<span id="id75"></span><h4>Channels<a class="headerlink" href="#channels" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>System message is now posted for all users when a channel or group is renamed</li>
 <li>Any channel member can now remove other users from the channel</li>
@@ -1793,7 +2206,7 @@
 </ul>
 </div>
 <div class="section" id="enterprise-edition">
-<span id="id57"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<span id="id76"></span><h4>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Split out channel management permissions into separate settings for creation, deletion, and renaming a channel</li>
 <li>Ability to set the maximum number of users in a channel that will disable &#64;all and &#64;channel notifications</li>
@@ -1803,7 +2216,7 @@
 </div>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id58"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id77"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Integrations that post to Direct Message channels now mark the channel as Unread</li>
 <li>&#64;mention autocomplete will now filter on Chinese, Japanese, Korean names</li>
@@ -1831,12 +2244,12 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id59"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id78"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v3.5 to v3.6:</p>
 <p><strong>Special Upgrade Note:</strong>
 (Enterprise Edition) If you previously had values set for <code class="docutils literal"><span class="pre">RestrictPublicChannelManagement</span></code> and <code class="docutils literal"><span class="pre">RestrictPrivateChannelManagement</span></code>, the new settings for  <code class="docutils literal"><span class="pre">RestrictPublicChannelCreation</span></code>, <code class="docutils literal"><span class="pre">RestrictPrivateChannelCreation</span></code>, <code class="docutils literal"><span class="pre">RestrictPublicChannelDeletion</span></code>, and <code class="docutils literal"><span class="pre">RestrictPrivateChannelDeletion</span></code> will take those settings as their default values.</p>
 <div class="section" id="config-json">
-<span id="id60"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id79"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code> or the System Console.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
 <p>Deprecated Settings:</p>
@@ -2001,7 +2414,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id61"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id80"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Slack Import doesn&#8217;t add merged members/e-mail accounts to imported channels</li>
 <li>User can receive a video call from another browser tab while already on a call</li>
@@ -2013,7 +2426,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id62"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id81"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -2076,7 +2489,7 @@
 <div class="section" id="release-v3-5-1">
 <span id="release-v3-5-1"></span><h2>Release v3.5.1<a class="headerlink" href="#release-v3-5-1" title="Permalink to this headline">¶</a></h2>
 <div class="section" id="notes-on-patch-release">
-<span id="id63"></span><h3>Notes on Patch Release<a class="headerlink" href="#notes-on-patch-release" title="Permalink to this headline">¶</a></h3>
+<span id="id82"></span><h3>Notes on Patch Release<a class="headerlink" href="#notes-on-patch-release" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li><strong>v3.5.1, released 2016-11-23</strong><ul>
 <li>Security update to preventing cross-site scripting and remote code execution, thanks to Harrison Healey for <a class="reference external" href="http://www.mattermost.org/responsible-disclosure-policy/">reporting responsibly</a>.</li>
@@ -2098,15 +2511,15 @@
 </ul>
 </div>
 <div class="section" id="security-update">
-<span id="id64"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id83"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.5.1 contains multiple <a class="reference external" href="http://about.mattermost.com/security-updates/">security updates</a>. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading to Mattermost v3.5.1</a> is highly recommended. Thanks to Alyssa Milburn and Harrison Healey for contributing security reports through the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id65"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id84"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="languages">
-<span id="id66"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
+<span id="id85"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added Russian translations for the user interface.</li>
 <li>Promoted Chinese (both simplified and traditional), German, French and Japanese to release-quality translations, removing beta tags.</li>
@@ -2162,7 +2575,7 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id67"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id86"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="ios-apps">
 <span id="ios-apps"></span><h4>iOS Apps<a class="headerlink" href="#ios-apps" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -2183,7 +2596,7 @@
 </ul>
 </div>
 <div class="section" id="user-interface">
-<span id="id68"></span><h4>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h4>
+<span id="id87"></span><h4>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Text (.txt) files now show a preview in the image previewer</li>
 <li>Status indicators are now visible in compact view</li>
@@ -2196,7 +2609,7 @@
 </ul>
 </div>
 <div class="section" id="notifications">
-<span id="id69"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
+<span id="id88"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Notification sound settings are now honored on the <a class="reference external" href="https://about.mattermost.com/download/#mattermostApps">Mattermost Desktop Apps</a></li>
 <li>Push notifications can now be received on more than one device</li>
@@ -2210,38 +2623,38 @@
 </ul>
 </div>
 <div class="section" id="integrations">
-<span id="id70"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
+<span id="id89"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>If a webhook is sent to a direct message channel that has not been created yet, the channel is now automatically created</li>
 </ul>
 </div>
 <div class="section" id="keyboard-shortcuts">
-<span id="id71"></span><h4>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h4>
+<span id="id90"></span><h4>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>CTRL/CMD+SHIFT+M now toggles recent mentions results</li>
 </ul>
 </div>
 <div class="section" id="team-settings">
-<span id="id72"></span><h4>Team Settings<a class="headerlink" href="#team-settings" title="Permalink to this headline">¶</a></h4>
+<span id="id91"></span><h4>Team Settings<a class="headerlink" href="#team-settings" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Team names are now restricted to be a minimum of two characters long, instead of four, to support abbreviated team names</li>
 </ul>
 </div>
 <div class="section" id="system-console">
-<span id="id73"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
+<span id="id92"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Maximum number of channels per team is now configurable</li>
 </ul>
 </div>
 <div class="section" id="enterprise-edition">
-<span id="id74"></span><h4>Enterprise Edition:<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<span id="id93"></span><h4>Enterprise Edition:<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Made the MFA secret key visible, so it&#8217;s possible to set up Google Authenticator without scanning the QR code</li>
 </ul>
 </div>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id75"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id94"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Files can now be sent in Direct Messages across teams</li>
 <li>Correct login method now shown in System Console user lists</li>
@@ -2256,10 +2669,10 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id76"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id95"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v3.4 to v3.5:</p>
 <div class="section" id="config-json">
-<span id="id77"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id96"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code> or the System Console.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
 <ul class="simple">
@@ -2446,7 +2859,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id78"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id97"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Channel autolinking with <code class="docutils literal"><span class="pre">~</span></code> only works if you are a member of the channel</li>
 <li>Slack Import doesn&#8217;t add merged members/e-mail accounts to imported channels</li>
@@ -2464,7 +2877,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id79"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id98"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -2516,7 +2929,7 @@
 <span id="release-v3-4-0"></span><h2>Release v3.4.0<a class="headerlink" href="#release-v3-4-0" title="Permalink to this headline">¶</a></h2>
 <p>Release date: 2016-09-16</p>
 <div class="section" id="highlights">
-<span id="id80"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id99"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="zapier-integration">
 <span id="zapier-integration"></span><h4>Zapier Integration<a class="headerlink" href="#zapier-integration" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -2524,7 +2937,7 @@
 </ul>
 </div>
 <div class="section" id="oauth-2-0-service-provider">
-<span id="id81"></span><h4>OAuth 2.0 Service Provider<a class="headerlink" href="#oauth-2-0-service-provider" title="Permalink to this headline">¶</a></h4>
+<span id="id100"></span><h4>OAuth 2.0 Service Provider<a class="headerlink" href="#oauth-2-0-service-provider" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Users with an account on a Mattermost server can securely sign in to third-party applications with an OAuth 2.0 protocol. See <a class="reference external" href="https://docs.mattermost.com/developer/oauth-2-0-applications.html">documentation</a> to learn more.</li>
 </ul>
@@ -2543,7 +2956,7 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id82"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id101"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="files-and-images">
 <span id="files-and-images"></span><h4>Files and Images<a class="headerlink" href="#files-and-images" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -2551,13 +2964,13 @@
 </ul>
 </div>
 <div class="section" id="integrations">
-<span id="id83"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
+<span id="id102"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>After an integration is created, a confirmation screen now displays the relevant token, webhook URL or OAuth client secret</li>
 </ul>
 </div>
 <div class="section" id="system-console">
-<span id="id84"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
+<span id="id103"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added connection security option <code class="docutils literal"><span class="pre">PLAIN</span></code> for SMTP</li>
 <li>Salt settings in the config.json now ship blank and are autogenerated after install</li>
@@ -2565,13 +2978,13 @@
 </ul>
 </div>
 <div class="section" id="slack-import">
-<span id="id85"></span><h4>Slack Import<a class="headerlink" href="#slack-import" title="Permalink to this headline">¶</a></h4>
+<span id="id104"></span><h4>Slack Import<a class="headerlink" href="#slack-import" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Slack import now imports &#64;mentions mapped to user names</li>
 </ul>
 </div>
 <div class="section" id="user-interface">
-<span id="id86"></span><h4>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h4>
+<span id="id105"></span><h4>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Improved design of signup pages when multiple account creation methods are enabled</li>
 <li>User profile popover now shows both username and full name (if available)</li>
@@ -2582,7 +2995,7 @@
 </ul>
 </div>
 <div class="section" id="enterprise-edition">
-<span id="id87"></span><h4>Enterprise Edition:<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<span id="id106"></span><h4>Enterprise Edition:<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added a CLI tool for creating channels</li>
 <li>Added a display option to hide join/leave messages from view (user added and user removed messages still appear)</li>
@@ -2592,7 +3005,7 @@
 </div>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id88"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id107"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Old public links are now invalidated when the salt is regenerated.</li>
 <li>Messages can now be flagged from the search results list</li>
@@ -2604,12 +3017,12 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id89"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id108"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v3.3 to v3.4:</p>
 <p><strong>Special Note</strong></p>
 <p>(Only affects servers with public links enabled) After upgrading to v3.4, existing public links will no longer be valid. This is because in past versions, when the Public Link Salt was regenerated existing public links were not invalidated. Now, when the salt is regenerated, existing links are made invalid.</p>
 <div class="section" id="config-json">
-<span id="id90"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id109"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code> or the System Console.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
 <ul class="simple">
@@ -2679,7 +3092,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id91"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id110"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Upgrading from 3.2 to 3.4 will be incomplete due to a migration code not being run properly. You can either:<ul>
 <li>Upgrade from 3.2 to 3.3 and then from 3.3 to 3.4, or</li>
@@ -2698,7 +3111,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id92"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id111"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -2738,16 +3151,16 @@
 <span id="release-v3-3-0"></span><h2>Release v3.3.0<a class="headerlink" href="#release-v3-3-0" title="Permalink to this headline">¶</a></h2>
 <p>Expected release date: 2016-08-16</p>
 <div class="section" id="security-update">
-<span id="id93"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id112"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.3.0 contains <a class="reference external" href="http://about.mattermost.com/security-updates/">security updates</a>. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading to Mattermost v3.3.0</a> is highly recommended.</li>
 <li>Thanks to Bastian Ike for contributing security reports through the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id94"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id113"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="languages">
-<span id="id95"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
+<span id="id114"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added Dutch, Korean, Simplified Chinese and Traditional Chinese translations for the user interface.</li>
 <li>Promoted Portuguese and Spanish to release-quality translations.</li>
@@ -2787,7 +3200,7 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id96"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id115"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="ios-app">
 <span id="ios-app"></span><h4>iOS app<a class="headerlink" href="#ios-app" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -2808,7 +3221,7 @@
 </ul>
 </div>
 <div class="section" id="user-interface">
-<span id="id97"></span><h4>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h4>
+<span id="id116"></span><h4>User Interface<a class="headerlink" href="#user-interface" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Channel header is now added to the View Info modal.</li>
 <li>Configured channel introduction to respect the full width and centred channel views.</li>
@@ -2817,7 +3230,7 @@
 </ul>
 </div>
 <div class="section" id="authentication">
-<span id="id98"></span><h4>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h4>
+<span id="id117"></span><h4>Authentication<a class="headerlink" href="#authentication" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>The username &#8220;matterbot&#8221; is now restricted from account creation.</li>
 <li>Link to create an account is hidden on the login page if no account creation methods are turned on in the System Console.</li>
@@ -2825,26 +3238,26 @@
 </ul>
 </div>
 <div class="section" id="notifications">
-<span id="id99"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
+<span id="id118"></span><h4>Notifications<a class="headerlink" href="#notifications" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Mention notifications can be turned on for any new messages in comment threads that you participate in.</li>
 </ul>
 </div>
 <div class="section" id="keyboard-shortcuts">
-<span id="id100"></span><h4>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h4>
+<span id="id119"></span><h4>Keyboard Shortcuts<a class="headerlink" href="#keyboard-shortcuts" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added icons next to channel names and improved sorting in the channel switcher (CTRL/CMD+K).</li>
 <li>Keyboard shortcuts that open modals can now toggle them open and closed (CTRL/CMD+SHIFT+A, CTRL/CMD+K).</li>
 </ul>
 </div>
 <div class="section" id="integrations">
-<span id="id101"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
+<span id="id120"></span><h4>Integrations<a class="headerlink" href="#integrations" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added an option to trigger outgoing webhook if the first word starts with the specified trigger word.</li>
 </ul>
 </div>
 <div class="section" id="system-console">
-<span id="id102"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
+<span id="id121"></span><h4>System Console<a class="headerlink" href="#system-console" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Username is now added to the System Console users list.</li>
 <li>Legal and Support links are now hidden in the user interface if no link is specified in the System Console.</li>
@@ -2864,7 +3277,7 @@
 </div>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id103"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id122"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>The behavior of setting for Link Previews in Account Settings is no longer reversed.</li>
 <li>Hitting the URL of a private team you used to belong to now redirects properly.</li>
@@ -2898,10 +3311,10 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id104"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id123"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v3.2 to v3.3:</p>
 <div class="section" id="config-json">
-<span id="id105"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id124"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code> or the System Console.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition:</strong></p>
 <ul class="simple">
@@ -3030,7 +3443,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id106"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id125"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Desktop apps sometimes require a refresh to solve 404 errors.</li>
 <li>Deleted messages don&#8217;t disappear from the channel for the user who deleted the message, if the message was previously edited and right hand sidebar is open.</li>
@@ -3052,7 +3465,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id107"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id126"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -3093,16 +3506,16 @@
 <span id="release-v3-2-0"></span><h2>Release v3.2.0<a class="headerlink" href="#release-v3-2-0" title="Permalink to this headline">¶</a></h2>
 <p>Release date: 2016-07-16</p>
 <div class="section" id="security-update">
-<span id="id108"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id127"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.2.0 contains <a class="reference external" href="http://about.mattermost.com/security-updates/">multiple security updates</a>. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading to Mattermost v3.2.0</a> is highly recommended.</li>
 <li>Thanks to Bastian Ike, Mohammad Razavi, Steve MacQuiddy, Christer Mjellem Strand and Jonas Arneberg for contributing security reports through the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id109"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id128"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="languages">
-<span id="id110"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
+<span id="id129"></span><h4>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Added German translation for the user interface if enabled by the System Admin from <strong>System Console &gt; Localization &gt; Available Languages</strong>.</li>
 </ul>
@@ -3115,7 +3528,7 @@
 </ul>
 </div>
 <div class="section" id="performance">
-<span id="id111"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
+<span id="id130"></span><h4>Performance<a class="headerlink" href="#performance" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Gzip compression for static content files decreases time for first page load, enabled from <strong>System Console</strong> &gt; <strong>Configuration</strong>.</li>
 <li>Reduced the total Mattermost package size from 25.7MB to 18.9MB.</li>
@@ -3137,7 +3550,7 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id112"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id131"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p><strong>On-Boarding and Off-Boarding</strong></p>
 <ul class="simple">
 <li>After account creation, users are automatically directed to the team where they were invited instead of the Team Selection page.</li>
@@ -3177,7 +3590,7 @@
 </ul>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id113"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id132"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Privacy settings in the system console now refresh correctly when hiding email addresses or full names.</li>
 <li>Fixed the cross contamination of new channels created on different teams in the same browser.</li>
@@ -3216,10 +3629,10 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id114"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id133"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v3.1 to v3.2:</p>
 <div class="section" id="config-json">
-<span id="id115"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
+<span id="id134"></span><h4>config.json<a class="headerlink" href="#config-json" title="Permalink to this headline">¶</a></h4>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code> or the System Console.</p>
 <p><strong>Changes to Team Edition and Enterprise Edition</strong>:</p>
 <ul class="simple">
@@ -3292,7 +3705,7 @@
 </div>
 </div>
 <div class="section" id="known-issues">
-<span id="id116"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id135"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>In System Console &gt; Notifications &gt; Email the &#8220;Test Connection&#8221; button does not properly use the saved SMTP password. The temporary workaround is to re-type your SMTP Server Password into the field prior to using the &#8220;Test Connection&#8221;, and then to &#8220;Save&#8221; afterwards.</li>
 <li>The behavior of setting for Link Previews in Account Settings is reversed.</li>
@@ -3312,7 +3725,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id117"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id136"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -3349,14 +3762,14 @@
 <span id="release-v3-1-0"></span><h2>Release v3.1.0<a class="headerlink" href="#release-v3-1-0" title="Permalink to this headline">¶</a></h2>
 <p>Release date: 2016-06-16</p>
 <div class="section" id="security-update">
-<span id="id118"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id137"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.1.0 contains <a class="reference external" href="http://about.mattermost.com/security-updates/">multiple security updates</a>. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html">Upgrading to Mattermost v3.1.0</a> is highly recommended.</li>
 <li>Thanks to Uchida Taishi for contributing security reports through the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id119"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id138"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="keyboard-shortcuts-and-channel-switcher">
 <span id="keyboard-shortcuts-and-channel-switcher"></span><h4>Keyboard shortcuts and channel switcher<a class="headerlink" href="#keyboard-shortcuts-and-channel-switcher" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -3387,7 +3800,7 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id120"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id139"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>iOS App</p>
 <ul class="simple">
 <li>Account Settings &gt; Notifications option lets users to enable mobile push notifications for chosen activities.</li>
@@ -3450,7 +3863,7 @@
 </ul>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id121"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id140"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Incoming webhooks have been made available in all public channels, and in private channels the user belongs to.</li>
 <li>A space between two named emojis is no longer required for correct rendering.</li>
@@ -3468,7 +3881,7 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id122"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id141"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v3.0 to v3.1:</p>
 <p><strong>config.json</strong></p>
 <p>Multiple setting options were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the additions and their default values on install. The settings can be modified in <code class="docutils literal"><span class="pre">config.json</span></code> or the System Console.</p>
@@ -3491,7 +3904,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id123"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id142"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>“More” option under Direct Message list no longer shows count of team members not in your direct message list.</li>
 <li>Emoji smileys ending with a letter at the end of a message do not auto-complete as expected.</li>
@@ -3516,7 +3929,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id124"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id143"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -3585,7 +3998,7 @@
 </li>
 </ul>
 <div class="section" id="security-update">
-<span id="id125"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id144"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v3.0.3 contains multiple security updates. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#upgrading-to-team-edition-3-0-x-from-2-x">Upgrading to Mattermost v3.0.3</a> is highly recommended.</li>
 <li>Thanks to Yoni Ramon from the Tesla security team, Andreas Lindh and Uchida Ta for contributing security reports through the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
@@ -3596,7 +4009,7 @@
 <p>Mattermost 3.0 is a new major version of Mattermost with fundamental changes affecting Mattermost 2.x deployments. <a class="reference external" href="http://www.mattermost.org/upgrading-to-mattermost-3-0/">An understanding of the upgrade process from 2.x to 3.0</a>, including manual steps, is required to upgrade successfully.</p>
 </div>
 <div class="section" id="highlights">
-<span id="id126"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id145"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="unified-accounts">
 <span id="unified-accounts"></span><h4>Unified Accounts<a class="headerlink" href="#unified-accounts" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -3631,13 +4044,13 @@
 </div>
 </div>
 <div class="section" id="languages">
-<span id="id127"></span><h3>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h3>
+<span id="id146"></span><h3>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added Japanese translation for user interface.</li>
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id128"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id147"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>iOS app</p>
 <ul class="simple">
 <li>Added support for multiple teams on the same server.</li>
@@ -3698,7 +4111,7 @@
 </ul>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id129"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id148"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Posts from webhooks now fire notifications to the user who created the webhook.</li>
 <li>Edit post option no longer appears, but doesn&#8217;t work, on other users&#8217; posts in the right-hand sidebar.</li>
@@ -3712,7 +4125,7 @@
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id130"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id149"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v2.2 to v3.0:</p>
 <p><strong>iOS and Android</strong></p>
 <p>Mattermost iOS and Android app v3.0 requires Mattermost platform v3.0 and higher.</p>
@@ -3774,7 +4187,7 @@
 </div>
 </div>
 <div class="section" id="known-issues">
-<span id="id131"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id150"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>“More” option under Direct Message list no longer shows count of team members not in your direct message list.</li>
 <li>Emoji smileys ending with a letter at the end of a message do not auto-complete as expected.</li>
@@ -3787,7 +4200,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id132"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id151"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our contributors. In alphabetical order:</p>
 <p>/platform</p>
 <ul class="simple">
@@ -3819,14 +4232,14 @@
 <span id="release-v2-2-0"></span><h2>Release v2.2.0<a class="headerlink" href="#release-v2-2-0" title="Permalink to this headline">¶</a></h2>
 <p>Release date: 2016-04-16</p>
 <div class="section" id="security-update">
-<span id="id133"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id152"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Mattermost v2.2.0 contains multiple security updates. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#upgrading-team-edition">Upgrading to Mattermost v2.2.0</a> is highly recommended.</li>
 <li>Thanks to Jim Hebert from Fitbit Security, Andreas Lindh, and Uchida Taishi for contributing security reports through the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Mattermost Responsible Disclosure Policy</a>.</li>
 </ul>
 </div>
 <div class="section" id="highlights">
-<span id="id134"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id153"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="new-themes">
 <span id="new-themes"></span><h4>New themes<a class="headerlink" href="#new-themes" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -3848,26 +4261,26 @@
 </div>
 </div>
 <div class="section" id="languages">
-<span id="id135"></span><h3>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h3>
+<span id="id154"></span><h3>Languages<a class="headerlink" href="#languages" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Added French language translation (Beta) available from <strong>Account Settings</strong> &gt; <strong>Display</strong>.</li>
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id136"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id155"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>User Interface</p>
 <ul class="simple">
 <li>New themes can be imported into Mattermost user interface from <a class="reference external" href="http://docs.mattermost.com/help/settings/theme-colors.html#custom-theme-examples">production documentation</a>.</li>
 </ul>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id137"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id156"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Characters in some posts will no longer display as HTML entities, such as <code class="docutils literal"><span class="pre">&amp;#39;</span></code></li>
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id138"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id157"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Regression: Get Public Link downloads a file and does not product a public link.</li>
 <li>Edit post option appears, but doesn&#8217;t work, on other users&#8217; posts in the right-hand sidebar.</li>
@@ -3890,7 +4303,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id139"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id158"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to all our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/pjgrizel">pjgrizel</a>, <a class="reference external" href="https://github.com/tbolon">tbolon</a> , <a class="reference external" href="https://github.com/jblobel">jblobel</a>, <a class="reference external" href="https://github.com/rodrigocorsi2">rodrigocorsi2</a> , <a class="reference external" href="https://github.com/enahum">enahum</a>, <a class="reference external" href="https://github.com/schemacs">schemacs</a>, <a class="reference external" href="https://github.com/raelga">raelga</a></li>
@@ -3901,7 +4314,7 @@
 <span id="release-v2-1-0"></span><h2>Release v2.1.0<a class="headerlink" href="#release-v2-1-0" title="Permalink to this headline">¶</a></h2>
 <p>Release date: 2016-03-16</p>
 <div class="section" id="highlights">
-<span id="id140"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id159"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>New Android application now available.</li>
 <li>New desktop applications for Windows, Mac and Linux now in beta.</li>
@@ -3909,7 +4322,7 @@
 </ul>
 </div>
 <div class="section" id="security-update">
-<span id="id141"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
+<span id="id160"></span><h3>Security Update<a class="headerlink" href="#security-update" title="Permalink to this headline">¶</a></h3>
 <p>Mattermost v2.1.0 contains a security update for a cross-site scripting vulnerability in Mattermost v1.2, v1.3, v1.4 and v2.0. <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#upgrading-team-edition">Upgrading to Mattermost v2.1.0</a> is highly recommended. Thanks to Luke Arntson for the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">RPD report</a>.</p>
 </div>
 <div class="section" id="new-features">
@@ -3928,7 +4341,7 @@
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id142"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id161"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>System Console</p>
 <ul class="simple">
 <li>Removed unused “Disable File Storage” option from the System Console as it is no longer relevant.</li>
@@ -3962,7 +4375,7 @@
 <li>Scroll bar now appears in the center channel.</li>
 </ul>
 <div class="section" id="bug-fixes">
-<span id="id143"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
+<span id="id162"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>System console user management tab now shows username and email on different lines.</li>
 <li>Yellow text box error no longer appears when the system is connected.</li>
@@ -3993,7 +4406,7 @@
 </div>
 </div>
 <div class="section" id="compatibility">
-<span id="id144"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id163"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v2.0 to v2.1:</p>
 <p><strong>Android</strong></p>
 <ul class="simple">
@@ -4007,7 +4420,7 @@
 </li>
 </ul>
 <div class="section" id="known-issues">
-<span id="id145"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
+<span id="id164"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Edit post option appears, but doesn&#8217;t work, on other users&#8217; posts in the right-hand sidebar.</li>
 <li>Text input box does not stay scrolled to the bottom when drafting a long message in Firefox.</li>
@@ -4030,7 +4443,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id146"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
+<span id="id165"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
 <p>Many thanks to all our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/yuya-oc">yuya-oc</a>, <a class="reference external" href="https://github.com/rodrigocorsi2">rodrigocorsi2</a>, <a class="reference external" href="https://github.com/enahum">enahum</a>, <a class="reference external" href="https://github.com/khoa-le">khoa-le</a>, <a class="reference external" href="https://github.com/alanmoo">alanmoo</a>, <a class="reference external" href="https://github.com/daizenberg">daizenberg</a>, <a class="reference external" href="https://github.com/GuillaumeAmat">GuillaumeAmat</a>, <a class="reference external" href="https://github.com/kernicPanel">kernicPanel</a>, <a class="reference external" href="https://github.com/timlyo">timlyo</a>, <a class="reference external" href="https://github.com/ttyniwa">ttyniwa</a></li>
@@ -4042,14 +4455,14 @@
 <span id="release-v2-0-0"></span><h2>Release v2.0.0<a class="headerlink" href="#release-v2-0-0" title="Permalink to this headline">¶</a></h2>
 <p>Expected Release date: 2016-02-16</p>
 <div class="section" id="highlights">
-<span id="id147"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id166"></span><h3>Highlights<a class="headerlink" href="#highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="incremented-version-number-mattermost-2-0">
 <span id="incremented-version-number-mattermost-2-0"></span><h4>Incremented Version Number: Mattermost &#8220;2.0&#8221;<a class="headerlink" href="#incremented-version-number-mattermost-2-0" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Version number incremented from &#8220;1.x&#8221; to &#8220;2.x&#8221; indicating major product changes, including:</li>
 </ul>
 <div class="section" id="localization">
-<span id="id148"></span><h5>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h5>
+<span id="id167"></span><h5>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h5>
 <ul class="simple">
 <li>Addition of localization support to entire user interface plus error and log messages</li>
 <li>Added Spanish language translation (Beta quality) available from <strong>Account Settings</strong> &gt; <strong>Display</strong></li>
@@ -4073,7 +4486,7 @@
 </div>
 </div>
 <div class="section" id="new-features">
-<span id="id149"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<span id="id168"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <p>Localization</p>
 <ul class="simple">
 <li>Addition of localization support to entire user interface plus error and log messages</li>
@@ -4098,7 +4511,7 @@
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id150"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id169"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>Upgrading</p>
 <ul class="simple">
 <li>Mattermost v2.0 now upgrades from up to two previous major builds (e.g. v1.4.x and v1.3.x).</li>
@@ -4144,7 +4557,7 @@
 <li>Added more favicon sizes for home screen icons on mobile devices</li>
 </ul>
 <div class="section" id="bug-fixes">
-<span id="id151"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
+<span id="id170"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Incorrect “Mattermost unreachable” error on iOS no longer appears</li>
 <li>Dialog to confirm deletion of a post now supports hitting “ENTER” to confirm deletion.</li>
@@ -4162,7 +4575,7 @@
 </div>
 </div>
 <div class="section" id="compatibility">
-<span id="id152"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id171"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>Changes from v1.4 to v2.0:</p>
 <p><strong>iOS</strong></p>
 <p>Mattermost iOS app v2.0 requires Mattermost platform v2.0 and higher.</p>
@@ -4212,7 +4625,7 @@
 </div>
 </div>
 <div class="section" id="known-issues">
-<span id="id153"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
+<span id="id172"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Navigating to a page with new messages containing inline images added via markdown causes the channel to scroll up and down while loading the inline images.</li>
 <li>Microsoft Edge does not yet support drag and drop for file attachments.</li>
@@ -4243,7 +4656,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id154"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
+<span id="id173"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
 <p>Special thanks to <a class="reference external" href="https://github.com/enahum">enahum</a> for creating the Spanish localization!</p>
 <p>Many thanks to all our external contributors. In no particular order:</p>
 <ul class="simple">
@@ -4275,7 +4688,7 @@
 </div>
 </div>
 <div class="section" id="new-features">
-<span id="id155"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<span id="id174"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <p>Mobile Experience</p>
 <ul class="simple">
 <li>Date headers now show when scrolling on mobile, so you can quickly see when messages were sent</li>
@@ -4293,7 +4706,7 @@
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id156"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id175"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>Performance and Testing</p>
 <ul class="simple">
 <li>Added logging for email and push notifications events in DEBUG mode</li>
@@ -4317,7 +4730,7 @@
 <li>Various improvements to mobile UI, including a floating date indicator and the ability to quickly scroll to the bottom of the channel</li>
 </ul>
 <div class="section" id="bug-fixes">
-<span id="id157"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
+<span id="id176"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Fixed issue where usernames containing a &#8221;.&#8221; did not get mention notifications</li>
 <li>Fixed issue where System Console did not save the &#8220;Send push notifications&#8221; setting</li>
@@ -4331,7 +4744,7 @@
 </div>
 </div>
 <div class="section" id="compatibility">
-<span id="id158"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id177"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="config-json-changes-from-v1-3-to-v1-4">
 <span id="config-json-changes-from-v1-3-to-v1-4"></span><h4>Config.json Changes from v1.3 to v1.4<a class="headerlink" href="#config-json-changes-from-v1-3-to-v1-4" title="Permalink to this headline">¶</a></h4>
 <p>Multiple settings were added to <code class="docutils literal"><span class="pre">config.json</span></code>. Below is a list of the changes and their new default values in a fresh install.</p>
@@ -4367,7 +4780,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id159"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
+<span id="id178"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>When navigating to a page with new messages as well as message containing inline images added via markdown, the channel may move up and down while loading the inline images</li>
 <li>Microsoft Edge does not yet support drag and drop</li>
@@ -4389,7 +4802,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id160"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
+<span id="id179"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
 <p>Many thanks to our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/npcode">npcode</a>, <a class="reference external" href="https://github.com/hjf288">hjf288</a>, <a class="reference external" href="https://github.com/apskim">apskim</a>, <a class="reference external" href="https://github.com/ejm2172">ejm2172</a>, <a class="reference external" href="https://github.com/hvnsweeting">hvnsweeting</a>, <a class="reference external" href="https://github.com/benburkert">benburkert</a>, <a class="reference external" href="https://github.com/erikthered">erikthered</a></li>
@@ -4401,9 +4814,9 @@
 <span id="release-v1-3-0"></span><h2>Release v1.3.0<a class="headerlink" href="#release-v1-3-0" title="Permalink to this headline">¶</a></h2>
 <p>Release date: 2015-12-16</p>
 <div class="section" id="release-highlights">
-<span id="id161"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id180"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="ios-app">
-<span id="id162"></span><h4>iOS App<a class="headerlink" href="#ios-app" title="Permalink to this headline">¶</a></h4>
+<span id="id181"></span><h4>iOS App<a class="headerlink" href="#ios-app" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>New <a class="reference external" href="https://github.com/mattermost/ios">Mattermost iOS App</a> now available for iPhone, iPad, and iPod Touch</li>
 <li>New <a class="reference external" href="https://github.com/mattermost/push-proxy">Mattermost Push Notification Service</a> to relay notifications to custom iOS applications</li>
@@ -4426,7 +4839,7 @@
 </div>
 </div>
 <div class="section" id="new-features">
-<span id="id163"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<span id="id182"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <p>Authentication</p>
 <ul class="simple">
 <li>Added unofficial SSO support for GitHub.com and GitHub Enterprise using GitLab UI</li>
@@ -4452,7 +4865,7 @@
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id164"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id183"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>Performance</p>
 <ul class="simple">
 <li>Updated getProfiles service to return less data</li>
@@ -4478,7 +4891,7 @@
 <li>Switched to Emoji One style emojis</li>
 </ul>
 <div class="section" id="bug-fixes">
-<span id="id165"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
+<span id="id184"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Removed the &#64;all mention to keep users from accidentally spamming team sites</li>
 <li>Fixed bug where the member list only showed &#8220;20&#8221; members for channels with more than 20 members</li>
@@ -4493,7 +4906,7 @@
 </div>
 </div>
 <div class="section" id="compatibility">
-<span id="id166"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id185"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="config-json-changes-from-v1-2-to-v1-3">
 <span id="config-json-changes-from-v1-2-to-v1-3"></span><h4>Config.json Changes from v1.2 to v1.3<a class="headerlink" href="#config-json-changes-from-v1-2-to-v1-3" title="Permalink to this headline">¶</a></h4>
 <p>Multiple settings were added to <code class="docutils literal"><span class="pre">config.json</span></code>. These options can be modified in the System Console, or manually updated in the existing config.json file. This is a list of changes and their new default values in a fresh install:</p>
@@ -4509,7 +4922,7 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id167"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
+<span id="id186"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>System Console does not save Email Settings when &#8220;Save&#8221; is clicked</li>
 <li>When navigating to a page with new messages as well as message containing inline images added via markdown, the channel may move up and down while loading the inline images</li>
@@ -4522,7 +4935,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id168"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
+<span id="id187"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
 <p>Many thanks to our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/florianorben">florianorben</a>, <a class="reference external" href="https://github.com/npcode">npcode</a>, <a class="reference external" href="https://github.com/42wim">42wim</a>, <a class="reference external" href="https://github.com/cifvts">cifvts</a>, <a class="reference external" href="https://github.com/rompic">rompic</a>, <a class="reference external" href="https://github.com/jdhoek">jdhoek</a>, <a class="reference external" href="https://github.com/Tsynapse">Tsynapse</a>, <a class="reference external" href="https://github.com/alexgaribay">alexgaribay</a>, <a class="reference external" href="https://github.com/vladikoff">vladikoff</a>, <a class="reference external" href="https://github.com/jonathanwiesel">jonathanwiesel</a>, <a class="reference external" href="https://github.com/tamtamchik">tamtamchik</a></li>
@@ -4541,7 +4954,7 @@
 <p>To limit the impact of this security issue, Mattermost v1.2.0 has been removed from the source repo. It is recommended that anyone who&#8217;s installed v1.2.0 upgrade to v1.2.1 via <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#upgrade-team-edition-for-2-2-x-and-earlier">the procedure described in the Mattermost Upgrade Guide</a>.</p>
 </div>
 <div class="section" id="release-highlights">
-<span id="id169"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id188"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="outgoing-webhooks">
 <span id="outgoing-webhooks"></span><h4>Outgoing webhooks<a class="headerlink" href="#outgoing-webhooks" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
@@ -4573,7 +4986,7 @@
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id170"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id189"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>Onboarding</p>
 <ul class="simple">
 <li>New tutorial explaining how to use Mattermost for new users</li>
@@ -4627,7 +5040,7 @@
 <li>Configurable option to create an account directly from team page</li>
 </ul>
 <div class="section" id="bug-fixes">
-<span id="id171"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
+<span id="id190"></span><h4>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>Various fixes to theme colors</li>
 <li>Fixed issue with the centre channel scroll position jumping when right hand side was opened and closed</li>
@@ -4638,7 +5051,7 @@
 </div>
 </div>
 <div class="section" id="compatibility">
-<span id="id172"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id191"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>IE 11 new minimum version for IE, since IE 10 share fell below 5% on desktop</li>
 <li>Safari 9 new minimum version for Safari, since Safari 7 and 8 fell below 1% each on desktop</li>
@@ -4686,7 +5099,7 @@
 </div>
 </div>
 <div class="section" id="known-issues">
-<span id="id173"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
+<span id="id192"></span><h4>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h4>
 <ul class="simple">
 <li>When navigating to a page with new messages as well as message containing inline images added via markdown, the channel may move up and down while loading the inline images</li>
 <li>Microsoft Edge does not yet support drag and drop</li>
@@ -4704,7 +5117,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id174"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
+<span id="id193"></span><h4>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h4>
 <p>Many thanks to our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/florianorben">florianorben</a>, <a class="reference external" href="https://github.com/trashcan">trashcan</a>, <a class="reference external" href="https://github.com/girishso">girishso</a>, <a class="reference external" href="https://github.com/apaatsio">apaatsio</a>, <a class="reference external" href="https://github.com/jlebleu">jlebleu</a>, <a class="reference external" href="https://github.com/stasvovk">stasvovk</a>, <a class="reference external" href="https://github.com/mcmillhj">mcmillhj</a>, <a class="reference external" href="https://github.com/sharms">sharms</a>, <a class="reference external" href="https://github.com/jvasallo">jvasallo</a>, <a class="reference external" href="https://github.com/layzerar">layzerar</a>, <a class="reference external" href="https://github.com/optimistiks">optimistiks</a>, <a class="reference external" href="https://github.com/Tsynapse">Tsynapse</a>, <a class="reference external" href="https://github.com/vinnymac">vinnymac</a>, <a class="reference external" href="https://github.com/yuvipanda">yuvipanda</a>, <a class="reference external" href="https://github.com/toyorg">toyorg</a></li>
@@ -4745,14 +5158,14 @@
 <span id="release-v1-1-0"></span><h2>Release v1.1.0<a class="headerlink" href="#release-v1-1-0" title="Permalink to this headline">¶</a></h2>
 <p>Released: 2015-10-16</p>
 <div class="section" id="release-highlights">
-<span id="id175"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id194"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="incoming-webhooks">
 <span id="incoming-webhooks"></span><h4>Incoming Webhooks<a class="headerlink" href="#incoming-webhooks" title="Permalink to this headline">¶</a></h4>
 <p>Mattermost now supports incoming webhooks for channels and private groups. This developer feature is available from the Account Settings -&gt; Integrations menu. Documentation on how developers can use the webhook functionality to build custom integrations, along with samples, is available at http://mattermost.org/webhooks.</p>
 </div>
 </div>
 <div class="section" id="improvements">
-<span id="id176"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id195"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>Integrations</p>
 <ul class="simple">
 <li>Improved support for incoming webhooks, including the ability to override a username and post as a bot instead</li>
@@ -4778,7 +5191,7 @@
 </ul>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id177"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id196"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed regression causing &#8220;Get Public Link&#8221; on images not to work</li>
 <li>Fixed bug where certain characters caused search errors</li>
@@ -4787,14 +5200,14 @@
 </ul>
 </div>
 <div class="section" id="known-issues">
-<span id="id178"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
+<span id="id197"></span><h3>Known Issues<a class="headerlink" href="#known-issues" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Slack import is unstable due to change in Slack export format</li>
 <li>Uploading a .flac file breaks the file previewer on iOS</li>
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id179"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id198"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="config-json-changes-from-v1-0-to-v1-1">
 <span id="config-json-changes-from-v1-0-to-v1-1"></span><h4>Config.json Changes from v1.0 to v1.1<a class="headerlink" href="#config-json-changes-from-v1-0-to-v1-1" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="service-settings">
@@ -4823,7 +5236,7 @@
 </div>
 </div>
 <div class="section" id="contributors">
-<span id="id180"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id199"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/chengweiv5">chengweiv5</a>, <a class="reference external" href="https://github.com/pstonier">pstonier</a>, <a class="reference external" href="https://github.com/teviot">teviot</a>, <a class="reference external" href="https://github.com/tmuwandi">tmuwandi</a>, <a class="reference external" href="https://github.com/driou">driou</a>, <a class="reference external" href="https://github.com/justyns">justyns</a>, <a class="reference external" href="https://github.com/drbaker">drbaker</a>, <a class="reference external" href="https://github.com/thomas9987">thomas9987</a>, <a class="reference external" href="https://github.com/chuck5">chuck5</a>, <a class="reference external" href="https://github.com/sjmog">sjmog</a>, <a class="reference external" href="https://github.com/chengkun">chengkun</a>, <a class="reference external" href="https://github.com/sexybern">sexybern</a>, <a class="reference external" href="https://github.com/tomitm">tomitm</a>, <a class="reference external" href="https://github.com/stephenfin">stephenfin</a></li>
@@ -4834,7 +5247,7 @@
 <span id="release-v1-0-0"></span><h2>Release v1.0.0<a class="headerlink" href="#release-v1-0-0" title="Permalink to this headline">¶</a></h2>
 <p>Released 2015-10-02</p>
 <div class="section" id="release-highlights">
-<span id="id181"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id200"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="markdown">
 <span id="markdown"></span><h4>Markdown<a class="headerlink" href="#markdown" title="Permalink to this headline">¶</a></h4>
 <p>Markdown support is now available across messages, comments and channel descriptions for:</p>
@@ -4870,7 +5283,7 @@
 </div>
 </div>
 <div class="section" id="new-features">
-<span id="id182"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<span id="id201"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <p>Messaging, Comments and Notifications</p>
 <ul class="simple">
 <li>Full markdown support in messages, comments, and channel description</li>
@@ -4899,7 +5312,7 @@
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id183"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id202"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>Documentation</p>
 <ul class="simple">
 <li>Added production installation instructions</li>
@@ -4929,19 +5342,19 @@
 </ul>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id184"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id203"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed issue so that SSO option automatically set <code class="docutils literal"><span class="pre">EmailVerified=true</span></code> (it was false previously)</li>
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id185"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id204"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p>A large number of settings were changed in <code class="docutils literal"><span class="pre">config.json</span></code> and a System Console UI was added. This is a very large change due to Mattermost releasing as v1.0 and it&#8217;s unlikely a change of this size would happen again.</p>
 <p>Prior to upgrading the Mattermost binaries from the previous versions, the below options would need to be manually updated in your existing config.json file to migrate successfully. This is a list of changes and their new default values in a fresh install:</p>
 <div class="section" id="config-json-changes-from-v0-7-to-v1-0">
 <span id="config-json-changes-from-v0-7-to-v1-0"></span><h4>Config.json Changes from v0.7 to v1.0<a class="headerlink" href="#config-json-changes-from-v0-7-to-v1-0" title="Permalink to this headline">¶</a></h4>
 <div class="section" id="service-settings">
-<span id="id186"></span><h5>Service Settings<a class="headerlink" href="#service-settings" title="Permalink to this headline">¶</a></h5>
+<span id="id205"></span><h5>Service Settings<a class="headerlink" href="#service-settings" title="Permalink to this headline">¶</a></h5>
 <ul class="simple">
 <li>Under <code class="docutils literal"><span class="pre">ServiceSettings</span></code> in <code class="docutils literal"><span class="pre">config.json</span></code>:<ul>
 <li>Moved: <code class="docutils literal"><span class="pre">&quot;SiteName&quot;:</span> <span class="pre">&quot;Mattermost&quot;</span></code> which was added to <code class="docutils literal"><span class="pre">TeamSettings</span></code></li>
@@ -4966,7 +5379,7 @@
 </ul>
 </div>
 <div class="section" id="team-settings">
-<span id="id187"></span><h5>Team Settings<a class="headerlink" href="#team-settings" title="Permalink to this headline">¶</a></h5>
+<span id="id206"></span><h5>Team Settings<a class="headerlink" href="#team-settings" title="Permalink to this headline">¶</a></h5>
 <ul class="simple">
 <li>Under <code class="docutils literal"><span class="pre">TeamSettings</span></code> in <code class="docutils literal"><span class="pre">config.json</span></code>:<ul>
 <li>Renamed: <code class="docutils literal"><span class="pre">&quot;AllowPublicLink&quot;:</span> <span class="pre">true</span></code> renamed to <code class="docutils literal"><span class="pre">&quot;EnablePublicLink&quot;:</span> <span class="pre">true</span></code> and moved to <code class="docutils literal"><span class="pre">FileSettings</span></code></li>
@@ -5046,13 +5459,13 @@
 <span id="database-changes-from-v0-7-to-v1-0"></span><h3>Database Changes from v0.7 to v1.0<a class="headerlink" href="#database-changes-from-v0-7-to-v1-0" title="Permalink to this headline">¶</a></h3>
 <p>The following is for informational purposes only, no action needed. Mattermost automatically upgrades database tables from the previous version&#8217;s schema using only additions. Sessions table is dropped and rebuilt, no team data is affected by this.</p>
 <div class="section" id="users-table">
-<span id="id188"></span><h4>Users Table<a class="headerlink" href="#users-table" title="Permalink to this headline">¶</a></h4>
+<span id="id207"></span><h4>Users Table<a class="headerlink" href="#users-table" title="Permalink to this headline">¶</a></h4>
 <ol class="simple">
 <li>Added <code class="docutils literal"><span class="pre">ThemeProps</span></code> column with type <code class="docutils literal"><span class="pre">varchar(2000)</span></code> and default value <code class="docutils literal"><span class="pre">{}</span></code></li>
 </ol>
 </div>
 <div class="section" id="teams-table">
-<span id="id189"></span><h4>Teams Table<a class="headerlink" href="#teams-table" title="Permalink to this headline">¶</a></h4>
+<span id="id208"></span><h4>Teams Table<a class="headerlink" href="#teams-table" title="Permalink to this headline">¶</a></h4>
 <ol class="simple">
 <li>Removed <code class="docutils literal"><span class="pre">AllowValet</span></code> column</li>
 </ol>
@@ -5130,7 +5543,7 @@
 </div>
 </div>
 <div class="section" id="contributors">
-<span id="id190"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id209"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/jdeng">jdeng</a>, <a class="reference external" href="https://github.com/Trozz">Trozz</a>, <a class="reference external" href="https://github.com/LAndreas">LAndres</a>, <a class="reference external" href="https://github.com/JessBot">JessBot</a>, <a class="reference external" href="https://github.com/apaatsio">apaatsio</a>, <a class="reference external" href="https://github.com/chengweiv5">chengweiv5</a></li>
@@ -5141,7 +5554,7 @@
 <span id="release-v0-7-0-beta1"></span><h2>Release v0.7.0 (Beta1)<a class="headerlink" href="#release-v0-7-0-beta1" title="Permalink to this headline">¶</a></h2>
 <p>Released 2015-09-05</p>
 <div class="section" id="release-highlights">
-<span id="id191"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id210"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
 <div class="section" id="improved-gitlab-mattermost-support">
 <span id="improved-gitlab-mattermost-support"></span><h4>Improved GitLab Mattermost support<a class="headerlink" href="#improved-gitlab-mattermost-support" title="Permalink to this headline">¶</a></h4>
 <p>Following the release of Mattermost v0.6.0 Alpha, GitLab 7.14 offered an automated install of Mattermost with GitLab Single Sign-On (co-branded as &#8220;GitLab Mattermost&#8221;) in its omnibus installer.</p>
@@ -5163,7 +5576,7 @@
 </div>
 </div>
 <div class="section" id="new-features">
-<span id="id192"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<span id="id211"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <p>GitLab Mattermost</p>
 <ul class="simple">
 <li>Ability to create teams using GitLab SSO (previously GitLab SSO only supported account creation and sign-in)</li>
@@ -5184,7 +5597,7 @@
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id193"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id212"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>Messaging, Comments and Notifications</p>
 <ul class="simple">
 <li>Performance improvements to channel rendering</li>
@@ -5196,7 +5609,7 @@
 </ul>
 </div>
 <div class="section" id="bug-fixes">
-<span id="id194"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
+<span id="id213"></span><h3>Bug Fixes<a class="headerlink" href="#bug-fixes" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Fixed multiple issues with GitLab SSO, installation and on-boarding</li>
 <li>Fixed multiple IE 10 issues</li>
@@ -5205,7 +5618,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id195"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id214"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/asubset">asubset</a>, <a class="reference external" href="https://github.com/felixbuenemann">felixbuenemann</a>, <a class="reference external" href="https://github.com/CtrlZvi">CtrlZvi</a>, <a class="reference external" href="https://github.com/BastienDurel">BastienDurel</a>, <a class="reference external" href="https://github.com/manusajith">manusajith</a>, <a class="reference external" href="https://github.com/doosp">doosp</a>, <a class="reference external" href="https://github.com/zackify">zackify</a>, <a class="reference external" href="https://github.com/willstacey">willstacey</a></li>
@@ -5224,21 +5637,21 @@
 <span id="release-v0-6-0-alpha"></span><h2>Release v0.6.0 (Alpha)<a class="headerlink" href="#release-v0-6-0-alpha" title="Permalink to this headline">¶</a></h2>
 <p>Released 2015-08-07</p>
 <div class="section" id="release-highlights">
-<span id="id196"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id215"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>Simplified on-prem install</li>
 <li>Support for GitLab Mattermost (GitLab SSO, Postgres support, IE 10+ support)</li>
 </ul>
 </div>
 <div class="section" id="compatibility">
-<span id="id197"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
+<span id="id216"></span><h3>Compatibility<a class="headerlink" href="#compatibility" title="Permalink to this headline">¶</a></h3>
 <p><em>Note: While use of Mattermost Preview (v0.5.0) and Mattermost Alpha (v0.6.0) in production is not recommended, we document compatibility considerations for a small number of organizations running Mattermost in production, supported directly by Mattermost product team.</em></p>
 <ul class="simple">
 <li>Switched Team URLs from team.domain.com to domain.com/team</li>
 </ul>
 </div>
 <div class="section" id="new-features">
-<span id="id198"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<span id="id217"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <p>GitLab Mattermost</p>
 <ul class="simple">
 <li>OAuth2 support for GitLab Single Sign-On</li>
@@ -5265,7 +5678,7 @@
 </ul>
 </div>
 <div class="section" id="improvements">
-<span id="id199"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
+<span id="id218"></span><h3>Improvements<a class="headerlink" href="#improvements" title="Permalink to this headline">¶</a></h3>
 <p>Installation</p>
 <ul class="simple">
 <li>New &#8220;ByPassEmail&#8221; setting enables Mattermost to operate without having to set up email</li>
@@ -5282,7 +5695,7 @@
 </ul>
 </div>
 <div class="section" id="contributors">
-<span id="id200"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
+<span id="id219"></span><h3>Contributors<a class="headerlink" href="#contributors" title="Permalink to this headline">¶</a></h3>
 <p>Many thanks to our external contributors. In no particular order:</p>
 <ul class="simple">
 <li><a class="reference external" href="https://github.com/ralder">ralder</a>, <a class="reference external" href="https://github.com/jedisct1">jedisct1</a>, <a class="reference external" href="https://github.com/faebser">faebser</a>, <a class="reference external" href="https://github.com/firstrow">firstrow</a>, <a class="reference external" href="https://github.com/haikoschol">haikoschol</a>, <a class="reference external" href="https://github.com/adamenger">adamenger</a></li>
@@ -5293,13 +5706,13 @@
 <span id="release-v0-5-0-preview"></span><h2>Release v0.5.0 (Preview)<a class="headerlink" href="#release-v0-5-0-preview" title="Permalink to this headline">¶</a></h2>
 <p>Released 2015-06-24</p>
 <div class="section" id="release-highlights">
-<span id="id201"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
+<span id="id220"></span><h3>Release Highlights<a class="headerlink" href="#release-highlights" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
 <li>First release of Mattermost as a team communication service for sharing messagse and files across PCs and phones, with archiving and instant search.</li>
 </ul>
 </div>
 <div class="section" id="new-features">
-<span id="id202"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
+<span id="id221"></span><h3>New Features<a class="headerlink" href="#new-features" title="Permalink to this headline">¶</a></h3>
 <p>Messaging and File Sharing</p>
 <ul class="simple">
 <li>Send messages, comments, files and images across public, private and 1-1 channels</li>
@@ -5385,7 +5798,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

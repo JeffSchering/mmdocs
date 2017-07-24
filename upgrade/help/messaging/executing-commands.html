@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Executing Commands &mdash; Mattermost 3.10 documentation</title>
+  <title>Executing Commands &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../../index.html"/>
         <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
         <link rel="next" title="Flagging Messages" href="flagging-messages.html"/>
         <link rel="prev" title="Attaching Files" href="attaching-files.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -165,7 +165,7 @@
     <li class="wy-breadcrumbs-aside">
       
         
-          <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/executing-commands.md" class="fa fa-github"> Edit</a>
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/executing-commands.rst" class="fa fa-github"> Edit</a>
         
       
     </li>
@@ -176,21 +176,106 @@
            <div itemprop="articleBody">
             
   <div class="section" id="executing-commands">
-<span id="executing-commands"></span><h1>Executing Commands<a class="headerlink" href="#executing-commands" title="Permalink to this headline">¶</a></h1>
-<hr class="docutils" />
-<p>Slash commands perform operations in Mattermost by typing into the text input box. Enter a <code class="docutils literal"><span class="pre">/</span></code> followed by a command and some arguments to perform actions.</p>
-<p>Built-in slash commands come with all Mattermost installations and custom slash commands are configurable to interact with external applications. Learn about configuring custom slash commands on the <a class="reference external" href="http://docs.mattermost.com/developer/slash-commands.html">developer slash command documentation page</a>.</p>
+<h1>Executing Commands<a class="headerlink" href="#executing-commands" title="Permalink to this headline">¶</a></h1>
+<p>Slash commands perform operations in Mattermost by typing into the text input box. Enter a <cite>/</cite> followed by a command and some arguments to perform actions.</p>
+<p>Built-in slash commands come with all Mattermost installations and custom slash commands are configurable to interact with external applications. Learn about configuring custom slash commands on the <a class="reference external" href="../../developer/slash-commands.html">developer slash command documentation page</a>.</p>
 <div class="section" id="built-in-commands">
-<span id="built-in-commands"></span><h2>Built-in Commands<a class="headerlink" href="#built-in-commands" title="Permalink to this headline">¶</a></h2>
+<h2>Built-in Commands<a class="headerlink" href="#built-in-commands" title="Permalink to this headline">¶</a></h2>
 <p>The following slash commands are available on all Mattermost installations:</p>
-<p><img alt="commands" src="../../_images/slashCommandsTable1.PNG" /></p>
-<p>Begin by typing <code class="docutils literal"><span class="pre">/</span></code> and a list of slash command options appears above the text input box. The autocomplete suggestions help by providing a format example in black text and a short description of the slash command in grey text.</p>
-<p><img alt="autocomplete" src="../../_images/slashCommandsAutocomplete.PNG" /></p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Command</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>/away</td>
+<td>Set your status to away</td>
+<td>/away</td>
+</tr>
+<tr class="row-odd"><td>/collapse</td>
+<td>Turn on auto-collapsing of image previews</td>
+<td>/collapse</td>
+</tr>
+<tr class="row-even"><td>/echo <em>{message}</em> <em>{delay in seconds}</em></td>
+<td>Echo back text from your account</td>
+<td>/echo Hello World 5</td>
+</tr>
+<tr class="row-odd"><td>/expand</td>
+<td>Turn off auto-collapsing of image previews</td>
+<td>/expand</td>
+</tr>
+<tr class="row-even"><td>/header <em>{text}</em></td>
+<td>Edit the channel header</td>
+<td>/header File bugs here</td>
+</tr>
+<tr class="row-odd"><td>/help</td>
+<td>Open the Mattermost help page</td>
+<td>/help</td>
+</tr>
+<tr class="row-even"><td>/invite_people <em>{email address}</em></td>
+<td>Send an email invite to your Mattermost team</td>
+<td>/invite_people <a class="reference external" href="mailto:john&#37;&#52;&#48;example&#46;com">john<span>&#64;</span>example<span>&#46;</span>com</a></td>
+</tr>
+<tr class="row-odd"><td>/join <em>{channel name}</em></td>
+<td>Join the open channel</td>
+<td>/join off-topic</td>
+</tr>
+<tr class="row-even"><td>/logout</td>
+<td>Log out of Mattermost</td>
+<td>/logout</td>
+</tr>
+<tr class="row-odd"><td>/me</td>
+<td>Do an action</td>
+<td>/me Hello World</td>
+</tr>
+<tr class="row-even"><td>/msg <em>{&#64;username}</em> <em>{message}</em></td>
+<td>Send a Direct Message to a user</td>
+<td>/msg &#64;alice hello</td>
+</tr>
+<tr class="row-odd"><td>/offline</td>
+<td>Set your status to offline</td>
+<td>/offline</td>
+</tr>
+<tr class="row-even"><td>/online</td>
+<td>Set your status to online</td>
+<td>/online</td>
+</tr>
+<tr class="row-odd"><td>/open <em>{channel name}</em></td>
+<td>Join the open channel</td>
+<td>/open off-topic</td>
+</tr>
+<tr class="row-even"><td>/search <em>{text}</em></td>
+<td>Search text in messages</td>
+<td>/search meeting</td>
+</tr>
+<tr class="row-odd"><td>/settings</td>
+<td>Open the Account Settings dialog</td>
+<td>/settings</td>
+</tr>
+<tr class="row-even"><td>/shortcuts</td>
+<td>Display a list of keyboard shortcuts</td>
+<td>shortcuts</td>
+</tr>
+<tr class="row-odd"><td>/shrug <em>{message}</em></td>
+<td>Add <code class="docutils literal"><span class="pre">¯\_(ツ)_/¯</span></code> to your message</td>
+<td>/shrug oh well</td>
+</tr>
+</tbody>
+</table>
+<p>Begin by typing <cite>/</cite> and a list of slash command options appears above the text input box. The autocomplete suggestions help by providing a format example in black text and a short description of the slash command in grey text.</p>
+<img alt="../../_images/slashCommandsAutocomplete.PNG" src="../../_images/slashCommandsAutocomplete.PNG" />
 </div>
 <div class="section" id="custom-commands">
-<span id="custom-commands"></span><h2>Custom Commands<a class="headerlink" href="#custom-commands" title="Permalink to this headline">¶</a></h2>
-<p>Custom slash commands integrate with external applications. For example, a team might configure a custom slash command to check internal health records with <code class="docutils literal"><span class="pre">/patient</span> <span class="pre">joe</span> <span class="pre">smith</span></code> or check the weekly weather forcast in a city with <code class="docutils literal"><span class="pre">/weather</span> <span class="pre">toronto</span> <span class="pre">week</span></code>. Check with your System Admin or open the autocomplete list by typing <code class="docutils literal"><span class="pre">/</span></code> to determine if your team configured any custom slash commands.</p>
-<p>Custom slash commands are disabled by default and can be enabled by the System Admin in the <strong>System Console</strong> &gt; <strong>Integrations</strong> &gt; <strong>Webhooks and Commands</strong>. Learn about configuring custom slash commands on the <a class="reference external" href="http://docs.mattermost.com/developer/slash-commands.html">developer slash command documentation page</a>.</p>
+<h2>Custom Commands<a class="headerlink" href="#custom-commands" title="Permalink to this headline">¶</a></h2>
+<p>Custom slash commands integrate with external applications. For example, a team might configure a custom slash command to check internal health records with <cite>/patient joe smith</cite> or check the weekly weather forecast in a city with <cite>/weather toronto week</cite>. Check with your System Admin or open the autocomplete list by typing <cite>/</cite> to determine if your team configured any custom slash commands.</p>
+<p>Custom slash commands are disabled by default and can be enabled by the System Admin in the <strong>System Console &gt; Integrations &gt; Webhooks and Commands</strong>. Learn about configuring custom slash commands on the <a class="reference external" href="../../developer/slash-commands.html">developer slash command documentation page</a>.</p>
 </div>
 </div>
 
@@ -246,7 +331,7 @@
             </dd>
             
             <dd>
-                <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/executing-commands.md"> Edit on GitHub</a>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/messaging/executing-commands.rst"> Edit on GitHub</a>
             </dd>
             
         </dl>
@@ -259,7 +344,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

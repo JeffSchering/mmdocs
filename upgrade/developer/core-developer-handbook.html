@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Core Developer Handbook &mdash; Mattermost 3.10 documentation</title>
+  <title>Core Developer Handbook &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
         <link rel="next" title="Levels of Feature Quality, Development, and Support Eligibility" href="../process/definitions.html"/>
         <link rel="prev" title="Localization" href="localization.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -114,7 +114,7 @@
 <li class="toctree-l3"><a class="reference internal" href="dev-setup.html">Developer Machine Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobile-developer-setup.html">Mobile Developer Machine Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Development Process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-to-redux.html">Migrating the Webapp to Redux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-component.html">Building a Webapp React Component</a></li>
@@ -128,6 +128,7 @@
 <li class="toctree-l4"><a class="reference internal" href="#technical-development-goals">Technical Development Goals</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#technical-direction-resolutions">Technical Direction Resolutions</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#reviewing-merging-pull-requests">Reviewing &amp; Merging Pull Requests</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#release-cutting-process">Release Cutting Process</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#useful-guides-and-documentation">Useful Guides and Documentation</a></li>
 </ul>
 </li>
@@ -192,20 +193,74 @@ a maintainer on the <a class="reference external" href="https://github.com/matte
 <span id="current-core-developers"></span><h2>Current Core Developers<a class="headerlink" href="#current-core-developers" title="Permalink to this headline">¶</a></h2>
 <p>Below is the list of core developers working on Mattermost:</p>
 <ul class="simple">
-<li>Corey Hulen - &#64;corey on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/coreyhulen">&#64;coreyhulen</a> on GitHub</li>
-<li>Joram Wilander - &#64;joram on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/jwilander">&#64;jwilander</a> on GitHub</li>
-<li>Christopher Speller - &#64;christopoher on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/crspeller">&#64;crspeller</a> on GitHub</li>
-<li>Harrison Healey - &#64;harrison on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/hmhealey">&#64;hmhealey</a> on GitHub</li>
-<li>Elias Nahum - &#64;elias on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/enahum">&#64;enahum</a> on GitHub</li>
-<li>George Goldberg - &#64;george on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/grundleborg">&#64;grundleborg</a> on GitHub</li>
-<li>Saturnino Abril - &#64;saturnino on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/saturninoabril">&#64;saturninoabril</a> on GitHub</li>
-<li>Chris Duarte - &#64;uberchris on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/csduarte">&#64;csduarte</a> on GitHub</li>
+<li><strong>Corey Hulen</strong><ul>
+<li>&#64;corey on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;corey">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/coreyhulen">&#64;coreyhulen</a> on GitHub</li>
+<li>Dev areas: High Availability, Orchestration/Kubernetes, Push Proxy, Classic Mobile Apps</li>
+</ul>
+</li>
+<li><strong>Joram Wilander</strong><ul>
+<li>&#64;joram on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;joram">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/jwilander">&#64;jwilander</a> on GitHub</li>
+<li>Dev areas: Webapp, Redux, REST API, Developer Toolkit, OAuth SSO, Statuses, WebSocket, Licensing</li>
+</ul>
+</li>
+<li><strong>Christopher Speller</strong><ul>
+<li>&#64;christopher on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;christopher">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/crspeller">&#64;crspeller</a> on GitHub</li>
+<li>Dev areas: Performance, Security, Build, LDAP, Load Tests, Webpack, Permissions</li>
+</ul>
+</li>
+<li><strong>Harrison Healey</strong><ul>
+<li>&#64;harrison on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;harrison">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/hmhealey">&#64;hmhealey</a> on GitHub</li>
+<li>Dev areas: Markdown, React Native, Autocomplete, UI, Emojis, Reactions, Files</li>
+</ul>
+</li>
+<li><strong>Elias Nahum</strong><ul>
+<li>&#64;elias on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;elias">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/enahum">&#64;enahum</a> on GitHub</li>
+<li>Dev areas: React Native, Redux, Localization, SAML, OAuth, WebRTC</li>
+</ul>
+</li>
+<li><strong>George Goldberg</strong><ul>
+<li>&#64;george on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;george">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/grundleborg">&#64;grundleborg</a> on GitHub</li>
+<li>Dev areas: Import/Export (Slack, Bulk Loading, etc.), Diagnostics/Telemetry, Search, Permissions</li>
+</ul>
+</li>
+<li><strong>Saturnino Abril</strong><ul>
+<li>&#64;saturnino on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;saturnino">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/saturninoabril">&#64;saturninoabril</a> on GitHub</li>
+<li>Dev areas: Webapp, REST API, UI Tests</li>
+</ul>
+</li>
+<li><strong>Chris Duarte</strong><ul>
+<li>&#64;uberchris on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;uberchris">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/csduarte">&#64;csduarte</a> on GitHub</li>
+</ul>
+</li>
+<li><strong>Carlos Panato</strong><ul>
+<li>&#64;cpanato on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;cpanato">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/cpanato">&#64;cpanato</a> on GitHub</li>
+<li>Dev areas: Webapp, Redux, REST API, WebSocket Events</li>
+</ul>
+</li>
+<li><strong>Chris Brown</strong><ul>
+<li>&#64;ccbrown on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;ccbrown">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/ccbrown">&#64;ccbrown</a> on GitHub</li>
+<li>Dev areas: Security, Integrations</li>
+</ul>
+</li>
+<li><strong>Jonathan Fritz</strong><ul>
+<li>&#64;jonathan on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;jonathan">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/MusikPolice">&#64;MusikPolice</a> on GitHub</li>
+</ul>
+</li>
 </ul>
 <p>Below is the list of core developers working on individual Mattermost repositories:</p>
 <ul class="simple">
-<li>Yuya Ochiai - <a class="reference external" href="https://github.com/mattermost/desktop">desktop</a> - &#64;yuya-oc on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/yuya-oc">&#64;yuya-oc</a> on GitHub</li>
-<li>Pan Luo - <a class="reference external" href="https://github.com/mattermost/mattermost-docker">mattermost-docker</a> - &#64;compass on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/xcompass">&#64;xcompass</a> on GitHub</li>
-<li>Kyâne Pichou - <a class="reference external" href="https://github.com/mattermost/mattermost-docker">mattermost-docker</a> - &#64;pichouk on <a class="reference external" href="https://pre-release.mattermost.com/">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/pichouk">&#64;pichouk</a> on GitHub</li>
+<li><strong>Yuya Ochiai</strong> - <a class="reference external" href="https://github.com/mattermost/desktop">desktop</a><ul>
+<li>&#64;yuya-oc on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;yuya-oc">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/yuya-oc">&#64;yuya-oc</a> on GitHub</li>
+</ul>
+</li>
+<li><strong>Pan Luo</strong> - <a class="reference external" href="https://github.com/mattermost/mattermost-docker">mattermost-docker</a><ul>
+<li>&#64;compass on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;compass">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/xcompass">&#64;xcompass</a> on GitHub</li>
+</ul>
+</li>
+<li><strong>Kyâne Pichou</strong> - <a class="reference external" href="https://github.com/mattermost/mattermost-docker">mattermost-docker</a><ul>
+<li>&#64;pichouk on <a class="reference external" href="https://pre-release.mattermost.com/core/messages/&#64;pichouk">pre-release.mattermost.com</a> and <a class="reference external" href="https://github.com/pichouk">&#64;pichouk</a> on GitHub</li>
+</ul>
+</li>
 </ul>
 </div>
 <div class="section" id="technical-development-goals">
@@ -214,8 +269,8 @@ a maintainer on the <a class="reference external" href="https://github.com/matte
 <div class="section" id="short-term">
 <span id="short-term"></span><h3>Short Term<a class="headerlink" href="#short-term" title="Permalink to this headline">¶</a></h3>
 <ul class="simple">
-<li>Performance for 20,000 daily active users</li>
-<li>React Native mobile apps</li>
+<li>Performance for 20,000 daily active users (complete)</li>
+<li>React Native mobile apps (complete)</li>
 </ul>
 </div>
 <div class="section" id="long-term">
@@ -253,6 +308,40 @@ a maintainer on the <a class="reference external" href="https://github.com/matte
 <li>Unstable repositories that are still in development may be merged with a single approved review</li>
 <li>Trivial changes, such as PM-approved text changes or typo fixes, maybe merged with only a single approved review for both stable and unstable repositories</li>
 </ul>
+</div>
+<div class="section" id="release-cutting-process">
+<span id="release-cutting-process"></span><h2>Release Cutting Process<a class="headerlink" href="#release-cutting-process" title="Permalink to this headline">¶</a></h2>
+<p><strong>Note: To cut a build you need access to matterbuild. Please ask Christopher for access if you don&#8217;t have it.</strong></p>
+<p>On code complete day, work with the PM on rotation to get all the pull requests for the current release merged into <code class="docutils literal"><span class="pre">master</span></code>. Once that is done and you&#8217;ve confirmed with the PM, cut the first release candidate by following these steps:</p>
+<ol class="simple">
+<li>Submit a PR to uncomment the upgrade code for the release version and add it to the version array. Use these PRs as examples, <a class="reference external" href="https://github.com/mattermost/platform/pull/6336/files">https://github.com/mattermost/platform/pull/6336/files</a> and <a class="reference external" href="https://github.com/mattermost/platform/pull/6600/files">https://github.com/mattermost/platform/pull/6600/files</a>.</li>
+<li>Once the above PR is merged, post <code class="docutils literal"><span class="pre">/mb</span> <span class="pre">cut</span> <span class="pre">X.X.X-rc1</span></code> into a private channel. Replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the release version, ex: <code class="docutils literal"><span class="pre">3.10.0</span></code>. This will begin cutting the build and make an automatic post to the Release Discussion channel.</li>
+<li>Wait approximately 40 minutes for the build to finish. If the build fails, you will need to delete the version tags from the platform and enterprise repositories by running <code class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">:vX.X.X-rc1</span></code> in both of them. Then simply repeat step 2. You can monitor build status from https://build.mattermost.com.</li>
+<li>Once the build finishes, submit a PR to <code class="docutils literal"><span class="pre">master</span></code> to add the upgrade code for the next release. For example, <a class="reference external" href="https://github.com/mattermost/platform/pull/6337/files">https://github.com/mattermost/platform/pull/6337/files</a> and <a class="reference external" href="https://github.com/mattermost/platform/pull/6616/files">https://github.com/mattermost/platform/pull/6616/files</a>.</li>
+</ol>
+<p>The build automation will take care of updating all the CI and test servers, and it will make a post in the Release Discussion channel with all the download links. It will also create the release branch named <code class="docutils literal"><span class="pre">release-X.X</span></code>, with <code class="docutils literal"><span class="pre">X-X</span></code> replace by the major and minor version numbers.</p>
+<p>Between now and the final release being cut, work with the PM on rotation to get priority fixes merged into the release branch. Note that all PRs to the release branch:</p>
+<ol class="simple">
+<li>Must be for Jira tickets approved for this release by you and the PM on rotation.</li>
+<li>Should be assigned to you and have the correct milestone set.</li>
+</ol>
+<p>Work with the PM on rotation to decide when to cut new release candidates. The general guideline is cut a new RC after 3-5 fixes have been merged or it&#8217;s been a day or two since any more issues have come up. Each release usually has 3-4 release candidates. To cut a new release candidate:</p>
+<ol class="simple">
+<li>Post <code class="docutils literal"><span class="pre">/mb</span> <span class="pre">cut</span> <span class="pre">X.X.X-rcX</span></code> into a private channel, replacing <code class="docutils literal"><span class="pre">X.X.X-rcX</span></code> with the release version and the release candidate number we&#8217;re on. For example, <code class="docutils literal"><span class="pre">3.10.0-rc2</span></code>.</li>
+<li>Wait for the build to finish, deleting tags  (<code class="docutils literal"><span class="pre">git</span> <span class="pre">push</span> <span class="pre">origin</span> <span class="pre">:X.X.X-rcX</span></code>) and re-running if the build fails.</li>
+</ol>
+<p>Again, the build automation will update all the servers and post in the Release Discussion channel.</p>
+<p>When it&#8217;s time to cut the final build, confirm with the PM that no more changes need to be merged. To cut the final release:</p>
+<ol class="simple">
+<li>Post <code class="docutils literal"><span class="pre">/mb</span> <span class="pre">cut</span> <span class="pre">X.X.X</span></code> into a private channel, replacing <code class="docutils literal"><span class="pre">X.X.X</span></code> with the release version.</li>
+<li>Just like before, if the build fails you can delete the tags and re-run it.</li>
+</ol>
+<p>The links to download the final build will be posted in the Release Discussion channel. Congratulations you&#8217;ve cut a release!</p>
+<p>After a couple days pass you will need to set the CI servers to point back to <code class="docutils literal"><span class="pre">master</span></code>. To do this:</p>
+<ol class="simple">
+<li>Post <code class="docutils literal"><span class="pre">/mb</span> <span class="pre">setci</span> <span class="pre">master</span></code> into a private channel.</li>
+</ol>
+<p>That&#8217;s it!</p>
 </div>
 <div class="section" id="useful-guides-and-documentation">
 <span id="useful-guides-and-documentation"></span><h2>Useful Guides and Documentation<a class="headerlink" href="#useful-guides-and-documentation" title="Permalink to this headline">¶</a></h2>
@@ -332,7 +421,7 @@ a maintainer on the <a class="reference external" href="https://github.com/matte
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

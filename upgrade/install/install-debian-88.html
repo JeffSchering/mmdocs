@@ -1,0 +1,1126 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Installing Mattermost on Debian Jessie &mdash; Mattermost 4.0 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Installing Mattermost on RHEL 6.6" href="install-rhel-66.html"/>
+        <link rel="prev" title="Installing Mattermost on Ubuntu 16.04 LTS" href="install-ubuntu-1604.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                4.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Installing on Debian Jessie</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#installing-debian-jessie">Installing Debian Jessie</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-mysql-database-server">Installing MySQL Database Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-postgresql-database-server">Installing PostgreSQL Database Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-mattermost-server">Installing Mattermost Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-mattermost-server">Configuring Mattermost Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-tls-on-mattermost-server">Configuring TLS on Mattermost Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#installing-nginx-server">Installing NGINX Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-nginx-as-a-proxy-for-mattermost-server">Configuring NGINX as a proxy for Mattermost Server</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#configuring-nginx-with-ssl-and-http-2">Configuring NGINX with SSL and HTTP/2</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-71.html">Installing on RHEL 7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-centos-oracle-scientific.html">Installing on CentOS, Oracle Linux, and Scientific Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-debian.html">Installing on Debian Jessie (Unofficial)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="troubleshooting.html">Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-apache2.html">Configuring Apache2 (Unofficial)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Installing Mattermost on Debian Jessie</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/install/install-debian-88.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="installing-mattermost-on-debian-jessie">
+<span id="install-debian-88"></span><h1>Installing Mattermost on Debian Jessie<a class="headerlink" href="#installing-mattermost-on-debian-jessie" title="Permalink to this headline">¶</a></h1>
+<p>Install a production-ready Mattermost system on 1 to 3 machines.</p>
+<p>A complete Mattermost installation consists of 3 major components: a proxy server, a database server, and the Mattermost server. You can install all components on 1 machine, or you can install each component on its own machine. If you have only 2 machines, then install the proxy and the Mattermost server on one machine, and install the database on the other machine.</p>
+<p>For the database, you can install either MySQL or PostgreSQL. The proxy is NGINX.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you have any problems installing Mattermost, see
+the <a class="reference external" href="https://www.mattermost.org/troubleshoot/">troubleshooting guide</a>. To submit an improvement or correction, click  <strong>Edit</strong> at the top of this page.</p>
+</div>
+<div class="contents local topic" id="install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">
+<p class="topic-title first">Install and configure the components in the following order. Note that you need only one database, either MySQL or PostgreSQL.</p>
+<ul class="simple">
+<li><a class="reference internal" href="#installing-debian-jessie" id="id2">Installing Debian Jessie</a></li>
+<li><a class="reference internal" href="#installing-mysql-database-server" id="id3">Installing MySQL Database Server</a></li>
+<li><a class="reference internal" href="#installing-postgresql-database-server" id="id4">Installing PostgreSQL Database Server</a></li>
+<li><a class="reference internal" href="#installing-mattermost-server" id="id5">Installing Mattermost Server</a></li>
+<li><a class="reference internal" href="#configuring-mattermost-server" id="id6">Configuring Mattermost Server</a></li>
+<li><a class="reference internal" href="#configuring-tls-on-mattermost-server" id="id7">Configuring TLS on Mattermost Server</a></li>
+<li><a class="reference internal" href="#installing-nginx-server" id="id8">Installing NGINX Server</a></li>
+<li><a class="reference internal" href="#configuring-nginx-as-a-proxy-for-mattermost-server" id="id9">Configuring NGINX as a proxy for Mattermost Server</a></li>
+<li><a class="reference internal" href="#configuring-nginx-with-ssl-and-http-2" id="id10">Configuring NGINX with SSL and HTTP/2</a></li>
+</ul>
+</div>
+<div class="section" id="installing-debian-jessie">
+<span id="install-debian-88-server"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Debian Jessie</a><a class="headerlink" href="#installing-debian-jessie" title="Permalink to this headline">¶</a></h2>
+<p>Install the 64-bit version of Debian on each machine that hosts one or more of the components.</p>
+<p><strong>To install Debian Jessie:</strong></p>
+<ol class="arabic simple">
+<li>To install Debian Jessie, see the <a class="reference external" href="https://www.debian.org/releases/stable/amd64/install.pdf">Debian Installation Guide (PDF).</a></li>
+<li>After the system is installed, make sure that it&#8217;s up to date with the most recent security patches. Open a terminal window and issue the following commands as root:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">update</span></code></p>
+<p><code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">upgrade</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Install <em>sudo</em> and <em>curl</em> for use later in the installation:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">sudo</span> <span class="pre">curl</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Add your username to the sudo group. In the following command, replace {username} with your own username.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">usermod</span> <span class="pre">-a</span> <span class="pre">-G</span> <span class="pre">sudo</span> <span class="pre">{username}</span></code></div></blockquote>
+<p>Now that the system is up to date and our user is in the sudo group, you can start installing the components that make up a Mattermost system.</p>
+</div>
+<div class="section" id="installing-mysql-database-server">
+<span id="install-debian-88-mysql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing MySQL Database Server</a><a class="headerlink" href="#installing-mysql-database-server" title="Permalink to this headline">¶</a></h2>
+<p>Install and set up the database for use by the Mattermost server. You can install either MySQL or PostgreSQL.</p>
+<p><strong>To install MySQL on Debian Jessie:</strong></p>
+<ol class="arabic simple">
+<li>Log into the server that will host the database, and open a terminal window.</li>
+<li>Download the MySQL repository package.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://dev.mysql.com/get/mysql-apt-config_0.8.6-1_all.deb</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Install the repository</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">dpkg</span> <span class="pre">-i</span> <span class="pre">mysql-apt-config*</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Update your local package list.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">update</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Add the MySQL repo MySQL.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">mysql-server</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">During the install, you&#8217;ll be prompted to create a password for the MySQL root user. Make a note of the password because you&#8217;ll need it in the next step.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Log in to MySQL as root.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">mysql</span> <span class="pre">-u</span> <span class="pre">root</span> <span class="pre">-p</span></code></p>
+<p>When prompted, enter the root password that you created when installing MySQL.</p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'%'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Use a password that is more secure than &#8216;mmuser-password&#8217;.</li>
+<li>The &#8216;%&#8217; means that mmuser can connect from any machine on the network. However, it&#8217;s more secure to use the IP address of the machine that hosts Mattermost. For example, if you install Mattermost on the machine with IP address 10.10.10.2, then use the following command:</li>
+</ol>
+</div>
+<p><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">user</span> <span class="pre">'mmuser'&#64;'10.10.10.2'</span> <span class="pre">identified</span> <span class="pre">by</span> <span class="pre">'mmuser-password';</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Create the Mattermost database.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">create</span> <span class="pre">database</span> <span class="pre">mattermost;</span></code></div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Grant access privileges to the user &#8216;mmuser&#8217;.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">grant</span> <span class="pre">all</span> <span class="pre">privileges</span> <span class="pre">on</span> <span class="pre">mattermost.*</span> <span class="pre">to</span> <span class="pre">'mmuser'&#64;'%';</span></code></div></blockquote>
+<ol class="arabic simple" start="10">
+<li>Log out of MySQL.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">mysql&gt;</span> <span class="pre">exit</span></code></div></blockquote>
+<p>With the database installed and the initial setup complete, you can now install the Mattermost server.</p>
+</div>
+<div class="section" id="installing-postgresql-database-server">
+<span id="install-debian-88-postgresql"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing PostgreSQL Database Server</a><a class="headerlink" href="#installing-postgresql-database-server" title="Permalink to this headline">¶</a></h2>
+<p>Install and set up the database for use by the Mattermost server. You can install either PostgreSQL or MySQL.</p>
+<p>Assume that the IP address of this server is 10.10.10.1</p>
+<p><strong>To install PostgreSQL on Debian Jessie:</strong></p>
+<ol class="arabic simple">
+<li>Log in to the server that will host the database and issue the following command:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">postgresql</span> <span class="pre">postgresql-contrib</span></code></p>
+<p>When the installation is complete, the PostgreSQL server is running, and a Linux user account called <em>postgres</em> has been created.</p>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Log in to the <em>postgres</em> account.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">--login</span> <span class="pre">--user</span> <span class="pre">postgres</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Start the PostgreSQL interactive terminal.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">psql</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Create the Mattermost database.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">DATABASE</span> <span class="pre">mattermost;</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Create the Mattermost user &#8216;mmuser&#8217;.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">CREATE</span> <span class="pre">USER</span> <span class="pre">mmuser</span> <span class="pre">WITH</span> <span class="pre">PASSWORD</span> <span class="pre">'mmuser_password';</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">Use a password that is more secure than &#8216;mmuser-password&#8217;.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Grant the user access to the Mattermost database.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">postgres=#</span> <span class="pre">GRANT</span> <span class="pre">ALL</span> <span class="pre">PRIVILEGES</span> <span class="pre">ON</span> <span class="pre">DATABASE</span> <span class="pre">mattermost</span> <span class="pre">to</span> <span class="pre">mmuser;</span></code></div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Exit the PostgreSQL interactive terminal.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">postgre=#</span> <span class="pre">\q</span></code></div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Log out of the <em>postgres</em> account.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">exit</span></code></div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Allow PostgreSQL to listen on all assigned IP Addresses. Open <code class="docutils literal"><span class="pre">/etc/postgresql/9.4/main/postgresql.conf</span></code> as root in a text editor.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Find the following line:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">#listen_addresses</span> <span class="pre">=</span> <span class="pre">'localhost'</span></code></div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Uncomment the line and change <code class="docutils literal"><span class="pre">localhost</span></code> to <code class="docutils literal"><span class="pre">*</span></code>:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">listen_addresses</span> <span class="pre">=</span> <span class="pre">'*'</span></code></div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li>Restart PostgreSQL for the change to take effect:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">postgresql</span></code></div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li>Modify the file <code class="docutils literal"><span class="pre">pg_hba.conf</span></code> to allow the Mattermost server to communicate with the database.</li>
+</ol>
+<blockquote>
+<div><p><strong>If the Mattermost server and the database are on the same machine</strong>:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Open <code class="docutils literal"><span class="pre">/etc/postgresql/9.4/main/pg_hba.conf</span></code> as root in a text editor.</li>
+<li>Find the following line:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">local</span>&#160;&#160; <span class="pre">all</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">all</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">peer</span></code></div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Change <code class="docutils literal"><span class="pre">peer</span></code> to <code class="docutils literal"><span class="pre">trust</span></code>:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">local</span>&#160;&#160; <span class="pre">all</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">all</span>&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160;&#160; <span class="pre">trust</span></code></div></blockquote>
+</div></blockquote>
+<p><strong>If the Mattermost server and the database are on different machines</strong>:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Open <code class="docutils literal"><span class="pre">/etc/postgresql/9.4/main/pg_hba.conf</span></code> as root in a text editor.</li>
+<li>Add the following line to the end of the file, where <em>{mattermost-server-IP}</em> is the IP address of the machine that contains the Mattermost server.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">host</span> <span class="pre">all</span> <span class="pre">all</span> <span class="pre">{mattermost-server-IP}/32</span> <span class="pre">md5</span></code></div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="11">
+<li>Reload PostgreSQL:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">reload</span> <span class="pre">postgresql</span></code></div></blockquote>
+<ol class="arabic simple" start="12">
+<li>Verify that you can connect with the user <em>mmuser</em>.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>If the Mattermost server and the database are on the same machine, use the following command:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">psql</span> <span class="pre">--dbname=mattermost</span> <span class="pre">--username=mmuser</span> <span class="pre">--password</span></code></div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>If the Mattermost server is on a different machine, log into that machine and use the following command:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">psql</span> <span class="pre">--host={postgres-server-IP}</span> <span class="pre">--dbname=mattermost</span> <span class="pre">--username=mmuser</span> <span class="pre">--password</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">You might have to install the PostgreSQL client software to use the command.</p>
+</div>
+</div></blockquote>
+<p>The PostgreSQL interactive terminal starts. To exit the PostgreSQL interactive terminal, type <code class="docutils literal"><span class="pre">\q</span></code> and press <strong>Enter</strong>.</p>
+</div></blockquote>
+<p>With the database installed and the initial setup complete, you can now install the Mattermost server.</p>
+</div>
+<div class="section" id="installing-mattermost-server">
+<span id="install-debian-88-mattermost"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing Mattermost Server</a><a class="headerlink" href="#installing-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<p>Install Mattermost Server on a 64-bit machine.</p>
+<p>Assume that the IP address of this server is 10.10.10.2.</p>
+<p><strong>To install Mattermost Server on Debian Jessie</strong></p>
+<ol class="arabic simple">
+<li>Log in to the server that will host Mattermost Server and open a terminal window.</li>
+<li>Download <a class="reference external" href="https://about.mattermost.com/download/">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Extract the Mattermost Server files.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost*.gz</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Move the extracted file to the <code class="docutils literal"><span class="pre">/opt</span></code> directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mv</span> <span class="pre">mattermost</span> <span class="pre">/opt</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Create the storage directory for files.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">mkdir</span> <span class="pre">/opt/mattermost/data</span></code></p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The storage directory will contain all the files and images that your users post to Mattermost, so you need to make sure that the drive is large enough to hold the anticipated number of uploaded files and images.</p>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Set up a system user and group called <code class="docutils literal"><span class="pre">mattermost</span></code> that will run this service, and set the ownership and permissions.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Create the Mattermost user and group:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">useradd</span> <span class="pre">--system</span> <span class="pre">--user-group</span> <span class="pre">mattermost</span></code></div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Set the user and group <em>mattermost</em> as the owner of the Mattermost files:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">mattermost:mattermost</span> <span class="pre">/opt/mattermost</span></code></div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Give write permissions to the <em>mattermost</em> group:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chmod</span> <span class="pre">-R</span> <span class="pre">g+w</span> <span class="pre">/opt/mattermost</span></code></div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Set up the database driver in the file <code class="docutils literal"><span class="pre">/opt/mattermost/config/config.json</span></code>. Open the file in a text editor and make the following changes:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>If you are using PostgreSQL:</li>
+</ul>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Set <code class="docutils literal"><span class="pre">&quot;DriverName&quot;</span></code> to <code class="docutils literal"><span class="pre">&quot;postgres&quot;</span></code></li>
+<li>Set <code class="docutils literal"><span class="pre">&quot;DataSource&quot;</span></code> to the following value, replacing <code class="docutils literal"><span class="pre">&lt;mmuser-password&gt;</span></code>  and <code class="docutils literal"><span class="pre">&lt;host-name-or-IP&gt;</span></code> with the appropriate values:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">&quot;postgres://mmuser:&lt;mmuser-password&gt;&#64;&lt;host-name-or-IP&gt;:5432/mattermost?sslmode=disable&amp;connect_timeout=10&quot;,</span></code>.</div></blockquote>
+</div></blockquote>
+<ul class="simple">
+<li>If you are using MySQL:</li>
+</ul>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Set <code class="docutils literal"><span class="pre">&quot;DriverName&quot;</span></code> to <code class="docutils literal"><span class="pre">&quot;mysql&quot;</span></code></li>
+<li>Set <code class="docutils literal"><span class="pre">&quot;DataSource&quot;</span></code> to the following value, replacing <code class="docutils literal"><span class="pre">&lt;mmuser-password&gt;</span></code>  and <code class="docutils literal"><span class="pre">&lt;host-name-or-IP&gt;</span></code> with the appropriate values. Also make sure that the database name is <code class="docutils literal"><span class="pre">mattermost</span></code> instead of <code class="docutils literal"><span class="pre">mattermost_test</span></code>:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">&quot;mmuser:&lt;mmuser-password&gt;&#64;tcp(&lt;host-name-or-IP&gt;:3306)/mattermost?charset=utf8mb4,utf8&amp;readTimeout=30s&amp;writeTimeout=30s&quot;</span></code></div></blockquote>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic" start="8">
+<li><p class="first">Test the Mattermost server to make sure everything works.</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Change to the <code class="docutils literal"><span class="pre">bin</span></code> directory:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></p>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Start the Mattermost server as the user mattermost:</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">mattermost</span> <span class="pre">./platform</span></code></p>
+</div></blockquote>
+</div></blockquote>
+</li>
+</ol>
+<blockquote>
+<div>When the server starts, it shows some log information and the text <code class="docutils literal"><span class="pre">Server</span> <span class="pre">is</span> <span class="pre">listening</span> <span class="pre">on</span> <span class="pre">:8065</span></code>. You can stop the server by pressing CTRL+C in the terminal window.</div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Setup Mattermost to use <em>systemd</em> for starting and stopping.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Create a <em>systemd</em> unit file:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/lib/systemd/system/mattermost.service</span></code></div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Open the unit file as root in a text editor, and copy the following lines into the file:</li>
+</ol>
+<div class="highlight-none"><div class="highlight"><pre><span></span>[Unit]
+Description=Mattermost
+After=network.target
+After=postgresql.service
+Requires=postgresql.service
+
+[Service]
+Type=simple
+ExecStart=/opt/mattermost/bin/platform
+Restart=always
+RestartSec=10
+WorkingDirectory=/opt/mattermost
+User=mattermost
+Group=mattermost
+LimitNOFILE=49152
+
+[Install]
+WantedBy=multi-user.target
+</pre></div>
+</div>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">If you are using MySQL, replace <code class="docutils literal"><span class="pre">postgresql.service</span></code> with <code class="docutils literal"><span class="pre">mysql.service</span></code> in 2 places in the <code class="docutils literal"><span class="pre">[Unit]</span></code> section.</p>
+</div>
+<ol class="loweralpha simple" start="3">
+<li>Make systemd load the new unit.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">daemon-reload</span></code></div></blockquote>
+<ol class="loweralpha simple" start="4">
+<li>Check to make sure that the unit was loaded.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">status</span> <span class="pre">mattermost.service</span></code></p>
+<p>You should see an output similar to the following:</p>
+<div class="highlight-none"><div class="highlight"><pre><span></span>● mattermost.service - Mattermost
+  Loaded: loaded (/lib/systemd/system/mattermost.service; disabled; vendor preset: enabled)
+  Active: inactive (dead)
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="loweralpha simple" start="5">
+<li>Start the service.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mattermost.service</span></code></div></blockquote>
+<ol class="loweralpha simple" start="6">
+<li>Verify that Mattermost is running.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost:8065</span></code></p>
+<p>You should see the HTML that&#8217;s returned by the Mattermost server.</p>
+</div></blockquote>
+<ol class="loweralpha simple" start="7">
+<li>Set Mattermost to start on machine start up.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">enable</span> <span class="pre">mattermost.service</span></code></div></blockquote>
+</div></blockquote>
+<p>Now that the Mattermost server is up and running, you can do some initial configuration and setup.</p>
+</div>
+<div class="section" id="configuring-mattermost-server">
+<h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Configuring Mattermost Server</a><a class="headerlink" href="#configuring-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<p>Create the System Admin user and set up Mattermost for general use.</p>
+<ol class="arabic simple">
+<li>Open a browser and navigate to your Mattermost instance. For example, if the IP address of the Mattermost server is <code class="docutils literal"><span class="pre">10.10.10.2</span></code> then go to <a class="reference external" href="http://10.10.10.2:8065">http://10.10.10.2:8065</a>.</li>
+<li>Create the first team and user. The first user in the system has the <code class="docutils literal"><span class="pre">system_admin</span></code> role, which gives you access to the System Console.</li>
+<li>Open the System Console. To open the System Console, click your username at the top of the navigation panel, and in the menu that opens, click <strong>System Console</strong>.</li>
+<li>Set the Site URL:</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>In the GENERAL section of the System Console, click <strong>Configuration</strong>.</li>
+<li>In the <strong>Site URL</strong> field, set the URL that users point their browsers at. For example, <em>https://mattermost.example.com</em>. If you are using HTTPS, make sure that you set up TLS, either on Mattermost Server or on a proxy.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Set up email notifications.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>In the NOTIFICATIONS section of the System Console, click <strong>Email</strong> and make the following changes:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Set <strong>Enable Email Notifications</strong> to <em>true</em></li>
+<li>Set <strong>Notification Display Name</strong> to <em>No-Reply</em></li>
+<li>Set <strong>Notification From Address</strong> to <em>{your-domain-name}</em> For example, <em>example.com</em></li>
+<li>Set <strong>SMTP Server Username</strong> to <em>{SMTP-username}</em> For example, <em>admin&#64;example.com</em></li>
+<li>Set <strong>SMTP Server Password</strong> to <em>{SMTP-password}</em></li>
+<li>Set <strong>SMTP Server</strong> to <em>{SMTP-server}</em> For example, <em>mail.example.com</em></li>
+<li>Set <strong>SMTP Server Port</strong> to <em>465</em></li>
+<li>Set <strong>Connection Security</strong> to <em>TLS</em> or <em>STARTTLS</em>, depending on what the SMTP server accepts.</li>
+</ul>
+</div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Click <strong>Test Connection</strong>.</li>
+<li>After your connection is working, click <strong>Save</strong>.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Set up the file and image storage location.</li>
+</ol>
+<blockquote>
+<div><div class="admonition note">
+<p class="first admonition-title">Note</p>
+<ol class="last arabic simple">
+<li>Files and images that users attach to their messages are not stored in the database. Instead, they are stored in a location that you specify. You can store the files on the local file system or in Amazon S3.</li>
+<li>Make sure that the location has enough free space. The amount of storage that&#8217;s required depends on the number of users and on the number and size of files that users attach to messages.</li>
+</ol>
+</div>
+<ol class="loweralpha simple">
+<li>In the FILES section of the System Console, click <strong>Storage</strong>.</li>
+<li>If you store the files locally, set <strong>File Storage System</strong> to <em>Local File System</em>, and then either accept the default for the <strong>Local Storage Directory</strong> or enter a location. The location must be a directory that exists and has write permissions for the Mattermost server. It can be an absolute path or a relative path. Relative paths are relative to the <code class="docutils literal"><span class="pre">mattermost</span></code> directory.</li>
+<li>If you store the files on Amazon S3, set <strong>File Storage System</strong> to <em>Amazon S3</em> and enter the appropriate values for your Amazon account.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Review the other settings in the System Console to make sure everything is as you want it.</li>
+<li>Restart the Mattermost Service.</li>
+</ol>
+<blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></p>
+<p>On Ubuntu 16.04, Debian Jessie, and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">mattermost</span></code></p>
+</div></blockquote>
+</div>
+<div class="section" id="configuring-tls-on-mattermost-server">
+<h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Configuring TLS on Mattermost Server</a><a class="headerlink" href="#configuring-tls-on-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<p>You have two options if you want users to connect with HTTPS:</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Set up TLS on Mattermost Server.</li>
+<li>Install a proxy such as NGINX and set up TLS on the proxy.</li>
+</ol>
+</div></blockquote>
+<p>The easiest option is to set up TLS on the Mattermost Server, but if you expect to have more than 200 users, use a proxy for better performance. A proxy server also provides standard HTTP request logs.</p>
+<p><strong>Configure TLS on the Mattermost Server</strong>:</p>
+<ol class="arabic simple">
+<li>In the <strong>System Console</strong> &gt; <strong>General</strong> &gt; <strong>Configuration</strong>.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Change the <strong>Listen Address</strong> setting to <code class="docutils literal"><span class="pre">:443</span></code>.</li>
+<li>Change the <strong>Connection Security</strong> setting to <code class="docutils literal"><span class="pre">TLS</span></code>.</li>
+<li>Change the <strong>Forward port 80 to 443</strong> setting to <code class="docutils literal"><span class="pre">true</span></code>.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Activate the <code class="docutils literal"><span class="pre">CAP_NET_BIND_SERVICE</span></code> capability to allow Mattermost to bind to low ports.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Open a terminal window and change to the Mattermost <code class="docutils literal"><span class="pre">bin</span></code> directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">cd</span> <span class="pre">/opt/mattermost/bin</span></code></div></blockquote>
+<ol class="loweralpha simple" start="2">
+<li>Run the following command:</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./platform</span></code></div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Install the security certificate. You can use <a class="reference external" href="https://letsencrypt.org/">Let&#8217;s Encrypt</a> to automatically install and setup the certificate, or you can specify your own certificate.</li>
+</ol>
+<blockquote>
+<div><p><strong>To use a Let&#8217;s Encrypt certificate</strong>:</p>
+<blockquote>
+<div><p>The certificate is retrieved the first time that a client tries to connect to the Mattermost server. Certificates are retrieved for any hostname a client tries to reach the server at.</p>
+<ol class="loweralpha simple">
+<li>Change the <strong>Use Let&#8217;s Encrypt</strong> setting to <code class="docutils literal"><span class="pre">true</span></code>.</li>
+<li>Restart the Mattermost server for these changes to take effect.</li>
+</ol>
+</div></blockquote>
+<p><strong>To use your own certificate</strong>:</p>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Change the <strong>Use Let&#8217;s Encrypt</strong> setting to <code class="docutils literal"><span class="pre">false</span></code>.</li>
+<li>Change the <strong>TLS Certificate File</strong> setting to the location of the certificate file.</li>
+<li>Change the <strong>TLS Key File</strong> setting to the location of the private key file.</li>
+<li>Restart the Mattermost server for these changes to take effect.</li>
+</ol>
+</div></blockquote>
+</div></blockquote>
+</div>
+<div class="section" id="installing-nginx-server">
+<span id="install-nginx"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Installing NGINX Server</a><a class="headerlink" href="#installing-nginx-server" title="Permalink to this headline">¶</a></h2>
+<p>In a production setting, use a proxy server for greater security and performance of Mattermost.</p>
+<p>The main benefits of using a proxy are as follows:</p>
+<blockquote>
+<div><ul class="simple">
+<li>SSL termination</li>
+<li>HTTP to HTTPS redirect</li>
+<li>Port mapping <code class="docutils literal"><span class="pre">:80</span></code> to <code class="docutils literal"><span class="pre">:8065</span></code></li>
+<li>Standard request logs</li>
+</ul>
+</div></blockquote>
+<p><strong>To install NGINX on Ubuntu Server:</strong></p>
+<ol class="arabic simple">
+<li>Log in to the server that will host the proxy and open a terminal window.</li>
+<li>Install NGINX.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">nginx</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>After the installation is complete, verify that NGINX is running.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
+<p>If NGINX is running, you see the following output:</p>
+<div class="highlight-html"><div class="highlight"><pre><span></span><span class="cp">&lt;!DOCTYPE html&gt;</span>
+<span class="p">&lt;</span><span class="nt">html</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">head</span><span class="p">&gt;</span>
+<span class="p">&lt;</span><span class="nt">title</span><span class="p">&gt;</span>Welcome to nginx!<span class="p">&lt;/</span><span class="nt">title</span><span class="p">&gt;</span>
+.
+.
+.
+<span class="p">&lt;</span><span class="nt">p</span><span class="p">&gt;&lt;</span><span class="nt">em</span><span class="p">&gt;</span>Thank you for using nginx.<span class="p">&lt;/</span><span class="nt">em</span><span class="p">&gt;&lt;/</span><span class="nt">p</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">body</span><span class="p">&gt;</span>
+<span class="p">&lt;/</span><span class="nt">html</span><span class="p">&gt;</span>
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>You can stop, start, and restart NGINX with the following commands:</p>
+<div class="last highlight-none"><div class="highlight"><pre><span></span>sudo service nginx stop
+sudo service nginx start
+sudo service nginx restart
+</pre></div>
+</div>
+</div>
+<p><strong>What to do next</strong></p>
+<ol class="arabic simple">
+<li>Map a fully qualified domain name (FQDN) such as <code class="docutils literal"><span class="pre">mattermost.example.com</span></code> to point to the NGINX server.</li>
+<li>Configure NGINX to proxy connections from the internet to the Mattermost Server.</li>
+</ol>
+</div>
+<div class="section" id="configuring-nginx-as-a-proxy-for-mattermost-server">
+<span id="config-proxy-nginx"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Configuring NGINX as a proxy for Mattermost Server</a><a class="headerlink" href="#configuring-nginx-as-a-proxy-for-mattermost-server" title="Permalink to this headline">¶</a></h2>
+<p>NGINX is configured using a file in the <code class="docutils literal"><span class="pre">/etc/nginx/sites-available</span></code> directory. You need to create the file and then enable it. When creating the file, you need the IP address of your Mattermost server and the fully qualified domain name (FQDN) of your Mattermost website.</p>
+<p><strong>To configure NGINX as a proxy</strong></p>
+<ol class="arabic simple">
+<li>Log in to the server that hosts NGINX and open a terminal window.</li>
+<li>Create a configuration file for Mattermost.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">touch</span> <span class="pre">/etc/nginx/sites-available/mattermost</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and replace its contents, if any, with the following lines. Make sure that you use your own values for the Mattermost server IP address and FQDN for <em>server_name</em>.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>upstream backend {
+   server 10.10.10.2:8065;
+}
+
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
+
+server {
+   listen 80;
+   server_name    mattermost.example.com;
+
+   location ~ /api/v[0-9]+/(users/)?websocket$ {
+       proxy_set_header Upgrade $http_upgrade;
+       proxy_set_header Connection &quot;upgrade&quot;;
+       client_max_body_size 50M;
+       proxy_set_header Host $http_host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-Forwarded-Proto $scheme;
+       proxy_set_header X-Frame-Options SAMEORIGIN;
+       proxy_buffers 256 16k;
+       proxy_buffer_size 16k;
+       proxy_read_timeout 600s;
+       proxy_pass http://backend;
+   }
+
+   location / {
+       client_max_body_size 50M;
+       proxy_set_header Connection &quot;&quot;;
+       proxy_set_header Host $http_host;
+       proxy_set_header X-Real-IP $remote_addr;
+       proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+       proxy_set_header X-Forwarded-Proto $scheme;
+       proxy_set_header X-Frame-Options SAMEORIGIN;
+       proxy_buffers 256 16k;
+       proxy_buffer_size 16k;
+       proxy_read_timeout 600s;
+       proxy_cache mattermost_cache;
+       proxy_cache_revalidate on;
+       proxy_cache_min_uses 2;
+       proxy_cache_use_stale timeout;
+       proxy_cache_lock on;
+       proxy_pass http://backend;
+   }
+}
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Remove the existing default sites-enabled file.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">rm</span> <span class="pre">/etc/nginx/sites-enabled/default</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Enable the mattermost configuration.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">ln</span> <span class="pre">-s</span> <span class="pre">/etc/nginx/sites-available/mattermost</span> <span class="pre">/etc/nginx/sites-enabled/mattermost</span></code></div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Restart NGINX.</li>
+</ol>
+<blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">restart</span></code></p>
+<p>On Ubuntu 16.04, Debian Jessie, and RHEL 7.1: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">restart</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Verify that you can see Mattermost through the proxy.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">curl</span> <span class="pre">http://localhost</span></code></p>
+<p>If everything is working, you will see the HTML for the Mattermost signup page.</p>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Restrict access to port 8065.</li>
+</ol>
+<blockquote>
+<div>By default, the Mattermost server accepts connections on port 8065 from every machine on the network. Use your firewall to deny connections on port 8065 to all machines except the machine that hosts NGINX and the machine that you use to administer Mattermost server. If you&#8217;re installing on Amazon Web Services, you can use security groups to restrict access.</div></blockquote>
+<p>Now that NGINX is installed and running, you can configure it to use SSL, which allows you to use HTTPS connections and the HTTP/2 protocol.</p>
+</div>
+<div class="section" id="configuring-nginx-with-ssl-and-http-2">
+<span id="config-ssl-http2-nginx"></span><h2><a class="toc-backref" href="#install-and-configure-the-components-in-the-following-order-note-that-you-need-only-one-database-either-mysql-or-postgresql">Configuring NGINX with SSL and HTTP/2</a><a class="headerlink" href="#configuring-nginx-with-ssl-and-http-2" title="Permalink to this headline">¶</a></h2>
+<p>Using SSL gives greater security by ensuring that communications between Mattermost clients and the Mattermost server are encrypted. It also allows you to configure NGINX to use the HTTP/2 protocol.</p>
+<p>Although you can configure HTTP/2 without SSL, both Firefox and Chrome browsers support HTTP/2 on secure connections only.</p>
+<p>You can use any certificate that you want, but these instructions show you how to download and install certificates from <a class="reference external" href="https://letsencrypt.org/">Let&#8217;s Encrypt</a>, a free certificate authority.</p>
+<p><strong>To configure SSL and HTTP/2:</strong></p>
+<ol class="arabic simple">
+<li>Log in to the server that hosts NGINX and open a terminal window.</li>
+<li>Install git.</li>
+</ol>
+<blockquote>
+<div><p>If you are using Ubuntu or Debian:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
+<p>If you are using RHEL:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">git</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Clone the Let&#8217;s Encrypt repository on GitHub.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/letsencrypt/letsencrypt</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Change to the <code class="docutils literal"><span class="pre">letsencrypt</span></code> directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">cd</span> <span class="pre">letsencrypt</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Stop NGINX.</li>
+</ol>
+<blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">stop</span></code></p>
+<p>On Ubuntu 16.04, Debian Jessie, and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Run <code class="docutils literal"><span class="pre">netstat</span></code> to make sure that nothing is listening on port 80.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">netstat</span> <span class="pre">-na</span> <span class="pre">|</span> <span class="pre">grep</span> <span class="pre">':80.*LISTEN'</span></code></div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Run the Let&#8217;s Encrypt installer.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">./letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--standalone</span></code></p>
+<p>When prompted, enter your domain name. After the installation is complete, you can find the certificate in the   <code class="docutils literal"><span class="pre">/etc/letsencrypt/live</span></code> directory.</p>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Open the file <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> as root in a text editor and update the <em>server</em> section to incorporate the highlighted lines in the following sample. Make sure to replace <em>{domain-name}</em> with your own domain name, in 3 places.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>.
+.
+.
+proxy_cache_path /var/cache/nginx levels=1:2 keys_zone=mattermost_cache:10m max_size=3g inactive=120m use_temp_path=off;
+
+<span class="hll">server {
+</span><span class="hll">   listen 80 default_server;
+</span><span class="hll">   server_name   {domain-name} ;
+</span><span class="hll">   return 301 https://$server_name$request_uri;
+</span><span class="hll">}
+</span>
+server {
+<span class="hll">  listen 443 ssl http2;
+</span>  server_name    . . . ;
+
+<span class="hll">  ssl on;
+</span><span class="hll">  ssl_certificate /etc/letsencrypt/live/{domain-name}/fullchain.pem;
+</span><span class="hll">  ssl_certificate_key /etc/letsencrypt/live/{domain-name}/privkey.pem;
+</span><span class="hll">  ssl_session_timeout 5m;
+</span><span class="hll">  ssl_protocols TLSv1 TLSv1.1 TLSv1.2;
+</span><span class="hll">  ssl_ciphers &#39;EECDH+AESGCM:EDH+AESGCM:AES256+EECDH:AES256+EDH&#39;;
+</span><span class="hll">  ssl_prefer_server_ciphers on;
+</span><span class="hll">  ssl_session_cache shared:SSL:10m;
+</span>}
+
+location ~ /api/v[0-9]+/(users/)?websocket$ {
+    proxy_set_header Upgrade $http_upgrade;
+    .
+    .
+    .
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Restart NGINX.</li>
+</ol>
+<blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">start</span></code></p>
+<p>On Ubuntu 16.04, Debian Jessie, and RHEL 7.1:</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">nginx</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="10">
+<li>Check that your SSL certificate is set up correctly.</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Test the SSL certificate by visiting a site such as <a class="reference external" href="https://www.ssllabs.com/ssltest/index.html">https://www.ssllabs.com/ssltest/index.html</a></li>
+<li>If there’s an error about the missing chain or certificate path, there is likely an intermediate certificate missing that needs to be included.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="11">
+<li>Configure <code class="docutils literal"><span class="pre">cron</span></code> so that the certificate will automatically renew every month.</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">crontab</span> <span class="pre">-e</span></code></p>
+<p>In the following line, use your own domain name in place of <em>{domain-name}</em></p>
+<p><code class="docutils literal"><span class="pre">&#64;monthly</span> <span class="pre">/home/ubuntu/letsencrypt/letsencrypt-auto</span> <span class="pre">certonly</span> <span class="pre">--reinstall</span> <span class="pre">--nginx</span> <span class="pre">-d</span> <span class="pre">{domain-name}</span> <span class="pre">&amp;&amp;</span> <span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">nginx</span> <span class="pre">reload</span></code></p>
+</div></blockquote>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="install-rhel-66.html" class="btn btn-neutral float-right" title="Installing Mattermost on RHEL 6.6" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="install-ubuntu-1604.html" class="btn btn-neutral" title="Installing Mattermost on Ubuntu 16.04 LTS" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/install-debian-88.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'4.0',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

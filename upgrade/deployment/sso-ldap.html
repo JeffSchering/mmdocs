@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Active Directory/LDAP Setup &mdash; Mattermost 3.10 documentation</title>
+  <title>Active Directory/LDAP Setup &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
         <link rel="next" title="Multi-Factor Authentication (E10)" href="auth.html"/>
         <link rel="prev" title="Mobile Applications Guide" href="push.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -205,7 +205,7 @@
 <p>There are two ways to setup AD/LDAP:</p>
 <ol class="simple">
 <li><strong>Configure AD/LDAP using the System Console user interface</strong><ul>
-<li>Start the Mattermost server and create a new account using email and password, which is assigned the System Administrator role as the first user created, then configure AD/LDAP and then convert your System Administror account to use the AD/LDAP sign-in method.</li>
+<li>Start the Mattermost server and create a new account using email and password, which is assigned the System Administrator role as the first user created, then configure AD/LDAP and then convert your System Administrator account to use the AD/LDAP sign-in method.</li>
 </ul>
 </li>
 <li><strong>Configure AD/LDAP by editing <code class="docutils literal"><span class="pre">config.json</span></code></strong><ul>
@@ -218,10 +218,11 @@
 <p>After installing Mattermost:</p>
 <ol class="simple">
 <li><strong>Create a System Administrator account using email authentication</strong>. On a new server create an account using email and password, which is automatically assigned the <strong>System Administrator</strong> role since it is the first account created. You may also assign the role to another account.</li>
-<li><strong>Configure AD/LDAP</strong>. Select <strong>System Console</strong> from the main screen, go to <strong>AD/LDAP</strong> and fill in AD/LDAP settings based on <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html#ldap-settings-enterprise">configuration settings documentation</a></li>
+<li><strong>Configure AD/LDAP</strong>. Select <strong>System Console</strong> from the main screen, go to <strong>AD/LDAP</strong> and fill in AD/LDAP settings based on <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html#ad-ldap">configuration settings documentation</a></li>
 <li><strong>Confirm AD/LDAP sign-on is enabled</strong>.  After AD/LDAP has been enabled, confirm that users can sign in using AD/LDAP credentials.</li>
 <li><strong>Switch your System Administrator account from email to AD/LDAP authentication</strong>. Go to <strong>Account Settings</strong> &gt; <strong>General</strong> &gt; <strong>Sign-in Method</strong> &gt; <strong>Switch to AD/LDAP</strong> and sign-in with your AD/LDAP credentials to complete the switch.</li>
 <li><strong>(Optional) Restrict authentication to AD/LDAP</strong>. Go to <strong>System Console</strong> &gt; <strong>Authentication</strong> &gt; <strong>Email</strong> and set <strong>Allow Sign Up With Email</strong> to <code class="docutils literal"><span class="pre">false</span></code> and <strong>Allow Sign In With Email</strong> to <code class="docutils literal"><span class="pre">false</span></code>. This should leave Active Directory/LDAP as the only single sign-in option.</li>
+<li>(Optional) If you configured First Name Attribute and Last Name Attribute in the System Console, go to <strong>System Console &gt; General &gt; Users and Teams</strong> and set <strong>Teammate Name Display</strong> to <em>Show first and last name</em>. This is recommended for a better user experience.</li>
 </ol>
 <p>If you&#8217;ve made a mistake and lock yourself out of the system somehow, you can <a class="reference external" href="http://docs.mattermost.com/deployment/on-boarding.html#creating-system-administrator-account-from-commandline">set an existing account to System Administrator using the commandline tool</a>.</p>
 <p>Notes:</p>
@@ -326,7 +327,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

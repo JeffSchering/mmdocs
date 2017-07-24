@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Release Process &mdash; Mattermost 3.10 documentation</title>
+  <title>Release Process &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
         <link rel="next" title="Help Wanted Tickets" href="help-wanted.html"/>
         <link rel="prev" title="Development Process Overview" href="overview.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -128,6 +128,8 @@
 <li class="toctree-l2"><a class="reference internal" href="../guides/core.html#core-developer-handbook">Core Developer Handbook</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#marketing">Marketing</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#partners">Partners</a></li>
 </ul>
 </li>
 </ul>
@@ -362,6 +364,7 @@
 </li>
 <li>Build:<ul>
 <li>Review all <code class="docutils literal"><span class="pre">TODO</span></code> notes, including one for uncommenting upgrade code</li>
+<li>Confirm all PRs in <a class="reference external" href="https://github.com/mattermost/enterprise/pulls"><code class="docutils literal"><span class="pre">/enterprise</span></code></a> repo have been merged.</li>
 <li>Master is tagged and branched and “Release Candidate 1″ is cut (e.g. 3.5.0-RC1) according to the Release Candidate Checklist in <code class="docutils literal"><span class="pre">mattermost/process</span></code></li>
 <li>After branching, the database version in sql_upgrade.go on master is set to the next scheduled release version (e.g. 3.6.0)</li>
 <li>CI servers are updated to the release branch</li>
@@ -420,16 +423,12 @@
 <li>Review PRs made from release branch and merge changes into both the release branch and master</li>
 </ul>
 </li>
-<li>QA:<ul>
-<li>Test RC fixes as they come in on CI servers</li>
-</ul>
-</li>
 <li>Build:<ul>
 <li>Verify with Release Manager before cutting any new RCs (approved fixes should be merged)</li>
 <li>Push next RC to acceptance and announce in Town Square with new RC link</li>
 </ul>
 </li>
-<li>PM:<ul>
+<li>QA:<ul>
 <li>Test the new RC to verify fixes merged to the release branch work</li>
 <li>Post in Release Channel after testing</li>
 </ul>
@@ -466,6 +465,10 @@
 <li>Find <a class="reference external" href="https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests?scope=all&amp;utf8=%E2%9C%93&amp;state=opened&amp;label_name%5B%5D=blog%20post&amp;label_name%5B%5D=release">www-gitlab-com merge request</a> for latest GitLab release blog post and make request for adding GitLab Mattermost update (see <a class="reference external" href="https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests/2910#note_14096885">example request</a>, <a class="reference external" href="https://about.gitlab.com/2016/07/22/gitlab-8-10-released/#gitlab-mattermost-32">example update</a>). Post to Release Discussion channel with link to request.</li>
 </ul>
 </li>
+<li>QA:<ul>
+<li>Organize a mini-release testing spreadsheet for team members to carry out before final version is cut.</li>
+</ul>
+</li>
 </ol>
 </div>
 <div class="section" id="h-t-minus-2-working-days-release-build-cut">
@@ -488,6 +491,7 @@
 <li>Submit GitLab MR to take next Mattermost version in the Omnibus (see <a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab/merge_requests/998">example</a>):<ul>
 <li>Include changes to Mattermost version number (<a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/config/software/mattermost.rb#L20"><code class="docutils literal"><span class="pre">default_version</span></code></a>) and md5 sum of the final TE build (<a class="reference external" href="https://gitlab.com/jasonblais/omnibus-gitlab/blob/master/config/software/mattermost.rb#L23"><code class="docutils literal"><span class="pre">source</span> <span class="pre">md5</span></code></a>) in  <a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/config/software/mattermost.rb"><code class="docutils literal"><span class="pre">config/software/mattermost.rb</span></code></a></li>
 <li>Include a summary of updates in Team Edition that are relevant to GitLab</li>
+<li>Include an update to the <a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/CHANGELOG.md">GitLab changelog</a></li>
 <li>Post a link to the MR in the Release Discussion channel</li>
 </ul>
 </li>
@@ -623,7 +627,10 @@
 </li>
 <li>Logistics:<ul>
 <li>Check for any <a class="reference external" href="https://docs.google.com/spreadsheets/d/1nljd4cFh-9MXF4DxlUnC8b6bdqijkvi8KHquOmK8M6E/edit#gid=0">UserVoice</a> feature suggestions that were completed in the current release.  Find the <a class="reference external" href="https://twitter.com/mattermosthq/status/854781715914555393">release tweet</a> and insert a link to the tweet next to the feature that shipped with the release.</li>
-<li>Post key dates for the next release in the header of the Release Discussion channel and remove links to RC candidates and testing spreadsheet</li>
+<li>Post key dates for the next release in the header of the Release Discussion channel and remove links to RC candidates and testing spreadsheet.<ul>
+<li>Make sure that statutory holidays for Canada and US are accounted for in the release dates.</li>
+</ul>
+</li>
 <li>For the next release, create the following team meetings. If they conflict with existing meetings, check with meeting owner to reschedule or reschedule the release meeting<ul>
 <li>PM Release Update meeting on T-15 at 7:30am San Francisco time</li>
 <li>Major Feature Complete Meeting on T-12 at 10:00am San Francisco time</li>
@@ -827,7 +834,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

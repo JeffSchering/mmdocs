@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Localization &mdash; Mattermost 3.10 documentation</title>
+  <title>Localization &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
         <link rel="next" title="Core Developer Handbook" href="core-developer-handbook.html"/>
         <link rel="prev" title="User Experience Guidelines" href="fx-guidelines.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -114,7 +114,7 @@
 <li class="toctree-l3"><a class="reference internal" href="dev-setup.html">Developer Machine Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobile-developer-setup.html">Mobile Developer Machine Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Development Process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-to-redux.html">Migrating the Webapp to Redux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-component.html">Building a Webapp React Component</a></li>
@@ -213,8 +213,8 @@
 </div>
 <div class="section" id="translations-updates">
 <h2>Translations Updates<a class="headerlink" href="#translations-updates" title="Permalink to this headline">¶</a></h2>
-<p>1 - New and updated strings are imported to the <a class="reference external" href="http://translate.mattermost.com">Mattermost Translation Server</a> each day at 00:00 GMT</p>
-<p>2 - A new pull request with latest translations that reach at least Beta Quality is submitted to the <a class="reference external" href="https://github.com/mattermost/platform">Mattermost Platform Repo</a> each Monday at 22:00 GMT.</p>
+<p>1 - New and updated strings are imported to the <a class="reference external" href="http://translate.mattermost.com">Mattermost Translation Server</a> each day at 00:00 GMT. Strings with a <code class="docutils literal"><span class="pre">mobile</span></code> prefix are imported from the <a class="reference external" href="https://github.com/mattermost/mattermost-mobile">mattermost-mobile</a> project, others are from <a class="reference external" href="https://github.com/mattermost/platform">platform</a>.</p>
+<p>2 - A new pull request with latest translations that reach at least Beta Quality is submitted to both the <a class="reference external" href="https://github.com/mattermost/mattermost-mobile">mattermost-mobile</a> and <a class="reference external" href="https://github.com/mattermost/platform">platform</a> repos each Monday at 22:00 GMT.</p>
 <blockquote>
 <div><ul class="simple">
 <li>A pull request will also be submitted on the day of major feature complete and code complete to ensure latest translations are included in the release.</li>
@@ -290,51 +290,55 @@
 </thead>
 <tbody valign="top">
 <tr class="row-even"><td>Deutsch - German</td>
-<td><a class="reference external" href="https://github.com/meilon">Christian Arnold</a></td>
-<td><a class="reference external" href="https://github.com/der-test">Tim Estermann</a></td>
+<td><a class="reference external" href="https://github.com/meilon">Christian Arnold (meilon)</a></td>
+<td><a class="reference external" href="https://github.com/der-test">Tim Estermann (der-test)</a></td>
 </tr>
 <tr class="row-odd"><td>Español - Spanish</td>
-<td><a class="reference external" href="https://github.com/enahum">Elias Nahum</a></td>
+<td><a class="reference external" href="https://github.com/enahum">Elias Nahum (enahum)</a></td>
 <td>&nbsp;</td>
 </tr>
 <tr class="row-even"><td>Français - French</td>
-<td><a class="reference external" href="https://github.com/wget">William Gathoye</a></td>
-<td><a class="reference external" href="https://github.com/pjgrizel">Pierre-Julien Grizel</a></td>
+<td><a class="reference external" href="https://github.com/wget">William Gathoye (wget)</a></td>
+<td><a class="reference external" href="https://github.com/pjgrizel">Pierre-Julien Grizel (pjgrizel)</a></td>
 </tr>
-<tr class="row-odd"><td>Nederlands - Dutch</td>
-<td>TBD (Open Role)</td>
-<td><a class="reference external" href="https://github.com/rononline">Ron Hartman</a> , <a class="reference external" href="https://github.com/wyleung">Wai Yi Leung</a></td>
-</tr>
-<tr class="row-even"><td>Polski - Poland</td>
-<td><a class="reference external" href="https://github.com/robert843">Robert Japełski</a></td>
+<tr class="row-odd"><td>Italiano - Italian</td>
+<td><a class="reference external" href="https://github.com/mlongo4290">Michael Longo (mlongo4290)</a>, <a class="reference external" href="https://github.com/thepanz">Ema Panz (thepanz)</a></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>Português do Brasil - Portuguese</td>
-<td><a class="reference external" href="https://github.com/rodcorsi">Rodrigo Corsi</a></td>
-<td><a class="reference external" href="https://github.com/cpanato">Carlos Tadeu Panato Junior</a></td>
-</tr>
-<tr class="row-even"><td>Pусский - Russian</td>
+<tr class="row-even"><td>Nederlands - Dutch</td>
 <td>TBD (Open Role)</td>
-<td><a class="reference external" href="https://github.com/archroller">Archie Roller</a> (primary)</td>
+<td><a class="reference external" href="https://github.com/rononline">Ron Hartman (rononline)</a></td>
 </tr>
-<tr class="row-odd"><td>Türkçe - Turkish</td>
+<tr class="row-odd"><td>Polski - Poland</td>
+<td><a class="reference external" href="https://github.com/robert843">Robert Japełski (robert843)</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Português do Brasil - Portuguese</td>
+<td><a class="reference external" href="https://github.com/rodcorsi">Rodrigo Corsi (rodcorsi)</a></td>
+<td><a class="reference external" href="https://github.com/cpanato">Carlos Tadeu Panato Junior (cpanato)</a></td>
+</tr>
+<tr class="row-odd"><td>Pусский - Russian</td>
+<td>TBD (Open Role)</td>
+<td><a class="reference external" href="https://github.com/archroller">Archie Roller (archroller)</a> (primary)</td>
+</tr>
+<tr class="row-even"><td>Türkçe - Turkish</td>
 <td><a class="reference external" href="https://twitter.com/kaya_zeren">Kaya Zeren</a></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>한국어 - Korean</td>
+<tr class="row-odd"><td>한국어 - Korean</td>
 <td>TBD (Open Role)</td>
-<td><a class="reference external" href="https://github.com/cometkim">Hyeseong Kim</a></td>
+<td><a class="reference external" href="https://github.com/cometkim">Hyeseong Kim (cometkim)</a></td>
 </tr>
-<tr class="row-odd"><td>中文 (简体) - Simplified Chinese</td>
+<tr class="row-even"><td>中文 (简体) - Simplified Chinese</td>
 <td><a class="reference external" href="http://translate.mattermost.com/user/aeomin/">aeomin</a></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-even"><td>中文 (繁體) - Traditional Chinese</td>
-<td><a class="reference external" href="https://github.com/chikei">Tze-Kei Lee</a></td>
+<tr class="row-odd"><td>中文 (繁體) - Traditional Chinese</td>
+<td><a class="reference external" href="https://github.com/chikei">Tze-Kei Lee (chikei)</a></td>
 <td>&nbsp;</td>
 </tr>
-<tr class="row-odd"><td>日本語 - Japanese</td>
-<td><a class="reference external" href="https://github.com/ryoon">Ryo Onodera</a> , <a class="reference external" href="https://github.com/kaakaa">Yusuke Nemoto</a></td>
+<tr class="row-even"><td>日本語 - Japanese</td>
+<td><a class="reference external" href="https://github.com/ryoon">Ryo Onodera (ryoon)</a> , <a class="reference external" href="https://github.com/kaakaa">Yusuke Nemoto (kaakaa)</a></td>
 <td>&nbsp;</td>
 </tr>
 </tbody>
@@ -407,7 +411,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

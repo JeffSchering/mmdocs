@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Integrations FAQ &mdash; Mattermost 3.10 documentation</title>
+  <title>Integrations FAQ &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Integration Guide" href="../guides/integration.html"/>
         <link rel="next" title="Embedding Mattermost in other applications" href="../integrations/embedding.html"/>
         <link rel="prev" title="Zapier Integration" href="../integrations/zapier.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api4.html">APIv4 Development Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks-incoming.html">Incoming Webhooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks-outgoing.html">Outgoing Webhooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="slash-commands.html">Slash Commands</a></li>
@@ -124,6 +124,7 @@
 <li class="toctree-l3"><a class="reference internal" href="#what-are-attachments">What are attachments?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#where-can-i-find-existing-integrations">Where can I find existing integrations?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#where-should-i-install-my-integrations">Where should I install my integrations?</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#how-do-i-create-a-bot-account-without-using-webhooks">How do I create a bot account without using webhooks?</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application">How should I automate the install and upgrade of Mattermost when included in another application?</a></li>
 </ul>
 </li>
@@ -214,6 +215,68 @@
 <span id="where-should-i-install-my-integrations"></span><h2>Where should I install my integrations?<a class="headerlink" href="#where-should-i-install-my-integrations" title="Permalink to this headline">¶</a></h2>
 <p>For self-hosted deployments in small setups you might host integrations on the same server on which Mattermost is installed. For larger deployments you can setup a separate server for integrations, or add them to the server on which the external application is hosted&#8211;for example, if you&#8217;re self-hosting a Jira server you could deploy a Jira integration on the Jira server itself.</p>
 <p>When self-hosting restrictions are less strict, AWS, Heroku and other public cloud options could also be used.</p>
+</div>
+<div class="section" id="how-do-i-create-a-bot-account-without-using-webhooks">
+<span id="how-do-i-create-a-bot-account-without-using-webhooks"></span><h2>How do I create a bot account without using webhooks?<a class="headerlink" href="#how-do-i-create-a-bot-account-without-using-webhooks" title="Permalink to this headline">¶</a></h2>
+<p>Deployments that cannot create bot accounts via webhooks due to security reasons can use the following approach:</p>
+<ol>
+<li><p class="first">Create a bot account using a secure email and strong password.</p>
+</li>
+<li><p class="first">Manually add the account to all teams and channels it needs access to. If your deployment has a lot of teams or channels, you may create a CLI script to automate the process.</p>
+<ul class="simple">
+<li>In a testing environment, you may also make the bot account a System Admin, giving the bot permissions to post to any channel. Not recommended in production due to potential security vulnerabilities.</li>
+</ul>
+</li>
+<li><p class="first">Provide the email and password to your integration, and store it in a secure location with restricted access.</p>
+</li>
+<li><p class="first">Have your integration use the email and password with an <a class="reference external" href="https://api.mattermost.com/v4/#tag/authentication"><code class="docutils literal"><span class="pre">/api/v4/login</span></code></a> endpoint to retrieve a session token. The session token is used to authenticate to the Mattermost system.</p>
+<ul>
+<li><p class="first">Set up your bot to make an HTTP POST to <code class="docutils literal"><span class="pre">your-mattermost-url.com/api/v4/users/login</span></code> with a JSON body, including the bot account&#8217;s email and password.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">POST</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v4</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">login</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">your</span><span class="o">-</span><span class="n">mattermost</span><span class="o">-</span><span class="n">url</span><span class="o">.</span><span class="n">com</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">66</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span>
+
+<span class="p">{</span><span class="s2">&quot;login_id&quot;</span><span class="p">:</span><span class="s2">&quot;someone@nowhere.com&quot;</span><span class="p">,</span><span class="s2">&quot;password&quot;</span><span class="p">:</span><span class="s2">&quot;thisisabadpassword&quot;</span><span class="p">}</span>
+</pre></div>
+</div>
+<p>where we assume there is a Mattermost instance running at http://localhost:8065.</p>
+</li>
+<li><p class="first">If successful, the response will contain a <code class="docutils literal"><span class="pre">Token</span></code> header and a user object in the body:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span> <span class="mi">200</span> <span class="n">OK</span>
+<span class="n">Set</span><span class="o">-</span><span class="n">Cookie</span><span class="p">:</span> <span class="n">MMSID</span><span class="o">=</span><span class="n">hyr5dmb1mbb49c44qmx4whniso</span><span class="p">;</span> <span class="n">Path</span><span class="o">=/</span><span class="p">;</span> <span class="n">Max</span><span class="o">-</span><span class="n">Age</span><span class="o">=</span><span class="mi">2592000</span><span class="p">;</span> <span class="n">HttpOnly</span>
+<span class="n">Token</span><span class="p">:</span> <span class="n">hyr5dmb1mbb49c44qmx4whniso</span>
+<span class="n">X</span><span class="o">-</span><span class="n">Ratelimit</span><span class="o">-</span><span class="n">Limit</span><span class="p">:</span> <span class="mi">10</span>
+<span class="n">X</span><span class="o">-</span><span class="n">Ratelimit</span><span class="o">-</span><span class="n">Remaining</span><span class="p">:</span> <span class="mi">9</span>
+<span class="n">X</span><span class="o">-</span><span class="n">Ratelimit</span><span class="o">-</span><span class="n">Reset</span><span class="p">:</span> <span class="mi">1</span>
+<span class="n">X</span><span class="o">-</span><span class="n">Request</span><span class="o">-</span><span class="n">Id</span><span class="p">:</span> <span class="n">smda55ckcfy89b6tia58shk5fh</span>
+<span class="n">X</span><span class="o">-</span><span class="n">Version</span><span class="o">-</span><span class="n">Id</span><span class="p">:</span> <span class="n">developer</span>
+<span class="n">Date</span><span class="p">:</span> <span class="n">Fri</span><span class="p">,</span> <span class="mi">11</span> <span class="n">Sep</span> <span class="mi">2015</span> <span class="mi">13</span><span class="p">:</span><span class="mi">21</span><span class="p">:</span><span class="mi">14</span> <span class="n">GMT</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Length</span><span class="p">:</span> <span class="mi">657</span>
+<span class="n">Content</span><span class="o">-</span><span class="n">Type</span><span class="p">:</span> <span class="n">application</span><span class="o">/</span><span class="n">json</span><span class="p">;</span> <span class="n">charset</span><span class="o">=</span><span class="n">utf</span><span class="o">-</span><span class="mi">8</span>
+
+<span class="p">{{</span><span class="n">user</span> <span class="nb">object</span> <span class="k">as</span> <span class="n">json</span><span class="p">}}</span>
+</pre></div>
+</div>
+<p>The bot should retrieve the session token from the <code class="docutils literal"><span class="pre">Token</span></code> header and store it in memory for use with future requests.</p>
+</li>
+<li><p class="first">Note: Each session token has an expiry time, set depending on the server&#8217;s configuration. If the session token your bot is using expires, it will receive a 401 Unauthorized response from requests using that token. When your bot receives this response, it should re-apply the login logic (using the above steps) to get another session token. Then re-send the request that received the 401 status code.</p>
+</li>
+</ul>
+</li>
+<li><p class="first">Include the <code class="docutils literal"><span class="pre">Token</span></code> as part of the <code class="docutils literal"><span class="pre">Authorization</span></code> header on API requests from your integration.</p>
+<ul>
+<li><p class="first">To confirm the token works, you can have your bot make a simple <code class="docutils literal"><span class="pre">GET</span></code> request to <code class="docutils literal"><span class="pre">/api/v4/users/me</span></code> with the <code class="docutils literal"><span class="pre">Authorization:</span> <span class="pre">bearer</span> <span class="pre">&lt;yourtokenhere&gt;</span></code> in the header. If it returns a 200 with the bot&#8217;s user object in the response, the API request was made successfully.</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">GET</span> <span class="o">/</span><span class="n">api</span><span class="o">/</span><span class="n">v4</span><span class="o">/</span><span class="n">users</span><span class="o">/</span><span class="n">me</span> <span class="n">HTTP</span><span class="o">/</span><span class="mf">1.1</span>
+<span class="n">Authorization</span><span class="p">:</span> <span class="n">bearer</span> <span class="o">&lt;</span><span class="n">yourtokenhere</span><span class="o">&gt;</span>
+<span class="n">Host</span><span class="p">:</span> <span class="n">your</span><span class="o">-</span><span class="n">mattermost</span><span class="o">-</span><span class="n">url</span><span class="o">.</span><span class="n">com</span>
+</pre></div>
+</div>
+</li>
+</ul>
+</li>
+</ol>
+<p>Note: The Mattermost development team is also working on an <a class="reference external" href="https://docs.google.com/document/d/1ey4eNQmwK410pNTvlnmMWTa1fqtj8MV4d9XkCumI384">API developer token</a>, which allows you to authenticate the bot account via the API token rather than retrieving a session token from a user account.</p>
 </div>
 <div class="section" id="how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application">
 <span id="how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application"></span><h2>How should I automate the install and upgrade of Mattermost when included in another application?<a class="headerlink" href="#how-should-i-automate-the-install-and-upgrade-of-mattermost-when-included-in-another-application" title="Permalink to this headline">¶</a></h2>
@@ -311,7 +374,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

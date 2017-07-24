@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Upgrading Mattermost Server &mdash; Mattermost 3.10 documentation</title>
+  <title>Upgrading Mattermost Server &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
         <link rel="next" title="Migration Guide" href="migrating.html"/>
         <link rel="prev" title="Backup &amp; Disaster Recovery" href="backup.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -232,13 +232,14 @@ rm -r mattermost
 </ol>
 <blockquote>
 <div><code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xzf</span> <span class="pre">mattermost*.gz</span></code></div></blockquote>
-<ol class="arabic simple" start="6">
-<li>Make a copy of your configuration file. The existing file is overwritten during the upgrade, so it&#8217;s important that you don&#8217;t forget this step.</li>
-</ol>
+<ol class="arabic" start="6">
+<li><p class="first">Make a copy of your configuration file. The existing file is overwritten during the upgrade, so it&#8217;s important that you don&#8217;t forget this step.</p>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">cp</span> <span class="pre">{install-path}/mattermost/config/config.json</span> <span class="pre">config.json</span></code></div></blockquote>
-<ol class="arabic simple" start="7">
-<li>Stop Mattermost Server.</li>
+<div><p><code class="docutils literal"><span class="pre">cp</span> <span class="pre">{install-path}/mattermost/config/config.json</span> <span class="pre">config.json</span></code></p>
+</div></blockquote>
+</li>
+<li><p class="first">Stop Mattermost Server.</p>
+</li>
 </ol>
 <blockquote>
 <div><p>On Ubuntu 14.04 and RHEL 6.6: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">mattermost</span> <span class="pre">stop</span></code></p>
@@ -307,10 +308,10 @@ rm -r mattermost
 <div class="section" id="mattermost-enterprise-edition-supported-versions">
 <h3>Mattermost Enterprise Edition - Supported Versions<a class="headerlink" href="#mattermost-enterprise-edition-supported-versions" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Mattermost Enterprise Edition v4.0.0 - <a class="reference external" href="./changelog.html#release-v4-0-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/4.0.0/mattermost-4.0.0-linux-amd64.tar.gz">Download</a></dt>
+<dt>Mattermost Enterprise Edition v4.0.1 - <a class="reference external" href="./changelog.html#release-v4-0-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/4.0.1/mattermost-4.0.1-linux-amd64.tar.gz">Download</a></dt>
 <dd><ul class="first last simple">
-<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/4.0.0/mattermost-4.0.0-linux-amd64.tar.gz</span></code></li>
-<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">ff81595ac82679f208709cd0a4367396f0f49fbb4bb2c439a3fced8ab020731e</span></code></li>
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/4.0.1/mattermost-4.0.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">dc675eae9bcc0dd465e6e8286c4b513a7117616591ed978bb251ae6d25fc3087</span></code></li>
 </ul>
 </dd>
 <dt>Mattermost Enterprise Edition v3.10.1 - <a class="reference external" href="./changelog.html#release-v3-10-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.10.1/mattermost-3.10.1-linux-amd64.tar.gz">Download</a></dt>
@@ -401,10 +402,10 @@ rm -r mattermost
 <div class="section" id="mattermost-team-edition-server-archive-supported-versions">
 <h3>Mattermost Team Edition Server Archive - Supported Versions<a class="headerlink" href="#mattermost-team-edition-server-archive-supported-versions" title="Permalink to this headline">¶</a></h3>
 <dl class="docutils">
-<dt>Mattermost Team Edition v4.0.0 - <a class="reference external" href="./changelog.html#release-v4-0-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/4.0.0/mattermost-team-4.0.0-linux-amd64.tar.gz">Download</a></dt>
+<dt>Mattermost Team Edition v4.0.1 - <a class="reference external" href="./changelog.html#release-v4-0-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/4.0.1/mattermost-team-4.0.1-linux-amd64.tar.gz">Download</a></dt>
 <dd><ul class="first last simple">
-<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/4.0.0/mattermost-team-4.0.0-linux-amd64.tar.gz</span></code></li>
-<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">23cd9b44af336443260016dfbd6d6dfd95226cb0aaedbfef0681183150ad5996</span></code></li>
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/4.0.1/mattermost-team-4.0.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">55591dcbba490617b5d754316d9c76515770e53146ac293c830704d8a55fc53a</span></code></li>
 </ul>
 </dd>
 <dt>Mattermost Team Edition v3.10.1 - <a class="reference external" href="./changelog.html#release-v3-10-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.10.1/mattermost-team-3.10.1-linux-amd64.tar.gz">Download</a></dt>
@@ -428,6 +429,12 @@ rm -r mattermost
 <dd><ul class="first last simple">
 <li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.8.3/mattermost-team-3.8.3-linux-amd64.tar.gz</span></code></li>
 <li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">1a5de4052c007c54fce6cd844ab3e89aabc8d1a05b8bac72ef58f6896760c4e1</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.7.5 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-7-5">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.7.5/mattermost-team-3.7.5-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.7.5/mattermost-team-3.7.5-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">eaee6a57ab9e2924f71853cbebf465d63f7dbf1112716c0e4768984de39f83a2</span></code></li>
 </ul>
 </dd>
 <dt>Mattermost Team Edition v3.6.7 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-6-7">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.6.7/mattermost-team-3.6.7-linux-amd64.tar.gz">Download</a></dt>
@@ -602,7 +609,7 @@ rm -r mattermost
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

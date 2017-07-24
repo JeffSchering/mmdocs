@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Configure SAML with Microsoft ADFS &mdash; Mattermost 3.10 documentation</title>
+  <title>Configure SAML with Microsoft ADFS &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="SAML Single-Sign-On (E20)" href="sso-saml.html"/>
         <link rel="next" title="Scaling for Enterprise" href="scaling.html"/>
         <link rel="prev" title="Configure SAML with OneLogin" href="sso-saml-onelogin.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -433,13 +433,14 @@
 <div><img alt="../_images/adfs_25_mattermost_attributes.PNG" src="../_images/adfs_25_mattermost_attributes.PNG" />
 </div></blockquote>
 <ol class="arabic simple" start="5">
-<li>(Optional) Lastly, customize the login button text.</li>
+<li>(Optional) Customize the login button text.</li>
 </ol>
 <blockquote>
 <div><img alt="../_images/adfs_26_mattermost_login_button.PNG" src="../_images/adfs_26_mattermost_login_button.PNG" />
 </div></blockquote>
 <ol class="arabic simple" start="6">
 <li>Click <strong>Save</strong>.</li>
+<li>(Optional) If you configured First Name Attribute and Last Name Attribute, go to <strong>System Console &gt; General &gt; Users and Teams</strong> and set <strong>Teammate Name Display</strong> to <em>Show first and last name</em>. This is recommended for a better user experience.</li>
 </ol>
 <p>You’re done! If you’d like to confirm SAML SSO is successfully enabled, switch your System Administrator account from email to SAML-based authentication via <strong>Account Settings &gt; General &gt; Sign-in Method &gt; Switch to SAML SSO</strong> and sign in with your SAML credentials to complete the switch.</p>
 <p>It is also recommended to post an announcement about how the migration will work to users.</p>
@@ -548,7 +549,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

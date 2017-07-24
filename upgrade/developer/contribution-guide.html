@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Code Contribution Guidelines &mdash; Mattermost 3.10 documentation</title>
+  <title>Code Contribution Guidelines &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
         <link rel="next" title="Developer Machine Setup" href="dev-setup.html"/>
         <link rel="prev" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -121,7 +121,7 @@
 <li class="toctree-l3"><a class="reference internal" href="dev-setup.html">Developer Machine Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="mobile-developer-setup.html">Mobile Developer Machine Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Development Process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-to-redux.html">Migrating the Webapp to Redux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-component.html">Building a Webapp React Component</a></li>
@@ -230,9 +230,9 @@
 <li>If change requires user to understand a new concept or make a decision, PR for help documentation is submitted to <a class="reference external" href="https://github.com/mattermost/docs">mattermost/docs</a>.</li>
 <li>Change is thoroughly tested. If your change involves text processing, make sure to at least run markdown loadtests in <a class="reference external" href="https://github.com/mattermost/platform/tree/master/tests"><code class="docutils literal"><span class="pre">/tests</span></code></a> before submitting the PR. To run the loadtests:<ul>
 <li>Go to <strong>System Console</strong> &gt; <strong>Developer</strong> and set <strong>Enable Testing Commands</strong> to true</li>
-<li>Run <code class="docutils literal"><span class="pre">/loadtest</span> <span class="pre">url</span> <span class="pre">test-markdown-basics.md</span></code> and follow the instructions</li>
-<li>Run <code class="docutils literal"><span class="pre">/loadtest</span> <span class="pre">url</span> <span class="pre">test-markdown-lists.md</span></code> and follow the instructions</li>
-<li>Run <code class="docutils literal"><span class="pre">/loadtest</span> <span class="pre">url</span> <span class="pre">test-tables.md</span></code> and follow the instructions</li>
+<li>Run <code class="docutils literal"><span class="pre">/test</span> <span class="pre">url</span> <span class="pre">test-markdown-basics.md</span></code> and follow the instructions</li>
+<li>Run <code class="docutils literal"><span class="pre">/test</span> <span class="pre">url</span> <span class="pre">test-markdown-lists.md</span></code> and follow the instructions</li>
+<li>Run <code class="docutils literal"><span class="pre">/test</span> <span class="pre">url</span> <span class="pre">test-tables.md</span></code> and follow the instructions</li>
 </ul>
 </li>
 <li>Confirm you have <a class="reference external" href="http://git-scm.com/book/en/v2/Git-Tools-Rewriting-History#Squashing-Commits">squashed your commits</a>.</li>
@@ -354,7 +354,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

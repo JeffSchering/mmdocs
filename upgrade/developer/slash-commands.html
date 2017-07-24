@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Slash Commands &mdash; Mattermost 3.10 documentation</title>
+  <title>Slash Commands &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Mattermost Integration Guide" href="../guides/integration.html"/>
         <link rel="next" title="Message Attachments" href="message-attachments.html"/>
         <link rel="prev" title="Outgoing Webhooks" href="webhooks-outgoing.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -109,7 +109,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
 <li class="toctree-l2"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
-<li class="toctree-l2"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api4.html">APIv4 Development Process</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks-incoming.html">Incoming Webhooks</a></li>
 <li class="toctree-l2"><a class="reference internal" href="webhooks-outgoing.html">Outgoing Webhooks</a></li>
 <li class="toctree-l2 current"><a class="current reference internal" href="#">Slash Commands</a><ul>
@@ -181,14 +181,15 @@
             
   <div class="section" id="slash-commands">
 <span id="id1"></span><h1>Slash Commands<a class="headerlink" href="#slash-commands" title="Permalink to this headline">¶</a></h1>
-<p>Slash commands, like outgoing webhooks, allow users to interact with external applications right from within Mattermost. The user will enter a <code class="docutils literal"><span class="pre">/</span></code> followed by a command, and optionally some arguments, then an HTTP request will be sent to an external application. What occurs next is decided by how the application responds to the HTTP request.</p>
-<p>A couple key points:</p>
+<p>Slash commands, like <a class="reference internal" href="webhooks-outgoing.html"><span class="doc">Outgoing Webhooks</span></a>, allow users to interact with external applications right from within Mattermost. The user will enter a <code class="docutils literal"><span class="pre">/</span></code> followed by a command, and optionally some arguments, then an HTTP request will be sent to an external application. What occurs next is decided by how the application responds to the HTTP request.</p>
+<p>A couple of key points:</p>
 <ul class="simple">
-<li><strong>Mattermost slash commands are Slack-compatible.</strong> If you&#8217;ve used Slack&#8217;s slash commands to interact with external applications, you can reuse those same applications with Mattermost. Mattermost will automatically translate Slack&#8217;s proprietary JSON payload format into markdown to render in Mattermost messages</li>
-<li><strong>Custom commands support auto-complete.</strong> When you a create a custom command for your teammates, you have the option to fill in information about how auto-complete should work with that command. This gives your teammates quick and easy access to use your custom slash command</li>
+<li><strong>The general concept is the same as for outgoing webhooks.</strong> Read about <a class="reference internal" href="webhooks-outgoing.html"><span class="doc">Outgoing Webhooks</span></a> first to understand the basic concept.</li>
+<li><strong>Mattermost slash commands are Slack-compatible.</strong> If you have used Slack&#8217;s slash commands previously to interact with external applications, you can reuse those same applications with Mattermost. Mattermost will automatically translate Slack&#8217;s proprietary JSON payload format.</li>
+<li><strong>Custom commands support auto-complete.</strong> When you create a custom command for your teammates, you have the option to fill in information about how auto-complete should work with that command. This gives your teammates quick and easy access to use your custom slash command.</li>
 </ul>
 <p><strong>Example:</strong></p>
-<p>Suppose you had an external application that had the ability to check the weather for certain cities. By creating a custom slash command, and setting up the application to handle the HTTP POST or GET from the command, you could allow your users to check the weather in their city using your command. For example, a user might be able to type:</p>
+<p>Suppose you have an external application that is able to check the weather for certain cities. By creating a custom slash command, and setting up the application to handle the HTTP POST or GET from the command, you could allow your users to check the weather in their city using your command. For example, a user might be able to type:</p>
 <p><code class="docutils literal"><span class="pre">/weather</span> <span class="pre">toronto</span> <span class="pre">week</span></code></p>
 <p>Your external weather application would receive an HTTP request letting it know the user is interested in Toronto and would like to know the weather for the week. The application could simply respond to the HTTP request with the following JSON payload:</p>
 <div class="highlight-Text"><div class="highlight"><pre><span></span>{&quot;response_type&quot;: &quot;in_channel&quot;, &quot;text&quot;: &quot;
@@ -213,11 +214,11 @@
 <div class="section" id="built-in-commands">
 <h2>Built-in Commands<a class="headerlink" href="#built-in-commands" title="Permalink to this headline">¶</a></h2>
 <p>Each Mattermost installation comes with some built-in slash commands that are ready to use. These commands are listed below:</p>
-<img alt="Summary of the built-in slash commands" src="../_images/slashCommandsTable.PNG" />
+<img alt="Summary of the built-in slash commands" src="developer\../images/slashCommandsTable.PNG" />
 </div>
 <div class="section" id="enabling-custom-commands">
 <h2>Enabling Custom Commands<a class="headerlink" href="#enabling-custom-commands" title="Permalink to this headline">¶</a></h2>
-<p>Custom slash commands are off by default, and can be enabled by the system administrator. If you are the system administrator you can enable them by doing the following:</p>
+<p>Custom slash commands are off by default. The feature can be enabled by the system administrator only. If you are the system administrator you can enable them by doing the following:</p>
 <ol class="arabic simple">
 <li>Login to your Mattermost team account that has the system administrator role.</li>
 <li>Navigate to <strong>System Console &gt; Integrations &gt; Custom Integrations</strong>.</li>
@@ -405,7 +406,7 @@ user_name=somename
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true

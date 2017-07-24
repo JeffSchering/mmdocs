@@ -9,7 +9,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>Installing Developer Components on Mac OS X &mdash; Mattermost 3.10 documentation</title>
+  <title>Installing Developer Components on Mac OS X &mdash; Mattermost 4.0 documentation</title>
   
 
   
@@ -36,7 +36,7 @@
 
   
         <link rel="search" title="Search" href="../search.html"/>
-    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+    <link rel="top" title="Mattermost 4.0 documentation" href="../index.html"/>
         <link rel="up" title="Developer Machine Setup" href="dev-setup.html"/>
         <link rel="next" title="Installing Developer Components on Archlinux" href="dev-setup-archlinux.html"/>
         <link rel="prev" title="Installing Developer Components on Ubuntu 16.04" href="dev-setup-ubuntu-1604.html"/>
@@ -81,7 +81,7 @@
             
             
               <div class="version">
-                3.10
+                4.0
               </div>
             
           
@@ -122,7 +122,7 @@
 </li>
 <li class="toctree-l3"><a class="reference internal" href="mobile-developer-setup.html">Mobile Developer Machine Setup</a></li>
 <li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
-<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Development Process</a></li>
 <li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-to-redux.html">Migrating the Webapp to Redux</a></li>
 <li class="toctree-l3"><a class="reference internal" href="webapp-component.html">Building a Webapp React Component</a></li>
@@ -202,18 +202,12 @@
 <div><code class="docutils literal"><span class="pre">127.0.0.1</span>&#160;&#160;&#160;&#160; <span class="pre">dockerhost</span></code></div></blockquote>
 </div></blockquote>
 <ol class="arabic simple" start="2">
-<li>Download and install Brew, which you&#8217;ll use for installing Node.js and Go. Follow the Brew installation instructions at <a class="reference external" href="https://brew.sh/">https://brew.sh/</a></li>
-<li>Install Node.js.</li>
+<li>Download and install Brew, which you&#8217;ll use for installing dependencies. Follow the Brew installation instructions at <a class="reference external" href="https://brew.sh/">https://brew.sh/</a></li>
+<li>Install Node.js, Yarn, libpng, and Go:</li>
 </ol>
 <blockquote>
-<div><code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">node</span></code></div></blockquote>
+<div><code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">node</span> <span class="pre">yarn</span> <span class="pre">libpng</span> <span class="pre">go</span></code></div></blockquote>
 <ol class="arabic simple" start="4">
-<li>Install Yarn. Go to <a class="reference external" href="https://yarnpkg.com/en/docs/install#mac-tab">https://yarnpkg.com/en/docs/install#mac-tab</a> and follow the installation instructions.</li>
-<li>Install Go.</li>
-</ol>
-<blockquote>
-<div><code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">go</span></code></div></blockquote>
-<ol class="arabic simple" start="6">
 <li>Set up your Go workspace:</li>
 </ol>
 <blockquote>
@@ -235,7 +229,7 @@
 <blockquote>
 <div><code class="docutils literal"><span class="pre">source</span> <span class="pre">~/.bashprofile</span></code></div></blockquote>
 </div></blockquote>
-<ol class="arabic simple" start="7">
+<ol class="arabic simple" start="5">
 <li>Fork Mattermost on GitHub from <a class="reference external" href="https://github.com/mattermost/platform">https://github.com/mattermost/platform</a>.</li>
 <li>Download the Mattermost code from your forked repository:</li>
 </ol>
@@ -324,7 +318,7 @@
     <script type="text/javascript">
         var DOCUMENTATION_OPTIONS = {
             URL_ROOT:'../',
-            VERSION:'3.10',
+            VERSION:'4.0',
             COLLAPSE_INDEX:false,
             FILE_SUFFIX:'.html',
             HAS_SOURCE:  true
