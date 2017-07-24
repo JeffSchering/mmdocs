@@ -1,0 +1,384 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Organizing Conversations &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Searching" href="searching.html"/>
+        <link rel="prev" title="Configuring Notifications" href="configuring-notifications.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="signing-in.html">Signing in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="messaging-basics.html">Messaging Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-notifications.html">Configuring Notifications</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Organizing Conversations</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#channel-types">Channel Types</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#managing-channels">Managing Channels</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="searching.html">Searching</a></li>
+<li class="toctree-l3"><a class="reference internal" href="creating-teams.html">Creating Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-members.html">Managing Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="organizing.html">Organizing Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/desktop-guide.html">Using Mattermost Desktop App</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Organizing Conversations</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/organizing-conversations.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="organizing-conversations">
+<h1>Organizing Conversations<a class="headerlink" href="#organizing-conversations" title="Permalink to this headline">¶</a></h1>
+<hr class="docutils" />
+<div class="section" id="channel-types">
+<h2>Channel Types<a class="headerlink" href="#channel-types" title="Permalink to this headline">¶</a></h2>
+<p>Channels are used to organize conversations across different topics. There are three types of channels: Public Channels, Private Channels, and Direct Messages.</p>
+<div class="section" id="public-channels">
+<h3>Public Channels<a class="headerlink" href="#public-channels" title="Permalink to this headline">¶</a></h3>
+<p>Public Channels are open to everyone on a team. New team members are automatically added to two Public Channels when they sign up: Town Square and Off-Topic.</p>
+</div>
+<div class="section" id="private-channels">
+<h3>Private Channels<a class="headerlink" href="#private-channels" title="Permalink to this headline">¶</a></h3>
+<p>Private Channels are for sensitive topics and are only visible to select team members. Any member of a Private Channel can add additional members. Channel members can choose to leave at any time, but only the channel owner or <a class="reference external" href="http://docs.mattermost.com/help/getting-started/managing-members.html#user-roles">Team Admin</a> can remove other members.</p>
+</div>
+<div class="section" id="direct-messages-and-group-messages">
+<h3>Direct Messages and Group Messages<a class="headerlink" href="#direct-messages-and-group-messages" title="Permalink to this headline">¶</a></h3>
+<p>Direct Messages are for conversations between two people. Group Messages are Direct Messages that have conversations among three or more people. Both are visible only to the people involved.</p>
+<p>Use a Direct Message when you want a private conversation with one other person. Use a Group Message when you want to quickly set up a conversation with up to seven other participants. If you want more than that, you must create a Private Channel.</p>
+<p>If your System Administrator has allowed it, you can start a Direct Message or a Group Message with people on other teams, not just your own.</p>
+<p>There is also an online status indicator next to the names in the Direct Message list. It displays: online (active browser), away (no browser activity for 5 minutes), and offline (browser closed).</p>
+</div>
+</div>
+<div class="section" id="managing-channels">
+<h2>Managing Channels<a class="headerlink" href="#managing-channels" title="Permalink to this headline">¶</a></h2>
+<p>Channels can be created, joined, renamed, left and deleted.</p>
+<div class="section" id="creating-a-channel">
+<h3>Creating a Channel<a class="headerlink" href="#creating-a-channel" title="Permalink to this headline">¶</a></h3>
+<p>Create a new Public Channel or Private Channel by selecting the <strong>+</strong> symbol next to the <em>Channels</em> or <em>Private Channels</em> header on the left hand side. To start a direct message thread, click <strong>More</strong> at the bottom of the <em>Direct Messages</em> list to view a list of team members you can message.</p>
+<p>Anyone can create Public Channels or Private Channels, unless the System Administrator has <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-public-channel-creation-for">restricted the permissions</a>.</p>
+</div>
+<div class="section" id="joining-a-channel">
+<h3>Joining a Channel<a class="headerlink" href="#joining-a-channel" title="Permalink to this headline">¶</a></h3>
+<p>Click <strong>More</strong> at the bottom of the <em>Channels</em> list to view a list of Public Channels you can join. To join a Private Channel you need to be added by a member of that channel.</p>
+</div>
+<div class="section" id="adding-members-to-a-channel">
+<h3>Adding Members to a Channel<a class="headerlink" href="#adding-members-to-a-channel" title="Permalink to this headline">¶</a></h3>
+<p>Click the channel name at the top of the center pane to access the drop-down menu, then click <strong>Add Members</strong>. Any member of a channel can add new members by clicking <strong>Add</strong> next to a user&#8217;s name. Users already added to the channel will not appear in this modal.</p>
+</div>
+<div class="section" id="removing-members-from-a-channel">
+<h3>Removing Members from a Channel<a class="headerlink" href="#removing-members-from-a-channel" title="Permalink to this headline">¶</a></h3>
+<p>Click the channel name at the top of the center pane to access the drop-down menu, then click <strong>Manage Members</strong>. Any member of a channel can remove other members by clicking <strong>Remove</strong> next to a user&#8217;s name.</p>
+</div>
+<div class="section" id="renaming-a-channel">
+<h3>Renaming a Channel<a class="headerlink" href="#renaming-a-channel" title="Permalink to this headline">¶</a></h3>
+<p>Click the channel name at the top of the center pane to access the drop-down menu, then click <strong>Rename Channel</strong>. Anyone can rename the channels they belong to, unless the System Administrator has <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-public-channel-renaming-for">restricted the permissions</a>.</p>
+<p>You may also change the channel URL (also known as the channel handle) when renaming a channel. Changing channel URL may break existing links.</p>
+</div>
+<div class="section" id="leaving-a-channel">
+<h3>Leaving a Channel<a class="headerlink" href="#leaving-a-channel" title="Permalink to this headline">¶</a></h3>
+<p>Click the channel name at the top of the center pane to access the drop-down menu, then click <strong>Leave Channel</strong>. Any team member who leaves a Private Channel must be re-added by a channel member if they wish to rejoin. Team members will not receive mention notifications from channels of which they are not members.</p>
+</div>
+<div class="section" id="deleting-a-channel">
+<h3>Deleting a Channel<a class="headerlink" href="#deleting-a-channel" title="Permalink to this headline">¶</a></h3>
+<p>Click the channel name at the top of the center pane to access the drop-down menu, then click <strong>Delete Channel</strong>. Anyone can delete the Public Channels or Private Channels they belong to, unless the System Administrator has <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-public-channel-deletion-for">restricted the permissions</a>.</p>
+<p>When a channel is deleted it is removed from the user interface, but an archived copy exists on the server in case it is needed for audit reasons later. Because of this, the URL of a newly created channel cannot be the same URL name as a deleted channel.</p>
+</div>
+<div class="section" id="favoriting-a-channel">
+<h3>Favoriting a Channel<a class="headerlink" href="#favoriting-a-channel" title="Permalink to this headline">¶</a></h3>
+<p>Favorite channels are a great way to organize your sidebar by choosing which Channels, Private Channels, and Direct Messages are most important to you.</p>
+<p>To mark a channel as a favorite, simply open the channel and then:</p>
+<p><strong>On desktop:</strong> At the top of the page, click on the star next to the channel name</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/favorite_channels_desktop.png"><img alt="../../_images/favorite_channels_desktop.png" src="../../_images/favorite_channels_desktop.png" style="width: 291.9px; height: 103.6px;" /></a>
+</div></blockquote>
+<p><strong>On mobile:</strong> Open the dropdown list by the channel name, and select &#8220;Add to Favorites&#8221;</p>
+<p>This will add the channel to a &#8220;Favorites&#8221; section in the top of the sidebar, so it&#8217;s easy to access. To remove a channel from the &#8220;Favorites&#8221; section, click the star again on desktop or select &#8220;Remove from Favorites&#8221; on mobile.</p>
+<blockquote>
+<div><a class="reference internal image-reference" href="../../_images/favorite_channels_sidebar.png"><img alt="../../_images/favorite_channels_sidebar.png" src="../../_images/favorite_channels_sidebar.png" style="width: 308.0px; height: 375.9px;" /></a>
+</div></blockquote>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="searching.html" class="btn btn-neutral float-right" title="Searching" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="configuring-notifications.html" class="btn btn-neutral" title="Configuring Notifications" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/organizing-conversations.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

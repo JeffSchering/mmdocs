@@ -1,0 +1,415 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Upgrading to version 2.0 &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Upgrading to version 2.0</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/administration/upgrading-to-2.0.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="upgrading-to-version-2-0">
+<h1>Upgrading to version 2.0<a class="headerlink" href="#upgrading-to-version-2-0" title="Permalink to this headline">¶</a></h1>
+<p>To upgrade an early edition of Mattermost to the latest edition, you must first upgrade in a specific sequence until you get to version 2.0.0. After that, you must upgrade to version 3.0.3, and from there you can upgrade directly to the latest Mattermost version.</p>
+<p>Read these instructions carefully from start to finish. Make sure that you understand each step before starting the upgrade. If you have questions or concerns, you can ask on the Mattermost forum at <a class="reference external" href="https://forum.mattermost.org/">https://forum.mattermost.org/</a> or in the Mattermost <em>Peer-to-peer Help</em> channel at <a class="reference external" href="https://pre-release.mattermost.com/core/channels/peer-to-peer-help">https://pre-release.mattermost.com/core/channels/peer-to-peer-help</a>.</p>
+<p>You should gather the following information before starting the upgrade:</p>
+<dl class="docutils">
+<dt>Existing install directory - <em>{install-path}</em></dt>
+<dd>If you don&#8217;t know where Mattermost Server is installed, use the <code class="docutils literal"><span class="pre">whereis</span> <span class="pre">platform</span></code> command. The output should be similar to <em>/opt/mattermost/bin/platform</em>. The install directory is everything before the last occurrence of the string <em>/mattermost</em>. In this example, the <em>{install-path}</em> is <code class="docutils literal"><span class="pre">/opt</span></code>.</dd>
+<dt>Location of your local storage directory</dt>
+<dd>The local storage directory contains all the files that users have attached to their messages. If you don&#8217;t know its location, open the System Console and go to <strong>Files &gt; Storage</strong> and read the value in <strong>Local Storage Directory</strong>. Relative paths are relative to the <code class="docutils literal"><span class="pre">mattermost</span></code> directory. For example, if the local storage directory is <code class="docutils literal"><span class="pre">./data/</span></code> then the absolute path is <code class="docutils literal"><span class="pre">{install-path}/mattermost/data</span></code>.</dd>
+<dt>Owner and group of the install directory - <em>{owner}</em> and <em>{group}</em></dt>
+<dd>Use the <code class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">{install-path}/mattermost/bin/platform</span></code> command to get the owner and group.</dd>
+</dl>
+<p><strong>To upgrade to version 2.0</strong>:</p>
+<ol class="arabic simple">
+<li>In a terminal window on the server that hosts Mattermost Server, change to your home directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">cd</span> <span class="pre">~</span></code></div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Delete any files and directories that might still exist from a previous download.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-text"><div class="highlight"><pre><span></span>rm mattermost*.gz
+rm -r mattermost
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Download the appropriate version for the upgrade:</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">./platform</span> <span class="pre">-version</span></code> to check the current version.</li>
+<li>Use the following table to determine the appropriate version to download:</li>
+</ol>
+<blockquote>
+<div><table border="1" class="colwidths-auto docutils">
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">From</th>
+<th class="head">To</th>
+<th class="head">Download command</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>1.4.0</td>
+<td>2.0.0</td>
+<td>wget <a class="reference external" href="https://releases.mattermost.com/2.0.0/mattermost-team-2.0.0-linux-amd64.tar.gz">https://releases.mattermost.com/2.0.0/mattermost-team-2.0.0-linux-amd64.tar.gz</a></td>
+</tr>
+<tr class="row-odd"><td>1.3.0</td>
+<td>1.4.0</td>
+<td>wget <a class="reference external" href="https://releases.mattermost.com/1.4.0/mattermost-team-1.4.0-linux-amd64.tar.gz">https://releases.mattermost.com/1.4.0/mattermost-team-1.4.0-linux-amd64.tar.gz</a></td>
+</tr>
+<tr class="row-even"><td>1.2.1</td>
+<td>1.3.0</td>
+<td>wget <a class="reference external" href="https://releases.mattermost.com/1.3.0/mattermost-team-1.3.0-linux-amd64.tar.gz">https://releases.mattermost.com/1.3.0/mattermost-team-1.3.0-linux-amd64.tar.gz</a></td>
+</tr>
+<tr class="row-odd"><td>1.2.0</td>
+<td>1.3.0</td>
+<td>wget <a class="reference external" href="https://releases.mattermost.com/1.3.0/mattermost-team-1.3.0-linux-amd64.tar.gz">https://releases.mattermost.com/1.3.0/mattermost-team-1.3.0-linux-amd64.tar.gz</a></td>
+</tr>
+<tr class="row-even"><td>1.1.1</td>
+<td>1.2.1</td>
+<td>wget <a class="reference external" href="https://releases.mattermost.com/1.2.1/mattermost-team-1.2.1-linux-amd64.tar.gz">https://releases.mattermost.com/1.2.1/mattermost-team-1.2.1-linux-amd64.tar.gz</a></td>
+</tr>
+<tr class="row-odd"><td>1.1.0</td>
+<td>1.2.1</td>
+<td>wget <a class="reference external" href="https://releases.mattermost.com/1.2.1/mattermost-team-1.2.1-linux-amd64.tar.gz">https://releases.mattermost.com/1.2.1/mattermost-team-1.2.1-linux-amd64.tar.gz</a></td>
+</tr>
+<tr class="row-even"><td>1.0.0</td>
+<td>1.2.1</td>
+<td>wget <a class="reference external" href="https://releases.mattermost.com/1.2.1/mattermost-team-1.2.1-linux-amd64.tar.gz">https://releases.mattermost.com/1.2.1/mattermost-team-1.2.1-linux-amd64.tar.gz</a></td>
+</tr>
+</tbody>
+</table>
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>When the download is complete, extract the Mattermost Server files.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xzf</span> <span class="pre">mattermost*.gz</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Make a copy of your configuration file. The existing file is overwritten during the upgrade, so it&#8217;s important that you don&#8217;t forget this step.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">cp</span> <span class="pre">{install-path}/mattermost/config/config.json</span> <span class="pre">config.json</span></code></div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Stop Mattermost Server.</li>
+</ol>
+<blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">mattermost</span> <span class="pre">stop</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Back up your data.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Back up your database using your organization’s standard procedures for backing up MySQL or PostgreSQL.</li>
+<li>If you’re using local file storage, back up the location where files are stored.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Copy the files that you extracted earlier to the install directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">mattermost</span> <span class="pre">{install-path}</span></code></div></blockquote>
+<ol class="arabic simple" start="10">
+<li>Restore your configuration file.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">config.json</span> <span class="pre">{install-path}/mattermost/config</span></code></div></blockquote>
+<ol class="arabic simple" start="11">
+<li>Change ownership of the new files.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">{owner}:{group}</span> <span class="pre">{install-path}/mattermost</span></code></div></blockquote>
+<ol class="arabic simple" start="12">
+<li>Upgrade your <code class="docutils literal"><span class="pre">config.json</span></code> schema: Open the System Console and make a change and then save the change. Your current settings are preserved, and new settings are added with default values.</li>
+<li>If you have TLS set up on your Mattermost server, you must activate the CAP_NET_BIND_SERVICE capability to allow the new Mattermost binary to bind to low ports.</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">{install-path}</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./bin/platform</span></code></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="14">
+<li>Make sure the system is working, then repeat the steps 1 to 13 until version 2.0 is installed and running.</li>
+</ol>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/administration/upgrading-to-2.0.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

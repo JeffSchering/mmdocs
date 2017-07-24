@@ -1,0 +1,483 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Bugs, Feature Ideas, Troubleshooting &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
+        <link rel="next" title="Mattermost Community Content Guidelines" href="marketing-guidelines.html"/>
+        <link rel="prev" title="Help Wanted Tickets" href="help-wanted.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/core.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Development Process Overview</a></li>
+<li class="toctree-l3"><a class="reference internal" href="release-process.html">Release Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="help-wanted.html">Help Wanted Tickets</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Bugs, Feature Ideas, Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-improvements-are-made-to-mattermost">How improvements are made to Mattermost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#drafting-a-ticket-for-new-features">Drafting a Ticket for New Features</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#github-issues-workflow">GitHub Issues Workflow</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="marketing-guidelines.html">Mattermost Community Content Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asset-guidelines.html">Mattermost Asset Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="community-guidelines.html">Mattermost Community Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#core-developer-handbook">Core Developer Handbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/core.html">Core Team Handbook</a> &raquo;</li>
+    
+    <li>Bugs, Feature Ideas, Troubleshooting</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/process/community-systems.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="bugs-feature-ideas-troubleshooting">
+<span id="bugs-feature-ideas-troubleshooting"></span><h1>Bugs, Feature Ideas, Troubleshooting<a class="headerlink" href="#bugs-feature-ideas-troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>Here&#8217;s how to engage with the Mattermost community:</p>
+<ul class="simple">
+<li><strong>Bugs</strong> - <a class="reference external" href="http://www.mattermost.org/filing-issues/">Search for existing bugs and file a GitHub issue if your bug is new</a>.</li>
+<li><strong>Feature Ideas</strong> - <a class="reference external" href="https://www.mattermost.org/feature-ideas/">Add a feature idea to be discussed or upvoted</a>.</li>
+<li><strong>Troubleshoot</strong> - <a class="reference external" href="https://forum.mattermost.org/t/how-to-use-the-troubleshooting-forum/150">Search articles and add topic if issue is new</a>.</li>
+<li><strong>General discussion</strong> - <a class="reference external" href="https://forum.mattermost.org/t/welcome-to-the-mattermost-general-forum/8">Join the Mattermost Forum</a>.</li>
+<li><strong>Contribute code</strong> - Select tickets marked <a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-2244?filter=10101">Accepting Pull Requests</a> (APR) and follow <a class="reference external" href="http://docs.mattermost.com/developer/contribution-guide.html">guidelines to contribute</a>. Join the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/tickets">APR channel</a> to ask questions and discuss your work.</li>
+<li><strong>Contributor and tester discussion</strong> - Contributors and testers can use <a class="reference external" href="https://pre-release.mattermost.com/core">nightly builds server</a> to work on next release.</li>
+<li><strong>Integrations</strong> - <a class="reference external" href="https://www.mattermost.org/share-your-mattermost-projects/">Let us know about your work so we can promote it!</a> Join the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/integrations">Integrations and Apps channel</a> to discuss your project.</li>
+<li><strong>Localization</strong> - Join the <a class="reference external" href="http://translate.mattermost.com/projects/mattermost/">translation server</a> to start translating right away. If your language isn&#8217;t yet started, join our <a class="reference external" href="https://pre-release.mattermost.com/core/channels/localization">Localization channel</a> to request a new language, or to ask general questions and meet others in the community. Join language-specific channels to discuss translation work.</li>
+<li><strong>Approved changes</strong> - See <a class="reference external" href="https://mattermost.atlassian.net/secure/Dashboard.jspa">Jira database</a> to view open, in-progress, resolved and closed tickets.</li>
+<li><strong>Commercial support</strong> - <a class="reference external" href="https://about.mattermost.com/pricing/">Mattermost Enterprise Edition</a> customers can access <a class="reference external" href="https://about.mattermost.com/support/">commercial support</a> based on their subscription option.</li>
+</ul>
+<div class="section" id="how-improvements-are-made-to-mattermost">
+<span id="how-improvements-are-made-to-mattermost"></span><h2>How improvements are made to Mattermost<a class="headerlink" href="#how-improvements-are-made-to-mattermost" title="Permalink to this headline">¶</a></h2>
+<p>Every month, the Mattermost community plans, builds, tests, documents, releases and supports new product improvements for Team Edition to benefit the user community, and the Mattermost Enterprise Team does the same for Enterprise Edition to benefit the subscriber community.</p>
+<ol class="simple">
+<li>When a feature idea is within the scope of Team Edition, as <a class="reference external" href="http://www.mattermost.org/manifesto/#mattermost-teams">defined in the Mattermost Manifesto</a> and considered a priority, a Jira ticket is created to define its implementation:<ol>
+<li>If the change is not complex, an <a class="reference external" href="http://docs.mattermost.com/process/accepting-pull-request.html">Accepting Pull Requests</a> label may be added to the Jira ticket for any developer to contribute the change to the Mattermost Team Edition code base via the <a class="reference external" href="http://docs.mattermost.com/developer/contribution-guide.html">contribution process</a>. <a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-2667?filter=10101">A list of tickets accepting pull requests</a> is offered to all contributors who read the contributor&#8217;s guide, and these provide a steady stream of improvements to Team Edition month after month.</li>
+<li>If change is considered high priority without pre-requisites, a Fix Version may be applied to the Jira ticket for the Mattermost core team or key contributors to add for an upcoming monthly release. Priority decisions are influenced by discussion and voting in the feature idea forum and community systems as well as feedback from key contributors.</li>
+<li>If change is not seen as high priority or has pre-requisites, it is assigned a Fix Version of <code class="docutils literal"><span class="pre">backlog</span></code> and will be considered monthly for inclusion in a future release.</li>
+</ol>
+</li>
+<li>When a feature idea does not fit the scope of Team Edition, as <a class="reference external" href="http://www.mattermost.org/manifesto/#mattermost-teams">defined in the Mattermost Manifesto</a>, but benefits Enterprise Edition subscribers, a similar process as above is undertaken by the Enterprise Team.<ol>
+<li>If change is considered high priority without pre-requisites, a Fix Version may be applied to the Jira ticket for the Mattermost Enterprise Team to add for an upcoming monthly release. Priority decisions are influenced by discussion with Enterprise Edition subscribers, with special attention paid to members of the <a class="reference external" href="https://about.mattermost.com/core-access/">Core Access</a> program.</li>
+<li>If change is not seen as high priority or has pre-requisites, it is assigned a Fix Version of <code class="docutils literal"><span class="pre">backlog</span></code> until this situation changes.</li>
+<li>If an existing or potential Enterprise Edition subscriber needs a specific change that has not yet been assigned a Fix Version, they can contact the Mattermost Enterprise Team to discuss sponsoring the feature with Non-Recurring Engineering (NRE) funding to have it delivered before it would otherwise be added. Feature sponsorship can only be applied to features where Jira tickets exist.</li>
+</ol>
+</li>
+<li>If a feature idea is not within the scope of either Team Edition or Enterprise Edition, you might consider:<ol>
+<li>Building an integration using Mattermost webhooks or Slash commands. There are <a class="reference external" href="https://about.mattermost.com/default-app-directory/">dozens of open source examples</a> to help you start. Example: Suppose you want a link preview for an esoteric file type that Mattermost isn&#8217;t able to support, you can create an outgoing webhook to reply with an image that offers a preview.</li>
+<li>Building a client application using the Mattermost Web Service API. This is useful if you want to customize the user experience to your specific needs. Example: You can re-create the Mattermost web interface using Windows controls to define front end logic, similar to the <a class="reference external" href="https://github.com/limey98/MattermostWPF">MattermostWPF project</a>.</li>
+<li>Creating an open source variation of Mattermost using the Team Edition source code. Example: The Mozilla Foundation created their own <a class="reference external" href="https://github.com/mozilla/chat.mozillafoundation.org">open source Mattermost variation</a>, which includes changes specific to their needs.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="drafting-a-ticket-for-new-features">
+<span id="drafting-a-ticket-for-new-features"></span><h2>Drafting a Ticket for New Features<a class="headerlink" href="#drafting-a-ticket-for-new-features" title="Permalink to this headline">¶</a></h2>
+<p>Before a new feature can be implemented, it needs a ticket specifying how it should work. To speed up the process of implementing feature ideas, community members are welcome to propose what the ticket should say for a new feature.</p>
+<p>When drafting a ticket for a new feature, please include:</p>
+<ol class="simple">
+<li><strong>Title:</strong> A clear, concise title describing the new feature</li>
+<li><strong>Description:</strong> Instructions on how the feature should be implemented.</li>
+</ol>
+<p>When writing the description, the following checklist should be addressed:</p>
+<ol class="simple">
+<li>Does this feature require an Account Setting, Team Setting, or System Console Setting?<ol>
+<li>If yes, please include the proposed: Location, Title, Setting Options, Default Setting, and Help Text (see <a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-1577">example</a>).</li>
+</ol>
+</li>
+<li>Is there any ambiguity in the ticket?<ol>
+<li>If yes, please update description to remove ambiguity.</li>
+<li>The ticket should not include multiple potential solutions. (The exception to this is if a second solution is suggested as an alternative if the first is too much work).</li>
+<li>The ticket should include specific numbers where necessary. (For example, it should not say to “increase” or “decrease” the length of something without specifying what number to increase/decrease it to).</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="github-issues-workflow">
+<span id="github-issues-workflow"></span><h2>GitHub Issues Workflow<a class="headerlink" href="#github-issues-workflow" title="Permalink to this headline">¶</a></h2>
+<p>To minimize response times, templates and automation are used across community systems for common requests. When misfiled requests are posted in GitHub close them soon so the community does not confuse them as being appropriate.</p>
+<div class="section" id="category-issue-submitter-needs-to-do-something">
+<span id="category-issue-submitter-needs-to-do-something"></span><h3>Category: Issue Submitter needs to do something<a class="headerlink" href="#category-issue-submitter-needs-to-do-something" title="Permalink to this headline">¶</a></h3>
+<p>Start with &#8220;Please...&#8221;</p>
+<div class="section" id="label-please-move-to-troubleshooting-forum">
+<span id="label-please-move-to-troubleshooting-forum"></span><h4>Label: Please move to Troubleshooting forum<a class="headerlink" href="#label-please-move-to-troubleshooting-forum" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Thanks @[GITHUB_USERNAME] for your question, 
+
+Because this seems to be more a troubleshooting discussion than a product defect, could we have your help posting this to the [Troubleshooting Forum](http://www.mattermost.org/troubleshoot/)? 
+
+Per above link, please include repro steps to make it easier to solve your issue. Also, please link back to your new post from this issue? 
+</pre></div>
+</div>
+</div>
+<div class="section" id="label-please-move-to-feature-ideas-forum">
+<span id="label-please-move-to-feature-ideas-forum"></span><h4>Label: Please move to Feature Ideas forum<a class="headerlink" href="#label-please-move-to-feature-ideas-forum" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Thanks @[GITHUB_USERNAME], appreciate your feedback, 
+
+To keep feature idea discussions in one place, could we have your help: 
+
+1. [Contributing this in the feature idea forum](http://www.mattermost.org/feature-requests/) so it can be discussed, upvoted and considered for a [ticket accepting pull requests](http://docs.mattermost.com/process/accepting-pull-request.html)? 
+
+   Please include a link back to this GitHub Issue. If you&#39;re interested in implementing, please say so and we&#39;ll prioritize the review. 
+
+2. Posting a link back from the feature idea forum to this thread? 
+</pre></div>
+</div>
+</div>
+<div class="section" id="label-please-add-repro-steps">
+<span id="label-please-add-repro-steps"></span><h4>Label: Please add repro steps<a class="headerlink" href="#label-please-add-repro-steps" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Thanks @[GITHUB_USERNAME] for the bug report, 
+
+Can you help [add more information](http://www.mattermost.org/filing-issues/) so we can reproduce the issue? 
+</pre></div>
+</div>
+</div>
+<div class="section" id="label-please-rebase">
+<span id="label-please-rebase"></span><h4>Label: Please rebase<a class="headerlink" href="#label-please-rebase" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Please</span> <span class="n">rebase</span> <span class="n">this</span> <span class="n">Pull</span> <span class="n">Request</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="category-we-community-need-to-do-something">
+<span id="category-we-community-need-to-do-something"></span><h3>Category: We/community need to do something<a class="headerlink" href="#category-we-community-need-to-do-something" title="Permalink to this headline">¶</a></h3>
+<p>Start with &#8220;Needs...&#8221;</p>
+<div class="section" id="label-needs-pr-reviewer">
+<span id="label-needs-pr-reviewer"></span><h4>Label: Needs PR reviewer<a class="headerlink" href="#label-needs-pr-reviewer" title="Permalink to this headline">¶</a></h4>
+<p>Needs Reviewer to add <code class="docutils literal"><span class="pre">+1</span></code> or share feedback to submitter on how to adjust pull request.</p>
+</div>
+<div class="section" id="label-needs-pr-seconder">
+<span id="label-needs-pr-seconder"></span><h4>Label: Needs PR seconder<a class="headerlink" href="#label-needs-pr-seconder" title="Permalink to this headline">¶</a></h4>
+<p>After code is reviewed, needs &#8220;Seconder&#8221; to add <code class="docutils literal"><span class="pre">+1</span></code> or share feedback to submitter on how to adjust pull request.</p>
+</div>
+<div class="section" id="label-needs-pm-review">
+<span id="label-needs-pm-review"></span><h4>Label: Needs PM review<a class="headerlink" href="#label-needs-pm-review" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Thanks</span> <span class="o">@</span><span class="p">[</span><span class="n">GITHUB_USERNAME</span><span class="p">]</span> <span class="k">for</span> <span class="n">your</span> <span class="n">feedback</span><span class="o">.</span> 
+
+<span class="n">This</span> <span class="n">ticket</span> <span class="n">requires</span> <span class="n">design</span> <span class="n">review</span><span class="o">.</span> <span class="n">Asking</span> <span class="n">help</span> <span class="kn">from</span> <span class="o">@</span><span class="p">[</span><span class="n">Core</span> <span class="n">Team</span> <span class="n">PM</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="label-needs-merge-review-complete">
+<span id="label-needs-merge-review-complete"></span><h4>Label: Needs merge (review complete)<a class="headerlink" href="#label-needs-merge-review-complete" title="Permalink to this headline">¶</a></h4>
+<p>PR has been reviewed and seconded and is awaiting merge.</p>
+</div>
+<div class="section" id="label-needs-jira-ticket">
+<span id="label-needs-jira-ticket"></span><h4>Label: Needs Jira ticket<a class="headerlink" href="#label-needs-jira-ticket" title="Permalink to this headline">¶</a></h4>
+<p>? + Assign to ?</p>
+<p>Response after Jira ticket is created:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Thanks</span> <span class="o">@</span><span class="p">[</span><span class="n">GITHUB_USERNAME</span><span class="p">],</span> <span class="p">[</span><span class="n">Jira</span> <span class="n">ticket</span><span class="p">]([</span><span class="n">LINK_TO_JIRA_TICKET</span><span class="p">])</span> <span class="n">created</span> <span class="k">for</span> <span class="n">this</span> <span class="n">issue</span><span class="o">.</span> 
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="category-miscellanous-issues">
+<span id="category-miscellanous-issues"></span><h3>Category: Miscellanous Issues<a class="headerlink" href="#category-miscellanous-issues" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="label-asking-community-help-to-repro">
+<span id="label-asking-community-help-to-repro"></span><h4>Label: Asking community help to repro<a class="headerlink" href="#label-asking-community-help-to-repro" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span>Thanks @[GITHUB_USERNAME] for the issue report, 
+
+Would anyone from the community be able to help repro this issue to verify it can be reproduced? 
+</pre></div>
+</div>
+</div>
+<div class="section" id="label-duplicate-jira-ticket">
+<span id="label-duplicate-jira-ticket"></span><h4>Label: Duplicate Jira ticket<a class="headerlink" href="#label-duplicate-jira-ticket" title="Permalink to this headline">¶</a></h4>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Thanks</span> <span class="o">@</span><span class="p">[</span><span class="n">GITHUB_USERNAME</span><span class="p">]</span> <span class="k">for</span> <span class="n">the</span> <span class="n">report</span><span class="p">,</span> 
+
+<span class="n">We</span> <span class="n">have</span> <span class="n">a</span> <span class="p">[</span><span class="n">Jira</span> <span class="n">Ticket</span><span class="p">]([</span><span class="n">LINK_TO_JIRA_TICKET</span><span class="p">])</span> <span class="n">tracking</span> <span class="n">the</span> <span class="n">issue</span><span class="o">.</span> 
+</pre></div>
+</div>
+</div>
+<div class="section" id="label-setup-test-server">
+<span id="label-setup-test-server"></span><h4>Label: Setup Test Server<a class="headerlink" href="#label-setup-test-server" title="Permalink to this headline">¶</a></h4>
+<p>Adding this label sets up a test server, removing it shuts down the test server.</p>
+</div>
+<div class="section" id="label-substantial-commit">
+<span id="label-substantial-commit"></span><h4>Label: Substantial commit<a class="headerlink" href="#label-substantial-commit" title="Permalink to this headline">¶</a></h4>
+<p>A PR that requires careful review due to size.</p>
+</div>
+<div class="section" id="label-do-not-merge">
+<span id="label-do-not-merge"></span><h4>Label: DO NOT MERGE<a class="headerlink" href="#label-do-not-merge" title="Permalink to this headline">¶</a></h4>
+<p>A PR submitted for discussion that SHOULD NOT be merged.</p>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="marketing-guidelines.html" class="btn btn-neutral float-right" title="Mattermost Community Content Guidelines" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="help-wanted.html" class="btn btn-neutral" title="Help Wanted Tickets" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/process/community-systems.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

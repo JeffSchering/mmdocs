@@ -1,0 +1,664 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mobile Applications Guide &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Active Directory/LDAP Setup" href="sso-ldap.html"/>
+        <link rel="prev" title="Bulk Loading Data" href="bulk-loading.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="on-boarding.html">Administrator Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bulk-loading.html">Bulk Loading Data</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mobile Applications Guide</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#quick-install-for-mobile-apps-via-itunes-and-google-play">Quick install for mobile apps via iTunes and Google Play</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#production-deployment-options">Production deployment options</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#securing-mobile-deployments">Securing mobile deployments</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#confirming-performance-of-mobile-applications">Confirming performance of mobile applications</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting-mobile-applications">Troubleshooting mobile applications</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="sso-ldap.html">Active Directory/LDAP Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auth.html">Multi-Factor Authentication (E10)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-saml.html">SAML Single-Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="scaling.html">Scaling for Enterprise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html">High Availability Cluster (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-gitlab.html">GitLab Single Sign-On</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-google.html">Google Single Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-office.html">Office 365 Single Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metrics.html">Performance Monitoring (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-side-data.html">Client-side Data Storage FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Mobile Applications Guide</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/deployment/push.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mobile-applications-guide">
+<span id="push-test"></span><h1>Mobile Applications Guide<a class="headerlink" href="#mobile-applications-guide" title="Permalink to this headline">¶</a></h1>
+<p>This guide summarizes the deployment and security options for Mattermost mobile apps with push notifications.</p>
+<p>OVERVIEW:</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#quick-install-for-mobile-apps-via-itunes-and-google-play" id="id1">Quick install for mobile apps via iTunes and Google Play</a></li>
+<li><a class="reference internal" href="#production-deployment-options" id="id2">Production deployment options</a><ul>
+<li><a class="reference internal" href="#deploying-with-publicly-hosted-mobile-apps-by-mattermost-inc" id="id3">Deploying with publicly-hosted mobile apps by Mattermost, Inc.</a></li>
+<li><a class="reference internal" href="#deploying-with-privately-hosted-mobile-apps-within-your-private-network" id="id4">Deploying with privately-hosted mobile apps within your private network</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#securing-mobile-deployments" id="id5">Securing mobile deployments</a><ul>
+<li><a class="reference internal" href="#securing-network-connection-to-mobile-apps" id="id6">Securing network connection to mobile apps</a></li>
+<li><a class="reference internal" href="#configuring-authentication-options-in-mobile-apps" id="id7">Configuring authentication options in mobile apps</a></li>
+<li><a class="reference internal" href="#securing-availability-of-mobile-applications" id="id8">Securing availability of mobile applications</a></li>
+<li><a class="reference internal" href="#securing-push-notifications" id="id9">Securing push notifications</a><ul>
+<li><a class="reference internal" href="#how-push-notifications-are-delivered" id="id10">How push notifications are delivered</a></li>
+<li><a class="reference internal" href="#securing-your-mattermost-push-notification-service" id="id11">Securing your Mattermost Push Notification Service</a></li>
+<li><a class="reference internal" href="#setting-up-hpns-push-notifications-in-enterprise-edition" id="id12">Setting up HPNS push notifications in Enterprise Edition</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#confirming-performance-of-mobile-applications" id="id13">Confirming performance of mobile applications</a><ul>
+<li><a class="reference internal" href="#mobile-performance-benchmarks" id="id14">Mobile performance benchmarks</a></li>
+<li><a class="reference internal" href="#removing-bottlenecks-to-mobile-app-performance" id="id15">Removing bottlenecks to mobile app performance</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting-mobile-applications" id="id16">Troubleshooting mobile applications</a><ul>
+<li><a class="reference internal" href="#internal-proxy-configuration-needed-for-outbound-requests-to-hpns" id="id17">Internal proxy configuration needed for outbound requests to HPNS</a></li>
+<li><a class="reference internal" href="#error-message-we-would-not-connect-to-the-mattermost-server-or-the-server-is-running-an-incompatible-version" id="id18">Error message: “We would not connect to the Mattermost server or the server is running an incompatible version”</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="quick-install-for-mobile-apps-via-itunes-and-google-play">
+<h2><a class="toc-backref" href="#contents">Quick install for mobile apps via iTunes and Google Play</a><a class="headerlink" href="#quick-install-for-mobile-apps-via-itunes-and-google-play" title="Permalink to this headline">¶</a></h2>
+<p>For a quick evaluation of mobile applications after the Mattermost server is deployed in a test environment:</p>
+<ol class="arabic simple">
+<li>Set up an external proxy with encrypted transport, and optionally a mobile VPN client, to securely connect the mobile apps to your internal Mattermost instance.</li>
+<li>Enable mobile push notifications:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Go to <strong>System Console &gt; Notifications &gt; Mobile Push &gt; Send Push Notifications</strong> and select <strong>Use iOS and Android apps on iTunes and Google Play with TPNS</strong>.</li>
+<li><em>Optional:</em> To show full messages snippets in mobile push notifications, set <strong>System Console &gt; Notifications &gt; Mobile Push &gt; Push Notification Contents</strong> to <strong>Send full message snippet</strong>. Most deployments enable this unless they&#8217;re under specific policies to not allow confidential information in push notifications.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Download the mobile applications to your mobile device:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://itunes.apple.com/us/app/mattermost/id984966508?mt=8">Mattermost iOS App on iTunes</a> or</li>
+<li><a class="reference external" href="https://play.google.com/store/apps/details?id=com.mattermost.mattermost&amp;hl=en">Mattermost Android App on Google Play</a>.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Open the mobile application and enter the address of your proxy and connect.</li>
+</ol>
+<p>After mobile apps are tested they can be further secured according to your internal compliance and security policies.</p>
+</div>
+<div class="section" id="production-deployment-options">
+<h2><a class="toc-backref" href="#contents">Production deployment options</a><a class="headerlink" href="#production-deployment-options" title="Permalink to this headline">¶</a></h2>
+<p>There are two options for deploying Mattermost mobile applications with push notifications to work with the Mattermost server you deploy in your private cloud:</p>
+<ul>
+<li><p class="first"><strong>Deploying with publicly-hosted mobile apps by Mattermost, Inc.</strong> - For quick and easy deployment, end users download the Mattermost mobile applications from iTunes and Google Play and connect to an appropriate proxy to reach your internal Mattermost deployment, and your Mattermost server sends push notifications to a hosted proxy server, which relays them via mobile push notification services provided by Apple and Google.</p>
+<p>Enterprise customers may choose to secure these apps with a mobile VPN clients, single-sign-on, multi-factor authentication, proxy connection restrictions and encrypted transport.</p>
+</li>
+<li><p class="first"><strong>Deploying with privately-hosted mobile apps within your private network</strong> - To customize the capabilities or appearance of mobile apps, to secure them within a private network or to meet other security and compliance policies, an organization may choose to compile their own Mattermost mobile applications and push notification service from their open source repositories.</p>
+</li>
+</ul>
+<p>The following sections detail setup of these two options:</p>
+<div class="section" id="deploying-with-publicly-hosted-mobile-apps-by-mattermost-inc">
+<h3><a class="toc-backref" href="#contents">Deploying with publicly-hosted mobile apps by Mattermost, Inc.</a><a class="headerlink" href="#deploying-with-publicly-hosted-mobile-apps-by-mattermost-inc" title="Permalink to this headline">¶</a></h3>
+<p>To deploy in production with publicly-hosted mobile apps compiled by Mattermost, Inc. and hosted in iTunes and Google Play:</p>
+<ol class="arabic simple">
+<li>Complete the <a class="reference internal" href="#quick-install-for-mobile-apps-via-itunes-and-google-play">Quick install for mobile apps via iTunes and Google Play</a> in a test environment.</li>
+<li>Review the <a class="reference internal" href="#securing-mobile-deployments">Securing mobile deployments</a> documentation and apply the options appropriate to meet the security and compliance requirements of your organization in your production environment.</li>
+</ol>
+</div>
+<div class="section" id="deploying-with-privately-hosted-mobile-apps-within-your-private-network">
+<h3><a class="toc-backref" href="#contents">Deploying with privately-hosted mobile apps within your private network</a><a class="headerlink" href="#deploying-with-privately-hosted-mobile-apps-within-your-private-network" title="Permalink to this headline">¶</a></h3>
+<p>To deploy in production with privately-hosted mobile apps compiled by your organization in an Enterprise App Store:</p>
+<ol class="arabic simple">
+<li>Compile your own iOS, Android mobile applications and Mattermost Push Notification Service (MPNS) via their open source repositories:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/mattermost/push-proxy">Open source repository for the Mattermost Push Notification Service</a></li>
+<li><a class="reference external" href="https://github.com/mattermost/ios">Open source repository for the Mattermost iOS application</a></li>
+<li><a class="reference external" href="https://github.com/mattermost/android">Open source repository for the Mattermost Android application</a></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Connect your Mattermost server with your privately hosted MPNS service</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Go to <strong>System Console</strong> &gt; <strong>Notifications</strong> &gt; <strong>Mobile Push</strong> &gt; <strong>Send Push Notifications</strong> &gt; <strong>Manually enter Push Notification Service location</strong> and enter the location of your Mattermost Push Notification Service in the <strong>Push Notification Server</strong> field.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Review the <a class="reference internal" href="#securing-mobile-deployments">Securing mobile deployments</a> documentation and apply the options appropriate to meet the security and compliance requirements of your organization.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="securing-mobile-deployments">
+<h2><a class="toc-backref" href="#contents">Securing mobile deployments</a><a class="headerlink" href="#securing-mobile-deployments" title="Permalink to this headline">¶</a></h2>
+<p>The following options for security mobile application deployments are available:</p>
+<div class="section" id="securing-network-connection-to-mobile-apps">
+<h3><a class="toc-backref" href="#contents">Securing network connection to mobile apps</a><a class="headerlink" href="#securing-network-connection-to-mobile-apps" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Use HTTPS and WSS network connections to encrypt transport.</li>
+<li>Use of a mobile VPN client on mobile devices to establish secure connection to Mattermost server within private network.</li>
+</ul>
+</div>
+<div class="section" id="configuring-authentication-options-in-mobile-apps">
+<h3><a class="toc-backref" href="#contents">Configuring authentication options in mobile apps</a><a class="headerlink" href="#configuring-authentication-options-in-mobile-apps" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>If VPN client with multi-factor authentication is not used, it&#8217;s highly recommended that MFA is required on authenticating into Mattermost, either within Mattermost itself or via single-sign-on options requiring MFA.</li>
+</ul>
+</div>
+<div class="section" id="securing-availability-of-mobile-applications">
+<h3><a class="toc-backref" href="#contents">Securing availability of mobile applications</a><a class="headerlink" href="#securing-availability-of-mobile-applications" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>To limit access to mobile applications to a privately hosted Enterprise App Store, you can compile your own mobile applications and push notificiation service from their open source repositories.</li>
+</ul>
+</div>
+<div class="section" id="securing-push-notifications">
+<h3><a class="toc-backref" href="#contents">Securing push notifications</a><a class="headerlink" href="#securing-push-notifications" title="Permalink to this headline">¶</a></h3>
+<p>To describe options for securing mobile push notifications we begin with an overview of how push notifications are delivered, then the security options in the context of that process.</p>
+<div class="section" id="how-push-notifications-are-delivered">
+<h4><a class="toc-backref" href="#contents">How push notifications are delivered</a><a class="headerlink" href="#how-push-notifications-are-delivered" title="Permalink to this headline">¶</a></h4>
+<p>To ensure push notifications are coming from a trusted source, mobile applications hosted in iTunes and Google Play can only receive push notifications sent from a service using a key or signature corresponding to a secret compiled into the mobile application itself.</p>
+<p>Therefore, the following process is used:</p>
+<ol class="arabic simple">
+<li>An action triggering a push notification is detected in the Mattermost server running in your private network.</li>
+<li>Your Mattermost server sends a push notification message to a Mattermost Push Notification Service (MPNS), either self-hosted in your private network, or publicly hosted by Mattermost, Inc.</li>
+<li>MPNS sends a push notification message to either Apple Push Notification Service (APNS) or to the Google Cloud Messaging (GCM) service over a TLS connection depending on whether you&#8217;re sending to an iOS or Android device.</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>If sent to Apple, the message has a signature corresponding to a secret compiled in the iOS app.</li>
+<li>If sent to Google, the message uses a key corresponding to a secret compiled in the Android app.</li>
+</ul>
+<p>Regardless of whether you&#8217;re using iOS or Android, the MPNS used needs to have access to the appropriate secret compiled into the mobile app.</p>
+<ul class="simple">
+<li>If you use the publicly hosted mobile apps in iTunes or Google Play, you need to use the publicly hosted MPNS from Mattermost, Inc., which uses the corresponding secret.</li>
+<li>If you use a privately-hosted mobile app in an Enterprise App Store by compiling your own app, you need to also compile and use your own MPNS with the corresponding secret.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Either APNS or GCM receives the push notification message from MPNS over TLS, and then relays the message to the user&#8217;s iOS or Android mobile app to be displayed.</li>
+</ol>
+</div>
+<div class="section" id="securing-your-mattermost-push-notification-service">
+<h4><a class="toc-backref" href="#contents">Securing your Mattermost Push Notification Service</a><a class="headerlink" href="#securing-your-mattermost-push-notification-service" title="Permalink to this headline">¶</a></h4>
+<p>The following options are available for securing your push notification service:</p>
+<ul>
+<li><p class="first">The system can be <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#push-notification-contents">configured to prevent the inclusion of message contents in push notifications</a> and send only generic messages that a notification event took place. Default server settings have message contents turned off.</p>
+</li>
+<li><p class="first">Push notifications can also be disabled entirely depending on security requirements. Default server settings have push notifications disabled.</p>
+</li>
+<li><p class="first">When using a privately-hosted MPNS, use encrypted TLS connections between MNPS and APNS, MPNS and GCM, MPNS and your Mattermost server.</p>
+</li>
+<li><p class="first">When using Mattermost mobile apps in iTunes and Google Play, purchase an annual subcription to Mattermost Enterprise Edition E10 or higher, which offers a Hosted Push Notification Service (HPNS), offering:</p>
+<ul class="simple">
+<li>Access to a publicly-hosted MPNS service offering an explicit privacy policy where the contents of unencrypted messages are not examined or stored.</li>
+<li>Encrypted TLS connections between the hosted HPNS and APNS, HPNS and GCM, HPNS and your Mattermost server.</li>
+<li>Production-level uptime expectations.</li>
+</ul>
+<p>After purchasing a subscription to Mattermost E10 or higher from Mattermost, Inc. follow the <a class="reference internal" href="#setting-up-hpns-push-notifications-in-enterprise-edition">Setting up HPNS push notifications in Enterprise Edition</a> instructions to set up and test your system.</p>
+<p>Note: Mattermost, Inc. also offers a free basic hosted service for testing setups, Test Push Notification Service (TPNS), which is referenced in the <a class="reference internal" href="#quick-install-for-mobile-apps-via-itunes-and-google-play">Quick install for mobile apps via iTunes and Google Play</a> instructions. It does not offer a production-level uptime expectation, nor does it offer encrypted transport.</p>
+</li>
+</ul>
+</div>
+<div class="section" id="setting-up-hpns-push-notifications-in-enterprise-edition">
+<h4><a class="toc-backref" href="#contents">Setting up HPNS push notifications in Enterprise Edition</a><a class="headerlink" href="#setting-up-hpns-push-notifications-in-enterprise-edition" title="Permalink to this headline">¶</a></h4>
+<p>To setup HPNS please follow the following steps:</p>
+<ol class="arabic">
+<li><p class="first">Install HPNS</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Follow the <a class="reference external" href="http://docs.mattermost.com/install/ee-install.html">instructions you received with your Mattermost Enterprise Edition purchase to install or upgrade to Enterprise Edition</a></li>
+<li>Under <strong>System Console</strong> &gt; <strong>Notifications</strong> &gt; <strong>Mobile Push</strong> &gt; <strong>Send Push Notifications</strong>  select <strong>Use encrypted, production-quality HPNS connection to iOS and Android apps</strong> (this option appears only in Enterprise Edition, not Team Edition)</li>
+<li>Check the box &#8220;I understand and accept the Mattermost Hosted Push Notification Service Terms of Service and Privacy Policy.&#8221; after reading the documents referenced, then click <strong>Save</strong>.</li>
+<li>Download either the Mattermost iOS app from iTunes or the Mattermost Android app from Google Play and sign into the app using an account on your Mattermost server, which we&#8217;ll refer to as &#8220;Account A&#8221;.</li>
+<li>When asked whether you wish to receive notifications, <strong>confirm you want to receive notifications</strong></li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">Trigger a push notification</p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>From the mobile application used by &#8220;Account A&#8221;, click the three dot menu on the top right and go to <strong>Account Settings</strong> &gt; <strong>Notifications</strong> &gt; <strong>Mobile push notifications</strong>. Click <strong>Edit</strong> and select <strong>For mentions and direct messages</strong>, then <strong>Save</strong> the setting.</li>
+<li>Have &#8220;Account A&#8221; close the mobile application, but do not log out. The mobile app needs to be in the background for the test to work.</li>
+<li>Using &#8220;Account B&#8221;, on the same Mattermost team as &#8220;Account A&#8221;, Click the <strong>More</strong> menu under the Direct Messages section in the left hand side of the team site to add &#8220;Account A&#8221; to the Direct Message list.</li>
+<li>Have &#8220;Account B&#8221; send a direct message &#8220;Hello&#8221; to &#8220;Account A&#8221;.</li>
+<li>This should trigger a push notification to the mobile device of &#8220;Account A&#8221;.</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">If you did not receive a push notification, use the following procedure to troubleshoot:</p>
+<blockquote>
+<div><ol class="arabic">
+<li><p class="first">Under <strong>System Console</strong> &gt; <strong>General</strong> &gt; <strong>Logging</strong> &gt; <strong>File Log Level</strong> select <strong>DEBUG</strong> in order to watch for push notifications in the server log. IMPORTANT: Make sure to switch this back to ERROR level logging after setting up push notifications to conserve disk space.</p>
+</li>
+<li><p class="first">Delete your mobile application, install it again and sign-in with &#8220;Account A&#8221; and <strong>confirm you want to receive push notifications</strong> when prompted by the mobile app.</p>
+</li>
+<li><p class="first">Repeat the &#8220;Trigger a push notification&#8221; procedure above and if you still don&#8217;t receive a push notification, go to <strong>System Console</strong> &gt; <strong>Logs</strong> click <strong>Reload</strong> and scroll to the bottom and look for a message similar to: <code class="docutils literal"><span class="pre">`[2016/04/21</span> <span class="pre">03:16:44</span> <span class="pre">UTC]</span> <span class="pre">[DEBG]</span> <span class="pre">Sending</span> <span class="pre">push</span> <span class="pre">notification</span> <span class="pre">to</span> <span class="pre">63c06ca8e3949ca7e5996c31fcf07ecb36c658a3e7c2c227a4af949cc4777a87</span> <span class="pre">wi</span> <span class="pre">msg</span> <span class="pre">of</span> <span class="pre">'&#64;accountb:</span> <span class="pre">Hello'`</span></code></p>
+<blockquote>
+<div><ul class="simple">
+<li>If the log message appears, it means a message was sent to the HPNS server and was not received by your mobile application. Please contact <a class="reference external" href="mailto:support&#37;&#52;&#48;mattermost&#46;com">support<span>&#64;</span>mattermost<span>&#46;</span>com</a> with the subject &#8220;HPNS issue on Step 8&#8221; for help from the commercial support team.</li>
+<li>If the log message does not appear, it means no mobile push notification was sent to &#8220;Account A&#8221;. Please repeat step 2 and double check each step.</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+</div></blockquote>
+</li>
+<li><p class="first">After your issue is resolved, go to <strong>System Console</strong> &gt; <strong>General</strong> &gt; <strong>Logging</strong> &gt; <strong>File Log Level</strong> and select <strong>ERROR</strong> to switch your logging detail level to Errors Only, instead of DEBUG, in order to conserve disk space.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="section" id="confirming-performance-of-mobile-applications">
+<h2><a class="toc-backref" href="#contents">Confirming performance of mobile applications</a><a class="headerlink" href="#confirming-performance-of-mobile-applications" title="Permalink to this headline">¶</a></h2>
+<p>The response times of Mattermost mobile apps should perform to standard benchmarks, provided device model, connection speed and server configuration are comparable to benchmark setups.</p>
+<div class="section" id="mobile-performance-benchmarks">
+<h3><a class="toc-backref" href="#contents">Mobile performance benchmarks</a><a class="headerlink" href="#mobile-performance-benchmarks" title="Permalink to this headline">¶</a></h3>
+<p>Properly configured mobile applications on 4G/LTE or wifi should perform as follows:</p>
+<p>iPhone 6s Plus on 4G/LTE connection (50 ms ping time, 50 Mb/s download, 8 Mb/s upload):</p>
+<ul class="simple">
+<li><strong>Loading a new channel:</strong> less than 4 seconds</li>
+<li><strong>Returning to a channel previously viewed:</strong> less than 1 second</li>
+<li><strong>Switching to app when it is running in the background:</strong> less than 1 second</li>
+<li><strong>Switching to the app and loading a channel after the phone has been asleep:</strong> less than 5 seconds</li>
+<li><strong>Fresh start of the app until first page load:</strong> less than 10 seconds</li>
+</ul>
+<p>iPhone 5s on 5G connection (20 ms ping time, 77 Mb/s download, 12 Mb/s upload):</p>
+<ul class="simple">
+<li><strong>Loading a new channel:</strong> less than 3 seconds</li>
+<li><strong>Returning to a channel previously viewed:</strong> less than 1 second</li>
+<li><strong>Switching to app when it is running in the background:</strong> less than 1 second</li>
+<li><strong>Switching to the app and loading a channel after the phone has been asleep:</strong> less than 3 seconds</li>
+<li><strong>Fresh start of the app until first page load:</strong> less than 5 seconds</li>
+</ul>
+<p>Samsung Galaxy S6 on 4G/LTE connection (23 ms ping time, 36 Mb/s download, 17 Mb/s upload):</p>
+<ul class="simple">
+<li><strong>Loading a new channel:</strong> less than 4 seconds</li>
+<li><strong>Returning to a channel previously viewed:</strong> less than 1 second</li>
+<li><strong>Switching to app when it is running in the background:</strong> less than 1 second</li>
+<li><strong>Switching to the app and loading a channel after the phone has been asleep:</strong> less than 5 seconds</li>
+<li><strong>Fresh start of the app until first page load:</strong> less than 5 seconds</li>
+</ul>
+<p>Samsung Galaxy S6 on wifi connection (23 ms ping time, 138 Mb/s download, 12 Mb/s upload):</p>
+<ul class="simple">
+<li><strong>Loading a new channel:</strong> less than 3 seconds</li>
+<li><strong>Returning to a channel previously viewed:</strong> less than 1 second</li>
+<li><strong>Switching to app when it is running in the background:</strong> less than 1 second</li>
+<li><strong>Switching to the app and loading a channel after the phone has been asleep:</strong> less than 5 seconds</li>
+<li><strong>Fresh start of the app until first page load:</strong> less than 4 seconds</li>
+</ul>
+<p>Note: While Mattermost mobile applications may be used on 3G (and lower) connections, this configuration is not recommended.</p>
+</div>
+<div class="section" id="removing-bottlenecks-to-mobile-app-performance">
+<h3><a class="toc-backref" href="#contents">Removing bottlenecks to mobile app performance</a><a class="headerlink" href="#removing-bottlenecks-to-mobile-app-performance" title="Permalink to this headline">¶</a></h3>
+<p>If your mobile app is not performing to these sample benchmarks, you can identify bottlenecks using the following process:</p>
+<ol class="arabic">
+<li><p class="first">Confirm your mobile device meets minimum hardware and operating system requirements</p>
+<ul class="simple">
+<li>Please confirm the device you&#8217;re testing <a class="reference external" href="http://docs.mattermost.com/install/requirements.html#mobile-app-experience">meets the minimum operating system and hardware requirements of Mattermost Mobile Apps.</a></li>
+</ul>
+</li>
+<li><p class="first">Confirm your mobile device connection is on 4G/LTE or Wifi and meets ping time requirements</p>
+<ul class="simple">
+<li>From your mobile browser go to <a class="reference external" href="https://speedtest.net/mobile">https://speedtest.net/mobile</a>, download the SpeedTest app and begin a test</li>
+<li>Check if your <strong>ping time</strong> (a measure of signal latency) to see if it&#8217;s similar to the benchmarks in the above section. If they are significantly higher, move to an area with better reception or contact your wireless provider to correct any technical issues.</li>
+</ul>
+</li>
+<li><p class="first">Confirm your mobile app is performing properly</p>
+<ul class="simple">
+<li>Test the response of your iOS or Android app as compared to the above benchmarks</li>
+<li>Test the response of opening your Mattermost team site on your phone&#8217;s mobile browser</li>
+<li>If using your team site in your iOS or Android app is noticebly slower than using it in the browser, delete your mobile app and reinstall it to clear the issue.</li>
+</ul>
+</li>
+<li><p class="first">Check your server performance</p>
+<blockquote>
+<div><ul>
+<li><p class="first">If 1) and 2) are working properly and you are still encountering performance issues, please ensure that your server is properly sized.</p>
+<blockquote>
+<div><ul class="simple">
+<li>Please review the <a class="reference external" href="http://docs.mattermost.com/install/requirements.html#hardware-sizing-for-team-deployments">recommended minimum hardware guidelines</a> and confirm that you&#8217;re using properly sized hardware. If you&#8217;re having performance issues, please do not scale down hardware below the minimum level suggested.</li>
+<li>If you&#8217;re using a shared server, you may experience latency with a shared proxy server if it&#8217;s under load from other applications. You can either switch to a dedicated proxy, or set up your own proxy server using NGINX by following one of the <a class="reference external" href="http://docs.mattermost.com/#install-guides">standard install guides.</a></li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>These procedures summarize all potential bottlenecks in a system for mobile app performance: Connection speed, mobile app performance, and server performance.</p>
+<ul class="simple">
+<li>If you&#8217;re an Enterprise Edition subscriber and continue to have issues please email <a class="reference external" href="mailto:support&#37;&#52;&#48;mattermost&#46;com">support<span>&#64;</span>mattermost<span>&#46;</span>com</a> with a measure of the benchmarks you&#8217;re experiencing.</li>
+<li>If you&#8217;re not a subscriber, please <a class="reference external" href="http://www.mattermost.org/troubleshoot/">open a thread in the Mattermost Troubleshooting forum</a> with a summary of the performance you&#8217;re seeing, details on the model of your mobile device, connection speed and server sizing.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="troubleshooting-mobile-applications">
+<h2><a class="toc-backref" href="#contents">Troubleshooting mobile applications</a><a class="headerlink" href="#troubleshooting-mobile-applications" title="Permalink to this headline">¶</a></h2>
+<p>Here are solutions to common troubleshooting requests:</p>
+<div class="section" id="internal-proxy-configuration-needed-for-outbound-requests-to-hpns">
+<h3><a class="toc-backref" href="#contents">Internal proxy configuration needed for outbound requests to HPNS</a><a class="headerlink" href="#internal-proxy-configuration-needed-for-outbound-requests-to-hpns" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Make sure your proxy server is properly configured to support SSL. Confirm it works by checking the URL at <cite>https://www.digicert.com/help/</cite>.</li>
+<li>Setup a proxy to forward requests to <cite>https://push.mattermost.com</cite>.</li>
+<li>In Mattermost set <strong>System Console</strong> &gt; <strong>Notification Settings</strong> &gt; <strong>Mobile Push</strong> &gt; <strong>Enable Push Notifications</strong> to &#8220;Manually enter Push Notification Service location&#8221; and enter the URL of your proxy in the <strong>Push Notification Server</strong> field.</li>
+</ol>
+<p>Depending on how your proxy is configured you may need to add a port number and create a URL like <cite>https://push.internalproxy.com:8000</cite> mapped to <cite>https://push.mattermost.com</cite></p>
+</div>
+<div class="section" id="error-message-we-would-not-connect-to-the-mattermost-server-or-the-server-is-running-an-incompatible-version">
+<h3><a class="toc-backref" href="#contents">Error message: “We would not connect to the Mattermost server or the server is running an incompatible version”</a><a class="headerlink" href="#error-message-we-would-not-connect-to-the-mattermost-server-or-the-server-is-running-an-incompatible-version" title="Permalink to this headline">¶</a></h3>
+<p>This error message, whether on iOS or Android, typically results from a typo in the server URL or an SSL configuration issue. To troubleshoot:</p>
+<p>Check that your mobile application works properly with HTTPS by connecting to a test server:</p>
+<ol class="arabic simple">
+<li>Create an account at <a class="reference external" href="https://demo.mattermost.com">https://demo.mattermost.com</a></li>
+<li>Erase your mobile application and reinstall it</li>
+<li>In your mobile app, enter the server URL <a class="reference external" href="https://demo.mattermost.com">https://demo.mattermost.com</a> and confirm the connection is working by entering your credentials to login</li>
+</ol>
+<p>If the login doesn&#8217;t work, please report an issue to <a class="reference external" href="https://github.com/mattermost/platform/issues">https://github.com/mattermost/platform/issues</a></p>
+<p>If the login does work:</p>
+<ol class="arabic simple">
+<li>Check that the SSL URL is properly installed by entering it in a certificate checker, such as: <a class="reference external" href="https://cryptoreport.websecurity.symantec.com/checker/">https://cryptoreport.websecurity.symantec.com/checker/</a></li>
+<li>Correct any issues with your certificate</li>
+<li>Try connecting to the HTTPS URL of your server using the mobile app</li>
+<li>If you&#8217;re still having issues please <a class="reference external" href="https://forum.mattermost.org/c/general/trouble-shoot">open a new topic in the troubleshooting forum</a> with steps to reproduce your issue. If you&#8217;re an Enterprise Edition subscriber, you can also email <a class="reference external" href="mailto:subscribers&#37;&#52;&#48;mattermost&#46;com">subscribers<span>&#64;</span>mattermost<span>&#46;</span>com</a> for support.</li>
+</ol>
+<p>Note: Mobile apps do not currenly support self-signed certificates, nor client-side certificates. To use free certificates signed by a Certificate Authority, visit <a class="reference external" href="https://letsencrypt.org/">https://letsencrypt.org/</a></p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sso-ldap.html" class="btn btn-neutral float-right" title="Active Directory/LDAP Setup" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bulk-loading.html" class="btn btn-neutral" title="Bulk Loading Data" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/deployment/push.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

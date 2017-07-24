@@ -1,0 +1,480 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>APIv4 Contribution Process &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Integration Guide" href="../guides/integration.html"/>
+        <link rel="next" title="Incoming Webhooks" href="webhooks-incoming.html"/>
+        <link rel="prev" title="Mattermost APIs" href="api.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">APIv4 Contribution Process</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#adding-an-endpoint">Adding an Endpoint</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#selecting-an-endpoint">Selecting an Endpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#documenting-the-endpoint">Documenting the Endpoint</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#implementing-the-api-handler">Implementing the API Handler</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#updating-the-go-driver">Updating the Go Driver</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#writing-a-unit-test">Writing a Unit Test</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#submitting-your-pull-request">Submitting your Pull Request</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-incoming.html">Incoming Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-outgoing.html">Outgoing Webhooks</a></li>
+<li class="toctree-l2"><a class="reference internal" href="slash-commands.html">Slash Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-attachments.html">Message Attachments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth-2-0-applications.html">OAuth 2.0 Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/zapier.html">Zapier Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-faq.html">Integrations FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/embedding.html">Embedding Mattermost in other applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/integration.html">Mattermost Integration Guide</a> &raquo;</li>
+    
+    <li>APIv4 Contribution Process</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/developer/api4.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="apiv4-contribution-process">
+<h1>APIv4 Contribution Process<a class="headerlink" href="#apiv4-contribution-process" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://docs.google.com/document/d/197JwEBMnK8okFilTfGSpbsrXPY5RZOJ4gG2DXwcbwYE/edit">Mattermost API version 4</a> is an active and ongoing project. We&#8217;re
+looking for contributors to code server endpoints, build drivers and
+write documentation. If you&#8217;re interested <a class="reference external" href="https://pre-release.mattermost.com/signup_user_complete/?id=f1924a8db44ff3bb41c96424cdc20676">please sign up for our Mattermost
+instance</a>
+and join the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/apiv4">APIv4
+channel</a>.</p>
+<p>This page will describe the processes for contributing to APIv4. If you
+have questions please ask in the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/apiv4">APIv4
+channel</a>. The
+project leads are Joram Wilander (&#64;joram) on development and Jason Blais
+(&#64;jason) on product management.</p>
+<div class="section" id="adding-an-endpoint">
+<h2>Adding an Endpoint<a class="headerlink" href="#adding-an-endpoint" title="Permalink to this headline">¶</a></h2>
+<p>To add an endpoint to API version 4, each item on the following checklist must be completed:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/developer/api4.html#selecting-an-endpoint">Select an endpoint to
+implement</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/developer/api4.html#documenting-the-endpoint">Document the
+endpoint</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/developer/api4.html#implementing-the-api-handler">Implement the API handler on the
+server</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/developer/api4.html#updating-the-go-driver">Add a function to the Go
+driver</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/developer/api4.html#writing-a-unit-test">Write a unit
+test</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/developer/api4.html#submitting-your-pull-request">Submit your
+implementation!</a></li>
+</ul>
+<p>A full example can be found through these two pull requests:</p>
+<ul class="simple">
+<li>Documenting the <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/teams</span></code> endpoint: <a class="reference external" href="https://github.com/mattermost/mattermost-api-reference/pull/72">/mattermost-api-reference #72</a></li>
+<li>Implementing the <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/teams</span></code> endpoint: <a class="reference external" href="https://github.com/mattermost/platform/pull/5220">/platform #5220</a></li>
+</ul>
+<div class="section" id="selecting-an-endpoint">
+<h3>Selecting an Endpoint<a class="headerlink" href="#selecting-an-endpoint" title="Permalink to this headline">¶</a></h3>
+<p>Select an endpoint <a class="reference external" href="https://docs.google.com/spreadsheets/d/1nPoLgwh_9zRFECpqRUZAKIWihCmX27pnDtFGLtG_WnY/edit#gid=0">from the progress spreadsheet</a> that you would
+like to implement, then post in the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/apiv4">APIv4
+channel</a>,
+and let us know that you&#8217;d like to work on it. One of the project leads will then
+update the spreadsheet so other contributors know you&#8217;re implementing the
+endpoint.</p>
+<p>If you have a suggestion for an endpoint that is not on the spreadsheet,
+let us know and we will consider adding it.</p>
+</div>
+<div class="section" id="documenting-the-endpoint">
+<h3>Documenting the Endpoint<a class="headerlink" href="#documenting-the-endpoint" title="Permalink to this headline">¶</a></h3>
+<p>At Mattermost we use the <a class="reference external" href="https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md">OpenAPI
+specification</a>
+for API documentation. That documentation lives in the
+<a class="reference external" href="https://github.com/mattermost/mattermost-api-reference">mattermost-api-reference</a>
+repository. To document an endpoint, follow these steps:</p>
+<ol class="arabic simple">
+<li>Fork
+<a class="reference external" href="https://github.com/mattermost/mattermost-api-reference">mattermost-api-reference</a>
+and create a branch for your changes.</li>
+<li>Find the <code class="docutils literal"><span class="pre">.yaml</span></code> file in the
+<a class="reference external" href="https://github.com/mattermost/mattermost-api-reference/tree/master/v4/source">/source/v4</a>
+directory that fits your endpoint.<ul>
+<li>For example, if you were adding the <code class="docutils literal"><span class="pre">GET</span> <span class="pre">/users/{user_id}</span></code> endpoint you would be looking for <a class="reference external" href="https://github.com/mattermost/mattermost-api-reference/blob/master/v4/source/users.yaml">users.yaml</a></li>
+<li>If the file doesn&#8217;t exist yet, you might need to create it and update the <a class="reference external" href="https://github.com/mattermost/mattermost-api-reference/tree/master/Makefile">Makefile</a> to include it</li>
+</ul>
+</li>
+<li>Copy an existing endpoint from the same or a different file.</li>
+<li>Update the documention you copied with the correct information for
+your endpoint, including:<ul>
+<li>Tag - The resource type</li>
+<li>Summary - A few word summary</li>
+<li>Description - A brief 1-2 sentence description</li>
+<li>Permissions - The permission required</li>
+<li>Parameters - The URL and body parameters</li>
+<li>Responses - The success and error responses</li>
+</ul>
+</li>
+<li>Confirm you don&#8217;t have any syntax errors by running <code class="docutils literal"><span class="pre">make</span> <span class="pre">build-v4</span></code>
+and copying <code class="docutils literal"><span class="pre">/html/static/mattermost-openapi-v4.yaml</span></code> into the
+<a class="reference external" href="http://editor.swagger.io">Swagger editor</a>.</li>
+<li>Commit your changes and submit a pull request to
+<a class="reference external" href="https://github.com/mattermost/mattermost-api-reference">mattermost-api-reference</a>.</li>
+</ol>
+<p>If you&#8217;re looking for examples, see
+<a class="reference external" href="https://github.com/mattermost/mattermost-api-reference/blob/master/v4/source/users.yaml">users.yaml</a>.</p>
+</div>
+<div class="section" id="implementing-the-api-handler">
+<h3>Implementing the API Handler<a class="headerlink" href="#implementing-the-api-handler" title="Permalink to this headline">¶</a></h3>
+<p>To implement the API handler you&#8217;ll first need to <a class="reference external" href="https://docs.mattermost.com/developer/developer-setup.html">setup your developer
+environment</a>, then follow these steps:</p>
+<ol class="arabic">
+<li><p class="first">Add the declaration for your endpoint.</p>
+<ul class="simple">
+<li>For an example, see <a class="reference external" href="https://github.com/mattermost/platform/tree/master/api4/user.go">/api4/user.go</a></li>
+</ul>
+</li>
+<li><p class="first">Implement the handler for your endpoint.</p>
+<ul class="simple">
+<li>The general pattern for handlers is</li>
+</ul>
+<ul class="simple">
+<li>For examples, see the <a class="reference external" href="https://github.com/mattermost/platform/tree/master/api4/user.go#L86">updateUser()</a> and the <a class="reference external" href="https://github.com/mattermost/platform/tree/master/api4/user.go#L58">getUser()</a> handlers.</li>
+</ul>
+</li>
+<li><p class="first">Run the server using <code class="docutils literal"><span class="pre">make</span> <span class="pre">run-server</span></code> to check for syntax errors.</p>
+</li>
+<li><p class="first">(Optional) Use <code class="docutils literal"><span class="pre">curl</span></code> or <a class="reference external" href="https://www.getpostman.com/">Postman</a> to test the basics of your endpoint. The endpoint will also be tested <a class="reference external" href="https://docs.mattermost.com/developer/api4.html#writing-a-unit-test">through a unit test</a>, so this step is optional.</p>
+</li>
+</ol>
+</div>
+<div class="section" id="updating-the-go-driver">
+<h3>Updating the Go Driver<a class="headerlink" href="#updating-the-go-driver" title="Permalink to this headline">¶</a></h3>
+<p>The Go driver for APIv4 is in <a class="reference external" href="https://github.com/mattermost/platform/tree/master/model/client4.go">/model/client4.go</a>.</p>
+<p>To add a function to support your new endpoint:</p>
+<ol class="arabic simple">
+<li>Copy an existing driver function, such as <a class="reference external" href="https://github.com/mattermost/platform/tree/master/model/client4.go#L186">CreateUser</a>.</li>
+<li>Paste the function into the section for your endpoint.<ul>
+<li>For example, <code class="docutils literal"><span class="pre">POST</span> <span class="pre">/teams</span></code> would go in the Teams section</li>
+</ul>
+</li>
+<li>Modify the function to correctly hit your endpoint.<ul>
+<li>Make sure to update the request method to match your endpoint&#8217;s HTTP method</li>
+</ul>
+</li>
+</ol>
+<p>That&#8217;s it, you&#8217;ll be able to test your function in the next section.</p>
+</div>
+<div class="section" id="writing-a-unit-test">
+<h3>Writing a Unit Test<a class="headerlink" href="#writing-a-unit-test" title="Permalink to this headline">¶</a></h3>
+<p>The most important part of this process is to make sure your endpoint
+works correctly. Follow these steps to write a test:</p>
+<ol class="arabic simple">
+<li>Open the test Go file related to your endpoint.<ul>
+<li>For example, if you put your handler in <a class="reference external" href="https://github.com/mattermost/platform/tree/master/api4/user.go">/api4/user.go</a> your test will go in <a class="reference external" href="https://github.com/mattermost/platform/tree/master/api4/user_test.go">/api4/user_test.go</a></li>
+</ul>
+</li>
+<li>Write your test based on the other tests in your file<ul>
+<li>There are several helper functions in <a class="reference external" href="https://github.com/mattermost/platform/tree/master/api4/apitestlib.go">/api4/apitestlib.go</a> that you may use</li>
+</ul>
+</li>
+<li>Make sure your test covers the following:<ul>
+<li>All combinations of correct inputs to your endpoint</li>
+<li>Etags for your endpoint, if applicable</li>
+<li>Incorrect URL or body parameters return a <strong>400 Bad Request</strong> status code</li>
+<li>Requests without a token return a <strong>401 Unauthorized</strong> status code (for endpoints requiring a session)</li>
+<li>Requests with insufficent permissions return a <strong>403 Forbidden</strong> status code (for endpoints requiring a permission)</li>
+<li>Requests to non-existent resources or URLs return a <strong>404 Not Found</strong> status code</li>
+</ul>
+</li>
+</ol>
+<p>Returning the correct error code might require investigation in the
+<a class="reference external" href="https://github.com/mattermost/platform/tree/master/app">app</a> or
+<a class="reference external" href="https://github.com/mattermost/platform/tree/master/store">store</a>
+packages to find the source of errors. Status codes on errors should be
+set at the creation of the error.</p>
+<p>When completing this step, please make sure to
+use the new <code class="docutils literal"><span class="pre">model.NewAppError()</span></code> function (<a class="reference external" href="https://github.com/mattermost/platform/tree/master/store/sql_user_store.go#L112">see example</a>).</p>
+</div>
+<div class="section" id="submitting-your-pull-request">
+<h3>Submitting your Pull Request<a class="headerlink" href="#submitting-your-pull-request" title="Permalink to this headline">¶</a></h3>
+<p>You&#8217;ve done it! You&#8217;ve implemented an APIv4 endpoint and we really
+appreciate your help. You can now submit a pull request against the
+<a class="reference external" href="https://github.com/mattermost/platform">mattermost/platform</a>
+repository by <a class="reference external" href="https://docs.mattermost.com/developer/contribution-guide.html#preparing-a-pull-request">following these instructions</a>.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="webhooks-incoming.html" class="btn btn-neutral float-right" title="Incoming Webhooks" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="api.html" class="btn btn-neutral" title="Mattermost APIs" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/api4.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

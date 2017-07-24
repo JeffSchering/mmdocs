@@ -1,0 +1,523 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compliance Reporting and Oversight &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Custom Branding Tools" href="branding.html"/>
+        <link rel="prev" title="Announcement Banner" href="announcement-banner.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="command-line-tools.html">Command Line Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-settings.html">Configuration Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="announcement-banner.html">Announcement Banner</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Compliance Reporting and Oversight</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#enabling-compliance-reporting">Enabling Compliance Reporting</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#turn-on-daily-compliance-reports">Turn on Daily Compliance Reports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#run-compliance-reports">Run Compliance Reports</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#global-relay-support">Global Relay Support</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="branding.html">Custom Branding Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html">Upgrading Mattermost Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migration Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Compliance Reporting and Oversight</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/administration/compliance.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compliance-reporting-and-oversight">
+<h1>Compliance Reporting and Oversight<a class="headerlink" href="#compliance-reporting-and-oversight" title="Permalink to this headline">¶</a></h1>
+<p>Available in <a class="reference external" href="https://about.mattermost.com/pricing/">Enterprise Edition E20</a></p>
+<p>This feature enables compliance exports to be produced from the System Console, with all query and download actions logged in an audit history to enable oversight and prevent unauthorized queries.</p>
+<p>Compliance exports can be filtered to date range, user account, and keyword list. Requests from queries can be downloaded from the user interface in <code class="docutils literal"><span class="pre">.csv</span></code> format, with a <code class="docutils literal"><span class="pre">.json</span></code> metafile documenting the query, as well as placed in a directory set by the System Administrator.</p>
+<p>Daily compliance reports may also be generated, supporting integration with compliance solutions like <a class="reference external" href="https://docs.mattermost.com/administration/compliance.html#global-relay-support">Global Relay</a>.</p>
+<p>Note: By default, all Mattermost Editions retain all messages, including edits and deletes, along with all files uploaded.</p>
+<div class="section" id="enabling-compliance-reporting">
+<h2>Enabling Compliance Reporting<a class="headerlink" href="#enabling-compliance-reporting" title="Permalink to this headline">¶</a></h2>
+<p>After purchasing and installing a license key for Enterprise Edition E20:</p>
+<ol class="arabic simple">
+<li>Go to <strong>System Console</strong> &gt; <strong>General</strong> &gt; <strong>Compliance</strong> &gt; <strong>Enable Compliance</strong> and set the value to <code class="docutils literal"><span class="pre">true</span></code>.</li>
+<li>(Optional) In Compliance Directory Location specify the directory in which to place completed compliance reports. Defaults to <code class="docutils literal"><span class="pre">./data/</span></code> if left blank.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>This will enable Compliance Reports to be run from the <strong>System Console</strong> &gt; <strong>Compliance and Auditing</strong> tab, as well as enable the option to generate Daily Compliance Reports.</p>
+</div>
+<div class="section" id="turn-on-daily-compliance-reports">
+<h2>Turn on Daily Compliance Reports<a class="headerlink" href="#turn-on-daily-compliance-reports" title="Permalink to this headline">¶</a></h2>
+<p>After enabling compliance reporting:</p>
+<ol class="arabic simple">
+<li>Go to <strong>System Console</strong> &gt; <strong>General</strong> &gt; <strong>Compliance</strong> &gt; <strong>Enable Daily Report</strong> and set the value to <code class="docutils literal"><span class="pre">true</span></code>.</li>
+<li>Click <strong>Save</strong>.</li>
+</ol>
+<p>Your system will now export all new messages posted within a 24-hour period as a .csv file to the location specified in <strong>Compliance Directory Location</strong>. This feature can be used in conjunction with centralized compliance reporting systems that move</p>
+</div>
+<div class="section" id="run-compliance-reports">
+<h2>Run Compliance Reports<a class="headerlink" href="#run-compliance-reports" title="Permalink to this headline">¶</a></h2>
+<p>Compliance Reports are exports of all messages in Mattermost matching the report criteria. To run a report:</p>
+<ol class="arabic">
+<li><p class="first">Go to <strong>System Console</strong> &gt; <strong>Compliance and Auditing</strong></p>
+</li>
+<li><p class="first">Fill in the following criteria:</p>
+<blockquote>
+<div><ul class="simple">
+<li><strong>Job Name:</strong> Name the compliance report you are about to run, e.g. &#8220;HR Audit 455&#8221;.</li>
+<li><strong>From:</strong> Start Date for search in YYYY-MM-DD format, e.g. &#8220;2016-03-11&#8221;.</li>
+<li><strong>To:</strong> End Date of search in YYYY-MM-DD format, e.g. &#8220;2016-05-11&#8221;.</li>
+<li><strong>Emails:</strong> Comma separated list of email addresses of users who&#8217;s posted messages you want to search. e.g. <code class="docutils literal"><span class="pre">bill&#64;example.com,</span> <span class="pre">bob&#64;example.com</span></code>.</li>
+<li><strong>Keywords:</strong> Indicate the words that would be contained in a message for it to be included in the Compliance Report results.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">Click &#8220;Run Compliance Report&#8221;</p>
+</li>
+</ol>
+<p>The report will be queued in the display below the fields described above. The properties of each Compliance Report run is explained as follows:</p>
+<ul class="simple">
+<li><strong>Timestamp:</strong> Time at which the report was requested.</li>
+<li><strong>Status:</strong> <cite>running</cite> indicates the report is being run. <cite>finished</cite> indicates the report is complete and ready for download.</li>
+<li><strong>Records:</strong> Shows the number of search results.</li>
+<li><strong>Type:</strong> <cite>adhoc</cite> indicates the report was requested by completing query fields, <cite>daily</cite> indicates the report is a daily export (see above section for description).</li>
+<li><strong>Description:</strong> Job Name indicated in request.</li>
+<li><strong>Requested by:</strong> Email of person requesting the report.</li>
+<li><strong>Params:</strong> Parameters of the compliance report request.</li>
+</ul>
+<p>Each Compliance Report includes a &#8220;Download&#8221; link which downloads a compressed file named <code class="docutils literal"><span class="pre">adhoc-[UNIQUE_ID].zip</span></code>. Inside the file is <code class="docutils literal"><span class="pre">meta.json</span></code>, which includes the parameters of the search executed and <code class="docutils literal"><span class="pre">posts.csv</span></code> which includes the contenst of messages found by the request.</p>
+<div class="section" id="compliance-query-definition-stored-in-meta-json-file">
+<h3>Compliance query definition stored in <code class="docutils literal"><span class="pre">meta.json</span></code> file<a class="headerlink" href="#compliance-query-definition-stored-in-meta-json-file" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">meta.json</span></code> contains the following information about the compliance query:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="53%" />
+<col width="29%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>id</td>
+<td>Unique identifier for compliance query</td>
+<td>ja8z8egap7nq9kqetz3rt98khe</td>
+</tr>
+<tr class="row-odd"><td>create_at</td>
+<td>Timestamp at which compliance query was executed</td>
+<td>1463637842478</td>
+</tr>
+<tr class="row-even"><td>user_id</td>
+<td>Mattermost User ID for person creating query</td>
+<td>3bq1shta93yztg3i6aiu1tzi5h</td>
+</tr>
+<tr class="row-odd"><td>status</td>
+<td>Status of query: &#8216;finished&#8217; or &#8216;failed&#8217;</td>
+<td>finished</td>
+</tr>
+<tr class="row-even"><td>count</td>
+<td>Count of messages found matching keyword</td>
+<td>36</td>
+</tr>
+<tr class="row-odd"><td>desc</td>
+<td>User entered description of compliance query</td>
+<td>Example Compliance Report</td>
+</tr>
+<tr class="row-even"><td>type</td>
+<td>Type of compliance query: &#8220;adhoc&#8221; or &#8220;daily&#8221;</td>
+<td>&#8220;adhoc&#8221;</td>
+</tr>
+<tr class="row-odd"><td>start_at</td>
+<td>Timestamp at which query began to run</td>
+<td>1451606400000</td>
+</tr>
+<tr class="row-even"><td>end_at</td>
+<td>Timestamp at which query ended</td>
+<td>1463529600000</td>
+</tr>
+<tr class="row-odd"><td>keywords</td>
+<td>Comma-separated, case insensitive keywords to match in query</td>
+<td>&#8220;drinking&#8221;</td>
+</tr>
+<tr class="row-even"><td>emails</td>
+<td>Comma-separated emails of users to search. Blank returns all</td>
+<td><code class="docutils literal"><span class="pre">frank.yu&#64;ha.ca,</span> <span class="pre">mary.li&#64;hi.co</span></code></td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="compliance-query-results-stored-in-posts-csv-file">
+<h3>Compliance query results stored in <code class="docutils literal"><span class="pre">posts.csv</span></code> file<a class="headerlink" href="#compliance-query-results-stored-in-posts-csv-file" title="Permalink to this headline">¶</a></h3>
+<p><code class="docutils literal"><span class="pre">posts.csv</span></code> contains the following information about the compliance query results, one search result per row:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="18%" />
+<col width="55%" />
+<col width="27%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Field</th>
+<th class="head">Description</th>
+<th class="head">Example</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>TeamName</td>
+<td>URL name of team</td>
+<td>contosi</td>
+</tr>
+<tr class="row-odd"><td>TeamDisplayName</td>
+<td>Display name of team</td>
+<td>Contosi Corporation</td>
+</tr>
+<tr class="row-even"><td>ChannelDisplayName</td>
+<td>Display name of channel where keyword was found</td>
+<td>Community Heartbeat</td>
+</tr>
+<tr class="row-odd"><td>ChannelName</td>
+<td>URL name of channel</td>
+<td>community-heartbeat</td>
+</tr>
+<tr class="row-even"><td>UserUsername</td>
+<td>Username of user posting the message containing keyword</td>
+<td>frank.yu</td>
+</tr>
+<tr class="row-odd"><td>UserEmail</td>
+<td>Email of user posting the message containing keyword</td>
+<td><code class="docutils literal"><span class="pre">frank.yu&#64;contosi.com</span></code></td>
+</tr>
+<tr class="row-even"><td>UserNickname</td>
+<td>Nickname of user posting the message containing keyword</td>
+<td>fan du</td>
+</tr>
+<tr class="row-odd"><td>PostId</td>
+<td>Unique ID of message post containing keyword</td>
+<td>xt9anyx6x3fx9y84aehgakdpze</td>
+</tr>
+<tr class="row-even"><td>PostCreateAt</td>
+<td>Timestamp at which post was created</td>
+<td>2016-03-02T16:01:59Z</td>
+</tr>
+<tr class="row-odd"><td>PostDeletedAt</td>
+<td>Timestamp at which post was deleted (if applicable)</td>
+<td>2016-03-02T16:01:59Z</td>
+</tr>
+<tr class="row-even"><td>PostUpdatedAt</td>
+<td>Timestamp at which post was last edited (if applicable</td>
+<td>2016-03-02T16:01:59Z</td>
+</tr>
+<tr class="row-odd"><td>PostParentId</td>
+<td>Unique ID of parent post if post is a comment</td>
+<td>xt9anyx6x3fx9y84aehgakdpze</td>
+</tr>
+<tr class="row-even"><td>PostOriginalId</td>
+<td>Unique ID of post if deleted or edited</td>
+<td>xt9anyx6x3fx9y84aehgakdpze</td>
+</tr>
+<tr class="row-odd"><td>PostMessage</td>
+<td>Message containing keyword</td>
+<td>Drinking from the fire hose</td>
+</tr>
+<tr class="row-even"><td>PostFilenames</td>
+<td>Comma separated list of filesnames attached to post</td>
+<td>[&#8220;/f../ho.png&#8221;,&#8221;/f../hi.png&#8221;]</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div class="section" id="global-relay-support">
+<h2>Global Relay Support<a class="headerlink" href="#global-relay-support" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost daily compliance reports are compatible with Global Relay compliance solutions through the conversion of Mattermost <code class="docutils literal"><span class="pre">.CSV</span></code> exports into Global Relay <code class="docutils literal"><span class="pre">EML</span></code> files.</p>
+<ul class="simple">
+<li>This conversion can be done by in-house developers who have previously written scripts to convert other communication systems into Global Relay format based on your organization&#8217;s specific needs.</li>
+<li>You can also contact your Global Relay account manager about a services project to establish this conversion.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="branding.html" class="btn btn-neutral float-right" title="Custom Branding Tools" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="announcement-banner.html" class="btn btn-neutral" title="Announcement Banner" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/administration/compliance.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

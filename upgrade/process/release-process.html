@@ -1,0 +1,897 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Release Process &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
+        <link rel="next" title="Help Wanted Tickets" href="help-wanted.html"/>
+        <link rel="prev" title="Development Process Overview" href="overview.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/core.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="overview.html">Development Process Overview</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Release Process</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#release-timeline">Release Timeline</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#templates">Templates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#release-numbering">Release Numbering</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="help-wanted.html">Help Wanted Tickets</a></li>
+<li class="toctree-l3"><a class="reference internal" href="community-systems.html">Bugs, Feature Ideas, Troubleshooting</a></li>
+<li class="toctree-l3"><a class="reference internal" href="marketing-guidelines.html">Mattermost Community Content Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="asset-guidelines.html">Mattermost Asset Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="community-guidelines.html">Mattermost Community Guidelines</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#core-developer-handbook">Core Developer Handbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a></li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/core.html">Core Team Handbook</a> &raquo;</li>
+    
+    <li>Release Process</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/process/release-process.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="release-process">
+<span id="release-process"></span><h1>Release Process<a class="headerlink" href="#release-process" title="Permalink to this headline">¶</a></h1>
+<p>Mattermost core team works on a monthly release process, with a new version shipping on the 16th of each month in <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#mattermost-team-edition">binary form</a>.</p>
+<p>This document outlines the development process for the Mattermost core team, which draws from what we find works best for us from Agile, Scrum and Software Development Lifecycle approaches.</p>
+<p>Recommended pre-reading:</p>
+<ul class="simple">
+<li><a class="reference external" href="https://docs.mattermost.com/process/training.html#software-development-process">Mattermost Software Development Process training materials</a></li>
+<li><a class="reference external" href="https://docs.mattermost.com/process/training.html#system-security">Mattermost Security Practices training</a> (particularly NIST standards)</li>
+</ul>
+<div class="section" id="release-timeline">
+<span id="release-timeline"></span><h2>Release Timeline<a class="headerlink" href="#release-timeline" title="Permalink to this headline">¶</a></h2>
+<p>Notes:</p>
+<ul class="simple">
+<li>All cut-off dates are based on 10am (<a class="reference external" href="http://everytimezone.com/">San Francisco Time</a>) on the day stated.</li>
+<li>T-minus counts are measured in &#8220;working days&#8221; (weekdays other than major holidays concurrent in US and Canada) prior to release day.</li>
+</ul>
+<div class="section" id="a-code-complete-date-of-previous-release-beginning-of-release">
+<span id="a-code-complete-date-of-previous-release-beginning-of-release"></span><h3>A. (Code complete date of previous release) Beginning of release<a class="headerlink" href="#a-code-complete-date-of-previous-release-beginning-of-release" title="Permalink to this headline">¶</a></h3>
+<p>Pre-work for the current release begins at the code complete date of the previous release. See &#8220;Code Complete&#8221; section below for details.</p>
+</div>
+<div class="section" id="b-t-minus-15-working-days-cut-off-for-submitting-major-features">
+<span id="b-t-minus-15-working-days-cut-off-for-submitting-major-features"></span><h3>B. (T-minus 15 working days) Cut-off for submitting major features<a class="headerlink" href="#b-t-minus-15-working-days-cut-off-for-submitting-major-features" title="Permalink to this headline">¶</a></h3>
+<p>No pull requests for major features should be <strong>submitted</strong> to the current release after this date (except if release manager decides to add &#8220;release-exception&#8221; label to Jira ticket).</p>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>Prioritize reviewing major features, ensuring any bugs and UX issues get fixed</li>
+<li>Check that all major features are behind a feature flag</li>
+</ul>
+</li>
+<li>Dev:<ul>
+<li>Prioritize reviewing, updating, and merging of pull requests for major features</li>
+</ul>
+</li>
+<li>Marketing:<ul>
+<li>Confirm each Enterprise feature is in the correct <a class="reference external" href="https://about.mattermost.com/pricing/">pricing SKU</a>, if not alert the release manager</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="c-t-minus-12-working-days-cut-off-for-merging-major-features">
+<span id="c-t-minus-12-working-days-cut-off-for-merging-major-features"></span><h3>C. (T-minus 12 working days) Cut-off for merging major features<a class="headerlink" href="#c-t-minus-12-working-days-cut-off-for-merging-major-features" title="Permalink to this headline">¶</a></h3>
+<p>No pull requests for major features should be <strong>merged</strong> to the current release after this date (except if release manager decides to add &#8220;release-exception&#8221; label to Jira ticket).</p>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+<li>Verify all items in the last posted release checklist are complete</li>
+</ul>
+</li>
+<li>Logistics:<ul>
+<li>Start posting a daily Zero Bug Balance query</li>
+<li>Queue an item for UX meeting to discuss worst UX bug and to do a 10-minute UI/UX bug bash</li>
+<li>Notify community about upcoming release in Reception</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>PM area owners complete draft of Changelog in a WIP PR with updates for highlights, feature additions, known issues, compatibility updates for deprecated features, config.json, <a class="reference external" href="https://github.com/mattermost/platform/blob/master/store/sql_upgrade.go#L181">database changes</a>, <a class="reference external" href="https://github.com/mattermost/platform/commits/master/model/client.go">API changes</a> (search <code class="docutils literal"><span class="pre">#api-proposal</span></code> and confirm with Dev) and WebSocket event changes; <a class="reference external" href="http://docs.mattermost.com/administration/changelog.html#compatibility">see example</a></li>
+<li>Review and update <a class="reference external" href="https://about.mattermost.com/direction/">company roadmap</a> with which major features made it into the release</li>
+<li>PM feature owners post draft section for the blog post in the Marketing Channel (including screenshots and a hashtag #mattermostXX where XX is the version number, see <a class="reference external" href="https://pre-release.mattermost.com/core/pl/o611i4wz3pfafb6fpha9ggxxnh">example thread</a>) and <a class="reference external" href="https://pre-release.mattermost.com/core/pl/f3wsbwkgzfdr9nf9amtcwfpo6h">queue a tweet</a></li>
+<li>Backlog is reviewed and tickets that won’t make it are moved to next release</li>
+</ul>
+</li>
+<li>Docs:<ul>
+<li>Update <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#upgrade-guide">Upgrade Guide</a> for any steps needed to upgrade to new version</li>
+<li>Submit NOTICE.txt PR for any new libraries added from dev, if not added already. The following two files contain a list of dependencies:<ul>
+<li>https://github.com/mattermost/platform/blob/master/webapp/package.json</li>
+<li>https://github.com/mattermost/platform/blob/master/glide.yaml</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QA:<ul>
+<li>Coordinate testing:<ul>
+<li>Receive testing sign-off from feature area owners (i.e. PM/Dev either signs-off that their area is well tested, or flags potential quality issues that may exist)</li>
+<li>Prioritize updating the RC Testing Spreadsheet to cover any changes or new features, and confirm that known issues are listed in the relevant tests</li>
+<li>Assign each area of the release testing spreadsheet to a team member and ensure core team has access permissions</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><strong>(Team) Major Feature Complete Meeting (10:00am San Francisco time)</strong>:<ul>
+<li>Discuss worst bug currently on master</li>
+<li>Discuss release highlights for marketing</li>
+<li>Review status of last feature PRs to be merged</li>
+</ul>
+</li>
+<li>Dev:<ul>
+<li>Prioritize reviewing, updating, and merging of pull requests for current release until there are no more tickets in the <a class="reference external" href="https://github.com/mattermost/platform/pulls">pull request queue</a> marked for the current release</li>
+<li>After the cut-off, any PRs that include significant code changes require approval of the release manager before merging.</li>
+</ul>
+</li>
+<li>Marketing:<ul>
+<li>Prepare bullet points for release announcement</li>
+<li>Propose list of key features included in the release GIF and send to marketing lead for review</li>
+<li>Draft release headline and send to marketing lead for review</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="d-t-minus-10-working-days-judgment-day">
+<span id="d-t-minus-10-working-days-judgment-day"></span><h3>D. (T-minus 10 working days) Judgment Day<a class="headerlink" href="#d-t-minus-10-working-days-judgment-day" title="Permalink to this headline">¶</a></h3>
+<p>Day when leads and PM area owners decide which major features are included in the release, and which are postponed.</p>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+<li>Verify all items in the last posted release checklist are complete</li>
+</ul>
+</li>
+<li>Logistics:<ul>
+<li>Confirm, in Judgement Day meeting, date of marketing announcement for the release and update release channel header if needed</li>
+</ul>
+</li>
+<li>Leads:<ul>
+<li>Finalize roadmap for next release, and identify planned marketing bullet points</li>
+</ul>
+</li>
+<li><strong>(Team) Judgment Day Meeting (10:00am San Francisco time)</strong>:<ul>
+<li>Meet to discuss release update and finalize which major features will be in or out for the release</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>Based on discussion, create tickets for features that need to be turned on or off for the release</li>
+<li>Backlog is reviewed and tickets that won’t make it are moved to next release</li>
+<li>Post a link to Release Discussion room for query of <a class="reference external" href="https://mattermost.atlassian.net/issues/?filter=11102">remaining tickets in this release</a></li>
+<li>Update Changelog PR based on what&#8217;s in/out of the release</li>
+<li>Create meta issue for release in GitHub (see <a class="reference external" href="https://github.com/mattermost/platform/issues/3702">example</a>)</li>
+<li>Review the JIRA tickets remaining in the current release fix version and push those that won&#8217;t make it to the next fix version</li>
+<li>Review any features that are currently in Beta and confirm with leads if there are any to be promoted</li>
+</ul>
+</li>
+<li>Marketing:<ul>
+<li>Begins to draft blog post, tweet, and email for the release announcement</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="e-t-minus-8-working-days-code-complete-and-release-candidate-cut">
+<span id="e-t-minus-8-working-days-code-complete-and-release-candidate-cut"></span><h3>E. (T-minus 8 working days) Code Complete and Release Candidate Cut<a class="headerlink" href="#e-t-minus-8-working-days-code-complete-and-release-candidate-cut" title="Permalink to this headline">¶</a></h3>
+<p><strong>Stabilization</strong> period begins when all features for release have been committed. During this period, only <strong>bugs</strong> can be committed to the release branch. Non-bug pull requests are tagged for next version.</p>
+<p>Exceptions can be made by the release manager setting priority to &#8220;Highest&#8221; and adding a &#8220;release-exception&#8221; label to the Jira ticket. This will add the ticket to the <a class="reference external" href="https://mattermost.atlassian.net/issues/?filter=10204">hotfix list for release candidate</a>.</p>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+<li>Verify all items in the last posted release checklist are complete</li>
+</ul>
+</li>
+<li>Logistics:<ul>
+<li>Mail out mugs to any new contributors</li>
+<li>Update <a class="reference external" href="http://www.mattermost.org/team/">Team</a> page with new contributors</li>
+<li>Add list of contributors to the Changelog draft</li>
+</ul>
+</li>
+<li>Dev:<ul>
+<li>Prioritize reviewing, updating, and merging of pull requests for current release until there are no more tickets in the <a class="reference external" href="https://github.com/mattermost/platform/pulls">pull request queue</a> marked for the current release</li>
+</ul>
+</li>
+<li>PM:
+&nbsp; &nbsp;- Review all <a class="reference external" href="https://mattermost.atlassian.net/secure/IssueNavigator.jspa?mode=hide&amp;requestId=10600">Severity 1 bugs (data loss or security)</a> to consider for adding to Hotfix list.<ul>
+<li>Update documentation:<ul>
+<li>Submit Changelog PR</li>
+<li>Draft <a class="reference external" href="http://about.mattermost.com/security-updates/">Mattermost Security Updates</a>, but do not post until 14 days after official release</li>
+</ul>
+</li>
+<li>If there are any breaking compatibility changes in the release, open an issue in the <a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab">GitLab Omnibus</a> to make sure GitLab is aware. Post a link to the issue in the Release Discussion channel.</li>
+</ul>
+</li>
+<li>Docs:<ul>
+<li>Submit all doc PRs for review</li>
+<li>Confirm changes to config.json in compatibility section of Changelog are written back to <a class="reference external" href="http://docs.mattermost.com/administration/config-settings.html#configuration-settings">settings documentation</a></li>
+</ul>
+</li>
+<li>QA:<ul>
+<li>Confirm all PRs merged into the current release have been tested</li>
+</ul>
+</li>
+<li><strong>(Team) Code Complete Meeting (10:00am San Francisco time)</strong>:<ul>
+<li>(PM) Leads team review of Changelog</li>
+<li>(Release Manager) Walk through each unfinished item of this checklist</li>
+<li>(Dev) Last check of tickets that need to be merged before RC1</li>
+</ul>
+</li>
+<li>Build:<ul>
+<li>Review all <code class="docutils literal"><span class="pre">TODO</span></code> notes, including one for uncommenting upgrade code</li>
+<li>Master is tagged and branched and “Release Candidate 1″ is cut (e.g. 3.5.0-RC1) according to the Release Candidate Checklist in <code class="docutils literal"><span class="pre">mattermost/process</span></code></li>
+<li>After branching, the database version in sql_upgrade.go on master is set to the next scheduled release version (e.g. 3.6.0)</li>
+<li>CI servers are updated to the release branch</li>
+<li>Translation server is locked to the release branch</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>Merge changelog PR after team review is complete, and update the GitHub meta issue to include a link to the changelog on the documentation branch</li>
+<li>Tweet announcement that RC1 is ready (see <a class="reference external" href="https://pre-release.mattermost.com/core/pl/tefx1ijyz7bs8mabuxmpq9f7pw">example</a>)</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="f-t-minus-7-working-days-release-candidate-testing">
+<span id="f-t-minus-7-working-days-release-candidate-testing"></span><h3>F. (T-minus 7 working days) Release Candidate Testing<a class="headerlink" href="#f-t-minus-7-working-days-release-candidate-testing" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+<li>Verify all items in the last posted release checklist are complete</li>
+</ul>
+</li>
+<li>QA:<ul>
+<li>Update Release Discussion header with links to RC instances and testing spreadsheet</li>
+<li>Post release testing instructions to Release Discussion channel (<a class="reference external" href="https://pre-release.mattermost.com/core/pl/8z1tazpmm3ycbrehju36brd5nh">example</a>)</li>
+<li>Post &#8220;Known Issues&#8221; to Release Discussion channel</li>
+</ul>
+</li>
+<li>Dev:<ul>
+<li>Run loadtests against the release candidate to find potential performance issues</li>
+</ul>
+</li>
+<li>Logistics:<ul>
+<li>Confirm community testers are directed to the Release Discussion channel</li>
+<li>Queue an item for UX meeting to do a 10-minute UI/UX bug bash</li>
+</ul>
+</li>
+<li>Team:<ul>
+<li>Test assigned areas of the Release Candidate Testing Spreadsheet and file any bugs found in Jira</li>
+<li>Post a link to any &#8220;Blocking&#8221; issue that may need a hotfix to the RC in the Release room, with the <strong>#blocking</strong> tag. If the issue is security related or contains confidential information, post the link in the Confidential Bugs private channel. Blocking issues are considered to be security issues, data loss issues, and issues that break core functionality or significantly impact aesthetics.</li>
+<li>Daily triage of hotfix candidates and decide on whether and when to cut next RC or final</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>Queue an item for Release Update meeting to discuss worst bug</li>
+<li>Update the meta issue:<ul>
+<li>Post comments to the meta issue with approved fixes for the next RCs</li>
+<li>Download links and testing server links to the RCs</li>
+</ul>
+</li>
+<li>Post screenshot and links to final tickets for next RC to the Release Discussion room</li>
+<li>Update Changelog “Known Issues” section with any significant issues that were found and not fixed for the final release</li>
+</ul>
+</li>
+<li>Dev:<ul>
+<li>PRs for hotfixes made to release branch</li>
+<li>Review PRs made from release branch and merge changes into both the release branch and master</li>
+</ul>
+</li>
+<li>QA:<ul>
+<li>Test RC fixes as they come in on CI servers</li>
+</ul>
+</li>
+<li>Build:<ul>
+<li>Verify with Release Manager before cutting any new RCs (approved fixes should be merged)</li>
+<li>Push next RC to acceptance and announce in Town Square with new RC link</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>Test the new RC to verify fixes merged to the release branch work</li>
+<li>Post in Release Channel after testing</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="g-t-minus-5-working-days-release-candidate-testing-finished">
+<span id="g-t-minus-5-working-days-release-candidate-testing-finished"></span><h3>G. (T-minus 5 working days) Release Candidate Testing Finished<a class="headerlink" href="#g-t-minus-5-working-days-release-candidate-testing-finished" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+<li>Verify all items in the last posted release checklist are complete</li>
+<li>Verify that the final translations PR for the release is submitted</li>
+</ul>
+</li>
+<li>Team:<ul>
+<li>Finish assigned areas of the Release Candidate Testing Spreadsheet</li>
+<li>Continue triaging hotfix candidates and decide on whether and when to cut next RC or final</li>
+<li>If no blocking issues are found, PM, Dev and Ops signs off on the release</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>Check that known issues section of Changelog is updated</li>
+<li>Check that the contributors section of Changelog is updated (including contributors from all repos)</li>
+<li>Check that if there is a security fix, the Changelog contains a note mentioning the severity level of the issue, recommending upgrade, and thanking the security researcher (see security process doc for example)</li>
+</ul>
+</li>
+<li>Marketing:<ul>
+<li>Finish draft of blog post for mattermost.com and send for marketing lead to review<ul>
+<li>Upgrade should be recommended if there are security fixes in this version, with a note thanking the security researcher</li>
+</ul>
+</li>
+<li>Finish drafts of all art work (screenshots, GIFs and twitter banners) used for the blog post and send to marketing lead for review</li>
+<li>Find <a class="reference external" href="https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests?scope=all&amp;utf8=%E2%9C%93&amp;state=opened&amp;label_name%5B%5D=blog%20post&amp;label_name%5B%5D=release">www-gitlab-com merge request</a> for latest GitLab release blog post and make request for adding GitLab Mattermost update (see <a class="reference external" href="https://gitlab.com/gitlab-com/www-gitlab-com/merge_requests/2910#note_14096885">example request</a>, <a class="reference external" href="https://about.gitlab.com/2016/07/22/gitlab-8-10-released/#gitlab-mattermost-32">example update</a>). Post to Release Discussion channel with link to request.</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="h-t-minus-2-working-days-release-build-cut">
+<span id="h-t-minus-2-working-days-release-build-cut"></span><h3>H. (T-minus 2 working days) Release Build Cut<a class="headerlink" href="#h-t-minus-2-working-days-release-build-cut" title="Permalink to this headline">¶</a></h3>
+<p>The final release is cut. If an urgent and important issue needs to be addressed between major releases, a bug fix release (e.g. 1.1.1) may be created.</p>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+<li>Verify all items in the last posted release checklist are complete</li>
+</ul>
+</li>
+<li>Build:<ul>
+<li>Tags a new release (e.g. 1.1.0) and runs an official build which should be essentially identical to the last RC</li>
+<li>Posts SHA key, md5 sum and GPG signatures of the final build to release channel</li>
+<li>Post in Release Discussion with links to the EE and Team Edition bits</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>Close GitHub meta ticket for the release</li>
+<li>Submit GitLab MR to take next Mattermost version in the Omnibus (see <a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab/merge_requests/998">example</a>):<ul>
+<li>Include changes to Mattermost version number (<a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/config/software/mattermost.rb#L20"><code class="docutils literal"><span class="pre">default_version</span></code></a>) and md5 sum of the final TE build (<a class="reference external" href="https://gitlab.com/jasonblais/omnibus-gitlab/blob/master/config/software/mattermost.rb#L23"><code class="docutils literal"><span class="pre">source</span> <span class="pre">md5</span></code></a>) in  <a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab/blob/master/config/software/mattermost.rb"><code class="docutils literal"><span class="pre">config/software/mattermost.rb</span></code></a></li>
+<li>Include a summary of updates in Team Edition that are relevant to GitLab</li>
+<li>Post a link to the MR in the Release Discussion channel</li>
+</ul>
+</li>
+<li>Check Security Issues spreadsheet and confirm disclosure text</li>
+<li>Check the security researcher was added to the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Responsible Disclosure Policy</a> page</li>
+<li>Confirm link to security updates appears in blog post if there are security updates in this release, with a note thanking the security researcher</li>
+<li>Update <a class="reference external" href="https://about.mattermost.com/deprecated-features/">deprecated feature list</a> in mattermost.com with new and scheduled deprecations</li>
+</ul>
+</li>
+<li>Dev:<ul>
+<li>Verify the hashes (SHA-1, SHA-256 and md5) and GPG signatures are correct for both Team Edition and Enterprise Edition.</li>
+<li>Test upgrade from previous version to current version, following the <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#upgrade-guide">Upgrade Guide</a> with database upgrades on both MySQL and Postgres</li>
+<li>Test upgrade from Team Edition to Enterprise edition based on the <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#upgrade-team-edition-to-enterprise-edition">Upgrade Guide</a></li>
+<li>Review any changes made to install guides, and test if necessary</li>
+<li>Run loadtests against the final release build to confirm there are no performance issues</li>
+</ul>
+</li>
+<li>Logistics:<ul>
+<li>Update the <a class="reference external" href="https://www.mattermost.org/download/">Mattermost server download page</a> with the links to the EE and TE bits<ul>
+<li>Test the download links before and after updating the page</li>
+</ul>
+</li>
+<li>Update <a class="reference external" href="https://www.mattermost.org/mvp/">MVP page</a> with the most valuable contributor of the release</li>
+</ul>
+</li>
+<li>Docs:<ul>
+<li>Add the download links and SHA-256 hash <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#version-archive">upgrade guide</a></li>
+<li>Finalize docs<ul>
+<li>If reviews are not complete, hold a 30 minute doc review meeting with PMs and anyone else who has changed or reviewed docs this release and wants to join</li>
+<li>Merge the docs release branch to master and verify all changes on docs.mattermost.com once the build is up</li>
+<li>Submit a correction PR for any incorrect formatting or other errors missed during the initial review</li>
+</ul>
+</li>
+<li>Submit an MR to update <a class="reference external" href="https://docs.gitlab.com/omnibus/gitlab-mattermost/README.html">GitLab Mattermost documentation</a></li>
+</ul>
+</li>
+<li>Marketing:<ul>
+<li>Finish draft of animated GIF (for Twitter announcement, MailChimp and blog post) made up of top announcements</li>
+<li>Finish draft of MailChimp email blast and Twitter announcement and send for marketing lead to review. Once reviewed, schedule for 08:00 PST on the date of marketing announcement</li>
+<li><strong>Note:</strong> If the release contains a security update, also draft a Mailchimp email blast for the <a class="reference external" href="http://eepurl.com/cAl5Rv">Security Bulletin mailing list</a></li>
+<li>Finalize blog post for mattermost.com and set timer for 08:00 PST on the day of release</li>
+<li>Turn on CrazyEgg for blog post page</li>
+<li>Update <a class="reference external" href="https://about.mattermost.com/pricing/">feature list</a> on mattermost.com with relevant new features</li>
+</ul>
+</li>
+</ol>
+<p>If a bug fix release is required, run through the following steps:</p>
+<ol class="simple">
+<li>PM:<ul>
+<li>Schedule a team Release Update meeting every day until the dot release is complete</li>
+<li>Post links to approved tickets for next dot release RC to the Release Discussion channel</li>
+<li>Make a post in Town Square announcing the dot release. <a class="reference external" href="https://pre-release.mattermost.com/core/pl/4aippek8yp8a3nex9anen5rjoc">See example</a></li>
+<li>Open an issue in the <a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab">GitLab Omnibus</a> mentioning a dot release is coming</li>
+<li>Update the GitHub meta issue:<ul>
+<li>Change the title to &#8220;Mattermost vx.x.x - RCx&#8221;, where <code class="docutils literal"><span class="pre">vx.x.x</span></code> is the version number of the dot release</li>
+<li>Post a comment to the meta issue with approved fixes for the next RC of the dot release</li>
+<li>Post download links and testing server links for the next RC when it&#8217;s cut</li>
+</ul>
+</li>
+<li>Update Changelog:<ul>
+<li>Start a WIP PR for the dot release changelog and commit updates as new issues are fixed on the dot release RCs</li>
+<li>Update “Known Issues” section with any significant issues that were found during RC testing and not fixed for the dot release</li>
+</ul>
+</li>
+<li>Push RC versions to acceptance and announce in Town Square with new RC link as they are cut</li>
+<li>Test the new RC to verify fixes merged to the release branch work. Post in Release Discussion channel after testing</li>
+</ul>
+</li>
+<li>Dev:<ul>
+<li>PRs for hotfixes are made to release branch</li>
+<li>Review PRs made from release branch and merge changes into both the release branch and master</li>
+</ul>
+</li>
+<li>Build:<ul>
+<li>Verify with Release Manager before cutting any new dot release RCs (approved fixes should be merged)</li>
+<li>Push dot release RC&#8217;s to CI servers, pre-release and GitLab Mattermost.</li>
+</ul>
+</li>
+<li>QA:<ul>
+<li>Test the new RC to verify fixes merged to the release branch work. Post in Release Discussion channel after testing</li>
+</ul>
+</li>
+</ol>
+<p>Once final dot release build is ready to cut:</p>
+<ol class="simple">
+<li>Build:<ul>
+<li>Tag a new release (e.g. 1.1.1) and run an official build</li>
+<li>Update CI servers, pre-release and GitLab Mattermost to the final version</li>
+</ul>
+</li>
+<li>PM:<ul>
+<li>Update <a class="reference external" href="https://about.mattermost.com/pricing/">Mattermost pricing page</a> if anything has changed</li>
+<li>Merge the Changelog PR with notes on patch releases (see <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-5.1">example entry</a>)</li>
+<li>Submit GitLab MR to update the version number and MD5 hash to the dot release version. <a class="reference external" href="https://gitlab.com/gitlab-org/omnibus-gitlab/merge_requests/1127">See example</a><ul>
+<li><a class="reference external" href="https://docs.google.com/document/d/1mbeu2XXwCpbz3qz7y_6yDIYBToyY2nW0NFZq9Gdei1E/edit#heading=h.ncq9ltn04isg">Test the upgrade</a> once the MR is merged and the package is released to the GitLab package server</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>QA:<ul>
+<li>Verifies each of the issues in the patch release are fixed</li>
+</ul>
+</li>
+<li>Docs:<ul>
+<li>Update the version archive in the <a class="reference external" href="https://github.com/mattermost/docs/blob/master/source/administration/upgrade.md">upgrade guide</a></li>
+<li>Submit an MR to update <a class="reference external" href="https://docs.gitlab.com/omnibus/gitlab-mattermost/README.html">GitLab Mattermost documentation</a></li>
+</ul>
+</li>
+<li>Logistics:<ul>
+<li>Update <a class="reference external" href="https://mattermost.org/download">Mattermost server download page</a> with the links to the EE and TE bits<ul>
+<li>Test the download links before and after updating the page</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Marketing:<ul>
+<li>Prepare <a class="reference external" href="https://about.mattermost.com/mattermost-3-6-2/">blog post</a> for mattermost.com, MailChimp email blast, and <a class="reference external" href="https://twitter.com/mattermosthq/status/827193482578112512">Twitter announcement</a>, and send for marketing lead to review. Once reviewed, schedule for 08:00 PST on the day after dot release<ul>
+<li><strong>Note:</strong> If the release contains a security update, also draft a Mailchimp email blast for the <a class="reference external" href="http://eepurl.com/cAl5Rv">Security Bulletin mailing list</a></li>
+<li>Upgrade should be recommended if there are security fixes in the dot release version</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="i-t-minus-0-working-days-release-day">
+<span id="i-t-minus-0-working-days-release-day"></span><h3>I. (T-minus 0 working days) Release Day<a class="headerlink" href="#i-t-minus-0-working-days-release-day" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+<li>Verify all items in the last posted release checklist are complete, if not alert the release manager</li>
+</ul>
+</li>
+<li>Logistics:<ul>
+<li>Check for any <a class="reference external" href="https://docs.google.com/spreadsheets/d/1nljd4cFh-9MXF4DxlUnC8b6bdqijkvi8KHquOmK8M6E/edit#gid=0">UserVoice</a> feature suggestions that were completed in the current release.  Find the <a class="reference external" href="https://twitter.com/mattermosthq/status/854781715914555393">release tweet</a> and insert a link to the tweet next to the feature that shipped with the release.</li>
+<li>Post key dates for the next release in the header of the Release Discussion channel and remove links to RC candidates and testing spreadsheet</li>
+<li>For the next release, create the following team meetings. If they conflict with existing meetings, check with meeting owner to reschedule or reschedule the release meeting<ul>
+<li>PM Release Update meeting on T-15 at 7:30am San Francisco time</li>
+<li>Major Feature Complete Meeting on T-12 at 10:00am San Francisco time</li>
+<li>Judgment Day Meeting on T-10 at 10:00am San Francisco time</li>
+<li>Code Complete Meeting on T-8 at 10:00am San Francisco time</li>
+<li>Team-wide Triage each weekday starting at T-8 and ending at T-2 at 9:00am San Francisco time, with optional attendance</li>
+<li>Release Update each weekday starting at T-7 and ending at T-2 at 10:00am San Francisco time</li>
+</ul>
+</li>
+<li>Add “Release Retrospective” item to next team meeting, asking each core team member to give a letter grade (and brief explanation) for:<ul>
+<li>Release Quality</li>
+<li>Release Process</li>
+<li>Testing Process</li>
+</ul>
+</li>
+<li>Close the release in Jira (<a class="reference external" href="https://mattermost.atlassian.net/projects/PLT?selectedItem=com.atlassian.jira.jira-projects-plugin%3Arelease-page&amp;status=unreleased">releases page</a>)<ul>
+<li>If there are many unresolved tickets in the current release, ask the release manager to review the ticket queue</li>
+<li>Otherwise, release the fix version (Actions &gt; [...] &gt; Release)</li>
+</ul>
+</li>
+<li>Prepare tickets for the next release,  with a corresponding vX.X prefix<ul>
+<li><a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-2198">Creating final release candidate</a></li>
+<li><a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-2197">Test Gitlab Omnibus RC install of Mattermost</a></li>
+<li><a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-3940">Test upgrade</a> to latest release based on <a class="reference external" href="http://docs.mattermost.com/administration/upgrade.html#upgrade-guide">upgrade guide</a></li>
+<li>Test upgrade from Team Edition to Enterprise Edition</li>
+<li><a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-2208">RC Build Testing for core team</a></li>
+<li><a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-3116">Upgrade gitlab.mattermost.com to RC1</a></li>
+<li><a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-3117">Push final build to gitlab.mattermost.com</a></li>
+<li><a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-3937">Cut build and set up RC1 servers, including a note to check for all XXX items</a></li>
+</ul>
+</li>
+<li>Update <a class="reference external" href="https://github.com/mattermost/mattermost-docker">mattermost-docker</a> version</li>
+<li>Contact owners of <a class="reference external" href="http://www.mattermost.org/installation/">community installers</a> or submit PRs to update install version number<ul>
+<li>For Puppet, Heroku and Ansible Playbook, post to Installers and Images channel announcing the new release. See <a class="reference external" href="https://pre-release.mattermost.com/core/pl/5eh8fw3jaiyzzqoc6nfwfaioya">example</a>.</li>
+<li>For Chef Cookbook, open a new issue to announce the new release. See <a class="reference external" href="https://github.com/verifi-inc/mattermost/issues/2">example</a>.</li>
+<li>For Yunohost, open a new pull request to update the version. See <a class="reference external" href="https://github.com/kemenaran/mattermost_ynh/pull/11">example</a>.</li>
+<li>For OpenShift, open a new pull request to update the version. See <a class="reference external" href="https://github.com/goern/mattermost-openshift/pull/13">example</a>.</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Docs:<ul>
+<li>Create a new branch on docs for the next release - <code class="docutils literal"><span class="pre">vX.X-documentation</span></code><ul>
+<li>Submit a PR for changelog against the <code class="docutils literal"><span class="pre">vX.X-documentation</span></code> branch and add a <code class="docutils literal"><span class="pre">Work</span> <span class="pre">in</span> <span class="pre">Progress</span></code> label for it</li>
+<li>Submit a PR to change version number in <code class="docutils literal"><span class="pre">docs/source/conf.py</span></code> against the <code class="docutils literal"><span class="pre">vX.X-documentation</span></code> branch</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Build<ul>
+<li>Put CI servers and translation server back onto master</li>
+<li>Update <a class="reference external" href="https://ci-linux-mysql-prev.mattermost.com">ci-linux-mysql-prev</a> to the final release version</li>
+</ul>
+</li>
+<li>Dev:<ul>
+<li>Delete RCs after final version is shipped</li>
+<li>Check if any libraries need to be updated for the next release, and if so bring up in weekly team meeting</li>
+<li>Test the GitLab RC containing the Mattermost final bits</li>
+<li>Confirm gitlab.mattermost.com is updated to final build</li>
+<li>Merge changes made to release branch into <code class="docutils literal"><span class="pre">master</span></code></li>
+</ul>
+</li>
+<li>Marketing:<ul>
+<li>Confirm marketing has been posted (animated GIFs, screenshots, mail announcement, tweets, blog posts)</li>
+<li>Update &#64;mattermosthq Twitter profile with the next release date</li>
+<li>Prepare retweet of GitLab release tweet (<a class="reference external" href="https://pre-release.mattermost.com/core/pl/k7wchwj5mtrhucj6don96yx3sc">see example here</a>)</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="j-t-plus-5-working-days-release-updates">
+<span id="j-t-plus-5-working-days-release-updates"></span><h3>J. (T-plus 5 working days) Release Updates<a class="headerlink" href="#j-t-plus-5-working-days-release-updates" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>Release Manager:<ul>
+<li>Post this checklist in Release channel</li>
+<li>Verify all items in the last posted release checklist are complete</li>
+</ul>
+</li>
+<li>Logistics:<ul>
+<li>Confirm the Security Researchers list on the <a class="reference external" href="https://www.mattermost.org/responsible-disclosure-policy/">Responsible Disclosure Policy</a> is up to date</li>
+<li>Review &#8220;Community Installers&#8221; and update version numbers if there are any discrepancies https://www.mattermost.org/installation/ (move this to ops eventually)</li>
+</ul>
+</li>
+<li>Leads:<ul>
+<li>Update <a class="reference external" href="https://about.mattermost.com/direction/">company roadmap at mattermost.com</a></li>
+</ul>
+</li>
+<li>Build:<ul>
+<li>Put pre-release back on master</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="k-t-plus-10-working-days-update-mattermost-security-page">
+<span id="k-t-plus-10-working-days-update-mattermost-security-page"></span><h3>K. (T-plus 10 working days) Update Mattermost Security Page<a class="headerlink" href="#k-t-plus-10-working-days-update-mattermost-security-page" title="Permalink to this headline">¶</a></h3>
+<ol class="simple">
+<li>PM:<ul>
+<li>Post <a class="reference external" href="https://about.mattermost.com/security-updates/">Mattermost Security Updates</a> after reviewing with security lead<ul>
+<li>If a dot release is shipping with security fixes, do not post new details until T-plus 10 working days from the dot release ship date</li>
+</ul>
+</li>
+<li>Update Security Issues spreadsheet with issue number from posted update (e.g. v3.2.0.1)</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div class="section" id="templates">
+<span id="templates"></span><h2>Templates<a class="headerlink" href="#templates" title="Permalink to this headline">¶</a></h2>
+<p>Templates for GitLab announcement proposal</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Proposed</span> <span class="n">update</span> <span class="k">for</span> <span class="n">new</span> <span class="n">version</span> <span class="n">of</span> <span class="p">[</span><span class="n">Mattermost</span><span class="p">](</span><span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">gitlab</span><span class="o">-</span><span class="n">org</span><span class="o">/</span><span class="n">omnibus</span><span class="o">-</span><span class="n">gitlab</span><span class="o">/</span><span class="n">issues</span><span class="o">/</span><span class="mi">1241</span><span class="p">)</span><span class="o">.</span>
+
+<span class="c1">## GitLab Mattermost 2.2</span>
+
+<span class="p">[</span><span class="n">Mattermost</span> <span class="mf">2.2</span><span class="p">](</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">mattermost</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">mattermost</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="mi">2</span><span class="o">-</span><span class="n">threaded</span><span class="o">-</span><span class="n">messages</span><span class="o">-</span><span class="ow">and</span><span class="o">-</span><span class="n">more</span><span class="o">/</span><span class="p">)</span> <span class="n">ships</span> <span class="ow">in</span> <span class="n">GitLab</span> <span class="mf">8.7</span> <span class="k">with</span> <span class="n">threaded</span> <span class="n">messages</span><span class="p">,</span> <span class="n">French</span> <span class="n">translation</span><span class="p">,</span> <span class="n">new</span> <span class="n">themes</span><span class="p">,</span> <span class="n">new</span> <span class="n">Trello</span> <span class="ow">and</span> <span class="n">IRC</span> <span class="n">support</span><span class="p">,</span> <span class="n">plus</span> <span class="n">many</span> <span class="n">more</span> <span class="n">new</span> <span class="n">benefits</span><span class="o">.</span>
+
+<span class="n">This</span> <span class="n">version</span> <span class="n">also</span> <span class="n">includes</span> <span class="n">security</span> <span class="n">updates</span> <span class="ow">and</span> <span class="p">[</span><span class="n">upgrade</span> <span class="kn">from</span> <span class="nn">earlier</span> <span class="n">versions</span><span class="p">]((</span><span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">doc</span><span class="o">.</span><span class="n">gitlab</span><span class="o">.</span><span class="n">com</span><span class="o">/</span><span class="n">omnibus</span><span class="o">/</span><span class="n">gitlab</span><span class="o">-</span><span class="n">mattermost</span><span class="o">/</span><span class="p">))</span> <span class="ow">is</span> <span class="n">recommended</span><span class="o">.</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="release-numbering">
+<span id="release-numbering"></span><h2>Release Numbering<a class="headerlink" href="#release-numbering" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost numbers its stable releases based on the following format:<code class="docutils literal"><span class="pre">[Version</span> <span class="pre">Number].[Major</span> <span class="pre">Build</span> <span class="pre">Number].[Minor</span> <span class="pre">Build</span> <span class="pre">Number]</span></code></p>
+<p>Version Number:</p>
+<ul class="simple">
+<li>Indicates a major system release (e.g. 1.x.x, 2.x.x)</li>
+</ul>
+<p>Major Build Number:</p>
+<ul class="simple">
+<li>Indicates significant new functionality, (e.g. 0.5.x, 0.6.x, 0.7.x)</li>
+</ul>
+<p>Minor Build Number:</p>
+<ul class="simple">
+<li>Indicates a bug fix or security release (e.g. 1.2.5, 1.2.6)</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="help-wanted.html" class="btn btn-neutral float-right" title="Help Wanted Tickets" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="overview.html" class="btn btn-neutral" title="Development Process Overview" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/process/release-process.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

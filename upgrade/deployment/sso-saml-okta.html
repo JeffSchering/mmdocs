@@ -1,0 +1,523 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Configure SAML with Okta &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="SAML Single-Sign-On (E20)" href="sso-saml.html"/>
+        <link rel="next" title="Configure SAML with OneLogin" href="sso-saml-onelogin.html"/>
+        <link rel="prev" title="SAML Single-Sign-On (E20)" href="sso-saml.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="on-boarding.html">Administrator Tasks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bulk-loading.html">Bulk Loading Data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="push.html">Mobile Applications Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-ldap.html">Active Directory/LDAP Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="auth.html">Multi-Factor Authentication (E10)</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="sso-saml.html">SAML Single-Sign-On (E20)</a><ul class="current">
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Okta SAML Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sso-saml-onelogin.html">OneLogin SAML Configuration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="sso-saml-adfs.html">Microsoft ADFS SAML Configuration</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="scaling.html">Scaling for Enterprise</a></li>
+<li class="toctree-l3"><a class="reference internal" href="cluster.html">High Availability Cluster (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-gitlab.html">GitLab Single Sign-On</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-google.html">Google Single Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="sso-office.html">Office 365 Single Sign-On (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="metrics.html">Performance Monitoring (E20)</a></li>
+<li class="toctree-l3"><a class="reference internal" href="client-side-data.html">Client-side Data Storage FAQ</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Administrator&#8217;s Guide</a> &raquo;</li>
+    
+      <li><a href="sso-saml.html">SAML Single-Sign-On (E20)</a> &raquo;</li>
+    
+    <li>Configure SAML with Okta</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/deployment/sso-saml-okta.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="configure-saml-with-okta">
+<h1>Configure SAML with Okta<a class="headerlink" href="#configure-saml-with-okta" title="Permalink to this headline">¶</a></h1>
+<p>The following process provides steps to configure SAML with Okta for Mattermost.</p>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#before-you-begin" id="id2">Before you begin</a></li>
+<li><a class="reference internal" href="#set-up-a-connection-app-for-mattermost-sso" id="id3">Set up a connection app for Mattermost SSO</a></li>
+<li><a class="reference internal" href="#configure-saml-for-mattermost" id="id4">Configure SAML for Mattermost</a></li>
+<li><a class="reference internal" href="#troubleshooting" id="id5">Troubleshooting</a></li>
+</ul>
+</div>
+<div class="section" id="before-you-begin">
+<h2><a class="toc-backref" href="#contents">Before you begin</a><a class="headerlink" href="#before-you-begin" title="Permalink to this headline">¶</a></h2>
+<p>Before you configure SAML:</p>
+<ol class="arabic simple">
+<li>Make sure you have the <a class="reference external" href="https://www.aleksey.com/xmlsec/download.html">XML Security Library</a> installed on your Mattermost instance. The XML Security Library is usually included as part of Debian GNU/Linux.</li>
+<li>Install the <em>xmlsec1-openssl</em> library</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>On Ubuntu: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">libxmlsec1-openssl</span></code></li>
+<li>On RHEL: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">yum</span> <span class="pre">install</span> <span class="pre">xmlsec1-openssl</span></code></li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Generate encryption certificates for encrypting the SAML connection.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>You can use the <a class="reference external" href="https://github.com/mattermost/docs/tree/master/source/scripts/generate-certificates">Bash script</a> from the <em>mattermost/docs</em> repository on GitHub, or any other suitable method.</li>
+<li>Save the two files that are generated. They are the private key and the public key. In the System Console, they are referred to as the <strong>Service Provider Private Key</strong> and the <strong>Service Provider Public Certificate</strong> respectively.</li>
+</ol>
+</div></blockquote>
+</div>
+<div class="section" id="set-up-a-connection-app-for-mattermost-sso">
+<h2><a class="toc-backref" href="#contents">Set up a connection app for Mattermost SSO</a><a class="headerlink" href="#set-up-a-connection-app-for-mattermost-sso" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic">
+<li><p class="first">Sign into Okta as an administrator.</p>
+</li>
+<li><p class="first">Go to <strong>Admin Dashboard &gt; Applications &gt; Add Application</strong>.</p>
+</li>
+<li><p class="first">Click <strong>Create New App</strong> and choose <code class="docutils literal"><span class="pre">SAML</span> <span class="pre">2.0</span></code> as the Sign on method.</p>
+<blockquote>
+<div><img alt="../_images/okta_1_new_app.PNG" src="../_images/okta_1_new_app.PNG" />
+</div></blockquote>
+</li>
+<li><p class="first">Enter <strong>General Settings</strong> for the application, including <code class="docutils literal"><span class="pre">App</span> <span class="pre">name</span></code> and <code class="docutils literal"><span class="pre">App</span> <span class="pre">logo</span></code> (optional). It is recommended to display the application icon to users, including in the Okta Mobile app.</p>
+</li>
+</ol>
+<blockquote>
+<div><p>If you’d like to use a Mattermost logo for the application, you are free to download one <a class="reference external" href="http://www.mattermost.org/brand-guidelines/">from our page</a>.</p>
+<blockquote>
+<div><img alt="../_images/okta_2_general_settings.PNG" src="../_images/okta_2_general_settings.PNG" />
+</div></blockquote>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Enter <strong>SAML Settings</strong>, including:</li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p class="first">Single sign on URL: <code class="docutils literal"><span class="pre">https://&lt;your-mattermost-url&gt;/login/sso/saml</span></code></p>
+</li>
+<li><p class="first">Audience URL: For instance, <code class="docutils literal"><span class="pre">mattermost</span></code></p>
+</li>
+<li><p class="first">Name ID format: <code class="docutils literal"><span class="pre">unspecified</span></code></p>
+</li>
+<li><p class="first">Application username: <code class="docutils literal"><span class="pre">Email</span></code></p>
+<blockquote>
+<div><img alt="../_images/okta_3_initial_saml_settings.PNG" src="../_images/okta_3_initial_saml_settings.PNG" />
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="6">
+<li><p class="first">Set up encryption for your SAML connection. First, click <strong>Show Advanced Settings</strong>.</p>
+<blockquote>
+<div><img alt="../_images/okta_4_initial_saml_settings.PNG" src="../_images/okta_4_initial_saml_settings.PNG" />
+</div></blockquote>
+</li>
+</ol>
+<p>Then, set <strong>Assertion Encryption</strong> as <code class="docutils literal"><span class="pre">Encrypted</span></code> and upload the <strong>Service Provider Public Certificate</strong> you generated in step 2 to the <strong>Encryption Certificate</strong> field.</p>
+<blockquote>
+<div><img alt="../_images/okta_5_advanced_saml_settings.PNG" src="../_images/okta_5_advanced_saml_settings.PNG" />
+</div></blockquote>
+<ol class="arabic" start="7">
+<li><p class="first">Enter attribute statements, which will be used to map attributes between Okta and Mattermost. For more information on which attributes are configurable, see our <a class="reference internal" href="../administration/config-settings.html#saml-enterprise"><span class="std std-ref">documentation on SAML configuration settings</span></a>. Email and username attributes are required. For Mattermost servers running 3.3 and earlier, first name and last name attributes are also required.</p>
+<blockquote>
+<div><img alt="../_images/okta_6_attribute_statements.PNG" src="../_images/okta_6_attribute_statements.PNG" />
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Next</strong>. Then, set Okta support parameters for the application. Recommended settings:</p>
+</li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p class="first">I’m an Okta customer adding an internal app</p>
+</li>
+<li><p class="first">This is an internal app that we have created</p>
+<blockquote>
+<div><img alt="../_images/okta_7_support_configuration.PNG" src="../_images/okta_7_support_configuration.PNG" />
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="9">
+<li><p class="first">Click <strong>Finish</strong>. On the next screen, click the <strong>Sign On</strong> tab and click <strong>View Setup Instructions</strong>.</p>
+<blockquote>
+<div><img alt="../_images/okta_8_view_instructions.PNG" src="../_images/okta_8_view_instructions.PNG" />
+</div></blockquote>
+</li>
+<li><p class="first">Take note of <code class="docutils literal"><span class="pre">Identity</span> <span class="pre">Provider</span> <span class="pre">Single</span> <span class="pre">Sign-On</span> <span class="pre">URL</span></code> (also known as <code class="docutils literal"><span class="pre">SAML</span> <span class="pre">SSO</span> <span class="pre">URL</span></code>), and the Identity Provider Issuer, as both will be needed to configure SAML for Mattermost.</p>
+</li>
+</ol>
+<p>Furthermore, you <strong>must download the X.509 Public Certificate file</strong> and save it. You will need to upload it to Mattermost at a later step.</p>
+<blockquote>
+<div><img alt="../_images/okta_9_view_instructions.PNG" src="../_images/okta_9_view_instructions.PNG" />
+</div></blockquote>
+</div>
+<div class="section" id="configure-saml-for-mattermost">
+<h2><a class="toc-backref" href="#contents">Configure SAML for Mattermost</a><a class="headerlink" href="#configure-saml-for-mattermost" title="Permalink to this headline">¶</a></h2>
+<ol class="arabic simple">
+<li>Start Mattermost server and sign into Mattermost as a System Administrator. Go to <strong>System Console &gt; Authentication &gt; SAML</strong>, and enter the following fields:</li>
+</ol>
+<blockquote>
+<div><ul>
+<li><p class="first"><strong>SAML SSO URL</strong>: <code class="docutils literal"><span class="pre">Identity</span> <span class="pre">Provider</span> <span class="pre">Single</span> <span class="pre">Sign-On</span> <span class="pre">URL</span></code> from Okta, specified earlier.</p>
+</li>
+<li><p class="first"><strong>Identity Provider Issuer URL</strong>: <code class="docutils literal"><span class="pre">Identity</span> <span class="pre">Provider</span> <span class="pre">Issuer</span></code> from Okta, specified earlier.</p>
+</li>
+<li><p class="first"><strong>Identity Provider Public Certificate</strong>: X.509 Public Certificate file you downloaded from Okta earlier.</p>
+<blockquote>
+<div><img alt="../_images/okta_10_mattermost_basics.PNG" src="../_images/okta_10_mattermost_basics.PNG" />
+</div></blockquote>
+</li>
+</ul>
+</div></blockquote>
+<ol class="arabic" start="2">
+<li><p class="first">Configure Mattermost to verify the signature. The <strong>Service Provider Login URL</strong> is the <code class="docutils literal"><span class="pre">Single</span> <span class="pre">sign</span> <span class="pre">on</span> <span class="pre">URL</span></code> you specified in Okta earlier.</p>
+<blockquote>
+<div><img alt="../_images/okta_11_mattermost_verification.PNG" src="../_images/okta_11_mattermost_verification.PNG" />
+</div></blockquote>
+</li>
+<li><p class="first">Enable encryption based on the parameters provided earlier.</p>
+<blockquote>
+<div><img alt="../_images/okta_12_mattermost_encryption.PNG" src="../_images/okta_12_mattermost_encryption.PNG" />
+</div></blockquote>
+</li>
+<li><p class="first">Set attributes for the SAML Assertions, which will be used to update user information in Mattermost. Attributes for email and username are required and should match the values you entered in Okta earlier. See <a class="reference internal" href="../administration/config-settings.html#saml-enterprise"><span class="std std-ref">documentation on SAML configuration settings</span></a> for more detail.</p>
+</li>
+</ol>
+<p>For Mattermost servers running 3.3 and earlier, the first name and last name attributes are also required fields.</p>
+<blockquote>
+<div><img alt="../_images/okta_13_mattermost_attributes.PNG" src="../_images/okta_13_mattermost_attributes.PNG" />
+</div></blockquote>
+<ol class="arabic" start="5">
+<li><p class="first">(Optional) Lastly, customize the login button text.</p>
+<blockquote>
+<div><img alt="../_images/okta_14_mattermost_login_button.PNG" src="../_images/okta_14_mattermost_login_button.PNG" />
+</div></blockquote>
+</li>
+<li><p class="first">Click <strong>Save</strong>.</p>
+</li>
+</ol>
+<p>You’re done! If you’d like to confirm SAML SSO is successfully enabled, switch your System Administrator account from email to SAML-based authentication via <strong>Account Settings &gt; General &gt; Sign-in Method &gt; Switch to SAML SSO</strong> and sign in with your SAML credentials to complete the switch.</p>
+<p>It is also recommended to post an announcement about how the migration will work to users.</p>
+<p>You may also configure SAML for Okta by editing <code class="docutils literal"><span class="pre">config.json</span></code> to enable SAML based on <a class="reference internal" href="../administration/config-settings.html#saml-enterprise"><span class="std std-ref">SAML configuration settings</span></a>. You must restart the Mattermost server for the changes to take effect.</p>
+</div>
+<div class="section" id="troubleshooting">
+<h2><a class="toc-backref" href="#contents">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<p>The following are troubleshooting suggestions on common error messages and issues.</p>
+<ol class="arabic simple">
+<li>System Administrator locks themselves out of the system</li>
+</ol>
+<blockquote>
+<div>If the System Administrator is locked out of the system during SAML configuration process, they can set an existing account to System Administrator using <a class="reference external" href="http://docs.mattermost.com/deployment/on-boarding.html#creating-system-administrator-account-from-commandline">a command line tool</a>.</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Received error message: <cite>An account with that username already exists. Please contact your Administrator.</cite></li>
+</ol>
+<blockquote>
+<div><p>This usually means an existing account has another authentication method enabled. If so, the user should sign in using that method (such as email and password), then change their sign-in method to SAML via <strong>Account Settings &gt; Security &gt; Sign-in method</strong>.</p>
+<p>This error message can also be received if the <cite>Username Attribute</cite> of their SAML credentials doesn&#8217;t match the username of their Mattermost account. If so, the user can update the attribute at their identity provider (for instance, back to the old value if it had been previously updated).</p>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Received error message: <cite>An account with that email already exists. Please contact your Administrator.</cite></li>
+</ol>
+<blockquote>
+<div><p>This usually means an existing account has another authentication method enabled. If so, the user should sign in using that method (such as email and password), then change their sign-in method to SAML via <strong>Account Settings &gt; Security &gt; Sign-in method</strong>.</p>
+<p>This error message can also be received if the <cite>Email Attribute</cite> of their SAML credentials doesn&#8217;t match the email address of their Mattermost account. If so, the user can update the attribute at their identity provider (for instance, back to the old value if it had been previously updated).</p>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Received error message: <cite>SAML login was unsuccessful because one of the attributes is incorrect. Please contact your System Administrator.</cite></li>
+</ol>
+<blockquote>
+<div>Confirm all attributes, including <cite>Email Attribute</cite> and <cite>Username Attribute</cite>, are correct in both the Identity Provider configuration and in <strong>System Console &gt; SAML</strong>.</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Unable to switch to SAML authentication successfully</li>
+</ol>
+<blockquote>
+<div><p>First, ensure you have installed the <a class="reference external" href="https://www.aleksey.com/xmlsec/download.html">XML Security Library</a> on your Mattermost instance and that <strong>it is available in your</strong> PATH.</p>
+<p>Second, ensure you have completed each step of the SAML configuration.</p>
+</div></blockquote>
+<p>If you are still having trouble with configuration, feel free to post in our <a class="reference external" href="http://www.mattermost.org/troubleshoot/">Troubleshooting forum</a> and we&#8217;ll be happy to help with issues during setup.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="sso-saml-onelogin.html" class="btn btn-neutral float-right" title="Configure SAML with OneLogin" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="sso-saml.html" class="btn btn-neutral" title="SAML Single-Sign-On (E20)" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/deployment/sso-saml-okta.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

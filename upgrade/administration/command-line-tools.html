@@ -1,0 +1,1470 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Command Line Tools &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Configuration Settings" href="config-settings.html"/>
+        <link rel="prev" title="Client-side Data Storage FAQ" href="../deployment/client-side-data.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Command Line Tools</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-cli">Using the CLI</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#using-the-cli-on-gitlab-omnibus">Using the CLI on GitLab Omnibus</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mattermost-3-6-and-later">Mattermost 3.6 and later</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mattermost-3-5-and-earlier">Mattermost 3.5 and earlier</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="config-settings.html">Configuration Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="announcement-banner.html">Announcement Banner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="branding.html">Custom Branding Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
+<li class="toctree-l3"><a class="reference internal" href="upgrade.html">Upgrading Mattermost Server</a></li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migration Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Command Line Tools</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/administration/command-line-tools.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="command-line-tools">
+<h1>Command Line Tools<a class="headerlink" href="#command-line-tools" title="Permalink to this headline">¶</a></h1>
+<p>From the directory where the Mattermost platform is installed, a
+<code class="docutils literal"><span class="pre">platform</span></code> command is available for configuring the system, including:</p>
+<p><strong>General Administration</strong></p>
+<ul class="simple">
+<li>Creating teams</li>
+<li>Creating users</li>
+<li>Assigning roles to users</li>
+<li>Resetting user passwords</li>
+<li>Inviting users to teams</li>
+</ul>
+<p><strong>Advanced Administration</strong></p>
+<ul class="simple">
+<li>Permanently deleting users (use cautiously - database backup
+recommended before use)</li>
+<li>Permanently deleting teams (use cautiously - database backup
+recommended before use)</li>
+</ul>
+<p><strong>Advanced Automation</strong></p>
+<p><em>Available in Enterprise Edition E10 and higher</em></p>
+<ul class="simple">
+<li>Creating channels</li>
+<li>Inviting users to channels</li>
+<li>Removing users from channels</li>
+<li>Listing all channels for a team</li>
+<li>Restoring previously deleted channels</li>
+<li>Migrating sign-in options</li>
+<li>Resetting multi-factor authentication for a user</li>
+</ul>
+<div class="contents local topic" id="contents">
+<ul class="simple">
+<li><a class="reference internal" href="#using-the-cli" id="id1">Using the CLI</a></li>
+<li><a class="reference internal" href="#using-the-cli-on-gitlab-omnibus" id="id2">Using the CLI on GitLab Omnibus</a></li>
+<li><a class="reference internal" href="#mattermost-3-6-and-later" id="id3">Mattermost 3.6 and later</a><ul>
+<li><a class="reference internal" href="#platform" id="id4">platform</a></li>
+<li><a class="reference internal" href="#platform-channel" id="id5">platform channel</a><ul>
+<li><a class="reference internal" href="#platform-channel-add" id="id6">platform channel add</a></li>
+<li><a class="reference internal" href="#platform-channel-archive" id="id7">platform channel archive</a></li>
+<li><a class="reference internal" href="#platform-channel-create" id="id8">platform channel create</a></li>
+<li><a class="reference internal" href="#platform-channel-delete" id="id9">platform channel delete</a></li>
+<li><a class="reference internal" href="#platform-channel-list" id="id10">platform channel list</a></li>
+<li><a class="reference internal" href="#platform-channel-remove" id="id11">platform channel remove</a></li>
+<li><a class="reference internal" href="#platform-channel-restore" id="id12">platform channel restore</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#platform-help" id="id13">platform help</a></li>
+<li><a class="reference internal" href="#platform-import" id="id14">platform import</a><ul>
+<li><a class="reference internal" href="#platform-import-slack" id="id15">platform import slack</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#platform-ldap" id="id16">platform ldap</a><ul>
+<li><a class="reference internal" href="#platform-ldap-sync" id="id17">platform ldap sync</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#platform-license" id="id18">platform license</a><ul>
+<li><a class="reference internal" href="#platform-license-upload" id="id19">platform license upload</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#platform-reset" id="id20">platform reset</a></li>
+<li><a class="reference internal" href="#platform-roles" id="id21">platform roles</a><ul>
+<li><a class="reference internal" href="#platform-roles-member" id="id22">platform roles member</a></li>
+<li><a class="reference internal" href="#platform-roles-system-admin" id="id23">platform roles system_admin</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#platform-server" id="id24">platform server</a></li>
+<li><a class="reference internal" href="#platform-team" id="id25">platform team</a><ul>
+<li><a class="reference internal" href="#platform-team-add" id="id26">platform team add</a></li>
+<li><a class="reference internal" href="#platform-team-create" id="id27">platform team create</a></li>
+<li><a class="reference internal" href="#platform-team-delete" id="id28">platform team delete</a></li>
+<li><a class="reference internal" href="#platform-team-remove" id="id29">platform team remove</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#platform-user" id="id30">platform user</a><ul>
+<li><a class="reference internal" href="#platform-user-activate" id="id31">platform user activate</a></li>
+<li><a class="reference internal" href="#platform-user-create" id="id32">platform user create</a></li>
+<li><a class="reference internal" href="#platform-user-deactivate" id="id33">platform user deactivate</a></li>
+<li><a class="reference internal" href="#platform-user-delete" id="id34">platform user delete</a></li>
+<li><a class="reference internal" href="#platform-user-deleteall" id="id35">platform user deleteall</a></li>
+<li><a class="reference internal" href="#platform-user-invite" id="id36">platform user invite</a></li>
+<li><a class="reference internal" href="#platform-user-migrate-auth" id="id37">platform user migrate_auth</a></li>
+<li><a class="reference internal" href="#platform-user-password" id="id38">platform user password</a></li>
+<li><a class="reference internal" href="#platform-user-resetmfa" id="id39">platform user resetmfa</a></li>
+<li><a class="reference internal" href="#platform-user-search" id="id40">platform user search</a></li>
+<li><a class="reference internal" href="#platform-user-verify" id="id41">platform user verify</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#platform-version" id="id42">platform version</a></li>
+<li><a class="reference internal" href="#platform-config" id="id43">platform config</a><ul>
+<li><a class="reference internal" href="#platform-config-validate" id="id44">platform config validate</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mattermost-3-5-and-earlier" id="id45">Mattermost 3.5 and earlier</a></li>
+</ul>
+</div>
+<div class="section" id="using-the-cli">
+<h2><a class="toc-backref" href="#contents">Using the CLI</a><a class="headerlink" href="#using-the-cli" title="Permalink to this headline">¶</a></h2>
+<p>To run the CLI commands, you must be in the directory that contains the Mattermost executable. On a default install of Mattermost, the directory is <code class="docutils literal"><span class="pre">/opt/mattermost/bin</span></code>. The name of the executable is <code class="docutils literal"><span class="pre">platform</span></code>.</p>
+<p><strong>For example, to get the Mattermost version on a default installation of Mattermost:</strong></p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /opt/mattermost/bin
+sudo ./platform version
+</pre></div>
+</div>
+</div></blockquote>
+</div>
+<div class="section" id="using-the-cli-on-gitlab-omnibus">
+<h2><a class="toc-backref" href="#contents">Using the CLI on GitLab Omnibus</a><a class="headerlink" href="#using-the-cli-on-gitlab-omnibus" title="Permalink to this headline">¶</a></h2>
+<p>On GitLab Omnibus, you must be in the following directory when you run CLI commands: <code class="docutils literal"><span class="pre">/opt/gitlab/embedded/service/mattermost</span></code>. Also, you must run the commands as the user <em>mattermost</em> and specify the location of the configuration file. The executable is <code class="docutils literal"><span class="pre">/opt/gitlab/embedded/bin/mattermost</span></code>.</p>
+<p><strong>For example, to get the Mattermost version on GitLab Omnibus:</strong></p>
+<blockquote>
+<div><div class="highlight-bash"><div class="highlight"><pre><span></span><span class="nb">cd</span> /opt/gitlab/embedded/service/mattermost
+sudo -u mattermost /opt/gitlab/embedded/bin/mattermost --config<span class="o">=</span>/var/opt/gitlab/mattermost/config.json version
+</pre></div>
+</div>
+</div></blockquote>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p class="last">The example commands in the documentation are for a default installation of Mattermost. You must modify the commands so that they work on GitLab Omnibus.</p>
+</div>
+</div>
+<div class="section" id="mattermost-3-6-and-later">
+<h2><a class="toc-backref" href="#contents">Mattermost 3.6 and later</a><a class="headerlink" href="#mattermost-3-6-and-later" title="Permalink to this headline">¶</a></h2>
+<p>The new CLI tool is supported in Mattermost 3.6 and later. To see available commands in the old CLI tool, see <a class="reference internal" href="#mattermost-3-5-and-earlier">Mattermost 3.5 and earlier</a>.</p>
+<p>Notes:</p>
+<ul class="simple">
+<li>Parameters in CLI commands are order-specific.</li>
+<li>If special characters (<code class="docutils literal"><span class="pre">!</span></code>, <code class="docutils literal"><span class="pre">|</span></code>, <code class="docutils literal"><span class="pre">(</span></code>, <code class="docutils literal"><span class="pre">)</span></code>, <code class="docutils literal"><span class="pre">\</span></code>, <code class="docutils literal"><span class="pre">'</span></code>, and <code class="docutils literal"><span class="pre">&quot;</span></code>) are used, the entire argument needs to be surrounded by single quotes (e.g. <code class="docutils literal"><span class="pre">-password</span> <span class="pre">'mypassword!'</span></code>, or the individual characters need to be escaped out (e.g. <code class="docutils literal"><span class="pre">-password</span> <span class="pre">mypassword\!</span></code>).</li>
+<li>Team name and channel name refer to the handles, not the display names. So in the url <code class="docutils literal"><span class="pre">https://pre-release.mattermost.com/core/channels/town-square</span></code> team name would be <code class="docutils literal"><span class="pre">core</span></code> and channel name would be <code class="docutils literal"><span class="pre">town-square</span></code></li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you automate user creation through the CLI tool with SMTP enabled, emails will be sent to all new users created. If you run such a load script, it is best to disable SMTP or to use test accounts so that new account creation emails aren&#8217;t unintentionally sent to people at your organization who aren&#8217;t expecting them.</p>
+</div>
+<div class="section" id="platform">
+<h3><a class="toc-backref" href="#contents">platform</a><a class="headerlink" href="#platform" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Commands for configuring and managing your Mattermost instance and users.</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>-c, --config {string}   Configuration file to use. (default &quot;config.json&quot;)
+</pre></div>
+</div>
+</dd>
+<dt>Child Commands</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-channel">platform channel</a> - Management of channels</li>
+<li><a class="reference internal" href="#platform-help">platform help</a> - Generate full documentation for the CLI</li>
+<li><a class="reference internal" href="#platform-import">platform import</a> - Import data</li>
+<li><a class="reference internal" href="#platform-ldap">platform ldap</a> - LDAP related utilities</li>
+<li><a class="reference internal" href="#platform-license">platform license</a> - Licensing commands</li>
+<li><a class="reference internal" href="#platform-reset">platform reset</a> - Reset the database to initial state</li>
+<li><a class="reference internal" href="#platform-roles">platform roles</a> - Management of user roles</li>
+<li><a class="reference internal" href="#platform-server">platform server</a> - Run the Mattermost server</li>
+<li><a class="reference internal" href="#platform-team">platform team</a> - Management of teams</li>
+<li><a class="reference internal" href="#platform-user">platform user</a> - Management of users</li>
+<li><a class="reference internal" href="#platform-version">platform version</a> - Display version information</li>
+<li><a class="reference internal" href="#platform-config">platform config</a> - Work with the configuration file</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-channel">
+<h3><a class="toc-backref" href="#contents">platform channel</a><a class="headerlink" href="#platform-channel" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Commands for channel management.</dd>
+<dt>Child Commands</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-channel-add">platform channel add</a> - Add users to a channel</li>
+<li><a class="reference internal" href="#platform-channel-archive">platform channel archive</a> - Archive a channel</li>
+<li><a class="reference internal" href="#platform-channel-create">platform channel create</a> - Create a channel</li>
+<li><a class="reference internal" href="#platform-channel-delete">platform channel delete</a> - Delete a channel</li>
+<li><a class="reference internal" href="#platform-channel-list">platform channel list</a> - List all channels on specified teams</li>
+<li><a class="reference internal" href="#platform-channel-remove">platform channel remove</a> - Remove users from a channel</li>
+<li><a class="reference internal" href="#platform-channel-restore">platform channel restore</a> - Restore a channel from the archive</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="platform-channel-add">
+<h4><a class="toc-backref" href="#contents">platform channel add</a><a class="headerlink" href="#platform-channel-add" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Add users to a channel. If adding multiple users, use a space-separated list.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform channel add {channel} {users}
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform channel add 8soyabwthjnf9qibfztje5a36h user@example.com username
+sudo ./platform channel add myteam:mychannel user@example.com username
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-channel-archive">
+<h4><a class="toc-backref" href="#contents">platform channel archive</a><a class="headerlink" href="#platform-channel-archive" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Archive a channel. Archived channels are not accessible to users, but remain in the database. To restore a channel from the archive, see <a class="reference internal" href="#platform-channel-restore">platform channel restore</a>. Channels can be specified by {team}:{channel} using the team and channel names, or by using channel IDs.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform channel archive {channels}
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform channel archive 8soyabwthjnf9qibfztje5a36h
+sudo ./platform channel archive myteam:mychannel
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-channel-create">
+<h4><a class="toc-backref" href="#contents">platform channel create</a><a class="headerlink" href="#platform-channel-create" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Create a channel.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform channel create
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform channel create --team myteam --name mynewchannel --display_name &quot;My New Channel&quot;
+sudo ./platform channel create --team myteam --name mynewprivatechannel --display_name &quot;My New Private Channel&quot; --private
+</pre></div>
+</div>
+</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>--display_name string   Channel Display Name
+--header string         Channel header
+--name string           Channel Name
+--private               Create a private channel.
+--purpose string        Channel purpose
+--team string           Team name or ID
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-channel-delete">
+<h4><a class="toc-backref" href="#contents">platform channel delete</a><a class="headerlink" href="#platform-channel-delete" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Permanently delete a channel along with all related information, including posts from the database. Channels can be specified by {team}:{channel} using the team and channel names, or by using channel IDs.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform channel delete {channels}
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform channel delete 8soyabwthjnf9qibfztje5a36h
+sudo ./platform channel delete myteam:mychannel
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-channel-list">
+<h4><a class="toc-backref" href="#contents">platform channel list</a><a class="headerlink" href="#platform-channel-list" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>List all channels on a specified team. Archived channels are appended with <code class="docutils literal"><span class="pre">(archived)</span></code>.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform channel list {teams}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform channel list myteam
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-channel-remove">
+<h4><a class="toc-backref" href="#contents">platform channel remove</a><a class="headerlink" href="#platform-channel-remove" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Remove users from a channel.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform channel remove {channel} {users}
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform channel remove 8soyabwthjnf9qibfztje5a36h user@example.com username
+sudo ./platform channel remove myteam:mychannel user@example.com username
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-channel-restore">
+<h4><a class="toc-backref" href="#contents">platform channel restore</a><a class="headerlink" href="#platform-channel-restore" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Restore a channel from the archive. Channels can be specified by {team}:{channel} using the team and channel names, or by using channel IDs.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform channel restore {channels}
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform channel restore 8soyabwthjnf9qibfztje5a36h
+sudo ./platform channel restore myteam:mychannel
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="platform-help">
+<h3><a class="toc-backref" href="#contents">platform help</a><a class="headerlink" href="#platform-help" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Generate full documentation in Markdown format for the Mattermost command line tools.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform help {outputdir}
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-import">
+<h3><a class="toc-backref" href="#contents">platform import</a><a class="headerlink" href="#platform-import" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Import data into Mattermost.</dd>
+<dt>Child Command</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-import-slack">platform import slack</a> - Import a team from Slack.</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="platform-import-slack">
+<h4><a class="toc-backref" href="#contents">platform import slack</a><a class="headerlink" href="#platform-import-slack" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Import a team from a Slack export zip file.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform import slack {team} {file}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform import slack myteam slack_export.zip
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="platform-ldap">
+<h3><a class="toc-backref" href="#contents">platform ldap</a><a class="headerlink" href="#platform-ldap" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Commands to configure and synchronize LDAP.</dd>
+<dt>Child Command</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-ldap-sync">platform ldap sync</a> - Synchronize now</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="platform-ldap-sync">
+<h4><a class="toc-backref" href="#contents">platform ldap sync</a><a class="headerlink" href="#platform-ldap-sync" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Synchronize all LDAP users now.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform ldap sync
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform ldap sync
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="platform-license">
+<h3><a class="toc-backref" href="#contents">platform license</a><a class="headerlink" href="#platform-license" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Commands to manage licensing.</dd>
+<dt>Child Command</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-license-upload">platform license upload</a> - Upload a license.</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="platform-license-upload">
+<h4><a class="toc-backref" href="#contents">platform license upload</a><a class="headerlink" href="#platform-license-upload" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Upload a license. This command replaces the current license if one is already uploaded.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform license upload {license}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform license upload /path/to/license/mylicensefile.mattermost-license
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="platform-reset">
+<h3><a class="toc-backref" href="#contents">platform reset</a><a class="headerlink" href="#platform-reset" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Completely erase the database causing the loss of all data. This resets Mattermost to its initial state.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform reset
+</pre></div>
+</div>
+</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>--confirm   Confirm you really want to delete everything and a DB backup has been performed.
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-roles">
+<h3><a class="toc-backref" href="#contents">platform roles</a><a class="headerlink" href="#platform-roles" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Commands to manage user roles.</dd>
+<dt>Child Commands</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-roles-member">platform roles member</a> - Remove System Admin privileges from a user</li>
+<li><a class="reference internal" href="#platform-roles-system-admin">platform roles system_admin</a> - Make a user into a System Admin</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="platform-roles-member">
+<h4><a class="toc-backref" href="#contents">platform roles member</a><a class="headerlink" href="#platform-roles-member" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Remove system admin privileges from a user.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform roles member {users}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform roles member user1
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-roles-system-admin">
+<h4><a class="toc-backref" href="#contents">platform roles system_admin</a><a class="headerlink" href="#platform-roles-system-admin" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Promote a user to a System Admin.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform roles system_admin {users}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform roles system_admin user1
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="platform-server">
+<h3><a class="toc-backref" href="#contents">platform server</a><a class="headerlink" href="#platform-server" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Runs the Mattermost server.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform server
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-team">
+<h3><a class="toc-backref" href="#contents">platform team</a><a class="headerlink" href="#platform-team" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Commands to manage teams.</dd>
+<dt>Child Commands</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-team-add">platform team add</a> - Add users to a team</li>
+<li><a class="reference internal" href="#platform-team-create">platform team create</a> - Create a team</li>
+<li><a class="reference internal" href="#platform-team-delete">platform team delete</a> - Delete a team</li>
+<li><a class="reference internal" href="#platform-team-remove">platform team remove</a> - Remove users from a team</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="admonition note" id="team-value-note">
+<p class="first admonition-title">Note</p>
+<p><strong>{team-name} value</strong></p>
+<p>For the <em>add</em>, <em>delete</em>, and <em>remove</em> commands, you can determine the <em>{team-name}</em> value from the URLs that you use to access your instance of Mattermost. For example, in the following URL the <em>{team-name}</em> value is <em>myteam</em>:</p>
+<p class="last"><code class="docutils literal"><span class="pre">https://example.com/myteam/channels/mychannel</span></code></p>
+</div>
+<div class="section" id="platform-team-add">
+<h4><a class="toc-backref" href="#contents">platform team add</a><a class="headerlink" href="#platform-team-add" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Add users to a team. Before running this command, see the <a class="reference internal" href="#team-value-note"><span class="std std-ref">note about {team-name}</span></a>.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform team add {team-name} {users}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform team add myteam user@example.com username
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-team-create">
+<h4><a class="toc-backref" href="#contents">platform team create</a><a class="headerlink" href="#platform-team-create" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Create a team.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform team create
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform team create --name mynewteam --display_name &quot;My New Team&quot;
+sudo ./platform teams create --name private --display_name &quot;My New Private Team&quot; --private
+</pre></div>
+</div>
+</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>--display_name string   Team Display Name
+--email string          Administrator Email (anyone with this email is automatically a team admin)
+--name string           Team Name
+--private               Create a private team.
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-team-delete">
+<h4><a class="toc-backref" href="#contents">platform team delete</a><a class="headerlink" href="#platform-team-delete" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Permanently delete a team along with all related information, including posts from the database. Before running this command, see the <a class="reference internal" href="#team-value-note"><span class="std std-ref">note about {team-name}</span></a>.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform team delete {team-name}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform team delete myteam
+</pre></div>
+</div>
+</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>--confirm   Confirm you really want to delete the team and a DB backup has been performed.
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-team-remove">
+<h4><a class="toc-backref" href="#contents">platform team remove</a><a class="headerlink" href="#platform-team-remove" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Remove users from a team. Before running this command, see the <a class="reference internal" href="#team-value-note"><span class="std std-ref">note about {team-name}</span></a>.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform team remove {team-name} {users}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform team remove myteam user@example.com username
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="platform-user">
+<h3><a class="toc-backref" href="#contents">platform user</a><a class="headerlink" href="#platform-user" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Commands to manage users.</dd>
+<dt>Child Commands</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-user-activate">platform user activate</a> - Activate a user</li>
+<li><a class="reference internal" href="#platform-user-create">platform user create</a> - Create a user</li>
+<li><a class="reference internal" href="#platform-user-deactivate">platform user deactivate</a> - Deactivate a user</li>
+<li><a class="reference internal" href="#platform-user-delete">platform user delete</a> - Delete a user and all posts</li>
+<li><a class="reference internal" href="#platform-user-deleteall">platform user deleteall</a> - Delete all users and all posts</li>
+<li><a class="reference internal" href="#platform-user-invite">platform user invite</a> - Send a user an email invitation to a team</li>
+<li><a class="reference internal" href="#platform-user-migrate-auth">platform user migrate_auth</a> - Mass migrate all user accounts to a new authentication type</li>
+<li><a class="reference internal" href="#platform-user-password">platform user password</a> - Set a user&#8217;s password</li>
+<li><a class="reference internal" href="#platform-user-resetmfa">platform user resetmfa</a> - Turn off MFA for a user</li>
+<li><a class="reference internal" href="#platform-user-search">platform user search</a> - Search for users based on username, email, or user ID</li>
+<li><a class="reference internal" href="#platform-user-verify">platform user verify</a> - Verify email address of a new user</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="platform-user-activate">
+<h4><a class="toc-backref" href="#contents">platform user activate</a><a class="headerlink" href="#platform-user-activate" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Activate users that have been deactivated. If activating multiple users, use a space-separated list.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user activate {emails, usernames, userIds}
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user activate user@example.com
+sudo ./platform user activate username1 username2
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-create">
+<h4><a class="toc-backref" href="#contents">platform user create</a><a class="headerlink" href="#platform-user-create" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Create a user.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user create
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user create --email user@example.com --username userexample --password Password1
+sudo ./platform user create --firstname Joe --system_admin --email joe@example.com --username joe --password Password1
+</pre></div>
+</div>
+</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>--email string       Email
+--firstname string   First Name
+--lastname string    Last Name
+--locale string      Locale (ex: en, fr)
+--nickname string    Nickname
+--password string    Password
+--system_admin       Make the user a system administrator
+--username string    Username
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-deactivate">
+<h4><a class="toc-backref" href="#contents">platform user deactivate</a><a class="headerlink" href="#platform-user-deactivate" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Deactivate a user. Deactivated users are immediately logged out of all sessions and are unable to log back in.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user deactivate {emails, usernames, userIds}
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user deactivate user@example.com
+sudo ./platform user deactivate username
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-delete">
+<h4><a class="toc-backref" href="#contents">platform user delete</a><a class="headerlink" href="#platform-user-delete" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Permanently delete a user and all related information, including posts.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user delete {users}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user delete user@example.com
+</pre></div>
+</div>
+</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>--confirm   Confirm you really want to delete the user and a DB backup has been performed.
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-deleteall">
+<h4><a class="toc-backref" href="#contents">platform user deleteall</a><a class="headerlink" href="#platform-user-deleteall" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Permanently delete all users and all related information, including posts.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user deleteall
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user deleteall
+</pre></div>
+</div>
+</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>--confirm   Confirm you really want to delete the user and a DB backup has been performed.
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-invite">
+<h4><a class="toc-backref" href="#contents">platform user invite</a><a class="headerlink" href="#platform-user-invite" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Send a user an email invite to a team. You can invite a user to multiple teams by listing the team names or team IDs.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user invite {email} {teams}
+</pre></div>
+</div>
+</dd>
+<dt>Examples</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user invite user@example.com myteam
+sudo ./platform user invite user@example.com myteam1 myteam2
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-migrate-auth">
+<h4><a class="toc-backref" href="#contents">platform user migrate_auth</a><a class="headerlink" href="#platform-user-migrate-auth" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd><p class="first">Migrates all user accounts from one authentication provider to another. For example, you can upgrade your authentication provider from email to LDAP. Output will display any accounts that are not migrated successfully.</p>
+<ul class="last simple">
+<li><code class="docutils literal"><span class="pre">from_auth</span></code>: The authentication service from which to migrate user accounts. Supported options: <code class="docutils literal"><span class="pre">email</span></code>, <code class="docutils literal"><span class="pre">gitlab</span></code>, <code class="docutils literal"><span class="pre">saml</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">to_auth</span></code>: The authentication service to which to migrate user accounts. Supported options: <code class="docutils literal"><span class="pre">ldap</span></code>.</li>
+<li><code class="docutils literal"><span class="pre">match_field</span></code>: The field that is guaranteed to be the same in both authentication services. For example, if the user emails are consistent set to email. Supported options: <code class="docutils literal"><span class="pre">email</span></code>, <code class="docutils literal"><span class="pre">username</span></code>.</li>
+</ul>
+</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user migrate_auth {from_auth} {to_auth} {match_field}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user migrate_auth email ladp email
+</pre></div>
+</div>
+</dd>
+<dt>Options</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>--force  Ignore duplicate entries on the LDAP server.
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-password">
+<h4><a class="toc-backref" href="#contents">platform user password</a><a class="headerlink" href="#platform-user-password" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Set a user&#8217;s password.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user password {user} {password}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user password user@example.com Password1
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-resetmfa">
+<h4><a class="toc-backref" href="#contents">platform user resetmfa</a><a class="headerlink" href="#platform-user-resetmfa" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Turns off multi-factor authentication for a user. If MFA enforcement is enabled, the user will be forced to re-enable MFA with a new device as soon as they log in.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user resetmfa {users}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user resetmfa user@example.com
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-search">
+<h4><a class="toc-backref" href="#contents">platform user search</a><a class="headerlink" href="#platform-user-search" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Search for users based on username, email, or user ID.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user search {users}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user search user1@example.com user2@example.com
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-user-verify">
+<h4><a class="toc-backref" href="#contents">platform user verify</a><a class="headerlink" href="#platform-user-verify" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Verify the email address of a new user.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform user verify {users}
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform user verify user1
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="platform-version">
+<h3><a class="toc-backref" href="#contents">platform version</a><a class="headerlink" href="#platform-version" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Displays Mattermost version information.</dd>
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform version
+</pre></div>
+</div>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+<div class="section" id="platform-config">
+<h3><a class="toc-backref" href="#contents">platform config</a><a class="headerlink" href="#platform-config" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd>Commands for managing the configuration file.</dd>
+<dt>Child Command</dt>
+<dd><ul class="first last simple">
+<li><a class="reference internal" href="#platform-config-validate">platform config validate</a> - Validate the configuration file.</li>
+</ul>
+</dd>
+</dl>
+</div></blockquote>
+<div class="section" id="platform-config-validate">
+<h4><a class="toc-backref" href="#contents">platform config validate</a><a class="headerlink" href="#platform-config-validate" title="Permalink to this headline">¶</a></h4>
+<blockquote>
+<div><dl class="docutils">
+<dt>Description</dt>
+<dd><p class="first">Makes sure the configuration file has the following properties:</p>
+<ul class="simple">
+<li>Is valid JSON.</li>
+<li>Has attributes of the correct type, such as <em>bool</em>, <em>int</em>, and <em>str</em>.</li>
+<li>All entries are valid. For example, checks that entries are below the maximum length.</li>
+</ul>
+<dl class="last docutils">
+<dt>Format</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>platform config validate
+</pre></div>
+</div>
+</dd>
+<dt>Example</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>sudo ./platform config validate
+</pre></div>
+</div>
+</dd>
+</dl>
+</dd>
+</dl>
+</div></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="mattermost-3-5-and-earlier">
+<h2><a class="toc-backref" href="#contents">Mattermost 3.5 and earlier</a><a class="headerlink" href="#mattermost-3-5-and-earlier" title="Permalink to this headline">¶</a></h2>
+<p>Typing <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">./platform</span> <span class="pre">-help</span></code> brings up documentation for the CLI tool. To return the help documentation in GitLab omnibus, type</p>
+<blockquote>
+<div><div class="highlight-none"><div class="highlight"><pre><span></span>sudo -u mattermost /opt/gitlab/embedded/bin/mattermost --config=/var/opt/gitlab/mattermost/config.json -help
+</pre></div>
+</div>
+</div></blockquote>
+<p>Notes:</p>
+<ul class="simple">
+<li>Parameters in CLI commands are order-specific.</li>
+<li>If special characters (<code class="docutils literal"><span class="pre">!</span></code>, <code class="docutils literal"><span class="pre">|</span></code>, <code class="docutils literal"><span class="pre">(</span></code>, <code class="docutils literal"><span class="pre">)</span></code>, <code class="docutils literal"><span class="pre">\</span></code>, <code class="docutils literal"><span class="pre">`</span></code>, and <code class="docutils literal"><span class="pre">&quot;</span></code>) are used, the entire argument needs to be surrounded by single quotes (e.g. <code class="docutils literal"><span class="pre">-password</span> <span class="pre">'mypassword!'</span></code>, or the individual characters need to be escaped out (e.g. <code class="docutils literal"><span class="pre">-password</span> <span class="pre">mypassword\!</span></code>).</li>
+<li>Team name and channel name refer to the handles, not the display names. So in the url <code class="docutils literal"><span class="pre">https://pre-release.mattermost.com/core/channels/town-square</span></code> team name would be <code class="docutils literal"><span class="pre">core</span></code> and channel name would be <code class="docutils literal"><span class="pre">town-square</span></code></li>
+</ul>
+<div class="admonition tip">
+<p class="first admonition-title">Tip</p>
+<p class="last">If you automate user creation through the CLI tool with SMTP enabled emails will be sent to all new users created. If you run such a load script, it is best to disable SMTP or to use test accounts so that new account creation emails aren&#8217;t unintentionally set to people at your organization who aren&#8217;t expecting them.</p>
+</div>
+<p>CLI Documentation:</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="n">Mattermost</span> <span class="n">commands</span> <span class="n">to</span> <span class="n">help</span> <span class="n">configure</span> <span class="n">the</span> <span class="n">system</span>
+
+<span class="n">NAME</span><span class="p">:</span>
+    <span class="n">platform</span> <span class="o">--</span> <span class="n">platform</span> <span class="n">configuration</span> <span class="n">tool</span>
+
+<span class="n">USAGE</span><span class="p">:</span>
+    <span class="n">platform</span> <span class="p">[</span><span class="n">options</span><span class="p">]</span>
+
+<span class="n">FLAGS</span><span class="p">:</span>
+    <span class="o">-</span><span class="n">config</span><span class="o">=</span><span class="s2">&quot;config.json&quot;</span>             <span class="n">Path</span> <span class="n">to</span> <span class="n">the</span> <span class="n">config</span> <span class="n">file</span>
+
+    <span class="o">-</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;someuser&quot;</span>              <span class="n">Username</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+
+    <span class="o">-</span><span class="n">license</span><span class="o">=</span><span class="s2">&quot;ex.mattermost-license&quot;</span>  <span class="n">Path</span> <span class="n">to</span> <span class="n">your</span> <span class="n">license</span> <span class="n">file</span>
+
+    <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span>         <span class="n">Email</span> <span class="n">address</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+
+    <span class="o">-</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span>            <span class="n">Password</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+
+    <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>                 <span class="n">The</span> <span class="n">team</span> <span class="n">name</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+
+    <span class="o">-</span><span class="n">channel_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>              <span class="n">The</span> <span class="n">channel</span> <span class="n">name</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+
+    <span class="o">-</span><span class="n">channel_header</span><span class="o">=</span><span class="s2">&quot;string&quot;</span>          <span class="n">The</span> <span class="n">channel</span> <span class="n">header</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+
+    <span class="o">-</span><span class="n">channel_purpose</span><span class="o">=</span><span class="s2">&quot;string&quot;</span>         <span class="n">The</span> <span class="n">channel</span> <span class="n">purpose</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+
+    <span class="o">-</span><span class="n">channel_type</span><span class="o">=</span><span class="s2">&quot;type&quot;</span>              <span class="n">The</span> <span class="n">channel</span> <span class="nb">type</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+                                      <span class="n">valid</span> <span class="n">values</span> <span class="n">are</span>
+                                        <span class="s2">&quot;O&quot;</span> <span class="o">-</span> <span class="n">public</span> <span class="n">channel</span>
+                                        <span class="s2">&quot;P&quot;</span> <span class="o">-</span> <span class="n">private</span> <span class="n">channel</span>
+
+    <span class="o">-</span><span class="n">role</span><span class="o">=</span><span class="s2">&quot;system_admin&quot;</span>               <span class="n">The</span> <span class="n">role</span> <span class="n">used</span> <span class="ow">in</span> <span class="n">other</span> <span class="n">commands</span>
+                                       <span class="n">valid</span> <span class="n">values</span> <span class="n">are</span>
+                                         <span class="s2">&quot;&quot;</span> <span class="o">-</span> <span class="n">The</span> <span class="n">empty</span> <span class="n">role</span> <span class="ow">is</span> <span class="n">basic</span> <span class="n">user</span>
+                                            <span class="n">permissions</span>
+                                         <span class="s2">&quot;system_admin&quot;</span> <span class="o">-</span> <span class="n">Represents</span> <span class="n">a</span> <span class="n">system</span>
+                                            <span class="n">admin</span> <span class="n">who</span> <span class="n">has</span> <span class="n">access</span> <span class="n">to</span> <span class="nb">all</span> <span class="n">teams</span>
+                                            <span class="ow">and</span> <span class="n">configuration</span> <span class="n">settings</span><span class="o">.</span>
+<span class="n">COMMANDS</span><span class="p">:</span>
+    <span class="o">-</span><span class="n">create_team</span>                      <span class="n">Creates</span> <span class="n">a</span> <span class="n">team</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">team_name</span>
+                                      <span class="ow">and</span> <span class="o">-</span><span class="n">email</span> <span class="n">flag</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">team</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">create_team</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span>
+
+    <span class="o">-</span><span class="n">create_user</span>                      <span class="n">Creates</span> <span class="n">a</span> <span class="n">user</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">email</span> <span class="ow">and</span> <span class="o">-</span><span class="n">password</span> <span class="n">flag</span><span class="p">,</span>
+                                       <span class="ow">and</span> <span class="o">-</span><span class="n">team_name</span> <span class="ow">and</span> <span class="o">-</span><span class="n">username</span> <span class="n">are</span> <span class="n">optional</span> <span class="n">to</span> <span class="n">create</span> <span class="n">a</span> <span class="n">user</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">create_user</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;mypassword&quot;</span> <span class="o">-</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;user&quot;</span>
+
+    <span class="o">-</span><span class="n">invite_user</span>                      <span class="n">Invites</span> <span class="n">a</span> <span class="n">user</span> <span class="n">to</span> <span class="n">a</span> <span class="n">team</span> <span class="n">by</span> <span class="n">email</span><span class="o">.</span> <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">team_name</span>
+                                        <span class="ow">and</span> <span class="o">-</span><span class="n">email</span> <span class="n">flags</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">invite_user</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span>
+
+    <span class="o">-</span><span class="n">join_team</span>                        <span class="n">Joins</span> <span class="n">a</span> <span class="n">user</span> <span class="n">to</span> <span class="n">the</span> <span class="n">team</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">email</span> <span class="ow">and</span>
+                                       <span class="o">-</span><span class="n">team_name</span> <span class="n">flags</span><span class="o">.</span>  <span class="n">You</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">logout</span> <span class="n">of</span> <span class="n">your</span> <span class="n">current</span> <span class="n">session</span>
+                                       <span class="k">for</span> <span class="n">the</span> <span class="n">new</span> <span class="n">team</span> <span class="n">to</span> <span class="n">be</span> <span class="n">applied</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">join_team</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>
+
+    <span class="o">-</span><span class="n">assign_role</span>                      <span class="n">Assigns</span> <span class="n">role</span> <span class="n">to</span> <span class="n">a</span> <span class="n">user</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">role</span> <span class="ow">and</span>
+                                      <span class="o">-</span><span class="n">email</span> <span class="n">flag</span><span class="o">.</span>  <span class="n">You</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">log</span> <span class="n">out</span>
+                                      <span class="n">of</span> <span class="n">your</span> <span class="n">current</span> <span class="n">sessions</span> <span class="k">for</span> <span class="n">the</span> <span class="n">new</span> <span class="n">role</span> <span class="n">to</span> <span class="n">be</span>
+                                      <span class="n">applied</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">assign_role</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">role</span><span class="o">=</span><span class="s2">&quot;system_admin&quot;</span>
+
+    <span class="o">-</span><span class="n">create_channel</span>                   <span class="n">Create</span> <span class="n">a</span> <span class="n">new</span> <span class="n">channel</span> <span class="ow">in</span> <span class="n">the</span> <span class="n">specified</span> <span class="n">team</span><span class="o">.</span> <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">email</span><span class="p">,</span>
+                                      <span class="o">-</span><span class="n">team_name</span><span class="p">,</span> <span class="o">-</span><span class="n">channel_name</span><span class="p">,</span> <span class="o">-</span><span class="n">channel_type</span> <span class="n">flags</span><span class="o">.</span> <span class="n">Optional</span> <span class="n">you</span> <span class="n">can</span> <span class="nb">set</span>
+                                      <span class="n">the</span> <span class="o">-</span><span class="n">channel_header</span> <span class="ow">and</span> <span class="o">-</span><span class="n">channel_purpose</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">create_channel</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">-</span><span class="n">channel_name</span><span class="o">=</span><span class="s2">&quot;channel_name&quot;</span> <span class="o">-</span><span class="n">channel_type</span><span class="o">=</span><span class="s2">&quot;O&quot;</span>
+
+    <span class="o">-</span><span class="n">join_channel</span>                     <span class="n">Joins</span> <span class="n">a</span> <span class="n">user</span> <span class="n">to</span> <span class="n">the</span> <span class="n">channel</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">email</span><span class="p">,</span> <span class="o">-</span><span class="n">channel_name</span> <span class="ow">and</span>
+                                      <span class="o">-</span><span class="n">team_name</span> <span class="n">flags</span><span class="o">.</span>  <span class="n">You</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">logout</span> <span class="n">of</span> <span class="n">your</span> <span class="n">current</span> <span class="n">session</span>
+                                      <span class="k">for</span> <span class="n">the</span> <span class="n">new</span> <span class="n">channel</span> <span class="n">to</span> <span class="n">be</span> <span class="n">applied</span><span class="o">.</span>  <span class="n">Requires</span> <span class="n">an</span> <span class="n">enterprise</span> <span class="n">license</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">join_channel</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">-</span><span class="n">channel_name</span><span class="o">=</span><span class="s2">&quot;channel_name&quot;</span>
+
+    <span class="o">-</span><span class="n">leave_channel</span>                     <span class="n">Removes</span> <span class="n">a</span> <span class="n">user</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">channel</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">email</span><span class="p">,</span> <span class="o">-</span><span class="n">channel_name</span> <span class="ow">and</span>
+                                       <span class="o">-</span><span class="n">team_name</span> <span class="n">flags</span><span class="o">.</span>  <span class="n">You</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">logout</span> <span class="n">of</span> <span class="n">your</span> <span class="n">current</span> <span class="n">session</span>
+                                       <span class="k">for</span> <span class="n">the</span> <span class="n">channel</span> <span class="n">to</span> <span class="n">be</span> <span class="n">removed</span><span class="o">.</span>  <span class="n">Requires</span> <span class="n">an</span> <span class="n">enterprise</span> <span class="n">license</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">leave_channel</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">-</span><span class="n">channel_name</span><span class="o">=</span><span class="s2">&quot;channel_name&quot;</span>
+
+    <span class="o">-</span><span class="n">list_channels</span>                     <span class="n">Lists</span> <span class="nb">all</span> <span class="n">channels</span> <span class="k">for</span> <span class="n">a</span> <span class="n">given</span> <span class="n">team</span><span class="o">.</span>
+                                       <span class="n">It</span> <span class="n">will</span> <span class="n">append</span> <span class="s1">&#39; (archived)&#39;</span> <span class="n">to</span> <span class="n">the</span> <span class="n">channel</span> <span class="n">name</span> <span class="k">if</span> <span class="n">archived</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span>
+                                       <span class="o">-</span><span class="n">team_name</span> <span class="n">flag</span><span class="o">.</span>  <span class="n">Requires</span> <span class="n">an</span> <span class="n">enterprise</span> <span class="n">license</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">list_channels</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>
+
+    <span class="o">-</span><span class="n">restore_channel</span>                  <span class="n">Restores</span> <span class="n">a</span> <span class="n">previously</span> <span class="n">deleted</span> <span class="n">channel</span><span class="o">.</span>
+                                      <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">channel_name</span> <span class="n">flag</span> <span class="ow">and</span>
+                                      <span class="o">-</span><span class="n">team_name</span> <span class="n">flag</span><span class="o">.</span>  <span class="n">Requires</span> <span class="n">an</span> <span class="n">enterprise</span> <span class="n">license</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">restore_channel</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">-</span><span class="n">channel_name</span><span class="o">=</span><span class="s2">&quot;channel_name&quot;</span>
+
+    <span class="o">-</span><span class="n">reset_password</span>                   <span class="n">Resets</span> <span class="n">the</span> <span class="n">password</span> <span class="k">for</span> <span class="n">a</span> <span class="n">user</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span>
+                                      <span class="o">-</span><span class="n">email</span> <span class="ow">and</span> <span class="o">-</span><span class="n">password</span> <span class="n">flag</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">reset_password</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span> <span class="o">-</span><span class="n">password</span><span class="o">=</span><span class="s2">&quot;newpassword&quot;</span>
+
+    <span class="o">-</span><span class="n">reset_mfa</span>                        <span class="n">Turns</span> <span class="n">off</span> <span class="n">multi</span><span class="o">-</span><span class="n">factor</span> <span class="n">authentication</span> <span class="k">for</span> <span class="n">a</span> <span class="n">user</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span>
+                                      <span class="o">-</span><span class="n">email</span> <span class="ow">or</span> <span class="o">-</span><span class="n">username</span> <span class="n">flag</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">reset_mfa</span> <span class="o">-</span><span class="n">username</span><span class="o">=</span><span class="s2">&quot;someuser&quot;</span>
+
+    <span class="o">-</span><span class="n">reset_database</span>                   <span class="n">Completely</span> <span class="n">erases</span> <span class="n">the</span> <span class="n">database</span> <span class="n">causing</span> <span class="n">the</span> <span class="n">loss</span> <span class="n">of</span> <span class="nb">all</span> <span class="n">data</span><span class="o">.</span> <span class="n">This</span>
+                                      <span class="n">will</span> <span class="n">reset</span> <span class="n">Mattermost</span> <span class="n">to</span> <span class="n">it</span><span class="s1">&#39;s initial state. (note this will not</span>
+                                      <span class="n">erase</span> <span class="n">your</span> <span class="n">configuration</span><span class="o">.</span><span class="p">)</span>
+
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">reset_database</span>
+
+    <span class="o">-</span><span class="n">permanent_delete_user</span>            <span class="n">Permanently</span> <span class="n">deletes</span> <span class="n">a</span> <span class="n">user</span> <span class="ow">and</span> <span class="nb">all</span> <span class="n">related</span> <span class="n">information</span>
+                                      <span class="n">including</span> <span class="n">posts</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">database</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span>
+                                      <span class="o">-</span><span class="n">email</span> <span class="n">flag</span><span class="o">.</span>  <span class="n">You</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">restart</span> <span class="n">the</span>
+                                      <span class="n">server</span> <span class="n">to</span> <span class="n">invalidate</span> <span class="n">the</span> <span class="n">cache</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">permanent_delete_user</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span>
+
+    <span class="o">-</span><span class="n">permanent_delete_all_users</span>       <span class="n">Permanently</span> <span class="n">deletes</span> <span class="nb">all</span> <span class="n">users</span> <span class="ow">and</span> <span class="nb">all</span> <span class="n">related</span> <span class="n">information</span>
+                                      <span class="n">including</span> <span class="n">posts</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">database</span><span class="o">.</span>  <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span>
+                                      <span class="o">-</span><span class="n">team_name</span><span class="p">,</span> <span class="ow">and</span> <span class="o">-</span><span class="n">email</span> <span class="n">flag</span><span class="o">.</span>  <span class="n">You</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">restart</span> <span class="n">the</span>
+                                      <span class="n">server</span> <span class="n">to</span> <span class="n">invalidate</span> <span class="n">the</span> <span class="n">cache</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">permanent_delete_all_users</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span> <span class="o">-</span><span class="n">email</span><span class="o">=</span><span class="s2">&quot;user@example.com&quot;</span>
+
+    <span class="o">-</span><span class="n">permanent_delete_team</span>            <span class="n">Permanently</span> <span class="n">deletes</span> <span class="n">a</span> <span class="n">team</span> <span class="n">along</span> <span class="k">with</span>
+                                      <span class="nb">all</span> <span class="n">related</span> <span class="n">information</span> <span class="n">including</span> <span class="n">posts</span> <span class="kn">from</span> <span class="nn">the</span> <span class="n">database</span><span class="o">.</span>
+                                      <span class="n">It</span> <span class="n">requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">team_name</span> <span class="n">flag</span><span class="o">.</span>  <span class="n">You</span> <span class="n">may</span> <span class="n">need</span> <span class="n">to</span> <span class="n">restart</span>
+                                      <span class="n">the</span> <span class="n">server</span> <span class="n">to</span> <span class="n">invalidate</span> <span class="n">the</span> <span class="n">cache</span><span class="o">.</span>
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">permanent_delete_team</span> <span class="o">-</span><span class="n">team_name</span><span class="o">=</span><span class="s2">&quot;name&quot;</span>
+
+    <span class="o">-</span><span class="n">upload_license</span>                   <span class="n">Uploads</span> <span class="n">a</span> <span class="n">license</span> <span class="n">to</span> <span class="n">the</span> <span class="n">server</span><span class="o">.</span> <span class="n">Requires</span> <span class="n">the</span> <span class="o">-</span><span class="n">license</span> <span class="n">flag</span><span class="o">.</span>
+
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">upload_license</span> <span class="o">-</span><span class="n">license</span><span class="o">=</span><span class="s2">&quot;/path/to/license/example.mattermost-license&quot;</span>
+
+    <span class="o">-</span><span class="n">migrate_accounts</span>                 <span class="n">Migrates</span> <span class="n">accounts</span> <span class="kn">from</span> <span class="nn">one</span> <span class="n">authentication</span> <span class="n">provider</span> <span class="n">to</span> <span class="n">another</span><span class="o">.</span>
+                                      <span class="n">Requires</span> <span class="o">-</span><span class="n">from_auth</span> <span class="o">-</span><span class="n">to_auth</span> <span class="ow">and</span> <span class="o">-</span><span class="n">match_field</span> <span class="n">flags</span><span class="o">.</span> <span class="n">Supported</span>
+                                      <span class="n">options</span> <span class="k">for</span> <span class="o">-</span><span class="n">from_auth</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span> <span class="n">gitlab</span><span class="p">,</span> <span class="n">saml</span><span class="o">.</span> <span class="n">Supported</span> <span class="n">options</span>
+                                      <span class="k">for</span> <span class="o">-</span><span class="n">to_auth</span><span class="p">:</span> <span class="n">ldap</span><span class="o">.</span> <span class="n">Supported</span> <span class="n">options</span> <span class="k">for</span> <span class="o">-</span><span class="n">match_field</span><span class="p">:</span> <span class="n">email</span><span class="p">,</span>
+                                      <span class="n">username</span><span class="o">.</span> <span class="n">Output</span> <span class="n">will</span> <span class="n">display</span> <span class="nb">any</span> <span class="n">accounts</span> <span class="n">that</span> <span class="n">are</span> <span class="ow">not</span> <span class="n">migrated</span>
+                                      <span class="n">successfully</span><span class="o">.</span>
+
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">migrate_accounts</span> <span class="o">-</span><span class="n">from_auth</span> <span class="n">email</span> <span class="o">-</span><span class="n">to_auth</span> <span class="n">ldap</span> <span class="o">-</span><span class="n">match_field</span> <span class="n">username</span>
+
+    <span class="o">-</span><span class="n">upgrade_db_30</span>                   <span class="n">Upgrades</span> <span class="n">the</span> <span class="n">database</span> <span class="kn">from</span> <span class="nn">a</span> <span class="n">version</span> <span class="mf">2.</span><span class="n">x</span> <span class="n">schema</span> <span class="n">to</span> <span class="n">version</span> <span class="mi">3</span> <span class="n">see</span>
+                                      <span class="n">http</span><span class="p">:</span><span class="o">//</span><span class="n">www</span><span class="o">.</span><span class="n">mattermost</span><span class="o">.</span><span class="n">org</span><span class="o">/</span><span class="n">upgrading</span><span class="o">-</span><span class="n">to</span><span class="o">-</span><span class="n">mattermost</span><span class="o">-</span><span class="mi">3</span><span class="o">-</span><span class="mi">0</span><span class="o">/</span>
+
+        <span class="n">Example</span><span class="p">:</span>
+            <span class="n">platform</span> <span class="o">-</span><span class="n">upgrade_db_30</span>
+
+    <span class="o">-</span><span class="n">version</span>                          <span class="n">Display</span> <span class="n">the</span> <span class="n">current</span> <span class="n">of</span> <span class="n">the</span> <span class="n">Mattermost</span> <span class="n">platform</span>
+
+    <span class="o">-</span><span class="n">help</span>                             <span class="n">Displays</span> <span class="n">this</span> <span class="n">help</span> <span class="n">page</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="config-settings.html" class="btn btn-neutral float-right" title="Configuration Settings" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="../deployment/client-side-data.html" class="btn btn-neutral" title="Client-side Data Storage FAQ" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/administration/command-line-tools.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

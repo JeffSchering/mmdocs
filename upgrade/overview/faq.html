@@ -1,0 +1,488 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Frequently Asked Questions (FAQ) &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Overview" href="index.html"/>
+        <link rel="next" title="Mattermost User’s Guide" href="../guides/user.html"/>
+        <link rel="prev" title="Corporate Directory Integration" href="auth.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">Overview</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="product.html">Product Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="security.html">Security Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../deployment/deployment.html">Deployment Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integrations.html">Integrations Overview</a></li>
+<li class="toctree-l2"><a class="reference internal" href="auth.html">Corporate Directory Integration</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Frequently Asked Questions (FAQ)</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#general-questions">General Questions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#why-was-mattermost-created">Why was Mattermost created?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-the-open-source-repository-contain-code-specific-to-the-commercial-version-of-mattermost">Why does the open source repository contain code specific to the commercial version of Mattermost?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#does-mattermost-support-508-compliance">Does Mattermost support 508 Compliance?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#mobile-applications">Mobile Applications</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#are-push-notifications-free">Are push notifications free?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#video-audio-and-screen-sharing">Video, Audio, and Screen Sharing</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-support-is-available-for-video-and-audio-calling-and-screen-sharing">What support is available for video and audio calling and screen sharing?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#enterprise-edition">Enterprise Edition</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#what-is-mattermost-enterprise-edition">What is Mattermost Enterprise Edition?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-can-i-be-assured-that-my-data-will-not-be-locked-in-to-commercial-software">How can I be assured that my data will not be locked in to commercial software?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#how-does-mattermost-scale-from-teams-to-enterprises">How does Mattermost scale from teams to enterprises?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#integration">Integration</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#can-i-use-mattermost-to-add-messaging-functionality-to-my-proprietary-saas-service">Can I use Mattermost to add messaging functionality to my proprietary SaaS service?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#use-cases">Use Cases</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#does-mattermost-support-external-guests">Does Mattermost support external guests?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#can-i-use-mattermost-for-customer-service">Can I use Mattermost for customer service?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#does-mattermost-have-an-official-website-based-plug-in-to-offer-anonymous-chat-to-visitors">Does Mattermost have an official website-based plug-in to offer anonymous chat to visitors?</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#business-questions">Business Questions</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#how-can-i-create-an-open-source-derivative-work-of-mattermost">How can I create an open source derivative work of Mattermost?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#will-mattermost-complete-questionnaires-requiring-confidential-data-without-an-nda">Will Mattermost complete questionnaires requiring confidential data without an NDA?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#why-does-mattermost-have-a-discount-for-certain-kinds-of-non-profits-but-not-for-others">Why does Mattermost have a discount for certain kinds of non-profits but not for others?</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#will-mattermost-inc-offer-the-ability-to-resell-mattermost-software-without-a-reseller-agreement">Will Mattermost, Inc. offer the ability to resell Mattermost software without a reseller agreement?</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="index.html">Mattermost Overview</a> &raquo;</li>
+    
+    <li>Frequently Asked Questions (FAQ)</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/overview/faq.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="frequently-asked-questions-faq">
+<h1>Frequently Asked Questions (FAQ)<a class="headerlink" href="#frequently-asked-questions-faq" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="general-questions">
+<h2>General Questions<a class="headerlink" href="#general-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="why-was-mattermost-created">
+<h3>Why was Mattermost created?<a class="headerlink" href="#why-was-mattermost-created" title="Permalink to this headline">¶</a></h3>
+<p>Mattermost was created to offer an alternative to proprietary SaaS services. For more information, please see the article <a class="reference external" href="https://www.mattermost.org/why-we-made-mattermost-an-open-source-slack-alternative/">Why we made Mattermost</a>.</p>
+</div>
+<div class="section" id="why-does-the-open-source-repository-contain-code-specific-to-the-commercial-version-of-mattermost">
+<h3>Why does the open source repository contain code specific to the commercial version of Mattermost?<a class="headerlink" href="#why-does-the-open-source-repository-contain-code-specific-to-the-commercial-version-of-mattermost" title="Permalink to this headline">¶</a></h3>
+<p>The commercial version of Mattermost is designed to never lock-in your data. Portions of the commercial version are shared with the open source version to ensure upgrade and downgrade across editions happens without data loss.</p>
+</div>
+<div class="section" id="does-mattermost-support-508-compliance">
+<h3>Does Mattermost support 508 Compliance?<a class="headerlink" href="#does-mattermost-support-508-compliance" title="Permalink to this headline">¶</a></h3>
+<p>Yes, please see our <a class="reference external" href="https://docs.mattermost.com/overview/vpat.html">VPAT</a> form for details. Mattermost Enterprise Edition has been purchased by multiple US public sector organizations, including US federal agencies and the Department of Defense.</p>
+</div>
+</div>
+<div class="section" id="mobile-applications">
+<h2>Mobile Applications<a class="headerlink" href="#mobile-applications" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="are-push-notifications-free">
+<h3>Are push notifications free?<a class="headerlink" href="#are-push-notifications-free" title="Permalink to this headline">¶</a></h3>
+<p>Yes, push notifications are free if you compile your own <a class="reference external" href="https://github.com/mattermost/mattermost-push-proxy">push-proxy service</a>. Push notifications are also free if you use the hosted Test Push Notification Service (TPNS) provided by Mattermost, Inc.</p>
+<p>TPNS, hosted at <code class="docutils literal"><span class="pre">http://push.mattermost.com</span></code>, doesn&#8217;t offer transport-level encryption or production-level service level agreements (SLAs), so if you choose this option we recommend you configure your system to not include message contents in push notifications and not reply on the service for vital functions.</p>
+<p>If you need encrypted transport or production-level SLAs for push notifications, you can either compile your own push-proxy service, with your own key, or you can use a paid option and become a Mattermost Enterprise Edition E10 subscriber <a class="reference external" href="https://about.mattermost.com/default-terms/">agreeing to our Conditions of Use</a>, which enables you to use a production-level Hosted Push Notification Service (HPNS) at <code class="docutils literal"><span class="pre">https://push.mattermost.com</span></code>, offering transport-level encryption.</p>
+<p>Learn more about <a class="reference external" href="https://docs.mattermost.com/deployment/push.html">our mobile apps and push notification service</a>.</p>
+</div>
+</div>
+<div class="section" id="video-audio-and-screen-sharing">
+<h2>Video, Audio, and Screen Sharing<a class="headerlink" href="#video-audio-and-screen-sharing" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-support-is-available-for-video-and-audio-calling-and-screen-sharing">
+<h3>What support is available for video and audio calling and screen sharing?<a class="headerlink" href="#what-support-is-available-for-video-and-audio-calling-and-screen-sharing" title="Permalink to this headline">¶</a></h3>
+<p>In all editions, open source <a class="reference external" href="https://docs.mattermost.com/deployment/webrtc.html">one-on-one video and audio calling is currently available in beta</a> using the WebRTC standard.</p>
+<p>After many conversations with users and customers we realized:</p>
+<ol class="arabic simple">
+<li>Most people using Mattermost need top quality video/audio/screen sharing solutions, which are predominantly proprietary.</li>
+<li>Integrating an organization&#8217;s choice of video/audio/screen sharing solution is paramount.</li>
+</ol>
+<p>Today, you can neatly link video/audio/screen sharing solutions, like Zoom and Skype for Business, to channels by using markdown formatting the header (Example: <code class="docutils literal"><span class="pre">[Click</span> <span class="pre">for</span> <span class="pre">video</span> <span class="pre">call](https://link_to_solution)</span></code>).</p>
+<p>In future, we plan to add:</p>
+<ul class="simple">
+<li>A plug-in option for user profiles to connect directly to a person using 3rd party video/audio/screen sharing products, including custom and phone-based solutions.</li>
+<li>A plug-in option for linking channels and teams to on-demand video/audio/screen sharing solutions</li>
+<li>A default, open source one-on-one video and audio calling plug-in based on WebRTC</li>
+<li>A directory of 3rd party video/audio/screen sharing solutions that plug-in to Mattermost</li>
+</ul>
+<p>The timeline for these additions would not be before the second half of 2017.</p>
+</div>
+</div>
+<div class="section" id="enterprise-edition">
+<h2>Enterprise Edition<a class="headerlink" href="#enterprise-edition" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="what-is-mattermost-enterprise-edition">
+<h3>What is Mattermost Enterprise Edition?<a class="headerlink" href="#what-is-mattermost-enterprise-edition" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>Mattermost Enterprise Edition is a commercial workplace messaging solution for large organizations operating under compliance and security requirements that is built on top of the open source Mattermost Team Edition.</div></blockquote>
+</div>
+<div class="section" id="how-can-i-be-assured-that-my-data-will-not-be-locked-in-to-commercial-software">
+<h3>How can I be assured that my data will not be locked in to commercial software?<a class="headerlink" href="#how-can-i-be-assured-that-my-data-will-not-be-locked-in-to-commercial-software" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div>Users of Mattermost Enterprise Edition can downgrade to the open source version without losing any data. Moreover, you always have control over your server and database, where the entirety of your Mattermost deployment is stored.</div></blockquote>
+</div>
+<div class="section" id="how-does-mattermost-scale-from-teams-to-enterprises">
+<h3>How does Mattermost scale from teams to enterprises?<a class="headerlink" href="#how-does-mattermost-scale-from-teams-to-enterprises" title="Permalink to this headline">¶</a></h3>
+<blockquote>
+<div><p>Growing your Mattermost installation from supporting a team to supporting an enterprise requires two types of scaling:</p>
+<ol class="arabic simple">
+<li>Technical scaling - maintaining system responsiveness as large quantities of new users are added</li>
+<li>Functional scaling - adding advanced features to support the increased complexity of large organizations</li>
+</ol>
+<p><strong>Technical Scaling</strong> - Whether used for teams or enterprises, the Mattermost platform is designed to support tens of thousands of users on a single server with appropriate hardware. The platform is built using Golang, the language developed by Google to create internet-scale applications, and supports highly scalable databases like MySQL, which is <a class="reference external" href="https://www.facebook.com/notes/facebook-engineering/mysql-and-database-engineering-mark-callaghan/10150599729938920/">used extensively by Facebook</a>. Beyond tens of thousands of users,  Mattermost Enterprise Edition can offer high availability/horizontal scaling configurations using multiple servers to support even larger organizations.</p>
+<p><strong>Functional Scaling</strong> - Scaling from a team to an enterprise is like going from a &#8220;virtual office&#8221; to a &#8220;virtual campus&#8221;. Advanced features like enterprise authentication, granular permissions, compliance and auditing, and advanced reporting become increasingly important as organizations grow beyond teams. Organizations needing this flexibility can easily upgrade from Mattermost Team Edition to Mattermost Enterprise Edition, as well as downgrade without data loss, should their needs change.</p>
+<p>For more information on how Mattermost scales, technically and functionally, please <a class="reference external" href="https://about.mattermost.com/contact/">contact the Enterprise team</a> and <a class="reference external" href="https://docs.mattermost.com/deployment/scaling.html">read about scaling for Enterprise</a>.</p>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="integration">
+<h2>Integration<a class="headerlink" href="#integration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="can-i-use-mattermost-to-add-messaging-functionality-to-my-proprietary-saas-service">
+<h3>Can I use Mattermost to add messaging functionality to my proprietary SaaS service?<a class="headerlink" href="#can-i-use-mattermost-to-add-messaging-functionality-to-my-proprietary-saas-service" title="Permalink to this headline">¶</a></h3>
+<p>Mattermost is an open source, self-hosted alternative to proprietary SaaS services that lock in the data of users and customers.</p>
+<p>While you&#8217;re welcome to use the Mattermost source code under its open source license, Mattermost, Inc. does not offer support or technical advice for proprietary SaaS projects that result in customers potentially being paywalled from their data should they stop paying SaaS fees.</p>
+<p>To learn more about why we strongly believe that users and customers should always have access to their data, please read <a class="reference external" href="https://www.mattermost.org/why-we-made-mattermost-an-open-source-slack-alternative/">why we created Mattermost</a></p>
+</div>
+</div>
+<div class="section" id="use-cases">
+<h2>Use Cases<a class="headerlink" href="#use-cases" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="does-mattermost-support-external-guests">
+<h3>Does Mattermost support external guests?<a class="headerlink" href="#does-mattermost-support-external-guests" title="Permalink to this headline">¶</a></h3>
+<p>Not yet. Guest accounts are a feature planned for Enterprise Edition. A pricing model proportional to a fraction of the value this new feature provides is expected.</p>
+</div>
+<div class="section" id="can-i-use-mattermost-for-customer-service">
+<h3>Can I use Mattermost for customer service?<a class="headerlink" href="#can-i-use-mattermost-for-customer-service" title="Permalink to this headline">¶</a></h3>
+<p>You are welcome to use the open source Mattermost Team Edition and its extensive API library to build your own solution.</p>
+<p>Mattermost Enterprise Edition is designed for self-hosted, enterprise-grade communication. It is not recommended for primarily providing customer service or customer support, and does not currently offer a licensing model nor technical advice for this use case.</p>
+<p>If you&#8217;d like to create an open source derivative version of Mattermost using the <code class="docutils literal"><span class="pre">/platform</span></code> source code to support your use case please see below.</p>
+</div>
+<div class="section" id="does-mattermost-have-an-official-website-based-plug-in-to-offer-anonymous-chat-to-visitors">
+<h3>Does Mattermost have an official website-based plug-in to offer anonymous chat to visitors?<a class="headerlink" href="#does-mattermost-have-an-official-website-based-plug-in-to-offer-anonymous-chat-to-visitors" title="Permalink to this headline">¶</a></h3>
+<p>Not yet. You can <a class="reference external" href="https://mattermost.uservoice.com/forums/306457-general/suggestions/8810731-implement-a-site-chat-feature">upvote the feature proposal online</a> to add your support. If you create such a plug-in, we would love to see it open sourced and made available to the community.</p>
+</div>
+</div>
+<div class="section" id="business-questions">
+<h2>Business Questions<a class="headerlink" href="#business-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="how-can-i-create-an-open-source-derivative-work-of-mattermost">
+<h3>How can I create an open source derivative work of Mattermost?<a class="headerlink" href="#how-can-i-create-an-open-source-derivative-work-of-mattermost" title="Permalink to this headline">¶</a></h3>
+<p>If you&#8217;re looking to customize the look and feel of Mattermost, see <a class="reference external" href="https://github.com/mattermost/docs/issues/1006">documentation on customization</a>.</p>
+<p>If you&#8217;re looking to change the Mattermost <code class="docutils literal"><span class="pre">/platform</span></code> source code and compile your own version of Mattermost, here are some considerations:</p>
+<p>Security</p>
+<ul class="simple">
+<li>If you run a fork of Mattermost we highly recommend you only deploy the system securely behind a firewall and to pay close attention to <a class="reference external" href="http://about.mattermost.com/security-updates/">Mattermost security updates</a>. Mattermost Team Edition and Mattermost Enterprise Edition release security update patches when reports of new attacks are received and verified. Mattermost waits until 14 days after a security patch is released before publicly detailing its nature, so that users and customers can upgrade before the security vulnerability is widely known. A malicous user can potentially make use of Mattermost security disclosures to exploit a fork of Mattermost if the security upgrade is not promptly incorporated into the forked version.</li>
+</ul>
+<p>Enterprise Edition partnership</p>
+<ul class="simple">
+<li>To build your own commercial solution reselling Mattermost Enterprise Edition please <a class="reference external" href="https://about.mattermost.com/contact/">contact our commercial team</a> and let us know what you&#8217;re considering. Strategic partnerships that won&#8217;t confuse customers are the most favored.</li>
+</ul>
+<p>Re-branding</p>
+<ul class="simple">
+<li>When you create a derivative version of Mattermost and share it with others as a product, you need to replace the Mattermost name and logo from the system, among other requirements, per the <a class="reference external" href="https://www.mattermost.org/trademark-standards-of-use/">Mattermost trademark policy.</a></li>
+<li>In Enterprise Edition you can re-brand your system using convenience tools for <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#customization">custom branding</a>.</li>
+<li>For advanced whitelabelling, and to whitelabel in Team Edition under MIT license without Enterprise Edition branding tools, you can manually update files on the Mattermost server <a class="reference external" href="https://github.com/mattermost/docs/issues/1006">per product documentation.</a></li>
+</ul>
+<p>Using /platform open source code</p>
+<ul class="simple">
+<li>Creating a solution using the open source Mattermost <code class="docutils literal"><span class="pre">/platform</span></code> repo requires a) compliance with licenses in the repo, including <a class="reference external" href="https://github.com/mattermost/platform/blob/master/NOTICE.txt">NOTICE.txt</a>, and b) the compiled version of the <code class="docutils literal"><span class="pre">/platform</span></code> source code should have the same open source license as the source code, <a class="reference external" href="https://www.mattermost.org/licensing/">per our licensing policy</a>.</li>
+</ul>
+<p>Other considerations:</p>
+<ul class="simple">
+<li>Mattermost has a default <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#terms-of-service-link">Conditions of Use</a> agreement for the Terms of Service link at the bottom of login screen that should be incorporated into any additional Terms of Use you may add.</li>
+<li>The Mattermost copyright notices on the user interface should remain.</li>
+<li>There may be additional legal and regulatory issues to consider and we recommend you employ legal counsel to fully understand what&#8217;s involved in creating and selling a derivative work.</li>
+</ul>
+</div>
+<div class="section" id="will-mattermost-complete-questionnaires-requiring-confidential-data-without-an-nda">
+<h3>Will Mattermost complete questionnaires requiring confidential data without an NDA?<a class="headerlink" href="#will-mattermost-complete-questionnaires-requiring-confidential-data-without-an-nda" title="Permalink to this headline">¶</a></h3>
+<p>No, Mattermost will not complete questionnaires requiring confidential data without a non-disclosure agreement. You can find <a class="reference external" href="https://docs.google.com/document/d/10Qc2kxxZGYNzp9b19oEhItRM01OPyrWRISJ2rbm1gvc/edit">Mattermost&#8217;s standard mutual non-disclosure agreement online.</a></p>
+</div>
+<div class="section" id="why-does-mattermost-have-a-discount-for-certain-kinds-of-non-profits-but-not-for-others">
+<h3>Why does Mattermost have a discount for certain kinds of non-profits but not for others?<a class="headerlink" href="#why-does-mattermost-have-a-discount-for-certain-kinds-of-non-profits-but-not-for-others" title="Permalink to this headline">¶</a></h3>
+<p>While we welcome anyone to use the open source version of Mattermost Team Edition free of charge, Mattermost, Inc., like any software company, has specific discounting programs for its commercial Mattermost Enterprise Edition based on business objectives. Objectives of the discounting programs include the suitability of potential case studies, references, word-of-mouth promotion as well as public promotion of solutions, among many other factors.</p>
+<p>Learn more about our non-profit discount program at <a class="reference external" href="https://about.mattermost.com/mattermost-mondays/">https://about.mattermost.com/mattermost-mondays/</a></p>
+</div>
+<div class="section" id="will-mattermost-inc-offer-the-ability-to-resell-mattermost-software-without-a-reseller-agreement">
+<h3>Will Mattermost, Inc. offer the ability to resell Mattermost software without a reseller agreement?<a class="headerlink" href="#will-mattermost-inc-offer-the-ability-to-resell-mattermost-software-without-a-reseller-agreement" title="Permalink to this headline">¶</a></h3>
+<p>No.</p>
+<p>If there is a case where the reseller agreement is under review and an order is urgently needed by a customer, Mattermost may, with internal approvals, accept a reseller purchase order with the following language:</p>
+<p>Any statements, clauses, or conditions included on or referenced by buyer&#8217;s purchase order forms, which forms modify, add to, or are inconsistent with Mattermost’s standard terms and condtions are expressly rejected. Such orders will only be accepted by Mattermost upon the condition and with the express understanding that despite any such statements,clauses, or conditions contained in any order forms of the buyer are void and have no effect.</p>
+<p>EXCEPT AS OTHERWISE EXPRESSLY AGREED BY THE PARTIES IN WRITING, MATTERMOST MAKES NO WARRANTIES OR REPRESENTATIONS WITH RESPECT TO ANY MATTERMOST PRODUCTS, DOCUMENTATION OR SUPPORT, AND HEREBY DISCLAIMS ALL OTHER EXPRESS AND ALL IMPLIED WARRANTIES, INCLUDING BUT NOT LIMITED TO IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../guides/user.html" class="btn btn-neutral float-right" title="Mattermost User’s Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="auth.html" class="btn btn-neutral" title="Corporate Directory Integration" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/overview/faq.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

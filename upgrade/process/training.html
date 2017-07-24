@@ -1,0 +1,975 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Onboarding &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
+        <link rel="next" title="People Ops" href="people-ops.html"/>
+        <link rel="prev" title="Security Policies" href="security.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#development-process">Development Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#core-developer-handbook">Core Developer Handbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="handbook.html">About Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="working-at-mattermost.html">Working at Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Security Policies</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Onboarding</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#getting-started-checklist">Getting Started Checklist</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#meetings">Meetings</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mindsets">Mindsets</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#terminology">Terminology</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#training">Training</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mattermost-avatar">Mattermost Avatar</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="people-ops.html">People Ops</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer.html">Staff Developers</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/core.html">Core Team Handbook</a> &raquo;</li>
+    
+    <li>Onboarding</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/process/training.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="onboarding">
+<h1><a class="toc-backref" href="#contents">Onboarding</a><a class="headerlink" href="#onboarding" title="Permalink to this headline">¶</a></h1>
+<p>This document in intended for new hires to summarize norms for working at Mattermost, Inc. including:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#getting-started-checklist">Getting Started Checklist</a> - Getting ready to work here</li>
+<li><a class="reference internal" href="#meetings">Meetings</a> - When we get together and why</li>
+<li><a class="reference internal" href="#mindsets">Mindsets</a> - Shared toolsets we have for solving problems</li>
+<li><a class="reference internal" href="#terminology">Terminology</a>- Shared vocabulary to convey ideas quickly</li>
+<li><a class="reference internal" href="#training">Training</a> - Material available to help us ramp quickly in different areas</li>
+</ul>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#onboarding" id="id12">Onboarding</a><ul>
+<li><a class="reference internal" href="#getting-started-checklist" id="id13">Getting Started Checklist</a><ul>
+<li><a class="reference internal" href="#important-things-to-know" id="id14">Important things to know</a></li>
+<li><a class="reference internal" href="#hiring" id="id15">Hiring</a></li>
+<li><a class="reference internal" href="#t-minus-1-3-weeks" id="id16">T-minus 1-3 weeks</a></li>
+<li><a class="reference internal" href="#t-minus-1-week" id="id17">T-minus 1 week</a></li>
+<li><a class="reference internal" href="#first-day" id="id18">First Day</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#meetings" id="id19">Meetings</a><ul>
+<li><a class="reference internal" href="#timezones" id="id20">Timezones</a></li>
+<li><a class="reference internal" href="#open-meetings" id="id21">Open Meetings</a><ul>
+<li><a class="reference internal" href="#developer-meeting" id="id22">Developer Meeting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mattermost-inc-only-meetings" id="id23">Mattermost Inc-only Meetings</a><ul>
+<li><a class="reference internal" href="#sprint-planning" id="id24">Sprint Planning</a></li>
+<li><a class="reference internal" href="#triage-meeting" id="id25">Triage Meeting</a></li>
+<li><a class="reference internal" href="#leads-meeting" id="id26">Leads Meeting</a></li>
+<li><a class="reference internal" href="#platform-meeting" id="id27">Platform Meeting</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#meeting-elements" id="id28">Meeting Elements</a><ul>
+<li><a class="reference internal" href="#warm-ups" id="id29">Warm-ups</a></li>
+<li><a class="reference internal" href="#open-questions" id="id30">Open Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mindsets" id="id31">Mindsets</a><ul>
+<li><a class="reference internal" href="#learn-master-teach" id="id32">Learn, Master, Teach</a></li>
+<li><a class="reference internal" href="#slow-is-smooth-smooth-is-fast" id="id33">Slow is smooth, smooth is fast</a></li>
+<li><a class="reference internal" href="#emotion-assumption-and-priority" id="id34">Emotion, Assumption, and Priority</a></li>
+<li><a class="reference internal" href="#likes-wishes" id="id35">Likes &amp; Wishes</a></li>
+<li><a class="reference internal" href="#mini-boss-end-boss" id="id36">Mini-boss, End-boss</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#terminology" id="id37">Terminology</a><ul>
+<li><a class="reference internal" href="#purpose" id="id38">Purpose</a><ul>
+<li><a class="reference internal" href="#increase-precision-through-unambiguous-definitions-of-useful-terms" id="id39">1) Increase precision through unambiguous definitions of useful terms</a></li>
+<li><a class="reference internal" href="#increase-the-speed-of-communication-via-a-small-number-of-frequently-used-acronyms" id="id40">2) Increase the speed of communication via a small number of frequently used acronyms</a></li>
+<li><a class="reference internal" href="#reduce-repeated-mistakes-by-naming-very-specific-undesirable-behaviors" id="id41">3) Reduce repeated mistakes by naming very specific undesirable behaviors</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#list-of-terms" id="id42">List of Terms</a><ul>
+<li><a class="reference internal" href="#id11" id="id43">0/5, 1/5, 2/5, 3/5, 4/5, 5/5</a></li>
+<li><a class="reference internal" href="#bug" id="id44">Bug</a></li>
+<li><a class="reference internal" href="#dead-tarzan" id="id45">Dead Tarzan</a></li>
+<li><a class="reference internal" href="#decking" id="id46">Decking</a></li>
+<li><a class="reference internal" href="#dev-mana" id="id47">Dev Mana</a></li>
+<li><a class="reference internal" href="#expert-mode-and-crimson-force-field" id="id48">Expert Mode (and Crimson Force Field)</a></li>
+<li><a class="reference internal" href="#help-wanted" id="id49">Help Wanted</a></li>
+<li><a class="reference internal" href="#improvement" id="id50">Improvement</a></li>
+<li><a class="reference internal" href="#lhs" id="id51">LHS</a></li>
+<li><a class="reference internal" href="#mana" id="id52">Mana</a></li>
+<li><a class="reference internal" href="#rhs" id="id53">RHS</a></li>
+<li><a class="reference internal" href="#windows-vista-approach" id="id54">Windows Vista approach</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a class="reference internal" href="#training" id="id55">Training</a><ul>
+<li><a class="reference internal" href="#roles" id="id56">Roles</a><ul>
+<li><a class="reference internal" href="#developer" id="id57">Developer</a></li>
+<li><a class="reference internal" href="#product-managers" id="id58">Product Managers</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#resources" id="id59">Resources</a><ul>
+<li><a class="reference internal" href="#developers" id="id60">Developers</a></li>
+<li><a class="reference internal" href="#books" id="id61">Books</a></li>
+<li><a class="reference internal" href="#product-management" id="id62">Product Management</a></li>
+<li><a class="reference internal" href="#software-strategy" id="id63">Software Strategy</a></li>
+<li><a class="reference internal" href="#system-security" id="id64">System Security</a></li>
+<li><a class="reference internal" href="#additional-training-resources" id="id65">Additional Training Resources</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#leadership-coaching" id="id66">Leadership Coaching</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mattermost-avatar" id="id67">Mattermost Avatar</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="getting-started-checklist">
+<h2><a class="toc-backref" href="#contents">Getting Started Checklist</a><a class="headerlink" href="#getting-started-checklist" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="important-things-to-know">
+<h3><a class="toc-backref" href="#contents">Important things to know</a><a class="headerlink" href="#important-things-to-know" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Never sign any agreement on behalf of the company. The CEO is the only person authorized to sign an agreement on behalf of Mattermost, Inc. The only exception is that you are authorized to sign a non-disclosure agreement to enter a physical space. If you have questions, please check with your manager.</li>
+</ul>
+</div>
+<div class="section" id="hiring">
+<h3><a class="toc-backref" href="#contents">Hiring</a><a class="headerlink" href="#hiring" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>(People Ops &amp; New Hire) Offer letter accepted via click-sign</li>
+<li>(Logistics) Mail t-shirt &amp; track jacket</li>
+</ul>
+</div>
+<div class="section" id="t-minus-1-3-weeks">
+<h3><a class="toc-backref" href="#contents">T-minus 1-3 weeks</a><a class="headerlink" href="#t-minus-1-3-weeks" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>(People Ops &amp; New Hire) People Ops should find out new hire&#8217;s preference for laptop, either to be purchased or taken from stock and shipped by People Ops or purchased locally by new hire and expensed. Windows laptops generally cost less than Macs so budget is based on Macs. For non-developers, budget is cost of a Macbook in your local area, for developers budget is cost of a Macbook Pro.</li>
+<li>(New Hire) Read the entirety of Onboarding page for info on meetings, mindsets, terminology and training materials.</li>
+<li>(New Hire) Ask your manager for a link to the CEO&#8217;s calendar to schedule a 45 minute meeting on your first day</li>
+</ul>
+</div>
+<div class="section" id="t-minus-1-week">
+<h3><a class="toc-backref" href="#contents">T-minus 1 week</a><a class="headerlink" href="#t-minus-1-week" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>(People Ops) Send email invite to New Hire to set up an &#64;mattermost.com email address. New Hire should use this email address on pre-release.mattermost.com (replace personal email with company email if already registered there). <cite>FIRST_NAME&#64;mattermost.com</cite> is the standard naming convention.</li>
+<li>(People Ops &amp; New Hire) Set up payroll. Non-US Employee/Non-Canada Employee, complete bank info form for monthly wire transfer.</li>
+</ul>
+</div>
+<div class="section" id="first-day">
+<h3><a class="toc-backref" href="#contents">First Day</a><a class="headerlink" href="#first-day" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>(Manager) Posts welcome message in stand-up channel</li>
+<li>(Manager) Meets New Hire for first 1-1 meeting</li>
+<li>(Buddy) Meets New Hire for first 1-1 meeting</li>
+<li>(CEO) Meets New Hire for welcome meeting</li>
+</ul>
+</div>
+</div>
+<div class="section" id="meetings">
+<h2><a class="toc-backref" href="#contents">Meetings</a><a class="headerlink" href="#meetings" title="Permalink to this headline">¶</a></h2>
+<p>This section summarizes norms for public and private meetings for the Mattermost community and for Mattermost Inc.</p>
+<div class="section" id="timezones">
+<h3><a class="toc-backref" href="#contents">Timezones</a><a class="headerlink" href="#timezones" title="Permalink to this headline">¶</a></h3>
+<p>When proposing meetings use famous cities as references for time (e.g. 9am New York time), since it&#8217;s clear and <a class="reference external" href="https://www.google.com/search?q=time+in+new+york&amp;oq=time+in+new+&amp;aqs=chrome.1.0l2j69i57j0l3.3135j0j7&amp;sourceid=chrome&amp;ie=UTF-8">easy to web search</a>. Avoid using &#8220;UTC&#8221;, as it has been shown to cause confusion.</p>
+<p>When selecting a timezone city, use the most well-known city in a country where at least one team member is located. Exception: When possible, use a city where we have an official mailing address, e.g. In Western Americas use Palo Alto, instead of San Francisco. In Eastern Americas use Toronto, instead of New York.</p>
+</div>
+<div class="section" id="open-meetings">
+<h3><a class="toc-backref" href="#contents">Open Meetings</a><a class="headerlink" href="#open-meetings" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="developer-meeting">
+<h4><a class="toc-backref" href="#contents">Developer Meeting</a><a class="headerlink" href="#developer-meeting" title="Permalink to this headline">¶</a></h4>
+<p><strong>Open to the public</strong> - (Developers - 1-2 hours/week) Wednesdays 10:00 (<a class="reference external" href="http://everytimezone.com/">San Francisco Time</a>)</p>
+<ul class="simple">
+<li>Goal: Discuss developer issues across Mattermost Inc, key contributors and the contributor community.</li>
+<li>Attendees: (required) Mattermost Inc developers, (optional) key contributors, contributors and anyone who would like to join.</li>
+</ul>
+<p>Procedure:</p>
+<ol class="arabic">
+<li><p class="first">(Chair): Post meeting agenda in <a class="reference external" href="https://pre-release.mattermost.com/core/channels/developers">Developers channel</a> (open to the public), tagged with <code class="docutils literal"><span class="pre">#devmeeting</span></code></p>
+</li>
+<li><p class="first">(Team and Public): At the time of the meeting:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Join the <strong>Hangouts</strong> link posted in the meeting agenda in the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/developers">Developers channel</a></li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>To review past agendas for the Developer meeting in the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/developers">Developers channel</a> click on the <code class="docutils literal"><span class="pre">#devmeeting</span></code> hashtag in any of the meeting notes, or search for it directly.</p>
+</div>
+</div>
+<div class="section" id="mattermost-inc-only-meetings">
+<h3><a class="toc-backref" href="#contents">Mattermost Inc-only Meetings</a><a class="headerlink" href="#mattermost-inc-only-meetings" title="Permalink to this headline">¶</a></h3>
+<p>For confidentiality of customers, internal process meetings are limited to Mattermost Inc. only.</p>
+<div class="section" id="sprint-planning">
+<h4><a class="toc-backref" href="#contents">Sprint Planning</a><a class="headerlink" href="#sprint-planning" title="Permalink to this headline">¶</a></h4>
+<p><strong>Mattermost Staff Only</strong> - (Developer - 5-10 minutes/week) Tuesdays between 10:00 and 11:00 (<a class="reference external" href="http://everytimezone.com/">San Francisco Time</a>)</p>
+<ul class="simple">
+<li>Goal: Review and discuss tickets selected by developer for next sprint</li>
+<li>Attendees: (required) Each developer in sequence, plus spint planners (one dev, one PM), (optional) Mattermost staff colleagues welcome</li>
+</ul>
+<p>Note:</p>
+<ul class="simple">
+<li>This meeting uses a special <a class="reference external" href="https://mattermost.atlassian.net/secure/RapidBoard.jspa?rapidView=1&amp;view=planning.nodetail&amp;quickFilter=7">Mattermost staff-only BACKLOG query</a> showing tickets by sprint, with tabs across the top for each developer</li>
+<li>Prior to meeting, developers drag and drop tickets from their backlog to next sprint based on team priorities</li>
+<li>Developers are welcome at any time to discuss reassigning tickets with colleagues using common sense (if both are okay with the change, add &#8220;triage&#8221; tag to fix version with comment and triage team will review to make the change)</li>
+<li>During the meeting, developer&#8217;s next sprint is reviewed, discussed, possibly adjusted and locked</li>
+</ul>
+<p>Procedure:</p>
+<ol class="arabic simple">
+<li>(Chair): Just prior to meeting, post <strong>Hangout</strong> link in <a class="reference external" href="https://pre-release.mattermost.com/private-core/channels/stand-up">Standup private channel</a></li>
+<li>(Developer): Replies in Standup private channel when sprint is ready for review</li>
+<li>(Chair): Will (at)mention next developer to join <strong>Hangout</strong> to review tickets. Developer joins, tickets are discussed and finalized for next sprint. Developer leaves <strong>Hangout</strong> and next developer rotates in.</li>
+</ol>
+</div>
+<div class="section" id="triage-meeting">
+<h4><a class="toc-backref" href="#contents">Triage Meeting</a><a class="headerlink" href="#triage-meeting" title="Permalink to this headline">¶</a></h4>
+<p><strong>Mattermost Inc-only</strong> - (Triage team - 1-3 hours/week) Monday, Wednesday, Friday 09:00 (<a class="reference external" href="http://everytimezone.com/">San Francisco Time</a>)</p>
+<ul class="simple">
+<li>Goal: To provide consistent review, prioritization and ownership assignment of all tickets</li>
+<li>Attendees: (required) dev and PM from Mattermost Inc., typically leads (optional) other Mattermost Inc. colleagues welcome</li>
+</ul>
+<p>Note:</p>
+<ul>
+<li><p class="first">ONLY TRIAGE TEAM should set or change the <strong>Fix Version</strong> of a ticket.</p>
+<blockquote>
+<div><ul class="simple">
+<li>When tickets are first created, they go to triage to be reviewed for clarity and priority and assigned a <strong>Fix Version</strong>. Unclear tickets may be assigned to their creator for more information.</li>
+<li>The <strong>Fix Version</strong> determines the sequence in which tickets are addressed and triage team is accountable for that sequence.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">If you&#8217;re ever unsure about a ticket (if it&#8217;s not clear, or doesn&#8217;t seem appropriate) add a comment and add <strong>triage</strong> to the <strong>Fix Version</strong> field, which will trigger a review by the triage team in 1-2 working days.</p>
+<blockquote>
+<div><ul class="simple">
+<li>It&#8217;s the responsibility of the triage team to make sure tickets are clear before they&#8217;re assigned a <strong>Fix Version</strong>.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">ONLY TRIAGE TEAM can close a ticket resolved as <strong>Won&#8217;t Fix</strong> or <strong>Won&#8217;t do</strong></p>
+<blockquote>
+<div><ul class="simple">
+<li>These tickets resolved in such a way are reviewed by triage team.</li>
+<li>Only resolve a ticket as <strong>Won&#8217;t Fix</strong> or <strong>Won&#8217;t Do</strong> if you&#8217;re highly confident it&#8217;s the correct decision, otherwise, add &#8220;triage&#8221; to Fix Version for review. In either case, include a comment with your reason.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Procedure:</p>
+<ol class="arabic simple">
+<li>(Chair): Just prior to meeting, post <strong>Hangout</strong> link in <a class="reference external" href="https://pre-release.mattermost.com/core/channels/stand-up">Standup private channel</a> (Mattermost Inc. only)</li>
+<li>(Attendees): Join the link</li>
+<li>(Attendees): Review <a class="reference external" href="https://mattermost.atlassian.net/browse/PLT-1203?filter=10105">query for tickets needing triage</a> and assign owner and fix version</li>
+</ol>
+</div>
+<div class="section" id="leads-meeting">
+<h4><a class="toc-backref" href="#contents">Leads Meeting</a><a class="headerlink" href="#leads-meeting" title="Permalink to this headline">¶</a></h4>
+<p><strong>Mattermost Inc-only</strong> - (Leads - 1-3 hours/week) Monday and Wednesday (9:00 <a class="reference external" href="http://everytimezone.com/">San Francisco Time</a>)</p>
+<ul class="simple">
+<li>Goal: Address leadership and process topics</li>
+<li>Attendees: (Required) Dev, PM, community/marketing leads from Mattermost Inc., with sales lead and other Mattermost staff optional.</li>
+</ul>
+<p>Note:</p>
+<ul>
+<li><p class="first">Decisions should go to Leads meetings when there is lack of clarity or ownership, or to discuss special case topics where process is not well defined.</p>
+<blockquote>
+<div><ul class="simple">
+<li>When possible, decision-making should belong to the people closes to details</li>
+<li>Individual developers or PMs should make most decisions, and raise to developer or PM team if things are unclear, and go to Leads if lack of clarify persists.</li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">To queue an item for Leads ask the dev or PM lead</p>
+</li>
+<li><p class="first">Leads is also used for cross-discipline Q&amp;A</p>
+<blockquote>
+<div><ul class="simple">
+<li>Rather than randomize individual contributors, cross-discipline discussion (e.g. marketing to PM, community to dev, etc.) can happen in leads</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+<p>Procedure:</p>
+<ol class="arabic simple">
+<li>(Leads): Queue items in Leads channel for discussion.</li>
+<li>(Leads): During meeting discuss agenda items in sequence.</li>
+</ol>
+</div>
+<div class="section" id="platform-meeting">
+<h4><a class="toc-backref" href="#contents">Platform Meeting</a><a class="headerlink" href="#platform-meeting" title="Permalink to this headline">¶</a></h4>
+<p><strong>Mattermost Inc-only</strong> - (Platform colleagues - 1 hour/week) Thursday&#8217;s at 10:00 (<a class="reference external" href="http://everytimezone.com/">San Francisco Time</a>).</p>
+<p>Regular team meeting for platform team at Mattermost Inc.</p>
+<ul class="simple">
+<li>Goal: Increase team output by effectively reviewing priorities and finding blindspots</li>
+<li>Scope: Mattermost Inc-only meeting given confidential customer issues discussed</li>
+<li>Attendees: Mattermost Inc colleagues working on platform</li>
+</ul>
+<p>Platform meeting consists of two parts, Team Operation Review Meeting and Product Staff Meeting.</p>
+<p>All Mattermost staff attends the Team Operation Review Meeting. It provides an opportunity to teach and learn between people who don’t otherwise deal with each other much. Includes presentations and demos.</p>
+<p>Only the product team attends the Product Staff Meeting, others&#8217; attendance is optional. The meeting consists of people who work closely together. Includes controlled agenda items (e.g. queued items) with an &#8220;open session&#8221; where staff can bring up anything they want. Staff should arrive at decisions during the meeting or schedule further discussion for the next meeting.</p>
+<p>Procedure:</p>
+<ol class="arabic simple">
+<li>(Chair) 3-hours before standup, post reminders in <a class="reference external" href="https://pre-release.mattermost.com/core/channels/platform-discussion">Platform private channel</a> (Mattermost Inc only)</li>
+</ol>
+<div class="highlight-default"><div class="highlight"><pre><span></span>#### @channel Platform Meeting Reminder
+Everyone please:
+- **Prepare your demos**
+- **Prepare your roundtable open discussion**
+
+@[RELEASE MANAGER] please:
+- **Prepare your roadmap checkin**
+
+@[WHOEVER] are you ready for your &quot;Ice-breaker&quot;?
+</pre></div>
+</div>
+<ol class="arabic" start="2">
+<li><p class="first">(Team) At time of meeting:</p>
+<ul class="simple">
+<li>Join the <strong>Hangout</strong> link in the header of the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/platform-discussion">Platform private channel</a></li>
+<li>Open the <strong>Notes</strong> link in the header to see the agenda</li>
+</ul>
+</li>
+<li><p class="first">(Vice-Chair) Post <a class="reference external" href="https://docs.google.com/document/d/1ImSgkF7T03wbKwz_t4-Dr4n3I8LixVbFb2Db_u0FmdM">&#8220;Standing Items&#8221; template</a> into Platform Meeting Notes</p>
+<blockquote>
+<div><ul class="simple">
+<li>Add <strong>Follow-ups</strong> from previous meeting</li>
+<li>Add <strong>New items</strong> queued in <a class="reference external" href="https://pre-release.mattermost.com/core/channels/platform-discussion">Platform private channel</a> (Mattermost Inc only)</li>
+</ul>
+</div></blockquote>
+</li>
+</ol>
+<p>Meeting Agenda:</p>
+<p>Team Operation Review Meeting</p>
+<ul class="simple">
+<li><strong>Warm-up</strong> - Currently: &#8220;Share something interesting about your weekend.&#8221;</li>
+<li><strong>Roadmap check-in</strong> - Review of roadmap status in current and next release</li>
+<li><strong>Demos (optional)</strong> - Team members show highlights of what&#8217;s been completed this week. Relevant follow-ups noted.</li>
+<li><strong>New items</strong> - New team relevant items are discussed</li>
+</ul>
+<p>Product Staff Meeting</p>
+<ul class="simple">
+<li><strong>Roundtable Open Discussion</strong> - Each colleague shares something important to discuss with the team. Examples: external customer or user issue, potential process improvement. Follow-ups noted.</li>
+<li><strong>New items</strong> - New product staff relevant items are discussed</li>
+<li><strong>Follow-ups</strong> - Follow-ups from previous meeting are discussed</li>
+<li><strong>Questions</strong> - To find blindspots, meeting does not end until 3 open questions are asked and answered.</li>
+</ul>
+<p>Post Meeting:</p>
+<ul class="simple">
+<li>Follow-up items are posted to the  <a class="reference external" href="https://pre-release.mattermost.com/core/channels/platform-discussion">Platform private channel</a> (Mattermost Inc only)</li>
+</ul>
+</div>
+</div>
+<div class="section" id="meeting-elements">
+<h3><a class="toc-backref" href="#contents">Meeting Elements</a><a class="headerlink" href="#meeting-elements" title="Permalink to this headline">¶</a></h3>
+<p>Here we summarize meeting elements that can be re-used for meetings across teams.</p>
+<div class="section" id="warm-ups">
+<h4><a class="toc-backref" href="#contents">Warm-ups</a><a class="headerlink" href="#warm-ups" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">2-3 minute exercises designed to learn more a colleagues at the start of a recurring meeting</p>
+</li>
+<li><p class="first">Typically rotates alphabetically by first name, one colleague per meeting</p>
+</li>
+<li><p class="first">Examples:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8220;Hobby talk&#8221; - sharing about an interesting hobby, past or present</li>
+<li>&#8220;My home town&#8221; - sharing something interesting about where you grew up</li>
+<li>&#8220;Two truths and a lie&#8221; - share two true facts about yourself and one lie, team guesses which is the lie.</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+<div class="section" id="open-questions">
+<h4><a class="toc-backref" href="#contents">Open Questions</a><a class="headerlink" href="#open-questions" title="Permalink to this headline">¶</a></h4>
+<ul>
+<li><p class="first">Exercise to find blindspots in team thinking at the end of a meeting</p>
+</li>
+<li><p class="first">Meeting does not end until 3 questions are asked and answered, typically at least one of the questions reveals a blindspot or opportunity to improve communication.</p>
+</li>
+<li><p class="first">Examples of questions:</p>
+<blockquote>
+<div><ul class="simple">
+<li>&#8220;What&#8217;s the status on X?&#8221; // often an important item that got forgotten</li>
+<li>&#8220;Who owns X?&#8221; // reveals need for more clarity or communication</li>
+<li>&#8220;Why do we do X?&#8221; // let&#8217;s us verify if a process is needed, and if we&#8217;re handling it the right way</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</div>
+</div>
+</div>
+<div class="section" id="mindsets">
+<h2><a class="toc-backref" href="#contents">Mindsets</a><a class="headerlink" href="#mindsets" title="Permalink to this headline">¶</a></h2>
+<p>Mindsets are &#8220;tool sets for the mind&#8221; that help us find blindspots and increase performance in specific situations. They&#8217;re a reflection of our shared learnings and culture in the Mattermost community and at Mattermost Inc.</p>
+<p>To make the most out of mindsets, remember:</p>
+<ul class="simple">
+<li><strong>Mindsets are tools</strong> - Use common sense to find the right mindset for your situation. Avoid using ones that don&#8217;t fit.</li>
+<li><strong>Mindsets are temporary</strong> - Try on a mindset the way you&#8217;d try a tool. You can always put it down if it doesn&#8217;t work.</li>
+<li><strong>Mindsets are not laws</strong> - Mindsets are situation-specific, not universal. Don&#8217;t use them to debate.</li>
+</ul>
+<p>When you read about great leaders, they share mindsets relevant to success in their specific situations, which differ from their peers. Remember that &#8220;advice is personal experience generalized&#8221; so be mindful about what you apply.</p>
+<p>In this context, here are mindsets for Mattermost:</p>
+<div class="section" id="learn-master-teach">
+<h3><a class="toc-backref" href="#contents">Learn, Master, Teach</a><a class="headerlink" href="#learn-master-teach" title="Permalink to this headline">¶</a></h3>
+<p><strong>Learn</strong> a new topic quickly, develop <strong>mastery</strong> (be the smartest person at the team/company/community on the topic), then <strong>teach</strong> it to someone who will start the cycle over.</p>
+<p>If you&#8217;re a strong teacher, their mastery should surpass yours. This mindset helps us constantly grow and rotate into new roles, while preventing &#8220;single-points of failure&#8221; where only one person is qualified for a certain task.</p>
+</div>
+<div class="section" id="slow-is-smooth-smooth-is-fast">
+<h3><a class="toc-backref" href="#contents">Slow is smooth, smooth is fast</a><a class="headerlink" href="#slow-is-smooth-smooth-is-fast" title="Permalink to this headline">¶</a></h3>
+<p>When you rush to get something done quickly, it can actually increase the time and cost for the project.</p>
+<p>Rushing means a higher chance of missing things that need to be done, and the cost of doing them later is significantly higher because you have to re-create your original setup to add on the work.</p>
+</div>
+<div class="section" id="emotion-assumption-and-priority">
+<h3><a class="toc-backref" href="#contents">Emotion, Assumption, and Priority</a><a class="headerlink" href="#emotion-assumption-and-priority" title="Permalink to this headline">¶</a></h3>
+<p>Consider when two rational people disagree, the cause often comes from one of three areas:</p>
+<ol class="arabic simple">
+<li><strong>Emotion</strong> - There could be an <strong>emotion</strong> biasing the discussion. Just asking if this might be the case can clear the issue. It&#8217;s okay to have emotions. We are humans, not robots.</li>
+<li><strong>Assumption</strong> - People may have different underlying <strong>assumptions</strong> (including definitions). Try to understand each other&#8217;s assumptions and get to agreement or facts when you can.</li>
+<li><strong>Priorities</strong> - Finally people can have different <strong>priorities</strong>. When everyone&#8217;s priorities are shared and understood it&#8217;s easier to find solutions that satisfy everyone&#8217;s criteria.</li>
+</ol>
+<p>While the emotions, assumptions, priority mindset won&#8217;t work for everyone in every case, it&#8217;s helped resolve complex decisions in our company&#8217;s history.</p>
+</div>
+<div class="section" id="likes-wishes">
+<h3><a class="toc-backref" href="#contents">Likes &amp; Wishes</a><a class="headerlink" href="#likes-wishes" title="Permalink to this headline">¶</a></h3>
+<p>An easy way to check in with team members about how things are going.</p>
+<ul class="simple">
+<li>What do you <em>like</em> about how things are going?</li>
+<li>What do you <em>wish</em> we might change?</li>
+</ul>
+<p>Use these one-on-one or in a group as a way to open conversations about what to keep and what to change in how we do things.</p>
+</div>
+<div class="section" id="mini-boss-end-boss">
+<h3><a class="toc-backref" href="#contents">Mini-boss, End-boss</a><a class="headerlink" href="#mini-boss-end-boss" title="Permalink to this headline">¶</a></h3>
+<p>When reviewing user interface design, pull requests, or marketing materials, there are ideally two reviewers:</p>
+<ul class="simple">
+<li><strong>Mini-boss</strong>: Reviewer with less experience to do the first review</li>
+<li><strong>End-boss</strong>: More experienced reviewer to do the final review</li>
+</ul>
+<p>This system has several benefits:</p>
+<ol class="arabic simple">
+<li>The Mini-boss provides feedback on the most obvious issues, allowing the End-boss to focus on nuanced issues the Mini-boss didn&#8217;t find.</li>
+<li>The Mini-boss learns from the End-boss feedback, understanding what was missed, and becoming a better reviewer.</li>
+<li>Eventually the Mini-boss will be as skilled at reviewing as the End-boss, who will have nothing futher to add after the Mini-boss review. At this point, the Mini-boss becomes an End-boss, ready to train a new Mini-boss.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="terminology">
+<h2><a class="toc-backref" href="#contents">Terminology</a><a class="headerlink" href="#terminology" title="Permalink to this headline">¶</a></h2>
+<p>Designing world-class software means bringing people together across disciplines and cultures. We want to create a limited amount of shared terminology to help us work better together, while being careful not to make it difficult for newcomers to follow our conversation.</p>
+<p>Perhaps in future we&#8217;ll have a bot that helps teach newcomers about the terminology in-context. Until then we have this guide.</p>
+<div class="section" id="purpose">
+<h3><a class="toc-backref" href="#contents">Purpose</a><a class="headerlink" href="#purpose" title="Permalink to this headline">¶</a></h3>
+<p>We use Mattermost terminology to achieve specific benefits:</p>
+<div class="section" id="increase-precision-through-unambiguous-definitions-of-useful-terms">
+<h4><a class="toc-backref" href="#contents">1) Increase precision through unambiguous definitions of useful terms</a><a class="headerlink" href="#increase-precision-through-unambiguous-definitions-of-useful-terms" title="Permalink to this headline">¶</a></h4>
+<p>For example, &#8220;0/5&#8221; and &#8220;5/5&#8221; help convey the level of conviction behind an opinion. Also, a precise classification of tickets as &#8220;Bug&#8221; or &#8220;Improvement&#8221; is critical since it affects scheduling and decision making, and so forth.</p>
+</div>
+<div class="section" id="increase-the-speed-of-communication-via-a-small-number-of-frequently-used-acronyms">
+<h4><a class="toc-backref" href="#contents">2) Increase the speed of communication via a small number of frequently used acronyms</a><a class="headerlink" href="#increase-the-speed-of-communication-via-a-small-number-of-frequently-used-acronyms" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference internal" href="#lhs">LHS</a> and <a class="reference internal" href="#rhs">RHS</a> are examples of a very limited number of acronyms to use to speed discussions, specifications, and ticket writing.</p>
+</div>
+<div class="section" id="reduce-repeated-mistakes-by-naming-very-specific-undesirable-behaviors">
+<h4><a class="toc-backref" href="#contents">3) Reduce repeated mistakes by naming very specific undesirable behaviors</a><a class="headerlink" href="#reduce-repeated-mistakes-by-naming-very-specific-undesirable-behaviors" title="Permalink to this headline">¶</a></h4>
+<p>Naming specific repeated mistake helps us find patterns, avoid repeated mistakes in future, and helps newcomers avoid making similar mistakes as they learn our organization&#8217;s terminology.</p>
+</div>
+</div>
+<div class="section" id="list-of-terms">
+<h3><a class="toc-backref" href="#contents">List of Terms</a><a class="headerlink" href="#list-of-terms" title="Permalink to this headline">¶</a></h3>
+<div class="section" id="id11">
+<h4><a class="toc-backref" href="#contents">0/5, 1/5, 2/5, 3/5, 4/5, 5/5</a><a class="headerlink" href="#id11" title="Permalink to this headline">¶</a></h4>
+<p>We use &#8220;x/5&#8221; to concisely communicate conviction. 0/5 means you don&#8217;t have a strong opinion, you are just sharing an idea or asking a question. 5/5 means you are highly confident and would stake your reputation on the opinion you&#8217;re expressing.</p>
+</div>
+<div class="section" id="bug">
+<h4><a class="toc-backref" href="#contents">Bug</a><a class="headerlink" href="#bug" title="Permalink to this headline">¶</a></h4>
+<p>An obvious error in Mattermost software. Changes required to accommodate unsupported 3rd party software (such as browsers or operating systems) are not considered bugs, they are considered improvements.</p>
+</div>
+<div class="section" id="dead-tarzan">
+<h4><a class="toc-backref" href="#contents">Dead Tarzan</a><a class="headerlink" href="#dead-tarzan" title="Permalink to this headline">¶</a></h4>
+<p>Discarding an imperfect solution without a clearly thought out alternative. Based on idea of <a class="reference external" href="https://en.wikipedia.org/wiki/Tarzan">Tarzan of the Jungle</a> letting go of a vine without having a new vine to swing to.</p>
+</div>
+<div class="section" id="decking">
+<h4><a class="toc-backref" href="#contents">Decking</a><a class="headerlink" href="#decking" title="Permalink to this headline">¶</a></h4>
+<p>A term for shipping something that is below quality standards. This term is used by mountain climbers to describe falling off the side of a mountain, which often involves a series of failures, not just one.</p>
+</div>
+<div class="section" id="dev-mana">
+<h4><a class="toc-backref" href="#contents">Dev Mana</a><a class="headerlink" href="#dev-mana" title="Permalink to this headline">¶</a></h4>
+<p>A specific type of mana for developers similar to &#8220;points&#8221; or &#8220;jelly beans&#8221; in an Agile/Scrum methodology. On average, full time Mattermost developers each complete tickets adding up to approximately 28 mana per week. A &#8220;small&#8221; item is 2 mana, a &#8220;medium&#8221; is 4, a &#8220;large&#8221; is 8 and any project bigger needs to be broken down into smaller tickets.</p>
+</div>
+<div class="section" id="expert-mode-and-crimson-force-field">
+<h4><a class="toc-backref" href="#contents">Expert Mode (and Crimson Force Field)</a><a class="headerlink" href="#expert-mode-and-crimson-force-field" title="Permalink to this headline">¶</a></h4>
+<p>When documentation or on-screen text is written for someone with considerable knowledge or expertise, instead of being designed for a new learner. In general, try to state things simply rather than speaking to just the &#8220;experts&#8221; reading the the text.</p>
+<p>If something is extremely difficult to understand, and yet still justified in the mind of the writer, we call it &#8220;Crimson Force Field&#8221;. This term is intended to evoke the emotional response of coming across something that is difficult to understand, so writers of Crimson Force Field material can empathize with the readers. Crimson Force Field is drawn from an esoteric episode of Star Trek and it is unlikely anyone but the originator of the term understands its complete meaning. Crimson Force Field is itself Crimson Force Field.</p>
+</div>
+<div class="section" id="help-wanted">
+<h4><a class="toc-backref" href="#contents">Help Wanted</a><a class="headerlink" href="#help-wanted" title="Permalink to this headline">¶</a></h4>
+<p><a class="reference external" href="http://docs.mattermost.com/process/help-wanted.html">Help Wanted tickets</a>, which are vetted changes to the source code open for community contributions.</p>
+</div>
+<div class="section" id="improvement">
+<h4><a class="toc-backref" href="#contents">Improvement</a><a class="headerlink" href="#improvement" title="Permalink to this headline">¶</a></h4>
+<p>A beneficial change to code that is not fixing a bug.</p>
+</div>
+<div class="section" id="lhs">
+<h4><a class="toc-backref" href="#contents">LHS</a><a class="headerlink" href="#lhs" title="Permalink to this headline">¶</a></h4>
+<p>The &#8220;Left-Hand Sidebar&#8221; in the Mattermost team site, used for navigation.</p>
+</div>
+<div class="section" id="mana">
+<h4><a class="toc-backref" href="#contents">Mana</a><a class="headerlink" href="#mana" title="Permalink to this headline">¶</a></h4>
+<p>An estimate of total energy, attention and effort required for a task.</p>
+<p>A one-line change to code can cost more mana than a 100-line change due to risk and the need for documentation, testing, support and all the other activities needed.</p>
+<p>Every feature added has an initial and on-going mana cost, which is taken into account in feature decisions.</p>
+</div>
+<div class="section" id="rhs">
+<h4><a class="toc-backref" href="#contents">RHS</a><a class="headerlink" href="#rhs" title="Permalink to this headline">¶</a></h4>
+<p>The &#8220;Right-Hand Sidebar&#8221; in the Mattermost team site, used for navigation.</p>
+</div>
+<div class="section" id="windows-vista-approach">
+<h4><a class="toc-backref" href="#contents">Windows Vista approach</a><a class="headerlink" href="#windows-vista-approach" title="Permalink to this headline">¶</a></h4>
+<p>An attempt to add functionality through a massive, complex one-time re-write hoping to improve the architecture, but which likely ends in repeated delays, wasted effort, buggy code and limited architectural improvement (compared to re-writing the architecture in phases). This tempting, high risk approach is named after Microsoft&#8217;s &#8220;Windows Vista&#8221; operating system, one of its most famous examples.</p>
+</div>
+</div>
+</div>
+<div class="section" id="training">
+<h2><a class="toc-backref" href="#contents">Training</a><a class="headerlink" href="#training" title="Permalink to this headline">¶</a></h2>
+<p>At Mattermost, &#8220;Learn, Master, Teach&#8221; cycles are core to our culture. You should be constantly growing and cross-training into new skills and responsibilities, developing expertise, and then training your replacement as you prepare to take on new challenges.</p>
+<p>Cross-training creates a culture of constant growth, protects against single-points of failure, and challenges each of us to rise to our fullest potential.</p>
+<div class="section" id="roles">
+<h3><a class="toc-backref" href="#contents">Roles</a><a class="headerlink" href="#roles" title="Permalink to this headline">¶</a></h3>
+<p>The &#8220;Learn, Master, Teach&#8221; cycle happens in the context of roles. Roles are sets of responsibility needed to achieve objectives. Roles aren&#8217;t necessarily job titles, for small projects, a developer might take on a product manager role, or vice versa. Each team member has a &#8220;primary role&#8221; and training should move people to mastery and teaching in that role, before moving to the next role.</p>
+<div class="section" id="developer">
+<h4><a class="toc-backref" href="#contents">Developer</a><a class="headerlink" href="#developer" title="Permalink to this headline">¶</a></h4>
+<p>Developers are responsible for architecting and delivering software improvements, and for technical leadership among the Mattermost community.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Architecture</dt>
+<dd><ul class="first last">
+<li>Developers are responsible for researching, analyzing, designing and reviewing technical solutions to achieve functional requirements. Solutions should thoroughly consider trade-offs and be evaluated based on the effectiveness of the end implementation.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Delivery</dt>
+<dd><ul class="first last">
+<li>Based on technical designs, developers estimate, implement, test, maintain, review, debug and release software improvements in collaboration with teammates. This includes working closely with product managers to validate requirements and the output of designs and making appropriate adjustments. The success of implementation is judged on the end results achieved by the changes.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Technical Community Leadership</dt>
+<dd><ul class="first last">
+<li>As leading experts on Mattermost technology, developers support and engage constantly with the broader Mattermost community to accelerate adoption and to discover new ways to improve Mattermost software and processes. This includes investigating and  supporting issues from users and customers, reviewing and providing feedback on projects from contributors, and understanding priorities, trends and patterns across the community.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+<div class="section" id="product-managers">
+<h4><a class="toc-backref" href="#contents">Product Managers</a><a class="headerlink" href="#product-managers" title="Permalink to this headline">¶</a></h4>
+<p>Product managers are responsible for aligning teams to strategic priorities, leading and managing the product development process, and working effectively with marketing to bring the full benefits of Mattermost solutions to users and customers.</p>
+<ul class="simple">
+<li><dl class="first docutils">
+<dt>Strategy</dt>
+<dd><ul class="first last">
+<li>Every project and every team needs to align to strategic priorities and focus on intended outcomes developed through a deep understanding of the market, user, customers and competing products and services. Amid a flood of compelling suggestions, opinions, and data, product managers must find what&#8217;s vital, and rally teams around a shared vision.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Product development</dt>
+<dd><ul class="first last">
+<li>Product managers lead both the functional design process (user, customer and competitor research, analysis, ideation, prioritization, functional and user experience design, functional specification, user and customer validation), and the software development process (ticketing, prioritization, roadmap design, scheduling, sprint planning, triage, functional verification, implementation validation with users and customers, documentation, and release logistics).</li>
+<li>It&#8217;s the product manager&#8217;s responsibility to see features shipped predictably and at high quality through planning, attention to detail and thoughtful persuasion.</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt>Marketing connection</dt>
+<dd><ul class="first last">
+<li>Delivering benefits to users and customers based on product features is a core responsibility of product managers, working in conjunction with marketing to shape messaging and positioning and delivering collateral, events, and user and customer discussions to support sales.</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+</div>
+</div>
+<div class="section" id="resources">
+<h3><a class="toc-backref" href="#contents">Resources</a><a class="headerlink" href="#resources" title="Permalink to this headline">¶</a></h3>
+<p>The following is a list of recommended resources for developing skills &#8220;the Mattermost way&#8221; in different areas. For the ones that require purchase you can message &#64;matterbot to request an order, whether as physical books, digital books, audiobooks or other formats.</p>
+<div class="section" id="developers">
+<h4><a class="toc-backref" href="#contents">Developers</a><a class="headerlink" href="#developers" title="Permalink to this headline">¶</a></h4>
+</div>
+<div class="section" id="books">
+<h4><a class="toc-backref" href="#contents">Books</a><a class="headerlink" href="#books" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://www.amazon.com/Code-Complete-Practical-Handbook-Construction/dp/0735619670">Code Complete, Steve McConnell</a> - Best practices and guidelines for writing high quality code.</li>
+<li><a class="reference external" href="https://www.amazon.com/Design-Patterns-Elements-Reusable-Object-Oriented-ebook/dp/B000SEIBB8">Design Patterns,  Erich Gamma, Richard Helm, Ralph Johnson and John Vlissides (aka &#8220;Group of Four&#8221;)</a> - Fundamental reading on design patterns. Other design pattern books work too, this is one of the most popular.</li>
+</ol>
+</div>
+<div class="section" id="product-management">
+<h4><a class="toc-backref" href="#contents">Product Management</a><a class="headerlink" href="#product-management" title="Permalink to this headline">¶</a></h4>
+<p>Courses</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://sites.google.com/site/hbspm101/home/2015-16-sessions/the-mrd-customer-discovery">Harvard Business School PM 101</a></li>
+</ol>
+<p>Relevant Docs</p>
+<ol class="arabic simple">
+<li><a class="reference internal" href="design-process.html"><span class="doc">Design Process</span></a></li>
+</ol>
+</div>
+<div class="section" id="software-strategy">
+<h4><a class="toc-backref" href="#contents">Software Strategy</a><a class="headerlink" href="#software-strategy" title="Permalink to this headline">¶</a></h4>
+<ol class="arabic simple">
+<li><a class="reference external" href="http://a16z.com/2017/04/10/monetizing-open-source-enterprise-software/">Monetizing Open Source (Or, All Enterprise Software)</a> - Required reading for business roles</li>
+</ol>
+</div>
+<div class="section" id="system-security">
+<h4><a class="toc-backref" href="#contents">System Security</a><a class="headerlink" href="#system-security" title="Permalink to this headline">¶</a></h4>
+<p>Papers &amp; Course Materials</p>
+<ol class="arabic simple">
+<li><a class="reference external" href="https://www.nist.gov/sites/default/files/documents/cyberframework/cybersecurity-framework-021214.pdf">Framework for Improving Critical Infrastructure Cybersecurity. National Institute of Standards and Technology</a> - Standards for internal Mattermost security processes and safeguards.</li>
+<li><a class="reference external" href="http://research.microsoft.com/en-us/um/people/blampson/69-SecurityRealIEEE/69-SecurityRealIEEE.pdf">Computer Security in the Real World. Butler Lampson</a> - Fundamental challenges with system security.</li>
+<li><a class="reference external" href="http://www.cs.cornell.edu/courses/cs513/2007fa/02.outline.html">Course notes from CS513: System Security (Cornell University). Fred B. Schneider</a> - Well written introduction to system security from one of the leaders in the field.</li>
+</ol>
+</div>
+<div class="section" id="additional-training-resources">
+<h4><a class="toc-backref" href="#contents">Additional Training Resources</a><a class="headerlink" href="#additional-training-resources" title="Permalink to this headline">¶</a></h4>
+<p>Recommended training materials are recommended by role at three different levels of priority:</p>
+<ol class="arabic simple">
+<li>P1 - Required - Complete within 30 days of starting in role.</li>
+<li>P2 - Priority - Complete within 30-90 days of starting.</li>
+<li>P3 - Supplementry - Complete within 180 days.</li>
+</ol>
+<p>The following chart outlines training materials by category, with notes on which materials are relevant to which disciplines by P1, P2, P3 priority:</p>
+<embed>
+    <iframe class="airtable-embed" src="https://airtable.com/embed/shrbjzgakQoNaXhYt?backgroundColor=gray&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="1320" style="background: transparent; border: 1px solid #ccc;"></iframe>
+    <p>&nbsp;</p>
+</embed><p>The following table summarizes abbreviations used in the above table:</p>
+<embed>
+    <iframe class="airtable-embed" src="https://airtable.com/embed/shrlwbsr0Y9telZn8?backgroundColor=gray&viewControls=on" frameborder="0" onmousewheel="" width="100%" height="395" style="background: transparent; border: 1px solid #ccc;"></iframe>
+    <p>&nbsp;</p>
+</embed></div>
+</div>
+<div class="section" id="leadership-coaching">
+<h3><a class="toc-backref" href="#contents">Leadership Coaching</a><a class="headerlink" href="#leadership-coaching" title="Permalink to this headline">¶</a></h3>
+<p>To advanced the skills of senior and functional leaders we bring in experts to advise on key functions, including sales, operations, product, marketing, strategy, general management and other specialized topics.</p>
+<ul class="simple">
+<li>As an example, <a class="reference external" href="http://www.jonobacon.org/about/">Jono Bacon</a>&#8211;a leading author, speaker and consultant on open source community advocacy&#8211;meets with our community team regularly to refine our processes and understanding. There&#8217;s a range of similiarly adept company advisers that help advance our thinking and capabilities in critical ways.</li>
+</ul>
+<p>Many thought leaders and conference speakers are open to consulting projects with the right clients, and Mattermost is a flexible client. There&#8217;s no travel involved, we meet over video conference, <a class="reference external" href="https://docs.google.com/document/d/1G4wFLq_wHHEDJ-hrv5Kmu022mFJgh3rJ4-glM0W6riI/edit#heading=h.pwxwwq4ezzfx">our consulting process is straight forward</a>, we&#8217;re easy to work with, and we take advising seriously.</p>
+<p>When hiring, we are also open to bringing in a leader&#8217;s personal mentors as consultants and company advisers when skill sets are appropriate.</p>
+</div>
+</div>
+<div class="section" id="mattermost-avatar">
+<h2><a class="toc-backref" href="#contents">Mattermost Avatar</a><a class="headerlink" href="#mattermost-avatar" title="Permalink to this headline">¶</a></h2>
+<p>When becoming a core committer to the Mattermost project we create a &#8220;Mattermost Avatar&#8221; for you as a fun way to recognize your new level of contribution.</p>
+<p>Mattermost avatars are caricatures of core committers in the costume of a popular culture character (e.g. Spiderman, Wonder Woman, Luke Skywalker, etc.) created for personal use, and which may be potentially used in team rosters, demonstration sites, &#8220;group photos&#8221; where avatar images from the team are collected in one image of all the characters together, and other public uses.</p>
+<p>To have a Mattermost avatar created, you&#8217;ll be invited to create a Mattermost avatar via email and asked to provide the following:</p>
+<ol class="arabic">
+<li><p class="first">Please use the email subject &#8220;[YOUR_FULL_NAME] as [CHARACTER_NAME]&#8221;, for example &#8220;Corey Hulen as Han Solo&#8221;.</p>
+</li>
+<li><p class="first">Attach a clear image at least 600 pixels high and 600 pixels wide showing your character&#8217;s full body in a standing pose.</p>
+<p>Note: Character should be human-sized (no giant characters).</p>
+</li>
+<li><p class="first">Send a clear photo of your face at least 600 pixels high and 600 pixels wide pointing in the same direction as your character image.</p>
+</li>
+</ol>
+<p>You should receive your digital Mattermost avatars by email in 6-8 weeks.</p>
+<p>In special cases, a Mattermost avatar may be created for someone from the Mattermost community who has made an extraordinary contribution to the open source project.</p>
+<ul class="simple">
+<li>Example of photo from core committer: <a class="reference external" href="https://cloud.githubusercontent.com/assets/177788/25364362/c2fee10c-2916-11e7-9de3-2947987a9dce.png">Corey Hulen, co-creator of the Mattermost open source project</a></li>
+<li>Example of reference image for popular culture character: <a class="reference external" href="https://cloud.githubusercontent.com/assets/177788/25364375/e49415bc-2916-11e7-94ae-038a120743b3.png">Han Solo from the movie Star Wars</a></li>
+</ul>
+<p>Example of finished Mattermost Avatar:</p>
+<img alt="https://cloud.githubusercontent.com/assets/177788/25364270/0425b738-2916-11e7-9a23-5ced2d9dfc8f.png" src="https://cloud.githubusercontent.com/assets/177788/25364270/0425b738-2916-11e7-9a23-5ced2d9dfc8f.png" />
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="people-ops.html" class="btn btn-neutral float-right" title="People Ops" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="security.html" class="btn btn-neutral" title="Security Policies" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/process/training.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

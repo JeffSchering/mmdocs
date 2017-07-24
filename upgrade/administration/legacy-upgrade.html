@@ -1,0 +1,680 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Upgrading from an Unsupported Version &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Upgrading from an Unsupported Version</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/administration/legacy-upgrade.md" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="upgrading-from-an-unsupported-version">
+<span id="upgrading-from-an-unsupported-version"></span><h1>Upgrading from an Unsupported Version<a class="headerlink" href="#upgrading-from-an-unsupported-version" title="Permalink to this headline">¶</a></h1>
+<p>These instructions apply only if you are upgrading from an unsupported version of Mattermost to the latest version. Only the current released version and the two previous versions are supported.</p>
+<p>If you are upgrading a server that is already running a supported version, See <a class="reference external" href="..\administration\upgrade.html">Upgrading Mattermost Server</a>.</p>
+<div class="section" id="upgrade-team-edition-from-3-0-0-and-later">
+<span id="upgrade-team-edition-from-3-0-0-and-later"></span><h2>Upgrade Team Edition from 3.0.0 and later<a class="headerlink" href="#upgrade-team-edition-from-3-0-0-and-later" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="important-notices">
+<span id="important-notices"></span><h3>Important Notices<a class="headerlink" href="#important-notices" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p class="first">Security related changes were made in 3.9.0 that cause any previously created team invite links, password reset links, and email verification links to no longer work. You must update any place where you have published these links.</p>
+</li>
+<li><p class="first">Security-related changes were made in 3.6.7, 3.7.5, and 3.8.0 that require you to verify settings in the System Console before upgrading.</p>
+<ol class="simple">
+<li>In the GENERAL section of the System Console, click <strong>Configuration</strong> and make sure that the <strong>Site URL</strong> is specified. It must not be empty. For more information about SiteURL, see <a class="reference external" href="..\administration\config-settings.html#site-url">Configuration Settings</a>.</li>
+<li>In the GENERAL section of the System Console, click <strong>Logging</strong> and make sure that the <strong>File Log Directory</strong> field is either empty or has a directory path only. It must not have a filename as part of the path.</li>
+</ol>
+</li>
+<li><p class="first">Changes were made in 3.8.0 that require a change in the proxy configuration. If you&#8217;re using NGINX:</p>
+<ol class="simple">
+<li>Open the NGINX configuration file as root. The file is usually <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> but might be different on your system.</li>
+<li>Locate the following line:
+<code class="docutils literal"><span class="pre">location</span> <span class="pre">/api/v3/users/websocket</span> <span class="pre">{</span></code></li>
+<li>Replace the  line with <code class="docutils literal"><span class="pre">location</span> <span class="pre">~</span> <span class="pre">/api/v[0-9]+/(users/)?websocket$</span> <span class="pre">{</span></code>.</li>
+</ol>
+<p>If you are using a proxy other than NGINX, make the equivalent change to that proxy&#8217;s configuration.</p>
+</li>
+<li><p class="first">RHEL6 and Ubuntu installations must verify the line <code class="docutils literal"><span class="pre">limit</span> <span class="pre">nofile</span> <span class="pre">50000</span> <span class="pre">50000</span></code> is included in <code class="docutils literal"><span class="pre">/etc/init/mattermost.conf</span></code> file. See the <a class="reference external" href="..\guides\administrator.html#install-guides">installation guide</a> for your operating system for more details.</p>
+</li>
+<li><p class="first">RHEL7 and Ubuntu installations must verify the line <code class="docutils literal"><span class="pre">LimitNOFILE=49152</span></code> is included in the <code class="docutils literal"><span class="pre">/etc/systemd/system/mattermost.service</span></code> file. See the <a class="reference external" href="..\guides\administrator.html#install-guides">installation guide</a> for your operating system for more details.</p>
+</li>
+</ol>
+<p><strong>To upgrade your system from 3.0.0 and later</strong>:</p>
+<ol class="simple">
+<li>Download the latest version of Team Edition server and note any compatibility procedures:<ol>
+<li>Review past and upcoming deprecation notices <a class="reference external" href="https://about.mattermost.com/deprecated-features/">listed on our website</a>.</li>
+<li>Download <a class="reference external" href="https://about.mattermost.com/download/">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:<ul>
+<li><strong>Team Edition</strong>: <code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-team-X.X.X-linux-amd64.tar.gz</span></code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Stop the Mattermost Server<ol>
+<li>Consider posting an announcement to active teams about stopping the Mattermost server for an upgrade.</li>
+<li>To stop the server run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code>.</li>
+</ol>
+</li>
+<li>Backup your data<ol>
+<li>Back up your <code class="docutils literal"><span class="pre">config.json</span></code> file, which contains your system configuration. This will be used to restore your current settings after the new version is installed.</li>
+<li>Backup your database using your organization&#8217;s standard procedures for backing up MySQL or PostgreSQL.</li>
+<li>If you&#8217;re using local file storage, back up the location where files are stored.</li>
+</ol>
+</li>
+<li>Install new version<ol>
+<li>Run <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost-team-X.X.X-linux-amd64.tar.gz</span></code> to decompress the upgraded version and replace the current version of Mattermost on disk, where <code class="docutils literal"><span class="pre">X.X.X</span></code> is the version number to which you are upgrading.</li>
+</ol>
+</li>
+<li>Restore the state of your server<ol>
+<li>Copy the backed up version of <code class="docutils literal"><span class="pre">config.json</span></code> in place of the default <code class="docutils literal"><span class="pre">config.json</span></code>.</li>
+</ol>
+</li>
+<li>Start your server and address any setting changes relevant in the latest version of Mattermost<ol>
+<li>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code>.</li>
+<li>Opening the <strong>System Console</strong> and saving a change will upgrade your <code class="docutils literal"><span class="pre">config.json</span></code> schema to the latest version using default values for any new settings added.</li>
+</ol>
+</li>
+<li>If you have TLS set up on your Mattermost server, you must activate the CAP_NET_BIND_SERVICE capability to allow the new Mattermost binary to bind to low ports.<ol>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">{install-path}</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./bin/platform</span></code></li>
+</ol>
+</li>
+</ol>
+<p>After the server is upgraded, users might need to refresh their browsers to experience any new features.</p>
+</div>
+</div>
+<div class="section" id="upgrade-enterprise-edition-from-3-0-0-and-later">
+<span id="upgrade-enterprise-edition-from-3-0-0-and-later"></span><h2>Upgrade Enterprise Edition from 3.0.0 and later<a class="headerlink" href="#upgrade-enterprise-edition-from-3-0-0-and-later" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="important-notices">
+<span id="id1"></span><h3>Important Notices<a class="headerlink" href="#important-notices" title="Permalink to this headline">¶</a></h3>
+<ol>
+<li><p class="first">Security related changes were made in 3.9.0 that cause any previously created team invite links, password reset links, and email verification links to no longer work. You must update any place where you have published these links.</p>
+</li>
+<li><p class="first">Security-related changes were made in 3.6.7, 3.7.5, and 3.8.0 that require you to verify settings in the System Console before upgrading from version 3.5.3 and earlier to any version greater than 3.6.7.</p>
+<ol class="simple">
+<li>In the GENERAL section of the System Console, click <strong>Configuration</strong> and make sure that the <strong>Site URL</strong> is specified. It must not be empty. For more information about SiteURL, see <a class="reference external" href="..\administration\config-settings.html#site-url">Configuration Settings</a>.</li>
+<li>In the GENERAL section of the System Console, click <strong>Logging</strong> and make sure that the <strong>File Log Directory</strong> field is either empty or has a directory path only. It must not have a filename as part of the path.</li>
+</ol>
+</li>
+<li><p class="first">Changes were made in 3.8.0 that require a change in the proxy configuration. If you&#8217;re using NGINX:</p>
+<ol class="simple">
+<li>Open the NGINX configuration file as root. The file is usually <code class="docutils literal"><span class="pre">/etc/nginx/sites-available/mattermost</span></code> but might be different on your system.</li>
+<li>Locate the following line:
+<code class="docutils literal"><span class="pre">location</span> <span class="pre">/api/v3/users/websocket</span> <span class="pre">{</span></code></li>
+<li>Replace the  line with <code class="docutils literal"><span class="pre">location</span> <span class="pre">~</span> <span class="pre">/api/v[0-9]+/(users/)?websocket$</span> <span class="pre">{</span></code>.</li>
+</ol>
+<p>If you are using a proxy other than NGINX, make the equivalent change to that proxy&#8217;s configuration.</p>
+</li>
+<li><p class="first">If there are config settings set for <code class="docutils literal"><span class="pre">&quot;RestrictPublicChannelManagement&quot;</span></code> and <code class="docutils literal"><span class="pre">&quot;RestrictPrivateChannelManagement&quot;</span></code>, they will be used as the default values for <code class="docutils literal"><span class="pre">&quot;RestrictPublicChannelCreation&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;RestrictPrivateChannelCreation&quot;</span></code>, <code class="docutils literal"><span class="pre">&quot;RestrictPublicChannelDeletion&quot;</span></code>, and <code class="docutils literal"><span class="pre">&quot;RestrictPrivateChannelDeletion&quot;</span></code> after upgrade.</p>
+</li>
+<li><p class="first">If public links are enabled, upgrading from <code class="docutils literal"><span class="pre">v3.3.x</span></code> and earlier to <code class="docutils literal"><span class="pre">v3.4.x</span></code> and later will invalidate existing public links due to a security upgrade allowing admins to invalidate links by resetting a public link salt from the System Console.</p>
+</li>
+<li><p class="first">RHEL6 and Ubuntu installations must verify the line <code class="docutils literal"><span class="pre">limit</span> <span class="pre">nofile</span> <span class="pre">50000</span> <span class="pre">50000</span></code> is included in <code class="docutils literal"><span class="pre">/etc/init/mattermost.conf</span></code> file. See the <a class="reference external" href="https://docs.mattermost.com/guides/administrator.html#install-guides">installation guide</a> for your operating system for more details.</p>
+</li>
+<li><p class="first">RHEL7 and Ubuntu installations must verify the line <code class="docutils literal"><span class="pre">LimitNOFILE=49152</span></code> is included in the <code class="docutils literal"><span class="pre">/etc/systemd/system/mattermost.service</span></code> file. See the <a class="reference external" href="https://docs.mattermost.com/guides/administrator.html#install-guides">installation guide</a> for your operating system for more details.</p>
+</li>
+</ol>
+<p><strong>To upgrade your system from 3.0.0 and later</strong>:</p>
+<ol class="simple">
+<li>Download the latest version of Enterprise Edition server and note any compatibility procedures:<ol>
+<li>Review past and upcoming deprecation notices <a class="reference external" href="https://about.mattermost.com/deprecated-features/">listed on our website</a>.</li>
+<li>Download <a class="reference external" href="https://about.mattermost.com/download/">the latest version of the Mattermost Server</a>. In the following command, replace <code class="docutils literal"><span class="pre">X.X.X</span></code> with the version that you want to download:<ul>
+<li><strong>Enterprise Edition</strong>: <code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code></li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Stop the Mattermost Server<ol>
+<li>Consider posting an announcement to active teams about stopping the Mattermost server for an upgrade.</li>
+<li>To stop the server run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code>.</li>
+</ol>
+</li>
+<li>Backup your data<ol>
+<li>Back up your <code class="docutils literal"><span class="pre">config.json</span></code> file, which contains your system configuration. This will be used to restore your current settings after the new version is installed.</li>
+<li>Backup your database using your organization&#8217;s standard procedures for backing up MySQL or PostgreSQL.</li>
+<li>If you&#8217;re using local file storage, back up the location where files are stored.</li>
+</ol>
+</li>
+<li>Install new version<ol>
+<li>Run <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost-X.X.X-linux-amd64.tar.gz</span></code> to decompress the upgraded version and replace the current version of Mattermost on disk, where <code class="docutils literal"><span class="pre">X.X.X</span></code> is the version number to which you are upgrading.</li>
+</ol>
+</li>
+<li>Restore the state of your server<ol>
+<li>Copy the backed up version of <code class="docutils literal"><span class="pre">config.json</span></code> in place of the default <code class="docutils literal"><span class="pre">config.json</span></code>.</li>
+</ol>
+</li>
+<li>Start your server and address any setting changes relevant in the latest version of Mattermost<ol>
+<li>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code>.</li>
+<li>Opening the <strong>System Console</strong> and saving a change will upgrade your <code class="docutils literal"><span class="pre">config.json</span></code> schema to the latest version using default values for any new settings added.</li>
+</ol>
+</li>
+<li>If you have TLS set up on your Mattermost server, you must activate the CAP_NET_BIND_SERVICE capability to allow the new Mattermost binary to bind to low ports.<ol>
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">{install-path}</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./bin/platform</span></code></li>
+</ol>
+</li>
+</ol>
+<p>After the server is upgraded, users might need to refresh their browsers to experience any new features.</p>
+</div>
+</div>
+<div class="section" id="upgrade-team-edition-to-3-0-3">
+<span id="upgrade-team-edition-to-3-0-3"></span><h2>Upgrade Team Edition to 3.0.3<a class="headerlink" href="#upgrade-team-edition-to-3-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost 3.0 lets users maintain a single account across multiple teams on a Mattermost server. This means one set of credentials, one place to configure all account settings, and a more streamlined sign-up and team joining process.</p>
+<p>If your Mattermost server has duplicate accounts (users with multiple accounts in multiple teams with the same email address or username), you need to understand the 3.0 upgrade process in detail and take special steps to upgrade successfully.</p>
+<ol class="simple">
+<li>Download Mattermost Team Edition 3.0.3<ol>
+<li>Run <code class="docutils literal"><span class="pre">platform</span> <span class="pre">-version</span></code> to confirm the current version of your Mattermost server is <code class="docutils literal"><span class="pre">v2.2.0</span></code>, <code class="docutils literal"><span class="pre">v2.1.0</span></code>, or <code class="docutils literal"><span class="pre">v2.0.0</span></code>. If not, please <a class="reference external" href="https://docs.mattermost.com/administration/legacy-upgrade.html#upgrade-team-edition-to-2-2-x-and-earlier">upgrade to <code class="docutils literal"><span class="pre">v2.0.0</span></code></a>.</li>
+<li>Run <code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-team-X.X.X-linux-amd64.tar.gz</span></code> to download the appropriate new version.</li>
+</ol>
+</li>
+<li>Stop the Mattermost Server<ol>
+<li>Consider posting an announcement to active teams about stopping the Mattermost server for an upgrade</li>
+<li>To stop the server run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code></li>
+</ol>
+</li>
+<li>Backup your data<ol>
+<li>Back up your <code class="docutils literal"><span class="pre">config.json</span></code> file, which contains your system configuration. This will be used to restore your current settings after the new version is installed.</li>
+<li>Backup your database using your organization&#8217;s standard procedures for backing up MySQL or PostgreSQL.</li>
+<li>If you&#8217;re using local file storage, back up the location where files are stored. This location is specified in the <code class="docutils literal"><span class="pre">config.json</span></code> file under <code class="docutils literal"><span class="pre">FileSettings</span></code> &gt; <code class="docutils literal"><span class="pre">Directory</span></code>.</li>
+<li>Verify your backups are successful.</li>
+</ol>
+</li>
+<li>Install new version<ol>
+<li>Double check that your database and configuration file has been backed up, as the database upgrade to 3.x from 2.x cannot be reversed.</li>
+<li>Run <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost-team-X.X.X-linux-amd64.tar.gz</span></code> to decompress the upgraded version and replace the current version of Mattermost on disk, where <code class="docutils literal"><span class="pre">X.X.X</span></code> is the version number to which you are upgrading.</li>
+</ol>
+</li>
+<li>Restore the state of your server<ol>
+<li>Copy the backed up version of <code class="docutils literal"><span class="pre">config.json</span></code> in place of the default <code class="docutils literal"><span class="pre">config.json</span></code>.</li>
+<li>If you&#8217;re using local file storage, restore the data you backed up before running the server. Keep the backup until you&#8217;re sure the upgrade has succeeded.</li>
+</ol>
+</li>
+<li>Upgrade your database<ol>
+<li>Run <code class="docutils literal"><span class="pre">./platform</span> <span class="pre">-upgrade_db_30</span></code> to upgrade your database from 2.x to 3.x<ul>
+<li>You may need to run with <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">linux_user_account</span> <span class="pre">./platform</span> <span class="pre">-upgrade_db_30</span></code> if you&#8217;ve setup Mattermost to run under a different account.  This will ensure files under <code class="docutils literal"><span class="pre">./data/</span></code> have the correct permissions.</li>
+<li>You will be asked <code class="docutils literal"><span class="pre">Have</span> <span class="pre">you</span> <span class="pre">performed</span> <span class="pre">a</span> <span class="pre">database</span> <span class="pre">backup?</span> <span class="pre">(YES/NO):</span></code><ul>
+<li>If you have not backed up your database, enter <code class="docutils literal"><span class="pre">NO</span></code> and then backup your database</li>
+<li>If you have verified your database has been backed up, enter <code class="docutils literal"><span class="pre">YES</span></code></li>
+</ul>
+</li>
+<li>You will be asked to select a <code class="docutils literal"><span class="pre">primary</span> <span class="pre">team</span></code>.<ul>
+<li>If you only have one team, enter the name of the team.</li>
+<li>If you have more than one team, specify the <code class="docutils literal"><span class="pre">primary</span> <span class="pre">team</span></code> based on the team you use the most.<ul>
+<li>If your server contains duplicate accounts (multiple accounts with either the same email addresses or the same usernames) the user account in the <code class="docutils literal"><span class="pre">primary</span> <span class="pre">team</span></code> will be considered the primary account and remain unchanged.<ul>
+<li>When the server finds a duplicate account not in the <code class="docutils literal"><span class="pre">primary</span> <span class="pre">team</span></code> the email address of the account may be changed to avoid conflicts<ul>
+<li>An account with a <strong>duplicate email address</strong> will be updated so <code class="docutils literal"><span class="pre">+[TEAM_URL_NAME]</span></code> is appended to the local part of the email address. For example: An account with a duplicate email <code class="docutils literal"><span class="pre">steve&#64;company.com</span></code> in the team at URL <code class="docutils literal"><span class="pre">https://mattermost.company.com/marketing</span></code> becomes <code class="docutils literal"><span class="pre">steve+marketing&#64;company.com</span></code>. The <code class="docutils literal"><span class="pre">+marketing</span></code> used in this procedure is part of the RFC5233 email specification and most email systems will properly route <code class="docutils literal"><span class="pre">steve+marketing&#64;company.com</span></code> to <code class="docutils literal"><span class="pre">steve&#64;company.com</span></code>. After the upgrade, if email authentication is used for sign-in, the user would need to sign-in with the new email address.</li>
+<li>An account with a <strong>duplicate username</strong> will be updated so <code class="docutils literal"><span class="pre">[TEAM_URL_NAME].</span></code>” is prepended to the username. For example: An account with a duplicate username <code class="docutils literal"><span class="pre">steve</span></code> in the team at URL <code class="docutils literal"><span class="pre">https://mattermost.company.com/marketing</span></code> becomes <code class="docutils literal"><span class="pre">marketing.steve</span></code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Users with accounts containing duplicate emails or usernames will receive a notification email explaining the upgrade, and instructions on how to move to a single user account (<a class="reference external" href="https://www.mattermost.org/upgrade-to-3-0/">see example</a>)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Start your server and address any setting changes relevant in the latest version of Mattermost<ol>
+<li>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code>.</li>
+<li>Opening the <strong>System Console</strong> and saving a change will upgrade your <code class="docutils literal"><span class="pre">config.json</span></code> schema to the latest version using default values for any new settings added.</li>
+</ol>
+</li>
+<li>If you have TLS set up on your Mattermost server, run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./bin/platform</span></code> in your Mattermost directory to allow Mattermost to bind to low ports.</li>
+<li>Test the system is working by going to the URL of the server with an <code class="docutils literal"><span class="pre">https://</span></code> prefix.<ol>
+<li>You may need to refresh your Mattermost browser page in order to get the latest updates from the upgrade.</li>
+</ol>
+</li>
+<li>After the Mattermost 3.0 upgrade, users with duplicate accounts must follow the instructions in the upgrade email to:<ol>
+<li>Login to teams on which duplicate accounts were created.</li>
+<li>Add their primary account to the team and any private channels that are still actively used.</li>
+</ol>
+</li>
+</ol>
+<p>Users can continue to access the direct message history of their duplicate accounts using their updated email addresses.</p>
+</div>
+<div class="section" id="upgrade-team-edition-to-2-2-0-and-earlier">
+<span id="upgrade-team-edition-to-2-2-0-and-earlier"></span><h2>Upgrade Team Edition to 2.2.0 and earlier<a class="headerlink" href="#upgrade-team-edition-to-2-2-0-and-earlier" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li>Download the <strong>appropriate next upgrade</strong> of your Team Edition server and note any compatibility procedures<ol>
+<li>Run <code class="docutils literal"><span class="pre">platform</span> <span class="pre">-version</span></code> to check the current version of your Mattermost server</li>
+<li>Determine the appropriate next upgrade for your server:<ul>
+<li>Mattermost <code class="docutils literal"><span class="pre">v2.0.x</span></code> and <code class="docutils literal"><span class="pre">v2.1.x</span></code> can upgrade directly to Mattermost <code class="docutils literal"><span class="pre">v2.2.x</span></code>.</li>
+<li>Mattermost <code class="docutils literal"><span class="pre">v1.4.x</span></code> and <code class="docutils literal"><span class="pre">v2.0.x</span></code> can upgrade directly to Mattermost <code class="docutils literal"><span class="pre">v2.1.x</span></code>.</li>
+<li>Mattermost <code class="docutils literal"><span class="pre">v1.2.x</span></code> must upgrade to Mattermost <code class="docutils literal"><span class="pre">v1.3.x</span></code> before further upgrades.</li>
+<li>Mattermost <code class="docutils literal"><span class="pre">v1.1.x</span></code> must upgrade to Mattermost <code class="docutils literal"><span class="pre">v1.2.x</span></code> before further upgrades.</li>
+<li>Mattermost <code class="docutils literal"><span class="pre">v1.0.x</span></code> must upgrade to Mattermost <code class="docutils literal"><span class="pre">v1.1.x</span></code> before further upgrades.</li>
+</ul>
+</li>
+<li>Use the <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">Version Archive List</a> to find the <code class="docutils literal"><span class="pre">[RELEASE</span> <span class="pre">URL]</span></code> for your desired version and enter <code class="docutils literal"><span class="pre">wget</span> <span class="pre">{RELEASE</span> <span class="pre">URL}</span></code> to download. For example, to download <code class="docutils literal"><span class="pre">vX.X.X</span></code>, use <code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-team-X.X.X-linux-amd64.tar.gz</span></code>.</li>
+<li>Review <strong>Compatibility</strong> section in <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html">CHANGELOG</a> for the version downloaded and make sure to follow any instructions.</li>
+</ol>
+</li>
+<li>Stop the Mattermost Server<ol>
+<li>Consider posting an announcement to active teams about stopping the Mattermost server for an upgrade.</li>
+<li>To stop the server run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code>.</li>
+</ol>
+</li>
+<li>Backup your data<ol>
+<li>Back up your <code class="docutils literal"><span class="pre">config.json</span></code> file, which contains your system configuration. This will be used to restore your current settings after the new version is installed.</li>
+<li>Backup your database using your organization&#8217;s standard procedures for backing up MySQL or PostgreSQL.</li>
+<li>If you&#8217;re using local file storage, back up the location where files are stored.</li>
+</ol>
+</li>
+<li>Install new version<ol>
+<li>Run <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost-team-X.X.X-linux-amd64.tar.gz</span></code> to decompress the upgraded version and replace the current version of Mattermost on disk, where <code class="docutils literal"><span class="pre">X.X.X</span></code> is the version number to which you are upgrading.</li>
+</ol>
+</li>
+<li>Restore the state of your server<ol>
+<li>Copy the backed-up version of <code class="docutils literal"><span class="pre">config.json</span></code> in place of the default <code class="docutils literal"><span class="pre">config.json</span></code>.</li>
+</ol>
+</li>
+<li>Start your server and address any setting changes relevant in the latest version of Mattermost<ol>
+<li>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code>.</li>
+<li>Opening the <strong>System Console</strong> and saving a change will upgrade your <code class="docutils literal"><span class="pre">config.json</span></code> schema to the latest version using default values for any new settings added.</li>
+</ol>
+</li>
+<li>If you have TLS set up on your Mattermost server, run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./bin/platform</span></code> in your Mattermost directory to allow Mattermost to bind to low ports.</li>
+<li>Test the system is working by going to the URL of the server with an <code class="docutils literal"><span class="pre">https://</span></code> prefix.<ol>
+<li>You may need to refresh your Mattermost browser page in order to get the latest updates from the upgrade.</li>
+</ol>
+</li>
+</ol>
+</div>
+<div class="section" id="upgrade-enterprise-edition-to-3-0-3">
+<span id="upgrade-enterprise-edition-to-3-0-3"></span><h2>Upgrade Enterprise Edition to 3.0.3<a class="headerlink" href="#upgrade-enterprise-edition-to-3-0-3" title="Permalink to this headline">¶</a></h2>
+<p>Mattermost 3.0 lets users maintain a single account across multiple teams on a Mattermost server. This means one set of credentials, one place to configure all account settings, and a more streamlined sign-up and team joining process.</p>
+<p>If your Mattermost server has duplicate accounts (users with multiple accounts in multiple teams with the same email address or username), you need to understand the 3.0 upgrade process in detail and take special steps to upgrade successfully.</p>
+<ol class="simple">
+<li>Download Mattermost Enterprise Edition 3.0.3<ol>
+<li>Run <code class="docutils literal"><span class="pre">platform</span> <span class="pre">-version</span></code> to confirm the current version of your Mattermost server is <code class="docutils literal"><span class="pre">v2.2.0</span></code>, <code class="docutils literal"><span class="pre">v2.1.1</span></code>, or <code class="docutils literal"><span class="pre">v2.0.0</span></code> of either Mattermost Enteprrise Edition or Mattermost Team Edition. If not, please <a class="reference external" href="https://docs.mattermost.com/administration/legacy-upgrade.html#upgrade-enterprise-edition-to-2-2-x-and-earlier">upgrade to at least Mattermost Enterprise Edition <code class="docutils literal"><span class="pre">v2.0.0</span></code></a>.</li>
+<li>Run <code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code> to download the appropriate new version.</li>
+</ol>
+</li>
+<li>Stop the Mattermost Server<ol>
+<li>Consider posting an announcement to active teams about stopping the Mattermost server for an upgrade</li>
+<li>To stop the server run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code></li>
+</ol>
+</li>
+<li>Backup your data<ol>
+<li>Back up your <code class="docutils literal"><span class="pre">config.json</span></code> file, which contains your system configuration. This will be used to restore your current settings. after the new version is installed.</li>
+<li>Backup your database using your organization&#8217;s standard procedures for backing up MySQL or PostgreSQL.</li>
+<li>If you&#8217;re using local file storage, back up the location where files are stored.</li>
+<li>Verify your backups are successful.</li>
+</ol>
+</li>
+<li>Install new version<ol>
+<li>Double check that your database and configuration file has been backed up, as the database upgrade to 3.x from 2.x cannot be reversed.</li>
+<li>Run <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost-X.X.X-linux-amd64.tar.gz</span></code> to decompress the upgraded version and replace the current version of Mattermost on disk, where <code class="docutils literal"><span class="pre">X.X.X</span></code> is the version number to which you are upgrading.</li>
+</ol>
+</li>
+<li>Restore the state of your server<ol>
+<li>Copy the backed up version of <code class="docutils literal"><span class="pre">config.json</span></code> in place of the default <code class="docutils literal"><span class="pre">config.json</span></code>.</li>
+</ol>
+</li>
+<li>Upgrade your database<ol>
+<li>Run <code class="docutils literal"><span class="pre">./platform</span> <span class="pre">-upgrade_db_30</span></code> to upgrade your database from 2.x to 3.x<ul>
+<li>You may need to run with <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">-u</span> <span class="pre">linux_user_account</span> <span class="pre">./platform</span> <span class="pre">-upgrade_db_30</span></code> if you&#8217;ve setup Mattermost to run under a different account.  This will ensure files under <code class="docutils literal"><span class="pre">./data/</span></code> have the correct permissions.</li>
+<li>You will be asked <code class="docutils literal"><span class="pre">Have</span> <span class="pre">you</span> <span class="pre">performed</span> <span class="pre">a</span> <span class="pre">database</span> <span class="pre">backup?</span> <span class="pre">(YES/NO):</span></code><ul>
+<li>If you have not backed up your database, enter <code class="docutils literal"><span class="pre">NO</span></code> and then backup your database</li>
+<li>If you have verified your database has been backed up, enter <code class="docutils literal"><span class="pre">YES</span></code></li>
+</ul>
+</li>
+<li>You will be asked to select a <code class="docutils literal"><span class="pre">primary</span> <span class="pre">team</span></code>.<ul>
+<li>If you only have one team, enter the name of the team.</li>
+<li>If you have more than one team, specify the <code class="docutils literal"><span class="pre">primary</span> <span class="pre">team</span></code> based on the team you use the most.<ul>
+<li>If your server contains duplicate accounts (multiple accounts with either the same email addresses or the same usernames) the user account in the <code class="docutils literal"><span class="pre">primary</span> <span class="pre">team</span></code> will be considered the primary account and remain unchanged.<ul>
+<li>When the server finds a duplicate account not in the <code class="docutils literal"><span class="pre">primary</span> <span class="pre">team</span></code> the email address of the account may be changed to avoid conflicts<ul>
+<li>An account with a <strong>duplicate email address</strong> will be updated so <code class="docutils literal"><span class="pre">+[TEAM_URL_NAME]</span></code> is appended to the local part of the email address. For example: An account with a duplicate email <code class="docutils literal"><span class="pre">steve&#64;company.com</span></code> in the team at URL <code class="docutils literal"><span class="pre">https://mattermost.company.com/marketing</span></code> becomes <code class="docutils literal"><span class="pre">steve+marketing&#64;company.com</span></code>. The <code class="docutils literal"><span class="pre">+marketing</span></code> used in this procedure is part of the RFC5233 email specification and most email systems will properly route <code class="docutils literal"><span class="pre">steve+marketing&#64;company.com</span></code> to <code class="docutils literal"><span class="pre">steve&#64;company.com</span></code>. After the upgrade, if email authentication is used for sign-in, the user would need to sign-in with the new email address.</li>
+<li>An account with a <strong>duplicate username</strong> will be updated so <code class="docutils literal"><span class="pre">[TEAM_URL_NAME].</span></code>” is prepended to the username. For example: An account with a duplicate username <code class="docutils literal"><span class="pre">steve</span></code> in the team at URL <code class="docutils literal"><span class="pre">https://mattermost.company.com/marketing</span></code> becomes <code class="docutils literal"><span class="pre">marketing.steve</span></code>.</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Users with accounts containing duplicate emails or usernames will receive a notification email explaining the upgrade, and instructions on how to move to a single user account (<a class="reference external" href="https://www.mattermost.org/upgrading-to-mattermost-3-0/#notification">see example</a>)</li>
+</ul>
+</li>
+</ol>
+</li>
+<li>Start your server and address any setting changes relevant in the latest version of Mattermost<ol>
+<li>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code>.</li>
+<li>Opening the <strong>System Console</strong> and saving a change will upgrade your <code class="docutils literal"><span class="pre">config.json</span></code> schema to the latest version using default values for any new settings added.</li>
+</ol>
+</li>
+<li>If you have TLS set up on your Mattermost server, run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./bin/platform</span></code> in your Mattermost directory to allow Mattermost to bind to low ports.</li>
+<li>Test the system is working by going to the URL of the server with an <code class="docutils literal"><span class="pre">https://</span></code> prefix.<ol>
+<li>You may need to refresh your Mattermost browser page in order to get the latest updates from the upgrade.</li>
+</ol>
+</li>
+<li>After the Mattermost 3.0 upgrade, users with duplicate accounts must follow the instructions in the upgrade email to:<ol>
+<li>Login to teams on which duplicate accounts were created.</li>
+<li>Add their primary account to the team and any private channels that are still actively used.</li>
+</ol>
+</li>
+</ol>
+<p>Users can continue to access the direct message history of their duplicate accounts using their updated email addresses.</p>
+<p>For any issues, Mattermost Enterprise Edition subscribers and trial license users can email support&#64;mattermost.com</p>
+</div>
+<div class="section" id="upgrade-enterprise-edition-to-2-2-0-and-earlier">
+<span id="upgrade-enterprise-edition-to-2-2-0-and-earlier"></span><h2>Upgrade Enterprise Edition to 2.2.0 and earlier<a class="headerlink" href="#upgrade-enterprise-edition-to-2-2-0-and-earlier" title="Permalink to this headline">¶</a></h2>
+<ol class="simple">
+<li>Download the <strong>appropriate next upgrade</strong> of your Enterprise Edition server and note any compatibility procedures<ol>
+<li>Run <code class="docutils literal"><span class="pre">platform</span> <span class="pre">-version</span></code> to check the current version of your Mattermost server</li>
+<li>Determine the appropriate next upgrade for your server:<ul>
+<li>Mattermost <code class="docutils literal"><span class="pre">v2.0.x</span></code> and <code class="docutils literal"><span class="pre">v2.1.x</span></code> can upgrade directly to Mattermost <code class="docutils literal"><span class="pre">v2.2.0</span></code>.</li>
+<li>Mattermost <code class="docutils literal"><span class="pre">v1.4.x</span></code> and <code class="docutils literal"><span class="pre">v2.0.x</span></code> can upgrade directly to Mattermost <code class="docutils literal"><span class="pre">v2.1.0</span></code>.</li>
+<li>Mattermost <code class="docutils literal"><span class="pre">v1.2.x</span></code> must upgrade to Mattermost <code class="docutils literal"><span class="pre">v1.3.x</span></code> before further upgrades.</li>
+<li>Mattermost <code class="docutils literal"><span class="pre">v1.1.x</span></code> must upgrade to Mattermost <code class="docutils literal"><span class="pre">v1.2.x</span></code> before further upgrades.</li>
+<li>Mattermost <code class="docutils literal"><span class="pre">v1.0.x</span></code> must upgrade to Mattermost <code class="docutils literal"><span class="pre">v1.1.x</span></code> before further upgrades.</li>
+</ul>
+</li>
+<li>Use the <a class="reference external" href="https://docs.mattermost.com/administration/upgrade.html#version-archive">Version Archive List</a> to find the <code class="docutils literal"><span class="pre">[RELEASE</span> <span class="pre">URL]</span></code> for your desired version and enter <code class="docutils literal"><span class="pre">wget</span> <span class="pre">{RELEASE</span> <span class="pre">URL}</span></code> to download. For example, to download <code class="docutils literal"><span class="pre">vX.X.X</span></code>, use <code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/X.X.X/mattermost-X.X.X-linux-amd64.tar.gz</span></code>.</li>
+<li>Review <strong>Compatibility</strong> section in <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html">CHANGELOG</a> for the version downloaded and make sure to follow any instructions.</li>
+</ol>
+</li>
+<li>Stop the Mattermost Server<ol>
+<li>Consider posting an announcement to active teams about stopping the Mattermost server for an upgrade.</li>
+<li>To stop the server run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code>.</li>
+</ol>
+</li>
+<li>Backup your data<ol>
+<li>Back up your <code class="docutils literal"><span class="pre">config.json</span></code> file, which contains your system configuration. This will be used to restore your current settings after the new version is installed.</li>
+<li>Backup your database using your organization&#8217;s standard procedures for backing up MySQL or PostgreSQL.</li>
+<li>If you&#8217;re using local file storage, back up the location where files are stored.</li>
+</ol>
+</li>
+<li>Install new version<ol>
+<li>Run <code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xvzf</span> <span class="pre">mattermost-X.X.X-linux-amd64.tar.gz</span></code> to decompress the upgraded version and replace the current version of Mattermost on disk, where <code class="docutils literal"><span class="pre">X.X.X</span></code> is the version number to which you are upgrading.</li>
+</ol>
+</li>
+<li>Restore the state of your server<ol>
+<li>Copy the backed-up version of <code class="docutils literal"><span class="pre">config.json</span></code> in place of the default <code class="docutils literal"><span class="pre">config.json</span></code>.</li>
+</ol>
+</li>
+<li>Start your server and address any setting changes relevant in the latest version of Mattermost<ol>
+<li>Run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">start</span> <span class="pre">mattermost</span></code>.</li>
+<li>Opening the <strong>System Console</strong> and saving a change will upgrade your <code class="docutils literal"><span class="pre">config.json</span></code> schema to the latest version using default values for any new settings added.</li>
+</ol>
+</li>
+<li>If you have TLS set up on your Mattermost server, run <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./bin/platform</span></code> in your Mattermost directory to allow Mattermost to bind to low ports.</li>
+<li>Test the system is working by going to the URL of the server with an <code class="docutils literal"><span class="pre">https://</span></code> prefix.<ol>
+<li>You may need to refresh your Mattermost browser page in order to get the latest updates from the upgrade.</li>
+</ol>
+</li>
+</ol>
+<p>For any issues, Mattermost Enterprise Edition subscribers and trial license users can email support&#64;mattermost.com</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/administration/legacy-upgrade.md"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

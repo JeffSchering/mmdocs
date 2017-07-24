@@ -1,0 +1,448 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Outgoing Webhooks &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Integration Guide" href="../guides/integration.html"/>
+        <link rel="next" title="Slash Commands" href="slash-commands.html"/>
+        <link rel="prev" title="Incoming Webhooks" href="webhooks-incoming.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/integration.html">Integration Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
+<li class="toctree-l2"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="webhooks-incoming.html">Incoming Webhooks</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">Outgoing Webhooks</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#enabling-outgoing-webhooks">Enabling Outgoing Webhooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#set-up-an-outgoing-webhook">Set Up an Outgoing Webhook</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#creating-integrations-using-outgoing-webhooks">Creating Integrations using Outgoing Webhooks</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#slack-compatibility">Slack Compatibility</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#known-slack-compatibility-issues">Known Slack Compatibility Issues</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="slash-commands.html">Slash Commands</a></li>
+<li class="toctree-l2"><a class="reference internal" href="message-attachments.html">Message Attachments</a></li>
+<li class="toctree-l2"><a class="reference internal" href="oauth-2-0-applications.html">OAuth 2.0 Applications</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/zapier.html">Zapier Integration</a></li>
+<li class="toctree-l2"><a class="reference internal" href="integration-faq.html">Integrations FAQ</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../integrations/embedding.html">Embedding Mattermost in other applications</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/integration.html">Mattermost Integration Guide</a> &raquo;</li>
+    
+    <li>Outgoing Webhooks</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/developer/webhooks-outgoing.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="outgoing-webhooks">
+<span id="id1"></span><h1>Outgoing Webhooks<a class="headerlink" href="#outgoing-webhooks" title="Permalink to this headline">¶</a></h1>
+<p>Outgoing webhooks allow external applications, written in the programming language of your choice&#8211;to receive HTTP POST requests whenever a user posts to a certain channel, with a trigger word at the beginning of the message, or a combination of both. If the external application responds appropriately to the HTTP request, as response post can be made in the channel where the original post occurred.</p>
+<p>A couple key points:</p>
+<ul class="simple">
+<li><strong>Mattermost outgoing webhooks are Slack-compatible.</strong> If you&#8217;ve used Slack&#8217;s outgoing webhooks to create integrations, you can copy and paste that code to create Mattermost integrations. Mattermost automatically translates Slack&#8217;s proprietary JSON payload format into markdown to render in Mattermost messages</li>
+<li><strong>Mattermost outgoing webhooks support full markdown.</strong> When an integration responds with a message to post, it will have access to a rich range of formatting unavailable in Slack that is made possible through <a class="reference internal" href="../help/messaging/formatting-text.html"><span class="doc">markdown support</span></a> in Mattermost, including headings, formatted fonts, tables, inline images and other options supported by Mattermost Markdown.</li>
+<li><strong>Outgoing webhooks are only supported in public channels.</strong> If you need something that works in a private channel, consider using a <a class="reference internal" href="slash-commands.html"><span class="doc">Slash Command</span></a>.</li>
+</ul>
+<p><strong>Example:</strong></p>
+<p>Suppose you had an external application that received a post event whenever a message started with <em>#build</em>. If a user posted the message <em>#build Let&#8217;s see the status</em>, then the external application would receive an HTTP POST with data about that message. The application could then respond with a table of total tests run and total tests failed by component category, with links to failed tests by category. An example response might be:</p>
+<div class="highlight-text"><div class="highlight"><pre><span></span>{&quot;text&quot;: &quot;
+| Component  | Tests Run   | Tests Failed                                   |
+|:-----------|:------------|:-----------------------------------------------|
+| Server     | 948         | :white_check_mark: 0                           |
+| Web Client | 123         | :warning: [2 (see details)](http://linktologs) |
+| iOS Client | 78          | :warning: [3 (see details)](http://linktologs) |
+&quot;}
+</pre></div>
+</div>
+<p>Which would render in a Mattermost message as follows:</p>
+<img alt="Shows what the output of the JSON payload renders as in Mattermost" src="../_images/webhooksTable.PNG" />
+<div class="section" id="enabling-outgoing-webhooks">
+<h2>Enabling Outgoing Webhooks<a class="headerlink" href="#enabling-outgoing-webhooks" title="Permalink to this headline">¶</a></h2>
+<p>Outgoing webhooks are off by default, and can be enabled by the system administrator. If you are the system administrator you can enable them by doing the following:</p>
+<ol class="arabic simple">
+<li>Login to your Mattermost team account that has the system administrator role.</li>
+<li>Enable outgoing webhooks from <strong>System Console &gt; Integrations &gt; Custom Integrations</strong>.</li>
+<li>(Optional) Configure the <strong>Enable integrations to override usernames</strong> option to allow external applications to post messages under any name. If not enabled, the username is set to &#8220;webhook&#8221;.</li>
+<li>(Optional) Configure the <strong>Enable integrations to override profile picture icons</strong> option to allow external applications to change the icon of the account posting messages. If not enabled, the icon of the creator of the webhook URL is used to post messages.</li>
+<li>(Optional) Configure the <strong>Restrict managing integrations to Admins</strong> option to allow only system and team admins to create outgoing webhooks.</li>
+</ol>
+</div>
+<div class="section" id="set-up-an-outgoing-webhook">
+<h2>Set Up an Outgoing Webhook<a class="headerlink" href="#set-up-an-outgoing-webhook" title="Permalink to this headline">¶</a></h2>
+<p>Once outgoing webhooks are enabled, you will be able to set one up through the Mattermost UI. You will need to know the following</p>
+<ol class="arabic simple">
+<li>The channel you want to listen to post events from (you can leave the channel field blank if you would like to set up the webhook for all channels).</li>
+<li>The trigger words (if any) that will trigger a post event if they are the <strong>first word</strong> of the post.</li>
+<li>The URL you want Mattermost to report the events to.</li>
+</ol>
+<p>Once you have those, you can follow these steps to set up your webhook:</p>
+<ol class="arabic simple">
+<li>Login to your Mattermost team site and go to <strong>Main Menu &gt; Integrations &gt; Outgoing Webhooks</strong>.</li>
+<li>Click <strong>Add outgoing webhook</strong>, and select your options.</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Select a channel from the <strong>Channel</strong> dropdown to only report events from a certain channel (optional if Trigger Words selected).</li>
+<li>Enter comma separated words into <strong>Trigger Words</strong> to only report events from posts that start with one of those words (optional if <strong>Channel</strong> selected).</li>
+<li>Enter new line separated URLs that the post events will be sent to.</li>
+<li>Choose when to trigger the outgoing webhook; if the first word of a message matches a Trigger Word exactly, or if the first word of a message starts with a Trigger Word.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Click <strong>Add</strong> to add your webhook to the system.</li>
+<li>Your new outgoing webhook will be displayed with a <strong>Token</strong> that any external application that wants to listen to the webhook should ask for in its instructions.</li>
+</ol>
+</div>
+<div class="section" id="creating-integrations-using-outgoing-webhooks">
+<h2>Creating Integrations using Outgoing Webhooks<a class="headerlink" href="#creating-integrations-using-outgoing-webhooks" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;d like to build your own integration that uses outgoing webhooks, you can follow these general guidelines:</p>
+<ol class="arabic simple">
+<li>In the programming language of your choice, write your integration to perform what you had in mind.</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Your integration should have a function for receiving HTTP POSTs from Mattermost that look like this example:</li>
+</ol>
+<blockquote>
+<div><div class="highlight-text"><div class="highlight"><pre><span></span>Content-Length: 244
+User-Agent: Go 1.1 package http
+Host: localhost:5000
+Accept: application/json
+Content-Type: application/x-www-form-urlencoded
+
+channel_id=hawos4dqtby53pd64o4a4cmeoo&amp;
+channel_name=town-square&amp;
+team_domain=someteam&amp;
+team_id=kwoknj9nwpypzgzy78wkw516qe&amp;
+post_id=axdygg1957njfe5pu38saikdho&amp;
+text=some+text+here&amp;
+timestamp=1445532266&amp;
+token=zmigewsanbbsdf59xnmduzypjc&amp;
+trigger_word=some&amp;
+user_id=rnina9994bde8mua79zqcg5hmo&amp;
+user_name=somename
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Your integration must have a configurable <strong>MATTERMOST_TOKEN</strong> variable that is the Token given to you when you set up the outgoing webhook in Mattermost as described in the previous section. This configurable <strong>MATTERMOST_TOKEN</strong> must match the token in the request body so your application can be sure the request came from Mattermost</li>
+<li>If you want your integration to post a message back to the same channel, it can respond to the HTTP POST request from Mattermost with a JSON response body similar to this example:</li>
+</ol>
+<div class="highlight-javascript"><div class="highlight"><pre><span></span><span class="p">{</span>
+  <span class="s2">&quot;text&quot;</span><span class="o">:</span> <span class="s2">&quot;This is some response text.&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Set up your integration running on Heroku, an AWS server, or a server of your own to start getting real time post events from Mattermost channels</li>
+</ol>
+<p>Additional Notes:</p>
+<ol class="arabic simple">
+<li>With <strong>Enable integrations to override usernames</strong> turned on,  you can also override the username the message posts as by providing a <em>username</em> parameter in your JSON payload. For example, you might want your message looking like it came from a robot so you can use the JSON response <code class="docutils literal"><span class="pre">{&quot;username&quot;:</span> <span class="pre">&quot;robot&quot;,</span> <span class="pre">&quot;text&quot;:</span> <span class="pre">&quot;Hello,</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">some</span> <span class="pre">text.&quot;}</span></code> to change the username of the post to robot. Note, to combat any malicious users from trying to use this to perform <a class="reference external" href="https://en.wikipedia.org/wiki/Phishing">phishing attacks</a> a <em>BOT</em> indicator appears next to posts coming from webhooks.</li>
+<li>With <strong>Enable integrations to override profile picture icons</strong> turned on, you can similarly change the icon the message posts with by providing a link to an image in the <em>icon_url</em> parameter of your JSON response. For example, <code class="docutils literal"><span class="pre">{&quot;icon_url&quot;:</span> <span class="pre">&quot;http://example.com/somecoolimage.jpg&quot;,</span> <span class="pre">&quot;text&quot;:</span> <span class="pre">&quot;Hello,</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">some</span> <span class="pre">text.&quot;}</span></code> will post using whatever image is located at <em>http://example.com/somecoolimage.jpg</em> as the icon for the post.</li>
+<li>Also, as mentioned previously, markdown can be used to create richly formatted payloads, for example: <code class="docutils literal"><span class="pre">payload={&quot;text&quot;:</span> <span class="pre">&quot;#</span> <span class="pre">A</span> <span class="pre">Header\nThe</span> <span class="pre">_text_</span> <span class="pre">below</span> <span class="pre">**the**</span> <span class="pre">header.&quot;}</span></code> creates a message with a header, a carriage return, italicized text for &#8220;text&#8221; and bold text for &#8220;the&#8221;.</li>
+<li>Including <em>&#64;username</em> in the JSON payload will trigger a mention notification for the person with the specified username. Channels can be mentioned by including <em>&#64;channel</em> or <em>&lt;!channel&gt;</em>. For example:  <code class="docutils literal"><span class="pre">payload={&quot;text&quot;:</span> <span class="pre">&quot;&lt;!channel&gt;</span> <span class="pre">this</span> <span class="pre">is</span> <span class="pre">a</span> <span class="pre">notification&quot;&quot;}</span></code> would create a message that mentions <em>&#64;channel</em>.</li>
+<li>Just like regular posts, the text will be limited to 4000 characters at maximum.</li>
+</ol>
+</div>
+<div class="section" id="slack-compatibility">
+<h2>Slack Compatibility<a class="headerlink" href="#slack-compatibility" title="Permalink to this headline">¶</a></h2>
+<p>As mentioned above, Mattermost makes it easy to take integrations written for Slack&#8217;s proprietary JSON payload format and repurpose them to become Mattermost integrations. The following automatic translations are supported:</p>
+<ol class="arabic simple">
+<li>The HTTP POST request body is formatted the same as Slack&#8217;s, which means your Slack integration&#8217;s receiving function should not need to change at all to be compatible with Mattermost.</li>
+<li>JSON responses designed for Slack using <em>&lt;&gt;</em> to note the need to hyperlink a URL, such as <code class="docutils literal"><span class="pre">{&quot;text&quot;:</span> <span class="pre">&quot;&lt;http://www.mattermost.com/&gt;&quot;}</span></code>, are translated to the equivalent markdown in Mattermost and rendered the same as you would see in Slack.</li>
+<li>Similarly, responses designed for Slack using <em>|</em> within a <em>&lt;&gt;</em> to define linked text, such as <code class="docutils literal"><span class="pre">{&quot;text&quot;:</span> <span class="pre">&quot;Click</span> <span class="pre">&lt;http://www.mattermost.com/|here&gt;</span> <span class="pre">for</span> <span class="pre">a</span> <span class="pre">link.&quot;}</span></code>, are also translated to the equivalent markdown in Mattermost and rendered the same as you would see in Slack.</li>
+</ol>
+<p>To see samples and community contributions, please visit <a class="reference external" href="http://mattermost.org/webhooks">http://mattermost.org/webhooks</a>.</p>
+<div class="section" id="known-slack-compatibility-issues">
+<h3>Known Slack Compatibility Issues<a class="headerlink" href="#known-slack-compatibility-issues" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Using icon_emoji to override the username is not supported.</li>
+<li>Referencing  channels using &lt;#CHANNEL_ID&gt; does not link to the channel.</li>
+<li><code class="docutils literal"><span class="pre">&lt;!here&gt;</span></code>, <code class="docutils literal"><span class="pre">&lt;!everyone&gt;</span></code>, and <code class="docutils literal"><span class="pre">&lt;!group&gt;</span></code> are not supported.</li>
+<li>Parameters &#8220;mrkdwn&#8221;, &#8220;parse&#8221;, and &#8220;link_names&#8221; are not supported (Mattermost always converts markdown and automatically links &#64;mentions).</li>
+<li>Bold formatting as <code class="docutils literal"><span class="pre">*bold*</span></code> is not supported (must be done as <code class="docutils literal"><span class="pre">**bold**</span></code>).</li>
+<li>Advanced formatting using <a class="reference internal" href="message-attachments.html"><span class="doc">attachments</span></a> is not yet supported.</li>
+<li>Webhook responses cannot be sent to the direct message channel of the user who created the webhook.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="slash-commands.html" class="btn btn-neutral float-right" title="Slash Commands" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="webhooks-incoming.html" class="btn btn-neutral" title="Incoming Webhooks" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/webhooks-outgoing.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

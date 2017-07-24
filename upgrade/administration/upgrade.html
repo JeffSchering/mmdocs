@@ -1,0 +1,672 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Upgrading Mattermost Server &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Migration Guide" href="migrating.html"/>
+        <link rel="prev" title="Backup &amp; Disaster Recovery" href="backup.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="command-line-tools.html">Command Line Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-settings.html">Configuration Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="statistics.html">Statistics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="announcement-banner.html">Announcement Banner</a></li>
+<li class="toctree-l3"><a class="reference internal" href="compliance.html">Compliance Reporting and Oversight</a></li>
+<li class="toctree-l3"><a class="reference internal" href="branding.html">Custom Branding Tools</a></li>
+<li class="toctree-l3"><a class="reference internal" href="backup.html">Backup &amp; Disaster Recovery</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Upgrading Mattermost Server</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#upgrading-to-the-latest-version">Upgrading to the Latest Version</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#upgrading-team-edition-to-enterprise-edition">Upgrading Team Edition to Enterprise Edition</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#version-archive">Version Archive</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="migrating.html">Migration Guide</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Upgrading Mattermost Server</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/administration/upgrade.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="upgrading-mattermost-server">
+<h1>Upgrading Mattermost Server<a class="headerlink" href="#upgrading-mattermost-server" title="Permalink to this headline">¶</a></h1>
+<p>In most cases you can upgrade Mattermost Server in a few minutes, but the upgrade can take longer depending on several factors, including the size and complexity of your installation, and the version that you&#8217;re upgrading from.</p>
+<div class="section" id="upgrading-to-the-latest-version">
+<h2>Upgrading to the Latest Version<a class="headerlink" href="#upgrading-to-the-latest-version" title="Permalink to this headline">¶</a></h2>
+<p>If you are upgrading from version 3.0 or later, these instructions apply to you.</p>
+<p>If you are upgrading from a version earlier than 3.0.0 but later than 2.0.0, you must first <a class="reference external" href="../administration/upgrading-to-3.0.html">upgrade to version 3.0.3</a>.</p>
+<p>If you are upgrading from a version earlier than 2.0.0, you must first <a class="reference external" href="../administration/upgrading-to-2.0.html">upgrade to version 2.0</a>.</p>
+<p id="before-you-begin"><strong>Before you begin</strong></p>
+<p>Read these instructions carefully from start to finish. Make sure that you understand each step before starting the upgrade. If you have questions or concerns, you can ask on the Mattermost forum at <a class="reference external" href="https://forum.mattermost.org/">https://forum.mattermost.org/</a> or in the Mattermost <em>Peer-to-peer Help</em> channel at <a class="reference external" href="https://pre-release.mattermost.com/core/channels/peer-to-peer-help">https://pre-release.mattermost.com/core/channels/peer-to-peer-help</a>.</p>
+<div class="admonition important">
+<p class="first admonition-title">Important</p>
+<p class="last">Review the <a class="reference internal" href="important-upgrade-notes.html"><span class="doc">Important Upgrade Notes</span></a> to make sure you are aware of any actions you need to take before or after upgrading from your particular version.</p>
+</div>
+<p>You should gather the following information before starting the upgrade:</p>
+<dl class="docutils">
+<dt>Existing install directory - <em>{install-path}</em></dt>
+<dd>If you don&#8217;t know where Mattermost Server is installed, use the <code class="docutils literal"><span class="pre">whereis</span> <span class="pre">platform</span></code> command. The output should be similar to <em>/opt/mattermost/bin/platform</em>. The install directory is everything before the last occurrence of the string <em>/mattermost</em>. In this example, the <em>{install-path}</em> is <code class="docutils literal"><span class="pre">/opt</span></code>.</dd>
+<dt>Location of your local storage directory</dt>
+<dd>The local storage directory contains all the files that users have attached to their messages. If you don&#8217;t know its location, open the System Console and go to <strong>Files &gt; Storage</strong> and read the value in <strong>Local Storage Directory</strong>. Relative paths are relative to the <code class="docutils literal"><span class="pre">mattermost</span></code> directory. For example, if the local storage directory is <code class="docutils literal"><span class="pre">./data/</span></code> then the absolute path is <code class="docutils literal"><span class="pre">{install-path}/mattermost/data</span></code>.</dd>
+<dt>Owner and group of the install directory - <em>{owner}</em> and <em>{group}</em></dt>
+<dd>Use the <code class="docutils literal"><span class="pre">ls</span> <span class="pre">-l</span> <span class="pre">{install-path}/mattermost/bin/platform</span></code> command to get the owner and group.</dd>
+</dl>
+<p><strong>To upgrade Mattermost Server</strong>:</p>
+<ol class="arabic simple">
+<li>Review the <a class="reference internal" href="important-upgrade-notes.html"><span class="doc">Important Upgrade Notes</span></a> to make sure you are aware of any actions you need to take before or after upgrading from your particular version.</li>
+<li>In a terminal window on the server that hosts Mattermost Server, change to your home directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">cd</span> <span class="pre">~</span></code></div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Delete any files and directories that might still exist from a previous download.</li>
+</ol>
+<blockquote>
+<div><div class="highlight-text"><div class="highlight"><pre><span></span>rm mattermost*.gz
+rm -r mattermost
+</pre></div>
+</div>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Download the latest version of Mattermost Server.</li>
+</ol>
+<blockquote>
+<div><dl class="docutils">
+<dt>Enterprise Edition</dt>
+<dd><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/4.0.0/mattermost-4.0.0-linux-amd64.tar.gz</span></code></dd>
+<dt>Team Edition</dt>
+<dd><code class="docutils literal"><span class="pre">wget</span> <span class="pre">https://releases.mattermost.com/4.0.0/mattermost-team-4.0.0-linux-amd64.tar.gz</span></code></dd>
+</dl>
+</div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Extract the Mattermost Server files.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">tar</span> <span class="pre">-xzf</span> <span class="pre">mattermost*.gz</span></code></div></blockquote>
+<ol class="arabic simple" start="6">
+<li>Make a copy of your configuration file. The existing file is overwritten during the upgrade, so it&#8217;s important that you don&#8217;t forget this step.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">cp</span> <span class="pre">{install-path}/mattermost/config/config.json</span> <span class="pre">config.json</span></code></div></blockquote>
+<ol class="arabic simple" start="7">
+<li>Stop Mattermost Server.</li>
+</ol>
+<blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">mattermost</span> <span class="pre">stop</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">stop</span> <span class="pre">mattermost</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="8">
+<li>Back up your data.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Back up your database using your organization’s standard procedures for backing up MySQL or PostgreSQL.</li>
+<li>If you’re using local file storage, back up the location where files are stored.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Copy the files that you extracted earlier to the install directory.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">-r</span> <span class="pre">mattermost</span> <span class="pre">{install-path}</span></code></div></blockquote>
+<ol class="arabic simple" start="10">
+<li>Restore your configuration file.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">cp</span> <span class="pre">config.json</span> <span class="pre">{install-path}/mattermost/config</span></code></div></blockquote>
+<ol class="arabic simple" start="11">
+<li>Change ownership of the new files.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">{owner}:{group}</span> <span class="pre">{install-path}/mattermost</span></code></div></blockquote>
+<ol class="arabic simple" start="12">
+<li>Start Mattermost server.</li>
+</ol>
+<blockquote>
+<div><p>On Ubuntu 14.04 and RHEL 6.6: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">service</span> <span class="pre">mattermost</span> <span class="pre">start</span></code></p>
+<p>On Ubuntu 16.04 and RHEL 7.1: <code class="docutils literal"><span class="pre">sudo</span> <span class="pre">systemctl</span> <span class="pre">start</span> <span class="pre">mattermost</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="13">
+<li>If you have TLS set up on your Mattermost server, you must activate the CAP_NET_BIND_SERVICE capability to allow the new Mattermost binary to bind to low ports.</li>
+</ol>
+<blockquote>
+<div><ol class="arabic simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">{install-path}</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">setcap</span> <span class="pre">cap_net_bind_service=+ep</span> <span class="pre">./bin/platform</span></code></li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="14">
+<li>Upgrade your <code class="docutils literal"><span class="pre">config.json</span></code> schema:</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Open the System Console and a change a setting, then revert it. This should enable the Save button for that page.</li>
+<li>Click <strong>Save</strong>.</li>
+<li>Refresh the page.</li>
+</ol>
+<p>Your current settings are preserved, and new settings are added with default values.</p>
+</div></blockquote>
+<p>After the server is upgraded, users might need to refresh their browsers to experience any new features.</p>
+</div>
+<div class="section" id="upgrading-team-edition-to-enterprise-edition">
+<h2>Upgrading Team Edition to Enterprise Edition<a class="headerlink" href="#upgrading-team-edition-to-enterprise-edition" title="Permalink to this headline">¶</a></h2>
+<p>To upgrade from the Team Edition to the Enterprise Edition, follow the normal upgrade instructions above, but make sure that you download the Enterprise Edition in Step 3.</p>
+<p>After the Enterprise Edition is running, open the <em>System Console</em> and go to <strong>OTHER &gt; Edition and License &gt; License Key</strong> and upload your license key file.</p>
+</div>
+<div class="section" id="version-archive">
+<h2>Version Archive<a class="headerlink" href="#version-archive" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mattermost-enterprise-edition-supported-versions">
+<h3>Mattermost Enterprise Edition - Supported Versions<a class="headerlink" href="#mattermost-enterprise-edition-supported-versions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Mattermost Enterprise Edition v4.0.0 - <a class="reference external" href="./changelog.html#release-v4-0-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/4.0.0/mattermost-4.0.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/4.0.0/mattermost-4.0.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">ff81595ac82679f208709cd0a4367396f0f49fbb4bb2c439a3fced8ab020731e</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.10.1 - <a class="reference external" href="./changelog.html#release-v3-10-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.10.1/mattermost-3.10.1-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.10.1/mattermost-3.10.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">1cef548b916972a2a932bc9c819a3928162e3a6aaee8762259174d8cdc003b00</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.9.1 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-9-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.9.1/mattermost-3.9.1-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.9.1/mattermost-3.9.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">2c7419a768ac0ae1eb58fd4c578849670ecc226568efc3f76ac21f7f9147470a</span></code></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="mattermost-enterprise-edition-unsupported-versions">
+<h3>Mattermost Enterprise Edition - Unsupported Versions<a class="headerlink" href="#mattermost-enterprise-edition-unsupported-versions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Mattermost Enterprise Edition v3.8.3 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-8-3">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.8.3/mattermost-3.8.3-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.8.3/mattermost-3.8.3-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">c223320a82222ebff002071633c6331dce0da6ff6ac8e22d0ab0d7055356ff9c</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.7.5 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-7-5">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.7.5/mattermost-3.7.5-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.7.5/mattermost-3.7.5-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">65e65da661edbc7b7b2b02411f13dbe498fd704d5ae1289789feca79fe00b58a</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.6.7 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-6-7">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.6.7/mattermost-3.6.7-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.6.7/mattermost-3.6.7-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">8e666708fead5fbfcf1f20617b07fda21cc8cbc85f9690321cbf4a41bfc1dd89</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.5.1 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-5-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.5.1/mattermost-3.5.1-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.5.1/mattermost-3.5.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">b972ac6f38f8b4c4f364e40a7c0e7819511315a81cb38c8a51c0622d7c5b14a1</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.4.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-4-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.4.0/mattermost-3.4.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.4.0/mattermost-3.4.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">3329fe3ef4d6bd7bd156eec86903b5d9db30d8c62545e4f5ca63633a64559f16</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.3.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-3-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.3.0/mattermost-3.3.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.3.0/mattermost-3.3.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">d12d567c270a0c163e07b38ff41ea1d7839991d31f7c10b6ad1b4ef0f05f4e14</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.2.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-2-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.2.0/mattermost-3.2.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.2.0/mattermost-3.2.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">f66597ad2fa94d3f75f06135129aa91cddd35dd8b94acab4aa15dfa225596422</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.1.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-1-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.1.0/mattermost-3.1.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.1.0/mattermost-3.1.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">9e29525199e25eca6b7fe6422b415f6371d21e22c344ca6febc5e64f69ec670b</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v3.0.3 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-0-3">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.0.3/mattermost-enterprise-3.0.3-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.0.3/mattermost-enterprise-3.0.3-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">3c692f8532b1858aefd2f0c2c22721e6b18734580a84a8ae5d6ce891f0e16f07</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v2.2.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v2-2-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/2.2.0/mattermost-enterprise-2.2.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/2.2.0/mattermost-enterprise-2.2.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">a7e997526d9204eab70c74a31d51eea693cca0d4bf0f0f71760f14f797fa5477</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Enterprise Edition v2.1.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v2-1-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/2.1.0/mattermost-enterprise-2.1.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/2.1.0/mattermost-enterprise-2.1.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">9454c3daacae602025b03950590e3f1ecd540b85a4bb7ad73bdca212ba85cf7a</span></code></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="mattermost-team-edition-server-archive-supported-versions">
+<h3>Mattermost Team Edition Server Archive - Supported Versions<a class="headerlink" href="#mattermost-team-edition-server-archive-supported-versions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Mattermost Team Edition v4.0.0 - <a class="reference external" href="./changelog.html#release-v4-0-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/4.0.0/mattermost-team-4.0.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/4.0.0/mattermost-team-4.0.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">23cd9b44af336443260016dfbd6d6dfd95226cb0aaedbfef0681183150ad5996</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.10.1 - <a class="reference external" href="./changelog.html#release-v3-10-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.10.1/mattermost-team-3.10.1-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.10.1/mattermost-team-3.10.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">6e4976e500e9e31358256a8a169378fb99bed643c8ad10005f3695cfb3041de4</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.9.1 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-9-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.9.1/mattermost-team-3.9.1-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.9.1/mattermost-team-3.9.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">f7f878c7d195e1f336b7025fbb4063c1796fa16296ac2d7437d2a5067750966e</span></code></li>
+</ul>
+</dd>
+</dl>
+</div>
+<div class="section" id="mattermost-team-edition-server-archive-unsupported-versions">
+<h3>Mattermost Team Edition Server Archive - Unsupported Versions<a class="headerlink" href="#mattermost-team-edition-server-archive-unsupported-versions" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Mattermost Team Edition v3.8.3 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-8-3">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.8.3/mattermost-team-3.8.3-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.8.3/mattermost-team-3.8.3-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">1a5de4052c007c54fce6cd844ab3e89aabc8d1a05b8bac72ef58f6896760c4e1</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.6.7 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-6-7">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.6.7/mattermost-team-3.6.7-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.6.7/mattermost-team-3.6.7-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">8378f15a6bd070386077798f36d8e521b63844bc838f6553915c6fd4fba3b01d</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.5.1 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-5-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.5.1/mattermost-team-3.5.1-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.5.1/mattermost-team-3.5.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">2c6bc8b1c25e48d1ac887cd6cbef77df1f80542127b4d98c4d7c0dfbfade04d5</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.4.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-4-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.4.0/mattermost-team-3.4.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.4.0/mattermost-team-3.4.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">c352f6c15466c35787bdb5207a6efe6b471513ccdd5b1f64a91a8bd09c3365da</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.3.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-3-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.3.0/mattermost-team-3.3.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.3.0/mattermost-team-3.3.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">09948edb32ebb940708e30a05c269e69568dfd2e0c05495392f353b26139b79a</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.2.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-2-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.2.0/mattermost-team-3.2.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.2.0/mattermost-team-3.2.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">14e5c1460a991791ef3dccd6b5aeab40ce903090c5f6c15e7974eb5e4571417a</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.1.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-1-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.1.0/mattermost-team-3.1.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.1.0/mattermost-team-3.1.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">dad164d2382428c36623b6d50e3290336a3be01bae278a465e0d8d94b701e3ff</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v3.0.3 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v3-0-3">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/3.0.3/mattermost-team-3.0.3-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/3.0.3/mattermost-team-3.0.3-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">b60d26a13927b614e3245384559869ae31250c19790b1218a193d52599c09834</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v2.2.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v2-2-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/2.2.0/mattermost-team-2.2.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/2.2.0/mattermost-team-2.2.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">d723fe9bf18d2d2a419a8d2aa6ad94fc99f251f8382c4342f08a48813501ca06</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v2.1.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v2-1-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/2.1.0/mattermost-team-2.1.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/2.1.0/mattermost-team-2.1.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">2825434aad23db1181e03b036bd826e66d6d4f21d337d209679a095a3ed9a4d2</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v2.0.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v2-0-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/2.0.0/mattermost-team-2.0.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/2.0.0/mattermost-team-2.0.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">005687c6a8128e1e40d01933f09d7da1a1b70b149a6bef96d923166bc1e7ce8f</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v1.4.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v1-4-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/1.4.0/mattermost-team-1.4.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/1.4.0/mattermost-team-1.4.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">0874dad79415066466c22ac584e599897124106417e774818cf40864d202dbb0</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v1.3.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v1-3-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/1.3.0/mattermost-team-1.3.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/1.3.0/mattermost-team-1.3.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">57af87ae8a98743b5379ed70f93a923654f7b8547f89b7f99ef9a718f472364d</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v1.2.1 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v1-2-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/1.2.1/mattermost-team-1.2.1-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/1.2.1/mattermost-team-1.2.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">f4cc5b0e1026026ff0cea4cc915b92967f9dfdf497c249731dc804a9a2ff156d</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v1.1.1 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v1-1-1">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/1.1.1/mattermost-team-1.1.1-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/1.1.1/mattermost-team-1.1.1-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">e6687b9d7f94538e1f4a9f93a0bcb8a66e293e2260433ed648964baa53c3e561</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v1.0.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html##release-v1-0-0">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/1.0.0/mattermost-team-1.0.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/1.0.0/mattermost-team-1.0.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">208b429cc29119b3d3c686b8973d6100eb02845b1da2f18744195f055521cbc8</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v0.7.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v0-7-0-beta">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/0.7.0/mattermost-team-0.7.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/0.7.0/mattermost-team-0.7.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">f0a0e5b5fab3aeb5dc638ab3059b3ea5bf7bc1ec5123db1199aa10db41bfffb1</span></code></li>
+</ul>
+</dd>
+<dt>Mattermost Team Edition v0.6.0 - <a class="reference external" href="https://docs.mattermost.com/administration/changelog.html#release-v0-6-0-alpha">View Changelog</a> - <a class="reference external" href="https://releases.mattermost.com/0.6.0/mattermost-team-0.6.0-linux-amd64.tar.gz">Download</a></dt>
+<dd><ul class="first last simple">
+<li><code class="docutils literal"><span class="pre">https://releases.mattermost.com/0.6.0/mattermost-team-0.6.0-linux-amd64.tar.gz</span></code></li>
+<li>SHA-256 Checksum: <code class="docutils literal"><span class="pre">9eb364f7f963af32d4a9efe3bbb5abb2a21ca5d1a213b50ca461dab047a123b6</span></code></li>
+</ul>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="migrating.html" class="btn btn-neutral float-right" title="Migration Guide" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="backup.html" class="btn btn-neutral" title="Backup &amp; Disaster Recovery" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/administration/upgrade.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

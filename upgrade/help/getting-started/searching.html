@@ -1,0 +1,408 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Searching &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Creating Teams" href="creating-teams.html"/>
+        <link rel="prev" title="Organizing Conversations" href="organizing-conversations.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="signing-in.html">Signing in</a></li>
+<li class="toctree-l3"><a class="reference internal" href="messaging-basics.html">Messaging Basics</a></li>
+<li class="toctree-l3"><a class="reference internal" href="configuring-notifications.html">Configuring Notifications</a></li>
+<li class="toctree-l3"><a class="reference internal" href="organizing-conversations.html">Organizing Conversations</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Searching</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#search-modifiers">Search Modifiers</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hashtags">Hashtags</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#technical-notes">Technical Notes</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="creating-teams.html">Creating Teams</a></li>
+<li class="toctree-l3"><a class="reference internal" href="managing-members.html">Managing Members</a></li>
+<li class="toctree-l3"><a class="reference internal" href="organizing.html">Organizing Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="../apps/desktop-guide.html">Using Mattermost Desktop App</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#settings">Settings</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Searching</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/searching.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="searching">
+<h1>Searching<a class="headerlink" href="#searching" title="Permalink to this headline">¶</a></h1>
+<p>Use the search box to find messages and replies that match the search terms that you enter. All channels that you are a member of in the current team are searched.</p>
+<ul class="simple">
+<li>Multiple-word search terms return results that contain all of the terms.</li>
+<li>When results appear, click <strong>Jump</strong> to view that post in the channel archive.</li>
+<li>File attachments and their filenames are not searched. If file attachments show up in the search results, it&#8217;s because they are attached to messages that match the search query.</li>
+<li>You can use search modifiers such as <code class="docutils literal"><span class="pre">from:dave</span></code> to return results only from certain people or in certain channels. For more information about this, see the <a class="reference internal" href="#search-modifiers">Search Modifiers</a> section.</li>
+</ul>
+<p>Like many search engines, common words such as <code class="docutils literal"><span class="pre">the</span></code>, <code class="docutils literal"><span class="pre">which</span></code>, and <code class="docutils literal"><span class="pre">are</span></code> (known as &#8220;stop words&#8221;), as well as two-letter and one-letter
+search terms, are not shown in search because they typically return too
+many results. See database documentation on <a class="reference external" href="http://dev.mysql.com/doc/refman/5.7/en/fulltext-stopwords.html">MySQL</a> and
+<a class="reference external" href="http://apt-browse.org/browse/ubuntu/precise/main/i386/postgresql-9.1/9.1.3-2/file/usr/share/postgresql/9.1/tsearch_data/english.stop">Postgres</a> for a full list.</p>
+<div class="section" id="search-modifiers">
+<h2>Search Modifiers<a class="headerlink" href="#search-modifiers" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="from-and-in">
+<h3>From: and In:<a class="headerlink" href="#from-and-in" title="Permalink to this headline">¶</a></h3>
+<p>Use <code class="docutils literal"><span class="pre">from:</span></code> to find posts from specific users and <code class="docutils literal"><span class="pre">in:</span></code> to find
+posts in specific channels.</p>
+<ul class="simple">
+<li>For example: Searching <code class="docutils literal"><span class="pre">Mattermost</span> <span class="pre">in:town-square</span></code> only returns
+messages in Town Square that contain <code class="docutils literal"><span class="pre">Mattermost</span></code>.</li>
+</ul>
+</div>
+<div class="section" id="quotation-marks">
+<h3>Quotation Marks<a class="headerlink" href="#quotation-marks" title="Permalink to this headline">¶</a></h3>
+<p>Use quotation marks to return search results for exact terms.</p>
+<ul class="simple">
+<li>For example: Searching <code class="docutils literal"><span class="pre">&quot;Mattermost</span> <span class="pre">website&quot;</span></code> returns messages
+containing the exact phrase <code class="docutils literal"><span class="pre">Mattermost</span> <span class="pre">website</span></code>, but not messages
+containing <code class="docutils literal"><span class="pre">Mattermost</span></code> and <code class="docutils literal"><span class="pre">website</span></code> separately.</li>
+</ul>
+</div>
+<div class="section" id="wildcard">
+<h3>Wildcard<a class="headerlink" href="#wildcard" title="Permalink to this headline">¶</a></h3>
+<p>Use the <code class="docutils literal"><span class="pre">*</span></code> character for wildcard searches that match within words.</p>
+<ul class="simple">
+<li>For example: Searching for <code class="docutils literal"><span class="pre">rea*</span></code> brings back messages containing
+<code class="docutils literal"><span class="pre">reach</span></code>, <code class="docutils literal"><span class="pre">reason</span></code> and other words starting with <code class="docutils literal"><span class="pre">rea</span></code>.</li>
+</ul>
+</div>
+</div>
+<div class="section" id="hashtags">
+<h2>Hashtags<a class="headerlink" href="#hashtags" title="Permalink to this headline">¶</a></h2>
+<p>Hashtags are searchable labels for posts. Search for any posts
+containing a hashtag by clicking the hashtag in an existing post or
+typing the hashtag with the pound symbol into the search bar. Create
+hashtags in any post by using the pound sign <code class="docutils literal"><span class="pre">#</span></code> followed by
+alphanumeric or other unicode characters.</p>
+<p>Valid hashtags:</p>
+<ul class="simple">
+<li>Do not start with a number.</li>
+<li>Are at least 3 characters long, not including the <code class="docutils literal"><span class="pre">#</span></code>.</li>
+<li>Are made up of alphanumeric or other unicode characters.</li>
+<li>May contain dots, dashes or underscores.</li>
+</ul>
+<p>Examples: <code class="docutils literal"><span class="pre">#bug</span></code>, <code class="docutils literal"><span class="pre">#marketing</span></code>, <code class="docutils literal"><span class="pre">#user_testing</span></code>,
+<code class="docutils literal"><span class="pre">#per.iod</span></code>, <code class="docutils literal"><span class="pre">#check-in</span></code>, <code class="docutils literal"><span class="pre">#마케팅</span></code></p>
+<p>Hashtags do not link to channels. For example, if you have a channel
+named “Marketing”, clicking a <code class="docutils literal"><span class="pre">#marketing</span></code> hashtag does not redirect
+you to that channel. You can link to public channels using <code class="docutils literal"><span class="pre">~</span></code> followed
+by the channel name, for example <code class="docutils literal"><span class="pre">~marketing</span></code>.</p>
+<p>Other notes:</p>
+<ul class="simple">
+<li>IP addresses, for example <code class="docutils literal"><span class="pre">10.100.200.101</span></code>, do not return results.</li>
+</ul>
+</div>
+<div class="section" id="technical-notes">
+<h2>Technical Notes<a class="headerlink" href="#technical-notes" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>The best experience for searching in Chinese, Korean and Japanese is
+to use MySQL 5.7.6 or later with special configuration. Please see
+<a class="reference external" href="https://docs.mattermost.com/install/i18n.html">documentation</a>.</li>
+<li>You can search to some degree without this configuration by adding
+<code class="docutils literal"><span class="pre">*</span></code> to the end of search terms.</li>
+</ul>
+<p>By default, Mattermost uses full text search support included in MySQL
+and PostgreSQL. These databases have slightly different search behavior.
+Check <strong>Main Menu</strong> &gt; <strong>About Mattermost</strong> to see which database you’re
+using.</p>
+<p>For example, different databases have different “stop words” filtered
+out of search results. See database documentation on <a class="reference external" href="http://dev.mysql.com/doc/refman/5.7/en/fulltext-stopwords.html">MySQL</a> and
+<a class="reference external" href="http://apt-browse.org/browse/ubuntu/precise/main/i386/postgresql-9.1/9.1.3-2/file/usr/share/postgresql/9.1/tsearch_data/english.stop">Postgres</a> for a full list. Other differences include:</p>
+<p>PostgreSQL:</p>
+<ul class="simple">
+<li>Email addresses do not return results.</li>
+<li>Hashtags or recent mentions of usernames containing a dash do not return search results.</li>
+<li>Terms containing a dash return incorrect results as dashes are ignored in the search engine.</li>
+</ul>
+<p>MySQL:</p>
+<ul class="simple">
+<li>Hashtags or recent mentions of usernames containing a dot do not return search results.</li>
+</ul>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="creating-teams.html" class="btn btn-neutral float-right" title="Creating Teams" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="organizing-conversations.html" class="btn btn-neutral" title="Organizing Conversations" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/getting-started/searching.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

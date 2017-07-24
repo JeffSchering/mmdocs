@@ -1,0 +1,487 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Mobile Developer Machine Setup &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
+        <link rel="next" title="Developer Flow" href="developer-flow.html"/>
+        <link rel="prev" title="Troubleshooting Setup and Build" href="dev-setup-troubleshooting.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/developer.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev-setup.html">Developer Machine Setup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Mobile Developer Machine Setup</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#development-environment-setup">Development Environment Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-environment-setup">Test Environment Setup</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting">Troubleshooting</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webapp-to-redux.html">Migrating the Webapp to Redux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webapp-component.html">Building a Webapp React Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redux.html">Working with Redux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-developer-handbook.html">Core Developer Handbook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#definitions">Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#unofficial-enhancements">Unofficial Enhancements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/developer.html">Mattermost Developer&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Mobile Developer Machine Setup</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/developer/mobile-developer-setup.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="mobile-developer-machine-setup">
+<span id="mobile-developer-setup"></span><h1>Mobile Developer Machine Setup<a class="headerlink" href="#mobile-developer-machine-setup" title="Permalink to this headline">¶</a></h1>
+<p>The following instructions apply to new unreleased mobile apps for iOS and Android built in React Native. They are intended to release in Beta at the end of March 2017. Source code can be found at: <a class="reference external" href="https://github.com/mattermost/mattermost-mobile">https://github.com/mattermost/mattermost-mobile</a></p>
+<div class="contents local topic" id="contents">
+<p class="topic-title first">Contents:</p>
+<ul class="simple">
+<li><a class="reference internal" href="#development-environment-setup" id="id1">Development Environment Setup</a><ul>
+<li><a class="reference internal" href="#mac-os-x" id="id2">Mac OS X</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#test-environment-setup" id="id3">Test Environment Setup</a><ul>
+<li><a class="reference internal" href="#android-device" id="id4">Android (Device)</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting" id="id5">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#errors-when-running-make-run-android" id="id6">Errors when running &#8216;make run-android&#8217;</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<p>If you run into any issues getting your environment set up, check the Troubleshooting section at the bottom for common solutions.</p>
+<div class="section" id="development-environment-setup">
+<h2><a class="toc-backref" href="#contents">Development Environment Setup</a><a class="headerlink" href="#development-environment-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="mac-os-x">
+<h3><a class="toc-backref" href="#contents">Mac OS X</a><a class="headerlink" href="#mac-os-x" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Install <a class="reference external" href="https://developer.apple.com/download/">XCode 8.3</a>.</li>
+<li>Install <a class="reference external" href="http://brew.sh/">Homebrew</a>.</li>
+<li>Using Homebrew, install <a class="reference external" href="https://nodejs.org">Node.js</a> and npm.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">node</span></code></div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Using Homebrew, install <a class="reference external" href="https://github.com/facebook/watchman">Watchman</a>.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">watchman</span></code></div></blockquote>
+<ol class="arabic simple" start="5">
+<li>Using npm, install the React Native CLI tools globally.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">react-native-cli</span></code></div></blockquote>
+<ol class="arabic" start="6">
+<li><p class="first">Using Homebrew or npm install <a class="reference external" href="https://yarnpkg.com">Yarn</a>.</p>
+<p><code class="docutils literal"><span class="pre">brew</span> <span class="pre">install</span> <span class="pre">yarn</span></code> or <code class="docutils literal"><span class="pre">npm</span> <span class="pre">install</span> <span class="pre">-g</span> <span class="pre">yarn</span></code></p>
+</li>
+<li><p class="first">Fork <a class="reference external" href="https://github.com/mattermost/mattermost-mobile">mattermost-mobile</a> on GitHub.</p>
+</li>
+<li><p class="first">Clone your fork locally.</p>
+</li>
+</ol>
+<blockquote>
+<div><p><code class="docutils literal"><span class="pre">cd</span></code> into the folder that you want to store the local copy of your code</p>
+<p><code class="docutils literal"><span class="pre">git</span> <span class="pre">clone</span> <span class="pre">https://github.com/&lt;username&gt;/mattermost-mobile.git</span></code></p>
+<p><code class="docutils literal"><span class="pre">cd</span> <span class="pre">mattermost-mobile</span></code></p>
+</div></blockquote>
+<ol class="arabic simple" start="9">
+<li>Using npm, download any other dependencies.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">make</span> <span class="pre">pre-run</span></code></div></blockquote>
+<ol class="arabic simple" start="10">
+<li><em>Optional:</em> Install Mattermost locally so that you can run unit tests and connect to the server while doing development.</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Follow the steps in the <a class="reference external" href="developer-setup.html">Developer Machine Setup</a> to install Mattermost.</li>
+<li>Edit your Mattermost instance&#8217;s configuration file to allow sign-up without an invite.</li>
+</ol>
+<blockquote>
+<div>In <code class="docutils literal"><span class="pre">config/config.json</span></code>, set <code class="docutils literal"><span class="pre">&quot;EnableOpenServer&quot;</span></code> to <code class="docutils literal"><span class="pre">true</span></code></div></blockquote>
+<ol class="loweralpha simple" start="3">
+<li>Start/restart your server.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">make</span> <span class="pre">restart-server</span></code></div></blockquote>
+</div></blockquote>
+</div>
+</div>
+<div class="section" id="test-environment-setup">
+<h2><a class="toc-backref" href="#contents">Test Environment Setup</a><a class="headerlink" href="#test-environment-setup" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="android-device">
+<h3><a class="toc-backref" href="#contents">Android (Device)</a><a class="headerlink" href="#android-device" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>Install the Android SDK (can be skipped if you already have Android Studio installed).</li>
+</ol>
+<blockquote>
+<div><ol class="loweralpha simple">
+<li>Go to <a class="reference external" href="https://developer.android.com/studio/index.html#downloads">the Android developer downloads page</a>, scroll down to the Get Just the Command Line Tools, and download the zip file suitable for your operating system.</li>
+<li>Unzip the SDK to somewhere on your hard drive. For example, <code class="docutils literal"><span class="pre">/Users/&lt;username&gt;/Library/Android/sdk</span></code> on Mac OS X.</li>
+</ol>
+</div></blockquote>
+<ol class="arabic simple" start="2">
+<li>Configure the following environment variables:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Set <code class="docutils literal"><span class="pre">ANDROID_HOME</span></code> to where Android SDK is located (likely <code class="docutils literal"><span class="pre">/Users/&lt;username&gt;/Library/Android/sdk</span></code>)</li>
+<li>Add <code class="docutils literal"><span class="pre">ANDROID_HOME/tools</span></code> and <code class="docutils literal"><span class="pre">ANDROID_HOME/platform-tools</span></code> to the <code class="docutils literal"><span class="pre">PATH</span></code>.</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="3">
+<li>Run <code class="docutils literal"><span class="pre">android</span></code> to open the Android SDK Manager and install the following packages:</li>
+</ol>
+<blockquote>
+<div><ul class="simple">
+<li>Tools &gt; Android SDK Tools 25.2.5 or higher</li>
+<li>Tools &gt; Android SDK Platform-tools 25.0.3</li>
+<li>Tools &gt; Android SDK Build-tools 25.0.2</li>
+<li>Tools &gt; Android SDK Build-tools 25.0.1</li>
+<li>Android 6.0 &gt; SDK Platform 23</li>
+<li>Android 6.0 &gt; Google APIs 23</li>
+<li>Android 5.1.1 &gt; SDK Platform 22</li>
+<li>Android 5.1.1 &gt; Google APIs 22</li>
+<li>Extras &gt; Android Support Repository and/or Androud Support Library</li>
+<li>Extras &gt; Google Play Services</li>
+<li>Extras &gt; Google Repository</li>
+</ul>
+</div></blockquote>
+<ol class="arabic simple" start="4">
+<li>Connect your Android device to your computer.</li>
+<li>Enable USB Debugging on your device.</li>
+<li>Ensure that your device is listed in the output of <code class="docutils literal"><span class="pre">adb</span> <span class="pre">devices</span></code>.</li>
+<li>Start the React Native packager to deploy the APK to your device.</li>
+</ol>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">make</span> <span class="pre">run-android</span></code></div></blockquote>
+<ol class="arabic simple" start="8">
+<li>The installed APK may not be opened automatically. You may need to manually open the Mattermost app on your device.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="troubleshooting">
+<h2><a class="toc-backref" href="#contents">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="errors-when-running-make-run-android">
+<h3><a class="toc-backref" href="#contents">Errors when running &#8216;make run-android&#8217;</a><a class="headerlink" href="#errors-when-running-make-run-android" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Error message</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>React-native-vector-icons: cannot find dependencies
+</pre></div>
+</div>
+</dd>
+<dt>Solution</dt>
+<dd>Make sure the <strong>Extras &gt; Android Support Repository</strong> package is installed with the Android SDK.</dd>
+<dt>Error message</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>Execution failed for task &#39;:app:packageAllDebugClassesForMultiDex&#39;.
+&gt; java.util.zip.ZipException: duplicate entry: android/support/v7/appcompat/R$anim.class
+</pre></div>
+</div>
+</dd>
+<dt>Solution</dt>
+<dd><p class="first">Clean the Android part of the mattermost-mobile project. Issue the following commands:</p>
+<ol class="last arabic simple">
+<li><code class="docutils literal"><span class="pre">cd</span> <span class="pre">android</span></code></li>
+<li><code class="docutils literal"><span class="pre">./gradlew</span> <span class="pre">clean</span></code></li>
+</ol>
+</dd>
+<dt>Error message</dt>
+<dd><div class="first last highlight-none"><div class="highlight"><pre><span></span>Execution failed for task &#39;:app:installDebug&#39;.
+&gt; com.android.builder.testing.api.DeviceException: com.android.ddmlib.InstallException: Failed to finalize session : INSTALL_FAILED_UPDATE_INCOMPATIBLE: Package com.mattermost.react.native signatures do not match the previously installed version; ignoring!
+</pre></div>
+</div>
+</dd>
+<dt>Solution</dt>
+<dd>The development version of the Mattermost app cannot be installed alongside a release version. Open <code class="docutils literal"><span class="pre">android/app/build.gradle</span></code> and change the applicationId from <code class="docutils literal"><span class="pre">&quot;com.mattermost.react.native&quot;</span></code> to a unique string for your app.</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="developer-flow.html" class="btn btn-neutral float-right" title="Developer Flow" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dev-setup-troubleshooting.html" class="btn btn-neutral" title="Troubleshooting Setup and Build" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/mobile-developer-setup.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

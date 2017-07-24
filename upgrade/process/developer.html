@@ -1,0 +1,409 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Staff Developers &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Core Team Handbook" href="../guides/core.html"/>
+        <link rel="prev" title="People Ops" href="people-ops.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#development-process">Development Process</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#core-developer-handbook">Core Developer Handbook</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/core.html#documentation-style-guide">Documentation Style Guide</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/core.html#joining-the-team">Joining the Team</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="handbook.html">About Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="working-at-mattermost.html">Working at Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="security.html">Security Policies</a></li>
+<li class="toctree-l3"><a class="reference internal" href="training.html">Onboarding</a></li>
+<li class="toctree-l3"><a class="reference internal" href="people-ops.html">People Ops</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Staff Developers</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#responsibilities">Responsibilities</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#requirements">Requirements</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#levels">Levels</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#hiring-process">Hiring Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id1">Paid Simulation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#frequently-asked-questions">Frequently Asked Questions</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/core.html">Core Team Handbook</a> &raquo;</li>
+    
+    <li>Staff Developers</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/process/developer.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="staff-developers">
+<h1>Staff Developers<a class="headerlink" href="#staff-developers" title="Permalink to this headline">¶</a></h1>
+<p>As a core committer at Mattermost you are responsible for one of the world&#8217;s largest and most popular open source projects. Your work impacts thousands of organizations who depend on Mattermost for daily operations, from high tech (Intel, Samsung, Micron), to healthcare (Medtronic, Epic, Bristol-Myers Squibb) to public sector (U.S. Department of Defense, U.S. Department of Energy), to education (University of California, National University of Singapore), and consumer brands (Urban Outfitters, Wargaming.net).</p>
+<p>Working in open source means your work is publicly visible. Your code will receive both credit and critique from the community and with the right mindset and support that can lead to you making the best engineering decisions of your career.</p>
+<p>Core committers include volunteer developers from the community, staff by organizations deploying and investing in Mattermost, as well as staff paid by Mattermost, Inc.</p>
+<p>This document summarizes the resposibilities and requirements of core committers employed by Mattermost, Inc., skill level requirements and hiring process. Staff developers work closely with Mattermost product management to envision, design, plan, develop, coordinate, review and merge improvements per our <a class="reference external" href="https://docs.mattermost.com/developer/contribution-guide.html">contribution guidelines</a> on a regular basis.</p>
+<p>Ideally, developers are &#8220;full stack&#8221;, and comfortable moving across backend and frontend projects. As part of our <a class="reference external" href="https://docs.mattermost.com/process/training.html#learn-master-teach">learn, master, teach</a> mindset, our environment has people consistently cross-training, becoming experts and passing on knowledge to new team members rotating into new areas of responsibility. That said, we also welcome engineers who prefer to specialize in backend and frontend, since there&#8217;s ample projects to find in both areas.</p>
+<div class="section" id="responsibilities">
+<h2>Responsibilities<a class="headerlink" href="#responsibilities" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>Develop features from proposal to polished end result.</li>
+<li>Support and collaborate with our community service engineers to find the root cause of issues, find, deliver and document effective solutions.</li>
+<li>Engage with the core team and the open source community to collaborate on improving Mattermost.</li>
+<li>Propose, coordinate, manage, review and merge code contributed by the rest of the community and work with them to get it ready for production.</li>
+<li>Work with our <a class="reference external" href="https://docs.mattermost.com/process/documentation-guidelines.html?">documentation team</a> to create and maintain technical information around features, configuration and troubleshooting.</li>
+<li>Take initiative in improving the software in small or large ways to address pain points in your own experience as a developer.</li>
+<li>Keep code easy to maintain. Keep it easy for others to contribute code.</li>
+<li>Help identify, vet and recruit other developers to join our community and, when appropriate, as staff developers.</li>
+</ul>
+</div>
+<div class="section" id="requirements">
+<h2>Requirements<a class="headerlink" href="#requirements" title="Permalink to this headline">¶</a></h2>
+<ul class="simple">
+<li>You can effectively reason and discuss software, algorithms, and performance at a high level</li>
+<li>You have a passion for creating open source software</li>
+<li>You have previously played a vital role in production-level applications</li>
+<li>You have strong written communication skills.</li>
+<li>You&#8217;re self-motivated with strong organizational skills.</li>
+<li>You share our values, and work in accordance with those values.</li>
+<li>You&#8217;re proficient in Golang, React and/or React Native, or are able to ramp quickly into those languages.</li>
+<li>You&#8217;ve either made substantial contributions to the Mattermost open source project or are open to completing a <a class="reference external" href="https://docs.mattermost.com/process/developer.html#paid-simulation">paid simulation</a> to assess your comfort in working in open source.</li>
+<li>Ideal, but not required: Experience working in online communities, having made at least one <a class="reference external" href="https://github.com/search?utf8=%E2%9C%93&amp;q=org%3Amattermost+state%3Aopen+Help+Wanted&amp;type=Issues&amp;ref=searchresults?">Help Wanted</a> pull request to a Mattermost repository, working on other Golang, React or React Native apps.</li>
+</ul>
+</div>
+<div class="section" id="levels">
+<h2>Levels<a class="headerlink" href="#levels" title="Permalink to this headline">¶</a></h2>
+<p>The below level descriptions are used to categorize core committers based on their capabilities. Regardless of level, all core committers are expected to fulfill the following:</p>
+<ul class="simple">
+<li>Deliver high quality code that represents the best thinking of the open source project and is ready to be scrutinized by hundreds of community members, including commercial customers.</li>
+<li>Write complete code that meets all specifications and criteria, has thorough unit tests and typically no defects.</li>
+<li>Work collaboratively in a high trust, asynchronous environment with strong written communication skills and comfort working with fellow developers, product managers, designers, testers, technical writers, support engineers and other product and business staff.</li>
+</ul>
+<div class="section" id="software-design-engineer-i">
+<h3>Software Design Engineer I<a class="headerlink" href="#software-design-engineer-i" title="Permalink to this headline">¶</a></h3>
+<p>Influences and executes defined tasks and features across engineering and test automation. Works effectively in teams to align priorities and manage execution. Learns new skills and establishes goals and context quickly by asking precise questions. Engages, guides and enables open source contributors to deliver high quality pull requests.</p>
+</div>
+<div class="section" id="software-design-engineer-ii">
+<h3>Software Design Engineer II<a class="headerlink" href="#software-design-engineer-ii" title="Permalink to this headline">¶</a></h3>
+<p>Capabilities of SDE I plus: Designs, leads and delivers high impact features and changes across the product stack and test automation infrastructure. Sets thoughtful, technical vision for areas of ownership, balancing functional and technical trade-offs, while working effectively with PM and UX. Drops fluidly into different projects, ramps quickly and leads features to successful outcomes. Inspires, organizes and enables groups of open source community members to contribute to development campaigns in building significant new functionality.</p>
+</div>
+<div class="section" id="senior-software-design-engineer">
+<h3>Senior Software Design Engineer<a class="headerlink" href="#senior-software-design-engineer" title="Permalink to this headline">¶</a></h3>
+<p>Capabilities of SDE II plus: Sets and delivers architectural vision for high impact features and changes across multiple products, working in sync with PM, UX, and customer teams. Highly respected by colleagues and community as technical authority, influencing discussions and behavior with input and suggestions. Drops fluidly into customer and community discussions, aligns efforts, and develops superior solutions through discussion and analysis. Attracts, motivates and trains open source community members to lead the coordination and management of development campaigns to create new features and products.</p>
+</div>
+<div class="section" id="architect">
+<h3>Architect<a class="headerlink" href="#architect" title="Permalink to this headline">¶</a></h3>
+<p>Capabilities of Senior SDE plus: Sets and delivers architectural vision for entire products and systems spanning multiple products. Engages with peers in customer and partner organizations to shape joint development plans. Works fluidly with PM, UX and sales leadership to set organizational objectives and direction. Sought out as a technical authority in industry in developing, disseminating, reviewing, evaluating key patterns and reference architectures. Influences, shapes and can redirect customer and community technical discussions, rapidly understanding disparate viewpoints and leading discussions that align thinking and efforts to influence the direction of large scale technical projects.</p>
+</div>
+</div>
+<div class="section" id="hiring-process">
+<h2>Hiring Process<a class="headerlink" href="#hiring-process" title="Permalink to this headline">¶</a></h2>
+<p>Candidates for developer roles on the Mattermost staff can expect the hiring process to follow the order below. Please keep in mind that applicants can be declined from the position at any stage of the process.</p>
+<p>Both declined and accepted candidates will be invited to share feedback on their hiring experience so we can continually improve our process.</p>
+<ul class="simple">
+<li><strong>Application/Email - Review of code samples</strong> - In <a class="reference external" href="https://jobs.lever.co/mattermost/">your application</a> we welcome you to include links to any public open source work you&#8217;ve done, including GitHub, GitLab or BitBucket profiles. If you&#8217;d like to share privately we can send you our ID for GitHub, GitLab or BitBucket, or we can review code you send in via email. If you really want to impress us, <a class="reference external" href="https://docs.mattermost.com/developer/contribution-guide.html">make a contribution to our open source project by completing a Help Wanted ticket.</a></li>
+<li><strong>Email - Follow-up questions</strong> - If your code samples look good, we&#8217;ll email you some questions specific to the role.</li>
+<li><strong>Video call - Screening interview</strong> - Selected candidates will be invited for a 25-minute screening call with a recruiter.</li>
+<li><strong>Video call - Soft-skills discussion</strong> - Next, candidates will be invited to schedule a 25-minute interview with a core committer to assess soft skills and for the candidate to learn more about the role.</li>
+<li><strong>Paid Simulation</strong> - Successful candidates with limited experience contributing to Mattermost are offered a paid project to simulate the experience of working as a core committer. See below for description for <em>Paid Simulation</em> for details.</li>
+<li><strong>Reference Checks</strong> - You&#8217;ll be sent an email request by <a class="reference external" href="http://www.skillsurvey.com/">SkillSurvey</a> to list 3 references who can verify your past achievements.</li>
+<li><strong>Video call - CTO interview</strong> - Candidates are invited to a 45-minute interview with our CTO and co-creator of the Mattermost open source project. The interview may include technical questions along with a discussion of either past work or results of the simulation, the candidate&#8217;s interests, their career aspirations, and how being a core committer at Mattermost could align with those interests and aspirations.</li>
+<li><strong>Video call - CEO interview</strong> - Finally, candidates will have a 45-minute interview with our CEO.</li>
+<li><strong>Email - Offer</strong> - Successful candidates will receive an offer via email. Mattermost offers compensation competitive with a candidate&#8217;s local market opportunities.</li>
+</ul>
+<p>Notes:</p>
+<ul class="simple">
+<li>Staff developers in Canada are typically offered full-time employment through a Canadian co-employer, with local payroll via ADP, benefits and T4 tax reporting.</li>
+<li>Staff developers in the US are typically offered full-time employment through a U.S. co-employer, with local payroll via TriNet, benefits and W2 tax reporting.</li>
+<li>Staff developers outside the U.S. and Canada are offered full-time consulting paperwork very similar to the click-sign agreement for the paid simulation.</li>
+</ul>
+</div>
+<div class="section" id="id1">
+<h2>Paid Simulation<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Similar to other open source companies, for candidates who successfully complete technical and soft-skills reviews, and who have limited experience contributing to Mattermost, we offer a paid simulation.</p>
+<p>The simulation helps candidates experience working on one of the world&#8217;s largest open source projects to understand how they would enjoy such a role should they decide to join the company. Your code will be reviewed and used by hundreds of other contributing developers. After a vetting process, successful projects are merged and the results of your simulation will be deployed by thousands of companies around in the world.</p>
+<p>Your work will become a permanent part of the open source project that you can reference for the rest of your career. You&#8217;re also eligible to receive a <a class="reference external" href="https://twitter.com/search?q=%23mattermug&amp;src=typd">Mattermost Mug</a> in appreciation of your first contribution.</p>
+<p>The simulation project reflects an investment from the core committers to work with the candidate through a series of significant contributions, answering questions, providing input and reviewing code as needed. It also reflects an investment from the candidate to explore the experience of working at Mattermost.</p>
+<p>The paid simulation project typically consists of a collection of challenging <a class="reference external" href="https://github.com/mattermost/platform/issues?q=is%3Aissue+%5BHelp+Wanted%5D+is%3Aopen">Help Wanted tickets</a> to be completed per the <a class="reference external" href="https://docs.mattermost.com/developer/contribution-guide.html">Mattermost contribution guidelines</a> in a mutually agreed timeline reflecting 30-40 hours of development at the estimated skill level of the candidate.</p>
+<p>A flat rate of $750 USD is offered to attempt the simulation project. This amount is a standard fee for simulations and not an indicator of the final offer that would be extended to a successful candidate. A <a class="reference external" href="https://docs.google.com/document/d/1G4wFLq_wHHEDJ-hrv5Kmu022mFJgh3rJ4-glM0W6riI/edit#heading=h.u3m8fmn6xapr">standard click-sign services agreement</a> is used to accept the fee. The fee is paid regardless of whether the project is completed.</p>
+</div>
+<div class="section" id="frequently-asked-questions">
+<h2>Frequently Asked Questions<a class="headerlink" href="#frequently-asked-questions" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="do-you-have-internships">
+<h3>Do you have internships?<a class="headerlink" href="#do-you-have-internships" title="Permalink to this headline">¶</a></h3>
+<p>While we no longer offer internships for developers, if you get a couple of <a class="reference external" href="https://github.com/search?utf8=%E2%9C%93&amp;q=org%3Amattermost+state%3Aopen+Help+Wanted&amp;type=Issues&amp;ref=searchresults?">Help Wanted</a> pull requests accepted, we&#8217;ll interview you for one. This will be a remote internship without supervision; you&#8217;ll only get feedback on your merge requests. If you want to work on open source and qualify <a class="reference external" href="https://jobs.lever.co/mattermost/">please submit an application</a>. In the cover letter field, please note that you want an internship and link to the accepted pull requests. The pull requests should be of significant value and difficulty, which is at the discretion of the hiring manager. For example, fixing 10 typos isn&#8217;t as valuable as shipping 2 new features.</p>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="people-ops.html" class="btn btn-neutral" title="People Ops" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/process/developer.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

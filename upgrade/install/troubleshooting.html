@@ -1,0 +1,500 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Troubleshooting &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Administrator’s Guide" href="../guides/administrator.html"/>
+        <link rel="next" title="Chinese, Korean &amp; Japanese Search" href="i18n.html"/>
+        <link rel="prev" title="SMTP Email Setup" href="smtp-email-setup.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/administrator.html#installing-mattermost">Installing Mattermost</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="requirements.html">Software &amp; Hardware Requirements</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1404.html">Installing on Ubuntu 14.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-ubuntu-1604.html">Installing on Ubuntu 16.04 LTS</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-66.html">Installing on RHEL 6.6</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-rhel-71.html">Installing on RHEL 7.1</a></li>
+<li class="toctree-l3"><a class="reference internal" href="install-centos-oracle-scientific.html">Installing on CentOS, Oracle Linux, and Scientific Linux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-local-machine.html">Local Machine Setup using Docker</a></li>
+<li class="toctree-l3"><a class="reference internal" href="docker-ebs.html">AWS Elastic Beanstalk Docker Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="ee-install.html">Enterprise Install and Upgrade</a></li>
+<li class="toctree-l3"><a class="reference internal" href="prod-docker.html">Production Docker Deployment</a></li>
+<li class="toctree-l3"><a class="reference internal" href="smtp-email-setup.html">SMTP Email Setup</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Troubleshooting</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#important-notes">Important notes</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#troubleshooting-basics">Troubleshooting Basics</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#common-issues">Common Issues</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#mattermost-error-messages">Mattermost Error Messages</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="i18n.html">Chinese, Korean &amp; Japanese Search</a></li>
+<li class="toctree-l3"><a class="reference internal" href="desktop.html">Desktop Application Install Guides</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-proxy-apache2.html">Configuring Apache2 as a proxy</a></li>
+<li class="toctree-l3"><a class="reference internal" href="config-ssl-http2-apache2.html">Configuring Apache2 with SSL and HTTP/2 (Unofficial)</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#deployment">Deployment</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/administrator.html#administration">Administration</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/administrator.html">Administrator&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Troubleshooting</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/install/troubleshooting.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="troubleshooting">
+<span id="id1"></span><h1><a class="toc-backref" href="#contents">Troubleshooting</a><a class="headerlink" href="#troubleshooting" title="Permalink to this headline">¶</a></h1>
+<p>This document summarizes common troubleshooting issues and techinques.</p>
+<div class="contents topic" id="contents">
+<p class="topic-title first">Contents</p>
+<ul class="simple">
+<li><a class="reference internal" href="#troubleshooting" id="id2">Troubleshooting</a><ul>
+<li><a class="reference internal" href="#important-notes" id="id3">Important notes</a><ul>
+<li><a class="reference internal" href="#do-not-manipulate-the-mattermost-database" id="id4"><strong>DO NOT Manipulate the Mattermost Database</strong></a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#troubleshooting-basics" id="id5">Troubleshooting Basics</a></li>
+<li><a class="reference internal" href="#common-issues" id="id6">Common Issues</a><ul>
+<li><a class="reference internal" href="#lost-system-administrator-account" id="id7">Lost System Administrator account</a></li>
+<li><a class="reference internal" href="#switching-system-administrator-account-to-sso-sign-in" id="id8">Switching System Administrator Account to SSO Sign-in</a></li>
+<li><a class="reference internal" href="#locked-out-of-system-administrator-account" id="id9">Locked out of System Administrator account</a></li>
+<li><a class="reference internal" href="#youtube-videos-show-a-video-not-found-preview" id="id10">YouTube videos show a &#8220;Video not found&#8221; preview</a></li>
+</ul>
+</li>
+<li><a class="reference internal" href="#mattermost-error-messages" id="id11">Mattermost Error Messages</a><ul>
+<li><a class="reference internal" href="#please-check-connection-mattermost-unreachable-if-issue-persists-ask-administrator-to-check-websocket-port" id="id12"><code class="docutils literal"><span class="pre">Please</span> <span class="pre">check</span> <span class="pre">connection,</span> <span class="pre">Mattermost</span> <span class="pre">unreachable.</span> <span class="pre">If</span> <span class="pre">issue</span> <span class="pre">persists,</span> <span class="pre">ask</span> <span class="pre">administrator</span> <span class="pre">to</span> <span class="pre">check</span> <span class="pre">WebSocket</span> <span class="pre">port.</span></code></a></li>
+<li><a class="reference internal" href="#x509-certificate-signed-by-unknown-authority" id="id13"><code class="docutils literal"><span class="pre">x509:</span> <span class="pre">certificate</span> <span class="pre">signed</span> <span class="pre">by</span> <span class="pre">unknown</span> <span class="pre">authority</span></code></a></li>
+<li><a class="reference internal" href="#panic-runtime-error-invalid-memory-address-or-nil-pointer-dereference" id="id14"><code class="docutils literal"><span class="pre">panic:</span> <span class="pre">runtime</span> <span class="pre">error:</span> <span class="pre">invalid</span> <span class="pre">memory</span> <span class="pre">address</span> <span class="pre">or</span> <span class="pre">nil</span> <span class="pre">pointer</span> <span class="pre">dereference</span></code></a></li>
+<li><a class="reference internal" href="#we-couldn-t-find-an-existing-account-matching-your-email-address-for-this-team-this-team-may-require-an-invite-from-the-team-owner-to-join" id="id15"><code class="docutils literal"><span class="pre">We</span> <span class="pre">couldn't</span> <span class="pre">find</span> <span class="pre">an</span> <span class="pre">existing</span> <span class="pre">account</span> <span class="pre">matching</span> <span class="pre">your</span> <span class="pre">email</span> <span class="pre">address</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">team.</span> <span class="pre">This</span> <span class="pre">team</span> <span class="pre">may</span> <span class="pre">require</span> <span class="pre">an</span> <span class="pre">invite</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">team</span> <span class="pre">owner</span> <span class="pre">to</span> <span class="pre">join.</span></code></a></li>
+<li><a class="reference internal" href="#failed-to-upgrade-websocket-connection" id="id16"><code class="docutils literal"><span class="pre">Failed</span> <span class="pre">to</span> <span class="pre">upgrade</span> <span class="pre">websocket</span> <span class="pre">connection</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="section" id="important-notes">
+<h2><a class="toc-backref" href="#contents">Important notes</a><a class="headerlink" href="#important-notes" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="do-not-manipulate-the-mattermost-database">
+<h3><a class="toc-backref" href="#contents"><strong>DO NOT Manipulate the Mattermost Database</strong></a><a class="headerlink" href="#do-not-manipulate-the-mattermost-database" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Do not manipulate the database directly. Mattermost is designed to stop working if data integrity is compromised.</li>
+<li>Any manipulation of the database must be done using the built in command-line tools</li>
+</ul>
+</div>
+</div>
+<div class="section" id="troubleshooting-basics">
+<h2><a class="toc-backref" href="#contents">Troubleshooting Basics</a><a class="headerlink" href="#troubleshooting-basics" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;re new to Mattermost or troubleshooting consider the following steps:</p>
+<ul class="simple">
+<li>Start simple with the step-by-step install guides for your operating system.</li>
+<li>Check the logs (<code class="docutils literal"><span class="pre">mattermost.log</span></code> and NGINX logs) for errors.</li>
+<li>Search error messages online (Google, Yahoo, Bing, or your favorite search engine), existing solutions can often work.</li>
+<li>For more help, create a troubleshooting report at <a class="reference external" href="https://forum.mattermost.org/t/how-to-use-the-troubleshooting-forum/150">Troubleshooting Forum</a>.</li>
+</ul>
+</div>
+<div class="section" id="common-issues">
+<h2><a class="toc-backref" href="#contents">Common Issues</a><a class="headerlink" href="#common-issues" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="lost-system-administrator-account">
+<h3><a class="toc-backref" href="#contents">Lost System Administrator account</a><a class="headerlink" href="#lost-system-administrator-account" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>To reset the account, run from the command line:
+<code class="docutils literal"><span class="pre">./platform</span> <span class="pre">-assign_role</span> <span class="pre">-team_name=&quot;yourteam&quot;</span> <span class="pre">-email=&quot;you&#64;example.com&quot;</span> <span class="pre">-role=&quot;system_admin&quot;</span></code>.</li>
+<li>Log out and back in for the change to apply.</li>
+</ul>
+</div>
+<div class="section" id="switching-system-administrator-account-to-sso-sign-in">
+<h3><a class="toc-backref" href="#contents">Switching System Administrator Account to SSO Sign-in</a><a class="headerlink" href="#switching-system-administrator-account-to-sso-sign-in" title="Permalink to this headline">¶</a></h3>
+<p>When Mattermost is initially set up, the first account created becomes the System Administrator account. This account will typically use email authentication to sign-in, since it is usually created before other sign-in methods are configured.</p>
+<p>After setting up SSO authentication, it is common for the System Administrator to want to turn off email sign-in so users will only have SSO as a sign-in option.</p>
+<p>Before doing this, the System Administrator needs to change their sign-in method to SSO by doing the following:</p>
+<ol class="arabic simple">
+<li>Sign in to Mattermost using email and password</li>
+<li>Go to Account Settings &gt; Security &gt; Sign-in Method</li>
+<li>Click the &#8220;Switch&#8221; button for the sign in method you would like to use, and complete the process for switching sign-in method.</li>
+</ol>
+<p>The System Administrator can now turn off email sign-in and still access their account. (To avoid locking other existing users out of their accounts, it is recommended the System Administrator ask them to switch authentication methods as well.)</p>
+</div>
+<div class="section" id="locked-out-of-system-administrator-account">
+<h3><a class="toc-backref" href="#contents">Locked out of System Administrator account</a><a class="headerlink" href="#locked-out-of-system-administrator-account" title="Permalink to this headline">¶</a></h3>
+<p>If email sign-in was turned off before the System Administrator switched sign-in methods, sign up for a new account and promote it to System Administrator from the command line.</p>
+</div>
+<div class="section" id="youtube-videos-show-a-video-not-found-preview">
+<h3><a class="toc-backref" href="#contents">YouTube videos show a &#8220;Video not found&#8221; preview</a><a class="headerlink" href="#youtube-videos-show-a-video-not-found-preview" title="Permalink to this headline">¶</a></h3>
+<ol class="arabic simple">
+<li>First, make sure the YouTube video exists by pasting a link to the video into your browser&#8217;s address bar.</li>
+<li>If you are using the Mattermost Desktop App, please ensure you have installed version 3.5.0 or later.</li>
+<li>If you have specified <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#google-api-key">a Google API key</a> to enable the display of titles for embedded YouTube video previews, regenerate the key.</li>
+</ol>
+</div>
+</div>
+<div class="section" id="mattermost-error-messages">
+<h2><a class="toc-backref" href="#contents">Mattermost Error Messages</a><a class="headerlink" href="#mattermost-error-messages" title="Permalink to this headline">¶</a></h2>
+<p>The following is a list of common error messages and solutions:</p>
+<div class="section" id="please-check-connection-mattermost-unreachable-if-issue-persists-ask-administrator-to-check-websocket-port">
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">Please</span> <span class="pre">check</span> <span class="pre">connection,</span> <span class="pre">Mattermost</span> <span class="pre">unreachable.</span> <span class="pre">If</span> <span class="pre">issue</span> <span class="pre">persists,</span> <span class="pre">ask</span> <span class="pre">administrator</span> <span class="pre">to</span> <span class="pre">check</span> <span class="pre">WebSocket</span> <span class="pre">port.</span></code></a><a class="headerlink" href="#please-check-connection-mattermost-unreachable-if-issue-persists-ask-administrator-to-check-websocket-port" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Message appears in blue bar on team site.</li>
+<li>To check the websocket connection, open the developer console in your browser and view the Network panel. If the websocket is not connecting properly, you will see a pending websocket connection show up in the list. The screenshot below shows an example from Chrome.</li>
+</ul>
+<img alt="../_images/websocket.png" src="../_images/websocket.png" />
+<ul class="simple">
+<li><strong>If this issue is reported repeatedly</strong>, the most likely cause is a proxy being misconfigured somewhere in your infrastructure, and possibly stripping headers off of WebSocket communications.</li>
+<li>Mattermost clients connect to the server using multiple protocols, <code class="docutils literal"><span class="pre">https</span></code> to enable general site functionality, and <code class="docutils literal"><span class="pre">wss</span></code> for real-time updates. This error message appears when the <code class="docutils literal"><span class="pre">https</span></code> connection is working, but the <code class="docutils literal"><span class="pre">wss</span></code> connection has issues, most commonly having headers stripped off by a firewall or proxy that is either misconfigure or which does not support secure WebSockets.</li>
+</ul>
+<p><strong>Note:</strong> If your <code class="docutils literal"><span class="pre">https</span></code> connection is working and <code class="docutils literal"><span class="pre">wss</span></code> is not, and you dismiss the blue bar message, your team site will render, but will not support real time communications (you will need to refresh to see updates and the system is effectively &#8220;broken&#8221;).</p>
+<p><strong>Solution:</strong></p>
+<blockquote>
+<div><ol class="arabic simple">
+<li>Follow the <a class="reference external" href="https://docs.mattermost.com/install/install-ubuntu-1604.html#installing-nginx-server">installation guide to set up your WebSocket port properly</a>.</li>
+<li>Speak with the owner of any other proxies between your device and the Mattermost server to ensure <code class="docutils literal"><span class="pre">wss</span></code> connections are passing through without issue.</li>
+</ol>
+</div></blockquote>
+<p>If this issue is reported rarely, in some cases the issue comes from <em>intermittent</em> internet connectivity, where the initial load works, but the device then becomes disconnected from the internet and real time updates over the <code class="docutils literal"><span class="pre">wss</span></code> connection fail repeatedly and the error is displayed to check if the <code class="docutils literal"><span class="pre">wss</span></code> connection were misconfigured.</p>
+<p>If only a small number of users have this issue, it could be from intermittent internet access, if almost every user has this issue, it&#8217;s likely from a misconfiguration of the <code class="docutils literal"><span class="pre">wss</span></code> connection.</p>
+</div>
+<div class="section" id="x509-certificate-signed-by-unknown-authority">
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">x509:</span> <span class="pre">certificate</span> <span class="pre">signed</span> <span class="pre">by</span> <span class="pre">unknown</span> <span class="pre">authority</span></code></a><a class="headerlink" href="#x509-certificate-signed-by-unknown-authority" title="Permalink to this headline">¶</a></h3>
+<p>This error may appear in server logs when attempting to sign-up when using self-signed certificates to setup SSL, which is not yet supported by Mattermost.</p>
+<p><strong>Solution:</strong> Set up a load balancer like NGINX <a class="reference external" href="https://docs.mattermost.com/install/install-ubuntu-1604.html#configuring-nginx-with-ssl-and-http-2">per production install guide</a>. The core team is looking into allowing self-signed certificates in the future.</p>
+<p>As a work around, in <strong>System Console</strong> &gt; <strong>Security</strong> &gt; <strong>Connections</strong> set <code class="docutils literal"><span class="pre">Enable</span> <span class="pre">Insecure</span> <span class="pre">Outgoing</span> <span class="pre">Connections</span></code> to <code class="docutils literal"><span class="pre">true</span></code>.</p>
+<p>This will allow insecure TLS connections, but be careful in doing so as it also opens your Mattermost site to man-in-the-middle attacks.</p>
+</div>
+<div class="section" id="panic-runtime-error-invalid-memory-address-or-nil-pointer-dereference">
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">panic:</span> <span class="pre">runtime</span> <span class="pre">error:</span> <span class="pre">invalid</span> <span class="pre">memory</span> <span class="pre">address</span> <span class="pre">or</span> <span class="pre">nil</span> <span class="pre">pointer</span> <span class="pre">dereference</span></code></a><a class="headerlink" href="#panic-runtime-error-invalid-memory-address-or-nil-pointer-dereference" title="Permalink to this headline">¶</a></h3>
+<p>This error can occur if you have manually manipulated the Mattermost database, typically with deletions. Mattermost is designed to serve as a searchable archive, and manual manipulation of the database elements compromises integrity and may prevent upgrade.</p>
+<p><strong>Solution:</strong> Restore from database backup created prior to manual database updates, or reinstall the system.</p>
+</div>
+<div class="section" id="we-couldn-t-find-an-existing-account-matching-your-email-address-for-this-team-this-team-may-require-an-invite-from-the-team-owner-to-join">
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">We</span> <span class="pre">couldn't</span> <span class="pre">find</span> <span class="pre">an</span> <span class="pre">existing</span> <span class="pre">account</span> <span class="pre">matching</span> <span class="pre">your</span> <span class="pre">email</span> <span class="pre">address</span> <span class="pre">for</span> <span class="pre">this</span> <span class="pre">team.</span> <span class="pre">This</span> <span class="pre">team</span> <span class="pre">may</span> <span class="pre">require</span> <span class="pre">an</span> <span class="pre">invite</span> <span class="pre">from</span> <span class="pre">the</span> <span class="pre">team</span> <span class="pre">owner</span> <span class="pre">to</span> <span class="pre">join.</span></code></a><a class="headerlink" href="#we-couldn-t-find-an-existing-account-matching-your-email-address-for-this-team-this-team-may-require-an-invite-from-the-team-owner-to-join" title="Permalink to this headline">¶</a></h3>
+<p>This error appears when a user tries to sign in, and Mattermost can&#8217;t find an account matching the credentials they entered.</p>
+<p><strong>Solution:</strong></p>
+<ol class="arabic simple">
+<li>If you&#8217;re signing in with email and have previously created an account:</li>
+</ol>
+<p>Check that you are using the correct email address. If you can&#8217;t remember what email address was used, contact the System Administrator for assistance.</p>
+<ol class="arabic simple" start="2">
+<li>If you haven&#8217;t signed up for an account on this team yet:</li>
+</ol>
+<p>Click the link at the bottom of the sign-in page that says “Don&#8217;t have an account? Create one now” to create an account. If the link is not available, contact a Team or System Administrator for an invitation.</p>
+<ol class="arabic" start="3">
+<li><p class="first">If your account uses a different sign-in method (for example, the account was created with email but the user is trying to use SSO to sign in):</p>
+<ul>
+<li><p class="first">Check the sign-in page.</p>
+</li>
+<li><p class="first">If the sign-in method the account was created with is available, use that to sign in.</p>
+<blockquote>
+<div><ul class="simple">
+<li><em>Note: You may then switch authentication methods from Account
+Settings &gt; Security &gt; Sign-in Method.</em></li>
+</ul>
+</div></blockquote>
+</li>
+<li><p class="first">If the sign-in method is not available, contact the System Administrator.</p>
+<blockquote>
+<div><ul class="simple">
+<li>This can happen if the site was originally set up to allow an
+account to be created using either GitLab or Email, but then the
+System Administrator turned one of the options off.</li>
+<li>The System Administrator can fix this issue by:<ol class="arabic">
+<li>Turning the sign-in option back on.</li>
+<li>Asking the user to switch sign-in methods before turning the
+sign-in option back off.</li>
+</ol>
+</li>
+</ul>
+</div></blockquote>
+</li>
+</ul>
+</li>
+</ol>
+</div>
+<div class="section" id="failed-to-upgrade-websocket-connection">
+<h3><a class="toc-backref" href="#contents"><code class="docutils literal"><span class="pre">Failed</span> <span class="pre">to</span> <span class="pre">upgrade</span> <span class="pre">websocket</span> <span class="pre">connection</span></code></a><a class="headerlink" href="#failed-to-upgrade-websocket-connection" title="Permalink to this headline">¶</a></h3>
+<p>This error can occur if you&#8217;re using multiple URLs to reach Mattermost via proxy forwarding.</p>
+<p><strong>Solution:</strong></p>
+<ol class="arabic simple">
+<li>Upgrade to a Mattermost server v3.8.0 or later, which adds <a class="reference external" href="https://github.com/mattermost/platform/pull/5667">WebSocket CORS support</a>.</li>
+<li>Follow the installation guide to configure <a class="reference external" href="https://docs.mattermost.com/install/install-ubuntu-1604.html#configuring-nginx-as-a-proxy-for-mattermost-server">NGINX as a proxy for Mattermost server</a>.</li>
+<li>If you&#8217;re doing reverse proxy with IIS, upgrade to IIS 8.0 or later and enable WebSockets. For more information, see <a class="reference external" href="https://www.iis.net/learn/get-started/whats-new-in-iis-8/iis-80-websocket-protocol-support">IIS 8.0 WebSocket Protocol Support</a>.</li>
+</ol>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="i18n.html" class="btn btn-neutral float-right" title="Chinese, Korean &amp; Japanese Search" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="smtp-email-setup.html" class="btn btn-neutral" title="SMTP Email Setup" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/install/troubleshooting.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

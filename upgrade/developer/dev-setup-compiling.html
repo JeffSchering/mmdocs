@@ -1,0 +1,389 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Compiling Mattermost &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Developer Machine Setup" href="dev-setup.html"/>
+        <link rel="next" title="Troubleshooting Setup and Build" href="dev-setup-troubleshooting.html"/>
+        <link rel="prev" title="Installing Developer Components on Windows" href="dev-setup-windows.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/developer.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l3 current"><a class="reference internal" href="dev-setup.html">Developer Machine Setup</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="dev-setup-ubuntu-1604.html">Setting up Ubuntu 16.04</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev-setup-osx.html">Setting up Mac OS X</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev-setup-archlinux.html">Setting up Archlinux</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev-setup-windows.html">Setting up Windows</a></li>
+<li class="toctree-l4 current"><a class="current reference internal" href="#">Compiling Mattermost</a></li>
+<li class="toctree-l4"><a class="reference internal" href="dev-setup-troubleshooting.html">Troubleshooting Setup and Build</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="mobile-developer-setup.html">Mobile Developer Machine Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webapp-to-redux.html">Migrating the Webapp to Redux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webapp-component.html">Building a Webapp React Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redux.html">Working with Redux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="localization.html">Localization</a></li>
+<li class="toctree-l3"><a class="reference internal" href="core-developer-handbook.html">Core Developer Handbook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#definitions">Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#unofficial-enhancements">Unofficial Enhancements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/developer.html">Mattermost Developer&#8217;s Guide</a> &raquo;</li>
+    
+      <li><a href="dev-setup.html">Developer Machine Setup</a> &raquo;</li>
+    
+    <li>Compiling Mattermost</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/developer/dev-setup-compiling.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="compiling-mattermost">
+<span id="dev-compiling"></span><h1>Compiling Mattermost<a class="headerlink" href="#compiling-mattermost" title="Permalink to this headline">¶</a></h1>
+<p>Before compiling Mattermost, make sure to set up your developer machine according to the instructions for your platform.</p>
+<p>Instructions are available for the following platforms:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference internal" href="dev-setup-ubuntu-1604.html"><span class="doc">Ubuntu 16.04</span></a></li>
+<li><a class="reference internal" href="dev-setup-osx.html"><span class="doc">Mac OS X</span></a></li>
+<li><a class="reference internal" href="dev-setup-archlinux.html"><span class="doc">Archlinux</span></a></li>
+<li><a class="reference internal" href="dev-setup-windows.html"><span class="doc">Windows</span></a></li>
+</ul>
+</div></blockquote>
+<p>Mattermost uses <a class="reference external" href="https://www.gnu.org/software/make/">GNU Make</a> to control the generation of builds, to run the test suite, and to manage the build environment. You must run the <code class="docutils literal"><span class="pre">make</span></code> command from within the source directory. If you set up your developer machine according to the instructions, you can change to the source directory with the following command:</p>
+<blockquote>
+<div><code class="docutils literal"><span class="pre">cd</span> <span class="pre">~/go/src/github.com/mattermost/platform</span></code></div></blockquote>
+<p>The first time that you use the <code class="docutils literal"><span class="pre">make</span> <span class="pre">run</span></code> command can take a substantial amount of time depending on your machine&#8217;s processor speed and memory size, and on the speed of your network. If you are developing in a VM, make sure that the VM has at least 2G of memory assigned to it.</p>
+<p>To start contributing to Mattermost, see <a class="reference internal" href="developer-flow.html"><span class="doc">Developer Flow</span></a>.</p>
+<div class="section" id="useful-make-commands">
+<h2>Useful Make Commands<a class="headerlink" href="#useful-make-commands" title="Permalink to this headline">¶</a></h2>
+<dl class="docutils">
+<dt>make run</dt>
+<dd>Starts the Docker container, compiles the server and client code, and makes Mattermost available at <a class="reference external" href="http://localhost:8065">http://localhost:8065</a> on the machine that you ran this command on. The first time that you use this command, the MySQL, PostgreSQL, and Inbucket Docker images are downloaded and installed.</dd>
+<dt>make test</dt>
+<dd>Runs the unit tests for server and client.</dd>
+<dt>make test-server</dt>
+<dd>Runs the unit tests for server only.</dd>
+<dt>make test-client</dt>
+<dd>Runs the unit tests for client only.</dd>
+<dt>make clean</dt>
+<dd>Removes all output files, including log files and executable binaries.</dd>
+<dt>make start-docker</dt>
+<dd>Starts the Docker container.</dd>
+<dt>make stop-docker</dt>
+<dd>Stops the Docker container.</dd>
+<dt>make clean-docker</dt>
+<dd>Removes all content from the databases in the Docker container and resets them to their original state.</dd>
+<dt>make build-linux, make build-osx, and make build-windows</dt>
+<dd>Builds the server for the specified platform. See the <cite>make package</cite> command for instructions on how to set up for cross-compiling.</dd>
+<dt>make build</dt>
+<dd>Builds the server for Linux, OS X, and Windows platforms. See the <cite>make package</cite> command for instructions on how to set up for cross-compiling.</dd>
+<dt>make build-client</dt>
+<dd>Builds the web client, which is the HTML, JavaScript, and CSS code that gets downloaded to the browser.</dd>
+<dt>make package</dt>
+<dd><p class="first">Creates packages for distributing your builds and puts them in the <code class="docutils literal"><span class="pre">~/go/src/github.com/mattermost/platform/dist</span></code> directory. If you want to make packages for targets other than your build machine, you must run the following commands first:</p>
+<ol class="arabic">
+<li><p class="first">Modify permissions on <code class="docutils literal"><span class="pre">/usr/local/go</span></code>. Replace <em>{user}</em> and <em>{group}</em> with the user and group that you are logged in with.</p>
+<p><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">chown</span> <span class="pre">-R</span> <span class="pre">{user}.{group}</span> <span class="pre">/usr/local/go</span></code></p>
+</li>
+<li><p class="first">If you are not developing on OS X, set up your environment to cross-compile Apple OS X binaries:</p>
+<p><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=darwin</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></p>
+</li>
+<li><p class="first">If you are not developing on Windows, set up your environment to cross-compile Windows binaries:</p>
+<ol class="loweralpha simple">
+<li><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=windows</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></li>
+<li><code class="docutils literal"><span class="pre">sudo</span> <span class="pre">apt-get</span> <span class="pre">install</span> <span class="pre">zip</span></code></li>
+</ol>
+</li>
+<li><p class="first">If you are not developing on Linux, set up your environment to cross-compile Linux binaries:</p>
+</li>
+</ol>
+<blockquote class="last">
+<div><code class="docutils literal"><span class="pre">env</span> <span class="pre">GOOS=linux</span> <span class="pre">GOARCH=amd64</span> <span class="pre">go</span> <span class="pre">install</span> <span class="pre">std</span></code></div></blockquote>
+</dd>
+</dl>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="dev-setup-troubleshooting.html" class="btn btn-neutral float-right" title="Troubleshooting Setup and Build" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="dev-setup-windows.html" class="btn btn-neutral" title="Installing Developer Components on Windows" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/dev-setup-compiling.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

@@ -1,0 +1,345 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Telemetry &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+    <li>Telemetry</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/administration/telemetry.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="telemetry">
+<span id="id1"></span><h1>Telemetry<a class="headerlink" href="#telemetry" title="Permalink to this headline">¶</a></h1>
+<p>As described in the privacy policy in each Mattermost server, telemetry data optionally shared from your Mattermost servers is used to identify security and reliability issues, to analyze and fix software problems, to help improve the quality of Mattermost software and related services, and to make design decisions for future releases.</p>
+<p>Telemetry data is encrypted in transit, does not include personally identifiable information or message contents, and details of how the information is used and processed is available in our <a class="reference external" href="https://about.mattermost.com/default-privacy-policy/">Privacy Policy</a>.</p>
+<p>We use the data for the following purposes:</p>
+<blockquote>
+<div><ul class="simple">
+<li>to identify security and reliability issues</li>
+<li>to analyze and fix software problems</li>
+<li>to help improve the quality of Mattermost software and related services</li>
+<li>to make design decisions for future releases</li>
+</ul>
+</div></blockquote>
+<div class="section" id="security-update-check-feature">
+<h2>Security Update Check Feature<a class="headerlink" href="#security-update-check-feature" title="Permalink to this headline">¶</a></h2>
+<p>New threats to system security constantly arise. To alert you of relevant, high priority security updates, Mattermost servers are configured to share diagnostic information with Mattermost Inc. so that we can provide appropriate alerts.</p>
+<p>The following data is collected once every 24 hours: Mattermost server build number and version, type of build (Enterprise or Team), server operating system, the server diagnostic ID (same as the ID accessing the push notification proxy, and is used to prevent double-counting of telemetry data), database type, number of teams, number of users, number of active users, whether or not the unit tests have been run, date and time of the last check for security updates, and the location of the Amazon Cloudfront server used for telemetry data.</p>
+<p>To opt out, disable the feature in <strong>System Console &gt; Notifications &gt; Email &gt; Enable Security Alerts</strong>. When the feature is disabled, you will not receive any security alerts.</p>
+</div>
+<div class="section" id="error-and-diagnostics-reporting-feature">
+<h2>Error and Diagnostics Reporting Feature<a class="headerlink" href="#error-and-diagnostics-reporting-feature" title="Permalink to this headline">¶</a></h2>
+<p>Error and diagnostic data is collected for the following purposes: to add improvements to Mattermost software that are specific to your usage and deployment patterns, including identifying security and reliability issues;  to analyze and fix software problems; to help improve the quality of Mattermost software and related services; and to make design decisions for future releases.</p>
+<div class="section" id="the-following-data-is-sent-once-every-24-hours">
+<h3>The following data is sent once every 24 hours:<a class="headerlink" href="#the-following-data-is-sent-once-every-24-hours" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Deployment Configuration Information</dt>
+<dd>Basic information including Mattermost server version, database and operating system type and version, and count of System Administrator accounts</dd>
+<dt>Server Configuration Settings</dt>
+<dd><p class="first">Non-personally identifiable data from configuration settings file (<code class="docutils literal"><span class="pre">config.json</span></code>) in the form of type (&#8220;enumerated integer&#8221; or &#8220;enumerated boolean&#8221;) values, true/false (&#8220;boolean&#8221;), and count (&#8220;integer&#8221;). Specifically these include:</p>
+<p><strong>Type values (enumerated integer and enumerated boolean)</strong></p>
+<blockquote>
+<div><strong>ServiceSettings</strong>: enum WebserverMode, bool EnableSecurityFixAlert, bool EnableInsecureOutgoingConnections, bool EnableIncomingWebhooks, bool EnableOutgoingWebhooks, bool EnableCommands, bool EnableOnlyAdminIntegrations, bool EnablePostUsernameOverride, bool EnablePostIconOverride, bool EnableCustomEmoji, enum RestrictCustomEmojiCreation, bool EnableTesting, bool EnableDeveloper, bool EnableMultifactorAuthentication, bool EnableOAuthServiceProvider, enum ConnectionSecurity, bool UseLetsEncrypt, bool Forward80To443, enum ConnectionSecurity, bool EnforceMultifactorAuthentication, enum RestrictPostDelete, bool AllowEditPost, bool EnableUserTypingMessages; <strong>TeamSettings</strong>: bool EnableUserCreation, bool EnableTeamCreation, bool RestrictTeamNames, enum RestrictTeamInvite, enum RestrictPublicChannelManagement, enum RestrictPrivateChannelManagement, enum RestrictPublicChannelCreation, enum RestrictPrivateChannelCreation, enum RestrictPublicChannelDeletion, enum RestrictPrivateChannelDeletion, bool EnableOpenServer, bool EnableCustomBrand, bool RestrictDirectMessage; <strong>SqlSettings</strong>: enum DriverName, bool Trace; <strong>LogSettings</strong>: bool EnableConsole, enum ConsoleLevel, bool EnableFile, enum FileLevel, bool EnableWebhookDebugging; <strong>PasswordSettings</strong>: bool Lowercase, bool Number, bool Uppercase, bool Symbol; <strong>FileSettings</strong>: bool EnablePublicLink, enum DriverName, bool AmazonS3SSL; <strong>EmailSettings</strong>: bool EnableSignUpWithEmail, bool EnableSignInWithEmail, bool EnableSignInWithUsername, bool RequireEmailVerification, bool SendEmailNotifications, enum ConnectionSecurity, bool SendPushNotifications, enum PushNotificationContents, bool EnableEmailBatching; <strong>RateLimitSettings</strong>: bool EnableRateLimiter, bool VaryByRemoteAddr; <strong>PrivacySettings</strong>: bool ShowEmailAddress, bool ShowFullName; <strong>GitLabSettings</strong>: bool Enable; <strong>GoogleSettings</strong>: bool Enable; <strong>Office365Settings</strong>: bool Enable; <strong>LdapSettings</strong>: bool Enable, enum ConnectionSecurity, bool SkipCertificateVerification; <strong>ComplianceSettings</strong>: bool Enable, bool EnableDaily; <strong>LocalizationSettings</strong>: enum DefaultServerLocale, enum DefaultClientLocale, enum AvailableLocales; <strong>SamlSettings</strong>: bool Enable, bool Verify, bool Encrypt; <strong>ClusterSettings</strong>: bool Enable; <strong>MetricsSettings</strong>: bool Enable; <strong>WebrtcSettings</strong>: bool Enable</div></blockquote>
+<p><strong>Counts (integer)</strong></p>
+<blockquote>
+<div><strong>ServiceSettings</strong>: int MaximumLoginAttempts, int SessionLengthWebInDays, int SessionLengthMobileInDays, int SessionLengthSSOInDays, int SessionCacheInMinutes, int PostEditTimeLimit, int TimeBetweenUserTypingUpdatesMilliseconds, int ClusterLogTimeoutMilliseconds; <strong>TeamSettings</strong>: int MaxNotificationsPerChannel, int MaxUsersPerTeam, int MaxChannelsPerTeam; <strong>SqlSettings</strong>: int DriverName, int MaxIdleConns, int MaxOpenConns; <strong>PasswordSettings</strong>: int MinimumLength; <strong>FileSettings</strong>: int ThumbnailWidth, int ThumbnailHeight, int PreviewWidth, int PreviewHeight, int ProfileWidth, int ProfileHeight, int MaxFileSize; <strong>EmailSettings</strong>: int EmailBatchingBufferSize, int EmailBatchingInterval; <strong>RateLimitSettings</strong>: int PerSec, int MaxBurst, int MemoryStoreSize; <strong>LdapSettings</strong>: int SyncIntervalMinutes, int QueryTimeout, int MaxPageSize; <strong>SqlSettings</strong>: int DataSourceReplicas; <strong>MetricsSettings</strong>: int BlockProfileRate</div></blockquote>
+<p><strong>True/false (boolean)</strong> value whether setting remains default (true) or non-default (false). <strong>NOTE: No input data is used</strong>:</p>
+<blockquote class="last">
+<div><strong>ServiceSettings</strong>: bool SiteURL, bool TLSCertFile, bool TLSKeyFile, bool ReadTimeout, bool WriteTimeout, bool GoogleDeveloperKey, bool AllowCorsFrom; <strong>TeamSettings</strong>: bool SiteName, bool CustomBrandText, bool CustomDescriptionText, bool UserStatusAwayTimeout; <strong>LogSettings</strong>: bool FileFormat, bool FileLocation; <strong>EmailSettings</strong>: bool FeedbackName, bool FeedbackEmail, bool FeedbackOrganization; <strong>RateLimitSettings</strong>: bool VaryByHeader; <strong>SupportSettings</strong>: bool TermsOfServiceLink, bool PrivacyPolicyLink, bool AboutLink, bool HelpLink, bool ReportAProblemLink, bool SupportEmail; <strong>LdapSettings</strong>: bool FirstNameAttribute, bool LastNameAttribute, bool EmailAttribute, bool UserNameAttribute, bool NicknameAttribute, bool IdAttribute, bool PositionAttribute, bool LoginFieldName; <strong>SamlSettings</strong>: bool FirstNameAttribute, bool LastNameAttribute, bool EmailAttribute, bool UserNameAttribute, bool NicknameAttribute, bool LocaleAttribute, bool PositionAttribute, bool LoginButtonText; <strong>NativeAppSettings</strong>: bool AppDownloadLink, bool  AndroidAppDownloadLink, bool IosAppDownloadLink; <strong>WebrtcSettings</strong>: bool StunURI, bool TurnURI; <strong>MetricsSettings</strong>: bool BlockProfileRate; <strong>AnalyticsSettings</strong>: bool MaxUsersForStatistics</div></blockquote>
+</dd>
+<dt>Commercial License Information (Enterprise Edition Only)</dt>
+<dd>Information about commercial license key purchased or trial license key used for Enterprise Edition servers: Company ID, license ID, license issue date, license start date, license expiry date, number of licensed users, list of unlocked Enterprise features.</dd>
+<dt>Aggregated Usage Statistics</dt>
+<dd>Non-personally identifiable summations of basic usage statistics: Number of enabled and disabled accounts, number of user logins in the last 24 hours, number of posts, channels and teams</dd>
+</dl>
+</div>
+<div class="section" id="the-following-information-is-sent-when-the-specified-event-occurs">
+<h3>The following information is sent when the specified event occurs:<a class="headerlink" href="#the-following-information-is-sent-when-the-specified-event-occurs" title="Permalink to this headline">¶</a></h3>
+<dl class="docutils">
+<dt>Non-personally Identifiable Error Information</dt>
+<dd>Boolean when the following events occur: Email login error, AD/LDAP login error, SAML login error</dd>
+<dt>Non-personally Identifiable Diagnostic Information</dt>
+<dd><p class="first">Boolean when the following events occur:</p>
+<ul class="simple">
+<li><em>Team and Account Setup Diagnostics:</em> Account creation via email, invite or UI, account creation page view, account creation completion; tutorial step &amp; tip completion or opt out, team creation page view, team name and URL entry, team creation completion</li>
+<li><em>Sign-in Diagnostics:</em> Login succeeded or failed for email, LDAP or SAML/SSO; logout succeeded; switched authentication method from email to LDAP or SAML/SSO or vice versa; reset password; updated password</li>
+<li><em>Navigation Discovery Diagnostics:</em> Joined a channel from the &#8220;More&#8221; list, through an invite or by clicking a public link; created a channel or direct message conversation; renamed, joined, left or deleted an existing channel; updated header or purpose; added or removed members; viewed a channel in permalink view; loaded more messages in a channel; switched a channel or a team; opened the &#8220;More&#8221; modal for channels or direct message conversations; updated team name; invited members; updated account settings</li>
+<li><em>Core Feature Discovery Diagnostics:</em> Created, edited or deleted a message; posted a message containing a hashtag, link, mention or file attachment; searched for a term; searched for flagged posts or recent mentions</li>
+<li><em>Advanced Feature Discovery Diagnostics:</em> Reacted to a message; favorited or un-favorited a channel; flagged or un-flagged a message; replied to a message; expanded the right-hand sidebar; started or finished a WebRTC video call</li>
+<li><em>Integration Discovery Diagnostics:</em> Created or triggered a webhook or slash command; created, authroized or deleted an OAuth 2.0 app; created, posted or deleted a custom emoji</li>
+<li><em>Commercial License Diagnostics (Enterprise Edition Only):</em> Uploaded an Enterprise license key to the server</li>
+</ul>
+<p class="last">To opt out of error and diagnostic reporting, disable the feature in <strong>System Console &gt; General &gt; Logging &gt; Enable Error and Diagnostics Reporting</strong>.</p>
+</dd>
+</dl>
+</div>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/administration/telemetry.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

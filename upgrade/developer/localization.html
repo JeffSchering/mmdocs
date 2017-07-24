@@ -1,0 +1,477 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Localization &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../index.html"/>
+        <link rel="up" title="Mattermost Developer’s Guide" href="../guides/developer.html"/>
+        <link rel="next" title="Core Developer Handbook" href="core-developer-handbook.html"/>
+        <link rel="prev" title="User Experience Guidelines" href="fx-guidelines.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../overview/index.html">Overview</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/user.html">User&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../guides/developer.html">Developer&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="../guides/developer.html#development-process">Development Process</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="contribution-guide.html">Code Contribution Guidelines</a></li>
+<li class="toctree-l3"><a class="reference internal" href="dev-setup.html">Developer Machine Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="mobile-developer-setup.html">Mobile Developer Machine Setup</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api.html">Mattermost APIs</a></li>
+<li class="toctree-l3"><a class="reference internal" href="api4.html">APIv4 Contribution Process</a></li>
+<li class="toctree-l3"><a class="reference internal" href="developer-flow.html">Developer Flow</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webapp-to-redux.html">Migrating the Webapp to Redux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="webapp-component.html">Building a Webapp React Component</a></li>
+<li class="toctree-l3"><a class="reference internal" href="redux.html">Working with Redux</a></li>
+<li class="toctree-l3"><a class="reference internal" href="running-mattermost.html">Running Mattermost</a></li>
+<li class="toctree-l3"><a class="reference internal" href="style-guide.html">Mattermost Style Guide</a></li>
+<li class="toctree-l3"><a class="reference internal" href="fx-guidelines.html">User Experience Guidelines</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Localization</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#translation-process">Translation Process</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#initial-translation">Initial Translation</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#translations-updates">Translations Updates</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#translation-quality">Translation Quality</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#test-translations">Test Translations</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#translation-maintenance">Translation Maintenance</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="core-developer-handbook.html">Core Developer Handbook</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#definitions">Definitions</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../guides/developer.html#unofficial-enhancements">Unofficial Enhancements</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../guides/developer.html">Mattermost Developer&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Localization</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/developer/localization.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="localization">
+<h1>Localization<a class="headerlink" href="#localization" title="Permalink to this headline">¶</a></h1>
+<p>The goal of the localization process is to consistently produce high quality translations release after release through collaboration between the international community, translators, project managers, language leads and the core team.</p>
+<div class="section" id="translation-process">
+<h2>Translation Process<a class="headerlink" href="#translation-process" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;re interested in contributing translations to Mattermost, please join the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/localization">Mattermost localization channel to discuss</a>. Below are descriptions of the overall localization process.</p>
+</div>
+<div class="section" id="initial-translation">
+<h2>Initial Translation<a class="headerlink" href="#initial-translation" title="Permalink to this headline">¶</a></h2>
+<p>To translate a language:</p>
+<p>1 - Join the <a class="reference external" href="http://translate.mattermost.com">Mattermost Translation Server</a>.</p>
+<p>2 - Confirm that the language you want to help translate is listed in the <a class="reference external" href="http://translate.mattermost.com">Translation Server</a>.</p>
+<blockquote>
+<div><ul class="simple">
+<li>If it is, perhaps offer to help translate or review and make suggestions.</li>
+<li>If not, ask to setup your language on the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/localization">Mattermost localization channel</a>, so you can start helping with the translation.</li>
+</ul>
+</div></blockquote>
+<p>3 - Review translation rules written by localization leads, when applicable:</p>
+<blockquote>
+<div><ul class="simple">
+<li><a class="reference external" href="https://github.com/wget/mattermost-localization-french-translation-rules">French (Règles pour la traduction francophone de Mattermost)</a></li>
+<li><a class="reference external" href="https://gist.github.com/meilon/1317a9425988b3ab296c894a72270787">German (Regeln zur Übersetzung von Mattermost)</a></li>
+</ul>
+</div></blockquote>
+</div>
+<div class="section" id="translations-updates">
+<h2>Translations Updates<a class="headerlink" href="#translations-updates" title="Permalink to this headline">¶</a></h2>
+<p>1 - New and updated strings are imported to the <a class="reference external" href="http://translate.mattermost.com">Mattermost Translation Server</a> each day at 00:00 GMT</p>
+<p>2 - A new pull request with latest translations that reach at least Beta Quality is submitted to the <a class="reference external" href="https://github.com/mattermost/platform">Mattermost Platform Repo</a> each Monday at 22:00 GMT.</p>
+<blockquote>
+<div><ul class="simple">
+<li>A pull request will also be submitted on the day of major feature complete and code complete to ensure latest translations are included in the release.</li>
+<li>A pull request may also be submitted for a release candidate.</li>
+</ul>
+</div></blockquote>
+<p><strong>IMPORTANT:</strong> Please do not submit translations directly with a pull request as they may be lost with the next updates from the Mattermost Translation Server.</p>
+</div>
+<div class="section" id="translation-quality">
+<h2>Translation Quality<a class="headerlink" href="#translation-quality" title="Permalink to this headline">¶</a></h2>
+<p>So users understand the accuracy and coverage of language translations, quality levels are explicitly defined for each language:</p>
+<div class="section" id="official">
+<h3>Official<a class="headerlink" href="#official" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>100% of translation verified by someone deeply knowledgeable in Mattermost functionality.</li>
+<li>100% of translation verified by someone deeply knowledgeable in target language.</li>
+<li>No translation may be out-of-date due to changes to English-language text since the last translation and review cycle.</li>
+<li>Language must have at least one official reviewer who maintains the language with updated strings imported to the <a class="reference external" href="http://translate.mattermost.com">Translation Server</a> over time.</li>
+<li>Language must have been in use for <strong>at least 2 full release cycles</strong> where end users in target language can share feedback and corrections.</li>
+</ul>
+<p>Language option is listed as an option in <strong>Account Settings &gt; Display &gt; Language</strong>.</p>
+</div>
+<div class="section" id="beta">
+<h3>Beta<a class="headerlink" href="#beta" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>100% of translation verified by someone deeply knowledgeable in Mattermost functionality.</li>
+<li>100% of translation verified by someone deeply knowledgeable in target language.</li>
+<li>Up to 10% of translation may be out-of-date due to changes to English-language text since the last translation and review cycle.</li>
+</ul>
+<p>Language option is listed as an option in <strong>Account Settings &gt; Display &gt; Language</strong> prefixed with <strong>(Beta)</strong>.</p>
+</div>
+<div class="section" id="alpha">
+<h3>Alpha<a class="headerlink" href="#alpha" title="Permalink to this headline">¶</a></h3>
+<ul class="simple">
+<li>Translation has not yet reached Beta quality.</li>
+</ul>
+<p>An official language may be changed back to Beta or Alpha if the specified requirements are not met for a release. Similarly, Beta-quality language may be dropped back to Alpha.</p>
+</div>
+</div>
+<div class="section" id="test-translations">
+<h2>Test Translations<a class="headerlink" href="#test-translations" title="Permalink to this headline">¶</a></h2>
+<p>If you&#8217;d like to review and verify translations prior to achieving Beta-quality status, you can follow these steps:</p>
+<p>1 - Build Mattermost on your machine following the <a class="reference external" href="http://docs.mattermost.com/developer/developer-setup.html">Developer Machine Setup Guides</a>.</p>
+<p>2 - Download a copy of your translations to your local machine.</p>
+<img alt="../_images/translations_download.png" src="../_images/translations_download.png" />
+<p>3 - Use <a class="reference external" href="https://github.com/rodrigocorsi2/mattermosti18n#convert-po---json">Mattermosti18n</a> to convert Pootle&#8217;s output into JSON files.</p>
+<p>4 - Copy the generated [locale].json files to the corresponding directories:</p>
+<blockquote>
+<div><ul class="simple">
+<li>For platform they should be in the <cite>i18n</cite> directory.</li>
+<li>For webapp they should be in the <cite>webapp/i18n</cite> directory.</li>
+</ul>
+</div></blockquote>
+<p>5 - Modify the file <cite>webapp/i18n/i18n.jsx</cite> to include your translated strings.</p>
+<p>6 - Compile and run <strong>Mattermost</strong> to confirm everything works. You can then review and verify translations from your machine.</p>
+</div>
+<div class="section" id="translation-maintenance">
+<h2>Translation Maintenance<a class="headerlink" href="#translation-maintenance" title="Permalink to this headline">¶</a></h2>
+<p>Translations require updates on a monthly basis as features are added and changed. The formal process for updates has yet to be determined.</p>
+<p>Below are current official reviewers and maintainers for languages that have reached at least Beta-quality. Official reviewers submit final translations for languages; maintainers suggest translations and step in when official reviewers aren&#8217;t able to help in a certain release.</p>
+<p>If you&#8217;re interested in contributing to the process, please join the <a class="reference external" href="https://pre-release.mattermost.com/core/channels/localization">Mattermost localization channel to discuss</a>.</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="16%" />
+<col width="45%" />
+<col width="39%" />
+</colgroup>
+<thead valign="bottom">
+<tr class="row-odd"><th class="head">Language</th>
+<th class="head">Official Reviewer(s)</th>
+<th class="head">Maintainers</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr class="row-even"><td>Deutsch - German</td>
+<td><a class="reference external" href="https://github.com/meilon">Christian Arnold</a></td>
+<td><a class="reference external" href="https://github.com/der-test">Tim Estermann</a></td>
+</tr>
+<tr class="row-odd"><td>Español - Spanish</td>
+<td><a class="reference external" href="https://github.com/enahum">Elias Nahum</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>Français - French</td>
+<td><a class="reference external" href="https://github.com/wget">William Gathoye</a></td>
+<td><a class="reference external" href="https://github.com/pjgrizel">Pierre-Julien Grizel</a></td>
+</tr>
+<tr class="row-odd"><td>Nederlands - Dutch</td>
+<td>TBD (Open Role)</td>
+<td><a class="reference external" href="https://github.com/rononline">Ron Hartman</a> , <a class="reference external" href="https://github.com/wyleung">Wai Yi Leung</a></td>
+</tr>
+<tr class="row-even"><td>Polski - Poland</td>
+<td><a class="reference external" href="https://github.com/robert843">Robert Japełski</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>Português do Brasil - Portuguese</td>
+<td><a class="reference external" href="https://github.com/rodcorsi">Rodrigo Corsi</a></td>
+<td><a class="reference external" href="https://github.com/cpanato">Carlos Tadeu Panato Junior</a></td>
+</tr>
+<tr class="row-even"><td>Pусский - Russian</td>
+<td>TBD (Open Role)</td>
+<td><a class="reference external" href="https://github.com/archroller">Archie Roller</a> (primary)</td>
+</tr>
+<tr class="row-odd"><td>Türkçe - Turkish</td>
+<td><a class="reference external" href="https://twitter.com/kaya_zeren">Kaya Zeren</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>한국어 - Korean</td>
+<td>TBD (Open Role)</td>
+<td><a class="reference external" href="https://github.com/cometkim">Hyeseong Kim</a></td>
+</tr>
+<tr class="row-odd"><td>中文 (简体) - Simplified Chinese</td>
+<td><a class="reference external" href="http://translate.mattermost.com/user/aeomin/">aeomin</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-even"><td>中文 (繁體) - Traditional Chinese</td>
+<td><a class="reference external" href="https://github.com/chikei">Tze-Kei Lee</a></td>
+<td>&nbsp;</td>
+</tr>
+<tr class="row-odd"><td>日本語 - Japanese</td>
+<td><a class="reference external" href="https://github.com/ryoon">Ryo Onodera</a> , <a class="reference external" href="https://github.com/kaakaa">Yusuke Nemoto</a></td>
+<td>&nbsp;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="core-developer-handbook.html" class="btn btn-neutral float-right" title="Core Developer Handbook" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="fx-guidelines.html" class="btn btn-neutral" title="User Experience Guidelines" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/developer/localization.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../_static/jquery.js"></script>
+      <script type="text/javascript" src="../_static/underscore.js"></script>
+      <script type="text/javascript" src="../_static/doctools.js"></script>
+      <script type="text/javascript" src="../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>

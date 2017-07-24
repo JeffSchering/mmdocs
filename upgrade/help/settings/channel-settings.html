@@ -1,0 +1,366 @@
+
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>Channel Settings &mdash; Mattermost 3.10 documentation</title>
+  
+
+  
+  
+    <link rel="shortcut icon" href="../../_static/favicon.ico"/>
+  
+
+  
+
+  
+  
+    
+
+  
+
+  
+  
+    <link rel="stylesheet" href="../../_static/css/theme.css" type="text/css" />
+  
+
+  
+    <link rel="stylesheet" href="../../_static/theme.css" type="text/css" />
+  
+
+  
+        <link rel="search" title="Search" href="../../search.html"/>
+    <link rel="top" title="Mattermost 3.10 documentation" href="../../index.html"/>
+        <link rel="up" title="Mattermost User’s Guide" href="../../guides/user.html"/>
+        <link rel="next" title="Team Settings" href="team-settings.html"/>
+        <link rel="prev" title="Theme Colors" href="theme-colors.html"/>
+	
+		<!-- Google Analytics -->
+		<script>
+			(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+			(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+			m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+			})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+			ga('create', 'UA-67846571-2', 'auto');
+			ga('send', 'pageview');
+		</script>
+		<!-- End Google Analytics -->
+	
+
+
+  
+  <script src="../../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../../index.html" class="icon icon-home"> Mattermost
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                3.10
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+                <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../../overview/index.html">Overview</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="../../guides/user.html">User&#8217;s Guide</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#getting-started">Getting Started</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../guides/user.html#messaging">Messaging</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="../../guides/user.html#settings">Settings</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="account-settings.html">Account Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="theme-colors.html">Theme Colors</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">Channel Settings</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#channel-notification-preferences">Channel Notification Preferences</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#channel-header">Channel Header</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#channel-purpose">Channel Purpose</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#channel-name">Channel Name</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="team-settings.html">Team Settings</a></li>
+<li class="toctree-l3"><a class="reference internal" href="custom-emoji.html">Custom Emoji</a></li>
+<li class="toctree-l3"><a class="reference internal" href="integration-settings.html">Integrations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html">Administrator&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/administrator.html#changelog">Changelog</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/integration.html">Integration Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/developer.html">Developer&#8217;s Guide</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../guides/core.html">Core Team Handbook</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../../index.html">Mattermost</a>
+      </nav>
+
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          
+
+
+  
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../../index.html">Docs</a> &raquo;</li>
+    
+      <li><a href="../../guides/user.html">Mattermost User&#8217;s Guide</a> &raquo;</li>
+    
+    <li>Channel Settings</li>
+    <li class="wy-breadcrumbs-aside">
+      
+        
+          <a href="https://github.com/mattermost/docs/blob/master/source/help/settings/channel-settings.rst" class="fa fa-github"> Edit</a>
+        
+      
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="channel-settings">
+<h1>Channel Settings<a class="headerlink" href="#channel-settings" title="Permalink to this headline">¶</a></h1>
+<p>Notification preferences, channel header, channel purpose, and channel
+name are customizable for each channel. To access these settings, click
+the channel name at the top of the page to open the channel menu.</p>
+<div class="section" id="channel-notification-preferences">
+<h2>Channel Notification Preferences<a class="headerlink" href="#channel-notification-preferences" title="Permalink to this headline">¶</a></h2>
+<p>Notification preferences can be modified for each channel you belong to.</p>
+<div class="section" id="send-desktop-notifications">
+<h3>Send Desktop Notifications<a class="headerlink" href="#send-desktop-notifications" title="Permalink to this headline">¶</a></h3>
+<p>By default, the desktop notification preference assigned in <em>Account
+Settings</em> is used for all channels. To customize the desktop
+notification preference for each channel, click the channel name at the
+top of the page to access the channel menu, then click
+<strong>Notification Preferences &gt; Send Desktop Notifications</strong>.</p>
+</div>
+<div class="section" id="send-mobile-push-notifications">
+<h3>Send Mobile Push Notifications<a class="headerlink" href="#send-mobile-push-notifications" title="Permalink to this headline">¶</a></h3>
+<p>By default, the mobile push notification preference assigned in <em>Account Settings</em> is used for all channels. To customize the mobile push notification for each channel, click the channel name at the top of the page to access the channel menu, then click <strong>Notification Preferences &gt; Send mobile push notifications</strong>.</p>
+</div>
+<div class="section" id="mark-channel-unread">
+<h3>Mark Channel Unread<a class="headerlink" href="#mark-channel-unread" title="Permalink to this headline">¶</a></h3>
+<p>By default, channel names are bolded for all new messages in a channel.
+To only bold the channel name when you are mentioned, open the channel menu and click
+<strong>Notification Preferences &gt; Mark Channel Unread &gt; Only for mentions</strong>.</p>
+</div>
+</div>
+<div class="section" id="channel-header">
+<h2>Channel Header<a class="headerlink" href="#channel-header" title="Permalink to this headline">¶</a></h2>
+<p>In the channel menu, select <strong>Edit Channel Header</strong> to change the text that appears next to
+the channel name at the top of the screen. It can be used to summarize
+the channel topic or provide links to frequently accessed documents. Any
+channel member can edit this setting, unless the System Administrator
+has <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-public-channel-renaming-for">restricted the permissions</a>.</p>
+<div class="section" id="adding-links-to-the-channel-header">
+<h3>Adding links to the Channel Header<a class="headerlink" href="#adding-links-to-the-channel-header" title="Permalink to this headline">¶</a></h3>
+<p>Frequently used links to documents, video calls, or other sites can be added to the channel header using markdown.</p>
+<p>Example: [Google Hangout](<a class="reference external" href="https://plus.google.com/hangouts/_/store.com/shipping">https://plus.google.com/hangouts/_/store.com/shipping</a>)</p>
+</div>
+</div>
+<div class="section" id="channel-purpose">
+<h2>Channel Purpose<a class="headerlink" href="#channel-purpose" title="Permalink to this headline">¶</a></h2>
+<p>In the channel menu, select <strong>Edit Channel Purpose</strong> to change the text that appears in the
+<em>More…</em> menu for channels. The channel purpose is usually a short
+description that helps others decide whether to join the channel. Any
+channel member can edit this setting, unless the System Administrator
+has <a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-public-channel-renaming-for">restricted the permissions</a>.</p>
+</div>
+<div class="section" id="channel-name">
+<h2>Channel Name<a class="headerlink" href="#channel-name" title="Permalink to this headline">¶</a></h2>
+<p>In the channel menu, select <strong>Rename Channel</strong> to change the channel name or handle. Changing the channel handle changes the channel URL. Any channel
+member can edit this setting, unless the System Administrator has
+<a class="reference external" href="https://docs.mattermost.com/administration/config-settings.html#enable-public-channel-renaming-for">restricted the permissions</a>.</p>
+</div>
+</div>
+
+
+           </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="team-settings.html" class="btn btn-neutral float-right" title="Team Settings" accesskey="n">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="theme-colors.html" class="btn btn-neutral" title="Theme Colors" accesskey="p"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2015, 2016, 2017 Mattermost.
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+ 
+
+
+
+
+<div class="rst-versions" data-toggle="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+        <span class="fa fa-cog">&nbsp;&nbsp;Options</span>&nbsp;
+        <span class="fa fa-angle-up"></span>
+    </span>
+    <div class="rst-other-versions">
+        <dl>
+            <dt>Contribute</dt>
+            <dd>
+                <a href="https://github.com/mattermost/docs/issues">Report a Problem</a>
+            </dd>
+            
+            <dd>
+                <a href="https://github.com/mattermost/docs/blob/master/source/help/settings/channel-settings.rst"> Edit on GitHub</a>
+            </dd>
+            
+        </dl>
+    </div>
+</div>
+
+
+  
+
+    <script type="text/javascript">
+        var DOCUMENTATION_OPTIONS = {
+            URL_ROOT:'../../',
+            VERSION:'3.10',
+            COLLAPSE_INDEX:false,
+            FILE_SUFFIX:'.html',
+            HAS_SOURCE:  true
+        };
+    </script>
+      <script type="text/javascript" src="../../_static/jquery.js"></script>
+      <script type="text/javascript" src="../../_static/underscore.js"></script>
+      <script type="text/javascript" src="../../_static/doctools.js"></script>
+      <script type="text/javascript" src="../../_static/myscript.js"></script>
+
+  
+
+  
+  
+    <script type="text/javascript" src="../../_static/js/theme.js"></script>
+  
+
+  
+  
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.StickyNav.enable();
+      });
+  </script>
+  
+	<header>
+	<div class="header__container">
+		<div class="search__icon">
+			<i class="fa fa-search"></i>
+		</div>
+		<a href="http://docs.mattermost.com/" class="header__logo">
+			<img width="176" src="https://about.mattermost.com/wp-content/uploads/2017/03/headerlogo.svg">
+		</a>
+		<div class="links__icon">
+			<i class="fa fa-bars"></i>
+		</div>
+		<ul class="header__links">
+			<li><a href="https://about.mattermost.com/solutions/">Solutions</a></li>
+			<li><a href="https://about.mattermost.com/features/">Features</a></li>
+			<li><a class="active" href="http://docs.mattermost.com/">Documentation</a></li>
+			<li><a href="https://about.mattermost.com/pricing/">Pricing</a></li>
+			<li><a href="https://about.mattermost.com/contact/">Contact</a></li>
+			<li><a href="https://www.mattermost.org/download/">Download</a></li>
+		</ul>
+		<div class="header__searchbar">
+			<form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+                <input type="text" name="q" placeholder="Search by keyword" autofocus />
+                <input type="hidden" name="check_keywords" value="yes" />
+                <input type="hidden" name="area" value="default" />
+            </form>
+		</div>
+	</div>
+</header>
+	<script type="text/javascript">
+		/* Temporary fix for the search capability. Fix has been committed to the theme's master;
+		   however, waiting a new release to the theme.  This fix should remain in place until that
+		   time.  sphinx_rtd_theme is current v0.1.10a0. Commit for the fix in the 
+		   theme can be found at: https://github.com/snide/sphinx_rtd_theme/commit/a5e0e304
+		 */
+        if(DOCUMENTATION_OPTIONS) {
+			DOCUMENTATION_OPTIONS.SOURCELINK_SUFFIX = '.txt' 
+        }
+    </script>
+
+
+</body>
+</html>
