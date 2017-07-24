@@ -1,7 +1,7 @@
 # mmdocs
 
 
-+ [Monolithic version](https://jeffschering.github.io/mmdocs/monolith/guides/administrator.html)
++ [Upgrade Guide revision](https://jeffschering.github.io/mmdocs/upgrade/administration/upgrade.html)
 
 
 
